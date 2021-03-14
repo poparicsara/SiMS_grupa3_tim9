@@ -1,4 +1,4 @@
-# SiMS_grupa3_tim9
+# SiMS - grupa 3, tim 9
 
 Članovi: 
 
