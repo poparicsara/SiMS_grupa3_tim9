@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Bolnica"
         mc:Ignorable="d"
-        Title="Zdravo korporacija" Height="450" Width="800" HorizontalAlignment="Center" VerticalAlignment="Center">
+        Title="Zdravo korporacija" Height="450" Width="800" HorizontalAlignment="Center" VerticalAlignment="Center"
+        WindowStartupLocation="CenterScreen">
     <Grid>
-        <WrapPanel x:Name="Wrap1" Background="#FF4E8E73" HorizontalAlignment="Left">
+        <WrapPanel x:Name="Wrap1" Width ="250" Background="#FF4E8E73" HorizontalAlignment="Left">
             <Button x:Name="pacijent" Height="49" Width="250" FontSize="20" FontWeight="Bold" Background="#FF4E8E73" FontFamily="Constantia">
                 Pacijent
             </Button>
