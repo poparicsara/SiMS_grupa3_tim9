@@ -1,12 +1,26 @@
-﻿<Window x:Class="IS_Bolnica.MainWindow"
+﻿<Window x:Name="mainWindow" x:Class="IS_Bolnica.MainWindow" 
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Bolnica"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Zdravo korporacija" Height="450" Width="800" HorizontalAlignment="Center" VerticalAlignment="Center">
     <Grid>
-        
+        <WrapPanel x:Name="Wrap1" Background="#FF4E8E73" HorizontalAlignment="Left">
+            <Button x:Name="pacijent" Height="49" Width="250" FontSize="20" FontWeight="Bold" Background="#FF4E8E73" FontFamily="Constantia">
+                Pacijent
+            </Button>
+            <Button x:Name="lekar" Height="49" Width="250" FontSize="20" FontWeight="Bold" Background="#FF4E8E73" FontFamily="Constantia">
+                Lekar
+            </Button>
+            <Button x:Name="sekretar" Height="49" Width="250" FontSize="20" FontWeight="Bold" Background="#FF4E8E73" FontFamily="Constantia">
+                Sekretar
+            </Button>
+            <Button x:Name="upravnik" Height="49" Width="250" FontSize="20" FontWeight="Bold" Background="#FF4E8E73" Click="ButtonUpravnikClicked" FontFamily="Constantia">
+                Upravnik
+            </Button>
+        </WrapPanel>
+        <Image x:Name="nasLogo" HorizontalAlignment="Left" Height="210" Margin="434,85,0,0" VerticalAlignment="Top" Width="229" Source="C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\naslogo.jpg" Grid.RowSpan="3"/>
     </Grid>
 </Window>
