@@ -2,9 +2,7 @@
 
 namespace IS_Bolnica
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+ 
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -12,34 +10,10 @@ namespace IS_Bolnica
             InitializeComponent();
         }
 
-        private void ButtonSekretarClicked(object sender, RoutedEventArgs e)
+        private void ButtonUpravnikClicked (object sender, RoutedEventArgs e)
         {
-            SekretarWindow sw = new SekretarWindow();
-            sw.Show();
-            this.Close();
-
-        }
-
-        private void ButtonSekretarClicked(object sender, RoutedEventArgs e)
-        {
-            SekretarWindow sw = new SekretarWindow();
-            sw.Show();
-            this.Close();
-
-        }
-
-        private void ButtonSekretarClicked(object sender, RoutedEventArgs e)
-        {
-            SekretarWindow sw = new SekretarWindow();
-            sw.Show();
-            this.Close();
-
-        }
-
-        private void ButtonSekretarClicked(object sender, RoutedEventArgs e)
-        {
-            SekretarWindow sw = new SekretarWindow();
-            sw.Show();
+            UpravnikWindow uw = new UpravnikWindow();
+            uw.Show();
             this.Close();
 
         }
