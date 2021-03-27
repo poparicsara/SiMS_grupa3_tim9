@@ -1,5 +1,9 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ﻿#pragma checksum "..\..\MainWindow.xaml" "{8829d00f-11b8-4213-878b-770e8597ac16}" "E6EBF5B7B2E1E15B462E13BDD05C4A05BF0D7F8E4ADCF4FAF71E8F98F9C31BB8"
+=======
+﻿#pragma checksum "..\..\MainWindow.xaml" "{8829d00f-11b8-4213-878b-770e8597ac16}" "A323A5D7CF97C7158C39D31794CFFDABB04670488F4F3DC22AA8F620C9E6EDD2"
+>>>>>>> Stashed changes
 =======
 ﻿#pragma checksum "..\..\MainWindow.xaml" "{8829d00f-11b8-4213-878b-770e8597ac16}" "A323A5D7CF97C7158C39D31794CFFDABB04670488F4F3DC22AA8F620C9E6EDD2"
 >>>>>>> Stashed changes
