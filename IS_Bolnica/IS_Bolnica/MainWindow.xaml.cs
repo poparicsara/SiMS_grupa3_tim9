@@ -11,5 +11,13 @@ namespace IS_Bolnica
         {
             InitializeComponent();
         }
+
+        private void ButtonSekretarClicked(object sender, RoutedEventArgs e)
+        {
+            SekretarWindow sw = new SekretarWindow();
+            sw.Show();
+            this.Close();
+
+        }
     }
 }

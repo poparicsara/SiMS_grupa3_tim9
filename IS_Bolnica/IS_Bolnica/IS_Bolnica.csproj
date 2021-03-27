@@ -58,6 +58,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+<<<<<<< Updated upstream
+=======
+    <Compile Include="Secretary\AddPatient.xaml.cs">
+      <DependentUpon>AddPatient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\EditPatient.xaml.cs">
+      <DependentUpon>EditPatient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SekretarWindow.xaml.cs">
+      <DependentUpon>SekretarWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpravnikWindow.xaml.cs">
+      <DependentUpon>UpravnikWindow.xaml</DependentUpon>
+    </Compile>
+>>>>>>> Stashed changes
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -70,6 +85,25 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+<<<<<<< Updated upstream
+=======
+    <Page Include="Secretary\AddPatient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary\EditPatient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SekretarWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpravnikWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+>>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Address.cs" />
