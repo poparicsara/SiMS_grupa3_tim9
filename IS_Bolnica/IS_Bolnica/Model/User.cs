@@ -20,5 +20,16 @@ namespace Model
 
         public Address address;
 
+        public String Name
+        {
+            get;
+            set;
+        }
+        public string Surname
+        {
+            get;
+            set;
+        }
+
     }
 }

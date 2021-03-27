@@ -1,12 +1,17 @@
 using System;
+using System.ComponentModel;
 
 namespace Model
 {
-    public class Examination
+    public class Examination : INotifyPropertyChanged
     {
         private Boolean isPayed = false;
         private Evaluation evaluation;
         private int durationInMinutes;
+        private DateTime date;
+        private Patient patient;
+        public Doctor doctor;
+        public Secretary secretary;
 
         public Boolean Paying()
         {
@@ -23,16 +28,38 @@ namespace Model
             throw new NotImplementedException();
         }
 
-        public DateTime date;
+        public DateTime Date
+        {
+            get
+            {
+                return date;
+            }
+            set
+            {
+                if (value != date)
+                {
+                    date = value;
+                    OnPropertyChanged("Date");
+                }
+            }
+        }
 
-        public Patient patient;
-        public Doctor doctor;
-        public Secretary secretary;
+        public Patient Patient
+        {
+            get
+            {
+                return patient;
+            }
+            set
+            {
+                if (value != patient)
+                {
+                    patient = value;
+                    OnPropertyChanged("Patient");
+                }
+            }
+        }
 
-        /// <summary>
-        /// Property for Secretary
-        /// </summary>
-        /// <pdGenerated>Default opposite class property</pdGenerated>
         public Secretary Secretary
         {
             get
@@ -43,6 +70,27 @@ namespace Model
             {
                 this.secretary = value;
             }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
+        public String NameSurname
+        {
+            get;
+            set;
+        }
+
+        public String RoomName
+        {
+            get;
+            set;
         }
 
     }

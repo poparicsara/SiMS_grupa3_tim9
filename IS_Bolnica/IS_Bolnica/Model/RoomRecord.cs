@@ -68,6 +68,11 @@ namespace Model
                 inventory.Clear();
         }
         public RoomPurpose roomPurpose;
+        public String Id
+        {
+            get;
+            set;
+        }
 
     }
 }

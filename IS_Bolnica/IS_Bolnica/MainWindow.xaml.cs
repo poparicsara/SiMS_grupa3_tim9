@@ -16,5 +16,12 @@ namespace IS_Bolnica
             uw.Show();
             this.Close();
         }
+
+        private void doctorButtonClicked(object sender, RoutedEventArgs e)
+        {
+            DoctorWindow doctorWindow = new DoctorWindow();
+            doctorWindow.Show();
+            this.Close();
+        }
     }
 }

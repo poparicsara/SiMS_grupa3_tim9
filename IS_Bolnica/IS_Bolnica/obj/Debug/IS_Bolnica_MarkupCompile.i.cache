@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\
+C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\
 IS_Bolnica
 none
 false
 DEBUG;TRACE
-C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\App.xaml
-21011109067
+C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\App.xaml
+5-1825007195
 
-31573182056
-141323765998
-MainWindow.xaml;UpravnikWindow.xaml;
+34-1643174422
+14-1148817317
+DoctorsWindows\AddExaminationWindow.xaml;DoctorsWindows\AddOperationWindow.xaml;DoctorsWindows\DoctorWindow.xaml;MainWindow.xaml;UpravnikWindow.xaml;
 
 True
 
