@@ -60,7 +60,10 @@
     </ApplicationDefinition>
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     <Compile Include="Secretary\AddPatient.xaml.cs">
@@ -90,7 +93,10 @@
     </Compile>
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     <Page Include="Secretary\AddPatient.xaml">
