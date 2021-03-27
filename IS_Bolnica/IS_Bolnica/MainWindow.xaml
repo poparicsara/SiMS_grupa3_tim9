@@ -7,9 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-<<<<<<< Updated upstream
-        
-=======
         <WrapPanel x:Name="Wrap1" Width ="250" Background="#FF4E8E73" HorizontalAlignment="Left">
             <Button x:Name="pacijent" Height="49" Width="250" FontSize="20" FontWeight="Bold" Background="#FF4E8E73" FontFamily="Constantia">
                 Pacijent
@@ -25,18 +22,5 @@
             </Button>
         </WrapPanel>
         <Image x:Name="nasLogo" HorizontalAlignment="Left" Height="210" Margin="434,85,0,0" VerticalAlignment="Top" Width="229" Source="C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\naslogo.jpg" Grid.RowSpan="3"/>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     </Grid>
 </Window>
