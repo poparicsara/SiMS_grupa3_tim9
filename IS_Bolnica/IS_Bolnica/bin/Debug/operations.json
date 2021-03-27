@@ -1,0 +1,20 @@
+[
+  {
+    "doctor": [],
+    "Doctor": [],
+    "Date": "2021-04-01T00:00:00",
+    "Patient": null,
+    "RoomRecord": null,
+    "NameSurname": "Ana Mihajlovic",
+    "RoomName": "op2"
+  },
+  {
+    "doctor": null,
+    "Doctor": [],
+    "Date": "2021-03-30T00:00:00",
+    "Patient": null,
+    "RoomRecord": null,
+    "NameSurname": "Savo Oroz",
+    "RoomName": "op1"
+  }
+]

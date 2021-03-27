@@ -20,35 +20,27 @@ namespace IS_Bolnica
 {
     public partial class DoctorWindow : Window
     {
-        public List<Examination> Examinations
-        {
-            get;
-            set;
-        }
         public DoctorWindow()
         {
             InitializeComponent();
             this.DataContext = this;
 
             ExaminationsRecordFileStorage examinationFileStorage = new ExaminationsRecordFileStorage();
-            Patient patient = new Patient();
-            patient.Name = "Petar";
-            patient.Surname = "Petrovic";
-            string nameAndSurname = patient.Name + patient.Surname;
-            RoomRecord room = new RoomRecord();
-            room.Id = "room 2b";
+            List<Examination> examinations = examinationFileStorage.loadFromFile("examinations.json");
 
-            Examinations = new List<Examination>();
-            Examinations.Add(new Examination { Date = DateTime.Now.Date, RoomName = "room 2b", NameSurname = patient.Name + " " + patient.Surname});
+            dataGridExaminations.ItemsSource = examinations;
 
-            examinationFileStorage.saveToFile(Examinations, "examinations.json");
-            
+            OperationsFileStorage operationsFileStorage = new OperationsFileStorage();
+            List<Operation> operations = operationsFileStorage.loadFromFile("operations.json");
+
+            dataGridOperations.ItemsSource = operations;
         }
 
         private void addExaminationButton(object sender, RoutedEventArgs e)
         {
             AddExaminationWindow addExaminationWindow = new AddExaminationWindow();
             addExaminationWindow.Show();
+            this.Close();
 
         }
 
@@ -56,6 +48,19 @@ namespace IS_Bolnica
         {
             AddOperationWindow addOperationWindow = new AddOperationWindow();
             addOperationWindow.Show();
+            this.Close();
+        }
+
+        private void cancelExaminationButton(object sender, RoutedEventArgs e)
+        {
+            ExaminationsRecordFileStorage examinationsRecordFileStorage = new ExaminationsRecordFileStorage();
+            List<Examination> examinations = examinationsRecordFileStorage.loadFromFile("examinations.json");
+            examinations.RemoveAt(dataGridExaminations.SelectedIndex);
+            examinationsRecordFileStorage.saveToFile(examinations, "examinations.json");
+
+            DoctorWindow doctorWindow = new DoctorWindow();
+            doctorWindow.Show();
+            this.Close();
         }
     }
 }

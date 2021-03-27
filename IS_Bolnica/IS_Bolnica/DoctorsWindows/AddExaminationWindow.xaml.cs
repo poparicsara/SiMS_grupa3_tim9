@@ -40,14 +40,19 @@ namespace IS_Bolnica.DoctorsWindows
 
         private void saveButtonClicked(object sender, RoutedEventArgs e)
         {
-            DateTime dateTime = DateTime.Parse(dateTxt.Text);
-            String roomName = roomTxt.Text;
-            String patientNameSurname = patientTxt.Text;
+            Examination examination = new Examination();
+            examination.Date = DateTime.Parse(dateTxt.Text);
+            examination.RoomName = roomTxt.Text;
+            examination.NameSurname = patientTxt.Text;
+
+            ExaminationsRecordFileStorage storage = new ExaminationsRecordFileStorage();
+            List<Examination> examinations = storage.loadFromFile("examinations.json");
+            examinations.Add(examination);
+            storage.saveToFile(examinations, "examinations.json");
 
             DoctorWindow doctorWindow = new DoctorWindow();
-            //doctorWindow.Examinations.Add(new Examination { Date = dateTime, RoomName = roomName, NameSurname = patientNameSurname });
-
-            doctorWindow.dataGridExaminations.Items.Add(new Examination { Date = dateTime, RoomName = roomName, NameSurname = patientNameSurname });
+            doctorWindow.dataGridExaminations.Items.Refresh();
+            doctorWindow.Show();
 
             this.Close();
         }

@@ -14,11 +14,9 @@
         <Label Content="Description:" HorizontalAlignment="Left" Margin="82,232,0,0" VerticalAlignment="Top" Width="88" FontFamily="Ebrima" FontSize="14"/>
         <Label Content="Patient:" HorizontalAlignment="Left" Margin="82,149,0,0" VerticalAlignment="Top" Width="88" FontFamily="Ebrima" FontSize="14"/>
         <TextBox Name ="dateTxt"  HorizontalAlignment="Left" Height="23" Margin="277,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" 
-                 RenderTransformOrigin="0.05,0.526" Text="{Binding Path = Date, Mode=TwoWay}"/>
-        <TextBox Name ="roomTxt" HorizontalAlignment="Left" Height="23" Margin="277,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163"
-                 Text="{Binding Path= RoomName, Mode=TwoWay}"/>
-        <TextBox Name="patientTxt" HorizontalAlignment="Left" Height="23" Margin="277,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163"
-                 Text="{Binding Path= NameSurname, Mode=TwoWay}"/>
+                 RenderTransformOrigin="0.05,0.526" />
+        <TextBox Name ="roomTxt" HorizontalAlignment="Left" Height="23" Margin="277,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163"/>
+        <TextBox Name="patientTxt" HorizontalAlignment="Left" Height="23" Margin="277,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163"/>
         <TextBox Name="descriptionTxt" HorizontalAlignment="Left" Height="76" Margin="277,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163"/>
 
     </Grid>

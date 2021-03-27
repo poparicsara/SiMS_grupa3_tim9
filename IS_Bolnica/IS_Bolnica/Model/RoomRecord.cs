@@ -6,6 +6,7 @@ namespace Model
     {
         private String id;
         private String note;
+        private RoomPurpose roomPurpose;
 
         public void AddRoom(String id, RoomPurpose purpose)
         {
@@ -67,8 +68,12 @@ namespace Model
             if (inventory != null)
                 inventory.Clear();
         }
-        public RoomPurpose roomPurpose;
         public String Id
+        {
+            get;
+            set;
+        }
+        public RoomPurpose RoomPurpose
         {
             get;
             set;

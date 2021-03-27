@@ -1,11 +1,16 @@
 [
   {
-    "doctor": null,
-    "secretary": null,
     "Date": "2021-03-27T00:00:00+01:00",
     "Patient": null,
     "Secretary": null,
     "NameSurname": "Petar Petrovic",
     "RoomName": "room 2b"
+  },
+  {
+    "Date": "2021-03-29T00:00:00",
+    "Patient": null,
+    "Secretary": null,
+    "NameSurname": "Vanja Nikolic",
+    "RoomName": "301"
   }
 ]

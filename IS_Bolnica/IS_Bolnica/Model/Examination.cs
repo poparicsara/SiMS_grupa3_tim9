@@ -10,8 +10,8 @@ namespace Model
         private int durationInMinutes;
         private DateTime date;
         private Patient patient;
-        public Doctor doctor;
-        public Secretary secretary;
+        private Doctor doctor;
+        private Secretary secretary;
 
         public Boolean Paying()
         {
