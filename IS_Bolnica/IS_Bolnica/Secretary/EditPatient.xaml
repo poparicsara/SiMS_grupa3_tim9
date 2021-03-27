@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Bolnica.Secretary"
         mc:Ignorable="d"
-        Title="Izmeni pacijenta" Height="506.886" Width="478.734" WindowStartupLocation="CenterOwner">
+        Title="Izmeni pacijenta" Height="506.886" Width="478.734" WindowStartupLocation="CenterScreen">
     <Grid>
         <Label Content="Korisničko ime:" HorizontalAlignment="Left" Margin="40,99,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="23"/>
         <Label Content="Inicijalna lozinka:" HorizontalAlignment="Left" Margin="40,125,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="25"/>

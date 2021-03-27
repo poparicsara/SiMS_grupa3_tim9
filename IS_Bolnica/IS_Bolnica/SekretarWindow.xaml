@@ -5,18 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Bolnica"
         mc:Ignorable="d"
-        Title="Sekretar" Height="645.339" Width="800" WindowStartupLocation="CenterScreen">
+        Title="Sekretar" Height="645.339" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <TabControl HorizontalAlignment="Left" Margin="10,10,0,10" Width="774">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="597*"/>
+            <ColumnDefinition Width="197*"/>
+        </Grid.ColumnDefinitions>
+        <TabControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,10,0,10" Grid.ColumnSpan="2">
             <TabItem Header="Profil">
-                <Grid Background="#FFE5E5E5">
+                <Grid Background="#FF4E8E73">
                     <Label Content="Ime:" HorizontalAlignment="Left" Margin="40,30,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
                     <Label Content="Prezime:" HorizontalAlignment="Left" Margin="40,60,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
                     <Label Content="JMBG:" HorizontalAlignment="Left" Margin="40,90,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
                     <Label Content="Datum rođenja:" HorizontalAlignment="Left" Margin="40,120,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
                     <Label Content="Telefon:" HorizontalAlignment="Left" Margin="40,150,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
                     <Label Content="E-mail:" HorizontalAlignment="Left" Margin="40,180,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
-                    <Label Content="Početak radnog odnosa:" HorizontalAlignment="Left" Margin="40,210,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
+                    <Label Content="Početak radnog odnosa:"  HorizontalAlignment="Left" Margin="40,210,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
                     <Label Content="Radni staž:" HorizontalAlignment="Left" Margin="40,240,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
                     <Label Content="Plata:" HorizontalAlignment="Left" Margin="40,270,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
                     <Label Content="Broj slobodnih dana:" HorizontalAlignment="Left" Margin="40,300,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
@@ -39,12 +43,17 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Pacijenti">
-                <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="PatientList" HorizontalAlignment="Left" Height="480" Margin="10,10,0,0" VerticalAlignment="Top" Width="749" SelectionChanged="DataGrid_SelectionChanged"/>
-                    <Button Content="Dodaj" HorizontalAlignment="Left" Margin="478,523,0,0" VerticalAlignment="Top" Width="75" Click="addPatient"  />
-                    <Button Content="Izmeni" HorizontalAlignment="Left" Margin="580,523,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.189,0.889" Click="editPatient"/>
-                    <Button Content="Obriši" HorizontalAlignment="Left" Margin="684,523,0,0" VerticalAlignment="Top" Width="75"/>
-                    <Button Content="Create guest nalog" HorizontalAlignment="Left" Margin="335,523,0,0" VerticalAlignment="Top" Width="116"/>
+                <Grid Background="#FF4E8E73">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="11*"/>
+                        <ColumnDefinition Width="752*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid x:Name="PatientList" HorizontalAlignment="Stretch" Margin="25,25,30,35" VerticalAlignment="Stretch"  SelectionChanged="DataGrid_SelectionChanged" Grid.Column="1" Grid.ColumnSpan="2"/>
+                    <Button Content="Dodaj" HorizontalAlignment="Left" Margin="479.4,539,0,0" VerticalAlignment="Top" Width="75" Click="addPatient" Grid.Column="2"  />
+                    <Button Content="Izmeni" HorizontalAlignment="Left" Margin="567.4,539,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.189,0.889" Click="editPatient" Grid.Column="2"/>
+                    <Button Content="Obriši" HorizontalAlignment="Left" Margin="655.4,539,0,0" VerticalAlignment="Top" Width="75" Click="deletePatient" Grid.Column="2" RenderTransformOrigin="0.475,0.167" />
+                    <Button Content="Create guest nalog" HorizontalAlignment="Left" Margin="349.4,539,0,0" VerticalAlignment="Top" Width="116" Click="createGuestAccount" Grid.Column="2"/>
                 </Grid>
             </TabItem>
         </TabControl>

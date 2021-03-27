@@ -58,11 +58,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\GuestUsersFileStorage.cs" />
     <Compile Include="Secretary\AddPatient.xaml.cs">
       <DependentUpon>AddPatient.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\EditPatient.xaml.cs">
       <DependentUpon>EditPatient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\GuestUserAccount.xaml.cs">
+      <DependentUpon>GuestUserAccount.xaml</DependentUpon>
     </Compile>
     <Compile Include="SekretarWindow.xaml.cs">
       <DependentUpon>SekretarWindow.xaml</DependentUpon>
@@ -87,6 +91,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Secretary\EditPatient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary\GuestUserAccount.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\App.xaml
-5-722834873
+6-233713997
 
-34631045033
+361773705959
 14-764270122
-MainWindow.xaml;Secretary\AddPatient.xaml;Secretary\EditPatient.xaml;SekretarWindow.xaml;UpravnikWindow.xaml;
+MainWindow.xaml;Secretary\AddPatient.xaml;Secretary\EditPatient.xaml;Secretary\GuestUserAccount.xaml;SekretarWindow.xaml;UpravnikWindow.xaml;
 
 True
 

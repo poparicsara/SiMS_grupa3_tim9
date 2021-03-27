@@ -40,5 +40,23 @@ namespace IS_Bolnica
             Secretary.EditPatient ep = new Secretary.EditPatient();
             ep.Show();
         }
+
+        private void createGuestAccount(object sender, RoutedEventArgs e)
+        {
+            Secretary.GuestUserAccount gua = new Secretary.GuestUserAccount();
+            gua.Show();
+        }
+
+        private void deletePatient(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Da li stvarno želite da obrišete pacijenta?", "Brisanje pacijenta", MessageBoxButton.YesNo);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    break;
+                case MessageBoxResult.No:
+                    break;
+            }
+        }
     }
 }
