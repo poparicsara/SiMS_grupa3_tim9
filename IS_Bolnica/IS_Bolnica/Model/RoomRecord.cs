@@ -24,6 +24,10 @@ namespace Model
 
         public System.Collections.Generic.List<Inventory> inventory;
 
+        /// <summary>
+        /// Property for collection of Inventory
+        /// </summary>
+        /// <pdGenerated>Default opposite class collection property</pdGenerated>
         public System.Collections.Generic.List<Inventory> Inventory
         {
             get
@@ -43,6 +47,10 @@ namespace Model
             }
         }
 
+        /// <summary>
+        /// Add a new Inventory in the collection
+        /// </summary>
+        /// <pdGenerated>Default Add</pdGenerated>
         public void AddInventory(Inventory newInventory)
         {
             if (newInventory == null)
@@ -53,6 +61,10 @@ namespace Model
                 this.inventory.Add(newInventory);
         }
 
+        /// <summary>
+        /// Remove an existing Inventory from the collection
+        /// </summary>
+        /// <pdGenerated>Default Remove</pdGenerated>
         public void RemoveInventory(Inventory oldInventory)
         {
             if (oldInventory == null)
@@ -62,6 +74,10 @@ namespace Model
                     this.inventory.Remove(oldInventory);
         }
 
+        /// <summary>
+        /// Remove all instances of Inventory from the collection
+        /// </summary>
+        /// <pdGenerated>Default removeAll</pdGenerated>
         public void RemoveAllInventory()
         {
             if (inventory != null)
