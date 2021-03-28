@@ -4,11 +4,11 @@ namespace Model
 {
     public class Examination
     {
-        private Boolean isPayed = false;
-        private Evaluation evaluation;
-        private int durationInMinutes;
+        public Boolean isPayed  { get; set; }
+        public Evaluation evaluation { get; set; }
+        public int durationInMinutes { get; set; }
 
-        public Boolean Paying()
+    public Boolean Paying()
         {
             throw new NotImplementedException();
         }
@@ -23,11 +23,10 @@ namespace Model
             throw new NotImplementedException();
         }
 
-        public DateTime date;
-
-        public Patient patient;
-        public Doctor doctor;
-        public Secretary secretary;
+        public DateTime date { get; set; }
+        public Patient patient { get; set; }
+        public Doctor doctor { get; set; }
+        public Secretary secretary { get; set; }
 
         /// <summary>
         /// Property for Secretary

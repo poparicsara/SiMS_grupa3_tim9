@@ -7,6 +7,7 @@ namespace Model
 {
     public class ExaminationsRecordFileStorage
     {
+        
         public List<Examination> GetAll()
         {
             throw new NotImplementedException();
@@ -18,14 +19,14 @@ namespace Model
             File.WriteAllText(fileName, jsonString);
         }
 
-        public List<Operation> loadFromFile(string fileName)
+        public List<Examination> loadFromFile(string fileName)
         {
-            var examinationList = new List<Operation>();
+            var examinationList = new List<Examination>();
 
             using (StreamReader file = File.OpenText(fileName))
             {
                 var serializer = new JsonSerializer();
-                examinationList = (List<Operation>)serializer.Deserialize(file, typeof(List<Operation>));
+                examinationList = (List<Examination>)serializer.Deserialize(file, typeof(List<Examination>));
             }
 
             return examinationList;
