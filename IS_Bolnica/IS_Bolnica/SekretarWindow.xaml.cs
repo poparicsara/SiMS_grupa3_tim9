@@ -1,28 +1,43 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.Runtime.CompilerServices;
+using System.ComponentModel;
+using System.Collections.ObjectModel;
+using Model;
 
 namespace IS_Bolnica
 {
-    /// <summary>
-    /// Interaction logic for SekretarWindow.xaml
-    /// </summary>
-    public partial class SekretarWindow : Window
+    public partial class SekretarWindow : Window, INotifyPropertyChanged
     {
+        private PatientRecordFileStorage storage = new PatientRecordFileStorage();
+        private Patient pacijent;
+
+        public ObservableCollection<Patient> Pacijenti {
+            get; set;
+        }
+
+        private int colNum = 0;
+
         public SekretarWindow()
         {
             InitializeComponent();
+            this.DataContext = this;
+
+            Pacijenti = new ObservableCollection<Patient>();
+            Pacijenti = storage.loadFromFile("PatientRecordFileStorage.json");
         }
+
+        private void generateColumns(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            colNum++;
+            if(colNum == 3)
+            {
+                e.Column.Width = new DataGridLength(1, DataGridLengthUnitType.Star);
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

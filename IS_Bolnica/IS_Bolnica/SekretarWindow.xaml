@@ -49,7 +49,7 @@
                         <ColumnDefinition Width="11*"/>
                         <ColumnDefinition Width="752*"/>
                     </Grid.ColumnDefinitions>
-                    <DataGrid x:Name="PatientList" HorizontalAlignment="Stretch" Margin="25,25,30,35" VerticalAlignment="Stretch"  SelectionChanged="DataGrid_SelectionChanged" Grid.Column="1" Grid.ColumnSpan="2"/>
+                    <DataGrid x:Name="PatientList" ItemsSource="{Binding Path=Pacijenti}" AutoGenerateColumns="True" SelectionMode="Single" IsReadOnly="False" AutoGeneratingColumn="generateColumns" HorizontalAlignment="Stretch" Margin="25,25,30,35" VerticalAlignment="Stretch"  SelectionChanged="DataGrid_SelectionChanged" Grid.Column="1" Grid.ColumnSpan="2"/>
                     <Button Content="Dodaj" HorizontalAlignment="Left" Margin="479.4,539,0,0" VerticalAlignment="Top" Width="75" Click="addPatient" Grid.Column="2"  />
                     <Button Content="Izmeni" HorizontalAlignment="Left" Margin="567.4,539,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.189,0.889" Click="editPatient" Grid.Column="2"/>
                     <Button Content="Obriši" HorizontalAlignment="Left" Margin="655.4,539,0,0" VerticalAlignment="Top" Width="75" Click="deletePatient" Grid.Column="2" RenderTransformOrigin="0.475,0.167" />

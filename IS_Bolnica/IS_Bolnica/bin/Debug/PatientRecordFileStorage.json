@@ -1,0 +1,50 @@
+[
+  {
+    "address": null,
+    "Username": null,
+    "Password": "kshdj",
+    "Name": "jhsjdn",
+    "Surname": null,
+    "DateOfBirth": "0001-01-01T00:00:00",
+    "Phone": 0,
+    "Email": null,
+    "Id": 0,
+    "UserType": 0
+  },
+  {
+    "address": null,
+    "Username": "sds",
+    "Password": "ds",
+    "Name": "sds",
+    "Surname": "ds",
+    "DateOfBirth": "2021-02-01T00:00:00",
+    "Phone": 151,
+    "Email": "jshd",
+    "Id": 15,
+    "UserType": 1
+  },
+  {
+    "address": null,
+    "Username": "eds",
+    "Password": "efdse",
+    "Name": "fdsf",
+    "Surname": "dsfs",
+    "DateOfBirth": "2021-02-01T00:00:00",
+    "Phone": 51454,
+    "Email": "sefds",
+    "Id": 5451,
+    "UserType": 1
+  },
+  {
+    "address": null,
+    "Username": "dfgdf",
+    "Password": "gdf",
+    "Name": "gdfg",
+    "Surname": "dgd",
+    "DateOfBirth": "2021-02-01T00:00:00",
+    "Phone": 848,
+    "Email": "sdfsd",
+    "Id": 84,
+    "UserType": 1
+  }
+]
