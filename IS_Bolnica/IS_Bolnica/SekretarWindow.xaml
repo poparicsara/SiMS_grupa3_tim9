@@ -8,12 +8,12 @@
         Title="Sekretar" Height="645.339" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="597*"/>
-            <ColumnDefinition Width="197*"/>
+            <ColumnDefinition Width="205*"/>
+            <ColumnDefinition Width="192*"/>
         </Grid.ColumnDefinitions>
-        <TabControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,10,0,10" Grid.ColumnSpan="2">
-            <TabItem Header="Profil">
-                <Grid Background="#FF4E8E73">
+        <TabControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,10,-0.4,10" Grid.ColumnSpan="2" TabStripPlacement="Right">
+            <TabItem Header="Profil" Margin="-2,0,-1.8,0" Height="20" VerticalAlignment="Bottom">
+                <Grid Background="#FFA5BC90">
                     <Label Content="Ime:" HorizontalAlignment="Left" Margin="40,30,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
                     <Label Content="Prezime:" HorizontalAlignment="Left" Margin="40,60,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
                     <Label Content="JMBG:" HorizontalAlignment="Left" Margin="40,90,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
@@ -43,17 +43,45 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Pacijenti">
-                <Grid Background="#FF4E8E73">
+                <Grid x:Name="selected" Background="#FFA5BC90">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="6*"/>
-                        <ColumnDefinition Width="11*"/>
-                        <ColumnDefinition Width="752*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="111*"/>
+                        <ColumnDefinition Width="661*"/>
                     </Grid.ColumnDefinitions>
-                    <DataGrid x:Name="PatientList" ItemsSource="{Binding Path=Pacijenti}" AutoGenerateColumns="True" SelectionMode="Single" IsReadOnly="False" AutoGeneratingColumn="generateColumns" HorizontalAlignment="Stretch" Margin="25,25,30,35" VerticalAlignment="Stretch"  SelectionChanged="DataGrid_SelectionChanged" Grid.Column="1" Grid.ColumnSpan="2"/>
-                    <Button Content="Dodaj" HorizontalAlignment="Left" Margin="479.4,539,0,0" VerticalAlignment="Top" Width="75" Click="addPatient" Grid.Column="2"  />
-                    <Button Content="Izmeni" HorizontalAlignment="Left" Margin="567.4,539,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.189,0.889" Click="editPatient" Grid.Column="2"/>
-                    <Button Content="Obriši" HorizontalAlignment="Left" Margin="655.4,539,0,0" VerticalAlignment="Top" Width="75" Click="deletePatient" Grid.Column="2" RenderTransformOrigin="0.475,0.167" />
-                    <Button Content="Create guest nalog" HorizontalAlignment="Left" Margin="349.4,539,0,0" VerticalAlignment="Top" Width="116" Click="createGuestAccount" Grid.Column="2"/>
+                    <DataGrid x:Name="PatientList" ItemsSource="{Binding Path=Pacijenti}" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" AutoGeneratingColumn="generateColumns" HorizontalAlignment="Stretch" Margin="24.6,25,30.4,35" VerticalAlignment="Stretch"  SelectionChanged="DataGrid_SelectionChanged" Grid.Column="1" Grid.ColumnSpan="3" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Ime" Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header="Prezime" Binding="{Binding Surname}"/>
+                            <DataGridTextColumn Header="Datum rođenja" Binding="{Binding DateOfBirth}"/>
+                            <DataGridTextColumn Header="JMBG" Binding="{Binding Id}"/>
+                            <DataGridTextColumn Header="Username" Binding="{Binding Username}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Content="Dodaj" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" HorizontalAlignment="Left" Margin="327.4,561,0,0" VerticalAlignment="Top" Width="75" Click="addPatient" Grid.Column="3"  />
+                    <Button Content="Izmeni" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" HorizontalAlignment="Left" Margin="421.4,560,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.189,0.889" Click="editPatient" Grid.Column="3"/>
+                    <Button Content="Obriši" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" HorizontalAlignment="Left" Margin="510.4,560,0,0" VerticalAlignment="Top" Width="75" Click="deletePatient" Grid.Column="3" RenderTransformOrigin="0.475,0.167"  />
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Guest nalog">
+                <Grid Background="#FFA5BC90">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="700"/>
+                        <ColumnDefinition Width="0*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" Content="Create guest nalog" HorizontalAlignment="Left" Margin="554,561,0,0" VerticalAlignment="Top" Width="116" Click="createGuestAccount" Grid.Column="1" Grid.ColumnSpan="2" Height="19"/>
+                    <DataGrid x:Name="GuestUsers" ItemsSource="{Binding GuestKorisnici}" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" HorizontalAlignment="Stretch" Margin="31,25,30,35.4" VerticalAlignment="Stretch"  SelectionChanged="DataGrid_SelectionChanged" Grid.ColumnSpan="3">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Sistemsko ime" Binding="{Binding SystemName}" Width="290"/>
+                            <DataGridTextColumn Header="Opis povrede" Binding="{Binding InjuryDescription}" Width="349"/>
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+                    <Button FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" Grid.ColumnSpan="3" Content="Obriši nalog" HorizontalAlignment="Left" Margin="443,561,0,0" VerticalAlignment="Top" Width="90" Click="deleteGuestAccount" Height="19" />
                 </Grid>
             </TabItem>
         </TabControl>

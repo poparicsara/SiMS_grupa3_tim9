@@ -4,13 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using Model;
+using System.Collections.ObjectModel;
 
 namespace IS_Bolnica.Secretary
 {
@@ -19,6 +14,9 @@ namespace IS_Bolnica.Secretary
     /// </summary>
     public partial class GuestUserAccount : Window
     {
+        private GuestUser guest = new GuestUser();
+        private GuestUsersFileStorage storage = new GuestUsersFileStorage();
+
         public GuestUserAccount()
         {
             InitializeComponent();
@@ -26,6 +24,20 @@ namespace IS_Bolnica.Secretary
 
         private void cancelGuest(object sender, RoutedEventArgs e)
         {
+            this.Close();
+        }
+
+        private void addGuestAccount(object sender, RoutedEventArgs e)
+        {
+            guest.SystemName = systemName.Text;
+            guest.InjuryDescription = injury.Text;
+
+            ObservableCollection<GuestUser> lista = storage.loadFromFile("GuestUsersFile.json");
+            lista.Add(guest);
+            storage.saveToFile(lista, "GuestUsersFile.json");
+
+            SekretarWindow sw = new SekretarWindow();
+            sw.Show();
             this.Close();
         }
     }

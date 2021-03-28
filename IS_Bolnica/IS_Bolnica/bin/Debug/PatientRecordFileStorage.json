@@ -25,7 +25,7 @@
   },
   {
     "address": null,
-    "Username": "eds",
+    "Username": "",
     "Password": "efdse",
     "Name": "fdsf",
     "Surname": "dsfs",
@@ -45,6 +45,42 @@
     "Phone": 848,
     "Email": "sdfsd",
     "Id": 84,
+    "UserType": 1
+  },
+  {
+    "address": null,
+    "Username": "4534",
+    "Password": "3t53t",
+    "Name": "jsd",
+    "Surname": "ne znam",
+    "DateOfBirth": "2021-02-01T00:00:00",
+    "Phone": 454,
+    "Email": "srdgf",
+    "Id": 454,
+    "UserType": 1
+  },
+  {
+    "address": null,
+    "Username": "",
+    "Password": "sf",
+    "Name": "",
+    "Surname": "ghf",
+    "DateOfBirth": "2021-03-28T00:00:00+01:00",
+    "Phone": 45,
+    "Email": "jkj",
+    "Id": 5,
+    "UserType": 1
+  },
+  {
+    "address": null,
+    "Username": "",
+    "Password": "fdf",
+    "Name": "ddf",
+    "Surname": "gafgds",
+    "DateOfBirth": "2021-02-01T00:00:00",
+    "Phone": 4854,
+    "Email": "df",
+    "Id": 5545,
     "UserType": 1
   }
 ]
