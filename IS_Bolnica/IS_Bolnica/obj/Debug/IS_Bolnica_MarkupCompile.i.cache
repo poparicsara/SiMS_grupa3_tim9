@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\App.xaml
-21011109067
+5224084499
 
-31573182056
+361212152813
 141323765998
-MainWindow.xaml;UpravnikWindow.xaml;
+EditWindow.xaml;InventoryWindow.xaml;MainWindow.xaml;NewRoomWindow.xaml;UpravnikWindow.xaml;
 
-True
+False
 

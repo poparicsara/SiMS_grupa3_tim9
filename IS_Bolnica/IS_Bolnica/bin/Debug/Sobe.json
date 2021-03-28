@@ -1,0 +1,44 @@
+[
+  {
+    "Id": "mmm",
+    "HospitalWard": "mmm",
+    "roomPurpose": {
+      "Name": "mmm"
+    }
+  },
+  {
+    "Id": "333",
+    "HospitalWard": "333",
+    "roomPurpose": {
+      "Name": "333"
+    }
+  },
+  {
+    "Id": "999",
+    "HospitalWard": "999",
+    "roomPurpose": {
+      "Name": "999"
+    }
+  },
+  {
+    "Id": "555",
+    "HospitalWard": "999",
+    "roomPurpose": {
+      "Name": "999"
+    }
+  },
+  {
+    "Id": "60",
+    "HospitalWard": "Ortopedija",
+    "roomPurpose": {
+      "Name": "soba"
+    }
+  },
+  {
+    "Id": "101",
+    "HospitalWard": "Psihijatrija",
+    "roomPurpose": {
+      "Name": "Operaciona sala"
+    }
+  }
+]

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Model;
+using System.Windows;
 
 namespace IS_Bolnica
 {
@@ -12,9 +13,9 @@ namespace IS_Bolnica
 
         private void ButtonUpravnikClicked(object sender, RoutedEventArgs e)
         {
-            UpravnikWindow uw = new UpravnikWindow();
+            Director director = new Director();
+            UpravnikWindow uw = new UpravnikWindow(director);
             uw.Show();
-            this.Close();
         }
     }
 }

@@ -6,8 +6,31 @@
         xmlns:local="clr-namespace:IS_Bolnica"
         mc:Ignorable="d"
         Title="UpravnikWindow" Height="450" Width="800"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        
+        <DataGrid x:Name ="lvDataBinding" HorizontalAlignment="Center" Height="400" VerticalAlignment="Center" Width="588" FontSize="13"
+                  ColumnWidth="193.3" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserAddRows="False" AutoGenerateColumns="False"
+                  IsReadOnly="True" SelectionMode="Single" CanUserDeleteRows="True">
+            <!-- Style -->
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FF4E8E73"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="Height" Value="30"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Style>
+            </DataGrid.Resources>
+            <!-- Header -->
+            <DataGrid.Columns>
+                <DataGridTextColumn Header ="ID" Binding="{Binding Id, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header ="HOSPITAL WARD" Binding="{Binding HospitalWard, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header ="PURPOSE" Binding="{Binding Path = roomPurpose.Name, UpdateSourceTrigger=PropertyChanged}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Add" HorizontalAlignment="Left" Margin="703,368,0,0" VerticalAlignment="Top" Width="75" Click="AddButtonClicked"/>
+        <Button Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="703,326,0,0" Click="DeleteButtonClicked"/>
+        <Button Content="Edit" HorizontalAlignment="Left" Margin="703,285,0,0" VerticalAlignment="Top" Width="75" Click="EditButtonClicked"/>
     </Grid>
 </Window>
