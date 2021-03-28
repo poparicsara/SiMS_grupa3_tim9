@@ -67,6 +67,12 @@
     <Compile Include="DoctorsWindows\DoctorWindow.xaml.cs">
       <DependentUpon>DoctorWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DoctorsWindows\UpdateExaminationWindow.xaml.cs">
+      <DependentUpon>UpdateExaminationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorsWindows\UpdateOperationWindow.xaml.cs">
+      <DependentUpon>UpdateOperationWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UpravnikWindow.xaml.cs">
       <DependentUpon>UpravnikWindow.xaml</DependentUpon>
     </Compile>
@@ -79,6 +85,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DoctorsWindows\DoctorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DoctorsWindows\UpdateExaminationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DoctorsWindows\UpdateOperationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

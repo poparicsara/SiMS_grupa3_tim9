@@ -50,7 +50,6 @@ namespace IS_Bolnica.DoctorsWindows
 
             OperationsFileStorage operationsFileStorage = new OperationsFileStorage();
             List<Operation> operations = operationsFileStorage.loadFromFile("operations.json");
-            //List<Operation> operations = new List<Operation>();
             operations.Add(operation);
             operationsFileStorage.saveToFile(operations, "operations.json");
 

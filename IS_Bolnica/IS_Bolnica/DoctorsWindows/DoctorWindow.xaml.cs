@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -61,6 +62,34 @@ namespace IS_Bolnica
             DoctorWindow doctorWindow = new DoctorWindow();
             doctorWindow.Show();
             this.Close();
+        }
+
+        private void cancelOperationButton(object sender, RoutedEventArgs e)
+        {
+            OperationsFileStorage operationsFileStorage = new OperationsFileStorage();
+            List<Operation> operations = operationsFileStorage.loadFromFile("operations.json");
+            operations.RemoveAt(dataGridOperations.SelectedIndex);
+            operationsFileStorage.saveToFile(operations, "operations.json");
+
+            DoctorWindow doctorWindow = new DoctorWindow();
+            doctorWindow.Show();
+            this.Close();
+        }
+
+        private void updateExaminationButton(object sender, RoutedEventArgs e)
+        {
+            int selectedIndex = dataGridExaminations.SelectedIndex;
+            UpdateExaminationWindow updateExaminationWindow = new UpdateExaminationWindow(selectedIndex);
+            updateExaminationWindow.Show();
+            this.Close();
+        }
+
+        private void updateOperationButton(object sender, RoutedEventArgs e)
+        {
+           int selectedIndex = dataGridOperations.SelectedIndex;
+           UpdateOperationWindow updateOperationWindow = new UpdateOperationWindow(selectedIndex);
+           updateOperationWindow.Show();
+           this.Close();
         }
     }
 }

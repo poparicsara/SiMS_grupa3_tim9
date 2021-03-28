@@ -2,19 +2,19 @@
   {
     "doctor": [],
     "Doctor": [],
-    "Date": "2021-04-01T00:00:00",
+    "Date": "2021-05-23T00:00:00",
     "Patient": null,
     "RoomRecord": null,
-    "NameSurname": "Ana Mihajlovic",
-    "RoomName": "op2"
+    "NameSurname": "Pavle Kostic",
+    "RoomName": "operation room 1"
   },
   {
-    "doctor": null,
+    "doctor": [],
     "Doctor": [],
-    "Date": "2021-03-30T00:00:00",
+    "Date": "2021-10-12T00:00:00",
     "Patient": null,
     "RoomRecord": null,
-    "NameSurname": "Savo Oroz",
-    "RoomName": "op1"
+    "NameSurname": "Lana Kovacevic",
+    "RoomName": "op 12"
   }
 ]
