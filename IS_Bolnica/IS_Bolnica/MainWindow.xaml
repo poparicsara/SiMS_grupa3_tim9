@@ -23,7 +23,7 @@
             </Button>
         </WrapPanel>
 
-        <Image Source="C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\nasLogo.jpg" Margin="323,72,49.6,89"/>
+        <Image Source="nasLogo.jpg" Margin="323,72,49.6,89"/>
 
     </Grid>
 </Window>
