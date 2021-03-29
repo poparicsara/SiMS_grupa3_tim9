@@ -66,6 +66,9 @@
     </Compile>
     <Compile Include="Model\HospitalWard.cs" />
     <Compile Include="Model\HospitalWardFileStorage.cs" />
+    <Compile Include="NewInventory.xaml.cs">
+      <DependentUpon>NewInventory.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NewRoomWindow.xaml.cs">
       <DependentUpon>NewRoomWindow.xaml</DependentUpon>
     </Compile>
@@ -92,6 +95,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="NewInventory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="NewRoomWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -18,13 +18,11 @@ namespace IS_Bolnica
 {
     public partial class NewRoomWindow : Window
     {
+        RoomRecord newRoom = new RoomRecord();
+
         public NewRoomWindow()
         {
             InitializeComponent();
-
-            /*HospitalWardFileStorage storage = new HospitalWardFileStorage();
-            List<HospitalWard> wards = storage.GetAll();
-            wardComboBox.ItemsSource = wards;*/
 
         }
 
@@ -33,7 +31,6 @@ namespace IS_Bolnica
             RoomRecord newRoom = new RoomRecord();
             newRoom.Id = roomBox.Text;
             newRoom.HospitalWard = wardBox.Text;
-            //HospitalWard ward = wardComboBox.SelectedItem;
 
             RoomPurpose purpose = new RoomPurpose { Name = purposeBox.Text };
             newRoom.roomPurpose = purpose;
@@ -50,11 +47,18 @@ namespace IS_Bolnica
             this.Close();
         }
 
-        private void ShowInventory(object sender, RoutedEventArgs e)
+        private void AddInventoryButton(object sender, RoutedEventArgs e)
         {
-            InventoryWindow iw = new InventoryWindow();
-            iw.Show();
-            //this.Close();
+            NewInventory newi = new NewInventory();
+            newi.Show();
+        }
+
+        private void CancelButton(object sender, RoutedEventArgs e)
+        {
+            Director d = new Director();
+            UpravnikWindow uw = new UpravnikWindow(d);
+            uw.Show();
+            this.Close();
         }
     }
 }

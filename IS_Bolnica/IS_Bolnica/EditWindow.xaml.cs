@@ -23,17 +23,22 @@ namespace IS_Bolnica
         {
             InitializeComponent();
 
-            //all rooms
-            RoomRecordFileStorage storage = new RoomRecordFileStorage();
-            List<RoomRecord> rooms = storage.loadFromFile("Sobe.json");
+                //all rooms
+                RoomRecordFileStorage storage = new RoomRecordFileStorage();
+                List<RoomRecord> rooms = storage.loadFromFile("Sobe.json");
 
-            roomBox.Text = rooms.ElementAt(room).Id;
-            wardBox.Text = rooms.ElementAt(room).HospitalWard;
+                roomBox.Text = rooms.ElementAt(room).Id;
+                wardBox.Text = rooms.ElementAt(room).HospitalWard;
 
-            RoomPurpose purpose = rooms.ElementAt(room).roomPurpose;
-            purposeBox.Text = purpose.Name;
+                RoomPurpose purpose = rooms.ElementAt(room).roomPurpose;
+                purposeBox.Text = purpose.Name;
 
-            selectedRoom = room;
+                selectedRoom = room;
+
+                Director director = new Director();
+                UpravnikWindow uw = new UpravnikWindow(director);
+                uw.Close();
+            
         }
 
         private void DoneButton(object sender, RoutedEventArgs e)
@@ -52,6 +57,21 @@ namespace IS_Bolnica
             rooms.ElementAt(selectedRoom).roomPurpose = newRoom.roomPurpose;
             storage.saveToFile(rooms, "Sobe.json");
 
+            Director d = new Director();
+            UpravnikWindow uw = new UpravnikWindow(d);
+            uw.lvDataBinding.Items.Refresh();
+            uw.Show();
+            this.Close();
+        }
+
+        private void ShowInventoryClicked(object sender, RoutedEventArgs e)
+        {
+            InventoryWindow iw = new InventoryWindow();
+            iw.Show();
+        }
+
+        private void CancelButton(object sender, RoutedEventArgs e)
+        {
             Director d = new Director();
             UpravnikWindow uw = new UpravnikWindow(d);
             uw.lvDataBinding.Items.Refresh();

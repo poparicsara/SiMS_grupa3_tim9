@@ -14,7 +14,7 @@
             <!-- Style -->
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
-                    <Setter Property="Background" Value="#FF4E8E73"/>
+                    <Setter Property="Background" Value="#FFA5BC90"/>
                     <Setter Property="HorizontalContentAlignment" Value="Center"/>
                     <Setter Property="Height" Value="30"/>
                     <Setter Property="BorderThickness" Value="1"/>
@@ -24,13 +24,13 @@
             </DataGrid.Resources>
             <!-- Header -->
             <DataGrid.Columns>
-                <DataGridTextColumn Header ="ID" Binding="{Binding Id, UpdateSourceTrigger=PropertyChanged}"/>
-                <DataGridTextColumn Header ="HOSPITAL WARD" Binding="{Binding HospitalWard, UpdateSourceTrigger=PropertyChanged}"/>
-                <DataGridTextColumn Header ="PURPOSE" Binding="{Binding Path = roomPurpose.Name, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header ="BROJ SOBE" Binding="{Binding Id, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header ="BOLNIČKO ODELJENJE" Binding="{Binding HospitalWard, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header ="NAMENA" Binding="{Binding Path = roomPurpose.Name, UpdateSourceTrigger=PropertyChanged}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Add" HorizontalAlignment="Left" Margin="703,368,0,0" VerticalAlignment="Top" Width="75" Click="AddButtonClicked"/>
-        <Button Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="703,326,0,0" Click="DeleteButtonClicked"/>
-        <Button Content="Edit" HorizontalAlignment="Left" Margin="703,285,0,0" VerticalAlignment="Top" Width="75" Click="EditButtonClicked"/>
+        <Button Content="DODAJ" HorizontalAlignment="Left" Margin="696,367,0,0" VerticalAlignment="Top" Width="81" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" Click="AddButtonClicked"/>
+        <Button Content="OBRIŠI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="81" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" Margin="696,325,0,0" Click="DeleteButtonClicked"/>
+        <Button Content="IZMENI" HorizontalAlignment="Left" Margin="696,282,0,0" VerticalAlignment="Top" Width="81" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" Click="EditButtonClicked"/>
     </Grid>
 </Window>

@@ -63,19 +63,33 @@ namespace IS_Bolnica
             Director director = (Director)DataContext;
             int room = lvDataBinding.SelectedIndex;
 
-            director.DeleteRoom(room);
+            if(room < 0)
+            {
+                MessageBox.Show("Niste izabrali nijednu prostoriju!");
+            } else
+            {
+                director.DeleteRoom(room);
 
-            RoomRecordFileStorage storage = new RoomRecordFileStorage();
-            lvDataBinding.ItemsSource = storage.loadFromFile("Sobe.json");
+                RoomRecordFileStorage storage = new RoomRecordFileStorage();
+                lvDataBinding.ItemsSource = storage.loadFromFile("Sobe.json");
+            }
 
         }
 
         private void EditButtonClicked(object sender, RoutedEventArgs e)
         {
             int room = lvDataBinding.SelectedIndex;
-            EditWindow ew = new EditWindow(room);
-            ew.Show();
-            this.Close();
+
+            if(room < 0)
+            {
+                MessageBox.Show("Niste izabrali nijednu prostoriju!");
+            } else
+            {
+                EditWindow ew = new EditWindow(room);
+                ew.Show();
+                this.Close();
+            }
+           
         }
 
         public void refreshData()

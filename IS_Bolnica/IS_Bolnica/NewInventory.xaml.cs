@@ -1,5 +1,4 @@
-﻿using Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,15 +15,11 @@ using System.Windows.Shapes;
 namespace IS_Bolnica
 {
 
-    public partial class InventoryWindow : Window
+    public partial class NewInventory : Window
     {
-        public InventoryWindow()
+        public NewInventory()
         {
             InitializeComponent();
-
-            InventoryFileStorage storage = new InventoryFileStorage();
-            List<Inventory> all = storage.GetAll();
-            inventoryBinding.ItemsSource = all;
         }
     }
 }

@@ -1,42 +1,28 @@
 [
   {
-    "Id": "mmm",
-    "HospitalWard": "mmm",
-    "roomPurpose": {
-      "Name": "mmm"
-    }
-  },
-  {
-    "Id": "333",
-    "HospitalWard": "333",
-    "roomPurpose": {
-      "Name": "333"
-    }
-  },
-  {
-    "Id": "999",
-    "HospitalWard": "999",
-    "roomPurpose": {
-      "Name": "999"
-    }
-  },
-  {
-    "Id": "555",
-    "HospitalWard": "999",
-    "roomPurpose": {
-      "Name": "999"
-    }
-  },
-  {
-    "Id": "60",
+    "Id": "101",
     "HospitalWard": "Ortopedija",
     "roomPurpose": {
-      "Name": "soba"
+      "Name": "Soba"
     }
   },
   {
-    "Id": "101",
-    "HospitalWard": "Psihijatrija",
+    "Id": "205",
+    "HospitalWard": "Neurologija",
+    "roomPurpose": {
+      "Name": "Ordinacija"
+    }
+  },
+  {
+    "Id": "109",
+    "HospitalWard": "Dermatologija",
+    "roomPurpose": {
+      "Name": "Ordinacija"
+    }
+  },
+  {
+    "Id": "306",
+    "HospitalWard": "Ortopedija ",
     "roomPurpose": {
       "Name": "Operaciona sala"
     }

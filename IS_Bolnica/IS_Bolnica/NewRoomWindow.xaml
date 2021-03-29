@@ -8,15 +8,16 @@
         Title="NewRoomWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
     <Grid>
-        <Label Content="Room number:" HorizontalAlignment="Left" Margin="59,49,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.684,1.986" Width="109" FontWeight="Bold"/>
-        <Label Content="Hospital ward:" HorizontalAlignment="Left" Margin="59,114,0,0" VerticalAlignment="Top" Width="109" RenderTransformOrigin="0.844,0.528" FontWeight="Bold"/>
-        <Label Content="Purpose:" HorizontalAlignment="Left" Margin="59,172,0,0" VerticalAlignment="Top" Width="109" RenderTransformOrigin="3.673,3.075" FontWeight="Bold"/>
+        <Label Content="Broj sobe:" HorizontalAlignment="Left" Margin="59,49,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.684,1.986" Width="109" FontWeight="Bold"/>
+        <Label Content="Bolničko odeljenje:" HorizontalAlignment="Left" Margin="59,114,0,0" VerticalAlignment="Top" Width="122" RenderTransformOrigin="0.844,0.528" FontWeight="Bold"/>
+        <Label Content="Namena:" HorizontalAlignment="Left" Margin="59,172,0,0" VerticalAlignment="Top" Width="109" RenderTransformOrigin="3.673,3.075" FontWeight="Bold"/>
         <TextBox x:Name="roomBox" HorizontalAlignment="Left" Height="23" Margin="240,51,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="151"/>
-
         <TextBox x:Name="wardBox" HorizontalAlignment="Left" Height="23" Margin="240,114,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="151"/>
 
         <TextBox x:Name="purposeBox" HorizontalAlignment="Left" Height="23" Margin="240,172,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="151"/>
-        <Button Content="Add" HorizontalAlignment="Left" Margin="505,308,0,0" VerticalAlignment="Top" Width="92" Height="27" Click="DoneAddingButton"/>
-        <Button Content="Inventory list" HorizontalAlignment="Left" Margin="59,246,0,0" VerticalAlignment="Top" Width="109" Click="ShowInventory"/>
+        <Button Content="DODAJ" HorizontalAlignment="Left" Margin="505,308,0,0" VerticalAlignment="Top" Width="92" Height="24" Background="#FF15285D" Foreground="White" Click="DoneAddingButton" FontWeight="Bold"/>
+        <Button Content="Lista inventara" HorizontalAlignment="Left" Margin="59,246,0,0" VerticalAlignment="Top" Width="109" Height="24" Background="#FFA5BC90" Click="AddInventoryButton" FontWeight="Bold"/>
+        <Button Content="ODUSTANI" HorizontalAlignment="Left" Margin="374,308,0,0" VerticalAlignment="Top" Width="92" Height="24" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="CancelButton"/>
+
     </Grid>
 </Window>
