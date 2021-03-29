@@ -4,8 +4,8 @@ namespace Model
 {
     public class GuestUser
     {
-        public String systemName;
-        public String injuryDescription;
+        public String SystemName { get; set; }
+        public String InjuryDescription { get; set; }
 
     }
 }

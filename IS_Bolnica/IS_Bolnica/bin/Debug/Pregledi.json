@@ -2,52 +2,79 @@
   {
     "isPayed": false,
     "evaluation": 0,
-    "durationInMinutes": 56,
-    "date": "2021-02-23T15:30:00",
+    "durationInMinutes": 30,
+    "date": "2021-01-03T00:00:00",
     "patient": null,
     "doctor": {
-      "specialization": {
-        "name": "RADIOLOG"
-      },
+      "specialization": null,
       "address": null,
-      "name": "Pera",
-      "surname": "Peric"
+      "Username": null,
+      "Password": null,
+      "Name": "Mika",
+      "Surname": "Mikic",
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": 0,
+      "Email": null,
+      "Id": 0,
+      "UserType": 0
     },
     "secretary": null,
-    "Secretary": null
-  },
-  {
-    "isPayed": true,
-    "evaluation": 2,
-    "durationInMinutes": 26,
-    "date": "2021-03-02T09:00:00",
-    "patient": null,
-    "doctor": {
-      "specialization": {
-        "name": "KARDIOLOG"
-      },
-      "address": null,
-      "name": "Mika",
-      "surname": "Mikic"
-    },
-    "secretary": null,
-    "Secretary": null
+    "Secretary": null,
+    "Date": "2021-01-03T00:00:00",
+    "Patient": null,
+    "NameSurname": null,
+    "RoomName": null
   },
   {
     "isPayed": false,
-    "evaluation": 3,
+    "evaluation": 0,
     "durationInMinutes": 30,
-    "date": "2021-04-11T11:30:30",
+    "date": "2021-02-03T18:00:00",
     "patient": null,
     "doctor": {
-      "specialization": {
-        "name": "PULMOLOG"
-      },
+      "specialization": null,
       "address": null,
-      "name": "Zika",
-      "surname": "Zikic"
+      "Username": null,
+      "Password": null,
+      "Name": "Pera",
+      "Surname": "Peric",
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": 0,
+      "Email": null,
+      "Id": 0,
+      "UserType": 0
     },
     "secretary": null,
-    "Secretary": null
+    "Secretary": null,
+    "Date": "2021-02-03T18:00:00",
+    "Patient": null,
+    "NameSurname": null,
+    "RoomName": null
+  },
+  {
+    "isPayed": false,
+    "evaluation": 0,
+    "durationInMinutes": 30,
+    "date": "2021-03-13T02:45:00",
+    "patient": null,
+    "doctor": {
+      "specialization": null,
+      "address": null,
+      "Username": null,
+      "Password": null,
+      "Name": "Mika",
+      "Surname": "Mikic",
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": 0,
+      "Email": null,
+      "Id": 0,
+      "UserType": 0
+    },
+    "secretary": null,
+    "Secretary": null,
+    "Date": "2021-03-13T02:45:00",
+    "Patient": null,
+    "NameSurname": null,
+    "RoomName": null
   }
 ]
