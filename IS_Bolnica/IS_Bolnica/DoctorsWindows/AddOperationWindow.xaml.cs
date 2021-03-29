@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace IS_Bolnica.DoctorsWindows
 {
-    /// <summary>
-    /// Interaction logic for AddOperationWindow.xaml
-    /// </summary>
     public partial class AddOperationWindow : Window
     {
         public AddOperationWindow()

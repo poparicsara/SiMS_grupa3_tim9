@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Bolnica.DoctorsWindows"
         mc:Ignorable="d"
-        Title="Update operation" Height="450" Width="800">
+        Title="Update operation" Height="450" Width="800" ResizeMode="NoResize">
     <Grid Background="#FFA5BC90">
 
         <Canvas Background="#FF15285D" Margin="0,0,559.6,0">
