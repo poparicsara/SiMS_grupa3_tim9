@@ -4,23 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\
+C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\
 IS_Bolnica
 none
 false
 DEBUG;TRACE
-C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\App.xaml
-21011109067
+C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\App.xaml
+7-1520437783
 
-<<<<<<< Updated upstream
-301415541423
-14-764270122
-MainWindow.xaml;UpravnikWindow.xaml;
-=======
-29-181348443
+351217228213
 14-1148817317
-MainWindow.xaml;
->>>>>>> Stashed changes
+DoctorsWindows\AddExaminationWindow.xaml;DoctorsWindows\AddOperationWindow.xaml;DoctorsWindows\DoctorWindow.xaml;DoctorsWindows\UpdateExaminationWindow.xaml;DoctorsWindows\UpdateOperationWindow.xaml;MainWindow.xaml;UpravnikWindow.xaml;
 
 False
 

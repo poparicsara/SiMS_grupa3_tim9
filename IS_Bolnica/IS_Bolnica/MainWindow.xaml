@@ -8,20 +8,22 @@
         Title="Zdravo korporacija" Height="450" Width="800" HorizontalAlignment="Center" VerticalAlignment="Center"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <WrapPanel x:Name="Wrap1" Width ="250" Background="#FF4E8E73" HorizontalAlignment="Left">
-            <Button x:Name="pacijent" Height="49" Width="250" FontSize="20" FontWeight="Bold" Background="#FF4E8E73" FontFamily="Constantia">
+        <WrapPanel x:Name="Wrap1" Width ="250" Background="#FF15285D" HorizontalAlignment="Left">
+            <Button x:Name="pacijent" Height="49" Width="250" FontSize="20" FontWeight="Bold" Background="#FF15285D" FontFamily="Ebrima" Foreground="White" BorderBrush="#FFFFFEFE">
                 Pacijent
             </Button>
-            <Button x:Name="lekar" Height="49" Width="250" FontSize="20" FontWeight="Bold" Background="#FF4E8E73" FontFamily="Constantia">
+            <Button x:Name="lekar" Height="49" Width="250" FontSize="20" FontWeight="Bold" Background="#FF15285D" FontFamily="Ebrima" Click="doctorButtonClicked" Foreground="White" BorderBrush="#FFFFFEFE">
                 Lekar
             </Button>
-            <Button x:Name="sekretar" Height="49" Width="250" FontSize="20" FontWeight="Bold" Background="#FF4E8E73" FontFamily="Constantia">
+            <Button x:Name="sekretar" Height="49" Width="250" FontSize="20" FontWeight="Bold" Background="#FF15285D" FontFamily="Ebrima" Foreground="White" BorderBrush="#FFFFFEFE">
                 Sekretar
             </Button>
-            <Button x:Name="upravnik" Height="49" Width="250" FontSize="20" FontWeight="Bold" Background="#FF4E8E73" Click="ButtonUpravnikClicked" FontFamily="Constantia">
+            <Button x:Name="upravnik" Height="49" Width="250" FontSize="20" FontWeight="Bold" Background="#FF15285D" Click="ButtonUpravnikClicked" FontFamily="Ebrima" Foreground="White" BorderBrush="#FFFFFEFE">
                 Upravnik
             </Button>
         </WrapPanel>
-        <Image x:Name="nasLogo" HorizontalAlignment="Left" Height="210" Margin="434,85,0,0" VerticalAlignment="Top" Width="229" Source="C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\naslogo.jpg" Grid.RowSpan="3"/>
+
+        <Image Source="C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\nasLogo.jpg" Margin="323,72,49.6,89"/>
+
     </Grid>
 </Window>

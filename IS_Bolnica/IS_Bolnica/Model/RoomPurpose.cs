@@ -6,5 +6,11 @@ namespace Model
     {
         private String name;
 
+        public String Name
+        {
+            get;
+            set;
+        }
+
     }
 }
