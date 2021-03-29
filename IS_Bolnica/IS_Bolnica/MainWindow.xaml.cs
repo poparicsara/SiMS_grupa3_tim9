@@ -22,7 +22,6 @@ namespace IS_Bolnica
         {
             DoctorWindow doctorWindow = new DoctorWindow();
             doctorWindow.Show();
-            this.Close();
         }
 
         private void PatientButtonClicked(object sender, RoutedEventArgs e)

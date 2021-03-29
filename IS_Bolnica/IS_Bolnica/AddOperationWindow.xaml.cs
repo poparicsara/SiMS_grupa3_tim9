@@ -30,6 +30,8 @@ namespace IS_Bolnica.DoctorsWindows
             switch (messageBox)
             {
                 case MessageBoxResult.Yes:
+                    DoctorWindow doctorWindow = new DoctorWindow();
+                    doctorWindow.Show();
                     this.Close();
                     break;
                 case MessageBoxResult.No:
