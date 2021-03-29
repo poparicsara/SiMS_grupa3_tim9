@@ -22,6 +22,6 @@
                 Upravnik
             </Button>
         </WrapPanel>
-        <Image x:Name="nasLogo" HorizontalAlignment="Left" Height="210" Margin="434,85,0,0" VerticalAlignment="Top" Width="229" Source="C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\naslogo.jpg" Grid.RowSpan="3"/>
+        <Image x:Name="nasLogo" HorizontalAlignment="Left" Height="210" Margin="434,85,0,0" VerticalAlignment="Top" Width="229" Source="naslogo.jpg" Grid.RowSpan="3"/>
     </Grid>
 </Window>
