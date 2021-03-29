@@ -10,11 +10,22 @@
         "name": "RADIOLOG"
       },
       "address": null,
-      "name": "Pera",
-      "surname": "Peric"
+      "Username": null,
+      "Password": null,
+      "Name": "Pera",
+      "Surname": "Peric",
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": 0,
+      "Email": null,
+      "Id": 0,
+      "UserType": 0
     },
     "secretary": null,
-    "Secretary": null
+    "Secretary": null,
+    "Date": "2021-02-23T15:30:00",
+    "Patient": null,
+    "NameSurname": null,
+    "RoomName": null
   },
   {
     "isPayed": true,
@@ -27,11 +38,22 @@
         "name": "KARDIOLOG"
       },
       "address": null,
-      "name": "Mika",
-      "surname": "Mikic"
+      "Username": null,
+      "Password": null,
+      "Name": "Mika",
+      "Surname": "Mikic",
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": 0,
+      "Email": null,
+      "Id": 0,
+      "UserType": 0
     },
     "secretary": null,
-    "Secretary": null
+    "Secretary": null,
+    "Date": "2021-03-02T09:00:00",
+    "Patient": null,
+    "NameSurname": null,
+    "RoomName": null
   },
   {
     "isPayed": false,
@@ -44,10 +66,47 @@
         "name": "PULMOLOG"
       },
       "address": null,
-      "name": "Zika",
-      "surname": "Zikic"
+      "Username": null,
+      "Password": null,
+      "Name": "Zika",
+      "Surname": "Zikic",
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": 0,
+      "Email": null,
+      "Id": 0,
+      "UserType": 0
     },
     "secretary": null,
-    "Secretary": null
+    "Secretary": null,
+    "Date": "2021-04-11T11:30:30",
+    "Patient": null,
+    "NameSurname": null,
+    "RoomName": null
+  },
+  {
+    "isPayed": false,
+    "evaluation": 0,
+    "durationInMinutes": 30,
+    "date": "2021-03-24T08:30:00",
+    "patient": null,
+    "doctor": {
+      "specialization": null,
+      "address": null,
+      "Username": null,
+      "Password": null,
+      "Name": "Pera",
+      "Surname": "Peric",
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": 0,
+      "Email": null,
+      "Id": 0,
+      "UserType": 0
+    },
+    "secretary": null,
+    "Secretary": null,
+    "Date": "2021-03-24T08:30:00",
+    "Patient": null,
+    "NameSurname": null,
+    "RoomName": null
   }
 ]
