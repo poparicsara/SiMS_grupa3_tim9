@@ -37,10 +37,12 @@ namespace IS_Bolnica
             InitializeComponent();
 
             DoktorBox.Text = pregledi.ElementAt(index).doctor.Name + " " + pregledi.ElementAt(index).doctor.Surname;
-            DateTime dat = new DateTime(Int32.Parse(datum[0]), Int32.Parse(datum[1]), Int32.Parse(datum[2]));
+            DateTime dat = new DateTime(Int32.Parse(datum[2]), Int32.Parse(datum[1]), Int32.Parse(datum[0]));
             DateBox.SelectedDate = dat;
             SatiBox.Text = vreme[0];
             MinutiBox.Text = vreme[1];
+
+            //MessageBox.Show(oznaceniDatum.ToString());
         }
 
         private void OdustaniButtonClicked(object sender, RoutedEventArgs e) {
