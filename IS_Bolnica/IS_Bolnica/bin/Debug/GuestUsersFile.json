@@ -1,0 +1,18 @@
+[
+  {
+    "SystemName": "xxx123",
+    "InjuryDescription": "Razbijane glava"
+  },
+  {
+    "SystemName": "yyy123",
+    "InjuryDescription": "Srcani udar"
+  },
+  {
+    "SystemName": "xyz45",
+    "InjuryDescription": "Otvoreni prelom ruke"
+  },
+  {
+    "SystemName": "abcd45",
+    "InjuryDescription": "Fraktura lobanje"
+  }
+]

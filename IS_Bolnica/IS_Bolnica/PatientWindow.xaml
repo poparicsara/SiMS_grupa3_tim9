@@ -30,8 +30,8 @@
             </DataGrid.Resources>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Datum i vreme" Binding="{ Binding date }" />
-                <DataGridTextColumn Header="Ime" Binding="{ Binding doctor.name}" />
-                <DataGridTextColumn Header="Prezime" Binding="{ Binding doctor.surname}" />
+                <DataGridTextColumn Header="Ime" Binding="{ Binding doctor.Name}" />
+                <DataGridTextColumn Header="Prezime" Binding="{ Binding doctor.Surname}" />
                 <DataGridTextColumn Header="Trajanje(min)" Binding="{ Binding durationInMinutes}" />
             </DataGrid.Columns>
 

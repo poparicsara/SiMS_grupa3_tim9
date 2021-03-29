@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\
+C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\
 IS_Bolnica
 none
 false
 DEBUG;TRACE
-C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\App.xaml
-14-1136153833
+C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\App.xaml
+181913990399
 
-43536844229
-141323765998
-AddExaminationWindow.xaml;AddOperationWindow.xaml;DoctorWindow.xaml;EditWindow.xaml;InventoryWindow.xaml;Izmena pregleda.xaml;MainWindow.xaml;NewInventory.xaml;NewRoomWindow.xaml;PatientWindow.xaml;UpdateExaminationWindow.xaml;UpdateOperationWindow.xaml;UpravnikWindow.xaml;Zakazivanje pregleda.xaml;
+491100968557
+14-764270122
+AddExaminationWindow.xaml;AddOperationWindow.xaml;DoctorWindow.xaml;EditWindow.xaml;InventoryWindow.xaml;Izmena pregleda.xaml;MainWindow.xaml;NewInventory.xaml;NewRoomWindow.xaml;PatientWindow.xaml;Secretary\AddPatient.xaml;Secretary\EditPatient.xaml;Secretary\GuestUserAccount.xaml;SekretarWindow.xaml;UpdateExaminationWindow.xaml;UpdateOperationWindow.xaml;UpravnikWindow.xaml;Zakazivanje pregleda.xaml;
 
 True
 

@@ -15,7 +15,7 @@
             <Button x:Name="lekar" Height="49" Width="250" FontSize="20" FontWeight="Bold" Background="#FF15285D" FontFamily="Ebrima" Click="doctorButtonClicked" Foreground="White" BorderBrush="White">
                 Lekar
             </Button>
-            <Button x:Name="sekretar" Height="49" Width="250" FontSize="20" FontWeight="Bold" Background="#FF15285D" FontFamily="Ebrima" Foreground="White" BorderBrush="White">
+            <Button x:Name="sekretar" Height="49" Width="250" FontSize="20" FontWeight="Bold" Background="#FF15285D" FontFamily="Ebrima" Foreground="White" BorderBrush="White" Click="ButtonSekretarCLicked" >
                 Sekretar
             </Button>
             <Button x:Name="upravnik" Height="49" Width="250" FontSize="20" FontWeight="Bold" Background="#FF15285D" Click="ButtonUpravnikClicked" FontFamily="Ebrima" Foreground="White" BorderBrush="White">

@@ -30,5 +30,12 @@ namespace IS_Bolnica
             pw.Show(); 
             
         }
+
+        private void ButtonSekretarCLicked(object sender, RoutedEventArgs e)
+        {
+            SekretarWindow sw = new SekretarWindow();
+            sw.Show();
+
+        }
     }
 }
