@@ -58,45 +58,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddExaminationWindow.xaml.cs" />
-    <Compile Include="AddOperationWindow.xaml.cs" />
-    <Compile Include="DoctorWindow.xaml.cs" />
-    <Compile Include="EditWindow.xaml.cs">
-      <DependentUpon>EditWindow.xaml</DependentUpon>
+    <Compile Include="Izmena pregleda.xaml.cs">
+      <DependentUpon>Izmena pregleda.xaml</DependentUpon>
     </Compile>
-    <Compile Include="InventoryWindow.xaml.cs">
-      <DependentUpon>InventoryWindow.xaml</DependentUpon>
+    <Compile Include="PatientWindow.xaml.cs">
+      <DependentUpon>PatientWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\HospitalWard.cs" />
-    <Compile Include="Model\HospitalWardFileStorage.cs" />
-    <Compile Include="NewInventory.xaml.cs">
-      <DependentUpon>NewInventory.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="NewRoomWindow.xaml.cs">
-      <DependentUpon>NewRoomWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UpdateExaminationWindow.xaml.cs" />
-    <Compile Include="UpdateOperationWindow.xaml.cs" />
     <Compile Include="UpravnikWindow.xaml.cs">
       <DependentUpon>UpravnikWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="AddExaminationWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="AddOperationWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="DoctorWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="EditWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="InventoryWindow.xaml">
+    <Compile Include="Zakazivanje pregleda.xaml.cs">
+      <DependentUpon>Zakazivanje pregleda.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Izmena pregleda.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -112,23 +86,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="NewInventory.xaml">
+    <Page Include="PatientWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="NewRoomWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UpdateExaminationWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UpdateOperationWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="UpravnikWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Zakazivanje pregleda.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -183,9 +149,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="nasLogo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

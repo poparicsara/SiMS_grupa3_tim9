@@ -1,0 +1,53 @@
+[
+  {
+    "isPayed": false,
+    "evaluation": 0,
+    "durationInMinutes": 56,
+    "date": "2021-02-23T15:30:00",
+    "patient": null,
+    "doctor": {
+      "specialization": {
+        "name": "RADIOLOG"
+      },
+      "address": null,
+      "name": "Pera",
+      "surname": "Peric"
+    },
+    "secretary": null,
+    "Secretary": null
+  },
+  {
+    "isPayed": true,
+    "evaluation": 2,
+    "durationInMinutes": 26,
+    "date": "2021-03-02T09:00:00",
+    "patient": null,
+    "doctor": {
+      "specialization": {
+        "name": "KARDIOLOG"
+      },
+      "address": null,
+      "name": "Mika",
+      "surname": "Mikic"
+    },
+    "secretary": null,
+    "Secretary": null
+  },
+  {
+    "isPayed": false,
+    "evaluation": 3,
+    "durationInMinutes": 30,
+    "date": "2021-04-11T11:30:30",
+    "patient": null,
+    "doctor": {
+      "specialization": {
+        "name": "PULMOLOG"
+      },
+      "address": null,
+      "name": "Zika",
+      "surname": "Zikic"
+    },
+    "secretary": null,
+    "Secretary": null
+  }
+]

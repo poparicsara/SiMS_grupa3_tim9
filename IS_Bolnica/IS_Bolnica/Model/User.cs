@@ -6,8 +6,8 @@ namespace Model
     {
         private String username;
         private String password;
-        private String name;
-        private String surname;
+        public String name { get; set; }
+        public String surname { get; set; }
         private DateTime dateOfBirth;
         private int phone;
         private int id;

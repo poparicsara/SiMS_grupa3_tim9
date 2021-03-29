@@ -7,6 +7,7 @@ namespace Model
 {
     public class ExaminationsRecordFileStorage
     {
+        
         public List<Examination> GetAll()
         {
             throw new NotImplementedException();

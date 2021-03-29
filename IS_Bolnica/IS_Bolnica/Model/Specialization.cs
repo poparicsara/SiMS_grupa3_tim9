@@ -4,7 +4,7 @@ namespace Model
 {
     public class Specialization
     {
-        private String name;
+        public String name;
 
     }
 }

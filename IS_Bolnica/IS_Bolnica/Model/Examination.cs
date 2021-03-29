@@ -1,19 +1,14 @@
 using System;
-using System.ComponentModel;
 
 namespace Model
 {
-    public class Examination : INotifyPropertyChanged
+    public class Examination
     {
-        private Boolean isPayed = false;
-        private Evaluation evaluation;
-        private int durationInMinutes;
-        private DateTime date;
-        private Patient patient;
-        private Doctor doctor;
-        private Secretary secretary;
+        public Boolean isPayed  { get; set; }
+        public Evaluation evaluation { get; set; }
+        public int durationInMinutes { get; set; }
 
-        public Boolean Paying()
+    public Boolean Paying()
         {
             throw new NotImplementedException();
         }
@@ -28,38 +23,15 @@ namespace Model
             throw new NotImplementedException();
         }
 
-        public DateTime Date
-        {
-            get
-            {
-                return date;
-            }
-            set
-            {
-                if (value != date)
-                {
-                    date = value;
-                    OnPropertyChanged("Date");
-                }
-            }
-        }
+        public DateTime date { get; set; }
+        public Patient patient { get; set; }
+        public Doctor doctor { get; set; }
+        public Secretary secretary { get; set; }
 
-        public Patient Patient
-        {
-            get
-            {
-                return patient;
-            }
-            set
-            {
-                if (value != patient)
-                {
-                    patient = value;
-                    OnPropertyChanged("Patient");
-                }
-            }
-        }
-
+        /// <summary>
+        /// Property for Secretary
+        /// </summary>
+        /// <pdGenerated>Default opposite class property</pdGenerated>
         public Secretary Secretary
         {
             get
@@ -70,27 +42,6 @@ namespace Model
             {
                 this.secretary = value;
             }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged(string name)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
-            }
-        }
-
-        public String NameSurname
-        {
-            get;
-            set;
-        }
-
-        public String RoomName
-        {
-            get;
-            set;
         }
 
     }
