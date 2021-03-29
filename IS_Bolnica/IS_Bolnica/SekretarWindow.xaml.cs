@@ -69,25 +69,34 @@ namespace IS_Bolnica
 
         private void editPatient(object sender, RoutedEventArgs e)
         {
+            int i = -1;
+            i = PatientList.SelectedIndex;
 
-            int i = PatientList.SelectedIndex;
-            Secretary.EditPatient ep = new Secretary.EditPatient(i);
+            if (i == -1)
+            {
+                MessageBox.Show("You didn't choose patient which you want to edit!");
+            }
+            else
+            {
 
-            ObservableCollection<Patient> pacijenti = new ObservableCollection<Patient>();
-            PatientRecordFileStorage storage = new PatientRecordFileStorage();
-            pacijenti = storage.loadFromFile("PatientRecordFileStorage.json");
+                Secretary.EditPatient ep = new Secretary.EditPatient(i);
 
-            ep.name.Text = pacijenti[i].Name;
-            ep.surname.Text = pacijenti[i].Surname;
-            ep.username.Text = pacijenti[i].Username;
-            ep.dateOfBirth.DisplayDate = pacijenti[i].DateOfBirth;
-            ep.iniciallyPassword.Text = pacijenti[i].Password;
-            ep.id.Text = pacijenti[i].Id.ToString();
-            ep.phone.Text = pacijenti[i].Phone.ToString();
-            ep.email.Text = pacijenti[i].Email;
+                ObservableCollection<Patient> pacijenti = new ObservableCollection<Patient>();
+                PatientRecordFileStorage storage = new PatientRecordFileStorage();
+                pacijenti = storage.loadFromFile("PatientRecordFileStorage.json");
 
-            ep.Show();
-            this.Close();
+                ep.name.Text = pacijenti[i].Name;
+                ep.surname.Text = pacijenti[i].Surname;
+                ep.username.Text = pacijenti[i].Username;
+                ep.dateOfBirth.DisplayDate = pacijenti[i].DateOfBirth;
+                ep.iniciallyPassword.Text = pacijenti[i].Password;
+                ep.id.Text = pacijenti[i].Id.ToString();
+                ep.phone.Text = pacijenti[i].Phone.ToString();
+                ep.email.Text = pacijenti[i].Email;
+
+                ep.Show();
+                this.Close();
+            }
         }
 
         private void createGuestAccount(object sender, RoutedEventArgs e)
@@ -99,36 +108,66 @@ namespace IS_Bolnica
 
         private void deletePatient(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Da li stvarno želite da obrišete pacijenta?", "Brisanje pacijenta", MessageBoxButton.YesNo);
-            switch (result)
+            int i = -1;
+            i = PatientList.SelectedIndex;
+
+            if (i == -1)
             {
-                case MessageBoxResult.Yes:
-                    int i = PatientList.SelectedIndex;
-                    Pacijenti = storage.loadFromFile("PatientRecordFileStorage.json");
-                    Pacijenti.Remove(Pacijenti[i]);
-                    storage.saveToFile(Pacijenti, "PatientRecordFileStorage.json");
-                    
-                    break;
-                case MessageBoxResult.No:
-                    break;
+                MessageBox.Show("You didn't choose patient which you want to delete!");
+            }
+            else
+            {
+
+                MessageBoxResult result = MessageBox.Show("Da li stvarno želite da obrišete pacijenta?", "Brisanje pacijenta", MessageBoxButton.YesNo);
+                switch (result)
+                {
+                    case MessageBoxResult.Yes:
+                        Pacijenti = storage.loadFromFile("PatientRecordFileStorage.json");
+                        Pacijenti.Remove(Pacijenti[i]);
+                        storage.saveToFile(Pacijenti, "PatientRecordFileStorage.json");
+
+                        SekretarWindow sw = new SekretarWindow();
+
+                        sw.Show();
+                        this.Close();
+
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                }
             }
         }
 
         private void deleteGuestAccount(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Da li stvarno želite da obrišete nalog?", "Brisanje pacijenta", MessageBoxButton.YesNo);
-            switch (result)
-            {
-                case MessageBoxResult.Yes:
-                    int i = GuestUsers.SelectedIndex;
-                    GuestKorisnici = storage1.loadFromFile("GuestUsersFile.json");
-                    GuestKorisnici.Remove(GuestKorisnici[i]);
-                    storage1.saveToFile(GuestKorisnici, "GuestUsersFile.json");
-                    //GuestUsers.Items.Refresh();
 
-                    break;
-                case MessageBoxResult.No:
-                    break;
+            int i = -1;
+            i = GuestUsers.SelectedIndex;
+
+            if (i == -1)
+            {
+                MessageBox.Show("You didn't choose account which you want to delete!");
+            }
+            else
+            {
+                MessageBoxResult result = MessageBox.Show("Da li stvarno želite da obrišete nalog?", "Brisanje pacijenta", MessageBoxButton.YesNo);
+                switch (result)
+                {
+                    case MessageBoxResult.Yes:
+                        GuestKorisnici = storage1.loadFromFile("GuestUsersFile.json");
+                        GuestKorisnici.Remove(GuestKorisnici[i]);
+                        storage1.saveToFile(GuestKorisnici, "GuestUsersFile.json");
+
+                        SekretarWindow sw = new SekretarWindow();
+
+                        sw.Show();
+                        this.Close();
+
+
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                }
             }
         }
     }
