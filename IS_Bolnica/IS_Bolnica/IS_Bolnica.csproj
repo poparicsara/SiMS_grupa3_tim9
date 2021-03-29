@@ -58,41 +58,28 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DoctorsWindows\AddExaminationWindow.xaml.cs">
-      <DependentUpon>AddExaminationWindow.xaml</DependentUpon>
+    <Compile Include="EditWindow.xaml.cs">
+      <DependentUpon>EditWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DoctorsWindows\AddOperationWindow.xaml.cs">
-      <DependentUpon>AddOperationWindow.xaml</DependentUpon>
+    <Compile Include="InventoryWindow.xaml.cs">
+      <DependentUpon>InventoryWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DoctorsWindows\DoctorWindow.xaml.cs">
-      <DependentUpon>DoctorWindow.xaml</DependentUpon>
+    <Compile Include="Model\HospitalWard.cs" />
+    <Compile Include="Model\HospitalWardFileStorage.cs" />
+    <Compile Include="NewInventory.xaml.cs">
+      <DependentUpon>NewInventory.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DoctorsWindows\UpdateExaminationWindow.xaml.cs">
-      <DependentUpon>UpdateExaminationWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DoctorsWindows\UpdateOperationWindow.xaml.cs">
-      <DependentUpon>UpdateOperationWindow.xaml</DependentUpon>
+    <Compile Include="NewRoomWindow.xaml.cs">
+      <DependentUpon>NewRoomWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="UpravnikWindow.xaml.cs">
       <DependentUpon>UpravnikWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="DoctorsWindows\AddExaminationWindow.xaml">
+    <Page Include="EditWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DoctorsWindows\AddOperationWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="DoctorsWindows\DoctorWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="DoctorsWindows\UpdateExaminationWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="DoctorsWindows\UpdateOperationWindow.xaml">
+    <Page Include="InventoryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -108,6 +95,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="NewInventory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NewRoomWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UpravnikWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -165,7 +160,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Images\" />
+    <Resource Include="nasLogo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,9 +4,8 @@ namespace Model
 {
     public class RoomRecord
     {
-        private String id;
-        private String note;
-        private RoomPurpose roomPurpose;
+        public String Id { get; set; }
+        public String HospitalWard { get; set; }
 
         public void AddRoom(String id, RoomPurpose purpose)
         {
@@ -23,9 +22,9 @@ namespace Model
             throw new NotImplementedException();
         }
 
-        public System.Collections.Generic.List<Inventory> inventory;
+        //public System.Collections.Generic.List<Inventory> inventory;
 
-        public System.Collections.Generic.List<Inventory> Inventory
+       /* public System.Collections.Generic.List<Inventory> Inventory
         {
             get
             {
@@ -67,17 +66,8 @@ namespace Model
         {
             if (inventory != null)
                 inventory.Clear();
-        }
-        public String Id
-        {
-            get;
-            set;
-        }
-        public RoomPurpose RoomPurpose
-        {
-            get;
-            set;
-        }
+        }*/
+        public RoomPurpose roomPurpose { get; set; }
 
     }
 }

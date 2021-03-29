@@ -4,10 +4,10 @@ namespace Model
 {
     public class Inventory
     {
-        private String name;
-        private int currentAmount;
-        private int minimum;
-        private String id;
+        public String Name { get; set; }
+        public int CurrentAmount { get; set; }
+        public int Minimum { get; set; }
+        public String Id { get; set; }
 
         public void DeleteInventory(String id)
         {

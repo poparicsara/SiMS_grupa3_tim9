@@ -1,22 +1,37 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 
 namespace Model
 {
     public class RoomRecordFileStorage
     {
-        public List<RoomRecord> GetAll()
+        private string fileName;
+        private List<RoomRecord> rooms;
+
+        public RoomRecordFileStorage()
         {
-            throw new NotImplementedException();
+           
         }
 
-        public void saveToFile(List<Examination> rooms, string fileName)
+        public List<RoomRecord> GetAll()
+        {
+            return rooms;
+        }
+
+        public void Save(RoomRecord newRoom)
+        {
+            rooms.Add(newRoom);
+        }
+
+        public void saveToFile(List<RoomRecord> rooms, string fileName)
         {
             string jsonString = JsonConvert.SerializeObject(rooms, Formatting.Indented);
             File.WriteAllText(fileName, jsonString);
         }
+
         public List<RoomRecord> loadFromFile(string fileName)
         {
             var roomList = new List<RoomRecord>();
@@ -30,5 +45,5 @@ namespace Model
             return roomList;
         }
 
-    }
+    }  
 }

@@ -1,0 +1,21 @@
+﻿<Window x:Class="IS_Bolnica.EditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IS_Bolnica"
+        mc:Ignorable="d"
+        Title="EditWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="Broj sobe:" HorizontalAlignment="Left" Margin="59,49,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.684,1.986" Width="109" FontWeight="Bold"/>
+        <Label Content="Bolničko odeljenje:" HorizontalAlignment="Left" Margin="59,114,0,0" VerticalAlignment="Top" Width="119" RenderTransformOrigin="0.844,0.528" FontWeight="Bold"/>
+        <Label Content="Namena:" HorizontalAlignment="Left" Margin="59,172,0,0" VerticalAlignment="Top" Width="109" RenderTransformOrigin="3.673,3.075" FontWeight="Bold"/>
+        <TextBox x:Name="roomBox" HorizontalAlignment="Left" Height="23" Margin="240,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="wardBox" HorizontalAlignment="Left" Height="23" Margin="240,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="purposeBox" HorizontalAlignment="Left" Height="23" Margin="240,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Content="POTVRDI" HorizontalAlignment="Left" Margin="505,308,0,0" VerticalAlignment="Top" Width="92" Height="24" Background="#FF15285D" Foreground="White" Click="DoneButton" FontWeight="Bold"/>
+        <Button Content="Lista inventara" HorizontalAlignment="Left" Margin="59,246,0,0" VerticalAlignment="Top" Width="109" Height="24" Background="#FFA5BC90" Click="ShowInventoryClicked" FontWeight="Bold"/>
+        <Button Content="ODUSTANI" HorizontalAlignment="Left" Margin="374,308,0,0" VerticalAlignment="Top" Width="92" Height="24" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="CancelButton" />
+
+    </Grid>
+</Window>
