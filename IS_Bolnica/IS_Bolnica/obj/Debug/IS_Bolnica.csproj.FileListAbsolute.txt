@@ -59,3 +59,21 @@ C:\Users\vrbic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug
 C:\Users\vrbic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Zakazivanje pregleda.baml
 C:\Users\vrbic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Izmena pregleda.g.cs
 C:\Users\vrbic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Izmena pregleda.baml
+C:\Users\vrbic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorWindow.g.cs
+C:\Users\vrbic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\EditWindow.g.cs
+C:\Users\vrbic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\InventoryWindow.g.cs
+C:\Users\vrbic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\NewInventory.g.cs
+C:\Users\vrbic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\NewRoomWindow.g.cs
+C:\Users\vrbic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\AddExaminationWindow.g.cs
+C:\Users\vrbic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\AddOperationWindow.g.cs
+C:\Users\vrbic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\UpdateExaminationWindow.g.cs
+C:\Users\vrbic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\UpdateOperationWindow.g.cs
+C:\Users\vrbic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorWindow.baml
+C:\Users\vrbic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\EditWindow.baml
+C:\Users\vrbic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\InventoryWindow.baml
+C:\Users\vrbic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\NewInventory.baml
+C:\Users\vrbic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\NewRoomWindow.baml
+C:\Users\vrbic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\AddExaminationWindow.baml
+C:\Users\vrbic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\AddOperationWindow.baml
+C:\Users\vrbic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\UpdateExaminationWindow.baml
+C:\Users\vrbic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\UpdateOperationWindow.baml

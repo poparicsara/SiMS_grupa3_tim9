@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 
 namespace Model
 {
@@ -44,5 +45,61 @@ namespace Model
             }
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
+        public DateTime Date
+        {
+            get
+            {
+                return date;
+            }
+            set
+            {
+                if (value != date)
+                {
+                    date = value;
+                    OnPropertyChanged("Date");
+                }
+            }
+        }
+
+        public Patient Patient
+        {
+            get
+            {
+                return patient;
+            }
+            set
+            {
+                if (value != patient)
+                {
+                    patient = value;
+                    OnPropertyChanged("Patient");
+                }
+            }
+        }
+
+
+        public String NameSurname
+        {
+            get;
+            set;
+        }
+
+        public String RoomName
+        {
+            get;
+            set;
+        }
+
     }
+
+
 }
