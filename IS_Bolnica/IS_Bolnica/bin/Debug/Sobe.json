@@ -1,28 +1,35 @@
 [
   {
-    "Id": "101",
-    "HospitalWard": "Ortopedija",
+    "Id": "2",
+    "HospitalWard": "Urologija",
     "roomPurpose": {
-      "Name": "Soba"
+      "Name": "Operaciona sala"
     }
   },
   {
-    "Id": "205",
-    "HospitalWard": "Neurologija",
+    "Id": "202",
+    "HospitalWard": "Pedijatrija",
+    "roomPurpose": {
+      "Name": "Operaciona sala"
+    }
+  },
+  {
+    "Id": "788",
+    "HospitalWard": "Pedijatrija",
     "roomPurpose": {
       "Name": "Ordinacija"
     }
   },
   {
-    "Id": "109",
-    "HospitalWard": "Dermatologija",
+    "Id": "9999",
+    "HospitalWard": "Pedijatrija",
     "roomPurpose": {
       "Name": "Ordinacija"
     }
   },
   {
-    "Id": "3061",
-    "HospitalWard": "Ortopedija ",
+    "Id": "1",
+    "HospitalWard": "Urologija",
     "roomPurpose": {
       "Name": "Operaciona sala"
     }
