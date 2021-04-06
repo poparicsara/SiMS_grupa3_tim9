@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using Model;
+using IS_Bolnica.Model;
 
 namespace IS_Bolnica
 {
@@ -15,7 +16,7 @@ namespace IS_Bolnica
         private Patient pacijent;
         private GuestUser guestKorisnik;
 
-        public ObservableCollection<Patient> Pacijenti {
+        public ObservableCollection<User> Pacijenti {
             get; set;
         }
 
@@ -31,7 +32,7 @@ namespace IS_Bolnica
             InitializeComponent();
             this.DataContext = this;
 
-            Pacijenti = new ObservableCollection<Patient>();
+            Pacijenti = new ObservableCollection<User>();
             Pacijenti = storage.loadFromFile("PatientRecordFileStorage.json");
 
             guestKorisnik = new GuestUser
@@ -71,6 +72,7 @@ namespace IS_Bolnica
         {
             int i = -1;
             i = PatientList.SelectedIndex;
+            int k = -1;
 
             if (i == -1)
             {
@@ -78,12 +80,17 @@ namespace IS_Bolnica
             }
             else
             {
+                ObservableCollection<User> korisnici = new ObservableCollection<User>();
+                UsersFileStorage storage1 = new UsersFileStorage();
+                korisnici = storage1.loadFromFile("UsersFileStorage.json");
+
+                ObservableCollection<User> pacijenti = new ObservableCollection<User>();
+                PatientRecordFileStorage storage = new PatientRecordFileStorage();
+                pacijenti = storage.loadFromFile("PatientRecordFileStorage.json");
+
 
                 Secretary.EditPatient ep = new Secretary.EditPatient(i);
 
-                ObservableCollection<Patient> pacijenti = new ObservableCollection<Patient>();
-                PatientRecordFileStorage storage = new PatientRecordFileStorage();
-                pacijenti = storage.loadFromFile("PatientRecordFileStorage.json");
 
                 ep.name.Text = pacijenti[i].Name;
                 ep.surname.Text = pacijenti[i].Surname;
