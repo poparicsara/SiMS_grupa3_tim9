@@ -14,26 +14,26 @@ namespace Model
             throw new NotImplementedException();
         }
 
-        public void saveToFile(ObservableCollection<Patient> patients, string fileName)
+        public void saveToFile(ObservableCollection<User> patients, string fileName)
         {
             string jsonString = JsonConvert.SerializeObject(patients, Formatting.Indented);
             File.WriteAllText(fileName, jsonString);
         }
 
-        public void saveToFileObject(Patient patient, string fileName)
+        public void saveToFileObject(User patient, string fileName)
         {
             string jsonString = JsonConvert.SerializeObject(patient, Formatting.Indented);
             File.WriteAllText(fileName, jsonString);
         }
 
-        public ObservableCollection<Patient> loadFromFile(string fileName)
+        public ObservableCollection<User> loadFromFile(string fileName)
         {
-            var patientsList = new ObservableCollection<Patient>();
+            var patientsList = new ObservableCollection<User>();
 
             using (StreamReader file = File.OpenText(fileName))
             {
                 var serializer = new JsonSerializer();
-                patientsList = (ObservableCollection<Patient>)serializer.Deserialize(file, typeof(ObservableCollection<Patient>));
+                patientsList = (ObservableCollection<User>)serializer.Deserialize(file, typeof(ObservableCollection<User>));
             }
 
             return patientsList;

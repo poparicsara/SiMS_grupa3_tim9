@@ -2,6 +2,7 @@
 using System;
 using System.Windows;
 using System.Collections.ObjectModel;
+using IS_Bolnica.Model;
 
 namespace IS_Bolnica.Secretary
 {
@@ -9,6 +10,7 @@ namespace IS_Bolnica.Secretary
     {
         private Patient patient = new Patient();
         private PatientRecordFileStorage storage = new PatientRecordFileStorage();
+        private UsersFileStorage storage1 = new UsersFileStorage();
         public AddPatient()
         {
             InitializeComponent();
@@ -32,10 +34,15 @@ namespace IS_Bolnica.Secretary
             patient.Username = username.Text;
             patient.UserType = UserType.patient;
 
-            ObservableCollection<Patient> pacijenti = new ObservableCollection<Patient>();
+            ObservableCollection<User> pacijenti = new ObservableCollection<User>();
             pacijenti = storage.loadFromFile("PatientRecordFileStorage.json");
             pacijenti.Add(patient);
             storage.saveToFile(pacijenti, "PatientRecordFileStorage.json");
+
+            ObservableCollection<User> korisnici = new ObservableCollection<User>();
+            korisnici = storage1.loadFromFile("UsersFileStorage.json");
+            korisnici.Add(patient);
+            storage1.saveToFile(korisnici, "UsersFileStorage.json");
 
             SekretarWindow sw = new SekretarWindow();
             sw.Show();

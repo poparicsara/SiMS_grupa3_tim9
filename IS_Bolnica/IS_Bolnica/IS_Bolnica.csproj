@@ -77,6 +77,7 @@
       <DependentUpon>Izmena pregleda.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\GuestUsersFileStorage.cs" />
+    <Compile Include="Model\UsersFileStorage.cs" />
     <Compile Include="Model\UserType.cs" />
     <Compile Include="NewInventory.xaml.cs">
       <DependentUpon>NewInventory.xaml</DependentUpon>

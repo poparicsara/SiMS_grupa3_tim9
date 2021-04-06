@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
 using Model;
+using IS_Bolnica.Model;
 
 namespace IS_Bolnica.Secretary
 {
@@ -35,10 +36,13 @@ namespace IS_Bolnica.Secretary
 
         private void editPatient(object sender, RoutedEventArgs e)
         {
-            ObservableCollection<Patient> pacijenti = new ObservableCollection<Patient>();
+            ObservableCollection<User> pacijenti = new ObservableCollection<User>();
             PatientRecordFileStorage storage = new PatientRecordFileStorage();
+            ObservableCollection<User> korisnici = new ObservableCollection<User>();
+            UsersFileStorage storage1 = new UsersFileStorage();
 
             pacijenti = storage.loadFromFile("PatientRecordFileStorage.json");
+            korisnici = storage1.loadFromFile("UsersFileStorage.json");
 
             pacijenti[index].Email = email.Text;
             pacijenti[index].DateOfBirth = dateOfBirth.DisplayDate;
@@ -50,7 +54,27 @@ namespace IS_Bolnica.Secretary
             pacijenti[index].Username = username.Text;
             pacijenti[index].UserType = UserType.patient;
 
+            foreach (User korisnik in korisnici)
+            {
+                foreach (User pacijent in pacijenti)
+                {
+                    if (korisnik.Id.Equals(pacijent.Id))
+                    {
+                        korisnik.Email = email.Text;
+                        korisnik.DateOfBirth = dateOfBirth.DisplayDate;
+                        korisnik.Name = name.Text;
+                        korisnik.Id = (int)Int64.Parse(id.Text);
+                        korisnik.Password = iniciallyPassword.Text;
+                        korisnik.Phone = (int)Int64.Parse(phone.Text);
+                        korisnik.Surname = surname.Text;
+                        korisnik.Username = username.Text;
+                        korisnik.UserType = UserType.patient;
+                    }
+                }
+            }
+
             storage.saveToFile(pacijenti, "PatientRecordFileStorage.json");
+            storage1.saveToFile(korisnici, "UsersFileStorage.json");
 
             SekretarWindow sw = new SekretarWindow();
             sw.Show();
