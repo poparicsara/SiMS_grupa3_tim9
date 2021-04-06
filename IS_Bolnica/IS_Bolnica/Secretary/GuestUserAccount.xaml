@@ -1,0 +1,18 @@
+﻿<Window x:Class="IS_Bolnica.Secretary.GuestUserAccount"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IS_Bolnica.Secretary"
+        mc:Ignorable="d"
+        Title="Kreiranje guest naloga" Height="310" Width="330" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="Sistemsko ime:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,50,0,0" Width="99"/>
+        <Label Content="Opis povrede:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,100,0,0" Width="99"/>
+        <TextBox x:Name="systemName" HorizontalAlignment="Left" Height="23" Margin="133,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
+        <TextBox x:Name="injury" HorizontalAlignment="Left" Height="102" Margin="133,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
+        <Button Content="Odustani" HorizontalAlignment="Left" Margin="133,239,0,0" VerticalAlignment="Top" Width="75" Click="cancelGuest"/>
+        <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="228,239,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.393,0.417" Click="addGuestAccount" />
+
+    </Grid>
+</Window>
