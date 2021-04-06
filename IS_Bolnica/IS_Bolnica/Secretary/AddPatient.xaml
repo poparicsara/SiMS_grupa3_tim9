@@ -17,7 +17,7 @@
         <Label Content="Telefon:" HorizontalAlignment="Left" Margin="40,271,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="25"/>
         <Label Content="Popunite formu za registraciju pacijenta:" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" Margin="40,28,0,0" VerticalAlignment="Top" Width="362"/>
         <DatePicker x:Name="dateOfBirth" HorizontalAlignment="Left" Margin="220,211,0,0" VerticalAlignment="Top" Width="182" Height="27"/>
-        <TextBox x:Name="username" Text="{Binding Path=Username}" HorizontalAlignment="Left" Height="23" Margin="220,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
+        <TextBox x:Name="username" HorizontalAlignment="Left" Height="23" Margin="220,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
         <TextBox x:Name="iniciallyPassword" HorizontalAlignment="Left" Height="23" Margin="220,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
         <TextBox x:Name="name" HorizontalAlignment="Left" Height="23" Margin="220,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
         <TextBox x:Name="surname" HorizontalAlignment="Left" Height="23" Margin="220,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>

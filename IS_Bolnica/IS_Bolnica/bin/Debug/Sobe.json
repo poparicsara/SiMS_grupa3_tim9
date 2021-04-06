@@ -21,17 +21,10 @@
     }
   },
   {
-    "Id": "9999",
+    "Id": "0",
     "HospitalWard": "Pedijatrija",
     "roomPurpose": {
       "Name": "Ordinacija"
-    }
-  },
-  {
-    "Id": "1",
-    "HospitalWard": "Urologija",
-    "roomPurpose": {
-      "Name": "Operaciona sala"
     }
   }
 ]
