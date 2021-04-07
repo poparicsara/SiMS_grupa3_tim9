@@ -72,7 +72,6 @@ namespace IS_Bolnica
         {
             int i = -1;
             i = PatientList.SelectedIndex;
-            int k = -1;
 
             if (i == -1)
             {
@@ -86,6 +85,7 @@ namespace IS_Bolnica
 
                 ObservableCollection<User> pacijenti = new ObservableCollection<User>();
                 PatientRecordFileStorage storage = new PatientRecordFileStorage();
+
                 pacijenti = storage.loadFromFile("PatientRecordFileStorage.json");
 
 
