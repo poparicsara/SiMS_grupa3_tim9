@@ -88,6 +88,9 @@
     <Compile Include="PatientWindow.xaml.cs">
       <DependentUpon>PatientWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Secretary\ActionBarWindow.xaml.cs">
+      <DependentUpon>ActionBarWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Secretary\AddPatient.xaml.cs">
       <DependentUpon>AddPatient.xaml</DependentUpon>
     </Compile>
@@ -159,6 +162,10 @@
     <Page Include="PatientWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Secretary\ActionBarWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Secretary\AddPatient.xaml">
       <SubType>Designer</SubType>

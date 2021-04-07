@@ -177,5 +177,10 @@ namespace IS_Bolnica
                 }
             }
         }
+
+        private void ActionBarOpen(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

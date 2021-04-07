@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Bolnica.Secretary"
         mc:Ignorable="d"
-        Title="Kreiranje guest naloga" Height="310" Width="330" WindowStartupLocation="CenterScreen">
+        Title="Kreiranje guest naloga" Height="750" Width="430" WindowStartupLocation="CenterScreen">
     <Grid>
         <Label Content="Sistemsko ime:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,50,0,0" Width="99"/>
         <Label Content="Opis povrede:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,100,0,0" Width="99"/>
