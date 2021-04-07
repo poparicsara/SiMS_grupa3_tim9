@@ -1,20 +1,20 @@
 [
   {
     "address": null,
-    "Username": "maja.lauda",
-    "Password": "jbaefdnej",
+    "Username": "Vladimir",
+    "Password": "ftn",
     "Name": "Maja",
     "Surname": "Mirković",
     "DateOfBirth": "1999-08-01T00:00:00",
     "Phone": 65879463,
     "Email": "majamirkovic@gmail.com",
     "Id": 1756265852,
-    "UserType": 1
+    "UserType": 0
   },
   {
     "address": null,
-    "Username": "mara",
-    "Password": "ndoejwp",
+    "Username": "Marija",
+    "Password": "ftn",
     "Name": "Marija",
     "Surname": "Marić",
     "DateOfBirth": "1979-11-01T00:00:00",
@@ -25,26 +25,26 @@
   },
   {
     "address": null,
-    "Username": "micam",
-    "Password": "pweebfhe",
+    "Username": "Nina",
+    "Password": "ftn",
     "Name": "Milica",
     "Surname": "Milović",
     "DateOfBirth": "2021-03-29T00:00:00+02:00",
     "Phone": 62226648,
     "Email": "milovicmica@gmail.com",
     "Id": 11111,
-    "UserType": 1
+    "UserType": 2
   },
   {
     "address": null,
-    "Username": "nina",
-    "Password": "kjasbd4",
-    "Name": "Nikolina",
-    "Surname": "Pavkovic",
-    "DateOfBirth": "2000-02-01T00:00:00",
-    "Phone": 658886407,
-    "Email": "pavkovicn@hotmail.com",
-    "Id": -1237738532,
-    "UserType": 1
+    "Username": "Sara",
+    "Password": "ftn",
+    "Name": "sdf",
+    "Surname": "Milović",
+    "DateOfBirth": "2021-03-29T00:00:00+02:00",
+    "Phone": 62226648,
+    "Email": "milovicmica@gmail.com",
+    "Id": 11111,
+    "UserType": 3
   }
 ]

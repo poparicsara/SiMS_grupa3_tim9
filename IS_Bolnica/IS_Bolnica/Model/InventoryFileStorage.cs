@@ -1,10 +1,12 @@
+
+
 using System;
 using System.Collections.Generic;
 
 namespace Model
 {
-    public class InventoryFileStorage
-    {
+   public class InventoryFileStorage
+   {
         private string fileName;
         private List<Inventory> inventories;
         public InventoryFileStorage()
@@ -22,14 +24,34 @@ namespace Model
         }
 
         public List<Inventory> GetAll()
-        {
-            return inventories;
-        }
-
-        public void Save(Inventory inventory)
-        {
-            inventories.Add(inventory);
-        }
-
-    }
+      {
+         throw new NotImplementedException();
+      }
+      
+      public void AddInventory(Inventory newInventory)
+      {
+         throw new NotImplementedException();
+      }
+      
+      public void DeleteInventory(int inventory)
+      {
+         throw new NotImplementedException();
+      }
+      
+      public void EditInventory(int selectedInventory, Inventory newInventory)
+      {
+         throw new NotImplementedException();
+      }
+      
+      public void SaveToFile(List<Inventory> inventories, string fileName)
+      {
+         throw new NotImplementedException();
+      }
+      
+      public List<Inventory> LoadFromFile(string fileName)
+      {
+         throw new NotImplementedException();
+      }
+   
+   }
 }

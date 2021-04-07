@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -18,46 +19,75 @@ namespace IS_Bolnica
     public partial class NewRoomWindow : Window
     {
         RoomRecord newRoom = new RoomRecord();
+        Director director = new Director();
+        string ward;
+        string selectedPurpose;
 
         public NewRoomWindow()
         {
             InitializeComponent();
 
+            List<string> hospitalWard = new List<string>();
+            hospitalWard.Add("Pedijatrija");
+            hospitalWard.Add("Ortopedija");
+            hospitalWard.Add("Ginekologija");
+            hospitalWard.Add("Urologija");
+
+            wardBox.ItemsSource = hospitalWard;
+            wardBox.SelectedItem = "Pedijatrija";
+
+            List<string> roomPurpose = new List<string>();
+            RoomPurpose purpose1 = new RoomPurpose { Name = "Ordinacija" };
+            RoomPurpose purpose2 = new RoomPurpose { Name = "Operaciona sala" };
+            RoomPurpose purpose3 = new RoomPurpose { Name = "Soba" };
+            roomPurpose.Add(purpose1.Name);
+            roomPurpose.Add(purpose2.Name);
+            roomPurpose.Add(purpose3.Name);
+
+            purposeBox.ItemsSource = roomPurpose;
+            purposeBox.SelectedItem = "Ordinacija";
         }
 
         private void DoneAddingButton(object sender, RoutedEventArgs e)
         {
-            RoomRecord newRoom = new RoomRecord();
             newRoom.Id = roomBox.Text;
-            newRoom.HospitalWard = wardBox.Text;
-
-            RoomPurpose purpose = new RoomPurpose { Name = purposeBox.Text };
+            newRoom.HospitalWard = ward;
+            RoomPurpose purpose = new RoomPurpose { Name = selectedPurpose };
             newRoom.roomPurpose = purpose;
 
             RoomRecordFileStorage storage = new RoomRecordFileStorage();
-            List<RoomRecord> rooms = storage.loadFromFile("Sobe.json");
-            rooms.Add(newRoom);
-            storage.saveToFile(rooms, "Sobe.json");
+            storage.AddRoom(newRoom);
 
-            Director d = new Director();
-            UpravnikWindow uw = new UpravnikWindow(d);
-
-            uw.Show();
             this.Close();
-        }
-
-        private void AddInventoryButton(object sender, RoutedEventArgs e)
-        {
-            NewInventory newi = new NewInventory();
-            newi.Show();
         }
 
         private void CancelButton(object sender, RoutedEventArgs e)
         {
-            Director d = new Director();
-            UpravnikWindow uw = new UpravnikWindow(d);
-            uw.Show();
             this.Close();
+        }
+
+        private void ClosingWindow(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            UpravnikWindow uw = new UpravnikWindow(director);
+            uw.Show();
+        }
+
+        private void SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var combo = sender as ComboBox;
+            ward = (string)combo.SelectedItem;
+        }
+
+        private void PurposeSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var combo = sender as ComboBox;
+            selectedPurpose = (string)combo.SelectedItem;
+        }
+
+        private void NumberValidation(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

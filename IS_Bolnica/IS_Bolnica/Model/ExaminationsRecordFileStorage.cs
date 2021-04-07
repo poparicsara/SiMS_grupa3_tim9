@@ -1,17 +1,18 @@
+
+
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
 using System.IO;
 
 namespace Model
 {
-    public class ExaminationsRecordFileStorage
-    {
-        
-        public List<Examination> GetAll()
-        {
-            throw new NotImplementedException();
-        }
+   public class ExaminationsRecordFileStorage
+   {
+      public List<Examination> GetAll()
+      {
+         throw new NotImplementedException();
+      }
 
         public void saveToFile(List<Examination> examinations, string fileName)
         {
