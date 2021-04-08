@@ -13,6 +13,7 @@ namespace IS_Bolnica
     {
         private PatientRecordFileStorage storage = new PatientRecordFileStorage();
         private GuestUsersFileStorage storage1 = new GuestUsersFileStorage();
+        private UsersFileStorage usersStorage = new UsersFileStorage();
         private Patient pacijent;
         private GuestUser guestKorisnik;
 
@@ -72,7 +73,6 @@ namespace IS_Bolnica
         {
             int i = -1;
             i = PatientList.SelectedIndex;
-            int k = -1;
 
             if (i == -1)
             {
@@ -86,6 +86,7 @@ namespace IS_Bolnica
 
                 ObservableCollection<User> pacijenti = new ObservableCollection<User>();
                 PatientRecordFileStorage storage = new PatientRecordFileStorage();
+
                 pacijenti = storage.loadFromFile("PatientRecordFileStorage.json");
 
 
@@ -117,6 +118,7 @@ namespace IS_Bolnica
         {
             int i = -1;
             i = PatientList.SelectedIndex;
+            ObservableCollection<User> users = new ObservableCollection<User>();
 
             if (i == -1)
             {
@@ -132,6 +134,10 @@ namespace IS_Bolnica
                         Pacijenti = storage.loadFromFile("PatientRecordFileStorage.json");
                         Pacijenti.Remove(Pacijenti[i]);
                         storage.saveToFile(Pacijenti, "PatientRecordFileStorage.json");
+
+                        users = usersStorage.loadFromFile("UsersFileStorage.json");
+                        users.Remove(users[i]);
+                        usersStorage.saveToFile(users, "UsersFileStorage.json");
 
                         SekretarWindow sw = new SekretarWindow();
 

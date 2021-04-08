@@ -21,10 +21,10 @@
     }
   },
   {
-    "Id": "0",
-    "HospitalWard": "Pedijatrija",
+    "Id": "0000215",
+    "HospitalWard": "Ginekologija",
     "roomPurpose": {
-      "Name": "Ordinacija"
+      "Name": "Soba"
     }
   }
 ]
