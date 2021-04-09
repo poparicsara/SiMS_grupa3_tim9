@@ -1,7 +1,7 @@
+
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
 
 namespace Model
@@ -13,7 +13,7 @@ namespace Model
 
         public RoomRecordFileStorage()
         {
-           
+
         }
 
         public List<RoomRecord> GetAll()
@@ -21,9 +21,53 @@ namespace Model
             return rooms;
         }
 
-        public void Save(RoomRecord newRoom)
+        public void AddRoom(RoomRecord newRoom)
         {
+            rooms = loadFromFile("Sobe.json");
             rooms.Add(newRoom);
+            saveToFile(rooms, "Sobe.json");
+        }
+
+        public void DeleteRoom(RoomRecord selectedRoom)
+        {
+            int index = 0;
+
+            rooms = loadFromFile("Sobe.json");
+
+            //find right index
+            foreach (RoomRecord room in rooms)
+            {
+                if (room.Id == selectedRoom.Id)
+                {
+                    break;
+                }
+                index++;
+            }
+
+            rooms.RemoveAt(index);
+            saveToFile(rooms, "Sobe.json");
+        }
+
+        public void EditRoom(RoomRecord oldRoom, RoomRecord newRoom)
+        {
+            int index = 0;
+
+            rooms = loadFromFile("Sobe.json");
+
+            //find right index
+            foreach(RoomRecord room in rooms)
+            {
+                if(room.Id == oldRoom.Id)
+                {
+                    break;
+                }
+                index++;
+            }
+
+            rooms.RemoveAt(index);
+            rooms.Insert(index, newRoom);
+            saveToFile(rooms, "Sobe.json");
+
         }
 
         public void saveToFile(List<RoomRecord> rooms, string fileName)
@@ -45,5 +89,5 @@ namespace Model
             return roomList;
         }
 
-    }  
+    }
 }

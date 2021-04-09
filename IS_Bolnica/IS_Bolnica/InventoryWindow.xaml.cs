@@ -18,13 +18,25 @@ namespace IS_Bolnica
 
     public partial class InventoryWindow : Window
     {
-        public InventoryWindow()
+        private List<Inventory> inventories = new List<Inventory>();
+        private List<RoomRecord> rooms = new List<RoomRecord>();
+        public InventoryWindow(RoomRecord selectedRoom)
         {
             InitializeComponent();
 
-            InventoryFileStorage storage = new InventoryFileStorage();
-            List<Inventory> all = storage.GetAll();
-            inventoryBinding.ItemsSource = all;
+            RoomRecordFileStorage storage = new RoomRecordFileStorage();
+            rooms = storage.loadFromFile("Sobe.json"); 
+
+            foreach(RoomRecord room in rooms)
+            {
+                if(room.Id == selectedRoom.Id)
+                {
+                    inventories = selectedRoom.inventory;
+                    break;
+                }
+            }
+
+            inventoryBinding.ItemsSource = inventories;
         }
     }
 }
