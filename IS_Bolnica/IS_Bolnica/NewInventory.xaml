@@ -1,0 +1,31 @@
+﻿<Window x:Class="IS_Bolnica.NewInventory"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IS_Bolnica"
+        mc:Ignorable="d"
+        Title="NewInventory" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <DataGrid x:Name ="inventoryBinding" HorizontalAlignment="Center" Height="400" VerticalAlignment="Center" Width="588" FontSize="13"
+                  ColumnWidth="193.3" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserAddRows="False" AutoGenerateColumns="False">
+            <!-- Style -->
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FFA5BC90"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="Height" Value="30"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Style>
+            </DataGrid.Resources>
+            <!-- Header -->
+            <DataGrid.Columns>
+                <DataGridTextColumn Header ="ID" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header ="NAME" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header ="CURRENT AMOUNT" Binding="{Binding CurrentAmount}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

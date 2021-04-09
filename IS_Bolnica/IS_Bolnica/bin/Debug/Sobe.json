@@ -1,0 +1,30 @@
+[
+  {
+    "Id": "2",
+    "HospitalWard": "Urologija",
+    "roomPurpose": {
+      "Name": "Operaciona sala"
+    }
+  },
+  {
+    "Id": "202",
+    "HospitalWard": "Pedijatrija",
+    "roomPurpose": {
+      "Name": "Operaciona sala"
+    }
+  },
+  {
+    "Id": "788",
+    "HospitalWard": "Pedijatrija",
+    "roomPurpose": {
+      "Name": "Ordinacija"
+    }
+  },
+  {
+    "Id": "0000215",
+    "HospitalWard": "Ginekologija",
+    "roomPurpose": {
+      "Name": "Soba"
+    }
+  }
+]
