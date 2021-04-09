@@ -1,6 +1,8 @@
+
+
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
 using System.IO;
 
 namespace Model
@@ -22,7 +24,7 @@ namespace Model
         {
             var operationList = new List<Operation>();
 
-            using(StreamReader file = File.OpenText(fileName))
+            using (StreamReader file = File.OpenText(fileName))
             {
                 var serializer = new JsonSerializer();
                 operationList = (List<Operation>)serializer.Deserialize(file, typeof(List<Operation>));

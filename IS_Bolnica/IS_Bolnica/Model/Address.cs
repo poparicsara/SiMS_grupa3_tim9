@@ -1,15 +1,17 @@
+
+
 using System;
 
 namespace Model
 {
-    public class Address
-    {
-        private String street;
-        private String numberOfBuilding;
-        private int floor;
-        private int apartment;
+   public class Address
+   {
+      public string Street { get; set; }
+      public int NumberOfBuilding { get; set; }
+      public int Floor { get; set; }
+      public int Apartment { get; set; }
 
-        public City city;
+      public City City { get; set; }
 
     }
 }
