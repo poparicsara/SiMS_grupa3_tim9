@@ -6,21 +6,18 @@
         xmlns:local="clr-namespace:IS_Bolnica"
         mc:Ignorable="d"
         Title="NewRoomWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize" Closing="ClosingWindow">
-    <Grid RenderTransformOrigin="0.653,0.511">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="653*"/>
-            <ColumnDefinition Width="140*"/>
-        </Grid.ColumnDefinitions>
+        ResizeMode="NoResize">
+    <Grid>
         <Label Content="Broj sobe:" HorizontalAlignment="Left" Margin="59,49,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.684,1.986" Width="109" FontWeight="Bold"/>
         <Label Content="Bolničko odeljenje:" HorizontalAlignment="Left" Margin="59,114,0,0" VerticalAlignment="Top" Width="122" RenderTransformOrigin="0.844,0.528" FontWeight="Bold"/>
         <Label Content="Namena:" HorizontalAlignment="Left" Margin="59,172,0,0" VerticalAlignment="Top" Width="109" RenderTransformOrigin="3.673,3.075" FontWeight="Bold"/>
-        <TextBox x:Name="roomBox" HorizontalAlignment="Left" Height="26" Margin="240,51,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="151" PreviewTextInput="NumberValidation"/>
-        <!--<TextBox x:Name="wardBox" HorizontalAlignment="Left" Height="23" Margin="240,114,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="151"/>-->
+        <TextBox x:Name="roomBox" HorizontalAlignment="Left" Height="23" Margin="240,51,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="151"/>
+        <TextBox x:Name="wardBox" HorizontalAlignment="Left" Height="23" Margin="240,114,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="151"/>
+
+        <TextBox x:Name="purposeBox" HorizontalAlignment="Left" Height="23" Margin="240,172,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="151"/>
         <Button Content="DODAJ" HorizontalAlignment="Left" Margin="505,308,0,0" VerticalAlignment="Top" Width="92" Height="24" Background="#FF15285D" Foreground="White" Click="DoneAddingButton" FontWeight="Bold"/>
+        <Button Content="Lista inventara" HorizontalAlignment="Left" Margin="59,246,0,0" VerticalAlignment="Top" Width="109" Height="24" Background="#FFA5BC90" Click="AddInventoryButton" FontWeight="Bold"/>
         <Button Content="ODUSTANI" HorizontalAlignment="Left" Margin="374,308,0,0" VerticalAlignment="Top" Width="92" Height="24" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="CancelButton"/>
-        <ComboBox Name ="purposeBox" HorizontalAlignment="Left" Margin="240,175,0,0" VerticalAlignment="Top" Width="151" Height="26" SelectionChanged="PurposeSelectionChanged"/>
-        <ComboBox Name ="wardBox" HorizontalAlignment="Left" Margin="240,114,0,0" VerticalAlignment="Top" Width="151" Height="26" SelectionChanged="SelectionChanged"/>
 
     </Grid>
 </Window>

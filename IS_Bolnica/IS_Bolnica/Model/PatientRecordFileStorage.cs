@@ -1,15 +1,14 @@
-
-
-using Newtonsoft.Json;
 using System;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using Newtonsoft.Json;
 using System.IO;
+using System.Collections.ObjectModel;
 
 namespace Model
 {
     public class PatientRecordFileStorage
-    {
-
+    { 
+        
         public ObservableCollection<Patient> GetAll()
         {
             throw new NotImplementedException();

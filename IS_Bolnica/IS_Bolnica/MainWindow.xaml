@@ -22,12 +22,6 @@
                 Upravnik
             </Button>
         </WrapPanel>
-        <Image x:Name="nasLogo" HorizontalAlignment="Left" Height="210" Margin="10,200,0,0" VerticalAlignment="Top" Width="229" Source="nasLogo.jpg"/>
-        <Label Content="Username:" FontSize="17" HorizontalAlignment="Left" Margin="350,130,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="usernameBox" HorizontalAlignment="Left" FontSize="17" Height="32" Margin="510,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219"/>
-        <Label Content="Password:" FontSize="17" HorizontalAlignment="Left" Margin="350,200,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="passwordBox" HorizontalAlignment="Left" FontSize="17" Height="32" Margin="510,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219"/>
-        <Button Content="Prijavi se" FontSize="17" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="432,300,0,0" VerticalAlignment="Top" Width="219" Height="37" Click="Button_Click"/>
-        <Label Content="ZDRAVO KORPORACIJA" FontSize="25" FontWeight="Bold" Foreground="#FFA5BC90" HorizontalAlignment="Left" Margin="386,29,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.906,0.31" Width="296" Height="45"/>
+        <Image x:Name="nasLogo" HorizontalAlignment="Left" Height="210" Margin="434,85,0,0" VerticalAlignment="Top" Width="229" Source="nasLogo.jpg" Grid.RowSpan="3"/>
     </Grid>
 </Window>
