@@ -269,5 +269,8 @@
   <ItemGroup>
     <Resource Include="nasLogo.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Validation\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
