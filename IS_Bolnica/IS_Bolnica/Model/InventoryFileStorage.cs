@@ -1,7 +1,9 @@
 
 
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Model
 {
@@ -11,15 +13,15 @@ namespace Model
         private List<Inventory> inventories;
         public InventoryFileStorage()
         {
-            inventories = new List<Inventory>();
+            /*inventories = new List<Inventory>();
 
-            Inventory i1 = new Inventory { Name = "Hanzaplast", CurrentAmount = 10, Id = "H10", Minimum = 1 };
-            Inventory i2 = new Inventory { Name = "Injekcija", CurrentAmount = 10, Id = "I10", Minimum = 1 };
-            Inventory i3 = new Inventory { Name = "Zavoj", CurrentAmount = 10, Id = "Z10", Minimum = 1 };
+            Inventory i1 = new Inventory { Name = "Hanzaplast", CurrentAmount = 10, Id = 10, Minimum = 1 };
+            Inventory i2 = new Inventory { Name = "Injekcija", CurrentAmount = 10, Id = 10, Minimum = 1 };
+            Inventory i3 = new Inventory { Name = "Zavoj", CurrentAmount = 10, Id = 10, Minimum = 1 };
 
             inventories.Add(i1);
             inventories.Add(i2);
-            inventories.Add(i2);
+            inventories.Add(i2);*/
 
         }
 
@@ -30,28 +32,70 @@ namespace Model
       
       public void AddInventory(Inventory newInventory)
       {
-         throw new NotImplementedException();
+            inventories = loadFromFile("Inventar.json");
+            inventories.Add(newInventory);
+            saveToFile(inventories, "Inventar.json");
       }
       
-      public void DeleteInventory(int inventory)
+      public void DeleteInventory(Inventory selected)
       {
-         throw new NotImplementedException();
-      }
+            int index = 0;
+
+            inventories = loadFromFile("Inventar.json");
+
+            //find right index
+            foreach (Inventory inventory in inventories)
+            {
+                if (inventory.Id == selected.Id)
+                {
+                    break;
+                }
+                index++;
+            }
+
+            inventories.RemoveAt(index);
+            saveToFile(inventories, "Inventar.json");
+        }
       
-      public void EditInventory(int selectedInventory, Inventory newInventory)
+      public void EditInventory(Inventory oldInventory, Inventory newInventory)
       {
-         throw new NotImplementedException();
-      }
+            int index = 0;
+
+            inventories = loadFromFile("Inventar.json");
+
+            //find right index
+            foreach (Inventory inventory in inventories)
+            {
+                if (inventory.Id == oldInventory.Id)
+                {
+                    break;
+                }
+                index++;
+            }
+
+            inventories.RemoveAt(index);
+            inventories.Insert(index, newInventory);
+            saveToFile(inventories, "Inventar.json");
+        }
       
-      public void SaveToFile(List<Inventory> inventories, string fileName)
+      public void saveToFile(List<Inventory> inventories, string fileName)
       {
-         throw new NotImplementedException();
-      }
+            string jsonString = JsonConvert.SerializeObject(inventories, Formatting.Indented);
+            File.WriteAllText(fileName, jsonString);
+        }
       
-      public List<Inventory> LoadFromFile(string fileName)
+      public List<Inventory> loadFromFile(string fileName)
       {
-         throw new NotImplementedException();
-      }
+            var inventoryList = new List<Inventory>();
+
+            using (StreamReader file = File.OpenText(fileName))
+            {
+                var serializer = new JsonSerializer();
+                inventoryList = (List<Inventory>)serializer.Deserialize(file, typeof(List<Inventory>));
+            }
+
+            return inventoryList;
+        }
    
    }
 }

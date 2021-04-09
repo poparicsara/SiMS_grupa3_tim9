@@ -11,11 +11,11 @@
         <Label Content="Bolničko odeljenje:" HorizontalAlignment="Left" Margin="59,114,0,0" VerticalAlignment="Top" Width="119" RenderTransformOrigin="0.844,0.528" FontWeight="Bold"/>
         <Label Content="Namena:" HorizontalAlignment="Left" Margin="59,172,0,0" VerticalAlignment="Top" Width="109" RenderTransformOrigin="3.673,3.075" FontWeight="Bold"/>
         <TextBox x:Name="roomBox" HorizontalAlignment="Left" Height="23" Margin="240,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="wardBox" HorizontalAlignment="Left" Height="23" Margin="240,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="purposeBox" HorizontalAlignment="Left" Height="23" Margin="240,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button Content="POTVRDI" HorizontalAlignment="Left" Margin="505,308,0,0" VerticalAlignment="Top" Width="92" Height="24" Background="#FF15285D" Foreground="White" Click="DoneButton" FontWeight="Bold"/>
         <Button Content="Lista inventara" HorizontalAlignment="Left" Margin="59,246,0,0" VerticalAlignment="Top" Width="109" Height="24" Background="#FFA5BC90" Click="ShowInventoryClicked" FontWeight="Bold"/>
         <Button Content="ODUSTANI" HorizontalAlignment="Left" Margin="374,308,0,0" VerticalAlignment="Top" Width="92" Height="24" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="CancelButton" />
+        <ComboBox Name="wardBox" HorizontalAlignment="Left" Margin="240,115,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox Name="purposeBox" HorizontalAlignment="Left" Margin="240,172,0,0" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>

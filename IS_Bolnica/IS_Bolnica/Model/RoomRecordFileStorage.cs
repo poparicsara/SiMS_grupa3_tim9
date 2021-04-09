@@ -28,49 +28,46 @@ namespace Model
             saveToFile(rooms, "Sobe.json");
         }
 
-        public void DeleteRoom(int room)
+        public void DeleteRoom(RoomRecord selectedRoom)
         {
-            if (room < 0)
-                return;
+            int index = 0;
 
             rooms = loadFromFile("Sobe.json");
-            rooms.RemoveAt(room);
+
+            //find right index
+            foreach (RoomRecord room in rooms)
+            {
+                if (room.Id == selectedRoom.Id)
+                {
+                    break;
+                }
+                index++;
+            }
+
+            rooms.RemoveAt(index);
             saveToFile(rooms, "Sobe.json");
         }
 
-        public void EditRoom(int selectedRoom, RoomRecord newRoom)
+        public void EditRoom(RoomRecord oldRoom, RoomRecord newRoom)
         {
+            int index = 0;
+
             rooms = loadFromFile("Sobe.json");
-            rooms.RemoveAt(selectedRoom);
-            rooms.Insert(selectedRoom, newRoom);
+
+            //find right index
+            foreach(RoomRecord room in rooms)
+            {
+                if(room.Id == oldRoom.Id)
+                {
+                    break;
+                }
+                index++;
+            }
+
+            rooms.RemoveAt(index);
+            rooms.Insert(index, newRoom);
             saveToFile(rooms, "Sobe.json");
 
-            //int index = rooms.IndexOf(oldRoom);
-
-
-            /*for (int j = 0; j < rooms.Count; j++)
-            {
-                if (j == index)
-                {
-                    rooms.RemoveAt(j);
-                    rooms.Insert(j, newRoom);
-
-                    return;
-                }
-            }*/
-
-            /* int index;
-             foreach(RoomRecord room in rooms)
-             {
-                 if(room.Id == oldRoom.Id)
-                 {
-                     index = rooms.IndexOf(room);
-                     rooms.RemoveAt(index);
-                     rooms.Insert(index, newRoom);
-                 }
-             }*/
-
-            //saveToFile(rooms, "Sobe.json");
         }
 
         public void saveToFile(List<RoomRecord> rooms, string fileName)

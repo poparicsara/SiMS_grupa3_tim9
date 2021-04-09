@@ -1,0 +1,44 @@
+﻿<Window x:Class="IS_Bolnica.SelectedInventoryInRooms"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IS_Bolnica"
+        mc:Ignorable="d"
+        Title="SelectedInventoryInRooms" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TabControl HorizontalAlignment="Left" Margin="68,10,0,0" VerticalAlignment="Top" TabStripPlacement="Left" Height="400" Width="628" BorderBrush="White">
+            <TabItem Header="Ordinacija" Height="32" Width="109" Margin="0,0,-0.2,0">
+                <DataGrid x:Name ="selectedInventoryData" HorizontalAlignment="Center" Height="396" VerticalAlignment="Center" Width="520" FontSize="13"
+                  ColumnWidth="300" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserAddRows="False" AutoGenerateColumns="False"
+                  IsReadOnly="True" SelectionMode="Single" CanUserDeleteRows="True" Margin="0,0,-3.2,-1.6" CanUserReorderColumns="False">
+                    <!-- Style -->
+                    <DataGrid.Resources>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="Background" Value="#FFA5BC90"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="Height" Value="30"/>
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </Style>
+                    </DataGrid.Resources>
+                    <!-- Header -->
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header ="BROJ PROSTORIJE" Width="255" Binding="{Binding RoomNumber}"/>
+                        <DataGridTextColumn Header ="TRENUTNA KOLIČINA" Width="255" Binding="{Binding CurrentAmount}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="Operaciona sala" Height="32" Width="109" Background="#FFA5BC90" Margin="1,0,-1.2,0">
+                <Grid Background="White"/>
+            </TabItem>
+            <TabItem Header="Soba" Height="32" Width="109" Background="#FFA5BC90" Margin="1,0,-1.2,0">
+                <Grid Background="White"/>
+            </TabItem>
+            <TabItem Header="Magacin" Height="32" Width="109" Background="#FFA5BC90" Margin="1,0,-1.2,0">
+                <Grid Background="White"/>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

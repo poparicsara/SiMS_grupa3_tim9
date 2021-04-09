@@ -50,7 +50,7 @@ namespace IS_Bolnica
 
         private void DoneAddingButton(object sender, RoutedEventArgs e)
         {
-            newRoom.Id = roomBox.Text;
+            newRoom.Id = (int)Int64.Parse(roomBox.Text);
             newRoom.HospitalWard = ward;
             RoomPurpose purpose = new RoomPurpose { Name = selectedPurpose };
             newRoom.roomPurpose = purpose;
