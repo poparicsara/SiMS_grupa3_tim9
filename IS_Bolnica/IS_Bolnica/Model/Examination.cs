@@ -1,5 +1,3 @@
-
-
 using System;
 using System.ComponentModel;
 
@@ -7,11 +5,11 @@ namespace Model
 {
     public class Examination
     {
-        public Boolean isPayed { get; set; }
+        public Boolean isPayed  { get; set; }
         public Evaluation evaluation { get; set; }
         public int durationInMinutes { get; set; }
 
-        public Boolean Paying()
+    public Boolean Paying()
         {
             throw new NotImplementedException();
         }
@@ -102,4 +100,6 @@ namespace Model
         }
 
     }
+
+
 }

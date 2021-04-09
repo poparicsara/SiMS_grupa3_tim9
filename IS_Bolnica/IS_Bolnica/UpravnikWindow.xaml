@@ -8,9 +8,9 @@
         Title="UpravnikWindow" Height="450" Width="800"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <DataGrid x:Name ="lvDataBinding" HorizontalAlignment="Center" Height="340" VerticalAlignment="Center" Width="588" FontSize="13"
+        <DataGrid x:Name ="lvDataBinding" HorizontalAlignment="Center" Height="400" VerticalAlignment="Center" Width="588" FontSize="13"
                   ColumnWidth="193.3" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserAddRows="False" AutoGenerateColumns="False"
-                  IsReadOnly="True" SelectionMode="Single" CanUserDeleteRows="True" Margin="103,70,102.6,10">
+                  IsReadOnly="True" SelectionMode="Single" CanUserDeleteRows="True">
             <!-- Style -->
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -32,6 +32,5 @@
         <Button Content="DODAJ" HorizontalAlignment="Left" Margin="696,367,0,0" VerticalAlignment="Top" Width="81" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" Click="AddButtonClicked"/>
         <Button Content="OBRIŠI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="81" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" Margin="696,325,0,0" Click="DeleteButtonClicked"/>
         <Button Content="IZMENI" HorizontalAlignment="Left" Margin="696,282,0,0" VerticalAlignment="Top" Width="81" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" Click="EditButtonClicked"/>
-        <TextBox Name="searchBox" HorizontalAlignment="Left" Height="23" Margin="580,24,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" KeyUp="searchKeyUp"/>
     </Grid>
 </Window>

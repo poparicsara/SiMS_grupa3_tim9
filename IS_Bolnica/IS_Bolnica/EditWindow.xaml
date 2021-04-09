@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Bolnica"
         mc:Ignorable="d"
-        Title="EditWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" Closing="ClosingWindow">
+        Title="EditWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <Label Content="Broj sobe:" HorizontalAlignment="Left" Margin="59,49,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.684,1.986" Width="109" FontWeight="Bold"/>
         <Label Content="Bolničko odeljenje:" HorizontalAlignment="Left" Margin="59,114,0,0" VerticalAlignment="Top" Width="119" RenderTransformOrigin="0.844,0.528" FontWeight="Bold"/>

@@ -40,11 +40,5 @@ namespace IS_Bolnica.Secretary
             sw.Show();
             this.Close();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Secretary.ActionBarWindow abw = new Secretary.ActionBarWindow();
-            abw.Show();
-        }
     }
 }

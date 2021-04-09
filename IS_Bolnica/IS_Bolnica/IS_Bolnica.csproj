@@ -77,8 +77,6 @@
       <DependentUpon>Izmena pregleda.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\GuestUsersFileStorage.cs" />
-    <Compile Include="Model\Operations.cs" />
-    <Compile Include="Model\UsersFileStorage.cs" />
     <Compile Include="Model\UserType.cs" />
     <Compile Include="NewInventory.xaml.cs">
       <DependentUpon>NewInventory.xaml</DependentUpon>
@@ -89,9 +87,6 @@
     <Compile Include="PatientWindow.xaml.cs">
       <DependentUpon>PatientWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Secretary\ActionBarWindow.xaml.cs">
-      <DependentUpon>ActionBarWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Secretary\AddPatient.xaml.cs">
       <DependentUpon>AddPatient.xaml</DependentUpon>
     </Compile>
@@ -100,12 +95,6 @@
     </Compile>
     <Compile Include="Secretary\GuestUserAccount.xaml.cs">
       <DependentUpon>GuestUserAccount.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Secretary\GuestUserListWindow.xaml.cs">
-      <DependentUpon>GuestUserListWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Secretary\PatientListWindow.xaml.cs">
-      <DependentUpon>PatientListWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="SekretarWindow.xaml.cs">
       <DependentUpon>SekretarWindow.xaml</DependentUpon>
@@ -170,10 +159,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Secretary\ActionBarWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Secretary\AddPatient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -183,14 +168,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Secretary\GuestUserAccount.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Secretary\GuestUserListWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Secretary\PatientListWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
