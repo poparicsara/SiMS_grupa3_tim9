@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Bolnica.Secretary"
         mc:Ignorable="d"
-        Title="ActionBarWindow" Height="750" Width="430">
+        Title="ActionBarWindow" Height="750" Width="430" WindowStartupLocation="CenterScreen">
     <Grid>
         <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="48" Margin="10,10,0,0" Height="48">
             <StackPanel>
@@ -15,6 +15,13 @@
         <Label Content="ZDRAVO KORPORACIJA" FontSize="20" Foreground="Green" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,14,0,0" Height="35" Width="235" Grid.ColumnSpan="2"/>
         <Image x:Name="nasLogo" HorizontalAlignment="Left" Height="48" Margin="366,10,0,0" VerticalAlignment="Top" Width="48" Source="C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\Images\nasLogo.jpg"/>
         <ListBox HorizontalAlignment="Left" Height="648" Margin="10,63,0,0" VerticalAlignment="Top" Width="404">
+            <ListBoxItem FontSize="13" Selected="Profil_Selected" >
+                <StackPanel>
+                    <TextBlock>
+                        Profil
+                    </TextBlock>
+                </StackPanel>
+            </ListBoxItem>
             <ListBoxItem FontSize="13" >
                 <StackPanel>
                     <TextBlock>

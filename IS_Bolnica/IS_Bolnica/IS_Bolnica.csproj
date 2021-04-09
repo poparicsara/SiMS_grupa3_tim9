@@ -101,6 +101,12 @@
     <Compile Include="Secretary\GuestUserAccount.xaml.cs">
       <DependentUpon>GuestUserAccount.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Secretary\GuestUserListWindow.xaml.cs">
+      <DependentUpon>GuestUserListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\PatientListWindow.xaml.cs">
+      <DependentUpon>PatientListWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SekretarWindow.xaml.cs">
       <DependentUpon>SekretarWindow.xaml</DependentUpon>
     </Compile>
@@ -177,6 +183,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Secretary\GuestUserAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary\GuestUserListWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary\PatientListWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

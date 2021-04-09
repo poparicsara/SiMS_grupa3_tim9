@@ -26,7 +26,9 @@ namespace IS_Bolnica.Secretary
 
         private void SpisakPacijenata_Selected(object sender, RoutedEventArgs e)
         {
-
+            Secretary.PatientListWindow plw = new Secretary.PatientListWindow();
+            plw.Show();
+            this.Close();
         }
 
         private void DodajPacijenta_Selected(object sender, RoutedEventArgs e)
@@ -38,7 +40,9 @@ namespace IS_Bolnica.Secretary
 
         private void SpisakGuestNaloga_Selected(object sender, RoutedEventArgs e)
         {
-
+            Secretary.GuestUserListWindow guw = new Secretary.GuestUserListWindow();
+            guw.Show();
+            this.Close();
         }
 
         private void DodajGuestNalog_Selected(object sender, RoutedEventArgs e)
@@ -46,6 +50,13 @@ namespace IS_Bolnica.Secretary
             Secretary.GuestUserAccount gua = new Secretary.GuestUserAccount();
             this.Close();
             gua.Show();
+        }
+
+        private void Profil_Selected(object sender, RoutedEventArgs e)
+        {
+            SekretarWindow sw = new SekretarWindow();
+            sw.Show();
+            this.Close();
         }
     }
 }

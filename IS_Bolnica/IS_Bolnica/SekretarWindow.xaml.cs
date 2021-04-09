@@ -17,7 +17,7 @@ namespace IS_Bolnica
         private Patient pacijent;
         private GuestUser guestKorisnik;
 
-        public ObservableCollection<User> Pacijenti {
+        public ObservableCollection<Patient> Pacijenti {
             get; set;
         }
 
@@ -33,7 +33,7 @@ namespace IS_Bolnica
             InitializeComponent();
             this.DataContext = this;
 
-            Pacijenti = new ObservableCollection<User>();
+            Pacijenti = new ObservableCollection<Patient>();
             Pacijenti = storage.loadFromFile("PatientRecordFileStorage.json");
 
             guestKorisnik = new GuestUser
@@ -69,7 +69,7 @@ namespace IS_Bolnica
             this.Close();
         }
 
-        private void editPatient(object sender, RoutedEventArgs e)
+        /*private void editPatient(object sender, RoutedEventArgs e)
         {
             int i = -1;
             i = PatientList.SelectedIndex;
@@ -105,7 +105,7 @@ namespace IS_Bolnica
                 ep.Show();
                 this.Close();
             }
-        }
+        }*/
 
         private void createGuestAccount(object sender, RoutedEventArgs e)
         {
@@ -114,7 +114,7 @@ namespace IS_Bolnica
             gua.Show();
         }
 
-        private void deletePatient(object sender, RoutedEventArgs e)
+        /*private void deletePatient(object sender, RoutedEventArgs e)
         {
             int i = -1;
             i = PatientList.SelectedIndex;
@@ -149,9 +149,9 @@ namespace IS_Bolnica
                         break;
                 }
             }
-        }
+        }*/
 
-        private void deleteGuestAccount(object sender, RoutedEventArgs e)
+        /*private void deleteGuestAccount(object sender, RoutedEventArgs e)
         {
 
             int i = -1;
@@ -182,11 +182,12 @@ namespace IS_Bolnica
                         break;
                 }
             }
-        }
+        }*/
 
         private void ActionBarOpen(object sender, RoutedEventArgs e)
         {
-
+            Secretary.ActionBarWindow abw = new Secretary.ActionBarWindow();
+            abw.Show();
         }
     }
 }

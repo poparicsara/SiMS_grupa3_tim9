@@ -1,50 +1,122 @@
 [
   {
-    "address": null,
-    "Username": "Vladimir",
-    "Password": "ftn",
-    "Name": "Maja",
-    "Surname": "Mirković",
-    "DateOfBirth": "1999-08-01T00:00:00",
-    "Phone": 65879463,
-    "Email": "majamirkovic@gmail.com",
-    "Id": 1756265852,
-    "UserType": 0
-  },
-  {
-    "address": null,
     "Username": "Marija",
     "Password": "ftn",
     "Name": "Marija",
     "Surname": "Marić",
     "DateOfBirth": "1979-11-01T00:00:00",
-    "Phone": 67894652,
+    "Phone": "67894652",
     "Email": "maricm@hotmail.com",
-    "Id": 457896,
-    "UserType": 1
+    "Id": "457896",
+    "UserType": 1,
+    "Address": null
   },
   {
-    "address": null,
     "Username": "Nina",
     "Password": "ftn",
     "Name": "Milica",
     "Surname": "Milović",
     "DateOfBirth": "2021-03-29T00:00:00+02:00",
-    "Phone": 62226648,
+    "Phone": "62226648",
     "Email": "milovicmica@gmail.com",
-    "Id": 11111,
-    "UserType": 2
+    "Id": "11111",
+    "UserType": 2,
+    "Address": null
   },
   {
-    "address": null,
     "Username": "Sara",
     "Password": "ftn",
     "Name": "sdf",
     "Surname": "Milović",
     "DateOfBirth": "2021-03-29T00:00:00+02:00",
-    "Phone": 62226648,
+    "Phone": "62226648",
     "Email": "milovicmica@gmail.com",
-    "Id": 11111,
-    "UserType": 3
+    "Id": "11111",
+    "UserType": 3,
+    "Address": null
+  },
+  {
+    "Username": "mare",
+    "Password": "nesto",
+    "Name": "Marko",
+    "Surname": "Markovic",
+    "DateOfBirth": "2021-04-09T00:00:00+02:00",
+    "Phone": "064789552",
+    "Email": "marko@gmai.com",
+    "Id": "5479865478932",
+    "UserType": 0,
+    "Address": {
+      "Street": "Marko Oreskovica",
+      "NumberOfBuilding": 12,
+      "Floor": 5,
+      "Apartment": 8,
+      "City": {
+        "name": "Novi Sad",
+        "postalCode": "21000",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
+  },
+  {
+    "Username": "ikjhnb",
+    "Password": "nez",
+    "Name": "Dejana",
+    "Surname": "jnhb",
+    "DateOfBirth": "2021-04-09T00:00:00+02:00",
+    "Phone": "85",
+    "Email": "okjhb",
+    "Id": "951",
+    "UserType": 0,
+    "Address": {
+      "Street": "Nova ",
+      "NumberOfBuilding": 56,
+      "Floor": 15,
+      "Apartment": 9,
+      "City": {
+        "name": "",
+        "postalCode": "Bfgbhn",
+        "Country": {
+          "name": "ujmnuh"
+        }
+      }
+    }
+  },
+  {
+    "Username": "Vladimir",
+    "Password": "ftn",
+    "Name": "Maja",
+    "Surname": "Mirković",
+    "DateOfBirth": "1999-08-01T00:00:00",
+    "Phone": "65879463",
+    "Email": "majamirkovic@gmail.com",
+    "Id": "1756265852",
+    "UserType": 0,
+    "Address": null
+  },
+  {
+    "Username": "p__nina",
+    "Password": "hehe",
+    "Name": "Nikolina",
+    "Surname": "Pavkovic",
+    "DateOfBirth": "2000-02-01T00:00:00",
+    "Phone": "0658886407",
+    "Email": "pavkovicn@hotmail.com",
+    "Id": "1502000815038",
+    "UserType": 0,
+    "Address": {
+      "Street": "Nova",
+      "NumberOfBuilding": 130,
+      "Floor": 0,
+      "Apartment": 0,
+      "City": {
+        "name": "Apatin",
+        "postalCode": "25260",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
   }
 ]
