@@ -121,6 +121,7 @@
     <Compile Include="UpravnikWindow.xaml.cs">
       <DependentUpon>UpravnikWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UsersFileStorage.cs" />
     <Compile Include="Zakazivanje pregleda.xaml.cs">
       <DependentUpon>Zakazivanje pregleda.xaml</DependentUpon>
     </Compile>

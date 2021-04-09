@@ -55,8 +55,27 @@
   },
   {
     "Id": 103,
-    "HospitalWard": "Pedijatrija",
-    "inventory": null,
+    "HospitalWard": "Psihijatrija",
+    "inventory": [
+      {
+        "Name": "Špric",
+        "CurrentAmount": 20,
+        "Minimum": 2,
+        "Id": 101
+      },
+      {
+        "Name": "Injekcija",
+        "CurrentAmount": 20,
+        "Minimum": 2,
+        "Id": 202
+      },
+      {
+        "Name": "Štapić",
+        "CurrentAmount": 20,
+        "Minimum": 2,
+        "Id": 303
+      }
+    ],
     "roomPurpose": {
       "Name": "Operaciona sala"
     }

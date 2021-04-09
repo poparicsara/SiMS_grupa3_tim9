@@ -9,20 +9,5 @@ namespace Model
         public int Minimum { get; set; }
         public int Id { get; set; }
 
-        public void DeleteInventory(String id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void AddInventory(String name, int currentAmount, int minimum, String id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateInventory(String name, int currentAmount, int minimum, String id)
-        {
-            throw new NotImplementedException();
-        }
-
     }
 }
