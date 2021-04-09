@@ -1,10 +1,14 @@
-﻿namespace Model
+
+
+using System;
+
+namespace Model
 {
-    public enum UserType
-    {
-        director,
-        patient,
-        doctor,
-        secretary
-    }
+   public enum UserType
+   {
+      patient,
+      doctor,
+      secretary,
+      director
+   }
 }

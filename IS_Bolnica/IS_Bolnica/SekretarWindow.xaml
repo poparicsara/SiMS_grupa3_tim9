@@ -5,85 +5,55 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Bolnica"
         mc:Ignorable="d"
-        Title="Sekretar" Height="645.339" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Sekretar" Height="750" Width="430" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="435*"/>
+            <RowDefinition Height="286*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="205*"/>
-            <ColumnDefinition Width="192*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TabControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,10,-0.4,10" Grid.ColumnSpan="2" TabStripPlacement="Right">
-            <TabItem Header="Profile" Margin="-2,0,-1.8,0" Height="20" VerticalAlignment="Bottom">
-                <Grid Background="#FFA5BC90">
-                    <Label Content="Nam:" HorizontalAlignment="Left" Margin="40,30,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
-                    <Label Content="Lastname:" HorizontalAlignment="Left" Margin="40,60,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
-                    <Label Content="JMBG:" HorizontalAlignment="Left" Margin="40,90,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
-                    <Label Content="Date of birth:" HorizontalAlignment="Left" Margin="40,120,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
-                    <Label Content="Telephone:" HorizontalAlignment="Left" Margin="40,150,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
-                    <Label Content="E-mail:" HorizontalAlignment="Left" Margin="40,180,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
-                    <Label Content="Start date:"  HorizontalAlignment="Left" Margin="40,210,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
-                    <Label Content="Years of service:" HorizontalAlignment="Left" Margin="40,240,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
-                    <Label Content="Salary:" HorizontalAlignment="Left" Margin="40,270,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
-                    <Label Content="Free days:" HorizontalAlignment="Left" Margin="40,300,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
-                    <Label Content="Evaluation:" HorizontalAlignment="Left" Margin="40,330,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
-                    <Label Content="Status:" HorizontalAlignment="Left" Margin="40,360,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
-                    <Label Content="Comment:" HorizontalAlignment="Left" Margin="355,30,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="185,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="25"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="185,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="25"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="185,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="25"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="185,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="25"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="185,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="25"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="185,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="25"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="185,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="25"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="185,240,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="25"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="185,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="25"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="185,300,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="25"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="185,330,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="25"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="185,360,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="25"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="478,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" Height="145"/>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Patients">
-                <Grid x:Name="selected" Background="#FFA5BC90">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="6*"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="111*"/>
-                        <ColumnDefinition Width="661*"/>
-                    </Grid.ColumnDefinitions>
-                    <DataGrid x:Name="PatientList" ItemsSource="{Binding Path=Pacijenti}" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" AutoGeneratingColumn="generateColumns" HorizontalAlignment="Stretch" Margin="24.6,25,30.4,35" VerticalAlignment="Stretch"  SelectionChanged="DataGrid_SelectionChanged" Grid.Column="1" Grid.ColumnSpan="3" >
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="127"/>
-                            <DataGridTextColumn Header="Lastname" Binding="{Binding Surname}" Width="127"/>
-                            <DataGridTextColumn Header="Date of birth" Binding="{Binding DateOfBirth}" Width="127"/>
-                            <DataGridTextColumn Header="JMBG" Binding="{Binding Id}" Width="127"/>
-                            <DataGridTextColumn Header="Username" Binding="{Binding Username}" Width="127"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <Button Content="Add patient" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" HorizontalAlignment="Left" Margin="223,560,0,0" VerticalAlignment="Top" Width="80" Click="addPatient" Grid.Column="3"  />
-                    <Button Content="Edit patient" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" HorizontalAlignment="Left" Margin="333,560,0,0" VerticalAlignment="Top" Width="89" RenderTransformOrigin="0.189,0.889" Click="editPatient" Grid.Column="3"/>
-                    <Button Content="Delete patient" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" HorizontalAlignment="Left" Margin="453,560,0,0" VerticalAlignment="Top" Width="101" Click="deletePatient" Grid.Column="3" RenderTransformOrigin="0.475,0.167"  />
 
-                </Grid>
-            </TabItem>
-            <TabItem Header="Guest account">
-                <Grid Background="#FFA5BC90">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0*"/>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="700"/>
-                        <ColumnDefinition Width="0*"/>
-                    </Grid.ColumnDefinitions>
-                    <Button FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" Content="Create guest account" HorizontalAlignment="Left" Margin="525,561,0,0" VerticalAlignment="Top" Width="145" Click="createGuestAccount" Grid.Column="1" Grid.ColumnSpan="2" Height="19"/>
-                    <DataGrid x:Name="GuestUsers" ItemsSource="{Binding GuestKorisnici}" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" HorizontalAlignment="Stretch" Margin="31,25,30,35.4" VerticalAlignment="Stretch"  SelectionChanged="DataGrid_SelectionChanged" Grid.ColumnSpan="3">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="System name" Binding="{Binding SystemName}" Width="290"/>
-                            <DataGridTextColumn Header="Injury description" Binding="{Binding InjuryDescription}" Width="349"/>
-                        </DataGrid.Columns>
-
-                    </DataGrid>
-                    <Button FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" Grid.ColumnSpan="3" Content="Delete guest account" HorizontalAlignment="Left" Margin="361,561,0,0" VerticalAlignment="Top" Width="147" Click="deleteGuestAccount" Height="19" />
-                </Grid>
-            </TabItem>
-        </TabControl>
+        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="48" Margin="10,10,0,0" Height="48" Click="ActionBarOpen">
+            <StackPanel>
+                <Image Source="C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\Images\actionBarIcon.png" Width="46" Height="41" RenderTransformOrigin="0.543,0.5"/>
+            </StackPanel>
+        </Button>
+        <Label Content="ZDRAVO KORPORACIJA" FontSize="20" Foreground="Green" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,14,0,0" Height="35" Width="235" Grid.ColumnSpan="2"/>
+        <Image x:Name="nasLogo" HorizontalAlignment="Left" Height="48" Margin="154,10,0,0" VerticalAlignment="Top" Width="48" Source="nasLogo.jpg" Grid.Column="1"/>
+        <Label Content="Ime:" HorizontalAlignment="Left" Margin="40,180,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
+        <Label Content="Prezime:" HorizontalAlignment="Left" Margin="40,210,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
+        <Label Content="JMBG:" HorizontalAlignment="Left" Margin="40,240,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
+        <Label Content="Datum rođenja :" HorizontalAlignment="Left" Margin="40,270,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
+        <Label Content="Telefon:" HorizontalAlignment="Left" Margin="40,300,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
+        <Label Content="E-mail:" HorizontalAlignment="Left" Margin="40,330,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
+        <Label Content="Početak radnog odnosa:"  HorizontalAlignment="Left" Margin="40,360,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
+        <Label Content="Radni staž:" HorizontalAlignment="Left" Margin="40,390,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30"/>
+        <Label Content="Plata:" HorizontalAlignment="Left" Margin="40,420,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30" Grid.RowSpan="2"/>
+        <Label Content="Slobodni dani:" HorizontalAlignment="Left" Margin="40,15,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30" Grid.Row="1"/>
+        <Label Content="Ocena:" HorizontalAlignment="Left" Margin="40,45,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30" Grid.Row="1"/>
+        <Label Content="Status:" HorizontalAlignment="Left" Margin="40,75,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="185,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="25" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="185,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="25" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="185,240,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="25" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="185,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="25" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="185,300,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="25" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="185,330,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="25" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="185,360,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="25" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="185,390,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="25" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="185,420,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="25" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="185,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="25" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="185,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="25" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="185,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="25" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="185,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="25" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="185,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="25" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="185,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="25" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <Label Content="Adresa:" HorizontalAlignment="Left" Margin="40,105,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30" Grid.Row="1"/>
+        <Label Content="Grad:" HorizontalAlignment="Left" Margin="40,135,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30" Grid.Row="1"/>
+        <Label Content="Država:" HorizontalAlignment="Left" Margin="40,165,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30" Grid.Row="1"/>
+        <Label Content="PROFIL SEKRETARA" Foreground="Green" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" Width="274" Height="45" FontSize="28" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

@@ -21,6 +21,7 @@ namespace IS_Bolnica
 {
     public partial class UpravnikWindow : Window, INotifyPropertyChanged
     {
+        private List<RoomRecord> rooms = new List<RoomRecord>();
         public UpravnikWindow(Director director)
         {
             InitializeComponent();
@@ -28,7 +29,7 @@ namespace IS_Bolnica
             DataContext = director;
 
             RoomRecordFileStorage storage = new RoomRecordFileStorage();
-            List<RoomRecord> rooms = storage.loadFromFile("Sobe.json");
+            rooms = storage.loadFromFile("Sobe.json");
             //List<RoomRecord> rooms = new List<RoomRecord>();
 
             lvDataBinding.ItemsSource = rooms;
@@ -68,9 +69,8 @@ namespace IS_Bolnica
                 MessageBox.Show("Niste izabrali nijednu prostoriju!");
             } else
             {
-                director.DeleteRoom(room);
-
                 RoomRecordFileStorage storage = new RoomRecordFileStorage();
+                storage.DeleteRoom(room);
                 lvDataBinding.ItemsSource = storage.loadFromFile("Sobe.json");
             }
 
@@ -78,14 +78,15 @@ namespace IS_Bolnica
 
         private void EditButtonClicked(object sender, RoutedEventArgs e)
         {
-            int room = lvDataBinding.SelectedIndex;
+            int index = lvDataBinding.SelectedIndex;
+            RoomRecord selected = (RoomRecord)lvDataBinding.SelectedItem;
 
-            if(room < 0)
+            if(index < 0)
             {
                 MessageBox.Show("Niste izabrali nijednu prostoriju!");
             } else
             {
-                EditWindow ew = new EditWindow(room);
+                EditWindow ew = new EditWindow(index);
                 ew.Show();
                 this.Close();
             }
@@ -95,6 +96,13 @@ namespace IS_Bolnica
         public void refreshData()
         {
             lvDataBinding.Items.Refresh();
+        }
+
+        private void searchKeyUp(object sender, KeyEventArgs e)
+        {
+            var filtered = rooms.Where(room => room.roomPurpose.Name.StartsWith(searchBox.Text));
+
+            lvDataBinding.ItemsSource = filtered;
         }
     }
         

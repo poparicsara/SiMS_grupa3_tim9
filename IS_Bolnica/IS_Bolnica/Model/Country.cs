@@ -1,10 +1,12 @@
+
+
 using System;
 
 namespace Model
 {
-    public class Country
-    {
-        private String name;
+   public class Country
+   {
+      public String name { get; set; }
 
     }
 }

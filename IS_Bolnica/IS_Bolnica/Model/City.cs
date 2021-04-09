@@ -1,13 +1,15 @@
+
+
 using System;
 
 namespace Model
 {
-    public class City
-    {
-        private String name;
-        private int postalCode;
+   public class City
+   {
+      public string name { get; set; }
+      public string postalCode { get; set; }
 
-        public Country country;
+      public Country Country { get; set; }
 
     }
 }
