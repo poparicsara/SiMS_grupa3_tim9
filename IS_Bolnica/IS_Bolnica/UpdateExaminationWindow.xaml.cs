@@ -55,7 +55,20 @@ namespace IS_Bolnica.DoctorsWindows
 
         private void cancelButtonClicked(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            MessageBoxResult messageBox = MessageBox.Show("Are you sure you want to discard your changes?",
+                                                "Update examination", MessageBoxButton.YesNo);
+
+            switch (messageBox)
+            {
+                case MessageBoxResult.Yes:
+                    DoctorWindow doctorWindow = new DoctorWindow();
+                    doctorWindow.Show();
+                    this.Close();
+                    break;
+                case MessageBoxResult.No:
+                    break;
+            }
         }
     }
+    
 }

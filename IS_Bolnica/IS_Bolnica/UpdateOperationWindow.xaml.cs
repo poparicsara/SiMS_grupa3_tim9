@@ -56,11 +56,13 @@ namespace IS_Bolnica.DoctorsWindows
         private void cancelButtonClicked(object sender, RoutedEventArgs e)
         {
             MessageBoxResult messageBox = MessageBox.Show("Are you sure you want to discard your changes?",
-                                                "Scheduling", MessageBoxButton.YesNo);
+                                                "Update operation", MessageBoxButton.YesNo);
 
             switch (messageBox)
             {
                 case MessageBoxResult.Yes:
+                    DoctorWindow doctorWindow = new DoctorWindow();
+                    doctorWindow.Show();
                     this.Close();
                     break;
                 case MessageBoxResult.No:

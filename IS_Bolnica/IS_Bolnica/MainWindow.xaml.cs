@@ -22,7 +22,6 @@ namespace IS_Bolnica
         {
             DoctorWindow doctorWindow = new DoctorWindow();
             doctorWindow.Show();
-            this.Close();
         }
 
         private void PatientButtonClicked(object sender, RoutedEventArgs e)
@@ -30,6 +29,13 @@ namespace IS_Bolnica
             PatientWindow pw = new PatientWindow();
             pw.Show(); 
             
+        }
+
+        private void ButtonSekretarCLicked(object sender, RoutedEventArgs e)
+        {
+            SekretarWindow sw = new SekretarWindow();
+            sw.Show();
+
         }
     }
 }

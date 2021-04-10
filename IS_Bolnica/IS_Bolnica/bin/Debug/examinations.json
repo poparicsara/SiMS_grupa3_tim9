@@ -1,23 +1,30 @@
 [
   {
+    "isPayed": false,
+    "evaluation": 0,
+    "durationInMinutes": 0,
+    "date": "2021-03-27T00:00:00+01:00",
+    "patient": null,
+    "doctor": null,
+    "secretary": null,
+    "Secretary": null,
     "Date": "2021-03-27T00:00:00+01:00",
     "Patient": null,
-    "Secretary": null,
     "NameSurname": "Petar Petrovic",
     "RoomName": "room 22"
   },
   {
+    "isPayed": false,
+    "evaluation": 0,
+    "durationInMinutes": 0,
+    "date": "2021-03-30T11:00:00",
+    "patient": null,
+    "doctor": null,
+    "secretary": null,
+    "Secretary": null,
     "Date": "2021-03-30T11:00:00",
     "Patient": null,
-    "Secretary": null,
     "NameSurname": "Mihajlo Kisic",
     "RoomName": "room 2"
-  },
-  {
-    "Date": "2021-04-02T01:00:00",
-    "Patient": null,
-    "Secretary": null,
-    "NameSurname": "Filip Pinjuh",
-    "RoomName": "room 15"
   }
 ]
