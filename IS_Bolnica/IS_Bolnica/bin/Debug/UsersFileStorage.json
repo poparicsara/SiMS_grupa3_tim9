@@ -60,30 +60,6 @@
     }
   },
   {
-    "Username": "ikjhnb",
-    "Password": "nez",
-    "Name": "Dejana",
-    "Surname": "jnhb",
-    "DateOfBirth": "2021-04-09T00:00:00+02:00",
-    "Phone": "85",
-    "Email": "okjhb",
-    "Id": "951",
-    "UserType": 0,
-    "Address": {
-      "Street": "Nova ",
-      "NumberOfBuilding": 56,
-      "Floor": 15,
-      "Apartment": 9,
-      "City": {
-        "name": "",
-        "postalCode": "Bfgbhn",
-        "Country": {
-          "name": "ujmnuh"
-        }
-      }
-    }
-  },
-  {
     "Username": "Vladimir",
     "Password": "ftn",
     "Name": "Maja",

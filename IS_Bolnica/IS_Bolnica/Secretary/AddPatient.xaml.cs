@@ -4,15 +4,27 @@ using System.Windows;
 using System.Collections.ObjectModel;
 using IS_Bolnica.Model;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace IS_Bolnica.Secretary
 {
-    public partial class AddPatient : Window
+    public partial class AddPatient : Window, INotifyPropertyChanged
     {
         private Patient patient = new Patient();
         private User user = new User();
         private PatientRecordFileStorage storage = new PatientRecordFileStorage();
         private UsersFileStorage storage1 = new UsersFileStorage();
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
         public AddPatient()
         {
             InitializeComponent();

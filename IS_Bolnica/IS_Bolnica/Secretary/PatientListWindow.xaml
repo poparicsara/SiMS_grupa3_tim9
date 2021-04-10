@@ -29,6 +29,7 @@
         <Button Content="Izmeni pacijenta" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" HorizontalAlignment="Left" Margin="10,632,0,0" VerticalAlignment="Top" Width="401" RenderTransformOrigin="0.189,0.889" Click="editPatient" Height="30"/>
         <Button Content="Obriši pacijenta" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" HorizontalAlignment="Left" Margin="10,672,0,0" VerticalAlignment="Top" Width="401" Click="deletePatient" RenderTransformOrigin="0.475,0.167" Height="30"  />
         <Label Content="SPISAK PACIJENATA" FontWeight="Bold"  Foreground="Green" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,69,0,0" Width="246" Height="37"/>
+        <TextBox x:Name="pretraziBox" HorizontalAlignment="Left" Height="23" Margin="256,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" KeyUp="pretraziBox_KeyUp"/>
 
 
 

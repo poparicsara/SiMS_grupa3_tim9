@@ -44,6 +44,7 @@ namespace IS_Bolnica.Secretary
         {
             int i = -1;
             i = GuestUsers.SelectedIndex;
+            GuestUser guestKorisnik = (GuestUser)GuestUsers.SelectedItem;
             Secretary.GuestUserListWindow guw;
 
             if (i == -1)
@@ -57,7 +58,10 @@ namespace IS_Bolnica.Secretary
                 {
                     case MessageBoxResult.Yes:
                         GuestKorisnici = storage.loadFromFile("GuestUsersFile.json");
-                        GuestKorisnici.Remove(GuestKorisnici[i]);
+                        for(int k = 0; k < GuestKorisnici.Count; k++)
+                        {
+                            GuestKorisnici.RemoveAt(k);
+                        }
                         storage.saveToFile(GuestKorisnici, "GuestUsersFile.json");
 
                         guw = new Secretary.GuestUserListWindow();

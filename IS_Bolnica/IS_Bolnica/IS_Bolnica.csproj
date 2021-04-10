@@ -119,6 +119,7 @@
     <Compile Include="UpravnikWindow.xaml.cs">
       <DependentUpon>UpravnikWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Validation\Validation.cs" />
     <Compile Include="Zakazivanje pregleda.xaml.cs">
       <DependentUpon>Zakazivanje pregleda.xaml</DependentUpon>
     </Compile>
@@ -269,8 +270,6 @@
   <ItemGroup>
     <Resource Include="nasLogo.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Validation\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
