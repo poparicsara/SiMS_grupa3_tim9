@@ -21,6 +21,7 @@ namespace IS_Bolnica
 {
     public partial class UpravnikWindow : Window, INotifyPropertyChanged
     {
+        private List<RoomRecord> rooms = new List<RoomRecord>();
         public UpravnikWindow(Director director)
         {
             InitializeComponent();
@@ -28,18 +29,34 @@ namespace IS_Bolnica
             DataContext = director;
 
             RoomRecordFileStorage storage = new RoomRecordFileStorage();
-            List<RoomRecord> rooms = storage.loadFromFile("Sobe.json");
+            rooms = storage.loadFromFile("Sobe.json");
             //List<RoomRecord> rooms = new List<RoomRecord>();
 
             lvDataBinding.ItemsSource = rooms;
 
-            /*rooms = new List<RoomRecord>();
+           /* rooms = new List<RoomRecord>();
             var purpose1 = new RoomPurpose { Name = "Soba" };
             var room1 = new RoomRecord { Id = "101", HospitalWard = "Neurologija", roomPurpose = purpose1 };
             var purpose2 = new RoomPurpose { Name = "Ordinacija" };
             var room2 = new RoomRecord { Id = "102", HospitalWard = "Ortopedija", roomPurpose = purpose2 };
             var purpose3 = new RoomPurpose { Name = "Operaciona sala" };
             var room3 = new RoomRecord { Id = "103", HospitalWard = "Psihijatrija", roomPurpose = purpose3 };
+
+            
+
+            List<Inventory> inventories = new List<Inventory>();
+
+            var inventory1 = new Inventory { Id = 101, Name = "Špric", CurrentAmount = 20, Minimum = 2 };
+            var inventory2 = new Inventory { Id = 202, Name = "Injekcija", CurrentAmount = 20, Minimum = 2 };
+            var inventory3 = new Inventory { Id = 303, Name = "Štapić", CurrentAmount = 20, Minimum = 2 };
+
+            inventories.Add(inventory1);
+            inventories.Add(inventory2);
+            inventories.Add(inventory3);
+
+            room1.inventory = inventories;
+            room2.inventory = inventories;
+            room3.inventory = inventories;
 
             rooms.Add(room1);
             rooms.Add(room2);
@@ -62,15 +79,15 @@ namespace IS_Bolnica
         {
             Director director = (Director)DataContext;
             int room = lvDataBinding.SelectedIndex;
+            RoomRecord selectedRoom = (RoomRecord)lvDataBinding.SelectedItem;
 
-            if(room < 0)
+            if (room < 0)
             {
                 MessageBox.Show("Niste izabrali nijednu prostoriju!");
             } else
             {
-                director.DeleteRoom(room);
-
                 RoomRecordFileStorage storage = new RoomRecordFileStorage();
+                storage.DeleteRoom(selectedRoom);
                 lvDataBinding.ItemsSource = storage.loadFromFile("Sobe.json");
             }
 
@@ -78,14 +95,15 @@ namespace IS_Bolnica
 
         private void EditButtonClicked(object sender, RoutedEventArgs e)
         {
-            int room = lvDataBinding.SelectedIndex;
+            int index = lvDataBinding.SelectedIndex;
+            RoomRecord selected = (RoomRecord)lvDataBinding.SelectedItem;
 
-            if(room < 0)
+            if(index < 0)
             {
                 MessageBox.Show("Niste izabrali nijednu prostoriju!");
             } else
             {
-                EditWindow ew = new EditWindow(room);
+                EditWindow ew = new EditWindow(selected);
                 ew.Show();
                 this.Close();
             }
@@ -95,6 +113,20 @@ namespace IS_Bolnica
         public void refreshData()
         {
             lvDataBinding.Items.Refresh();
+        }
+
+        private void searchKeyUp(object sender, KeyEventArgs e)
+        {
+            var filtered = rooms.Where(room => room.roomPurpose.Name.StartsWith(searchBox.Text));
+
+            lvDataBinding.ItemsSource = filtered;
+        }
+
+        private void InventarButtonClicked(object sender, RoutedEventArgs e)
+        {
+            InventarWindow iw = new InventarWindow();
+            iw.Show();
+            this.Close();
         }
     }
         

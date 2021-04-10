@@ -61,15 +61,25 @@
     <Compile Include="AddExaminationWindow.xaml.cs">
       <DependentUpon>AddExaminationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddInventoryWindow.xaml.cs">
+      <DependentUpon>AddInventoryWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddOperationWindow.xaml.cs">
       <DependentUpon>AddOperationWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="DoctorWindow.xaml.cs">
       <DependentUpon>DoctorWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditInventoryWindow.xaml.cs">
+      <DependentUpon>EditInventoryWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditWindow.xaml.cs">
       <DependentUpon>EditWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="InventarWindow.xaml.cs">
+      <DependentUpon>InventarWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryInRoom.cs" />
     <Compile Include="InventoryWindow.xaml.cs">
       <DependentUpon>InventoryWindow.xaml</DependentUpon>
     </Compile>
@@ -99,6 +109,9 @@
     <Compile Include="SekretarWindow.xaml.cs">
       <DependentUpon>SekretarWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SelectedInventoryInRooms.xaml.cs">
+      <DependentUpon>SelectedInventoryInRooms.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UpdateExaminationWindow.xaml.cs">
       <DependentUpon>UpdateExaminationWindow.xaml</DependentUpon>
     </Compile>
@@ -108,12 +121,17 @@
     <Compile Include="UpravnikWindow.xaml.cs">
       <DependentUpon>UpravnikWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UsersFileStorage.cs" />
     <Compile Include="Zakazivanje pregleda.xaml.cs">
       <DependentUpon>Zakazivanje pregleda.xaml</DependentUpon>
     </Compile>
     <Page Include="AddExaminationWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AddInventoryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddOperationWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -123,9 +141,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="EditInventoryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EditWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InventarWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="InventoryWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -172,6 +198,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SekretarWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SelectedInventoryInRooms.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

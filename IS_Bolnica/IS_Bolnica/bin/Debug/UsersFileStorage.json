@@ -1,0 +1,50 @@
+[
+  {
+    "address": null,
+    "Username": "Vladimir",
+    "Password": "ftn",
+    "Name": "Maja",
+    "Surname": "Mirković",
+    "DateOfBirth": "1999-08-01T00:00:00",
+    "Phone": 65879463,
+    "Email": "majamirkovic@gmail.com",
+    "Id": 1756265852,
+    "UserType": 0
+  },
+  {
+    "address": null,
+    "Username": "Marija",
+    "Password": "ftn",
+    "Name": "Marija",
+    "Surname": "Marić",
+    "DateOfBirth": "1979-11-01T00:00:00",
+    "Phone": 67894652,
+    "Email": "maricm@hotmail.com",
+    "Id": 457896,
+    "UserType": 1
+  },
+  {
+    "address": null,
+    "Username": "Nina",
+    "Password": "ftn",
+    "Name": "Milica",
+    "Surname": "Milović",
+    "DateOfBirth": "2021-03-29T00:00:00+02:00",
+    "Phone": 62226648,
+    "Email": "milovicmica@gmail.com",
+    "Id": 11111,
+    "UserType": 2
+  },
+  {
+    "address": null,
+    "Username": "Sara",
+    "Password": "ftn",
+    "Name": "sdf",
+    "Surname": "Milović",
+    "DateOfBirth": "2021-03-29T00:00:00+02:00",
+    "Phone": 62226648,
+    "Email": "milovicmica@gmail.com",
+    "Id": 11111,
+    "UserType": 3
+  }
+]
