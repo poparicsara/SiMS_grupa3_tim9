@@ -16,5 +16,5 @@ C:\Users\vrbic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\App.xaml
 141245864747
 AddExaminationWindow.xaml;AddInventoryWindow.xaml;AddOperationWindow.xaml;DoctorWindow.xaml;EditInventoryWindow.xaml;EditWindow.xaml;InventarWindow.xaml;InventoryWindow.xaml;Izmena pregleda.xaml;MainWindow.xaml;NewInventory.xaml;NewRoomWindow.xaml;PatientWindow.xaml;Secretary\AddPatient.xaml;Secretary\EditPatient.xaml;Secretary\GuestUserAccount.xaml;SekretarWindow.xaml;SelectedInventoryInRooms.xaml;UpdateExaminationWindow.xaml;UpdateOperationWindow.xaml;UpravnikWindow.xaml;Zakazivanje pregleda.xaml;
 
-True
+False
 
