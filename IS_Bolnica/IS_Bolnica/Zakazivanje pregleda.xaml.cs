@@ -45,7 +45,9 @@ namespace IS_Bolnica
             int minuti = Convert.ToInt32(minutesBox.Text);
             DateTime datumPregleda = new DateTime(godina, mesec, dan, sati, minuti, 0);
 
-            Examination e1 = new Examination { isPayed = false, durationInMinutes = 30, doctor = d1, date = datumPregleda};
+            Random rnd = new Random();
+            int trajanje = rnd.Next(1,60);
+            Examination e1 = new Examination { isPayed = false, durationInMinutes = trajanje, doctor = d1, date = datumPregleda};
             pregledi.Add(e1);
             exStorage.saveToFile(pregledi, "Pregledi.json");
             PatientWindow pw = new PatientWindow();
