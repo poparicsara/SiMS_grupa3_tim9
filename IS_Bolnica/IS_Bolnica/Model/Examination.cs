@@ -25,7 +25,7 @@ namespace Model
         }
 
         public DateTime date { get; set; }
-        public Patient patient { get; set; }
+      //  public Patient patient { get; set; }
         public Doctor doctor { get; set; }
         public Secretary secretary { get; set; }
 
@@ -72,28 +72,17 @@ namespace Model
 
         public Patient Patient
         {
-            get
-            {
-                return patient;
-            }
-            set
-            {
-                if (value != patient)
-                {
-                    patient = value;
-                    OnPropertyChanged("Patient");
-                }
-            }
-        }
-
-
-        public String NameSurname
-        {
             get;
             set;
         }
 
         public String RoomName
+        {
+            get;
+            set;
+        }
+
+        public RoomRecord RoomRecord
         {
             get;
             set;

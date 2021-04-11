@@ -16,9 +16,10 @@
                               CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True" AutoGenerateColumns="False" Background="White" 
                               HorizontalScrollBarVisibility="Disabled" CanUserResizeRows="False">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="DATE AND TIME" Width="150" Binding="{Binding Date}"/>
-                            <DataGridTextColumn Header="ROOM" Width="110" Binding="{Binding RoomName}"/>
-                            <DataGridTextColumn Header="PATIENT" Width="120" Binding="{Binding NameSurname}"/>
+                            <DataGridTextColumn Header="DATE AND TIME" Width="110" Binding="{Binding Date}"/>
+                            <DataGridTextColumn Header="ROOM" Width="80" Binding="{Binding RoomRecord.roomPurpose.Name}"/>
+                            <DataGridTextColumn Header="NAME" Width="80" Binding="{Binding Patient.Name}"/>
+                            <DataGridTextColumn Header="SURNAME" Width="80" Binding="{Binding Patient.Surname}" />
                         </DataGrid.Columns>
                     </DataGrid>
 
@@ -36,9 +37,10 @@
                               ColumnWidth="SizeToHeader" Foreground="#FF15285D" BorderBrush="#FF15285D" Canvas.Left="28" FontSize="12"
                               IsReadOnly="True" AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserResizeColumns="False" Background="White" HorizontalScrollBarVisibility="Disabled">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="DATE AND TIME" Width="150" Binding="{Binding Date}"/>
-                            <DataGridTextColumn Header="ROOM" Width="110" Binding="{Binding RoomName}"/>
-                            <DataGridTextColumn Header="PATIENT" Width="120" Binding="{Binding NameSurname}" />
+                            <DataGridTextColumn Header="DATE AND TIME" Width="110" Binding="{Binding Date}"/>
+                            <DataGridTextColumn Header="ROOM" Width="80" Binding="{Binding RoomRecord.roomPurpose.Name}"/>
+                            <DataGridTextColumn Header="NAME" Width="80" Binding="{Binding Patient.Name}"/>
+                            <DataGridTextColumn Header="SURNAME" Width="80" Binding="{Binding Patient.Surname}" />
                         </DataGrid.Columns>
                     </DataGrid>
 

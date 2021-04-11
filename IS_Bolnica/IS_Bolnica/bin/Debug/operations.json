@@ -2,19 +2,27 @@
   {
     "doctor": [],
     "Doctor": [],
-    "Date": "2021-05-23T00:00:00",
-    "Patient": null,
-    "RoomRecord": null,
-    "NameSurname": "Pavle Kostic",
-    "RoomName": "operation room 1"
-  },
-  {
-    "doctor": [],
-    "Doctor": [],
-    "Date": "2021-10-12T00:00:00",
-    "Patient": null,
-    "RoomRecord": null,
-    "NameSurname": "Lana Kovacevic",
-    "RoomName": "op 121"
+    "Date": "2021-11-23T00:00:00",
+    "Patient": {
+      "address": null,
+      "Username": null,
+      "Password": null,
+      "Name": "Filip",
+      "Surname": "Filipovic",
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": 0,
+      "Email": null,
+      "Id": 0,
+      "UserType": 0
+    },
+    "RoomRecord": {
+      "Id": 0,
+      "HospitalWard": null,
+      "inventory": null,
+      "roomPurpose": {
+        "Name": "room 12"
+      }
+    },
+    "RoomName": null
   }
 ]

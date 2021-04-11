@@ -42,10 +42,20 @@ namespace IS_Bolnica.DoctorsWindows
 
         private void saveButtonClicked(object sender, RoutedEventArgs e)
         {
-            Examination examination = new Examination();
-            examination.Date = DateTime.Parse(dateTxt.Text);
-            examination.RoomName = roomTxt.Text;
-            examination.NameSurname = patientTxt.Text;
+            Patient patient = new Patient();
+            RoomRecord room = new RoomRecord();
+            RoomPurpose purpose = new RoomPurpose();
+            patient.Name = patientNameTxt.Text;
+            patient.Surname = patientSurnameTxt.Text;
+            purpose.Name = roomTxt.Text;
+            room.roomPurpose = purpose;
+
+            Examination examination = new Examination
+            {
+                Patient = patient,
+                RoomRecord = room,
+                Date = DateTime.Parse(dateTxt.Text)
+            };
 
             ExaminationsRecordFileStorage storage = new ExaminationsRecordFileStorage();
             List<Examination> examinations = storage.loadFromFile("examinations.json");

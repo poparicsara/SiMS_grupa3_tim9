@@ -26,24 +26,31 @@ namespace IS_Bolnica.DoctorsWindows
             List<Operation> operations = operationsFileStorage.loadFromFile("operations.json");
 
             dateTxt.Text = operations.ElementAt(selectedIndex).Date.ToString();
-            roomTxt.Text = operations.ElementAt(selectedIndex).RoomName;
-            patientTxt.Text = operations.ElementAt(selectedIndex).NameSurname;
+            roomTxt.Text = operations.ElementAt(selectedIndex).RoomRecord.roomPurpose.Name;
+            patientNameTxt.Text = operations.ElementAt(selectedIndex).Patient.Name;
+            patientSurnameTxt.Text = operations.ElementAt(selectedIndex).Patient.Surname;
 
             selectedOperation = selectedIndex;
         }
 
         private void saveButtonClicked(object sender, RoutedEventArgs e)
         {
+            Patient patient = new Patient();
             Operation operation = new Operation();
+            RoomRecord room = new RoomRecord();
+            RoomPurpose purpose = new RoomPurpose();
             operation.Date = DateTime.Parse(dateTxt.Text);
-            operation.RoomName = roomTxt.Text;
-            operation.NameSurname = patientTxt.Text;
+            patient.Name = patientNameTxt.Text;
+            patient.Surname = patientSurnameTxt.Text;
+            purpose.Name = roomTxt.Text;
+            room.roomPurpose = purpose;
 
             OperationsFileStorage operationsFileStorage = new OperationsFileStorage();
             List<Operation> operations = operationsFileStorage.loadFromFile("operations.json");
             operations.ElementAt(selectedOperation).Date = operation.Date;
-            operations.ElementAt(selectedOperation).RoomName = operation.RoomName;
-            operations.ElementAt(selectedOperation).NameSurname = operation.NameSurname;
+            operations.ElementAt(selectedOperation).RoomRecord.roomPurpose = room.roomPurpose;
+            operations.ElementAt(selectedOperation).Patient.Name = patient.Name;
+            operations.ElementAt(selectedOperation).Patient.Surname = patient.Surname;
 
             operationsFileStorage.saveToFile(operations, "operations.json");
 

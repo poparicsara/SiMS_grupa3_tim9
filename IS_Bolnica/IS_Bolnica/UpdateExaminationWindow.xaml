@@ -11,19 +11,21 @@
         <Canvas Background="#FF15285D" Margin="0,0,559.6,0">
             <Label Content="Date and time:" HorizontalAlignment="Left" Margin="82,58,0,0" VerticalAlignment="Top" FontFamily="Ebrima" FontSize="16" Foreground="White" FontWeight="Bold" BorderBrush="White"/>
             <Label Content="Room:" HorizontalAlignment="Left" Margin="82,103,0,0" VerticalAlignment="Top" Width="88" FontFamily="Ebrima" FontSize="16" Foreground="White" FontWeight="Bold"/>
-            <Label Content="Description:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" FontFamily="Ebrima" FontSize="16" Foreground="White" FontWeight="Bold" Canvas.Left="82" Canvas.Top="232"/>
-            <Label Content="Patient:" HorizontalAlignment="Left" Margin="82,149,0,0" VerticalAlignment="Top" Width="88" FontFamily="Ebrima" FontSize="16" Foreground="White" FontWeight="Bold"/>
+            <Label Content="Description:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" FontFamily="Ebrima" FontSize="16" Foreground="White" FontWeight="Bold" Canvas.Left="82" Canvas.Top="274"/>
+            <Label Content="Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" FontFamily="Ebrima" FontSize="16" Foreground="White" FontWeight="Bold" Canvas.Left="82" Canvas.Top="163"/>
+            <Label Content="Surname:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" FontFamily="Ebrima" FontSize="16" Foreground="White" FontWeight="Bold" Canvas.Left="82" Canvas.Top="216" RenderTransformOrigin="0.584,1.238"/>
         </Canvas>
 
 
-        <Button Content="Cancel" HorizontalAlignment="Left" Margin="504,346,0,0" VerticalAlignment="Top" Width="94" FontFamily="Ebrima" FontSize="16" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="cancelButtonClicked"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="522,346,0,0" VerticalAlignment="Top" Width="94" FontFamily="Ebrima" FontSize="16" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="cancelButtonClicked"/>
         <Button Content="Save" HorizontalAlignment="Left" Margin="675,346,0,0" VerticalAlignment="Top" Width="89" FontFamily="Ebrima" FontSize="16" Foreground="White" Background="#FF15285D" FontWeight="Bold" RenderTransformOrigin="0.602,-0.238" Click="saveButtonClicked"/>
 
         <TextBox Name ="dateTxt"  HorizontalAlignment="Left" Height="23" Margin="277,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" 
                  RenderTransformOrigin="0.05,0.526" />
         <TextBox Name ="roomTxt" HorizontalAlignment="Left" Height="23" Margin="277,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
-        <TextBox Name="patientTxt" HorizontalAlignment="Left" Height="23" Margin="277,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
-        <TextBox Name="descriptionTxt" HorizontalAlignment="Left" Height="76" Margin="277,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <TextBox Name="patientNameTxt" HorizontalAlignment="Left" Height="23" Margin="277,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <TextBox Name="descriptionTxt" HorizontalAlignment="Left" Height="76" Margin="277,278,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <TextBox x:Name="patientSurnameTxt" HorizontalAlignment="Left" Height="23" Margin="277,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
 
     </Grid>
 </Window>

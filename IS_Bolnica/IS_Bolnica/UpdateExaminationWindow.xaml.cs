@@ -26,24 +26,31 @@ namespace IS_Bolnica.DoctorsWindows
             List<Examination> examinations = examinationsRecordFileStorage.loadFromFile("examinations.json");
 
             dateTxt.Text = examinations.ElementAt(selectedIndex).Date.ToString();
-            roomTxt.Text = examinations.ElementAt(selectedIndex).RoomName;
-            patientTxt.Text = examinations.ElementAt(selectedIndex).NameSurname;
+            roomTxt.Text = examinations.ElementAt(selectedIndex).RoomRecord.roomPurpose.Name;
+            patientNameTxt.Text = examinations.ElementAt(selectedIndex).Patient.Name;
+            patientSurnameTxt.Text = examinations.ElementAt(selectedIndex).Patient.Surname;
 
             selectedExamination = selectedIndex;
         }
 
         private void saveButtonClicked(object sender, RoutedEventArgs e)
         {
+            Patient patient = new Patient();
             Examination examination = new Examination();
+            RoomPurpose purpose = new RoomPurpose();
+            RoomRecord room = new RoomRecord();
             examination.Date = DateTime.Parse(dateTxt.Text);
-            examination.RoomName = roomTxt.Text;
-            examination.NameSurname = patientTxt.Text;
+            purpose.Name = roomTxt.Text;
+            room.roomPurpose = purpose;
+            patient.Name = patientNameTxt.Text;
+            patient.Surname = patientSurnameTxt.Text;
 
             ExaminationsRecordFileStorage examinationsRecordFileStorage = new ExaminationsRecordFileStorage();
             List<Examination> examinations = examinationsRecordFileStorage.loadFromFile("examinations.json");
             examinations.ElementAt(selectedExamination).Date = examination.Date;
-            examinations.ElementAt(selectedExamination).RoomName = examination.RoomName;
-            examinations.ElementAt(selectedExamination).NameSurname = examination.NameSurname;
+            examinations.ElementAt(selectedExamination).RoomRecord.roomPurpose = room.roomPurpose;
+            examinations.ElementAt(selectedExamination).Patient.Name = patient.Name;
+            examinations.ElementAt(selectedExamination).Patient.Surname = patient.Surname;
 
             examinationsRecordFileStorage.saveToFile(examinations, "examinations.json");
 

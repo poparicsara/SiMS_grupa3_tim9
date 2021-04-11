@@ -1,3 +1,5 @@
+using System;
+
 namespace Model
 {
     public class Patient : User
@@ -6,5 +8,6 @@ namespace Model
         {
             
         }
+
     }
 }

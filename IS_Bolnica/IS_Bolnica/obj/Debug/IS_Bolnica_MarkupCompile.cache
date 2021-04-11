@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\
+C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\
 IS_Bolnica
 none
 false
 DEBUG;TRACE
-C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\App.xaml
+C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\App.xaml
 221119731283
 
 54-1690312903
-141323765998
+14-1148817317
 AddExaminationWindow.xaml;AddInventoryWindow.xaml;AddOperationWindow.xaml;DoctorWindow.xaml;EditInventoryWindow.xaml;EditWindow.xaml;InventarWindow.xaml;InventoryWindow.xaml;Izmena pregleda.xaml;MainWindow.xaml;NewInventory.xaml;NewRoomWindow.xaml;PatientWindow.xaml;Secretary\AddPatient.xaml;Secretary\EditPatient.xaml;Secretary\GuestUserAccount.xaml;SekretarWindow.xaml;SelectedInventoryInRooms.xaml;UpdateExaminationWindow.xaml;UpdateOperationWindow.xaml;UpravnikWindow.xaml;Zakazivanje pregleda.xaml;
 
 False
