@@ -31,6 +31,7 @@ namespace IS_Bolnica
             inventory.Name = nameBox.Text;
             inventory.CurrentAmount = (int)Int64.Parse(currentBox.Text);
             inventory.Minimum = (int)Int64.Parse(minBox.Text);
+            inventory.InventoryType = Model.InventoryType.dinamicki;
 
             InventoryFileStorage storage = new InventoryFileStorage();
             storage.AddInventory(inventory);

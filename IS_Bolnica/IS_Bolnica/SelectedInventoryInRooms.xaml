@@ -40,5 +40,8 @@
                 <Grid Background="White"/>
             </TabItem>
         </TabControl>
+        <Button Content="PRERASPODELA" HorizontalAlignment="Left" Margin="703,341,0,0" VerticalAlignment="Top" 
+                Width="81" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" 
+                BorderBrush="#FF425431" Click="ChangeButton"/>
     </Grid>
 </Window>

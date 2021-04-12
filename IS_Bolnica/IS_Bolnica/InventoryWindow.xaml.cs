@@ -36,6 +36,14 @@ namespace IS_Bolnica
                 }
             }
 
+            InventoryFileStorage iStorage = new InventoryFileStorage();
+            List<Inventory> inv = iStorage.loadFromFile("Inventar.json");
+
+            foreach(Inventory i in inv)
+            {
+                inventories.Add(i);
+            }
+
             inventoryBinding.ItemsSource = inventories;
         }
     }
