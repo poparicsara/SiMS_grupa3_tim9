@@ -56,7 +56,7 @@
       },
       {
         "Name": "Štapić",
-        "CurrentAmount": 17,
+        "CurrentAmount": 20,
         "Minimum": 2,
         "Id": 303,
         "InventoryType": 0
@@ -176,7 +176,7 @@
       },
       {
         "Name": "Štapić",
-        "CurrentAmount": 23,
+        "CurrentAmount": 20,
         "Minimum": 2,
         "Id": 303,
         "InventoryType": 0

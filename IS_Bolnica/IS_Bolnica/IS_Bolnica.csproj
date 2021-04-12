@@ -91,8 +91,6 @@
     </Compile>
     <Compile Include="Model\GuestUsersFileStorage.cs" />
     <Compile Include="Model\InventoryType.cs" />
-    <Compile Include="Model\Operations.cs" />
-    <Compile Include="Model\UsersFileStorage.cs" />
     <Compile Include="Model\UserType.cs" />
     <Compile Include="NewInventory.xaml.cs">
       <DependentUpon>NewInventory.xaml</DependentUpon>
@@ -127,6 +125,7 @@
     <Compile Include="UpravnikWindow.xaml.cs">
       <DependentUpon>UpravnikWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UsersFileStorage.cs" />
     <Compile Include="Zakazivanje pregleda.xaml.cs">
       <DependentUpon>Zakazivanje pregleda.xaml</DependentUpon>
     </Compile>
