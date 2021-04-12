@@ -77,6 +77,9 @@
       <DependentUpon>Izmena pregleda.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\GuestUsersFileStorage.cs" />
+    <Compile Include="Model\Notification.cs" />
+    <Compile Include="Model\NotificationsFileStorage.cs" />
+    <Compile Include="Model\NotificationType.cs" />
     <Compile Include="Model\Operations.cs" />
     <Compile Include="Model\UsersFileStorage.cs" />
     <Compile Include="Model\UserType.cs" />
@@ -92,8 +95,14 @@
     <Compile Include="Secretary\ActionBarWindow.xaml.cs">
       <DependentUpon>ActionBarWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Secretary\AddNotificationWindow.xaml.cs">
+      <DependentUpon>AddNotificationWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Secretary\AddPatient.xaml.cs">
       <DependentUpon>AddPatient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\EditNotificationWindow.xaml.cs">
+      <DependentUpon>EditNotificationWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\EditPatient.xaml.cs">
       <DependentUpon>EditPatient.xaml</DependentUpon>
@@ -103,6 +112,9 @@
     </Compile>
     <Compile Include="Secretary\GuestUserListWindow.xaml.cs">
       <DependentUpon>GuestUserListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\NotificationListWindow.xaml.cs">
+      <DependentUpon>NotificationListWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\PatientListWindow.xaml.cs">
       <DependentUpon>PatientListWindow.xaml</DependentUpon>
@@ -175,7 +187,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Secretary\AddNotificationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Secretary\AddPatient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary\EditNotificationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -188,6 +208,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Secretary\GuestUserListWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary\NotificationListWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

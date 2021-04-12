@@ -27,7 +27,6 @@ namespace IS_Bolnica.Secretary
         {
             get; set;
         }
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         public PatientListWindow()

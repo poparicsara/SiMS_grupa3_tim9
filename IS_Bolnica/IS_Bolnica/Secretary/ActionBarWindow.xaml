@@ -57,6 +57,20 @@
                     </TextBlock>
                 </StackPanel>
             </ListBoxItem>
+            <ListBoxItem FontSize="13" Selected="SpisakObavestenja_Selected">
+                <StackPanel>
+                    <TextBlock>
+                        Spisak obaveštenja
+                    </TextBlock>
+                </StackPanel>
+            </ListBoxItem>
+            <ListBoxItem FontSize="13" Selected="DodajObavestenje_Selected">
+                <StackPanel>
+                    <TextBlock >
+                        Dodaj obaveštenje
+                    </TextBlock>
+                </StackPanel>
+            </ListBoxItem>
         </ListBox>
     </Grid>
 </Window>

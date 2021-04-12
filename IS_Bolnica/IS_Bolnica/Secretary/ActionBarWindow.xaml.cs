@@ -58,5 +58,19 @@ namespace IS_Bolnica.Secretary
             sw.Show();
             this.Close();
         }
+
+        private void SpisakObavestenja_Selected(object sender, RoutedEventArgs e)
+        {
+            Secretary.NotificationListWindow nlw = new Secretary.NotificationListWindow();
+            nlw.Show();
+            this.Close();
+        }
+
+        private void DodajObavestenje_Selected(object sender, RoutedEventArgs e)
+        {
+            Secretary.AddNotificationWindow anw = new Secretary.AddNotificationWindow();
+            anw.Show();
+            this.Close();
+        }
     }
 }
