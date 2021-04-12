@@ -18,7 +18,8 @@ namespace IS_Bolnica
 
     public partial class InventarWindow : Window
     {
-        private List<Inventory> inventories = new List<Inventory>();
+        private List<Inventory> inventoriesDinamicki = new List<Inventory>();
+        private List<Inventory> inventoriesStaticki = new List<Inventory>();
         private Director director = new Director();
 
         public InventarWindow()
@@ -26,35 +27,47 @@ namespace IS_Bolnica
             InitializeComponent();
 
             //replacing from Sobe.json to Inventar.json
-            /*List<RoomRecord> rooms = new List<RoomRecord>();
+            List<RoomRecord> rooms = new List<RoomRecord>();
             RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
             rooms = roomStorage.loadFromFile("Sobe.json");
 
-            
-            foreach(RoomRecord room in rooms)
+            foreach (RoomRecord room in rooms)
             {
-                foreach(Inventory inventory in room.inventory)
+                foreach (Inventory inventory in room.inventory)
                 {
-                    int exist = 0;
-                    foreach (Inventory i in inventories)
+                    int existDinamicki = 0;
+                    int existStaticki = 0;
+                    foreach (Inventory i in inventoriesDinamicki)
                     {
-                        if(i.Id == inventory.Id)
+                        if (i.Id == inventory.Id)
                         {
-                            exist = 1;
+                            existDinamicki = 1;
+                        } 
+                    }
+                    if (existDinamicki == 0 && inventory.InventoryType == Model.InventoryType.dinamicki)
+                    {
+                        inventoriesDinamicki.Add(inventory);
+                    }
+                    foreach (Inventory i in inventoriesStaticki)
+                    {
+                        if (i.Id == inventory.Id)
+                        {
+                            existDinamicki = 1;
                         }
                     }
-                    if(exist == 0)
+                    if (existStaticki == 0 && inventory.InventoryType == Model.InventoryType.staticki)
                     {
-                        inventories.Add(inventory);
+                        inventoriesStaticki.Add(inventory);
                     }
                 }
-            }*/
+            }
 
-            InventoryFileStorage inventoryStorage = new InventoryFileStorage();
-            //inventoryStorage.saveToFile(inventories, "Inventar.json");
+            /*InventoryFileStorage inventoryStorage = new InventoryFileStorage();
+            inventoryStorage.saveToFile(inventoriesDinamicki, "Inventar.json");
+            inventoryStorage.saveToFile(inventoriesStaticki, "Inventar.json");*/
 
-            inventories = inventoryStorage.loadFromFile("Inventar.json");
-            inventarData.ItemsSource = inventories;
+            dinamickiData.ItemsSource = inventoriesDinamicki;
+            statickiData.ItemsSource = inventoriesStaticki;
         }
 
         private void inventarData_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -72,8 +85,8 @@ namespace IS_Bolnica
         private void DeleteButton(object sender, RoutedEventArgs e)
         {
             Director director = (Director)DataContext;
-            int index = inventarData.SelectedIndex;
-            Inventory selectedInventory = (Inventory)inventarData.SelectedItem;
+            int index = dinamickiData.SelectedIndex;
+            Inventory selectedInventory = (Inventory)dinamickiData.SelectedItem;
 
             if (index < 0)
             {
@@ -83,14 +96,14 @@ namespace IS_Bolnica
             {
                 InventoryFileStorage storage = new InventoryFileStorage();
                 storage.DeleteInventory(selectedInventory);
-                inventarData.ItemsSource = storage.loadFromFile("Inventar.json");
+                dinamickiData.ItemsSource = storage.loadFromFile("Inventar.json");
             }
         }
 
         private void EditButton(object sender, RoutedEventArgs e)
         {
-            int index = inventarData.SelectedIndex;
-            Inventory selectedInventory = (Inventory)inventarData.SelectedItem;
+            int index = dinamickiData.SelectedIndex;
+            Inventory selectedInventory = (Inventory)dinamickiData.SelectedItem;
 
             if (index < 0)
             {
@@ -106,7 +119,7 @@ namespace IS_Bolnica
 
         private void Row_DoubleClik(object sender, MouseButtonEventArgs e)
         {
-            Inventory selectedInventory = (Inventory)inventarData.SelectedItem;
+            Inventory selectedInventory = (Inventory)dinamickiData.SelectedItem;
             DataGridRow row = sender as DataGridRow;
             SelectedInventoryInRooms si = new SelectedInventoryInRooms(selectedInventory);
             si.Show();
