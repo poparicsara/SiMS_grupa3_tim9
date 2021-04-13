@@ -1,7 +1,7 @@
 ﻿using Model;
 using System.Windows;
-using IS_Bolnica.Model;
 using System.Collections.ObjectModel;
+using IS_Bolnica.Model;
 
 namespace IS_Bolnica
 {
@@ -9,14 +9,14 @@ namespace IS_Bolnica
     {
 
         private UsersFileStorage storage = new UsersFileStorage();
-        private ObservableCollection<User> users =  new ObservableCollection<User>();
+        private ObservableCollection<User> users = new ObservableCollection<User>();
         private User user = new User();
         public MainWindow()
         {
             InitializeComponent();
 
         }
-        
+
         private void ButtonUpravnikClicked(object sender, RoutedEventArgs e)
         {
             Director director = new Director();
@@ -33,8 +33,8 @@ namespace IS_Bolnica
         private void PatientButtonClicked(object sender, RoutedEventArgs e)
         {
             PatientWindow pw = new PatientWindow();
-            pw.Show(); 
-            
+            pw.Show();
+
         }
 
         private void ButtonSekretarCLicked(object sender, RoutedEventArgs e)
@@ -50,11 +50,11 @@ namespace IS_Bolnica
             string username = usernameBox.Text;
             string password = passwordBox.Text;
 
-            foreach(User user in users)
+            foreach (User user in users)
             {
-                if(user.Username.Equals(username) && user.Password.Equals(password))
+                if (user.Username.Equals(username) && user.Password.Equals(password))
                 {
-                    switch(user.UserType)
+                    switch (user.UserType)
                     {
                         case UserType.patient:
                             PatientWindow pw = new PatientWindow();

@@ -44,8 +44,9 @@ namespace IS_Bolnica.Secretary
         {
             int i = -1;
             i = GuestUsers.SelectedIndex;
-            GuestUser guestKorisnik = (GuestUser)GuestUsers.SelectedItem;
-            Secretary.GuestUserListWindow guw;
+
+            GuestUser guestKorisnik = new GuestUser();
+            guestKorisnik = (GuestUser)GuestUsers.SelectedItem;
 
             if (i == -1)
             {
@@ -58,29 +59,23 @@ namespace IS_Bolnica.Secretary
                 {
                     case MessageBoxResult.Yes:
                         GuestKorisnici = storage.loadFromFile("GuestUsersFile.json");
-                        for(int k = 0; k < GuestKorisnici.Count; k++)
+                        for (int k = 0; k < GuestKorisnici.Count; k++)
                         {
-                            GuestKorisnici.RemoveAt(k);
+                            if (guestKorisnik.SystemName.Equals(GuestKorisnici[k].SystemName))
+                            {
+                                GuestKorisnici.RemoveAt(k);
+                            }
                         }
                         storage.saveToFile(GuestKorisnici, "GuestUsersFile.json");
-
-                        guw = new Secretary.GuestUserListWindow();
-
-                        guw.Show();
                         this.Close();
 
 
                         break;
                     case MessageBoxResult.No:
-                        guw = new Secretary.GuestUserListWindow();
-
-                        guw.Show();
                         this.Close();
                         break;
                 }
             }
-
-            this.Close();
         }
 
         private void createGuestAccount(object sender, RoutedEventArgs e)

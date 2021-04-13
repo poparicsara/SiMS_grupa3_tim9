@@ -1,11 +1,9 @@
-
-
 using System;
 
 namespace Model
 {
-   public class Secretary : Employee
-   {
+    public class Secretary : Employee
+    {
 
-   }
+    }
 }

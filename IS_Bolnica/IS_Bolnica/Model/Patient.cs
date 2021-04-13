@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 
 namespace Model
@@ -13,7 +12,8 @@ namespace Model
 
         public Patient()
         {
-            
+
         }
+
     }
 }

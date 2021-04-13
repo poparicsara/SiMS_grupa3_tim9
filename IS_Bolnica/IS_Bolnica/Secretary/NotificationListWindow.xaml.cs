@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using IS_Bolnica.Model;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,7 +23,7 @@ namespace IS_Bolnica.Secretary
         public event PropertyChangedEventHandler PropertyChanged;
         public ObservableCollection<Notification> Notifications { get; set; }
         private NotificationsFileStorage storage = new NotificationsFileStorage();
-        
+
         public NotificationListWindow()
         {
             InitializeComponent();
@@ -33,7 +34,7 @@ namespace IS_Bolnica.Secretary
             //Notifications.Add(not);
             Notifications = storage.LoadFromFile("NotificationsFileStorage.json");
             NotificationList.ItemsSource = Notifications;
-            
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -57,17 +58,17 @@ namespace IS_Bolnica.Secretary
         private void editNotification(object sender, RoutedEventArgs e)
         {
             Notification notification = new Notification();
-            notification = (Notification) NotificationList.SelectedItem;
+            notification = (Notification)NotificationList.SelectedItem;
             Notifications = storage.LoadFromFile("NotificationsFileStorage.json");
 
             Secretary.EditNotificationWindow enw = new Secretary.EditNotificationWindow(notification);
             enw.title.Text = notification.title;
             enw.content.Text = notification.content;
-            if(notification.notificationType == NotificationType.doctor)
+            if (notification.notificationType == NotificationType.doctor)
             {
                 enw.comboBox.SelectedIndex = 0;
             }
-            else if(notification.notificationType == NotificationType.patient)
+            else if (notification.notificationType == NotificationType.patient)
             {
                 enw.comboBox.SelectedIndex = 1;
             }
@@ -78,7 +79,7 @@ namespace IS_Bolnica.Secretary
 
             enw.Show();
             this.Close();
-            
+
 
         }
 
@@ -90,10 +91,11 @@ namespace IS_Bolnica.Secretary
             int i = -1;
             i = NotificationList.SelectedIndex;
 
-            if(i == -1)
+            if (i == -1)
             {
                 MessageBox.Show("You didn't choose notification which you want to delete!");
-            } else
+            }
+            else
             {
                 MessageBoxResult result = MessageBox.Show("Da li stvarno želite da obrišete pacijenta?", "Brisanje pacijenta", MessageBoxButton.YesNo);
                 switch (result)
@@ -113,6 +115,7 @@ namespace IS_Bolnica.Secretary
 
                         break;
                     case MessageBoxResult.No:
+                        this.Close();
                         break;
                 }
             }

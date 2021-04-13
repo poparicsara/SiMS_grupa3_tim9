@@ -14,53 +14,53 @@ namespace IS_Bolnica
         private RoomRecord oldRoom = new RoomRecord();
         private Director director = new Director();
 
-        public EditWindow(int room)
+        public EditWindow(RoomRecord room)
         {
             InitializeComponent();
 
-           /* roomBox.Text = room.Id;
-            wardBox.Text = room.HospitalWard;
-            purposeBox.Text = room.roomPurpose.Name;
+            List<string> hospitalWard = new List<string>();
+            hospitalWard.Add("Pedijatrija");
+            hospitalWard.Add("Ortopedija");
+            hospitalWard.Add("Ginekologija");
+            hospitalWard.Add("Urologija");
+
+            wardBox.ItemsSource = hospitalWard;
+
+            List<string> roomPurpose = new List<string>();
+            RoomPurpose purpose1 = new RoomPurpose { Name = "Ordinacija" };
+            RoomPurpose purpose2 = new RoomPurpose { Name = "Operaciona sala" };
+            RoomPurpose purpose3 = new RoomPurpose { Name = "Soba" };
+            roomPurpose.Add(purpose1.Name);
+            roomPurpose.Add(purpose2.Name);
+            roomPurpose.Add(purpose3.Name);
+
+            purposeBox.ItemsSource = roomPurpose;
 
             oldRoom = room;
 
-            selectedRoom = index;
-
-            UpravnikWindow uw = new UpravnikWindow(director);
-            uw.Close();*/
-
-            //all rooms
-             RoomRecordFileStorage storage = new RoomRecordFileStorage();
-             List<RoomRecord> rooms = storage.loadFromFile("Sobe.json");
-
-             roomBox.Text = rooms.ElementAt(room).Id;
-             wardBox.Text = rooms.ElementAt(room).HospitalWard;
-
-             RoomPurpose purpose = rooms.ElementAt(room).roomPurpose;
-             purposeBox.Text = purpose.Name;
-
-             selectedRoom = room;
-
-             UpravnikWindow uw = new UpravnikWindow(director);
-             uw.Close(); 
+            roomBox.Text = oldRoom.Id.ToString();
+            wardBox.SelectedItem = oldRoom.HospitalWard;
+            purposeBox.SelectedItem = oldRoom.roomPurpose.Name;
         }
 
-        private void DoneButton(object sender, RoutedEventArgs e)
+       
+
+            private void DoneButton(object sender, RoutedEventArgs e)
         {
-            editRoom.Id = roomBox.Text;
+            editRoom.Id = (int)Int64.Parse(roomBox.Text);
             editRoom.HospitalWard = wardBox.Text;
             RoomPurpose purpose = new RoomPurpose { Name = purposeBox.Text };
             editRoom.roomPurpose = purpose;
 
             RoomRecordFileStorage storage = new RoomRecordFileStorage();
-            storage.EditRoom(selectedRoom, editRoom);
+            storage.EditRoom(oldRoom, editRoom);
             
             this.Close();
         }
 
         private void ShowInventoryClicked(object sender, RoutedEventArgs e)
         {
-            InventoryWindow iw = new InventoryWindow();
+            InventoryWindow iw = new InventoryWindow(oldRoom);
             iw.Show();
         }
 

@@ -6,17 +6,17 @@ namespace Model
 {
     public class RoomRecord
     {
-        public String Id { get; set; }
+        public int Id { get; set; }
         public String HospitalWard { get; set; }
 
-        //public System.Collections.Generic.List<Inventory> inventory;
+        public System.Collections.Generic.List<Inventory> inventory { get; set; }
 
         /* public System.Collections.Generic.List<Inventory> Inventory
          {
              get
              {
                  if (inventory == null)
-                     inventory = new System.Collections.Generic.List<Inventory>();
+                    inventory = new System.Collections.Generic.List<Inventory>();
                  return inventory;
              }
              set
@@ -52,7 +52,7 @@ namespace Model
          public void RemoveAllInventory()
          {
              if (inventory != null)
-                 inventory.Clear();
+                inventory.Clear();
          }*/
         public RoomPurpose roomPurpose { get; set; }
 

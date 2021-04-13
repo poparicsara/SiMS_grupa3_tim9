@@ -140,7 +140,7 @@ namespace IS_Bolnica.Secretary
 
             Patient patient = (Patient)PatientList.SelectedItem;
 
-            
+
 
             if (i == -1)
             {
@@ -162,9 +162,9 @@ namespace IS_Bolnica.Secretary
                             }
                         }
                         storage.saveToFile(Pacijenti, "PatientRecordFileStorage.json");
-                        
+
                         users = usersStorage.loadFromFile("UsersFileStorage.json");
-                        for(int k = 0; k < users.Count; k++)
+                        for (int k = 0; k < users.Count; k++)
                         {
                             if (users[k].Id.Equals(patient.Id))
                             {

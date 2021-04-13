@@ -14,12 +14,12 @@ namespace IS_Bolnica.Validation
 
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
-            if(value is string)
+            if (value is string)
             {
                 string d = (string)value;
                 if (d.Length < Min) return new ValidationResult(false, "Morate uneti minimalno 6 karaktera!");
                 return new ValidationResult(true, null);
-            } 
+            }
             else
             {
                 return new ValidationResult(false, "Unknow error occured.");

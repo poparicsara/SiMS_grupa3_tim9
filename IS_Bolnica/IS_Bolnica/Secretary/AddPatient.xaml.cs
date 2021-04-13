@@ -47,10 +47,10 @@ namespace IS_Bolnica.Secretary
             patient.Surname = surname.Text;
             patient.Username = username.Text;
             patient.UserType = UserType.patient;
-            patient.Debit = Convert.ToDouble( debit.Text);
+            patient.Debit = Convert.ToDouble(debit.Text);
             String[] alergeni = (allergens.Text).Split(',');
             patient.Allergens = new List<string>();
-            for(int i = 0; i < alergeni.Length; i++)
+            for (int i = 0; i < alergeni.Length; i++)
             {
                 patient.Allergens.Add(alergeni[i]);
             }
@@ -58,11 +58,11 @@ namespace IS_Bolnica.Secretary
             patient.Address = new Address();
             String[] adresa = (adress.Text).Split(' ');
             int brojac;
-            for(brojac = 0; brojac < adresa.Length-1; brojac++)
+            for (brojac = 0; brojac < adresa.Length - 1; brojac++)
             {
                 patient.Address.Street += adresa[brojac] + " ";
             }
-            String[] brojSpratStan = adresa[adresa.Length-1].Split('/');
+            String[] brojSpratStan = adresa[adresa.Length - 1].Split('/');
             patient.Address.NumberOfBuilding = Convert.ToInt32(brojSpratStan[0]);
             patient.Address.Floor = Convert.ToInt32(brojSpratStan[1]);
             patient.Address.Apartment = Convert.ToInt32(brojSpratStan[2]);
@@ -70,11 +70,11 @@ namespace IS_Bolnica.Secretary
             patient.Address.City = new City();
             String[] grad = (city.Text).Split(' ');
             int k;
-            for(k = 0; k < grad.Length - 1; k++)
+            for (k = 0; k < grad.Length - 1; k++)
             {
                 patient.Address.City.name += grad[k] + " ";
             }
-            patient.Address.City.postalCode = grad[grad.Length-1];
+            patient.Address.City.postalCode = grad[grad.Length - 1];
 
             patient.Address.City.Country = new Country();
             patient.Address.City.Country.name = county.Text;

@@ -1,15 +1,11 @@
-
-
-using System;
-
 namespace Model
 {
-   public enum Evaluation
-   {
-      poor,
-      fair,
-      good,
-      veryGood,
-      excellent
-   }
+    public enum Evaluation
+    {
+        poor,
+        fair,
+        good,
+        veryGood,
+        excellent
+    }
 }

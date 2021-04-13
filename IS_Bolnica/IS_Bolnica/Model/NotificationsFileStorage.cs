@@ -1,30 +1,30 @@
-// File:    NotificationsFileStorage.cs
-// Author:  Nikolina Pavkovic
-// Created: Saturday, April 10, 2021 4:58:50 PM
-// Purpose: Definition of Class NotificationsFileStorage
-
+﻿using Model;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Model
+namespace IS_Bolnica.Model
 {
-   public class NotificationsFileStorage
-   {
-      public ObservableCollection<Notification> GetAll()
-      {
-         throw new NotImplementedException();
-      }
-      
-      public void SaveToFile(ObservableCollection<Notification> notifications, string fileName)
-      {
+    public class NotificationsFileStorage
+    {
+        public ObservableCollection<Notification> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SaveToFile(ObservableCollection<Notification> notifications, string fileName)
+        {
             string jsonString = JsonConvert.SerializeObject(notifications, Formatting.Indented);
             File.WriteAllText(fileName, jsonString);
         }
-      
-      public ObservableCollection<Notification> LoadFromFile(string fileName)
-      {
+
+        public ObservableCollection<Notification> LoadFromFile(string fileName)
+        {
             var notifications = new ObservableCollection<Notification>();
 
             using (StreamReader file = File.OpenText(fileName))
@@ -35,6 +35,5 @@ namespace Model
 
             return notifications;
         }
-   
-   }
+    }
 }

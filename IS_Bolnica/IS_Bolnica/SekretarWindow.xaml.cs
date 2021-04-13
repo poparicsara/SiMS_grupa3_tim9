@@ -17,7 +17,8 @@ namespace IS_Bolnica
         private Patient pacijent;
         private GuestUser guestKorisnik;
 
-        public ObservableCollection<Patient> Pacijenti {
+        public ObservableCollection<Patient> Pacijenti
+        {
             get; set;
         }
 
@@ -49,7 +50,7 @@ namespace IS_Bolnica
         private void generateColumns(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             colNum++;
-            if(colNum == 3)
+            if (colNum == 3)
             {
                 e.Column.Width = new DataGridLength(1, DataGridLengthUnitType.Star);
             }
@@ -62,12 +63,12 @@ namespace IS_Bolnica
 
         }
 
-        private void addPatient(object sender, RoutedEventArgs e)
+        /*private void addPatient(object sender, RoutedEventArgs e)
         {
             Secretary.AddPatient ap = new Secretary.AddPatient();
             ap.Show();
             this.Close();
-        }
+        }*/
 
         /*private void editPatient(object sender, RoutedEventArgs e)
         {
@@ -107,12 +108,12 @@ namespace IS_Bolnica
             }
         }*/
 
-        private void createGuestAccount(object sender, RoutedEventArgs e)
+        /*private void createGuestAccount(object sender, RoutedEventArgs e)
         {
             Secretary.GuestUserAccount gua = new Secretary.GuestUserAccount();
             this.Close();
             gua.Show();
-        }
+        }*/
 
         /*private void deletePatient(object sender, RoutedEventArgs e)
         {
@@ -188,6 +189,7 @@ namespace IS_Bolnica
         {
             Secretary.ActionBarWindow abw = new Secretary.ActionBarWindow();
             abw.Show();
+            this.Close();
         }
     }
 }

@@ -1,11 +1,9 @@
-
-
 using System;
 
 namespace Model
 {
-   public class User
-   {
+    public class User
+    {
         public String Username { get; set; }
         public String Password { get; set; }
         public String Name { get; set; }

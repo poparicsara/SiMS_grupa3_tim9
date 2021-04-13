@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using IS_Bolnica.Model;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -36,13 +37,15 @@ namespace IS_Bolnica.Secretary
         {
             notification.title = title.Text;
             notification.content = content.Text;
-            if(comboBox.SelectedIndex == 0)
+            if (comboBox.SelectedIndex == 0)
             {
                 notification.notificationType = NotificationType.doctor;
-            } else if(comboBox.SelectedIndex == 1)
+            }
+            else if (comboBox.SelectedIndex == 1)
             {
                 notification.notificationType = NotificationType.patient;
-            } else
+            }
+            else
             {
                 notification.notificationType = NotificationType.all;
             }
