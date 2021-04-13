@@ -91,5 +91,12 @@ namespace IS_Bolnica
            updateOperationWindow.Show();
            this.Close();
         }
+
+        private void startExamination(object sender, RoutedEventArgs e)
+        {
+            int selectedIndex = dataGridExaminations.SelectedIndex;
+            ExaminationInfo examinationInfo = new ExaminationInfo(selectedIndex);
+            examinationInfo.Show();
+        }
     }
 }

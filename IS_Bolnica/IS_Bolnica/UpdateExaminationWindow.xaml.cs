@@ -25,7 +25,7 @@ namespace IS_Bolnica.DoctorsWindows
             ExaminationsRecordFileStorage examinationsRecordFileStorage = new ExaminationsRecordFileStorage();
             List<Examination> examinations = examinationsRecordFileStorage.loadFromFile("examinations.json");
 
-            dateTxt.Text = examinations.ElementAt(selectedIndex).Date.ToString();
+            dateTxt.Text = examinations.ElementAt(selectedIndex).Date.ToString("dd.MM.yyyy hh.mm");
             roomTxt.Text = examinations.ElementAt(selectedIndex).RoomRecord.roomPurpose.Name;
             patientNameTxt.Text = examinations.ElementAt(selectedIndex).Patient.Name;
             patientSurnameTxt.Text = examinations.ElementAt(selectedIndex).Patient.Surname;

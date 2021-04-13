@@ -67,6 +67,12 @@
     <Compile Include="AddOperationWindow.xaml.cs">
       <DependentUpon>AddOperationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CreatePrescription.xaml.cs">
+      <DependentUpon>CreatePrescription.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Diagnosis.xaml.cs">
+      <DependentUpon>Diagnosis.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DoctorWindow.xaml.cs">
       <DependentUpon>DoctorWindow.xaml</DependentUpon>
     </Compile>
@@ -75,6 +81,9 @@
     </Compile>
     <Compile Include="EditWindow.xaml.cs">
       <DependentUpon>EditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ExaminationInfo.xaml.cs">
+      <DependentUpon>ExaminationInfo.xaml</DependentUpon>
     </Compile>
     <Compile Include="InventarWindow.xaml.cs">
       <DependentUpon>InventarWindow.xaml</DependentUpon>
@@ -87,6 +96,8 @@
       <DependentUpon>Izmena pregleda.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\GuestUsersFileStorage.cs" />
+    <Compile Include="Model\Prescription.cs" />
+    <Compile Include="Model\PrescriptionFileStorage.cs" />
     <Compile Include="Model\UserType.cs" />
     <Compile Include="NewInventory.xaml.cs">
       <DependentUpon>NewInventory.xaml</DependentUpon>
@@ -137,6 +148,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="CreatePrescription.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Diagnosis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DoctorWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -148,6 +167,10 @@
     <Page Include="EditWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ExaminationInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="InventarWindow.xaml">
       <SubType>Designer</SubType>

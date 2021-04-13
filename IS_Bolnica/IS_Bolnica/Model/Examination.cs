@@ -76,12 +76,6 @@ namespace Model
             set;
         }
 
-        public String RoomName
-        {
-            get;
-            set;
-        }
-
         public RoomRecord RoomRecord
         {
             get;

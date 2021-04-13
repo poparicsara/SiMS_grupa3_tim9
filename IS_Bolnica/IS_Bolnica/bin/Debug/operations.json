@@ -5,6 +5,7 @@
     "Date": "2021-11-23T00:00:00",
     "Patient": {
       "address": null,
+      "HealthCardNumber": null,
       "Username": null,
       "Password": null,
       "Name": "Filip",
@@ -22,7 +23,58 @@
       "roomPurpose": {
         "Name": "room 12"
       }
+    }
+  },
+  {
+    "doctor": [],
+    "Doctor": [],
+    "Date": "2021-05-04T00:00:00",
+    "Patient": {
+      "address": null,
+      "HealthCardNumber": null,
+      "Username": null,
+      "Password": null,
+      "Name": "aaa",
+      "Surname": "aaaa",
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": 0,
+      "Email": null,
+      "Id": 0,
+      "UserType": 0
     },
-    "RoomName": null
+    "RoomRecord": {
+      "Id": 0,
+      "HospitalWard": null,
+      "inventory": null,
+      "roomPurpose": {
+        "Name": "3"
+      }
+    }
+  },
+  {
+    "doctor": null,
+    "Doctor": [],
+    "Date": "2021-06-10T09:30:00",
+    "Patient": {
+      "address": null,
+      "HealthCardNumber": null,
+      "Username": null,
+      "Password": null,
+      "Name": "vvv",
+      "Surname": "fdgd",
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": 0,
+      "Email": null,
+      "Id": 0,
+      "UserType": 0
+    },
+    "RoomRecord": {
+      "Id": 0,
+      "HospitalWard": null,
+      "inventory": null,
+      "roomPurpose": {
+        "Name": "111"
+      }
+    }
   }
 ]

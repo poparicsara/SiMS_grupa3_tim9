@@ -9,5 +9,11 @@ namespace Model
             
         }
 
+        public String HealthCardNumber
+        {
+            get;
+            set;
+        }
+
     }
 }

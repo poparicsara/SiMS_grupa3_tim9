@@ -10,17 +10,17 @@
     "Date": "2021-06-13T00:00:00",
     "Patient": {
       "address": null,
+      "HealthCardNumber": null,
       "Username": null,
       "Password": null,
-      "Name": "Marija",
-      "Surname": "Spasojevic",
-      "DateOfBirth": "0001-01-01T00:00:00",
+      "Name": "Milos",
+      "Surname": "Milosevic",
+      "DateOfBirth": "1986-12-12T00:00:00",
       "Phone": 0,
       "Email": null,
       "Id": 0,
       "UserType": 0
     },
-    "RoomName": null,
     "RoomRecord": {
       "Id": 0,
       "HospitalWard": null,
@@ -41,23 +41,23 @@
     "Date": "2021-11-21T00:00:00",
     "Patient": {
       "address": null,
+      "HealthCardNumber": null,
       "Username": null,
       "Password": null,
       "Name": "Pera",
       "Surname": "Peric",
-      "DateOfBirth": "0001-01-01T00:00:00",
+      "DateOfBirth": "1965-01-01T00:00:00",
       "Phone": 0,
       "Email": null,
       "Id": 0,
       "UserType": 0
     },
-    "RoomName": null,
     "RoomRecord": {
       "Id": 0,
       "HospitalWard": null,
       "inventory": null,
       "roomPurpose": {
-        "Name": "room1"
+        "Name": "room 1"
       }
     }
   }

@@ -70,11 +70,5 @@ namespace Model
             set;
         }
 
-        public String RoomName
-        {
-            get;
-            set;
-        }
-
     }
 }

@@ -11,5 +11,11 @@ namespace Model
 
         public City city;
 
+        public string Street
+        {
+            get;
+            set;
+        }
+
     }
 }
