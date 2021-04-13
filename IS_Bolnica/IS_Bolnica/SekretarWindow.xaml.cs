@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using Model;
+using IS_Bolnica.Model;
 
 namespace IS_Bolnica
 {
@@ -12,10 +13,12 @@ namespace IS_Bolnica
     {
         private PatientRecordFileStorage storage = new PatientRecordFileStorage();
         private GuestUsersFileStorage storage1 = new GuestUsersFileStorage();
+        private UsersFileStorage usersStorage = new UsersFileStorage();
         private Patient pacijent;
         private GuestUser guestKorisnik;
 
-        public ObservableCollection<Patient> Pacijenti {
+        public ObservableCollection<Patient> Pacijenti
+        {
             get; set;
         }
 
@@ -47,7 +50,7 @@ namespace IS_Bolnica
         private void generateColumns(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             colNum++;
-            if(colNum == 3)
+            if (colNum == 3)
             {
                 e.Column.Width = new DataGridLength(1, DataGridLengthUnitType.Star);
             }
@@ -60,14 +63,14 @@ namespace IS_Bolnica
 
         }
 
-        private void addPatient(object sender, RoutedEventArgs e)
+        /*private void addPatient(object sender, RoutedEventArgs e)
         {
             Secretary.AddPatient ap = new Secretary.AddPatient();
             ap.Show();
             this.Close();
-        }
+        }*/
 
-        private void editPatient(object sender, RoutedEventArgs e)
+        /*private void editPatient(object sender, RoutedEventArgs e)
         {
             int i = -1;
             i = PatientList.SelectedIndex;
@@ -78,12 +81,18 @@ namespace IS_Bolnica
             }
             else
             {
+                ObservableCollection<User> korisnici = new ObservableCollection<User>();
+                UsersFileStorage storage1 = new UsersFileStorage();
+                korisnici = storage1.loadFromFile("UsersFileStorage.json");
+
+                ObservableCollection<User> pacijenti = new ObservableCollection<User>();
+                PatientRecordFileStorage storage = new PatientRecordFileStorage();
+
+                pacijenti = storage.loadFromFile("PatientRecordFileStorage.json");
+
 
                 Secretary.EditPatient ep = new Secretary.EditPatient(i);
 
-                ObservableCollection<Patient> pacijenti = new ObservableCollection<Patient>();
-                PatientRecordFileStorage storage = new PatientRecordFileStorage();
-                pacijenti = storage.loadFromFile("PatientRecordFileStorage.json");
 
                 ep.name.Text = pacijenti[i].Name;
                 ep.surname.Text = pacijenti[i].Surname;
@@ -97,19 +106,20 @@ namespace IS_Bolnica
                 ep.Show();
                 this.Close();
             }
-        }
+        }*/
 
-        private void createGuestAccount(object sender, RoutedEventArgs e)
+        /*private void createGuestAccount(object sender, RoutedEventArgs e)
         {
             Secretary.GuestUserAccount gua = new Secretary.GuestUserAccount();
             this.Close();
             gua.Show();
-        }
+        }*/
 
-        private void deletePatient(object sender, RoutedEventArgs e)
+        /*private void deletePatient(object sender, RoutedEventArgs e)
         {
             int i = -1;
             i = PatientList.SelectedIndex;
+            ObservableCollection<User> users = new ObservableCollection<User>();
 
             if (i == -1)
             {
@@ -126,6 +136,10 @@ namespace IS_Bolnica
                         Pacijenti.Remove(Pacijenti[i]);
                         storage.saveToFile(Pacijenti, "PatientRecordFileStorage.json");
 
+                        users = usersStorage.loadFromFile("UsersFileStorage.json");
+                        users.Remove(users[i]);
+                        usersStorage.saveToFile(users, "UsersFileStorage.json");
+
                         SekretarWindow sw = new SekretarWindow();
 
                         sw.Show();
@@ -136,9 +150,9 @@ namespace IS_Bolnica
                         break;
                 }
             }
-        }
+        }*/
 
-        private void deleteGuestAccount(object sender, RoutedEventArgs e)
+        /*private void deleteGuestAccount(object sender, RoutedEventArgs e)
         {
 
             int i = -1;
@@ -169,6 +183,13 @@ namespace IS_Bolnica
                         break;
                 }
             }
+        }*/
+
+        private void ActionBarOpen(object sender, RoutedEventArgs e)
+        {
+            Secretary.ActionBarWindow abw = new Secretary.ActionBarWindow();
+            abw.Show();
+            this.Close();
         }
     }
 }

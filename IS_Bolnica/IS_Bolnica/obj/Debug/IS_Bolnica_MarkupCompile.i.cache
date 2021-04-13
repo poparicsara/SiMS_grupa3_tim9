@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\
+C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\
 IS_Bolnica
 none
 false
 DEBUG;TRACE
-C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\App.xaml
-23283049076
+C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\App.xaml
+29-2134720895
 
-57-1001186950
-141323765998
-AddExaminationWindow.xaml;AddInventoryWindow.xaml;AddOperationWindow.xaml;ChangeInventoryPlace.xaml;DoctorWindow.xaml;EditInventoryWindow.xaml;EditWindow.xaml;InventarWindow.xaml;InventoryWindow.xaml;Izmena pregleda.xaml;MainWindow.xaml;NewInventory.xaml;NewRoomWindow.xaml;PatientWindow.xaml;Secretary\AddPatient.xaml;Secretary\EditPatient.xaml;Secretary\GuestUserAccount.xaml;SekretarWindow.xaml;SelectedInventoryInRooms.xaml;UpdateExaminationWindow.xaml;UpdateOperationWindow.xaml;UpravnikWindow.xaml;Zakazivanje pregleda.xaml;
+671664107644
+14-764270122
+AddExaminationWindow.xaml;AddInventoryWindow.xaml;AddOperationWindow.xaml;ChangeInventoryPlace.xaml;DoctorWindow.xaml;EditInventoryWindow.xaml;EditWindow.xaml;InventarWindow.xaml;InventoryWindow.xaml;Izmena pregleda.xaml;MainWindow.xaml;NewInventory.xaml;NewRoomWindow.xaml;PatientWindow.xaml;Secretary\ActionBarWindow.xaml;Secretary\AddNotificationWindow.xaml;Secretary\AddPatient.xaml;Secretary\EditNotificationWindow.xaml;Secretary\EditPatient.xaml;Secretary\GuestUserAccount.xaml;Secretary\GuestUserListWindow.xaml;Secretary\NotificationListWindow.xaml;Secretary\PatientListWindow.xaml;SekretarWindow.xaml;SelectedInventoryInRooms.xaml;UpdateExaminationWindow.xaml;UpdateOperationWindow.xaml;UpravnikWindow.xaml;Zakazivanje pregleda.xaml;
 
-False
+True
 

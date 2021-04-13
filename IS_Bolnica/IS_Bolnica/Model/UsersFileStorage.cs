@@ -1,16 +1,16 @@
-﻿using System;
+﻿using Model;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-using System.IO;
-using System.Collections.ObjectModel;
-using Model;
 
 namespace IS_Bolnica.Model
 {
-    public class UsersFileStorage
+    class UsersFileStorage
     {
         public ObservableCollection<User> GetAll()
         {
@@ -35,7 +35,5 @@ namespace IS_Bolnica.Model
 
             return usersList;
         }
-
-
     }
 }
