@@ -72,5 +72,25 @@ namespace IS_Bolnica.Secretary
             anw.Show();
             this.Close();
         }
+
+        private void SpisakPregleda_Selected(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ZakaziPregled_Selected(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SpisakOperacija_Selected(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ZakaziOperaciju_Selected(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

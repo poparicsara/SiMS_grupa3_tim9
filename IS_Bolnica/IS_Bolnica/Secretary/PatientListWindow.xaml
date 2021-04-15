@@ -19,7 +19,7 @@
         <Image x:Name="nasLogo" HorizontalAlignment="Left" Height="48" Margin="366,10,0,0" VerticalAlignment="Top" Width="48" Source="C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\Images\nasLogo.jpg"/>
         <TextBox x:Name="pretraziBox" HorizontalAlignment="Left" Height="23" Margin="256,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" KeyUp="pretraziBox_KeyUp"/>
         <Label Content="SPISAK PACIJENATA" FontWeight="Bold"  Foreground="Green" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,69,0,0" Width="246" Height="37"/>
-        <DataGrid x:Name="PatientList" ItemsSource="{Binding Path=Pacijenti}" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" HorizontalAlignment="Stretch" Margin="10,111,10,142.8" VerticalAlignment="Stretch"  SelectionChanged="DataGrid_SelectionChanged" >
+        <DataGrid x:Name="PatientList" ItemsSource="{Binding Path=Pacijenti}" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" HorizontalAlignment="Stretch" Margin="10,111,10,142.8" VerticalAlignment="Stretch"  SelectionChanged="DataGrid_SelectionChanged" GridLinesVisibility="Vertical">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Ime" Binding="{Binding Name}" Width="90"/>
                 <DataGridTextColumn Header="Prezime" Binding="{Binding Surname}" Width="103"/>

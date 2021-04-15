@@ -74,30 +74,29 @@
   },
   {
     "Allergens": [
-      "kjdf",
-      "siehjfi"
+      "polen"
     ],
-    "Debit": 98745.0,
+    "Debit": 1500.0,
     "examinations": null,
-    "Username": "dgrfdr",
-    "Password": "esdfg",
-    "Name": "AAAAAA",
-    "Surname": "srdgdf",
-    "DateOfBirth": "2021-02-01T00:00:00",
-    "Phone": "951",
-    "Email": "awesdr",
-    "Id": "515",
+    "Username": "nikola_nikolic",
+    "Password": "sasasa",
+    "Name": "NikolAAAAAAA",
+    "Surname": "Nikolic",
+    "DateOfBirth": "1984-12-01T00:00:00",
+    "Phone": "0647896587",
+    "Email": "nikolic@gmail.com",
+    "Id": "1458798563215",
     "UserType": 0,
     "Address": {
-      "Street": "hgtfrd ",
-      "NumberOfBuilding": 8,
-      "Floor": 8,
-      "Apartment": 8,
+      "Street": "Masarikova ulica ",
+      "NumberOfBuilding": 12,
+      "Floor": 25,
+      "Apartment": 13,
       "City": {
-        "name": "hbgf ",
-        "postalCode": "84556",
+        "name": "Sombor ",
+        "postalCode": "12564",
         "Country": {
-          "name": "gfd"
+          "name": "Srbija"
         }
       }
     }
