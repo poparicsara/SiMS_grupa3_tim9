@@ -116,5 +116,11 @@ namespace IS_Bolnica
                 this.Close();
             }
         }
+
+        private void ObavestenjaButtonClicked(object sender, RoutedEventArgs e)
+        {
+            PatientNotificationWindow pnw = new PatientNotificationWindow();
+            pnw.Show();
+        }
     }
 }

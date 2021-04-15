@@ -39,5 +39,6 @@
         <Button Content="Zakazi pregled" HorizontalAlignment="Left" Margin="687,267,0,0" VerticalAlignment="Top" Width="97" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="AddButtonClicked"/>
         <Button Content="Otkazi pregled" HorizontalAlignment="Left" Margin="687,304,0,0" VerticalAlignment="Top" Width="97" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="OtkaziButtonClicked"/>
         <Button Content="Izmeni" HorizontalAlignment="Left" Margin="687,341,0,0" VerticalAlignment="Top" Width="97" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="IzmeniButtonClicked"/>
+        <Button Content="Obaveštenja" HorizontalAlignment="Left" Margin="687,222,0,0" VerticalAlignment="Top" Width="97" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="ObavestenjaButtonClicked"/>
     </Grid>
 </Window>
