@@ -6,8 +6,33 @@
         xmlns:local="clr-namespace:IS_Bolnica"
         mc:Ignorable="d"
         Title="UpravnikWindow" Height="450" Width="800"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        
+        <DataGrid x:Name ="lvDataBinding" HorizontalAlignment="Center" Height="340" VerticalAlignment="Center" Width="588" FontSize="13"
+                  ColumnWidth="193.3" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserAddRows="False" AutoGenerateColumns="False"
+                  IsReadOnly="True" SelectionMode="Single" CanUserDeleteRows="True" Margin="103,70,102.6,10">
+            <!-- Style -->
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FFA5BC90"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="Height" Value="30"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Style>
+            </DataGrid.Resources>
+            <!-- Header -->
+            <DataGrid.Columns>
+                <DataGridTextColumn Header ="BROJ SOBE" Binding="{Binding Id, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header ="BOLNIČKO ODELJENJE" Binding="{Binding HospitalWard, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header ="NAMENA" Binding="{Binding Path = roomPurpose.Name, UpdateSourceTrigger=PropertyChanged}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="DODAJ" HorizontalAlignment="Left" Margin="696,367,0,0" VerticalAlignment="Top" Width="81" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" Click="AddButtonClicked"/>
+        <Button Content="OBRIŠI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="81" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" Margin="696,325,0,0" Click="DeleteButtonClicked"/>
+        <Button Content="IZMENI" HorizontalAlignment="Left" Margin="696,282,0,0" VerticalAlignment="Top" Width="81" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" Click="EditButtonClicked"/>
+        <TextBox Name="searchBox" HorizontalAlignment="Left" Height="23" Margin="580,24,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" KeyUp="searchKeyUp"/>
+        <Button Content="Inventar" HorizontalAlignment="Left" Margin="103,24,0,0" VerticalAlignment="Top" Width="81" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" Click="InventarButtonClicked"/>
     </Grid>
 </Window>

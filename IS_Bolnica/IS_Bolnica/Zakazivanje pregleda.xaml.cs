@@ -35,8 +35,8 @@ namespace IS_Bolnica
             List<Examination> pregledi = exStorage.loadFromFile("Pregledi.json");
             Doctor d1 = new Doctor();
             String nameAndSurname = DoctorCombo.Text;
-            d1.name = Regex.Replace(nameAndSurname.Split()[0], @"[^0-9a-zA-Z\ ]+", "");
-            d1.surname = Regex.Replace(nameAndSurname.Split()[1], @"[^0-9a-zA-Z\ ]+", "");
+            d1.Name = Regex.Replace(nameAndSurname.Split()[0], @"[^0-9a-zA-Z\ ]+", "");
+            d1.Surname = Regex.Replace(nameAndSurname.Split()[1], @"[^0-9a-zA-Z\ ]+", "");
             DateTime datum = (DateTime) Datum.SelectedDate;
             int dan = datum.Day;
             int mesec = datum.Month;

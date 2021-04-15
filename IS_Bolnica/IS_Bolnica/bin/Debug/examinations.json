@@ -1,0 +1,64 @@
+[
+  {
+    "isPayed": false,
+    "evaluation": 0,
+    "durationInMinutes": 0,
+    "date": "2021-06-13T00:00:00",
+    "doctor": null,
+    "secretary": null,
+    "Secretary": null,
+    "Date": "2021-06-13T00:00:00",
+    "Patient": {
+      "address": null,
+      "HealthCardNumber": null,
+      "Username": null,
+      "Password": null,
+      "Name": "Milos",
+      "Surname": "Milosevic",
+      "DateOfBirth": "1986-12-12T00:00:00",
+      "Phone": 0,
+      "Email": null,
+      "Id": 0,
+      "UserType": 0
+    },
+    "RoomRecord": {
+      "Id": 0,
+      "HospitalWard": null,
+      "inventory": null,
+      "roomPurpose": {
+        "Name": "11"
+      }
+    }
+  },
+  {
+    "isPayed": false,
+    "evaluation": 0,
+    "durationInMinutes": 0,
+    "date": "2021-11-21T00:00:00",
+    "doctor": null,
+    "secretary": null,
+    "Secretary": null,
+    "Date": "2021-11-21T00:00:00",
+    "Patient": {
+      "address": null,
+      "HealthCardNumber": null,
+      "Username": null,
+      "Password": null,
+      "Name": "Pera",
+      "Surname": "Peric",
+      "DateOfBirth": "1965-01-01T00:00:00",
+      "Phone": 0,
+      "Email": null,
+      "Id": 0,
+      "UserType": 0
+    },
+    "RoomRecord": {
+      "Id": 0,
+      "HospitalWard": null,
+      "inventory": null,
+      "roomPurpose": {
+        "Name": "room 1"
+      }
+    }
+  }
+]
