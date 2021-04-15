@@ -128,6 +128,12 @@ namespace IS_Bolnica
             iw.Show();
             this.Close();
         }
+
+        private void ObavestenjaButtonClicked(object sender, RoutedEventArgs e)
+        {
+            DirectorNotificationWindow dnw = new DirectorNotificationWindow();
+            dnw.Show();
+        }
     }
         
  }

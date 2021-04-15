@@ -76,6 +76,9 @@
     <Compile Include="Diagnosis.xaml.cs">
       <DependentUpon>Diagnosis.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DirectorNotificationWindow.xaml.cs">
+      <DependentUpon>DirectorNotificationWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DoctorNotificationWindow.xaml.cs">
       <DependentUpon>DoctorNotificationWindow.xaml</DependentUpon>
     </Compile>
@@ -194,6 +197,10 @@
     <Page Include="Diagnosis.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DirectorNotificationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DoctorNotificationWindow.xaml">
       <SubType>Designer</SubType>
