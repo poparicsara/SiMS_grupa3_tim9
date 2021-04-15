@@ -28,6 +28,7 @@
                     <Button Content="Cancel examination" HorizontalAlignment="Left" VerticalAlignment="Top" Width="118" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="587" Canvas.Top="58" Click="cancelExaminationButton" FontSize="11"/>
                     <Button Content="Edit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="118" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="587" Canvas.Top="10" FontSize="11" Click="updateExaminationButton"/>
                     <Button Content="start" HorizontalAlignment="Left" VerticalAlignment="Top" Width="118" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="587" Canvas.Top="-62" FontSize="11" Click="startExamination"/>
+                    <Button Content="Notifications" HorizontalAlignment="Left" VerticalAlignment="Top" Width="118" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="587" Canvas.Top="-144" FontSize="11" Click="notificationButton"/>
                 </Canvas>
 
             </TabItem>
@@ -50,6 +51,7 @@
                     <Button Content="Cancel operation" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="565" Canvas.Top="81" Click="cancelOperationButton" FontSize="11"/>
                     <Button Content="Edit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="565" Canvas.Top="24" FontSize="11" Click="updateOperationButton"/>
                     <Button Content="start" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="565" Canvas.Top="-66" FontSize="11" Click="updateOperationButton"/>
+                    <Button Content="Notifications" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="565" Canvas.Top="-143" FontSize="11" Click="notificationButton"/>
                 </Canvas>
 
             </TabItem>

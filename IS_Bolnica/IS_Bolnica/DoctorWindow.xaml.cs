@@ -98,5 +98,11 @@ namespace IS_Bolnica
             ExaminationInfo examinationInfo = new ExaminationInfo(selectedIndex);
             examinationInfo.Show();
         }
+
+        private void notificationButton(object sender, RoutedEventArgs e)
+        {
+            DoctorNotificationWindow dnw = new DoctorNotificationWindow();
+            dnw.Show();
+        }
     }
 }
