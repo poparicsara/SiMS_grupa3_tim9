@@ -75,7 +75,9 @@ namespace IS_Bolnica.Secretary
 
         private void SpisakPregleda_Selected(object sender, RoutedEventArgs e)
         {
-
+            Secretary.ExaminationListWindow elw = new Secretary.ExaminationListWindow();
+            elw.Show();
+            this.Close();
         }
 
         private void ZakaziPregled_Selected(object sender, RoutedEventArgs e)
