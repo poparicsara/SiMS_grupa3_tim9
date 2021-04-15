@@ -31,7 +31,7 @@ namespace IS_Bolnica
             //2.3.2020. 09:15:00 
             DateTime oznaceniDatum = pregledi.ElementAt(index).date;
             string[] pom = oznaceniDatum.ToString().Split(' ');
-            string[] datum = pom[0].Split('/');
+            string[] datum = pom[0].Split('.');
             string[] vreme = pom[1].Split(':');
             
             InitializeComponent();
