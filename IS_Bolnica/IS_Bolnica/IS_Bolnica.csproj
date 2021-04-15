@@ -120,6 +120,9 @@
     <Compile Include="Secretary\EditPatient.xaml.cs">
       <DependentUpon>EditPatient.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Secretary\ExaminationListWindow.xaml.cs">
+      <DependentUpon>ExaminationListWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Secretary\GuestUserAccount.xaml.cs">
       <DependentUpon>GuestUserAccount.xaml</DependentUpon>
     </Compile>
@@ -232,6 +235,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Secretary\EditPatient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary\ExaminationListWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -207,6 +207,7 @@ namespace IS_Bolnica.Secretary
         {
             Secretary.ActionBarWindow abw = new Secretary.ActionBarWindow();
             abw.Show();
+            this.Close();
         }
 
         private void pretraziBox_KeyUp(object sender, KeyEventArgs e)

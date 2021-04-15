@@ -89,6 +89,7 @@ namespace IS_Bolnica.Secretary
         {
             Secretary.ActionBarWindow abw = new Secretary.ActionBarWindow();
             abw.Show();
+            this.Close();
         }
     }
 }

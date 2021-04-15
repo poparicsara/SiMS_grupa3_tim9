@@ -41,6 +41,7 @@ namespace IS_Bolnica.Secretary
         {
             Secretary.ActionBarWindow abw = new Secretary.ActionBarWindow();
             abw.Show();
+            this.Close();
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
