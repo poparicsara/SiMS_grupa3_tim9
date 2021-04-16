@@ -128,6 +128,9 @@
     <Compile Include="Secretary\ActionBarWindow.xaml.cs">
       <DependentUpon>ActionBarWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Secretary\AddExaminationWindow.xaml.cs">
+      <DependentUpon>AddExaminationWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Secretary\AddNotificationWindow.xaml.cs">
       <DependentUpon>AddNotificationWindow.xaml</DependentUpon>
     </Compile>
@@ -263,6 +266,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Secretary\ActionBarWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary\AddExaminationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

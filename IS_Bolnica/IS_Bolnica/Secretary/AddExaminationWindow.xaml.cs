@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace IS_Bolnica.Secretary
 {
     /// <summary>
-    /// Interaction logic for ExaminationListWindow.xaml
+    /// Interaction logic for AddExaminationWindow.xaml
     /// </summary>
-    public partial class ExaminationListWindow : Window
+    public partial class AddExaminationWindow : Window
     {
-        public ExaminationListWindow()
+        public AddExaminationWindow()
         {
             InitializeComponent();
         }
@@ -31,21 +31,14 @@ namespace IS_Bolnica.Secretary
             this.Close();
         }
 
-        private void addExamination(object sender, RoutedEventArgs e)
-        {
-            Secretary.AddExaminationWindow aew = new Secretary.AddExaminationWindow();
-            aew.Show();
-            this.Close();
-        }
-
         private void editExamination(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void deleteExamination(object sender, RoutedEventArgs e)
+        private void cancelEditingExamination(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
     }
 }

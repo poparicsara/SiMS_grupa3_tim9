@@ -82,7 +82,9 @@ namespace IS_Bolnica.Secretary
 
         private void ZakaziPregled_Selected(object sender, RoutedEventArgs e)
         {
-
+            Secretary.AddExaminationWindow aew = new Secretary.AddExaminationWindow();
+            aew.Show();
+            this.Close();
         }
 
         private void SpisakOperacija_Selected(object sender, RoutedEventArgs e)
