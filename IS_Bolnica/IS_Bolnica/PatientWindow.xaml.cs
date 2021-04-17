@@ -20,7 +20,7 @@ namespace IS_Bolnica
     /// </summary>
     public partial class PatientWindow : Window
     {
-        
+
 
         public PatientWindow()
         {
@@ -85,7 +85,8 @@ namespace IS_Bolnica
             this.Close();
         }
 
-        private void OtkaziButtonClicked(object sender, RoutedEventArgs e) {
+        private void OtkaziButtonClicked(object sender, RoutedEventArgs e)
+        {
 
             if (lvDataBinding.SelectedIndex == -1)
             {
@@ -101,7 +102,8 @@ namespace IS_Bolnica
             }
         }
 
-        private void IzmeniButtonClicked(object sender, RoutedEventArgs e) {
+        private void IzmeniButtonClicked(object sender, RoutedEventArgs e)
+        {
             if (lvDataBinding.SelectedIndex == -1)
             {
                 MessageBox.Show("Oznacite pregled koji zelite da izmenite!");
@@ -110,25 +112,17 @@ namespace IS_Bolnica
             {
                 ExaminationsRecordFileStorage exStorage = new ExaminationsRecordFileStorage();
                 List<Examination> pregledi = exStorage.loadFromFile("Pregledi.json");
-                
+
                 Izmena_pregleda ip = new Izmena_pregleda(lvDataBinding.SelectedIndex);
-                DateTime now = DateTime.Now;
-                string[] pom = now.ToString().Split(' ');
-                string[] datum = pom[0].Split('/');
-
-                DateTime datum_iz_pregleda = Convert.ToDateTime(ip.DateBox.Text);
-                string[] pomocni = datum_iz_pregleda.ToString().Split(' ');
-                string[] pomocni_datum = pomocni[0].Split('/');
-
-                if (Convert.ToInt32(datum[1]) + 2 < Convert.ToInt32(pomocni_datum[1]))
-                {
-                    ip.Show();
-                    this.Close();
-                }
-                else {
-                    MessageBox.Show("Ne mozete da izmenite pregled jer je zakazan u periodu od naredna dva dana!");
-                }
+                ip.Show();
+                this.Close();
             }
+        }
+
+        private void ObavestenjaButtonClicked(object sender, RoutedEventArgs e)
+        {
+            PatientNotificationWindow pnw = new PatientNotificationWindow();
+            pnw.Show();
         }
     }
 }

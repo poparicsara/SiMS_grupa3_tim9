@@ -9,17 +9,20 @@
     "Secretary": null,
     "Date": "2021-06-13T00:00:00",
     "Patient": {
-      "address": null,
+      "Allergens": null,
+      "Debit": 0.0,
+      "examinations": null,
       "HealthCardNumber": null,
       "Username": null,
       "Password": null,
       "Name": "Milos",
       "Surname": "Milosevic",
       "DateOfBirth": "1986-12-12T00:00:00",
-      "Phone": 0,
+      "Phone": "0",
       "Email": null,
-      "Id": 0,
-      "UserType": 0
+      "Id": "0",
+      "UserType": 0,
+      "Address": null
     },
     "RoomRecord": {
       "Id": 0,
@@ -40,17 +43,20 @@
     "Secretary": null,
     "Date": "2021-11-21T00:00:00",
     "Patient": {
-      "address": null,
+      "Allergens": null,
+      "Debit": 0.0,
+      "examinations": null,
       "HealthCardNumber": null,
       "Username": null,
       "Password": null,
       "Name": "Pera",
       "Surname": "Peric",
       "DateOfBirth": "1965-01-01T00:00:00",
-      "Phone": 0,
+      "Phone": "0",
       "Email": null,
-      "Id": 0,
-      "UserType": 0
+      "Id": "0",
+      "UserType": 0,
+      "Address": null
     },
     "RoomRecord": {
       "Id": 0,

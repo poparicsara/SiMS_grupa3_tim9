@@ -8,8 +8,8 @@ using System.IO;
 
 namespace Model
 {
-   public class InventoryFileStorage
-   {
+    public class InventoryFileStorage
+    {
         private string fileName;
         private List<Inventory> inventories;
         public InventoryFileStorage()
@@ -18,40 +18,40 @@ namespace Model
         }
 
         public List<Inventory> GetAll()
-      {
-         throw new NotImplementedException();
-      }
-      
-      public void AddInventory(Inventory newInventory)
-      {
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddInventory(Inventory newInventory)
+        {
             RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
             List<RoomRecord> rooms = roomStorage.loadFromFile("Sobe.json");
 
-            foreach(RoomRecord room in rooms)
+            foreach (RoomRecord room in rooms)
             {
-                if(room.HospitalWard == "Magacin")
+                if (room.HospitalWard == "Magacin")
                 {
                     room.inventory.Add(newInventory);
                 }
             }
 
             roomStorage.saveToFile(rooms, "Sobe.json");
-      }
-      
-      public void DeleteInventory(Inventory selected)
-      {
+        }
+
+        public void DeleteInventory(Inventory selected)
+        {
             int index = 0;
 
             RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
             List<RoomRecord> rooms = roomStorage.loadFromFile("Sobe.json");
 
-            foreach(RoomRecord room in rooms)
+            foreach (RoomRecord room in rooms)
             {
-                if(room.HospitalWard == "Magacin")
+                if (room.HospitalWard == "Magacin")
                 {
-                    foreach(Inventory i in room.inventory)
+                    foreach (Inventory i in room.inventory)
                     {
-                        if(i.Id == selected.Id)
+                        if (i.Id == selected.Id)
                         {
                             break;
                         }
@@ -64,9 +64,9 @@ namespace Model
             roomStorage.saveToFile(rooms, "Sobe.json");
 
         }
-      
-      public void EditInventory(Inventory oldInventory, Inventory newInventory)
-      {
+
+        public void EditInventory(Inventory oldInventory, Inventory newInventory)
+        {
             int index = 0;
 
             RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
@@ -92,15 +92,15 @@ namespace Model
             roomStorage.saveToFile(rooms, "Sobe.json");
 
         }
-      
-      public void saveToFile(List<Inventory> inventories, string fileName)
-      {
+
+        public void saveToFile(List<Inventory> inventories, string fileName)
+        {
             string jsonString = JsonConvert.SerializeObject(inventories, Formatting.Indented);
             File.WriteAllText(fileName, jsonString);
         }
-      
-      public List<Inventory> loadFromFile(string fileName)
-      {
+
+        public List<Inventory> loadFromFile(string fileName)
+        {
             var inventoryList = new List<Inventory>();
 
             using (StreamReader file = File.OpenText(fileName))
@@ -111,6 +111,6 @@ namespace Model
 
             return inventoryList;
         }
-   
-   }
+
+    }
 }

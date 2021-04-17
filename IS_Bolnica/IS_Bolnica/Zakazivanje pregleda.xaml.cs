@@ -26,18 +26,20 @@ namespace IS_Bolnica
             InitializeComponent();
         }
 
-        private void ButtonOdustaniClicked(object sender, RoutedEventArgs e) {
+        private void ButtonOdustaniClicked(object sender, RoutedEventArgs e)
+        {
             this.Close();
         }
 
-        private void ButtonZakaziClicked(object sender, RoutedEventArgs e) {
+        private void ButtonZakaziClicked(object sender, RoutedEventArgs e)
+        {
             ExaminationsRecordFileStorage exStorage = new ExaminationsRecordFileStorage();
             List<Examination> pregledi = exStorage.loadFromFile("Pregledi.json");
             Doctor d1 = new Doctor();
             String nameAndSurname = DoctorCombo.Text;
-            d1.name = Regex.Replace(nameAndSurname.Split()[0], @"[^0-9a-zA-Z\ ]+", "");
-            d1.surname = Regex.Replace(nameAndSurname.Split()[1], @"[^0-9a-zA-Z\ ]+", "");
-            DateTime datum = (DateTime) Datum.SelectedDate;
+            d1.Name = Regex.Replace(nameAndSurname.Split()[0], @"[^0-9a-zA-Z\ ]+", "");
+            d1.Surname = Regex.Replace(nameAndSurname.Split()[1], @"[^0-9a-zA-Z\ ]+", "");
+            DateTime datum = (DateTime)Datum.SelectedDate;
             int dan = datum.Day;
             int mesec = datum.Month;
             int godina = datum.Year;
@@ -46,8 +48,8 @@ namespace IS_Bolnica
             DateTime datumPregleda = new DateTime(godina, mesec, dan, sati, minuti, 0);
 
             Random rnd = new Random();
-            int trajanje = rnd.Next(1,60);
-            Examination e1 = new Examination { isPayed = false, durationInMinutes = trajanje, doctor = d1, date = datumPregleda};
+            int trajanje = rnd.Next(1, 60);
+            Examination e1 = new Examination { isPayed = false, durationInMinutes = trajanje, doctor = d1, date = datumPregleda };
             pregledi.Add(e1);
             exStorage.saveToFile(pregledi, "Pregledi.json");
             PatientWindow pw = new PatientWindow();
@@ -55,6 +57,6 @@ namespace IS_Bolnica
             this.Close();
         }
 
-        
+
     }
 }
