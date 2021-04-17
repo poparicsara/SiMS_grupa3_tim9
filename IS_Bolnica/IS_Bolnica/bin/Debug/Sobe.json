@@ -1,0 +1,189 @@
+[
+  {
+    "Id": 101,
+    "HospitalWard": "Ginekologija",
+    "inventory": [
+      {
+        "Name": "Špric",
+        "CurrentAmount": 20,
+        "Minimum": 2,
+        "Id": 101,
+        "InventoryType": 0
+      },
+      {
+        "Name": "Krevet",
+        "CurrentAmount": 20,
+        "Minimum": 2,
+        "Id": 666,
+        "InventoryType": 1
+      },
+      {
+        "Name": "Injekcija",
+        "CurrentAmount": 20,
+        "Minimum": 2,
+        "Id": 202,
+        "InventoryType": 0
+      },
+      {
+        "Name": "Štapić",
+        "CurrentAmount": 20,
+        "Minimum": 2,
+        "Id": 303,
+        "InventoryType": 0
+      }
+    ],
+    "roomPurpose": {
+      "Name": "Soba"
+    }
+  },
+  {
+    "Id": 102,
+    "HospitalWard": "Ortopedija",
+    "inventory": [
+      {
+        "Name": "Špric",
+        "CurrentAmount": 20,
+        "Minimum": 2,
+        "Id": 101,
+        "InventoryType": 0
+      },
+      {
+        "Name": "Injekcija",
+        "CurrentAmount": 20,
+        "Minimum": 2,
+        "Id": 202,
+        "InventoryType": 0
+      },
+      {
+        "Name": "Štapić",
+        "CurrentAmount": 20,
+        "Minimum": 2,
+        "Id": 303,
+        "InventoryType": 0
+      }
+    ],
+    "roomPurpose": {
+      "Name": "Ordinacija"
+    }
+  },
+  {
+    "Id": 103,
+    "HospitalWard": "Pedijatrija",
+    "inventory": [
+      {
+        "Name": "Špric",
+        "CurrentAmount": 20,
+        "Minimum": 2,
+        "Id": 101,
+        "InventoryType": 0
+      },
+      {
+        "Name": "Injekcija",
+        "CurrentAmount": 20,
+        "Minimum": 2,
+        "Id": 202,
+        "InventoryType": 0
+      },
+      {
+        "Name": "Štapić",
+        "CurrentAmount": 20,
+        "Minimum": 2,
+        "Id": 303,
+        "InventoryType": 0
+      }
+    ],
+    "roomPurpose": {
+      "Name": "Operaciona sala"
+    }
+  },
+  {
+    "Id": 707,
+    "HospitalWard": "Pedijatrija",
+    "inventory": [
+      {
+        "Name": "Špric",
+        "CurrentAmount": 20,
+        "Minimum": 2,
+        "Id": 101,
+        "InventoryType": 0
+      },
+      {
+        "Name": "Injekcija",
+        "CurrentAmount": 20,
+        "Minimum": 2,
+        "Id": 202,
+        "InventoryType": 0
+      },
+      {
+        "Name": "Štapić",
+        "CurrentAmount": 20,
+        "Minimum": 2,
+        "Id": 303,
+        "InventoryType": 0
+      }
+    ],
+    "roomPurpose": {
+      "Name": "Ordinacija"
+    }
+  },
+  {
+    "Id": 202,
+    "HospitalWard": "Ortopedija",
+    "inventory": [
+      {
+        "Name": "Špric",
+        "CurrentAmount": 20,
+        "Minimum": 2,
+        "Id": 101,
+        "InventoryType": 0
+      },
+      {
+        "Name": "Injekcija",
+        "CurrentAmount": 20,
+        "Minimum": 2,
+        "Id": 202,
+        "InventoryType": 0
+      },
+      {
+        "Name": "Štapić",
+        "CurrentAmount": 20,
+        "Minimum": 2,
+        "Id": 303,
+        "InventoryType": 0
+      }
+    ],
+    "roomPurpose": {
+      "Name": "Ordinacija"
+    }
+  },
+  {
+    "Id": 303,
+    "HospitalWard": "Pedijatrija",
+    "inventory": [
+      {
+        "Name": "Špric",
+        "CurrentAmount": 20,
+        "Minimum": 2,
+        "Id": 101,
+        "InventoryType": 0
+      },
+      {
+        "Name": "Injekcija",
+        "CurrentAmount": 20,
+        "Minimum": 2,
+        "Id": 202,
+        "InventoryType": 0
+      },
+      {
+        "Name": "Štapić",
+        "CurrentAmount": 20,
+        "Minimum": 2,
+        "Id": 303,
+        "InventoryType": 0
+      }
+    ],
+    "roomPurpose": {
+      "Name": "Ordinacija"
+    }
+  }
+]

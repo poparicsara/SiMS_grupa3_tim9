@@ -1,0 +1,97 @@
+[
+  {
+    "MedicationName": "bbbb",
+    "Diagnosis": "ddd",
+    "Doctor": null,
+    "Date": "2021-06-21T00:00:00",
+    "Patient": {
+      "address": null,
+      "HealthCardNumber": null,
+      "Username": null,
+      "Password": null,
+      "Name": "Pera",
+      "Surname": "Peric",
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": 0,
+      "Email": null,
+      "Id": 0,
+      "UserType": 0
+    }
+  },
+  {
+    "MedicationName": "wewe",
+    "Diagnosis": "eeee",
+    "Doctor": null,
+    "Date": "2021-05-21T00:00:00",
+    "Patient": {
+      "address": null,
+      "HealthCardNumber": null,
+      "Username": null,
+      "Password": null,
+      "Name": "Pera",
+      "Surname": "Peric",
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": 0,
+      "Email": null,
+      "Id": 0,
+      "UserType": 0
+    }
+  },
+  {
+    "MedicationName": " vvv",
+    "Diagnosis": null,
+    "Doctor": null,
+    "Date": "2022-01-01T00:00:00",
+    "Patient": {
+      "address": null,
+      "HealthCardNumber": null,
+      "Username": null,
+      "Password": null,
+      "Name": "Pera",
+      "Surname": "Peric",
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": 0,
+      "Email": null,
+      "Id": 0,
+      "UserType": 0
+    }
+  },
+  {
+    "MedicationName": "aspirin",
+    "Diagnosis": null,
+    "Doctor": null,
+    "Date": "2021-10-04T00:00:00",
+    "Patient": {
+      "address": null,
+      "HealthCardNumber": null,
+      "Username": null,
+      "Password": null,
+      "Name": "Milos",
+      "Surname": "Milosevic",
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": 0,
+      "Email": null,
+      "Id": 0,
+      "UserType": 0
+    }
+  },
+  {
+    "MedicationName": "panadol",
+    "Diagnosis": null,
+    "Doctor": null,
+    "Date": "2021-12-12T00:00:00",
+    "Patient": {
+      "address": null,
+      "HealthCardNumber": null,
+      "Username": null,
+      "Password": null,
+      "Name": "Pera",
+      "Surname": "Peric",
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": 0,
+      "Email": null,
+      "Id": 0,
+      "UserType": 0
+    }
+  }
+]

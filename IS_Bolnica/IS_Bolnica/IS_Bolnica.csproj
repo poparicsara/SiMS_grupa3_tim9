@@ -58,21 +58,181 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddExaminationWindow.xaml.cs">
+      <DependentUpon>AddExaminationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddInventoryWindow.xaml.cs">
+      <DependentUpon>AddInventoryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddOperationWindow.xaml.cs">
+      <DependentUpon>AddOperationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeInventoryPlace.xaml.cs">
+      <DependentUpon>ChangeInventoryPlace.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CreatePrescription.xaml.cs">
+      <DependentUpon>CreatePrescription.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Diagnosis.xaml.cs">
+      <DependentUpon>Diagnosis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DirectorNotificationWindow.xaml.cs">
+      <DependentUpon>DirectorNotificationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorNotificationWindow.xaml.cs">
+      <DependentUpon>DoctorNotificationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorWindow.xaml.cs">
+      <DependentUpon>DoctorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditInventoryWindow.xaml.cs">
+      <DependentUpon>EditInventoryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditWindow.xaml.cs">
+      <DependentUpon>EditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ExaminationInfo.xaml.cs">
+      <DependentUpon>ExaminationInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InventarWindow.xaml.cs">
+      <DependentUpon>InventarWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryInRoom.cs" />
+    <Compile Include="InventoryWindow.xaml.cs">
+      <DependentUpon>InventoryWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Izmena pregleda.xaml.cs">
       <DependentUpon>Izmena pregleda.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\GuestUsersFileStorage.cs" />
+    <Compile Include="Model\InventoryType.cs" />
+    <Compile Include="Model\Notification.cs" />
+    <Compile Include="Model\NotificationsFileStorage.cs" />
+    <Compile Include="Model\NotificationType.cs" />
+    <Compile Include="Model\Prescription.cs" />
+    <Compile Include="Model\PrescriptionFileStorage.cs" />
+    <Compile Include="Model\UsersFileStorage.cs" />
+    <Compile Include="Model\UserType.cs" />
+    <Compile Include="NewInventory.xaml.cs">
+      <DependentUpon>NewInventory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NewRoomWindow.xaml.cs">
+      <DependentUpon>NewRoomWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PatientNotificationWindow.xaml.cs">
+      <DependentUpon>PatientNotificationWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="PatientWindow.xaml.cs">
       <DependentUpon>PatientWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Secretary\ActionBarWindow.xaml.cs">
+      <DependentUpon>ActionBarWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\AddNotificationWindow.xaml.cs">
+      <DependentUpon>AddNotificationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\AddPatient.xaml.cs">
+      <DependentUpon>AddPatient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\EditNotificationWindow.xaml.cs">
+      <DependentUpon>EditNotificationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\EditPatient.xaml.cs">
+      <DependentUpon>EditPatient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\ExaminationListWindow.xaml.cs">
+      <DependentUpon>ExaminationListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\GuestUserAccount.xaml.cs">
+      <DependentUpon>GuestUserAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\GuestUserListWindow.xaml.cs">
+      <DependentUpon>GuestUserListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\NotificationListWindow.xaml.cs">
+      <DependentUpon>NotificationListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\PatientListWindow.xaml.cs">
+      <DependentUpon>PatientListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SekretarWindow.xaml.cs">
+      <DependentUpon>SekretarWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SelectedInventoryInRooms.xaml.cs">
+      <DependentUpon>SelectedInventoryInRooms.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateExaminationWindow.xaml.cs">
+      <DependentUpon>UpdateExaminationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateOperationWindow.xaml.cs">
+      <DependentUpon>UpdateOperationWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UpravnikWindow.xaml.cs">
       <DependentUpon>UpravnikWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Validation\Validation.cs" />
     <Compile Include="Zakazivanje pregleda.xaml.cs">
       <DependentUpon>Zakazivanje pregleda.xaml</DependentUpon>
     </Compile>
-    <Page Include="Izmena pregleda.xaml">
+    <Page Include="AddExaminationWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AddInventoryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddOperationWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ChangeInventoryPlace.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CreatePrescription.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Diagnosis.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DirectorNotificationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DoctorNotificationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DoctorWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EditInventoryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ExaminationInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InventarWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InventoryWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Izmena pregleda.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -86,17 +246,85 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="PatientWindow.xaml">
+    <Page Include="NewInventory.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="NewRoomWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PatientNotificationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PatientWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Secretary\ActionBarWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary\AddNotificationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary\AddPatient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary\EditNotificationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary\EditPatient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary\ExaminationListWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary\GuestUserAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary\GuestUserListWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary\NotificationListWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary\PatientListWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SekretarWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SelectedInventoryInRooms.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateExaminationWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UpdateOperationWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UpravnikWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Zakazivanje pregleda.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -150,5 +378,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="nasLogo.jpg" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
