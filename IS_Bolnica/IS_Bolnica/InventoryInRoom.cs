@@ -9,6 +9,7 @@ namespace IS_Bolnica
     class InventoryInRoom
     {
         public int RoomNumber { get; set; }
+        public string HospitalWard { get; set; }
         public int CurrentAmount { get; set; }
     }
 }

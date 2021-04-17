@@ -1,5 +1,6 @@
 
 
+using IS_Bolnica;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -13,15 +14,6 @@ namespace Model
         private List<Inventory> inventories;
         public InventoryFileStorage()
         {
-            /*inventories = new List<Inventory>();
-
-            Inventory i1 = new Inventory { Name = "Hanzaplast", CurrentAmount = 10, Id = 10, Minimum = 1 };
-            Inventory i2 = new Inventory { Name = "Injekcija", CurrentAmount = 10, Id = 10, Minimum = 1 };
-            Inventory i3 = new Inventory { Name = "Zavoj", CurrentAmount = 10, Id = 10, Minimum = 1 };
-
-            inventories.Add(i1);
-            inventories.Add(i2);
-            inventories.Add(i2);*/
 
         }
 
@@ -32,50 +24,73 @@ namespace Model
       
       public void AddInventory(Inventory newInventory)
       {
-            inventories = loadFromFile("Inventar.json");
-            inventories.Add(newInventory);
-            saveToFile(inventories, "Inventar.json");
+            RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+            List<RoomRecord> rooms = roomStorage.loadFromFile("Sobe.json");
+
+            foreach(RoomRecord room in rooms)
+            {
+                if(room.HospitalWard == "Magacin")
+                {
+                    room.inventory.Add(newInventory);
+                }
+            }
+
+            roomStorage.saveToFile(rooms, "Sobe.json");
       }
       
       public void DeleteInventory(Inventory selected)
       {
             int index = 0;
 
-            inventories = loadFromFile("Inventar.json");
+            RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+            List<RoomRecord> rooms = roomStorage.loadFromFile("Sobe.json");
 
-            //find right index
-            foreach (Inventory inventory in inventories)
+            foreach(RoomRecord room in rooms)
             {
-                if (inventory.Id == selected.Id)
+                if(room.HospitalWard == "Magacin")
                 {
-                    break;
+                    foreach(Inventory i in room.inventory)
+                    {
+                        if(i.Id == selected.Id)
+                        {
+                            break;
+                        }
+                        index++;
+                    }
+                    room.inventory.RemoveAt(index);
                 }
-                index++;
             }
 
-            inventories.RemoveAt(index);
-            saveToFile(inventories, "Inventar.json");
+            roomStorage.saveToFile(rooms, "Sobe.json");
+
         }
       
       public void EditInventory(Inventory oldInventory, Inventory newInventory)
       {
             int index = 0;
 
-            inventories = loadFromFile("Inventar.json");
+            RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+            List<RoomRecord> rooms = roomStorage.loadFromFile("Sobe.json");
 
-            //find right index
-            foreach (Inventory inventory in inventories)
+            foreach (RoomRecord room in rooms)
             {
-                if (inventory.Id == oldInventory.Id)
+                if (room.HospitalWard == "Magacin")
                 {
-                    break;
+                    foreach (Inventory i in room.inventory)
+                    {
+                        if (i.Id == oldInventory.Id)
+                        {
+                            break;
+                        }
+                        index++;
+                    }
+                    room.inventory.RemoveAt(index);
+                    room.inventory.Insert(index, newInventory);
                 }
-                index++;
             }
 
-            inventories.RemoveAt(index);
-            inventories.Insert(index, newInventory);
-            saveToFile(inventories, "Inventar.json");
+            roomStorage.saveToFile(rooms, "Sobe.json");
+
         }
       
       public void saveToFile(List<Inventory> inventories, string fileName)

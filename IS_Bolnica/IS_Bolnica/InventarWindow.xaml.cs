@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using IS_Bolnica.Model;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace IS_Bolnica
         private List<Inventory> inventoriesDinamicki = new List<Inventory>();
         private List<Inventory> inventoriesStaticki = new List<Inventory>();
         private Director director = new Director();
+        private List<Inventory> magacinInventory = new List<Inventory>();
 
         public InventarWindow()
         {
@@ -31,43 +33,67 @@ namespace IS_Bolnica
             RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
             rooms = roomStorage.loadFromFile("Sobe.json");
 
-            foreach (RoomRecord room in rooms)
+            //PRVO POKRETANJE -> sve iz ostalih soba u magacin(bez korpija)
+           /* foreach (RoomRecord room in rooms)
             {
-                foreach (Inventory inventory in room.inventory)
+                foreach(Inventory iRoom in room.inventory)
                 {
-                    int existDinamicki = 0;
-                    int existStaticki = 0;
-                    foreach (Inventory i in inventoriesDinamicki)
+                    int exist = 0;
+                    foreach(Inventory iMagacin in magacinInventory)
                     {
-                        if (i.Id == inventory.Id)
+                        if(iMagacin.Id == iRoom.Id)
                         {
-                            existDinamicki = 1;
-                        } 
-                    }
-                    if (existDinamicki == 0 && inventory.InventoryType == Model.InventoryType.dinamicki)
-                    {
-                        inventoriesDinamicki.Add(inventory);
-                    }
-                    foreach (Inventory i in inventoriesStaticki)
-                    {
-                        if (i.Id == inventory.Id)
-                        {
-                            existDinamicki = 1;
+                            exist = 1;
                         }
                     }
-                    if (existStaticki == 0 && inventory.InventoryType == Model.InventoryType.staticki)
+                    if(exist == 0)
                     {
-                        inventoriesStaticki.Add(inventory);
+                        int id = iRoom.Id;
+                        string name = iRoom.Name;
+                        InventoryType type = iRoom.InventoryType;
+                        int curr = 0;
+                        int min = 0;
+                        Inventory i = new Inventory { Id = id, Name = name, InventoryType = type, CurrentAmount = curr, Minimum = min};
+                        magacinInventory.Add(i);
                     }
                 }
             }
 
-            /*InventoryFileStorage inventoryStorage = new InventoryFileStorage();
-            inventoryStorage.saveToFile(inventoriesDinamicki, "Inventar.json");
-            inventoryStorage.saveToFile(inventoriesStaticki, "Inventar.json");*/
+            //sve prebacimo u listu u fajlu
+            foreach(RoomRecord room in rooms)
+            {
+                if(room.HospitalWard == "Magacin")
+                {
+                    foreach(Inventory i in magacinInventory)
+                    {
+                        room.inventory.Add(i);
+                    }
+                }
+            }
+
+            roomStorage.saveToFile(rooms, "Sobe.json");*/
+           
+            foreach(RoomRecord room in rooms)
+            {
+                if(room.HospitalWard == "Magacin")
+                {
+                    foreach (Inventory i in room.inventory)
+                    {
+                        if (i.InventoryType == InventoryType.dinamicki)
+                        {
+                            inventoriesDinamicki.Add(i);
+                        }
+                        else
+                        {
+                            inventoriesStaticki.Add(i);
+                        }
+                    }
+                }
+            }
 
             dinamickiData.ItemsSource = inventoriesDinamicki;
             statickiData.ItemsSource = inventoriesStaticki;
+
         }
 
         private void inventarData_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -77,7 +103,8 @@ namespace IS_Bolnica
 
         private void AddButton(object sender, RoutedEventArgs e)
         {
-            AddInventoryWindow addInventoryWindow = new AddInventoryWindow();
+            String type = "dinamicki";
+            AddInventoryWindow addInventoryWindow = new AddInventoryWindow(type);
             addInventoryWindow.Show();
             this.Close();
         }
@@ -96,7 +123,26 @@ namespace IS_Bolnica
             {
                 InventoryFileStorage storage = new InventoryFileStorage();
                 storage.DeleteInventory(selectedInventory);
-                dinamickiData.ItemsSource = storage.loadFromFile("Inventar.json");
+
+                RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+                List<RoomRecord> rooms = roomStorage.loadFromFile("Sobe.json");
+                List<Inventory> source = new List<Inventory>();
+
+                foreach(RoomRecord room in rooms)
+                {
+                    if(room.HospitalWard == "Magacin")
+                    {
+                        foreach(Inventory i in room.inventory)
+                        {
+                            if(i.InventoryType == InventoryType.dinamicki)
+                            {
+                                source.Add(i);
+                            }
+                        }
+                    }
+                }
+
+                dinamickiData.ItemsSource = source;
             }
         }
 
@@ -117,6 +163,68 @@ namespace IS_Bolnica
             }
         }
 
+        private void AddButtonStaticki(object sender, RoutedEventArgs e)
+        {
+            String type = "staticki";
+            AddInventoryWindow addInventoryWindow = new AddInventoryWindow(type);
+            addInventoryWindow.Show();
+            this.Close();
+        }
+
+        private void DeleteButtonStaticki(object sender, RoutedEventArgs e)
+        {
+            Director director = (Director)DataContext;
+            int index = statickiData.SelectedIndex;
+            Inventory selectedInventory = (Inventory)statickiData.SelectedItem;
+
+            if (index < 0)
+            {
+                MessageBox.Show("Niste izabrali nijedan inventar!");
+            }
+            else
+            {
+                InventoryFileStorage storage = new InventoryFileStorage();
+                storage.DeleteInventory(selectedInventory);
+
+                RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+                List<RoomRecord> rooms = roomStorage.loadFromFile("Sobe.json");
+                List<Inventory> source = new List<Inventory>();
+
+                foreach (RoomRecord room in rooms)
+                {
+                    if (room.HospitalWard == "Magacin")
+                    {
+                        foreach (Inventory i in room.inventory)
+                        {
+                            if (i.InventoryType == InventoryType.staticki)
+                            {
+                                source.Add(i);
+                            }
+                        }
+                    }
+                }
+
+                statickiData.ItemsSource = source;
+            }
+        }
+
+        private void EditButtonStaticki(object sender, RoutedEventArgs e)
+        {
+            int index = statickiData.SelectedIndex;
+            Inventory selectedInventory = (Inventory)statickiData.SelectedItem;
+
+            if (index < 0)
+            {
+                MessageBox.Show("Niste izabrali nijedan inventar!");
+            }
+            else
+            {
+                EditInventoryWindow ew = new EditInventoryWindow(selectedInventory);
+                ew.Show();
+                this.Close();
+            }
+        }
+
         private void Row_DoubleClik(object sender, MouseButtonEventArgs e)
         {
             Inventory selectedInventory = (Inventory)dinamickiData.SelectedItem;
@@ -124,6 +232,7 @@ namespace IS_Bolnica
             SelectedInventoryInRooms si = new SelectedInventoryInRooms(selectedInventory);
             si.Show();
         }
+
 
         private void ClosingWindow(object sender, System.ComponentModel.CancelEventArgs e)
         {
