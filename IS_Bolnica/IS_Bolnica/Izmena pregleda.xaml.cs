@@ -31,14 +31,16 @@ namespace IS_Bolnica
             //2.3.2020. 09:15:00 
             DateTime oznaceniDatum = pregledi.ElementAt(index).date;
             string[] pom = oznaceniDatum.ToString().Split(' ');
-            string[] datum = pom[0].Split('.');
+            string[] datum = pom[0].Split('/');
             string[] vreme = pom[1].Split(':');
             
             InitializeComponent();
 
             DoktorBox.Text = pregledi.ElementAt(index).doctor.name + " " + pregledi.ElementAt(index).doctor.surname;
-            DateTime dat = new DateTime(Int32.Parse(datum[2]), Int32.Parse(datum[1]), Int32.Parse(datum[0]));
+            DateTime dat = new DateTime(Int32.Parse(datum[2]), Int32.Parse(datum[0]), Int32.Parse(datum[1]));
             DateBox.SelectedDate = dat;
+            
+            
             SatiBox.Text = vreme[0];
             MinutiBox.Text = vreme[1];
         }

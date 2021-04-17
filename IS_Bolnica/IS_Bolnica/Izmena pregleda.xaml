@@ -18,7 +18,7 @@
             <ComboBoxItem Content="Pera Peric"/>
             <ComboBoxItem Content="Mika Mikic"/>
             <ComboBoxItem Content="Zika Zikic"/>
-        </ComboBox>        
+        </ComboBox>
         <DatePicker HorizontalAlignment="Left" FontSize="18" Margin="296,210,0,0" VerticalAlignment="Top" Height="32" Width="151" Name="DateBox"/>
         <ComboBox HorizontalAlignment="Left" FontSize="18" Margin="296,273,0,0" VerticalAlignment="Top" Width="60" Name="SatiBox">
             <ComboBoxItem Content="00"/>

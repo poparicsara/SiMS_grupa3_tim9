@@ -110,10 +110,24 @@ namespace IS_Bolnica
             {
                 ExaminationsRecordFileStorage exStorage = new ExaminationsRecordFileStorage();
                 List<Examination> pregledi = exStorage.loadFromFile("Pregledi.json");
-             
+                
                 Izmena_pregleda ip = new Izmena_pregleda(lvDataBinding.SelectedIndex);
-                ip.Show();
-                this.Close();
+                DateTime now = DateTime.Now;
+                string[] pom = now.ToString().Split(' ');
+                string[] datum = pom[0].Split('/');
+
+                DateTime datum_iz_pregleda = Convert.ToDateTime(ip.DateBox.Text);
+                string[] pomocni = datum_iz_pregleda.ToString().Split(' ');
+                string[] pomocni_datum = pomocni[0].Split('/');
+
+                if (Convert.ToInt32(datum[1]) + 2 < Convert.ToInt32(pomocni_datum[1]))
+                {
+                    ip.Show();
+                    this.Close();
+                }
+                else {
+                    MessageBox.Show("Ne mozete da izmenite pregled jer je zakazan u periodu od naredna dva dana!");
+                }
             }
         }
     }
