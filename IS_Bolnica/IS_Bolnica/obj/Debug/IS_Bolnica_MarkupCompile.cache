@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\App.xaml
-36-957042265
+8847401996
 
-75-135023585
+391469993027
 141323765998
-AddExaminationWindow.xaml;AddInventoryWindow.xaml;AddOperationWindow.xaml;ChangeInventoryPlace.xaml;CreatePrescription.xaml;Diagnosis.xaml;DirectorNotificationWindow.xaml;DoctorNotificationWindow.xaml;DoctorWindow.xaml;EditInventoryWindow.xaml;EditWindow.xaml;ExaminationInfo.xaml;InventarWindow.xaml;InventoryWindow.xaml;Izmena pregleda.xaml;MainWindow.xaml;NewInventory.xaml;NewRoomWindow.xaml;PatientNotificationWindow.xaml;PatientWindow.xaml;Secretary\ActionBarWindow.xaml;Secretary\AddNotificationWindow.xaml;Secretary\AddPatient.xaml;Secretary\EditNotificationWindow.xaml;Secretary\EditPatient.xaml;Secretary\ExaminationListWindow.xaml;Secretary\GuestUserAccount.xaml;Secretary\GuestUserListWindow.xaml;Secretary\NotificationListWindow.xaml;Secretary\PatientListWindow.xaml;SekretarWindow.xaml;SelectedInventoryInRooms.xaml;UpdateExaminationWindow.xaml;UpdateOperationWindow.xaml;UpravnikWindow.xaml;Zakazivanje pregleda.xaml;
+ChangeInventoryPlace.xaml;InventarWindow.xaml;Izmena pregleda.xaml;MainWindow.xaml;PatientWindow.xaml;SelectedInventoryInRooms.xaml;UpravnikWindow.xaml;Zakazivanje pregleda.xaml;
 
-False
+True
 

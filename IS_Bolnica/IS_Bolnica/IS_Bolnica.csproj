@@ -58,11 +58,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddInventoryWindow.xaml.cs" />
+    <Compile Include="ChangeInventoryPlace.xaml.cs">
+      <DependentUpon>ChangeInventoryPlace.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditInventoryWindow.xaml.cs" />
+    <Compile Include="InventarWindow.xaml.cs">
+      <DependentUpon>InventarWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryInRoom.cs" />
     <Compile Include="Izmena pregleda.xaml.cs">
       <DependentUpon>Izmena pregleda.xaml</DependentUpon>
     </Compile>
     <Compile Include="PatientWindow.xaml.cs">
       <DependentUpon>PatientWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SelectedInventoryInRooms.xaml.cs">
+      <DependentUpon>SelectedInventoryInRooms.xaml</DependentUpon>
     </Compile>
     <Compile Include="UpravnikWindow.xaml.cs">
       <DependentUpon>UpravnikWindow.xaml</DependentUpon>
@@ -70,6 +82,14 @@
     <Compile Include="Zakazivanje pregleda.xaml.cs">
       <DependentUpon>Zakazivanje pregleda.xaml</DependentUpon>
     </Compile>
+    <Page Include="ChangeInventoryPlace.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InventarWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Izmena pregleda.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -89,6 +109,10 @@
     <Page Include="PatientWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SelectedInventoryInRooms.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UpravnikWindow.xaml">
       <SubType>Designer</SubType>
