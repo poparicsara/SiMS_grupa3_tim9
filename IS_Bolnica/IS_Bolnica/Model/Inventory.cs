@@ -1,17 +1,28 @@
-
-
-using IS_Bolnica.Model;
 using System;
 
 namespace Model
 {
-   public class Inventory
-   {
-        public String Name { get; set; }
-        public int CurrentAmount { get; set; }
-        public int Minimum { get; set; }
-        public int Id { get; set; }
-        public InventoryType InventoryType { get; set; } 
+    public class Inventory
+    {
+        private String name;
+        private int currentAmount;
+        private int minimum;
+        private String id;
+
+        public void DeleteInventory(String id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddInventory(String name, int currentAmount, int minimum, String id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateInventory(String name, int currentAmount, int minimum, String id)
+        {
+            throw new NotImplementedException();
+        }
 
     }
 }

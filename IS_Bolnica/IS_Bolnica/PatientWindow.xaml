@@ -30,15 +30,14 @@
             </DataGrid.Resources>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Datum i vreme" Binding="{ Binding date }" />
-                <DataGridTextColumn Header="Ime" Binding="{ Binding doctor.Name}" />
-                <DataGridTextColumn Header="Prezime" Binding="{ Binding doctor.Surname}" />
+                <DataGridTextColumn Header="Ime" Binding="{ Binding doctor.name}" />
+                <DataGridTextColumn Header="Prezime" Binding="{ Binding doctor.surname}" />
                 <DataGridTextColumn Header="Trajanje(min)" Binding="{ Binding durationInMinutes}" />
             </DataGrid.Columns>
 
         </DataGrid>
-        <Button Content="Zakazi pregled" HorizontalAlignment="Left" Margin="687,267,0,0" VerticalAlignment="Top" Width="97" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="AddButtonClicked"/>
-        <Button Content="Otkazi pregled" HorizontalAlignment="Left" Margin="687,304,0,0" VerticalAlignment="Top" Width="97" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="OtkaziButtonClicked"/>
-        <Button Content="Izmeni" HorizontalAlignment="Left" Margin="687,341,0,0" VerticalAlignment="Top" Width="97" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="IzmeniButtonClicked"/>
-        <Button Content="Obaveštenja" HorizontalAlignment="Left" Margin="687,222,0,0" VerticalAlignment="Top" Width="97" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="ObavestenjaButtonClicked"/>
+        <Button Content="Zakazi pregled" HorizontalAlignment="Left" Margin="687,267,0,0" VerticalAlignment="Top" Width="97" Click="AddButtonClicked"/>
+        <Button Content="Otkazi pregled" HorizontalAlignment="Left" Margin="687,304,0,0" VerticalAlignment="Top" Width="97" Click="OtkaziButtonClicked"/>
+        <Button Content="Izmeni" HorizontalAlignment="Left" Margin="687,341,0,0" VerticalAlignment="Top" Width="97" Click="IzmeniButtonClicked"/>
     </Grid>
 </Window>

@@ -1,12 +1,9 @@
-using System;
-
 namespace Model
 {
     public class Operation
     {
-      //  private RoomRecord roomRecord;
+        public RoomRecord roomRecord;
         public System.Collections.Generic.List<Doctor> doctor;
-        private Patient patient;
 
         public System.Collections.Generic.List<Doctor> Doctor
         {
@@ -51,24 +48,7 @@ namespace Model
             if (doctor != null)
                 doctor.Clear();
         }
-
-        public DateTime Date
-        {
-            get;
-            set;
-        }
- 
-        public Patient Patient
-        {
-            get;
-            set;
-        }
-        
-        public RoomRecord RoomRecord
-        {
-            get;
-            set;
-        }
+        public Patient patient;
 
     }
 }

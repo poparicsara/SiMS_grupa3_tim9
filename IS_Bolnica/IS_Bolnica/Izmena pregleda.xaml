@@ -12,8 +12,8 @@
         <Label Content="Doktor" FontSize="20" HorizontalAlignment="Left" Margin="95,139,0,0" VerticalAlignment="Top" Height="37" Width="76"/>
         <Label Content="Datum pregleda" FontSize="20" HorizontalAlignment="Left" Margin="95,205,0,0" VerticalAlignment="Top" Width="160"/>
         <Label Content="Vreme pregleda" FontSize="20" HorizontalAlignment="Left" Margin="95,267,0,0" VerticalAlignment="Top"/>
-        <Button Content="Izmeni" FontSize="20" HorizontalAlignment="Left" Margin="208,350,0,0" VerticalAlignment="Top" Width="97" Height="38" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="IzmeniButtonClicked"/>
-        <Button Content="Odustani" FontSize="20" HorizontalAlignment="Left" Margin="386,350,0,0" VerticalAlignment="Top" Width="106" Height="38" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="OdustaniButtonClicked" />
+        <Button Content="Izmeni" FontSize="20" HorizontalAlignment="Left" Margin="208,350,0,0" VerticalAlignment="Top" Width="97" Height="38" Click="IzmeniButtonClicked"/>
+        <Button Content="Odustani" FontSize="20" HorizontalAlignment="Left" Margin="386,350,0,0" VerticalAlignment="Top" Width="106" Height="38" Click="OdustaniButtonClicked" />
         <ComboBox HorizontalAlignment="Left" FontSize="18" Height="37" Margin="296,139,0,0" VerticalAlignment="Top" Width="151" Name="DoktorBox" >
             <ComboBoxItem Content="Pera Peric"/>
             <ComboBoxItem Content="Mika Mikic"/>

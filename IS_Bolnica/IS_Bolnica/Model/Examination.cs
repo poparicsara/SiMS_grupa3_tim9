@@ -1,5 +1,4 @@
 using System;
-using System.ComponentModel;
 
 namespace Model
 {
@@ -25,7 +24,7 @@ namespace Model
         }
 
         public DateTime date { get; set; }
-      //  public Patient patient { get; set; }
+        public Patient patient { get; set; }
         public Doctor doctor { get; set; }
         public Secretary secretary { get; set; }
 
@@ -45,44 +44,5 @@ namespace Model
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged(string name)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
-            }
-        }
-
-        public DateTime Date
-        {
-            get
-            {
-                return date;
-            }
-            set
-            {
-                if (value != date)
-                {
-                    date = value;
-                    OnPropertyChanged("Date");
-                }
-            }
-        }
-
-        public Patient Patient
-        {
-            get;
-            set;
-        }
-
-        public RoomRecord RoomRecord
-        {
-            get;
-            set;
-        }
-
     }
-
-
 }
