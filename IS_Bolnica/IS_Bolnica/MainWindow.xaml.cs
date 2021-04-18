@@ -48,7 +48,7 @@ namespace IS_Bolnica
         {
             users = storage.loadFromFile("UsersFileStorage.json");
             string username = usernameBox.Text;
-            string password = passwordBox.Text;
+            string password = passwordBox.Password.ToString();
 
             foreach (User user in users)
             {
