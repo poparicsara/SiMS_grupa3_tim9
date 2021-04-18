@@ -1,216 +1,198 @@
 [
   {
-    "isPayed": false,
-    "evaluation": 0,
-    "durationInMinutes": 56,
-    "username": "Vladimir",
-    "room": 101,
-    "date": "2021-02-23T15:30:00",
-    "doctor": {
-      "specialization": {
-        "name": "RADIOLOG"
-      },
-      "Username": null,
-      "Password": null,
-      "Name": "Pera",
-      "Surname": "Peric",
-      "DateOfBirth": "0001-01-01T00:00:00",
-      "Phone": null,
-      "Email": null,
-      "Id": null,
-      "UserType": 0,
-      "Address": null
-    },
-    "secretary": null,
-    "Secretary": null,
-    "Date": "2021-02-23T15:30:00",
-    "Patient": null,
-    "RoomRecord": null
+    "Allergens": null,
+    "Debit": 0.0,
+    "examinations": null,
+    "HealthCardNumber": null,
+    "Username": "Vladimir",
+    "Password": "ftn",
+    "Name": "Maja",
+    "Surname": "Mirković",
+    "DateOfBirth": "1999-08-01T00:00:00",
+    "Phone": "65879463",
+    "Email": "majamirkovic@gmail.com",
+    "Id": "1756265852",
+    "UserType": 0,
+    "Address": null
   },
   {
-    "isPayed": true,
-    "evaluation": 2,
-    "durationInMinutes": 26,
-    "username": "Vladimir",
-    "room": 101,
-    "date": "2021-03-02T09:00:00",
-    "doctor": {
-      "specialization": {
-        "name": "KARDIOLOG"
-      },
-      "Username": null,
-      "Password": null,
-      "Name": "Mika",
-      "Surname": "Mikic",
-      "DateOfBirth": "0001-01-01T00:00:00",
-      "Phone": null,
-      "Email": null,
-      "Id": null,
-      "UserType": 0,
-      "Address": null
-    },
-    "secretary": null,
-    "Secretary": null,
-    "Date": "2021-03-02T09:00:00",
-    "Patient": null,
-    "RoomRecord": null
+    "Allergens": [
+      "brufen"
+    ],
+    "Debit": 3000.0,
+    "examinations": null,
+    "HealthCardNumber": null,
+    "Username": "p__nina",
+    "Password": "hehe",
+    "Name": "Nikolina",
+    "Surname": "Pavkovic",
+    "DateOfBirth": "2000-02-01T00:00:00",
+    "Phone": "0658886407",
+    "Email": "pavkovicn@hotmail.com",
+    "Id": "1502000815038",
+    "UserType": 0,
+    "Address": {
+      "Street": "Nova",
+      "NumberOfBuilding": 130,
+      "Floor": 0,
+      "Apartment": 0,
+      "City": {
+        "name": "Apatin",
+        "postalCode": "25260",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
   },
   {
-    "isPayed": false,
-    "evaluation": 3,
-    "durationInMinutes": 30,
-    "username": "Vladimir",
-    "room": 101,
-    "date": "2021-04-11T11:30:30",
-    "doctor": {
-      "specialization": {
-        "name": "PULMOLOG"
-      },
-      "Username": null,
-      "Password": null,
-      "Name": "Zika",
-      "Surname": "Zikic",
-      "DateOfBirth": "0001-01-01T00:00:00",
-      "Phone": null,
-      "Email": null,
-      "Id": null,
-      "UserType": 0,
-      "Address": null
-    },
-    "secretary": null,
-    "Secretary": null,
-    "Date": "2021-04-11T11:30:30",
-    "Patient": null,
-    "RoomRecord": null
+    "Allergens": [
+      "penicilin"
+    ],
+    "Debit": 500.0,
+    "examinations": null,
+    "HealthCardNumber": null,
+    "Username": "mare",
+    "Password": "nesto",
+    "Name": "Marko",
+    "Surname": "Markovic",
+    "DateOfBirth": "2021-04-09T00:00:00+02:00",
+    "Phone": "064789552",
+    "Email": "marko@gmai.com",
+    "Id": "5479865478932",
+    "UserType": 0,
+    "Address": {
+      "Street": "Marko Oreskovica",
+      "NumberOfBuilding": 12,
+      "Floor": 5,
+      "Apartment": 8,
+      "City": {
+        "name": "Novi Sad",
+        "postalCode": "21000",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
   },
   {
-    "isPayed": false,
-    "evaluation": 0,
-    "durationInMinutes": 59,
-    "username": "Vladimir",
-    "room": 101,
-    "date": "2021-04-21T10:30:00",
-    "doctor": {
-      "specialization": null,
-      "Username": null,
-      "Password": null,
-      "Name": "Mika",
-      "Surname": "Mikic",
-      "DateOfBirth": "0001-01-01T00:00:00",
-      "Phone": null,
-      "Email": null,
-      "Id": null,
-      "UserType": 0,
-      "Address": null
-    },
-    "secretary": null,
-    "Secretary": null,
-    "Date": "2021-04-21T10:30:00",
-    "Patient": null,
-    "RoomRecord": null
+    "Allergens": [
+      "polen"
+    ],
+    "Debit": 1500.0,
+    "examinations": null,
+    "HealthCardNumber": null,
+    "Username": "nikola_nikolic",
+    "Password": "sasasa",
+    "Name": "NikolAAAAAAA",
+    "Surname": "Nikolic",
+    "DateOfBirth": "1984-12-01T00:00:00",
+    "Phone": "0647896587",
+    "Email": "nikolic@gmail.com",
+    "Id": "1458798563215",
+    "UserType": 0,
+    "Address": {
+      "Street": "Masarikova ulica ",
+      "NumberOfBuilding": 12,
+      "Floor": 25,
+      "Apartment": 13,
+      "City": {
+        "name": "Sombor ",
+        "postalCode": "12564",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
   },
   {
-    "isPayed": false,
-    "evaluation": 0,
-    "durationInMinutes": 25,
-    "username": "Vladimir",
-    "room": 101,
-    "date": "2021-04-21T10:30:00",
-    "doctor": {
-      "specialization": null,
-      "Username": null,
-      "Password": null,
-      "Name": "Mika",
-      "Surname": "Mikic",
-      "DateOfBirth": "0001-01-01T00:00:00",
-      "Phone": null,
-      "Email": null,
-      "Id": null,
-      "UserType": 0,
-      "Address": null
-    },
-    "secretary": null,
-    "Secretary": null,
-    "Date": "2021-04-21T10:30:00",
-    "Patient": null,
-    "RoomRecord": null
+    "Allergens": [
+      ""
+    ],
+    "Debit": 0.0,
+    "examinations": null,
+    "HealthCardNumber": null,
+    "Username": "pera",
+    "Password": "aha",
+    "Name": "Petar",
+    "Surname": "Petrović",
+    "DateOfBirth": "1964-06-01T00:00:00",
+    "Phone": "069778189",
+    "Email": "pera@gmail.com",
+    "Id": "1111111111111",
+    "UserType": 0,
+    "Address": {
+      "Street": "Ive Lole Ribara ",
+      "NumberOfBuilding": 2,
+      "Floor": 5,
+      "Apartment": 9,
+      "City": {
+        "name": "Sombor ",
+        "postalCode": "25000",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
   },
   {
-    "isPayed": false,
-    "evaluation": 0,
-    "durationInMinutes": 29,
-    "username": "Vladimir",
-    "room": 101,
-    "date": "2021-04-21T10:30:00",
-    "doctor": {
-      "specialization": null,
-      "Username": null,
-      "Password": null,
-      "Name": "Mika",
-      "Surname": "Mikic",
-      "DateOfBirth": "0001-01-01T00:00:00",
-      "Phone": null,
-      "Email": null,
-      "Id": null,
-      "UserType": 0,
-      "Address": null
-    },
-    "secretary": null,
-    "Secretary": null,
-    "Date": "2021-04-21T10:30:00",
-    "Patient": null,
-    "RoomRecord": null
+    "Allergens": [
+      ""
+    ],
+    "Debit": 4.0,
+    "examinations": null,
+    "HealthCardNumber": null,
+    "Username": "aaaaaaaaa",
+    "Password": "dfc",
+    "Name": "aaaaa",
+    "Surname": "aaaaaaaaaaaa",
+    "DateOfBirth": "2021-04-18T00:00:00+02:00",
+    "Phone": "11111",
+    "Email": "dsde",
+    "Id": "00",
+    "UserType": 0,
+    "Address": {
+      "Street": "haha ",
+      "NumberOfBuilding": 7,
+      "Floor": 8,
+      "Apartment": 8,
+      "City": {
+        "name": "sasd ",
+        "postalCode": "55",
+        "Country": {
+          "name": "sadsa"
+        }
+      }
+    }
   },
   {
-    "isPayed": false,
-    "evaluation": 0,
-    "durationInMinutes": 58,
-    "username": "Vladimir",
-    "room": 101,
-    "date": "2021-04-21T10:30:00",
-    "doctor": {
-      "specialization": null,
-      "Username": null,
-      "Password": null,
-      "Name": "Mika",
-      "Surname": "Mikic",
-      "DateOfBirth": "0001-01-01T00:00:00",
-      "Phone": null,
-      "Email": null,
-      "Id": null,
-      "UserType": 0,
-      "Address": null
-    },
-    "secretary": null,
-    "Secretary": null,
-    "Date": "2021-04-21T10:30:00",
-    "Patient": null,
-    "RoomRecord": null
-  },
-  {
-    "isPayed": false,
-    "evaluation": 0,
-    "durationInMinutes": 17,
-    "username": "Vladimir",
-    "room": 101,
-    "date": "2021-04-21T10:30:00",
-    "doctor": {
-      "specialization": null,
-      "Username": null,
-      "Password": null,
-      "Name": "Mika",
-      "Surname": "Mikic",
-      "DateOfBirth": "0001-01-01T00:00:00",
-      "Phone": null,
-      "Email": null,
-      "Id": null,
-      "UserType": 0,
-      "Address": null
-    },
-    "secretary": null,
-    "Secretary": null,
-    "Date": "2021-04-21T10:30:00",
-    "Patient": null,
-    "RoomRecord": null
+    "Allergens": [
+      "d"
+    ],
+    "Debit": 0.0,
+    "examinations": null,
+    "HealthCardNumber": null,
+    "Username": "wwww",
+    "Password": "sed",
+    "Name": "wwwwwwwwwww",
+    "Surname": "wwwwww",
+    "DateOfBirth": "2021-02-01T00:00:00",
+    "Phone": "5415",
+    "Email": "ede",
+    "Id": "525",
+    "UserType": 0,
+    "Address": {
+      "Street": "dxesc ",
+      "NumberOfBuilding": 8,
+      "Floor": 8,
+      "Apartment": 8,
+      "City": {
+        "name": "dsdc ",
+        "postalCode": "45",
+        "Country": {
+          "name": "sdfsd"
+        }
+      }
+    }
   }
 ]

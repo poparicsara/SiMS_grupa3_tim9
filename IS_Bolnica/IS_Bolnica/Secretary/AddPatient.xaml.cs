@@ -95,12 +95,6 @@ namespace IS_Bolnica.Secretary
             user.Username = username.Text;
             user.UserType = UserType.patient;
             user.Address = patient.Address;
-            /*user.Address.NumberOfBuilding = patient.Address.NumberOfBuilding;
-            user.Address.Floor = patient.Address.Floor;
-            user.Address.Apartment = patient.Address.Apartment;
-            user.Address.City.name = patient.Address.City.name;
-            user.Address.City.postalCode = patient.Address.City.postalCode;
-            user.Address.City.Country.name = patient.Address.City.Country.name;*/
 
             ObservableCollection<User> korisnici = new ObservableCollection<User>();
             korisnici = storage1.loadFromFile("UsersFileStorage.json");

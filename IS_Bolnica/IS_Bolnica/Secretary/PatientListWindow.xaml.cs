@@ -74,32 +74,6 @@ namespace IS_Bolnica.Secretary
 
 
                 Secretary.EditPatient ep = new Secretary.EditPatient(patient);
-                /*
-
-                ep.name.Text = pacijenti[i].Name;
-                ep.surname.Text = pacijenti[i].Surname;
-                ep.username.Text = pacijenti[i].Username;
-                ep.dateOfBirth.DisplayDate = pacijenti[i].DateOfBirth.Date;
-                ep.iniciallyPassword.Text = pacijenti[i].Password;
-                ep.id.Text = pacijenti[i].Id.ToString();
-                ep.phone.Text = pacijenti[i].Phone.ToString();
-                ep.email.Text = pacijenti[i].Email;
-                ep.adress.Text = pacijenti[i].Address.Street + " "
-                    + pacijenti[i].Address.NumberOfBuilding + "/"
-                    + pacijenti[i].Address.Floor + "/"
-                    + pacijenti[i].Address.Apartment;
-                ep.city.Text = pacijenti[i].Address.City.name + " "
-                    + Convert.ToString(pacijenti[i].Address.City.postalCode);
-                ep.country.Text = pacijenti[i].Address.City.Country.name;
-                ep.debit.Text = Convert.ToString(pacijenti[i].Debit);
-                List<string> alergeni = pacijenti[i].Allergens;
-                foreach(var alergen in alergeni)
-                {
-                    ep.allergens.Text += alergen + ",";
-
-                }
-                String pom = ep.allergens.Text;
-                ep.allergens.Text = pom.Remove(pom.Length-1,1);*/
 
                 ep.name.Text = patient.Name;
                 ep.surname.Text = patient.Surname;

@@ -12,18 +12,6 @@
     "Address": null
   },
   {
-    "Username": "Nina",
-    "Password": "ftn",
-    "Name": "Milica",
-    "Surname": "Milović",
-    "DateOfBirth": "2021-03-29T00:00:00+02:00",
-    "Phone": "62226648",
-    "Email": "milovicmica@gmail.com",
-    "Id": "11111",
-    "UserType": 2,
-    "Address": null
-  },
-  {
     "Username": "Sara",
     "Password": "ftn",
     "Name": "sdf",
@@ -96,15 +84,51 @@
     }
   },
   {
-    "Username": "aleksam",
-    "Password": "aki123",
-    "Name": "Aleksa",
-    "Surname": "Marić",
-    "DateOfBirth": "1979-11-01T00:00:00",
-    "Phone": "67894120",
-    "Email": "maricaleksa@hotmail.com",
-    "Id": "452345",
-    "UserType": 1,
-    "Address": null
+    "Username": "Nina",
+    "Password": "ftn",
+    "Name": "Nikolina",
+    "Surname": "Pavkovic",
+    "DateOfBirth": "2000-02-01T00:00:00",
+    "Phone": "0658886407",
+    "Email": "pavkovicn@hotmail.com",
+    "Id": "1502000815038",
+    "UserType": 2,
+    "Address": {
+      "Street": "Nova",
+      "NumberOfBuilding": 130,
+      "Floor": 0,
+      "Apartment": 0,
+      "City": {
+        "name": "Apatin",
+        "postalCode": "25260",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
   },
+  {
+    "Username": "aaa",
+    "Password": "aaaa",
+    "Name": "aaa",
+    "Surname": "aaa",
+    "DateOfBirth": "2020-07-01T00:00:00",
+    "Phone": "1111",
+    "Email": "aaaa",
+    "Id": "555",
+    "UserType": 0,
+    "Address": {
+      "Street": "aaaa ",
+      "NumberOfBuilding": 8,
+      "Floor": 88,
+      "Apartment": 8,
+      "City": {
+        "name": "sds ",
+        "postalCode": "58",
+        "Country": {
+          "name": "sdfsd"
+        }
+      }
+    }
+  }
 ]
