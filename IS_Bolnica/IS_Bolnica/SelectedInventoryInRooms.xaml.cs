@@ -18,7 +18,9 @@ namespace IS_Bolnica
     public partial class SelectedInventoryInRooms : Window
     {
         private List<RoomRecord> rooms = new List<RoomRecord>();
-        private List<InventoryInRoom> inRoomList = new List<InventoryInRoom>();
+        private List<InventoryInRoom> inRoomListOrdinacija = new List<InventoryInRoom>();
+        private List<InventoryInRoom> inRoomListOperacionaSala = new List<InventoryInRoom>();
+        private List<InventoryInRoom> inRoomListSoba = new List<InventoryInRoom>();
         private Inventory selected = new Inventory();
 
         public SelectedInventoryInRooms(Inventory selectedInventory)
@@ -31,14 +33,21 @@ namespace IS_Bolnica
             rooms = roomStorage.loadFromFile("Sobe.json");
 
             
-            //only for "Ordinacija"
             foreach (RoomRecord room in rooms)
             {
                 InventoryInRoom inRoom = new InventoryInRoom();
-                int exist = 0;
-                int amount = 0;
+                int existOr = 0;
+                int amountOr = 0;
+                string wardOr = "";
+                int existOp = 0;
+                int amountOp = 0;
+                string wardOp = "";
+                int existS = 0;
+                int amountS = 0;
+                string wardS = "";
                 if (room.roomPurpose.Name == "Ordinacija")
                 {
+                    wardOr = room.HospitalWard;
                     if(room.inventory == null)
                     {
                         break;
@@ -47,20 +56,85 @@ namespace IS_Bolnica
                     {
                         if(i.Id == selectedInventory.Id)
                         {
-                            exist = 1;
-                            amount = i.CurrentAmount;
+                            existOr = 1;
+                            amountOr = i.CurrentAmount;
                         }
                     }
                 }
-                if (exist == 1)
+                else if (room.roomPurpose.Name == "Operaciona sala")
+                {
+                    wardOp = room.HospitalWard;
+                    if (room.inventory == null)
+                    {
+                        break;
+                    }
+                    foreach (Inventory i in room.inventory)  // da ga nadjemo
+                    {
+                        if (i.Id == selectedInventory.Id)
+                        {
+                            existOp = 1;
+                            amountOp = i.CurrentAmount;
+                        }
+                    }
+                }
+                else if(room.roomPurpose.Name == "Soba")
+                {
+                    wardS = room.HospitalWard;
+                    if (room.inventory == null)
+                    {
+                        break;
+                    }
+                    foreach (Inventory i in room.inventory)  // da ga nadjemo
+                    {
+                        if (i.Id == selectedInventory.Id)
+                        {
+                            existS = 1;
+                            amountS = i.CurrentAmount;
+                        }
+                    }
+                }
+                else if(room.HospitalWard == "Magacin")
+                {
+                    if (room.inventory == null)
+                    {
+                        break;
+                    }
+                    foreach (Inventory i in room.inventory)  // da ga nadjemo
+                    {
+                        if (i.Id == selectedInventory.Id)
+                        {
+                            currentAmount.Content = i.CurrentAmount.ToString();
+                            minAmount.Content = i.Minimum.ToString();
+                        }
+                    }
+                }
+                if (existOr == 1)
                 {
                     inRoom.RoomNumber = room.Id;
-                    inRoom.CurrentAmount = amount;
-                    inRoomList.Add(inRoom);
+                    inRoom.CurrentAmount = amountOr;
+                    inRoom.HospitalWard = wardOr;
+                    inRoomListOrdinacija.Add(inRoom);
+                }
+                else if(existOp == 1)
+                {
+                    inRoom.RoomNumber = room.Id;
+                    inRoom.CurrentAmount = amountOp;
+                    inRoom.HospitalWard = wardOp;
+                    inRoomListOperacionaSala.Add(inRoom);
+                }
+                else if(existS == 1)
+                {
+                    inRoom.RoomNumber = room.Id;
+                    inRoom.CurrentAmount = amountS;
+                    inRoom.HospitalWard = wardS;
+                    inRoomListSoba.Add(inRoom);
                 }
             }
 
-            selectedInventoryData.ItemsSource = inRoomList;
+            selectedInventoryOrdinacija.ItemsSource = inRoomListOrdinacija;
+            selectedInventoryOperacionaSala.ItemsSource = inRoomListOperacionaSala;
+            selectedInventorySoba.ItemsSource = inRoomListSoba;
+
         }
 
         private void ChangeButton(object sender, RoutedEventArgs e)

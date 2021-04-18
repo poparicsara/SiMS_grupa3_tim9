@@ -55,9 +55,9 @@ namespace Model
             rooms = loadFromFile("Sobe.json");
 
             //find right index
-            foreach(RoomRecord room in rooms)
+            foreach (RoomRecord room in rooms)
             {
-                if(room.Id == oldRoom.Id)
+                if (room.Id == oldRoom.Id)
                 {
                     break;
                 }

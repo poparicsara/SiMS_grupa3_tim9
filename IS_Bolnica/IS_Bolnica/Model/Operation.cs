@@ -4,7 +4,7 @@ namespace Model
 {
     public class Operation
     {
-      //  private RoomRecord roomRecord;
+        //  private RoomRecord roomRecord;
         public System.Collections.Generic.List<Doctor> doctor;
         private Patient patient;
 
@@ -57,13 +57,13 @@ namespace Model
             get;
             set;
         }
- 
+
         public Patient Patient
         {
             get;
             set;
         }
-        
+
         public RoomRecord RoomRecord
         {
             get;

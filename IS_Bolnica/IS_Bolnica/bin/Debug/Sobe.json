@@ -169,7 +169,7 @@
       },
       {
         "Name": "Injekcija",
-        "CurrentAmount": 20,
+        "CurrentAmount": 23,
         "Minimum": 2,
         "Id": 202,
         "InventoryType": 0
@@ -184,6 +184,43 @@
     ],
     "roomPurpose": {
       "Name": "Ordinacija"
+    }
+  },
+  {
+    "Id": 1,
+    "HospitalWard": "Magacin",
+    "inventory": [
+      {
+        "Name": "Špric",
+        "CurrentAmount": 0,
+        "Minimum": 0,
+        "Id": 101,
+        "InventoryType": 0
+      },
+      {
+        "Name": "Krevet",
+        "CurrentAmount": 0,
+        "Minimum": 0,
+        "Id": 666,
+        "InventoryType": 1
+      },
+      {
+        "Name": "Štapić",
+        "CurrentAmount": 0,
+        "Minimum": 0,
+        "Id": 303,
+        "InventoryType": 0
+      },
+      {
+        "Name": "Injekcija",
+        "CurrentAmount": 7,
+        "Minimum": 0,
+        "Id": 202,
+        "InventoryType": 0
+      }
+    ],
+    "roomPurpose": {
+      "Name": "Magacin"
     }
   }
 ]

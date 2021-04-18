@@ -7,8 +7,8 @@ using System.Collections.ObjectModel;
 namespace Model
 {
     public class PatientRecordFileStorage
-    { 
-        
+    {
+
         public ObservableCollection<Patient> GetAll()
         {
             throw new NotImplementedException();

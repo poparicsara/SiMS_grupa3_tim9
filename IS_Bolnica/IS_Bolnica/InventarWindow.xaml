@@ -37,34 +37,43 @@
 
                     <Button Content="IZMENI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" Canvas.Left="525" Canvas.Top="361" Click="EditButton" FontSize="11"/>
                     <Button Content="OBRIŠI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="525" Canvas.Top="332" Click="DeleteButton" FontSize="11"/>
-                    <Button Content="DODAJ" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="525" Canvas.Top="303" FontSize="11" Click="AddButton"/>
+                    <Button Name="addDinamicki" Content="DODAJ" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="525" Canvas.Top="303" FontSize="11" Click="AddButton"/>
                 </Canvas>
 
             </TabItem>
             <TabItem Header="Statički" Height="32" Width="109" Background="#FFA5BC90" Margin="1,0,-1.2,0">
-                <DataGrid x:Name ="statickiData" HorizontalAlignment="Center" Height="396" VerticalAlignment="Center" Width="520" FontSize="13"
+                
+                <Canvas RenderTransformOrigin="0.069,0.186" Margin="0,0,0.4,-0.6" >
+                    <DataGrid x:Name ="statickiData" HorizontalAlignment="Center" Height="396" Width="520" FontSize="13"
                   ColumnWidth="300" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserAddRows="False" AutoGenerateColumns="False"
-                  IsReadOnly="True" SelectionMode="Single" CanUserDeleteRows="True" Margin="0,0,-3.2,-1.6" CanUserReorderColumns="False">
-                    <!-- Style -->
-                    <DataGrid.Resources>
-                        <Style TargetType="{x:Type DataGridColumnHeader}">
-                            <Setter Property="Background" Value="#FFA5BC90"/>
-                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                            <Setter Property="Height" Value="30"/>
-                            <Setter Property="BorderThickness" Value="1"/>
-                            <Setter Property="BorderBrush" Value="Black"/>
-                            <Setter Property="FontWeight" Value="Bold"/>
-                        </Style>
-                        <Style TargetType="DataGridRow">
-                            <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClik"/>
-                        </Style>
-                    </DataGrid.Resources>
-                    <!-- Header -->
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header ="ŠIFRA" Width="255" Binding="{Binding Id}"/>
-                        <DataGridTextColumn Header ="NAZIV" Width="255" Binding="{Binding Name}"/>
-                    </DataGrid.Columns>
-                </DataGrid>
+                  IsReadOnly="True" SelectionMode="Single" CanUserDeleteRows="True" Margin="0,0,122.4,-1.6" CanUserReorderColumns="False">
+                        <!-- Style -->
+                        <DataGrid.Resources>
+                            <Style TargetType="{x:Type DataGridColumnHeader}">
+                                <Setter Property="Background" Value="#FFA5BC90"/>
+                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                <Setter Property="Height" Value="30"/>
+                                <Setter Property="BorderThickness" Value="1"/>
+                                <Setter Property="BorderBrush" Value="Black"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </Style>
+                            <Style TargetType="DataGridRow">
+                                <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClik"/>
+                            </Style>
+                        </DataGrid.Resources>
+                        <!-- Header -->
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header ="ŠIFRA" Width="255" Binding="{Binding Id}"/>
+                            <DataGridTextColumn Header ="NAZIV" Width="255" Binding="{Binding Name}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <Button Content="IZMENI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" Canvas.Left="525" Canvas.Top="361" FontSize="11" Click="EditButtonStaticki"/>
+                    <Button Content="OBRIŠI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="525" Canvas.Top="332" FontSize="11" Click="DeleteButtonStaticki"/>
+                    <Button Content="DODAJ" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="525" Canvas.Top="303" FontSize="11" Click="AddButtonStaticki"/>
+                </Canvas>
+                
+                
             </TabItem>
 
         </TabControl>

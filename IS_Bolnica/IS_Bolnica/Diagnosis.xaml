@@ -23,28 +23,10 @@
         <TextBox x:Name="healthCardNumberTxt" HorizontalAlignment="Left" Height="23" Margin="622,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" IsReadOnly="True"/>
         <Label Content="Simptomi:" HorizontalAlignment="Left" Margin="84,380,0,0" VerticalAlignment="Top" Width="91"/>
         <Label Content="Dijagnoza:" HorizontalAlignment="Left" Margin="84,482,0,0" VerticalAlignment="Top" Width="91"/>
-        <TextBlock HorizontalAlignment="Left" Margin="234,385,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="199" Height="71" Background="#FFE4E4E4">
-            <TextBlock.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-0.24"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </TextBlock.RenderTransform>
-        </TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="234,486,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="311" Height="101" Background="#FFE4E4E4">
-            <TextBlock.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-0.24"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </TextBlock.RenderTransform>
-        </TextBlock>
         <Label Content="Datum:" HorizontalAlignment="Left" Margin="480,41,0,0" VerticalAlignment="Top" Width="91"/>
         <TextBox x:Name="dateOfExaminationTxt" HorizontalAlignment="Left" Height="23" Margin="622,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" IsReadOnly="True"/>
+        <TextBox Name ="symptomsTxt" HorizontalAlignment="Left" Height="79" Margin="234,380,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="340"/>
+        <TextBox Name ="diagnosisTxt" HorizontalAlignment="Left" Height="131" Margin="234,482,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="340"/>
 
     </Grid>
 </Window>

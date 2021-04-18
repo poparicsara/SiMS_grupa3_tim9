@@ -39,6 +39,7 @@ namespace IS_Bolnica
             editInventory.Name = nameBox.Text;
             editInventory.CurrentAmount = (int)Int64.Parse(currentBox.Text);
             editInventory.Minimum = (int)Int64.Parse(minBox.Text);
+            editInventory.InventoryType = oldInventory.InventoryType;
 
             InventoryFileStorage storage = new InventoryFileStorage();
             storage.EditInventory(oldInventory, editInventory);

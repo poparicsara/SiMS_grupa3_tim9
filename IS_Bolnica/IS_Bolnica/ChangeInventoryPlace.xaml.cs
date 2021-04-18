@@ -20,6 +20,8 @@ namespace IS_Bolnica
     {
         private string selectedWardFrom;
         private string selectedWardTo;
+        private string selectedPurposeFrom;
+        private string selectedPurposeTo;
         private RoomRecord roomFrom = new RoomRecord();
         private RoomRecord roomTo = new RoomRecord();
         private int amount = 0;
@@ -31,17 +33,35 @@ namespace IS_Bolnica
         {
             InitializeComponent();
 
+            List<string> hospitalWardFrom = new List<string>();
+            hospitalWardFrom.Add("Pedijatrija");
+            hospitalWardFrom.Add("Ortopedija");
+            hospitalWardFrom.Add("Ginekologija");
+            hospitalWardFrom.Add("Urologija");
+            hospitalWardFrom.Add("Magacin");
+
             List<string> hospitalWard = new List<string>();
             hospitalWard.Add("Pedijatrija");
             hospitalWard.Add("Ortopedija");
             hospitalWard.Add("Ginekologija");
             hospitalWard.Add("Urologija");
 
-            wardFromBox.ItemsSource = hospitalWard;
+            wardFromBox.ItemsSource = hospitalWardFrom;
             wardFromBox.SelectedItem = "Pedijatrija";
 
             wardToBox.ItemsSource = hospitalWard;
             wardToBox.SelectedItem = "Pedijatrija";
+
+            List<string> purpose = new List<string>();
+            purpose.Add("Ordinacija");
+            purpose.Add("Operaciona sala");
+            purpose.Add("Soba");
+
+            purposeFromBox.ItemsSource = purpose;
+            purposeFromBox.SelectedItem = "Ordinacija";
+
+            purposeToBox.ItemsSource = purpose;
+            purposeToBox.SelectedItem = "Ordinacija";
 
             selectedInventory = selected;
 
@@ -52,23 +72,12 @@ namespace IS_Bolnica
             var combo = sender as ComboBox;
             selectedWardFrom = (string)combo.SelectedItem;
 
-            roomFrom.HospitalWard = selectedWardFrom;
-
-            RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
-            List<RoomRecord> rooms = new List<RoomRecord>();
-            rooms = roomStorage.loadFromFile("Sobe.json");
-            List<int> numbers = new List<int>();
-
-
-            foreach (RoomRecord room in rooms)
+            if(selectedWardFrom == "Magacin")
             {
-                if (room.HospitalWard.Equals(wardFromBox.SelectedItem) && room.roomPurpose.Name == "Ordinacija")
-                {
-                    numbers.Add(room.Id);
-                }
+                purposeFromBox.IsEnabled = false;
+                numberFromBox.IsEnabled = false;
             }
 
-            numberFromBox.ItemsSource = numbers;
         }
 
         private void wardToChanged(object sender, SelectionChangedEventArgs e)
@@ -76,14 +85,42 @@ namespace IS_Bolnica
             var combo = sender as ComboBox;
             selectedWardTo = (string)combo.SelectedItem;
 
+        }
+        private void purposeFromChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var combo = sender as ComboBox;
+            selectedPurposeFrom = (string)combo.SelectedItem;
+
             RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
             List<RoomRecord> rooms = new List<RoomRecord>();
             rooms = roomStorage.loadFromFile("Sobe.json");
             List<int> numbers = new List<int>();
 
+
             foreach (RoomRecord room in rooms)
             {
-                if (room.HospitalWard.Equals(wardToBox.SelectedItem) && room.roomPurpose.Name == "Ordinacija")
+                if (room.HospitalWard.Equals(wardFromBox.SelectedItem) && room.roomPurpose.Name.Equals(purposeFromBox.SelectedItem))
+                {
+                    numbers.Add(room.Id);
+                }
+            }
+
+            numberFromBox.ItemsSource = numbers;
+        }
+        private void purposeToChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var combo = sender as ComboBox;
+            selectedPurposeTo = (string)combo.SelectedItem;
+
+            RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+            List<RoomRecord> rooms = new List<RoomRecord>();
+            rooms = roomStorage.loadFromFile("Sobe.json");
+            List<int> numbers = new List<int>();
+
+
+            foreach (RoomRecord room in rooms)
+            {
+                if (room.HospitalWard.Equals(wardToBox.SelectedItem) && room.roomPurpose.Name.Equals(purposeToBox.SelectedItem))
                 {
                     numbers.Add(room.Id);
                 }
@@ -111,32 +148,22 @@ namespace IS_Bolnica
 
         private void DoneButton(object sender, RoutedEventArgs e)
         {
-            RoomPurpose p1 = new RoomPurpose { Name = "Ordinacija" };
-            roomFrom.roomPurpose = p1;
-            RoomPurpose p2 = new RoomPurpose { Name = "Ordinacija" };
-            roomTo.roomPurpose = p2;
+            if(selectedWardFrom == "Magacin")
+            {
+                roomFrom.Id = 1;
+            }
+            else
+            {
+                roomFrom.Id = (int)Int64.Parse(from);
+            }
 
-            roomFrom.Id = (int)Int64.Parse(from);
             roomTo.Id = (int)Int64.Parse(to);
-
             amount = (int)Int64.Parse(amountBox.Text);
 
             RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
             List<RoomRecord> rooms = roomStorage.loadFromFile("Sobe.json");
-            List<Inventory> inventoriesTo = new List<Inventory>();
 
-            foreach(RoomRecord room in rooms)   // inventar sobe u koju prerasporedjujemo
-            {
-                if(room.Id == roomTo.Id)
-                {
-                    foreach(Inventory i in room.inventory)  //uzmemo sav
-                    {
-                        inventoriesTo.Add(i);
-                    }
-                }
-            }
-
-            foreach(RoomRecord room in rooms)
+            foreach (RoomRecord room in rooms)
             {
                 if(room.Id == roomFrom.Id)
                 {
@@ -150,25 +177,16 @@ namespace IS_Bolnica
                 }
             }
 
-            foreach(Inventory i in inventoriesTo)   //imamo njegov inventar azuriran
+            foreach (RoomRecord room in rooms)
             {
-                if(i.Id == selectedInventory.Id)
+                if (room.Id == roomTo.Id)
                 {
-                    i.CurrentAmount += amount;
-                }
-            }
-
-            foreach(RoomRecord room in rooms)
-            {
-                if(room.Id == roomTo.Id)
-                {
-                    foreach(Inventory i in room.inventory.ToList())  //obrisem ih sve
+                    foreach (Inventory i in room.inventory)
                     {
-                        room.inventory.Remove(i);
-                    }
-                    foreach(Inventory i in inventoriesTo)
-                    {
-                        room.inventory.Add(i);
+                        if (i.Id == selectedInventory.Id)
+                        {
+                            i.CurrentAmount += amount;
+                        }
                     }
                 }
             }

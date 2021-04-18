@@ -13,7 +13,7 @@ namespace Model
         public String Email { get; set; }
         public String Id { get; set; }
         public UserType UserType { get; set; }
-        
+
         public Address Address { get; set; }
 
     }

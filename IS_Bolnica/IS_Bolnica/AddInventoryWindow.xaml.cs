@@ -19,10 +19,13 @@ namespace IS_Bolnica
     public partial class AddInventoryWindow : Window
     {
         private Inventory inventory = new Inventory();
+        private String type;
 
-        public AddInventoryWindow()
+        public AddInventoryWindow(String inventoryType)
         {
             InitializeComponent();
+
+            type = inventoryType;
         }
 
         private void DoneClicked(object sender, RoutedEventArgs e)
@@ -31,7 +34,15 @@ namespace IS_Bolnica
             inventory.Name = nameBox.Text;
             inventory.CurrentAmount = (int)Int64.Parse(currentBox.Text);
             inventory.Minimum = (int)Int64.Parse(minBox.Text);
-            inventory.InventoryType = Model.InventoryType.dinamicki;
+
+            if (type.Equals("dinamicki"))
+            {
+                inventory.InventoryType = Model.InventoryType.dinamicki;
+            }
+            else if (type.Equals("staticki"))
+            {
+                inventory.InventoryType = Model.InventoryType.staticki;
+            }
 
             InventoryFileStorage storage = new InventoryFileStorage();
             storage.AddInventory(inventory);

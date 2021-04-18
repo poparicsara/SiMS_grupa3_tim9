@@ -34,35 +34,35 @@ namespace IS_Bolnica
 
             lvDataBinding.ItemsSource = rooms;
 
-           /* rooms = new List<RoomRecord>();
-            var purpose1 = new RoomPurpose { Name = "Soba" };
-            var room1 = new RoomRecord { Id = "101", HospitalWard = "Neurologija", roomPurpose = purpose1 };
-            var purpose2 = new RoomPurpose { Name = "Ordinacija" };
-            var room2 = new RoomRecord { Id = "102", HospitalWard = "Ortopedija", roomPurpose = purpose2 };
-            var purpose3 = new RoomPurpose { Name = "Operaciona sala" };
-            var room3 = new RoomRecord { Id = "103", HospitalWard = "Psihijatrija", roomPurpose = purpose3 };
+            /* rooms = new List<RoomRecord>();
+             var purpose1 = new RoomPurpose { Name = "Soba" };
+             var room1 = new RoomRecord { Id = "101", HospitalWard = "Neurologija", roomPurpose = purpose1 };
+             var purpose2 = new RoomPurpose { Name = "Ordinacija" };
+             var room2 = new RoomRecord { Id = "102", HospitalWard = "Ortopedija", roomPurpose = purpose2 };
+             var purpose3 = new RoomPurpose { Name = "Operaciona sala" };
+             var room3 = new RoomRecord { Id = "103", HospitalWard = "Psihijatrija", roomPurpose = purpose3 };
 
-            
 
-            List<Inventory> inventories = new List<Inventory>();
 
-            var inventory1 = new Inventory { Id = 101, Name = "Špric", CurrentAmount = 20, Minimum = 2 };
-            var inventory2 = new Inventory { Id = 202, Name = "Injekcija", CurrentAmount = 20, Minimum = 2 };
-            var inventory3 = new Inventory { Id = 303, Name = "Štapić", CurrentAmount = 20, Minimum = 2 };
+             List<Inventory> inventories = new List<Inventory>();
 
-            inventories.Add(inventory1);
-            inventories.Add(inventory2);
-            inventories.Add(inventory3);
+             var inventory1 = new Inventory { Id = 101, Name = "Špric", CurrentAmount = 20, Minimum = 2 };
+             var inventory2 = new Inventory { Id = 202, Name = "Injekcija", CurrentAmount = 20, Minimum = 2 };
+             var inventory3 = new Inventory { Id = 303, Name = "Štapić", CurrentAmount = 20, Minimum = 2 };
 
-            room1.inventory = inventories;
-            room2.inventory = inventories;
-            room3.inventory = inventories;
+             inventories.Add(inventory1);
+             inventories.Add(inventory2);
+             inventories.Add(inventory3);
 
-            rooms.Add(room1);
-            rooms.Add(room2);
-            rooms.Add(room3);
+             room1.inventory = inventories;
+             room2.inventory = inventories;
+             room3.inventory = inventories;
 
-            storage.saveToFile(rooms, "Sobe.json");*/
+             rooms.Add(room1);
+             rooms.Add(room2);
+             rooms.Add(room3);
+
+             storage.saveToFile(rooms, "Sobe.json");*/
 
         }
 
@@ -84,7 +84,8 @@ namespace IS_Bolnica
             if (room < 0)
             {
                 MessageBox.Show("Niste izabrali nijednu prostoriju!");
-            } else
+            }
+            else
             {
                 RoomRecordFileStorage storage = new RoomRecordFileStorage();
                 storage.DeleteRoom(selectedRoom);
@@ -98,16 +99,17 @@ namespace IS_Bolnica
             int index = lvDataBinding.SelectedIndex;
             RoomRecord selected = (RoomRecord)lvDataBinding.SelectedItem;
 
-            if(index < 0)
+            if (index < 0)
             {
                 MessageBox.Show("Niste izabrali nijednu prostoriju!");
-            } else
+            }
+            else
             {
                 EditWindow ew = new EditWindow(selected);
                 ew.Show();
                 this.Close();
             }
-           
+
         }
 
         public void refreshData()
@@ -135,8 +137,8 @@ namespace IS_Bolnica
             dnw.Show();
         }
     }
-        
- }
 
-    
+}
+
+
 

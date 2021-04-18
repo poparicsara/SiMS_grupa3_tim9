@@ -1,3 +1,4 @@
+using IS_Bolnica.Model;
 using System;
 using System.Collections.Generic;
 
@@ -18,6 +19,12 @@ namespace Model
         }
 
         public String HealthCardNumber
+        {
+            get;
+            set;
+        }
+
+        public List<Anamnesis> Anamneses
         {
             get;
             set;
