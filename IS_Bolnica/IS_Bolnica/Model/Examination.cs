@@ -10,7 +10,6 @@ namespace Model
         public int durationInMinutes { get; set; }
         public String username { get; set;  }
 
-        public int room { get; set;  }
     public Boolean Paying()
         {
             throw new NotImplementedException();

@@ -80,10 +80,10 @@
   {
     "isPayed": false,
     "evaluation": 0,
-    "durationInMinutes": 16,
+    "durationInMinutes": 25,
     "username": "Vladimir",
-    "room": 101,
-    "date": "2021-04-30T16:30:00",
+    "room": 0,
+    "date": "2021-05-08T14:00:00",
     "doctor": {
       "specialization": null,
       "Username": null,
@@ -99,33 +99,7 @@
     },
     "secretary": null,
     "Secretary": null,
-    "Date": "2021-04-30T16:30:00",
-    "Patient": null,
-    "RoomRecord": null
-  },
-  {
-    "isPayed": false,
-    "evaluation": 0,
-    "durationInMinutes": 38,
-    "username": "Vladimir",
-    "room": 101,
-    "date": "2021-06-26T16:15:00",
-    "doctor": {
-      "specialization": null,
-      "Username": null,
-      "Password": null,
-      "Name": "Mika",
-      "Surname": "Mikic",
-      "DateOfBirth": "0001-01-01T00:00:00",
-      "Phone": null,
-      "Email": null,
-      "Id": null,
-      "UserType": 0,
-      "Address": null
-    },
-    "secretary": null,
-    "Secretary": null,
-    "Date": "2021-06-26T16:15:00",
+    "Date": "2021-05-08T14:00:00",
     "Patient": null,
     "RoomRecord": null
   }
