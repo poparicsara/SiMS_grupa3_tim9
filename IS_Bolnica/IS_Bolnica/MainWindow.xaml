@@ -9,7 +9,7 @@
         WindowStartupLocation="CenterScreen">
     <Grid>
         <WrapPanel x:Name="Wrap1" Width ="250" Background="#FF15285D" HorizontalAlignment="Left">
-            <Button x:Name="pacijent" Height="49" Width="250" FontSize="20" FontWeight="Bold" Background="#FF15285D" FontFamily="Ebrima" Click="PatientButtonClicked" Foreground="White" BorderBrush="White">
+            <Button x:Name="pacijent" Height="49" Width="250" FontSize="20" FontWeight="Bold" Background="#FF15285D" FontFamily="Ebrima"  Foreground="White" BorderBrush="White">
                 Pacijent
             </Button>
             <Button x:Name="lekar" Height="49" Width="250" FontSize="20" FontWeight="Bold" Background="#FF15285D" FontFamily="Ebrima" Click="doctorButtonClicked" Foreground="White" BorderBrush="White">

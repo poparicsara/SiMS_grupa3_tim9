@@ -8,7 +8,9 @@ namespace Model
         public Boolean isPayed  { get; set; }
         public Evaluation evaluation { get; set; }
         public int durationInMinutes { get; set; }
+        public String username { get; set;  }
 
+        public int room { get; set;  }
     public Boolean Paying()
         {
             throw new NotImplementedException();
@@ -81,7 +83,6 @@ namespace Model
             get;
             set;
         }
-
     }
 
 

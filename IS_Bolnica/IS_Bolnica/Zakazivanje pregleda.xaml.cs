@@ -33,6 +33,7 @@ namespace IS_Bolnica
         private void ButtonZakaziClicked(object sender, RoutedEventArgs e) {
             ExaminationsRecordFileStorage exStorage = new ExaminationsRecordFileStorage();
             List<Examination> pregledi = exStorage.loadFromFile("Pregledi.json");
+
             Doctor d1 = new Doctor();
             String nameAndSurname = DoctorCombo.Text;
             d1.Name = Regex.Replace(nameAndSurname.Split()[0], @"[^0-9a-zA-Z\ ]+", "");
@@ -47,10 +48,10 @@ namespace IS_Bolnica
 
             Random rnd = new Random();
             int trajanje = rnd.Next(1,60);
-            Examination e1 = new Examination { isPayed = false, durationInMinutes = trajanje, doctor = d1, date = datumPregleda};
+            Examination e1 = new Examination { isPayed = false, durationInMinutes = trajanje, doctor = d1, date = datumPregleda, username = PatientWindow.username_patient, room = 101};
             pregledi.Add(e1);
             exStorage.saveToFile(pregledi, "Pregledi.json");
-            PatientWindow pw = new PatientWindow();
+            PatientWindow pw = new PatientWindow(PatientWindow.username_patient);
             pw.Show();
             this.Close();
         }

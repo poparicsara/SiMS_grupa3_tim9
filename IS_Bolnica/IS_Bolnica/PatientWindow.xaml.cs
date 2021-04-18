@@ -1,6 +1,7 @@
 ﻿using Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,17 +21,23 @@ namespace IS_Bolnica
     /// </summary>
     public partial class PatientWindow : Window
     {
-        
-
-        public PatientWindow()
+        public static String username_patient { get; set; }
+        public PatientWindow(String username)
         {
             InitializeComponent();
 
-            //List<Examination> pregledi = new List<Examination>();
             ExaminationsRecordFileStorage exStorage = new ExaminationsRecordFileStorage();
             List<Examination> pregledi = exStorage.loadFromFile("Pregledi.json");
+            List<Examination> pacijentovi_pregledi = new List<Examination>();
+            username_patient = username;
 
-            lvDataBinding.ItemsSource = pregledi;
+            foreach (Examination ex in pregledi) {
+                if (ex.username.Equals(username)) {
+                    pacijentovi_pregledi.Add(ex);
+                }
+            }
+
+            lvDataBinding.ItemsSource = pacijentovi_pregledi;
 
             /*
             Specialization s1 = new Specialization { name = "RADIOLOG" };
@@ -95,8 +102,43 @@ namespace IS_Bolnica
             {
                 ExaminationsRecordFileStorage exStorage = new ExaminationsRecordFileStorage();
                 List<Examination> pregledi = exStorage.loadFromFile("Pregledi.json");
-                pregledi.RemoveAt(lvDataBinding.SelectedIndex);
-                lvDataBinding.ItemsSource = pregledi;
+
+                
+                Examination oznacen_pregled = new Examination();
+
+                for (int i = 0; i < pregledi.Count; i++) {
+                    if (i == lvDataBinding.SelectedIndex) {
+                        oznacen_pregled = pregledi[i];
+                    }
+                }
+                DateTime now = DateTime.Now;
+                string[] pom = now.ToString().Split(' ');
+                string[] datum = pom[0].Split('/');
+
+                string[] pomocni = oznacen_pregled.date.ToString().Split(' ');
+                string[] pomocni_datum = pomocni[0].Split('/');
+
+                if (Convert.ToInt32(datum[1]) + 2 < Convert.ToInt32(pomocni_datum[1]))
+                {
+                    pregledi.Remove(oznacen_pregled);
+                }
+                else
+                {
+                    MessageBox.Show("Ne mozete da otkazete pregled jer je zakazan u periodu od naredna dva dana!");
+                }
+
+                List<Examination> pacijentovi_pregledi = new List<Examination>();
+
+                foreach (Examination ex in pregledi)
+                {
+                    if (ex.username.Equals(username_patient))
+                    {
+                        pacijentovi_pregledi.Add(ex);
+                    }
+                }
+
+                lvDataBinding.ItemsSource = pacijentovi_pregledi;
+
                 exStorage.saveToFile(pregledi, "Pregledi.json");
             }
         }
@@ -110,23 +152,52 @@ namespace IS_Bolnica
             {
                 ExaminationsRecordFileStorage exStorage = new ExaminationsRecordFileStorage();
                 List<Examination> pregledi = exStorage.loadFromFile("Pregledi.json");
+
+                Examination oznacen_pregled = new Examination();
+
+                List<Examination> pacijentovi_pregledi = new List<Examination>();
+
+                foreach (Examination ex in pregledi)
+                {
+                    if (ex.username.Equals(username_patient))
+                    {
+                        pacijentovi_pregledi.Add(ex);
+                    }
+                }
+
+                for (int i = 0; i < pacijentovi_pregledi.Count; i++)
+                {
+                    if (i == lvDataBinding.SelectedIndex)
+                    {
+                        oznacen_pregled = pacijentovi_pregledi[i];
+                    }
+                }
                 
-                Izmena_pregleda ip = new Izmena_pregleda(lvDataBinding.SelectedIndex);
+                Izmena_pregleda ip = new Izmena_pregleda(lvDataBinding.SelectedIndex + 1);
+               
                 DateTime now = DateTime.Now;
                 string[] pom = now.ToString().Split(' ');
                 string[] datum = pom[0].Split('/');
-
-                DateTime datum_iz_pregleda = Convert.ToDateTime(ip.DateBox.Text);
-                string[] pomocni = datum_iz_pregleda.ToString().Split(' ');
+                
+                //DateTime datum_iz_pregleda = oznacen_pregled.date;
+                string[] pomocni = oznacen_pregled.date.ToString().Split(' ');
                 string[] pomocni_datum = pomocni[0].Split('/');
 
-                if (Convert.ToInt32(datum[1]) + 2 < Convert.ToInt32(pomocni_datum[1]))
+                if (Convert.ToInt32(datum[0]) == Convert.ToInt32(pomocni_datum[0]))
                 {
-                    ip.Show();
-                    this.Close();
+                    if (Convert.ToInt32(datum[1]) + 2 < Convert.ToInt32(pomocni_datum[1]))
+                    {
+                        ip.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ne mozete da izmenite pregled jer je zakazan u periodu od naredna dva dana!");
+                    }
                 }
                 else {
-                    MessageBox.Show("Ne mozete da izmenite pregled jer je zakazan u periodu od naredna dva dana!");
+                    ip.Show();
+                    this.Close();
                 }
             }
         }
@@ -136,5 +207,7 @@ namespace IS_Bolnica
             PatientNotificationWindow pnw = new PatientNotificationWindow();
             pnw.Show();
         }
+
+
     }
 }
