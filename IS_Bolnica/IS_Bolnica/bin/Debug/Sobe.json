@@ -18,17 +18,17 @@
         "InventoryType": 1
       },
       {
-        "Name": "Injekcija",
-        "CurrentAmount": 20,
-        "Minimum": 2,
-        "Id": 202,
-        "InventoryType": 0
-      },
-      {
         "Name": "Štapić",
         "CurrentAmount": 20,
         "Minimum": 2,
         "Id": 303,
+        "InventoryType": 0
+      },
+      {
+        "Name": "Injekcija",
+        "CurrentAmount": 6,
+        "Minimum": 0,
+        "Id": 202,
         "InventoryType": 0
       }
     ],
@@ -109,7 +109,7 @@
       },
       {
         "Name": "Injekcija",
-        "CurrentAmount": 23,
+        "CurrentAmount": 20,
         "Minimum": 2,
         "Id": 202,
         "InventoryType": 0
@@ -213,7 +213,7 @@
       },
       {
         "Name": "Injekcija",
-        "CurrentAmount": 7,
+        "CurrentAmount": 4,
         "Minimum": 0,
         "Id": 202,
         "InventoryType": 0
