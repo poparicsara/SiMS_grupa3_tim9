@@ -36,7 +36,7 @@ namespace IS_Bolnica
             patient.Id = jmbgTxt.Text;
             patient.HealthCardNumber = healthCardIdTxt.Text;
             //prescription.Diagnosis = diagnosisTxt.Text;
-            //prescription.Doctor.Name = doctorTxt.Text;
+           // prescription.Doctor.Name = doctorTxt.Text;
             therapy.MedicationName = medTxt.Text;
             therapy.Dose = int.Parse(doseTxt.Text);
             prescription.Therapy = therapy;

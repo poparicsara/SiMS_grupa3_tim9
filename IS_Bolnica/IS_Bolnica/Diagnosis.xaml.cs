@@ -29,6 +29,10 @@ namespace IS_Bolnica
             createPrescription.patientNameTxt.Text = patientNameTxt.Text;
             createPrescription.patientSurnameTxt.Text = patientSurnameTxt.Text;
             createPrescription.prescriptionDateTxt.Text = dateOfExaminationTxt.Text;
+            createPrescription.doctorTxt.Text = "Petar Petrović";
+            createPrescription.dateOfBirthTxt.Text = dateOfBirthTxt.Text;
+            createPrescription.jmbgTxt.Text = jmbgTxt.Text;
+            createPrescription.healthCardIdTxt.Text = healthCardNumberTxt.Text;
 
             Patient patient = new Patient();
             patient.Name = patientNameTxt.Text;

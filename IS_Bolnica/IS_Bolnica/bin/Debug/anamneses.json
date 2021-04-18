@@ -1,12 +1,12 @@
 [
   {
-    "Diagnosis": "nesto",
-    "Symptoms": "nesto",
+    "Diagnosis": "grip",
+    "Symptoms": "temperatura, kasalj",
     "Patient": {
       "Allergens": null,
       "Debit": 0.0,
       "examinations": null,
-      "HealthCardNumber": "",
+      "HealthCardNumber": "349109",
       "Anamneses": null,
       "Username": null,
       "Password": null,
@@ -15,10 +15,10 @@
       "DateOfBirth": "1965-01-01T00:00:00",
       "Phone": null,
       "Email": null,
-      "Id": "0",
+      "Id": "2311981789023",
       "UserType": 0,
       "Address": null
     },
-    "Date": "2021-11-21T00:00:00"
+    "Date": "2021-10-05T00:00:00"
   }
 ]

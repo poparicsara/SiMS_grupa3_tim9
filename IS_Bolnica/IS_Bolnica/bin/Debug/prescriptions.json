@@ -1,13 +1,12 @@
 [
   {
-    "Diagnosis": null,
     "Doctor": null,
     "Date": "2021-06-13T00:00:00",
     "Patient": {
       "Allergens": null,
       "Debit": 0.0,
       "examinations": null,
-      "HealthCardNumber": null,
+      "HealthCardNumber": "071189",
       "Anamneses": null,
       "Username": null,
       "Password": null,
@@ -28,7 +27,6 @@
     "Anamnesis": null
   },
   {
-    "Diagnosis": null,
     "Doctor": null,
     "Date": "2021-06-13T00:00:00",
     "Patient": {
@@ -56,7 +54,6 @@
     "Anamnesis": null
   },
   {
-    "Diagnosis": null,
     "Doctor": null,
     "Date": "2021-11-21T00:00:00",
     "Patient": {
@@ -84,7 +81,6 @@
     "Anamnesis": null
   },
   {
-    "Diagnosis": null,
     "Doctor": null,
     "Date": "2021-11-21T00:00:00",
     "Patient": {
@@ -107,6 +103,33 @@
     "Therapy": {
       "StartDate": "0001-01-01T00:00:00",
       "MedicationName": "leeeek",
+      "Dose": 2
+    },
+    "Anamnesis": null
+  },
+  {
+    "Doctor": null,
+    "Date": "2021-10-05T00:00:00",
+    "Patient": {
+      "Allergens": null,
+      "Debit": 0.0,
+      "examinations": null,
+      "HealthCardNumber": "349109",
+      "Anamneses": null,
+      "Username": null,
+      "Password": null,
+      "Name": "Pera",
+      "Surname": "Peric",
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": null,
+      "Email": null,
+      "Id": "2311981789023",
+      "UserType": 0,
+      "Address": null
+    },
+    "Therapy": {
+      "StartDate": "0001-01-01T00:00:00",
+      "MedicationName": "aspirin",
       "Dose": 2
     },
     "Anamnesis": null
