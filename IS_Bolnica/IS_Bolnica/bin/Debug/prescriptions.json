@@ -22,7 +22,8 @@
     },
     "Therapy": {
       "StartDate": "0001-01-01T00:00:00",
-      "MedicationName": "aspirin"
+      "MedicationName": "aspirin",
+      "Dose": 0
     },
     "Anamnesis": null
   },
@@ -49,7 +50,8 @@
     },
     "Therapy": {
       "StartDate": "0001-01-01T00:00:00",
-      "MedicationName": "panadol"
+      "MedicationName": "panadol",
+      "Dose": 0
     },
     "Anamnesis": null
   },
@@ -76,7 +78,36 @@
     },
     "Therapy": {
       "StartDate": "0001-01-01T00:00:00",
-      "MedicationName": "aaa"
+      "MedicationName": "aaa",
+      "Dose": 0
+    },
+    "Anamnesis": null
+  },
+  {
+    "Diagnosis": null,
+    "Doctor": null,
+    "Date": "2021-11-21T00:00:00",
+    "Patient": {
+      "Allergens": null,
+      "Debit": 0.0,
+      "examinations": null,
+      "HealthCardNumber": "",
+      "Anamneses": null,
+      "Username": null,
+      "Password": null,
+      "Name": "Pera",
+      "Surname": "Peric",
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": null,
+      "Email": null,
+      "Id": "",
+      "UserType": 0,
+      "Address": null
+    },
+    "Therapy": {
+      "StartDate": "0001-01-01T00:00:00",
+      "MedicationName": "leeeek",
+      "Dose": 2
     },
     "Anamnesis": null
   }

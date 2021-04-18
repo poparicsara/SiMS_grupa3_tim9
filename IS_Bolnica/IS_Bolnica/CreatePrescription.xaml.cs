@@ -38,6 +38,7 @@ namespace IS_Bolnica
             //prescription.Diagnosis = diagnosisTxt.Text;
             //prescription.Doctor.Name = doctorTxt.Text;
             therapy.MedicationName = medTxt.Text;
+            therapy.Dose = int.Parse(doseTxt.Text);
             prescription.Therapy = therapy;
             prescription.Date = DateTime.Parse(prescriptionDateTxt.Text);
             prescription.Patient = patient;

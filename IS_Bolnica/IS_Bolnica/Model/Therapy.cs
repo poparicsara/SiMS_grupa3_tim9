@@ -19,5 +19,11 @@ namespace IS_Bolnica.Model
             get;
             set;
         }
+
+        public int Dose
+        {
+            get;
+            set;
+        }
     }
 }
