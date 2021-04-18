@@ -93,6 +93,22 @@ namespace Model
 
         }
 
+        public void AddInventoryInRoom(RoomRecord room, Inventory newInventory)
+        {
+            RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+            List<RoomRecord> rooms = roomStorage.loadFromFile("Sobe.json");
+
+            foreach (RoomRecord r in rooms)
+            {
+                if (r.Id == room.Id)
+                {
+                    r.inventory.Add(newInventory);
+                }
+            }
+
+            roomStorage.saveToFile(rooms, "Sobe.json");
+        }
+
         public void saveToFile(List<Inventory> inventories, string fileName)
         {
             string jsonString = JsonConvert.SerializeObject(inventories, Formatting.Indented);

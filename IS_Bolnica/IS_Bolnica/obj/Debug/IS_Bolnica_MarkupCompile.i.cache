@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\App.xaml
-36-957042265
+37859112939
 
-78-891811795
+83-1728938747
 141323765998
-AddExaminationWindow.xaml;AddInventoryWindow.xaml;AddOperationWindow.xaml;ChangeInventoryPlace.xaml;CreatePrescription.xaml;Diagnosis.xaml;DirectorNotificationWindow.xaml;DoctorNotificationWindow.xaml;DoctorWindow.xaml;EditInventoryWindow.xaml;EditWindow.xaml;ExaminationInfo.xaml;InventarWindow.xaml;InventoryWindow.xaml;Izmena pregleda.xaml;MainWindow.xaml;NewInventory.xaml;NewRoomWindow.xaml;PatientNotificationWindow.xaml;PatientWindow.xaml;Secretary\ActionBarWindow.xaml;Secretary\AddNotificationWindow.xaml;Secretary\AddPatient.xaml;Secretary\EditNotificationWindow.xaml;Secretary\EditPatient.xaml;Secretary\ExaminationListWindow.xaml;Secretary\GuestUserAccount.xaml;Secretary\GuestUserListWindow.xaml;Secretary\NotificationListWindow.xaml;Secretary\PatientListWindow.xaml;SekretarWindow.xaml;SelectedInventoryInRooms.xaml;UpdateExaminationWindow.xaml;UpdateOperationWindow.xaml;UpravnikWindow.xaml;Zakazivanje pregleda.xaml;
+AddExaminationWindow.xaml;AddInventoryWindow.xaml;AddOperationWindow.xaml;ChangeInventoryPlace.xaml;CreatePrescription.xaml;Diagnosis.xaml;DirectorNotificationWindow.xaml;DoctorNotificationWindow.xaml;DoctorWindow.xaml;EditInventoryWindow.xaml;EditWindow.xaml;ExaminationInfo.xaml;InventarWindow.xaml;InventoryWindow.xaml;Izmena pregleda.xaml;MainWindow.xaml;NewInventory.xaml;NewRoomWindow.xaml;PatientNotificationWindow.xaml;PatientWindow.xaml;Predlozi.xaml;Secretary\ActionBarWindow.xaml;Secretary\AddNotificationWindow.xaml;Secretary\AddPatient.xaml;Secretary\EditNotificationWindow.xaml;Secretary\EditPatient.xaml;Secretary\ExaminationListWindow.xaml;Secretary\GuestUserAccount.xaml;Secretary\GuestUserListWindow.xaml;Secretary\NotificationListWindow.xaml;Secretary\PatientListWindow.xaml;SekretarWindow.xaml;SelectedInventoryInRooms.xaml;UpdateExaminationWindow.xaml;UpdateOperationWindow.xaml;UpravnikWindow.xaml;Zakazivanje pregleda.xaml;
 
-False
+True
 

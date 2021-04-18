@@ -28,6 +28,7 @@ namespace IS_Bolnica
         private Inventory selectedInventory = new Inventory();
         private string from;
         private string to;
+        private List<RoomRecord> rooms = new List<RoomRecord>();
 
         public ChangeInventoryPlace(Inventory selected)
         {
@@ -72,7 +73,7 @@ namespace IS_Bolnica
             var combo = sender as ComboBox;
             selectedWardFrom = (string)combo.SelectedItem;
 
-            if(selectedWardFrom == "Magacin")
+            if (selectedWardFrom == "Magacin")
             {
                 purposeFromBox.IsEnabled = false;
                 numberFromBox.IsEnabled = false;
@@ -148,7 +149,7 @@ namespace IS_Bolnica
 
         private void DoneButton(object sender, RoutedEventArgs e)
         {
-            if(selectedWardFrom == "Magacin")
+            if (selectedWardFrom == "Magacin")
             {
                 roomFrom.Id = 1;
             }
@@ -161,34 +162,44 @@ namespace IS_Bolnica
             amount = (int)Int64.Parse(amountBox.Text);
 
             RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
-            List<RoomRecord> rooms = roomStorage.loadFromFile("Sobe.json");
+            rooms = roomStorage.loadFromFile("Sobe.json");
 
-            foreach (RoomRecord room in rooms)
+            roomFrom = FindRoomFrom(roomFrom.Id);
+            roomTo = FindRoomTo(roomTo.Id);
+
+            bool containsFrom = DoesRoomFromContains(roomFrom, selectedInventory.Id);
+            bool enoughAmount = ContainsEnoughAmount(roomFrom, selectedInventory.Id, amount);
+            bool containsTo = DoesRoomToContains(roomTo, selectedInventory.Id);
+
+            if (containsFrom == true)
             {
-                if(room.Id == roomFrom.Id)
+                if (enoughAmount == true)
                 {
-                    foreach(Inventory i in room.inventory)
+                    ReduceTheAmount(roomFrom, selectedInventory.Id, amount);
+
+                    if (containsTo == true)
                     {
-                        if(i.Id == selectedInventory.Id)
-                        {
-                            i.CurrentAmount -= amount;
-                        }
+                        IncreaseTheAmount(roomTo, selectedInventory.Id, amount);
                     }
+                    else
+                    {
+                        InventoryFileStorage iStorage = new InventoryFileStorage();
+
+                        selectedInventory.CurrentAmount = 0;
+                        iStorage.AddInventoryInRoom(roomTo, selectedInventory);
+
+                        IncreaseTheAmount(roomTo, selectedInventory.Id, amount);
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Prostorija IZ koje želite da izvršite prebacivanje ne sadrži dovoljnu količinu ovog inventara");
                 }
             }
-
-            foreach (RoomRecord room in rooms)
+            else
             {
-                if (room.Id == roomTo.Id)
-                {
-                    foreach (Inventory i in room.inventory)
-                    {
-                        if (i.Id == selectedInventory.Id)
-                        {
-                            i.CurrentAmount += amount;
-                        }
-                    }
-                }
+                MessageBox.Show("Prostorija IZ koje želite da izvršite prebacivanje ne sadrži ovaj inventar");
             }
 
             roomStorage.saveToFile(rooms, "Sobe.json");
@@ -196,6 +207,124 @@ namespace IS_Bolnica
             SelectedInventoryInRooms sw = new SelectedInventoryInRooms(selectedInventory);
             sw.Show();
             this.Close();
+
+        }
+
+        private RoomRecord FindRoomFrom(int id)
+        {
+            RoomRecord roomFrom = new RoomRecord();
+
+            foreach (RoomRecord room in rooms)
+            {
+                if (room.Id == id)
+                {
+                    roomFrom = room; ;
+                }
+            }
+
+            return roomFrom;
+        }
+
+        private RoomRecord FindRoomTo(int id)
+        {
+            RoomRecord roomTo = new RoomRecord();
+
+            foreach (RoomRecord room in rooms)
+            {
+                if (room.Id == id)
+                {
+                    roomTo = room; ;
+                }
+            }
+
+            return roomTo;
+        }
+
+        private bool DoesRoomFromContains(RoomRecord room, int inventoryId)
+        {
+            int exist = 0;
+            foreach (Inventory i in room.inventory)
+            {
+                if (i.Id == inventoryId)
+                {
+                    exist = 1;
+                }
+            }
+
+            if (exist == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+        }
+
+        private bool DoesRoomToContains(RoomRecord room, int inventoryId)
+        {
+            int exist = 0;
+            foreach (Inventory i in room.inventory)
+            {
+                if (i.Id == inventoryId)
+                {
+                    exist = 1;
+                }
+            }
+
+            if (exist == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+        }
+
+        private bool ContainsEnoughAmount(RoomRecord room, int inventoryId, int amount)
+        {
+            foreach (Inventory i in room.inventory)
+            {
+                if (i.Id == inventoryId)
+                {
+                    if (i.CurrentAmount >= amount)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        private void ReduceTheAmount(RoomRecord room, int inventoryId, int amount)
+        {
+            foreach (Inventory i in room.inventory)
+            {
+                if (i.Id == inventoryId)
+                {
+                    i.CurrentAmount -= amount;
+                }
+            }
+
+        }
+        private void IncreaseTheAmount(RoomRecord room, int inventoryId, int amount)
+        {
+            foreach (Inventory i in room.inventory)
+            {
+                if (i.Id == inventoryId)
+                {
+                    i.CurrentAmount += amount;
+                }
+            }
+
         }
 
     }
