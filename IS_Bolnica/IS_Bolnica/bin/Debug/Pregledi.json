@@ -2,12 +2,64 @@
   {
     "isPayed": false,
     "evaluation": 0,
-    "durationInMinutes": 56,
-    "date": "2021-02-23T15:30:00",
+    "durationInMinutes": 15,
+    "username": "Vladimir",
+    "room": 101,
+    "date": "2021-05-01T17:30:00",
     "doctor": {
-      "specialization": {
-        "name": "RADIOLOG"
-      },
+      "specialization": null,
+      "Username": null,
+      "Password": null,
+      "Name": "Mika",
+      "Surname": "Mikic",
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": null,
+      "Email": null,
+      "Id": null,
+      "UserType": 0,
+      "Address": null
+    },
+    "secretary": null,
+    "Secretary": null,
+    "Date": "2021-05-01T17:30:00",
+    "Patient": null,
+    "RoomRecord": null
+  },
+  {
+    "isPayed": false,
+    "evaluation": 0,
+    "durationInMinutes": 11,
+    "username": "p__nina",
+    "room": 101,
+    "date": "2021-05-08T09:30:00",
+    "doctor": {
+      "specialization": null,
+      "Username": null,
+      "Password": null,
+      "Name": "Mika",
+      "Surname": "Mikic",
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": null,
+      "Email": null,
+      "Id": null,
+      "UserType": 0,
+      "Address": null
+    },
+    "secretary": null,
+    "Secretary": null,
+    "Date": "2021-05-08T09:30:00",
+    "Patient": null,
+    "RoomRecord": null
+  },
+  {
+    "isPayed": false,
+    "evaluation": 0,
+    "durationInMinutes": 46,
+    "username": "Vladimir",
+    "room": 101,
+    "date": "2021-04-18T15:30:00",
+    "doctor": {
+      "specialization": null,
       "Username": null,
       "Password": null,
       "Name": "Pera",
@@ -21,45 +73,19 @@
     },
     "secretary": null,
     "Secretary": null,
-    "Date": "2021-02-23T15:30:00",
-    "Patient": null,
-    "RoomRecord": null
-  },
-  {
-    "isPayed": true,
-    "evaluation": 2,
-    "durationInMinutes": 26,
-    "date": "2021-03-02T09:00:00",
-    "doctor": {
-      "specialization": {
-        "name": "KARDIOLOG"
-      },
-      "Username": null,
-      "Password": null,
-      "Name": "Mika",
-      "Surname": "Mikic",
-      "DateOfBirth": "0001-01-01T00:00:00",
-      "Phone": null,
-      "Email": null,
-      "Id": null,
-      "UserType": 0,
-      "Address": null
-    },
-    "secretary": null,
-    "Secretary": null,
-    "Date": "2021-03-02T09:00:00",
+    "Date": "2021-04-18T15:30:00",
     "Patient": null,
     "RoomRecord": null
   },
   {
     "isPayed": false,
-    "evaluation": 3,
-    "durationInMinutes": 30,
-    "date": "2021-04-11T11:30:30",
+    "evaluation": 0,
+    "durationInMinutes": 25,
+    "username": "Vladimir",
+    "room": 0,
+    "date": "2021-05-08T14:00:00",
     "doctor": {
-      "specialization": {
-        "name": "PULMOLOG"
-      },
+      "specialization": null,
       "Username": null,
       "Password": null,
       "Name": "Zika",
@@ -73,55 +99,7 @@
     },
     "secretary": null,
     "Secretary": null,
-    "Date": "2021-04-11T11:30:30",
-    "Patient": null,
-    "RoomRecord": null
-  },
-  {
-    "isPayed": false,
-    "evaluation": 0,
-    "durationInMinutes": 33,
-    "date": "2021-04-24T11:30:00",
-    "doctor": {
-      "specialization": null,
-      "Username": null,
-      "Password": null,
-      "Name": "Mika",
-      "Surname": "Mikic",
-      "DateOfBirth": "0001-01-01T00:00:00",
-      "Phone": null,
-      "Email": null,
-      "Id": null,
-      "UserType": 0,
-      "Address": null
-    },
-    "secretary": null,
-    "Secretary": null,
-    "Date": "2021-04-24T11:30:00",
-    "Patient": null,
-    "RoomRecord": null
-  },
-  {
-    "isPayed": false,
-    "evaluation": 0,
-    "durationInMinutes": 12,
-    "date": "2021-04-18T06:30:00",
-    "doctor": {
-      "specialization": null,
-      "Username": null,
-      "Password": null,
-      "Name": "Mika",
-      "Surname": "Mikic",
-      "DateOfBirth": "0001-01-01T00:00:00",
-      "Phone": null,
-      "Email": null,
-      "Id": null,
-      "UserType": 0,
-      "Address": null
-    },
-    "secretary": null,
-    "Secretary": null,
-    "Date": "2021-04-18T06:30:00",
+    "Date": "2021-05-08T14:00:00",
     "Patient": null,
     "RoomRecord": null
   }

@@ -21,25 +21,28 @@ namespace IS_Bolnica
     /// </summary>
     public partial class Zakazivanje_pregleda : Window
     {
+        public String doktor_ime = "";
+        public String doktor_prezime = "";
+        public String datum_predlozi = "";
         public Zakazivanje_pregleda()
         {
             InitializeComponent();
         }
 
-        private void ButtonOdustaniClicked(object sender, RoutedEventArgs e)
-        {
+        private void ButtonOdustaniClicked(object sender, RoutedEventArgs e) {
             this.Close();
         }
 
-        private void ButtonZakaziClicked(object sender, RoutedEventArgs e)
-        {
+        private void ButtonZakaziClicked(object sender, RoutedEventArgs e) {
             ExaminationsRecordFileStorage exStorage = new ExaminationsRecordFileStorage();
             List<Examination> pregledi = exStorage.loadFromFile("Pregledi.json");
+
             Doctor d1 = new Doctor();
             String nameAndSurname = DoctorCombo.Text;
             d1.Name = Regex.Replace(nameAndSurname.Split()[0], @"[^0-9a-zA-Z\ ]+", "");
-            d1.Surname = Regex.Replace(nameAndSurname.Split()[1], @"[^0-9a-zA-Z\ ]+", "");
-            DateTime datum = (DateTime)Datum.SelectedDate;
+            d1.Surname = Regex.Replace(nameAndSurname.Split()[1], @"[^0-9a-zA-Z\ ]+", "");           
+
+            DateTime datum = (DateTime) Datum.SelectedDate;
             int dan = datum.Day;
             int mesec = datum.Month;
             int godina = datum.Year;
@@ -48,15 +51,30 @@ namespace IS_Bolnica
             DateTime datumPregleda = new DateTime(godina, mesec, dan, sati, minuti, 0);
 
             Random rnd = new Random();
-            int trajanje = rnd.Next(1, 60);
-            Examination e1 = new Examination { isPayed = false, durationInMinutes = trajanje, doctor = d1, date = datumPregleda };
+            int trajanje = rnd.Next(23,29);
+            Examination e1 = new Examination { isPayed = false, durationInMinutes = trajanje, doctor = d1, date = datumPregleda, username = PatientWindow.username_patient};
             pregledi.Add(e1);
             exStorage.saveToFile(pregledi, "Pregledi.json");
-            PatientWindow pw = new PatientWindow();
+            PatientWindow pw = new PatientWindow(PatientWindow.username_patient);
             pw.Show();
             this.Close();
         }
 
+        private void ButtonPredloziClicked(object sender, RoutedEventArgs e) {
 
+            if (DoctorCombo.Text != "")
+            {
+                String nameAndSurname = DoctorCombo.Text;
+                doktor_ime = Regex.Replace(nameAndSurname.Split()[0], @"[^0-9a-zA-Z\ ]+", "");
+                doktor_prezime = Regex.Replace(nameAndSurname.Split()[1], @"[^0-9a-zA-Z\ ]+", "");
+            }
+            else if (Datum.SelectedDate.ToString() != "")
+            {
+                datum_predlozi = Datum.SelectedDate.ToString();
+            }
+            
+            Predlozi predlozi = new Predlozi(doktor_ime, doktor_prezime, Convert.ToDateTime(Datum.SelectedDate));
+            predlozi.Show();
+        }
     }
 }

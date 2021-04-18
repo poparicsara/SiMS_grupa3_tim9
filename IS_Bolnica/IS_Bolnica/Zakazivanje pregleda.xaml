@@ -8,26 +8,23 @@
         Title="Zakazivanje_pregleda" Height="450" Width="800"
         WindowStartupLocation="CenterScreen">
     <Grid RenderTransformOrigin="1.212,0.586">
-        <Label Content="Zakazite pregled" HorizontalAlignment="Left" FontSize="45" Margin="224,24,0,0" VerticalAlignment="Top" Height="74" Width="340"/>
-        <Label Content="Doktor" HorizontalAlignment="Left" FontSize="20" Margin="96,129,0,0" VerticalAlignment="Top" Width="76" Height="44"/>
-        <Label Content="Datum" FontSize="20" HorizontalAlignment="Left" Margin="96,193,0,0" VerticalAlignment="Top"/>
-        <DatePicker Name="Datum"  HorizontalAlignment="Left" FontSize="15" Margin="224,199,0,0" VerticalAlignment="Top" Height="25" Width="135"/>
-        <Button Content="Zakazi" FontSize="18" HorizontalAlignment="Left" Margin="224,356,0,0" VerticalAlignment="Top" Width="94" Height="36" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="ButtonZakaziClicked"/>
-        <Button Content="Odustani" FontSize="18" HorizontalAlignment="Left" Margin="400,356,0,0" VerticalAlignment="Top" Width="94" Height="36" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="ButtonOdustaniClicked"/>
-        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="224,133,0,0" Width="135" Name="DoctorCombo">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="81*"/>
+            <ColumnDefinition Width="316*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Zakazite pregled" HorizontalAlignment="Left" FontSize="45" Margin="61.9,24,0,0" VerticalAlignment="Top" Height="74" Width="340" Grid.Column="1"/>
+        <Label Content="Doktor" HorizontalAlignment="Left" FontSize="20" Margin="96,129,0,0" VerticalAlignment="Top" Width="76" Height="44" Grid.ColumnSpan="2"/>
+        <Label Content="Datum" FontSize="20" HorizontalAlignment="Left" Margin="96,193,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <DatePicker Name="Datum"  HorizontalAlignment="Left" FontSize="15" Margin="61.9,199,0,0" VerticalAlignment="Top" Height="25" Width="135" DisplayDateStart="{Binding DisplayDate, ElementName=Datum}" Grid.Column="1"/>
+        <Button Content="Zakazi" FontSize="18" HorizontalAlignment="Left" Margin="61.9,356,0,0" VerticalAlignment="Top" Width="94" Height="36" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="ButtonZakaziClicked" Grid.Column="1"/>
+        <Button Content="Odustani" FontSize="18" HorizontalAlignment="Left" Margin="237.9,356,0,0" VerticalAlignment="Top" Width="94" Height="36" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="ButtonOdustaniClicked" Grid.Column="1"/>
+        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="61.9,133,0,0" Width="135" Name="DoctorCombo" Grid.Column="1">
             <ComboBoxItem Content="Pera Peric"/>
             <ComboBoxItem Content="Mika Mikic"/>
             <ComboBoxItem Content="Zika Zikic"/>
         </ComboBox>
-        <Label Content="Vreme" FontSize="20" HorizontalAlignment="Left" Margin="96,261,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" FontSize="18" Margin="224,265,0,0" VerticalAlignment="Top" Width="53" x:Name="hourBox">
-            <ComboBoxItem Content="00"/>
-            <ComboBoxItem Content="01"/>
-            <ComboBoxItem Content="02"/>
-            <ComboBoxItem Content="03"/>
-            <ComboBoxItem Content="04"/>
-            <ComboBoxItem Content="05"/>
-            <ComboBoxItem Content="06"/>
+        <Label Content="Vreme" FontSize="20" HorizontalAlignment="Left" Margin="96,261,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <ComboBox HorizontalAlignment="Left" FontSize="18" Margin="61.9,265,0,0" VerticalAlignment="Top" Width="53" x:Name="hourBox" Grid.Column="1">
             <ComboBoxItem Content="07"/>
             <ComboBoxItem Content="08"/>
             <ComboBoxItem Content="09"/>
@@ -40,17 +37,11 @@
             <ComboBoxItem Content="16"/>
             <ComboBoxItem Content="17"/>
             <ComboBoxItem Content="18"/>
-            <ComboBoxItem Content="19"/>
-            <ComboBoxItem Content="20"/>
-            <ComboBoxItem Content="21"/>
-            <ComboBoxItem Content="22"/>
-            <ComboBoxItem Content="23"/>
         </ComboBox>
-        <ComboBox HorizontalAlignment="Left" FontSize="18" Margin="308,265,0,0" VerticalAlignment="Top" Width="53" x:Name="minutesBox">
-            <ComboBoxItem Content="00" />
-            <ComboBoxItem Content="15" />
-            <ComboBoxItem Content="30" />
-            <ComboBoxItem Content="45" />
+        <ComboBox HorizontalAlignment="Left" FontSize="18" Margin="145.9,265,0,0" VerticalAlignment="Top" Width="53" x:Name="minutesBox" Grid.Column="1">
+            <ComboBoxItem Content="00"/>
+            <ComboBoxItem Content="30"/>
         </ComboBox>
+        <Button Content="Predlozi za vas" FontSize="18" HorizontalAlignment="Left" Margin="424.4,202,0,0" VerticalAlignment="Top" Width="153" Height="41" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="ButtonPredloziClicked" Grid.Column="1"/>
     </Grid>
 </Window>

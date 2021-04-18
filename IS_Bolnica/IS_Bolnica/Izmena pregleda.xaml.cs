@@ -70,7 +70,7 @@ namespace IS_Bolnica
             pregledi.ElementAt(oznaceniIndex).date = datumPregledaNovi;
             pregledi.ElementAt(oznaceniIndex).doctor = d1;
             exStorage.saveToFile(pregledi, "Pregledi.json");
-            PatientWindow pw = new PatientWindow();
+            PatientWindow pw = new PatientWindow(PatientWindow.username_patient);
             pw.Show();
             this.Close();
         }

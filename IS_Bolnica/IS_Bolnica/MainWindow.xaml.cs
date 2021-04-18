@@ -30,12 +30,12 @@ namespace IS_Bolnica
             doctorWindow.Show();
         }
 
-        private void PatientButtonClicked(object sender, RoutedEventArgs e)
-        {
-            PatientWindow pw = new PatientWindow();
-            pw.Show();
+        //private void PatientButtonClicked(object sender, RoutedEventArgs e)
+        //{
+        //    PatientWindow pw = new PatientWindow();
+        //    pw.Show();
 
-        }
+        //}
 
         private void ButtonSekretarCLicked(object sender, RoutedEventArgs e)
         {
@@ -57,7 +57,7 @@ namespace IS_Bolnica
                     switch (user.UserType)
                     {
                         case UserType.patient:
-                            PatientWindow pw = new PatientWindow();
+                            PatientWindow pw = new PatientWindow(username);
                             pw.Show();
                             break;
                         case UserType.doctor:
