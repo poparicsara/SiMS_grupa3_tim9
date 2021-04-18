@@ -27,6 +27,8 @@ namespace IS_Bolnica
             List<Examination> examinations = examinationsRecordFileStorage.loadFromFile("examinations.json");
             PrescriptionFileStorage prescriptionFileStorage = new PrescriptionFileStorage();
             List<Prescription> prescriptions = prescriptionFileStorage.loadFromFile("prescriptions.json");
+            AnamnesisFileStorage anamnesisFileStorage = new AnamnesisFileStorage();
+            List<Anamnesis> anamneses = anamnesisFileStorage.loadFromFile("anamneses.json");
 
             patientNameTxt.Text = examinations.ElementAt(selectedIndex).Patient.Name;
             patientSurnameTxt.Text = examinations.ElementAt(selectedIndex).Patient.Surname;
@@ -39,7 +41,15 @@ namespace IS_Bolnica
             {
                 if (prescription.Patient.Name.Equals(patientNameTxt.Text))
                 {
-                    medicationsList.Items.Add(prescription.MedicationName);
+                    medicationsList.Items.Add(prescription.Therapy.MedicationName);
+                }
+            } 
+
+            foreach (Anamnesis anamnesis in anamneses)
+            {
+                if (anamnesis.Patient.Name.Equals(patientNameTxt.Text))
+                {
+                    historyList.Items.Add(anamnesis.Diagnosis);
                 }
             }
 
@@ -60,6 +70,7 @@ namespace IS_Bolnica
            // diagnosis.addressTxt.Text = addressTxt.Text;
             diagnosis.dateOfExaminationTxt.Text = examinations.ElementAt(selectedPatient).Date.ToString();
             diagnosis.Show();
+
         }
     }
 }

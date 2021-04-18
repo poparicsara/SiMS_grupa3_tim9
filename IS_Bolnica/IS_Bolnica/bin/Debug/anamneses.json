@@ -1,0 +1,24 @@
+[
+  {
+    "Diagnosis": "covid19",
+    "Symptoms": "kasalj",
+    "Patient": {
+      "Allergens": null,
+      "Debit": 0.0,
+      "examinations": null,
+      "HealthCardNumber": "",
+      "Anamneses": null,
+      "Username": null,
+      "Password": null,
+      "Name": "Pera",
+      "Surname": "Peric",
+      "DateOfBirth": "1965-01-01T00:00:00",
+      "Phone": null,
+      "Email": null,
+      "Id": "0",
+      "UserType": 0,
+      "Address": null
+    },
+    "Date": "2021-11-21T00:00:00"
+  }
+]
