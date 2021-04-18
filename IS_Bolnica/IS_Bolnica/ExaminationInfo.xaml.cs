@@ -35,12 +35,12 @@ namespace IS_Bolnica
             dateOfBirthTxt.Text = examinations.ElementAt(selectedIndex).Patient.DateOfBirth.ToString("dd.MM.yyyy");
             jmbgTxt.Text = examinations.ElementAt(selectedIndex).Patient.Id.ToString();
             healthCardNumberTxt.Text = examinations.ElementAt(selectedIndex).Patient.HealthCardNumber;
-            addressTxt.Text = examinations.ElementAt(selectedIndex).Patient.Address.Street + ", " +
+            addressTxt.Text = examinations.ElementAt(selectedIndex).Patient.Address.Street + ", " + 
                 examinations.ElementAt(selectedIndex).Patient.Address.City.name;
 
             foreach (Prescription prescription in prescriptions)
             {
-                if (prescription.Patient.Name.Equals(patientNameTxt.Text))
+                if (prescription.Patient.Id.Equals(jmbgTxt.Text))
                 {
                     medicationsList.Items.Add(prescription.Therapy.MedicationName);
                 }
@@ -48,7 +48,7 @@ namespace IS_Bolnica
 
             foreach (Anamnesis anamnesis in anamneses)
             {
-                if (anamnesis.Patient.Name.Equals(patientNameTxt.Text))
+                if (anamnesis.Patient.Id.Equals(jmbgTxt.Text))
                 {
                     historyList.Items.Add(anamnesis.Diagnosis);
                 }
