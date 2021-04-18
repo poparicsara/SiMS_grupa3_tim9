@@ -1,0 +1,59 @@
+﻿<Window x:Class="IS_Bolnica.Secretary.AddOperationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IS_Bolnica.Secretary"
+        mc:Ignorable="d"
+        Title="Zakaži operaciju" Height="750" Width="430" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="48" Margin="10,10,0,0" Height="48" Click="Button_Click">
+            <StackPanel>
+                <Image Source="C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\Images\actionBarIcon.png" Width="46" Height="41" RenderTransformOrigin="0.543,0.5"/>
+            </StackPanel>
+        </Button>
+        <Label Content="ZDRAVO KORPORACIJA" FontSize="20" Foreground="Green" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,14,0,0" Height="35" Width="235" Grid.ColumnSpan="2"/>
+        <Image x:Name="nasLogo" HorizontalAlignment="Left" Height="48" Margin="366,10,0,0" VerticalAlignment="Top" Width="48" Source="C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\Images\nasLogo.jpg"/>
+        <Label Content="Zakazivanje operacije" FontWeight="Bold"  Foreground="Green" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,75,0,0" Width="299" Height="48"/>
+        <Label Content="Soba:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,155,0,0"/>
+        <Label Content="Doktor:" HorizontalAlignment="Left" Margin="40,305,0,0" VerticalAlignment="Top"/>
+        <Label Content="Vreme:" HorizontalAlignment="Left" Margin="40,205,0,0" VerticalAlignment="Top"/>
+        <Label Content="Datum:" HorizontalAlignment="Left" Margin="40,255,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.661,2.062"/>
+        <ComboBox x:Name="room" ItemsSource="{Binding RoomNums}" HorizontalAlignment="Left" Margin="204,155,0,0" VerticalAlignment="Top" Width="178"/>
+        <ComboBox x:Name="hour" HorizontalAlignment="Left" Margin="204,205,0,0" VerticalAlignment="Top" Width="65">
+            <ComboBoxItem>07</ComboBoxItem>
+            <ComboBoxItem>08</ComboBoxItem>
+            <ComboBoxItem>09</ComboBoxItem>
+            <ComboBoxItem>10</ComboBoxItem>
+            <ComboBoxItem>11</ComboBoxItem>
+            <ComboBoxItem>12</ComboBoxItem>
+            <ComboBoxItem>13</ComboBoxItem>
+            <ComboBoxItem>14</ComboBoxItem>
+            <ComboBoxItem>15</ComboBoxItem>
+            <ComboBoxItem>16</ComboBoxItem>
+            <ComboBoxItem>17</ComboBoxItem>
+            <ComboBoxItem>18</ComboBoxItem>
+        </ComboBox>
+        <ComboBox x:Name="minutes" HorizontalAlignment="Left" Margin="317,205,0,0" VerticalAlignment="Top" Width="65">
+            <ComboBoxItem>
+                30
+            </ComboBoxItem>
+        </ComboBox>
+        <Button Content="Potvrdi" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="40,630,0,0" VerticalAlignment="Top" Width="342" Click="addOperation" Height="35" />
+        <Button Content="Odustani" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="40,580,0,0" VerticalAlignment="Top" Width="342" Click="cancelAddingOperation" Height="35" />
+        <DatePicker HorizontalAlignment="Left" Margin="204,255,0,0" VerticalAlignment="Top" Width="178"/>
+        <ListBox x:Name="doctorList" SelectionMode="Multiple" HorizontalAlignment="Left" Height="136" VerticalAlignment="Top" Width="178" Margin="204,305,0,0">
+            <ListBoxItem>
+                Mika Mikić
+            </ListBoxItem>
+            <ListBoxItem>
+                Žika Žikić
+            </ListBoxItem>
+            <ListBoxItem>
+                Pera Perić
+            </ListBoxItem>
+        </ListBox>
+        <Label Content="JMBG pacijenta:" HorizontalAlignment="Left" Margin="40,460,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="patientId" HorizontalAlignment="Left" Height="23" Margin="204,460,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
+    </Grid>
+</Window>

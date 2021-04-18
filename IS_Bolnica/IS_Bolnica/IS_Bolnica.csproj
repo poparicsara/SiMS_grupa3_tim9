@@ -134,11 +134,20 @@
     <Compile Include="Secretary\AddNotificationWindow.xaml.cs">
       <DependentUpon>AddNotificationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Secretary\AddOperationWindow.xaml.cs">
+      <DependentUpon>AddOperationWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Secretary\AddPatient.xaml.cs">
       <DependentUpon>AddPatient.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Secretary\EditExaminationWindow.xaml.cs">
+      <DependentUpon>EditExaminationWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Secretary\EditNotificationWindow.xaml.cs">
       <DependentUpon>EditNotificationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\EditOperationWindow.xaml.cs">
+      <DependentUpon>EditOperationWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\EditPatient.xaml.cs">
       <DependentUpon>EditPatient.xaml</DependentUpon>
@@ -154,6 +163,9 @@
     </Compile>
     <Compile Include="Secretary\NotificationListWindow.xaml.cs">
       <DependentUpon>NotificationListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\OperationListWindow.xaml.cs">
+      <DependentUpon>OperationListWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\PatientListWindow.xaml.cs">
       <DependentUpon>PatientListWindow.xaml</DependentUpon>
@@ -277,11 +289,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Secretary\AddOperationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Secretary\AddPatient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Secretary\EditExaminationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Secretary\EditNotificationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary\EditOperationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -302,6 +326,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Secretary\NotificationListWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary\OperationListWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

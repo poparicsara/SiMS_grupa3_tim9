@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,11 +19,25 @@ namespace IS_Bolnica.Secretary
     /// <summary>
     /// Interaction logic for ExaminationListWindow.xaml
     /// </summary>
-    public partial class ExaminationListWindow : Window
+    public partial class ExaminationListWindow : Window, INotifyPropertyChanged
     {
+        public List<Examination> Pregledi { get; set; }
+        ExaminationsRecordFileStorage examinationFileStorage = new ExaminationsRecordFileStorage();
+        private Examination examination =  new Examination();
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
         public ExaminationListWindow()
         {
             InitializeComponent();
+            this.DataContext = this;
+
+            Pregledi = examinationFileStorage.loadFromFile("Pregledi.json");
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -40,12 +56,75 @@ namespace IS_Bolnica.Secretary
 
         private void editExamination(object sender, RoutedEventArgs e)
         {
+            int i = -1;
+            i = ExaminationList.SelectedIndex;
 
+            Examination examination = (Examination)ExaminationList.SelectedItem;
+
+            if(i==-1)
+            {
+                MessageBox.Show("Niste izabrali pregled koji želite da izmenite!");
+            }
+            else
+            {
+                List<Examination> examinations = new List<Examination>();
+                ExaminationsRecordFileStorage examinationStorage = new ExaminationsRecordFileStorage();
+
+                examinations = examinationFileStorage.loadFromFile("Pregledi.json");
+                Secretary.EditExaminationWindow eew = new Secretary.EditExaminationWindow(examination);
+
+                eew.idPatientBox.Text = examination.patient.Id;
+                eew.hourBox.Text = examination.date.Hour.ToString();
+                eew.minutesBox.Text = examination.date.Minute.ToString();
+                eew.doctor.Text = examination.doctor.Name + " " + examination.doctor.Surname;
+                eew.dateBox.SelectedDate = new DateTime(examination.date.Year, examination.date.Month, examination.date.Day);
+                eew.durationInMinutesBox.Text = "30";
+                eew.room.Text = examination.RoomRecord.Id.ToString();
+
+                eew.Show();
+                this.Close();
+
+            }
         }
 
         private void deleteExamination(object sender, RoutedEventArgs e)
         {
+            int i = -1;
+            i = ExaminationList.SelectedIndex;
 
+            examination = (Examination)ExaminationList.SelectedItem;
+
+            if(i == -1)
+            {
+                MessageBox.Show("Niste izabrali pregled koji želite da obrišete!");
+            }
+            else
+            {
+                MessageBoxResult result = MessageBox.Show("Da li stvarno želite da izbrišete", "Brisanje pregleda", MessageBoxButton.YesNo);
+                switch(result)
+                {
+                    case MessageBoxResult.Yes:
+                        Pregledi = examinationFileStorage.loadFromFile("Pregledi.json");
+                        for(int k = 0; k < Pregledi.Count; k++)
+                        {
+                            if(Pregledi[k].date.Equals(examination.date) &&
+                                Pregledi[k].patient.Id.Equals(examination.patient.Id))
+                            {
+                                Pregledi.RemoveAt(k);
+                            }
+                        }
+                        examinationFileStorage.saveToFile(Pregledi, "Pregledi.json");
+                        this.Close();
+                        Secretary.ExaminationListWindow elw = new Secretary.ExaminationListWindow();
+                        elw.Show();
+                        break;
+
+                    case MessageBoxResult.No:
+                        break;
+                }
+            }
         }
+
+
     }
 }

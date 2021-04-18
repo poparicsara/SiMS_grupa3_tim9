@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\App.xaml
-37-1853090159
+411764997388
 
-76-1026774849
+80272102265
 14-764270122
-AddExaminationWindow.xaml;AddInventoryWindow.xaml;AddOperationWindow.xaml;ChangeInventoryPlace.xaml;CreatePrescription.xaml;Diagnosis.xaml;DirectorNotificationWindow.xaml;DoctorNotificationWindow.xaml;DoctorWindow.xaml;EditInventoryWindow.xaml;EditWindow.xaml;ExaminationInfo.xaml;InventarWindow.xaml;InventoryWindow.xaml;Izmena pregleda.xaml;MainWindow.xaml;NewInventory.xaml;NewRoomWindow.xaml;PatientNotificationWindow.xaml;PatientWindow.xaml;Secretary\ActionBarWindow.xaml;Secretary\AddExaminationWindow.xaml;Secretary\AddNotificationWindow.xaml;Secretary\AddPatient.xaml;Secretary\EditNotificationWindow.xaml;Secretary\EditPatient.xaml;Secretary\ExaminationListWindow.xaml;Secretary\GuestUserAccount.xaml;Secretary\GuestUserListWindow.xaml;Secretary\NotificationListWindow.xaml;Secretary\PatientListWindow.xaml;SekretarWindow.xaml;SelectedInventoryInRooms.xaml;UpdateExaminationWindow.xaml;UpdateOperationWindow.xaml;UpravnikWindow.xaml;Zakazivanje pregleda.xaml;
+AddExaminationWindow.xaml;AddInventoryWindow.xaml;AddOperationWindow.xaml;ChangeInventoryPlace.xaml;CreatePrescription.xaml;Diagnosis.xaml;DirectorNotificationWindow.xaml;DoctorNotificationWindow.xaml;DoctorWindow.xaml;EditInventoryWindow.xaml;EditWindow.xaml;ExaminationInfo.xaml;InventarWindow.xaml;InventoryWindow.xaml;Izmena pregleda.xaml;MainWindow.xaml;NewInventory.xaml;NewRoomWindow.xaml;PatientNotificationWindow.xaml;PatientWindow.xaml;Secretary\ActionBarWindow.xaml;Secretary\AddExaminationWindow.xaml;Secretary\AddNotificationWindow.xaml;Secretary\AddOperationWindow.xaml;Secretary\AddPatient.xaml;Secretary\EditExaminationWindow.xaml;Secretary\EditNotificationWindow.xaml;Secretary\EditOperationWindow.xaml;Secretary\EditPatient.xaml;Secretary\ExaminationListWindow.xaml;Secretary\GuestUserAccount.xaml;Secretary\GuestUserListWindow.xaml;Secretary\NotificationListWindow.xaml;Secretary\OperationListWindow.xaml;Secretary\PatientListWindow.xaml;SekretarWindow.xaml;SelectedInventoryInRooms.xaml;UpdateExaminationWindow.xaml;UpdateOperationWindow.xaml;UpravnikWindow.xaml;Zakazivanje pregleda.xaml;
 
 False
 

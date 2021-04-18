@@ -3,6 +3,7 @@
     "Allergens": null,
     "Debit": 0.0,
     "examinations": null,
+    "HealthCardNumber": null,
     "Username": "Vladimir",
     "Password": "ftn",
     "Name": "Maja",
@@ -20,6 +21,7 @@
     ],
     "Debit": 3000.0,
     "examinations": null,
+    "HealthCardNumber": null,
     "Username": "p__nina",
     "Password": "hehe",
     "Name": "Nikolina",
@@ -49,6 +51,7 @@
     ],
     "Debit": 500.0,
     "examinations": null,
+    "HealthCardNumber": null,
     "Username": "mare",
     "Password": "nesto",
     "Name": "Marko",
@@ -78,6 +81,7 @@
     ],
     "Debit": 1500.0,
     "examinations": null,
+    "HealthCardNumber": null,
     "Username": "nikola_nikolic",
     "Password": "sasasa",
     "Name": "NikolAAAAAAA",
@@ -97,6 +101,96 @@
         "postalCode": "12564",
         "Country": {
           "name": "Srbija"
+        }
+      }
+    }
+  },
+  {
+    "Allergens": [
+      ""
+    ],
+    "Debit": 0.0,
+    "examinations": null,
+    "HealthCardNumber": null,
+    "Username": "pera",
+    "Password": "aha",
+    "Name": "Petar",
+    "Surname": "Petrović",
+    "DateOfBirth": "1964-06-01T00:00:00",
+    "Phone": "069778189",
+    "Email": "pera@gmail.com",
+    "Id": "1111111111111",
+    "UserType": 0,
+    "Address": {
+      "Street": "Ive Lole Ribara ",
+      "NumberOfBuilding": 2,
+      "Floor": 5,
+      "Apartment": 9,
+      "City": {
+        "name": "Sombor ",
+        "postalCode": "25000",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
+  },
+  {
+    "Allergens": [
+      ""
+    ],
+    "Debit": 4.0,
+    "examinations": null,
+    "HealthCardNumber": null,
+    "Username": "aaaaaaaaa",
+    "Password": "dfc",
+    "Name": "aaaaa",
+    "Surname": "aaaaaaaaaaaa",
+    "DateOfBirth": "2021-04-18T00:00:00+02:00",
+    "Phone": "11111",
+    "Email": "dsde",
+    "Id": "00",
+    "UserType": 0,
+    "Address": {
+      "Street": "haha ",
+      "NumberOfBuilding": 7,
+      "Floor": 8,
+      "Apartment": 8,
+      "City": {
+        "name": "sasd ",
+        "postalCode": "55",
+        "Country": {
+          "name": "sadsa"
+        }
+      }
+    }
+  },
+  {
+    "Allergens": [
+      "d"
+    ],
+    "Debit": 0.0,
+    "examinations": null,
+    "HealthCardNumber": null,
+    "Username": "wwww",
+    "Password": "sed",
+    "Name": "wwwwwwwwwww",
+    "Surname": "wwwwww",
+    "DateOfBirth": "2021-02-01T00:00:00",
+    "Phone": "5415",
+    "Email": "ede",
+    "Id": "525",
+    "UserType": 0,
+    "Address": {
+      "Street": "dxesc ",
+      "NumberOfBuilding": 8,
+      "Floor": 8,
+      "Apartment": 8,
+      "City": {
+        "name": "dsdc ",
+        "postalCode": "45",
+        "Country": {
+          "name": "sdfsd"
         }
       }
     }

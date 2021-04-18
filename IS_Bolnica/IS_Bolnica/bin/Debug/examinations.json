@@ -16,9 +16,9 @@
       "Name": "Milos",
       "Surname": "Milosevic",
       "DateOfBirth": "1986-12-12T00:00:00",
-      "Phone": 0,
+      "Phone": "0",
       "Email": null,
-      "Id": 0,
+      "Id": "1212986810256",
       "UserType": 0
     },
     "RoomRecord": {
@@ -47,9 +47,9 @@
       "Name": "Pera",
       "Surname": "Peric",
       "DateOfBirth": "1965-01-01T00:00:00",
-      "Phone": 0,
+      "Phone": "0",
       "Email": null,
-      "Id": 0,
+      "Id": "0101965810256",
       "UserType": 0
     },
     "RoomRecord": {

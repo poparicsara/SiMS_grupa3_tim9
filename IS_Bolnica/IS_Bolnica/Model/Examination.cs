@@ -25,7 +25,7 @@ namespace Model
         }
 
         public DateTime date { get; set; }
-      //  public Patient patient { get; set; }
+        public Patient patient { get; set; }
         public Doctor doctor { get; set; }
         public Secretary secretary { get; set; }
 
@@ -72,8 +72,14 @@ namespace Model
 
         public Patient Patient
         {
-            get;
-            set;
+            get 
+            {
+                return patient; 
+            }
+            set
+            {
+                patient = value;
+            }
         }
 
         public RoomRecord RoomRecord
