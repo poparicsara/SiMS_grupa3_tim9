@@ -100,6 +100,8 @@
     <Compile Include="Izmena pregleda.xaml.cs">
       <DependentUpon>Izmena pregleda.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Anamnesis.cs" />
+    <Compile Include="Model\AnamnesisFileStorage.cs" />
     <Compile Include="Model\GuestUsersFileStorage.cs" />
     <Compile Include="Model\HospitalWard.cs" />
     <Compile Include="Model\HospitalWardFileStorage.cs" />
@@ -109,6 +111,8 @@
     <Compile Include="Model\NotificationType.cs" />
     <Compile Include="Model\Prescription.cs" />
     <Compile Include="Model\PrescriptionFileStorage.cs" />
+    <Compile Include="Model\TherapiesFileStorage.cs" />
+    <Compile Include="Model\Therapy.cs" />
     <Compile Include="Model\UsersFileStorage.cs" />
     <Compile Include="Model\UserType.cs" />
     <Compile Include="NewInventory.xaml.cs">

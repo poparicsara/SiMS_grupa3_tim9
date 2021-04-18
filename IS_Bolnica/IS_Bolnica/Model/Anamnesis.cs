@@ -7,22 +7,15 @@ using System.Threading.Tasks;
 
 namespace IS_Bolnica.Model
 {
-    class Prescription
+    public class Anamnesis
     {
-
         public String Diagnosis
         {
             get;
             set;
         }
 
-        public Doctor Doctor
-        {
-            get;
-            set;
-        }
-
-        public DateTime Date
+        public String Symptoms
         {
             get;
             set;
@@ -34,16 +27,11 @@ namespace IS_Bolnica.Model
             set;
         }
 
-        public Therapy Therapy
+        public DateTime Date
         {
             get;
             set;
         }
 
-        public Anamnesis Anamnesis
-        {
-            get;
-            set;
-        }
     }
 }
