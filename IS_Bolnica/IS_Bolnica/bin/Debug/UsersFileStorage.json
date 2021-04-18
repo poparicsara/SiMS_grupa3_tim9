@@ -94,5 +94,17 @@
         }
       }
     }
-  }
+  },
+  {
+    "Username": "aleksam",
+    "Password": "aki123",
+    "Name": "Aleksa",
+    "Surname": "Marić",
+    "DateOfBirth": "1979-11-01T00:00:00",
+    "Phone": "67894120",
+    "Email": "maricaleksa@hotmail.com",
+    "Id": "452345",
+    "UserType": 1,
+    "Address": null
+  },
 ]

@@ -9,13 +9,6 @@ namespace IS_Bolnica.Model
 {
     class Prescription
     {
-
-        public String Diagnosis
-        {
-            get;
-            set;
-        }
-
         public Doctor Doctor
         {
             get;
