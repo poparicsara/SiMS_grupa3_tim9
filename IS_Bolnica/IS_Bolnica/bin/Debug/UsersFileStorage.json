@@ -24,42 +24,6 @@
     "Address": null
   },
   {
-    "Username": "mare",
-    "Password": "nesto",
-    "Name": "Marko",
-    "Surname": "Markovic",
-    "DateOfBirth": "2021-04-09T00:00:00+02:00",
-    "Phone": "064789552",
-    "Email": "marko@gmai.com",
-    "Id": "5479865478932",
-    "UserType": 0,
-    "Address": {
-      "Street": "Marko Oreskovica",
-      "NumberOfBuilding": 12,
-      "Floor": 5,
-      "Apartment": 8,
-      "City": {
-        "name": "Novi Sad",
-        "postalCode": "21000",
-        "Country": {
-          "name": "Srbija"
-        }
-      }
-    }
-  },
-  {
-    "Username": "Vladimir",
-    "Password": "ftn",
-    "Name": "Maja",
-    "Surname": "Mirković",
-    "DateOfBirth": "1999-08-01T00:00:00",
-    "Phone": "65879463",
-    "Email": "majamirkovic@gmail.com",
-    "Id": "1756265852",
-    "UserType": 0,
-    "Address": null
-  },
-  {
     "Username": "p__nina",
     "Password": "hehe",
     "Name": "Nikolina",
@@ -108,25 +72,118 @@
     }
   },
   {
-    "Username": "aaa",
-    "Password": "aaaa",
-    "Name": "aaa",
-    "Surname": "aaa",
-    "DateOfBirth": "2020-07-01T00:00:00",
-    "Phone": "1111",
-    "Email": "aaaa",
-    "Id": "555",
+    "Username": "mica",
+    "Password": "haha",
+    "Name": "Milica",
+    "Surname": "Milović",
+    "DateOfBirth": "2021-04-19T00:00:00+02:00",
+    "Phone": "068555647",
+    "Email": "milicam@gmail.com",
+    "Id": "3333",
     "UserType": 0,
     "Address": {
-      "Street": "aaaa ",
-      "NumberOfBuilding": 8,
-      "Floor": 88,
+      "Street": "Marka Oreškovića ",
+      "NumberOfBuilding": 5,
+      "Floor": 5,
+      "Apartment": 9,
+      "City": {
+        "name": "Vranje ",
+        "postalCode": "589",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
+  },
+  {
+    "Allergens": [
+      ""
+    ],
+    "Debit": 0.0,
+    "examinations": null,
+    "HealthCardNumber": null,
+    "Anamneses": null,
+    "Username": "Vladimir",
+    "Password": "ftn",
+    "Name": "Petar",
+    "Surname": "Petrović",
+    "DateOfBirth": "1964-06-01T00:00:00",
+    "Phone": "069778189",
+    "Email": "pera@gmail.com",
+    "Id": "1111111111111",
+    "UserType": 0,
+    "Address": {
+      "Street": "Ive Lole Ribara ",
+      "NumberOfBuilding": 2,
+      "Floor": 5,
+      "Apartment": 9,
+      "City": {
+        "name": "Sombor ",
+        "postalCode": "25000",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
+  },
+  {
+    "Allergens": [
+      "penicilin"
+    ],
+    "Debit": 500.0,
+    "examinations": null,
+    "HealthCardNumber": null,
+    "Anamneses": null,
+    "Username": "mare",
+    "Password": "nesto",
+    "Name": "Marko",
+    "Surname": "Markovic",
+    "DateOfBirth": "2021-04-19T00:00:00+02:00",
+    "Phone": "064789552",
+    "Email": "marko@gmai.com",
+    "Id": "1111",
+    "UserType": 0,
+    "Address": {
+      "Street": "Marko Oreskovica",
+      "NumberOfBuilding": 12,
+      "Floor": 5,
       "Apartment": 8,
       "City": {
-        "name": "sds ",
-        "postalCode": "58",
+        "name": "Novi Sad",
+        "postalCode": "21000",
         "Country": {
-          "name": "sdfsd"
+          "name": "Srbija"
+        }
+      }
+    }
+  },
+  {
+    "Allergens": [
+      "polen"
+    ],
+    "Debit": 1500.0,
+    "examinations": null,
+    "HealthCardNumber": null,
+    "Anamneses": null,
+    "Username": "nikola_nikolic",
+    "Password": "sasasa",
+    "Name": "Nikola",
+    "Surname": "Nikolic",
+    "DateOfBirth": "1984-12-01T00:00:00",
+    "Phone": "0647896587",
+    "Email": "nikolic@gmail.com",
+    "Id": "2222",
+    "UserType": 0,
+    "Address": {
+      "Street": "Masarikova ulica ",
+      "NumberOfBuilding": 12,
+      "Floor": 25,
+      "Apartment": 13,
+      "City": {
+        "name": "Sombor ",
+        "postalCode": "12564",
+        "Country": {
+          "name": "Srbija"
         }
       }
     }

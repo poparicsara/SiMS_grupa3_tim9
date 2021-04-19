@@ -41,7 +41,10 @@ namespace IS_Bolnica.Secretary
             Rooms = roomStorage.loadFromFile("Sobe.json");
             for (int i = 0; i < Rooms.Count; i++)
             {
-                RoomNums.Add(Rooms[i].Id);
+                if (Rooms[i].roomPurpose.Name == "Operaciona sala")
+                {
+                    RoomNums.Add(Rooms[i].Id);
+                }
             }
             roomBox.ItemsSource = RoomNums;
         }

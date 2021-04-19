@@ -111,7 +111,7 @@ namespace IS_Bolnica
                 Examination oznacen_pregled = new Examination();
 
                 for (int i = 0; i < pregledi.Count; i++) {
-                    if (i == (lvDataBinding.SelectedIndex + 2)) {
+                    if (i == (lvDataBinding.SelectedIndex + 1)) {
                         oznacen_pregled = pregledi[i];
                     }
                 }
@@ -171,13 +171,13 @@ namespace IS_Bolnica
 
                 for (int i = 0; i < pacijentovi_pregledi.Count; i++)
                 {
-                    if (i == lvDataBinding.SelectedIndex + 2)
+                    if (i == lvDataBinding.SelectedIndex)
                     {
                         oznacen_pregled = pacijentovi_pregledi[i];
                     }
                 }
 
-                Izmena_pregleda ip = new Izmena_pregleda(lvDataBinding.SelectedIndex + 2);
+                Izmena_pregleda ip = new Izmena_pregleda(lvDataBinding.SelectedIndex);
 
                 DateTime now = DateTime.Now;
                 string[] pom = now.ToString().Split(' ');

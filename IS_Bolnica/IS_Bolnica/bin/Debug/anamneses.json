@@ -94,5 +94,37 @@
       }
     },
     "Date": "2021-06-14T00:00:00"
+  },
+  {
+    "Diagnosis": "astma",
+    "Symptoms": "gusenje",
+    "Patient": {
+      "Allergens": null,
+      "Debit": 0.0,
+      "examinations": null,
+      "HealthCardNumber": "349109",
+      "Anamneses": null,
+      "Username": "pera123",
+      "Password": "perakralj123",
+      "Name": "Pera",
+      "Surname": "Peric",
+      "DateOfBirth": "1965-01-01T00:00:00",
+      "Phone": "0",
+      "Email": null,
+      "Id": "2311981789023",
+      "UserType": 0,
+      "Address": {
+        "Street": "Svetosavska 46",
+        "NumberOfBuilding": 0,
+        "Floor": 0,
+        "Apartment": 0,
+        "City": {
+          "name": "Novi Sad",
+          "postalCode": null,
+          "Country": null
+        }
+      }
+    },
+    "Date": "2021-10-05T00:00:00"
   }
 ]

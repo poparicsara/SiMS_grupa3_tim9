@@ -1,173 +1,5 @@
 [
   {
-    "doctor": null,
-    "Doctor": [],
-    "Date": "2021-11-23T00:00:00",
-    "Patient": {
-      "Allergens": null,
-      "Debit": 0.0,
-      "examinations": null,
-      "HealthCardNumber": null,
-      "Anamneses": null,
-      "Username": null,
-      "Password": null,
-      "Name": "Filip",
-      "Surname": "Filipovic",
-      "DateOfBirth": "0001-01-01T00:00:00",
-      "Phone": "0",
-      "Email": null,
-      "Id": "0",
-      "UserType": 0,
-      "Address": null
-    },
-    "RoomRecord": {
-      "Id": 0,
-      "HospitalWard": null,
-      "inventory": null,
-      "roomPurpose": {
-        "Name": "room 12"
-      }
-    }
-  },
-  {
-    "doctor": null,
-    "Doctor": [],
-    "Date": "2021-05-04T00:00:00",
-    "Patient": {
-      "Allergens": null,
-      "Debit": 0.0,
-      "examinations": null,
-      "HealthCardNumber": null,
-      "Anamneses": null,
-      "Username": null,
-      "Password": null,
-      "Name": "aaa",
-      "Surname": "aaaa",
-      "DateOfBirth": "0001-01-01T00:00:00",
-      "Phone": "0",
-      "Email": null,
-      "Id": "0",
-      "UserType": 0,
-      "Address": null
-    },
-    "RoomRecord": {
-      "Id": 0,
-      "HospitalWard": null,
-      "inventory": null,
-      "roomPurpose": {
-        "Name": "3"
-      }
-    }
-  },
-  {
-    "doctor": null,
-    "Doctor": [],
-    "Date": "2021-06-10T09:30:00",
-    "Patient": {
-      "Allergens": null,
-      "Debit": 0.0,
-      "examinations": null,
-      "HealthCardNumber": null,
-      "Anamneses": null,
-      "Username": null,
-      "Password": null,
-      "Name": "vvv",
-      "Surname": "fdgd",
-      "DateOfBirth": "0001-01-01T00:00:00",
-      "Phone": "0",
-      "Email": null,
-      "Id": "0",
-      "UserType": 0,
-      "Address": null
-    },
-    "RoomRecord": {
-      "Id": 0,
-      "HospitalWard": null,
-      "inventory": null,
-      "roomPurpose": {
-        "Name": "111"
-      }
-    }
-  },
-  {
-    "doctor": {
-      "specialization": null,
-      "Username": null,
-      "Password": null,
-      "Name": "Žika",
-      "Surname": "Žikić",
-      "DateOfBirth": "0001-01-01T00:00:00",
-      "Phone": null,
-      "Email": null,
-      "Id": null,
-      "UserType": 0,
-      "Address": null
-    },
-    "Doctor": null,
-    "Date": "2021-04-28T13:30:00",
-    "Patient": {
-      "Allergens": [
-        "d"
-      ],
-      "Debit": 0.0,
-      "examinations": null,
-      "HealthCardNumber": null,
-      "Anamneses": null,
-      "Username": "wwww",
-      "Password": "sed",
-      "Name": "wwwwwwwwwww",
-      "Surname": "wwwwww",
-      "DateOfBirth": "2021-02-01T00:00:00",
-      "Phone": "5415",
-      "Email": "ede",
-      "Id": "525",
-      "UserType": 0,
-      "Address": {
-        "Street": "dxesc ",
-        "NumberOfBuilding": 8,
-        "Floor": 8,
-        "Apartment": 8,
-        "City": {
-          "name": "dsdc ",
-          "postalCode": "45",
-          "Country": {
-            "name": "sdfsd"
-          }
-        }
-      }
-    },
-    "RoomRecord": {
-      "Id": 707,
-      "HospitalWard": "Pedijatrija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 23,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Ordinacija"
-      }
-    }
-  },
-  {
     "doctor": {
       "specialization": null,
       "Username": null,
@@ -185,37 +17,37 @@
     "Date": "2021-05-09T10:30:00",
     "Patient": {
       "Allergens": [
-        "d"
+        "penicilin"
       ],
-      "Debit": 0.0,
+      "Debit": 500.0,
       "examinations": null,
       "HealthCardNumber": null,
       "Anamneses": null,
-      "Username": "wwww",
-      "Password": "sed",
-      "Name": "wwwwwwwwwww",
-      "Surname": "wwwwww",
-      "DateOfBirth": "2021-02-01T00:00:00",
-      "Phone": "5415",
-      "Email": "ede",
-      "Id": "525",
+      "Username": "mare",
+      "Password": "nesto",
+      "Name": "Marko",
+      "Surname": "Markovic",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "064789552",
+      "Email": "marko@gmai.com",
+      "Id": "1111",
       "UserType": 0,
       "Address": {
-        "Street": "dxesc ",
-        "NumberOfBuilding": 8,
-        "Floor": 8,
+        "Street": "Marko Oreskovica",
+        "NumberOfBuilding": 12,
+        "Floor": 5,
         "Apartment": 8,
         "City": {
-          "name": "dsdc ",
-          "postalCode": "45",
+          "name": "Novi Sad",
+          "postalCode": "21000",
           "Country": {
-            "name": "sdfsd"
+            "name": "Srbija"
           }
         }
       }
     },
     "RoomRecord": {
-      "Id": 707,
+      "Id": 103,
       "HospitalWard": "Pedijatrija",
       "inventory": [
         {
@@ -227,7 +59,7 @@
         },
         {
           "Name": "Injekcija",
-          "CurrentAmount": 23,
+          "CurrentAmount": 20,
           "Minimum": 2,
           "Id": 202,
           "InventoryType": 0
@@ -241,7 +73,7 @@
         }
       ],
       "roomPurpose": {
-        "Name": "Ordinacija"
+        "Name": "Operaciona sala"
       }
     }
   },
@@ -250,8 +82,8 @@
       "specialization": null,
       "Username": null,
       "Password": null,
-      "Name": "Mika",
-      "Surname": "Mikić",
+      "Name": "Pera",
+      "Surname": "Perić",
       "DateOfBirth": "0001-01-01T00:00:00",
       "Phone": null,
       "Email": null,
@@ -260,10 +92,40 @@
       "Address": null
     },
     "Doctor": null,
-    "Date": "2021-04-24T10:30:00",
-    "Patient": null,
+    "Date": "2021-04-29T14:30:00",
+    "Patient": {
+      "Allergens": [
+        ""
+      ],
+      "Debit": 200.0,
+      "examinations": null,
+      "HealthCardNumber": null,
+      "Anamneses": null,
+      "Username": "mica",
+      "Password": "haha",
+      "Name": "Milica",
+      "Surname": "Milović",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "068555647",
+      "Email": "milicam@gmail.com",
+      "Id": "3333",
+      "UserType": 0,
+      "Address": {
+        "Street": "Marka Oreškovića ",
+        "NumberOfBuilding": 5,
+        "Floor": 5,
+        "Apartment": 9,
+        "City": {
+          "name": "Vranje ",
+          "postalCode": "589",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
     "RoomRecord": {
-      "Id": 707,
+      "Id": 103,
       "HospitalWard": "Pedijatrija",
       "inventory": [
         {
@@ -289,7 +151,7 @@
         }
       ],
       "roomPurpose": {
-        "Name": "Ordinacija"
+        "Name": "Operaciona sala"
       }
     }
   }
