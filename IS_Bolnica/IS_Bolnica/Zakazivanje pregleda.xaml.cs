@@ -52,7 +52,9 @@ namespace IS_Bolnica
 
             Random rnd = new Random();
             int trajanje = rnd.Next(23,29);
-            Examination e1 = new Examination { isPayed = false, durationInMinutes = trajanje, doctor = d1, date = datumPregleda, username = PatientWindow.username_patient};
+            Patient pacijent = new Patient();
+            pacijent.Username = PatientWindow.username_patient;
+            Examination e1 = new Examination { isPayed = false, durationInMinutes = trajanje, doctor = d1, date = datumPregleda, Patient = pacijent};
             pregledi.Add(e1);
             exStorage.saveToFile(pregledi, "Pregledi.json");
             PatientWindow pw = new PatientWindow(PatientWindow.username_patient);

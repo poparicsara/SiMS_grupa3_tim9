@@ -34,7 +34,7 @@ namespace IS_Bolnica
             username_patient = username;
 
             foreach (Examination ex in pregledi) {
-                if (ex.username.Equals(username)) {
+                if (ex.Patient.Username.Equals(username)) {
                     pacijentovi_pregledi.Add(ex);
                 }
             }
@@ -111,7 +111,7 @@ namespace IS_Bolnica
                 Examination oznacen_pregled = new Examination();
 
                 for (int i = 0; i < pregledi.Count; i++) {
-                    if (i == (lvDataBinding.SelectedIndex + 1)) {
+                    if (i == (lvDataBinding.SelectedIndex + 2)) {
                         oznacen_pregled = pregledi[i];
                     }
                 }
@@ -135,7 +135,7 @@ namespace IS_Bolnica
 
                 foreach (Examination ex in pregledi)
                 {
-                    if (ex.username.Equals(username_patient))
+                    if (ex.Patient.Username.Equals(username_patient))
                     {
                         pacijentovi_pregledi.Add(ex);
                     }
@@ -163,7 +163,7 @@ namespace IS_Bolnica
 
                 foreach (Examination ex in pregledi)
                 {
-                    if (ex.username.Equals(username_patient))
+                    if (ex.Patient.Username.Equals(username_patient))
                     {
                         pacijentovi_pregledi.Add(ex);
                     }
@@ -171,13 +171,13 @@ namespace IS_Bolnica
 
                 for (int i = 0; i < pacijentovi_pregledi.Count; i++)
                 {
-                    if (i == lvDataBinding.SelectedIndex)
+                    if (i == lvDataBinding.SelectedIndex + 2)
                     {
                         oznacen_pregled = pacijentovi_pregledi[i];
                     }
                 }
 
-                Izmena_pregleda ip = new Izmena_pregleda(lvDataBinding.SelectedIndex + 1);
+                Izmena_pregleda ip = new Izmena_pregleda(lvDataBinding.SelectedIndex + 2);
 
                 DateTime now = DateTime.Now;
                 string[] pom = now.ToString().Split(' ');

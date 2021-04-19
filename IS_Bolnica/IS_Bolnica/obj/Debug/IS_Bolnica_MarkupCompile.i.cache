@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\
+C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\
 IS_Bolnica
 none
 false
 DEBUG;TRACE
-C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\App.xaml
-37859112939
+C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\App.xaml
+42-713814704
 
-83-1728938747
-141323765998
-AddExaminationWindow.xaml;AddInventoryWindow.xaml;AddOperationWindow.xaml;ChangeInventoryPlace.xaml;CreatePrescription.xaml;Diagnosis.xaml;DirectorNotificationWindow.xaml;DoctorNotificationWindow.xaml;DoctorWindow.xaml;EditInventoryWindow.xaml;EditWindow.xaml;ExaminationInfo.xaml;InventarWindow.xaml;InventoryWindow.xaml;Izmena pregleda.xaml;MainWindow.xaml;NewInventory.xaml;NewRoomWindow.xaml;PatientNotificationWindow.xaml;PatientWindow.xaml;Predlozi.xaml;Secretary\ActionBarWindow.xaml;Secretary\AddNotificationWindow.xaml;Secretary\AddPatient.xaml;Secretary\EditNotificationWindow.xaml;Secretary\EditPatient.xaml;Secretary\ExaminationListWindow.xaml;Secretary\GuestUserAccount.xaml;Secretary\GuestUserListWindow.xaml;Secretary\NotificationListWindow.xaml;Secretary\PatientListWindow.xaml;SekretarWindow.xaml;SelectedInventoryInRooms.xaml;UpdateExaminationWindow.xaml;UpdateOperationWindow.xaml;UpravnikWindow.xaml;Zakazivanje pregleda.xaml;
+88-1321812897
+14-764270122
+AddExaminationWindow.xaml;AddInventoryWindow.xaml;AddOperationWindow.xaml;ChangeInventoryPlace.xaml;CreatePrescription.xaml;Diagnosis.xaml;DirectorNotificationWindow.xaml;DoctorNotificationWindow.xaml;DoctorWindow.xaml;EditInventoryWindow.xaml;EditWindow.xaml;ExaminationInfo.xaml;InventarWindow.xaml;InventoryWindow.xaml;Izmena pregleda.xaml;MainWindow.xaml;NewInventory.xaml;NewRoomWindow.xaml;PatientNotificationWindow.xaml;PatientWindow.xaml;Predlozi.xaml;Secretary\ActionBarWindow.xaml;Secretary\AddExaminationWindow.xaml;Secretary\AddNotificationWindow.xaml;Secretary\AddOperationWindow.xaml;Secretary\AddPatient.xaml;Secretary\EditExaminationWindow.xaml;Secretary\EditNotificationWindow.xaml;Secretary\EditOperationWindow.xaml;Secretary\EditPatient.xaml;Secretary\ExaminationListWindow.xaml;Secretary\GuestUserAccount.xaml;Secretary\GuestUserListWindow.xaml;Secretary\NotificationListWindow.xaml;Secretary\OperationListWindow.xaml;Secretary\PatientListWindow.xaml;SekretarWindow.xaml;SelectedInventoryInRooms.xaml;UpdateExaminationWindow.xaml;UpdateOperationWindow.xaml;UpravnikWindow.xaml;Zakazivanje pregleda.xaml;
 
 True
 

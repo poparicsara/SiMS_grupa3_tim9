@@ -27,6 +27,10 @@ namespace IS_Bolnica.Secretary
         {
             get; set;
         }
+        private ExaminationsRecordFileStorage examinationStorage = new ExaminationsRecordFileStorage();
+        private List<Examination> examinations = new List<Examination>();
+        private OperationsFileStorage operationsStorage = new OperationsFileStorage();
+        private List<Operation> operations = new List<Operation>();
         public event PropertyChangedEventHandler PropertyChanged;
 
         public PatientListWindow()
@@ -74,37 +78,11 @@ namespace IS_Bolnica.Secretary
 
 
                 Secretary.EditPatient ep = new Secretary.EditPatient(patient);
-                /*
-
-                ep.name.Text = pacijenti[i].Name;
-                ep.surname.Text = pacijenti[i].Surname;
-                ep.username.Text = pacijenti[i].Username;
-                ep.dateOfBirth.DisplayDate = pacijenti[i].DateOfBirth.Date;
-                ep.iniciallyPassword.Text = pacijenti[i].Password;
-                ep.id.Text = pacijenti[i].Id.ToString();
-                ep.phone.Text = pacijenti[i].Phone.ToString();
-                ep.email.Text = pacijenti[i].Email;
-                ep.adress.Text = pacijenti[i].Address.Street + " "
-                    + pacijenti[i].Address.NumberOfBuilding + "/"
-                    + pacijenti[i].Address.Floor + "/"
-                    + pacijenti[i].Address.Apartment;
-                ep.city.Text = pacijenti[i].Address.City.name + " "
-                    + Convert.ToString(pacijenti[i].Address.City.postalCode);
-                ep.country.Text = pacijenti[i].Address.City.Country.name;
-                ep.debit.Text = Convert.ToString(pacijenti[i].Debit);
-                List<string> alergeni = pacijenti[i].Allergens;
-                foreach(var alergen in alergeni)
-                {
-                    ep.allergens.Text += alergen + ",";
-
-                }
-                String pom = ep.allergens.Text;
-                ep.allergens.Text = pom.Remove(pom.Length-1,1);*/
 
                 ep.name.Text = patient.Name;
                 ep.surname.Text = patient.Surname;
                 ep.username.Text = patient.Username;
-                ep.dateOfBirth.DisplayDate = patient.DateOfBirth.Date;
+                ep.dateOfBirth.SelectedDate = new DateTime(patient.DateOfBirth.Year, patient.DateOfBirth.Month, patient.DateOfBirth.Day);
                 ep.iniciallyPassword.Text = patient.Password;
                 ep.id.Text = patient.Id.ToString();
                 ep.phone.Text = patient.Phone.ToString();
@@ -173,24 +151,26 @@ namespace IS_Bolnica.Secretary
                         }
                         usersStorage.saveToFile(users, "UsersFileStorage.json");
 
-                        /*pacijenti = storage.loadFromFile("PatientRecordFileStorage.json");
-                        for (int i = 0; i < pacijenti.Count; i++)
+                        examinations = examinationStorage.loadFromFile("Pregledi.json");
+                        for (int k = 0; k< examinations.Count; k++)
                         {
-                            if (pacijenti[i].Id.Equals(patient.Id))
+                            if(examinations[k].Patient.Id.Equals(patient.Id))
                             {
-                                pacijenti.RemoveAt(i);
+                                examinations.RemoveAt(k);
                             }
                         }
+                        examinationStorage.saveToFile(examinations, "Pregledi.json");
 
-                        korisnici = storage1.loadFromFile("UsersFileStorage.json");
-                        for (int i = 0; i < korisnici.Count; i++)
+                        operations = operationsStorage.loadFromFile("operations.json");
+                        for (int k = 0; k < operations.Count; k++)
                         {
-                            if (korisnici[i].Id.Equals(patient.Id))
+                            if (operations[k].Patient.Id.Equals(patient.Id))
                             {
-                                korisnici.RemoveAt(i);
+                                operations.RemoveAt(k);
                             }
                         }
-                        */
+                        operationsStorage.saveToFile(operations, "operations.json");
+
                         SekretarWindow sw = new SekretarWindow();
 
                         sw.Show();
