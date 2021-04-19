@@ -1,0 +1,11 @@
+Review dijagrama sekvence "RasporedjivanjeOpremePoSalama" koji je implementirala Sara Poparic.
+
+Dosta dobro je prikazana provera ispravnosti svih parametara koji su neophodni da bi se rasporedila oprema
+(izvorisna i odredisna soba, kolicina opreme koja se prebacuje itd).
+Smatram da je visak metoda "IncreaseTheAmount" unutar if-else klauzule gde se proverava da li postoji vec inventar u sobi u koju se prebacuje,
+jer ce svakako i da postoji i da ne postoji biti uvecan, tako da je dovoljno da metoda "IncreaseTheAmount" stoji nakon if-else.
+Takodje, smatram da je unutar istog if-else-a visak metoda "AddInventory" jer je ucitavanje, dodavanje i upisivanje izmenjenog inventara
+odradjeno u okviru metode "AddInventoryInRoom".
+Sve u svemu, smatram da je dijagram solidno odradjen, uz veoma sitne izmene.
+
+Autor: Vladimir Vrbica RA50/2018
