@@ -1,6 +1,7 @@
 ﻿using Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -21,9 +22,10 @@ namespace IS_Bolnica.Secretary
     /// </summary>
     public partial class OperationListWindow : Window, INotifyPropertyChanged
     {
-        List<Operation> Operacije { get; set; }
-        OperationsFileStorage operationsFileStorage = new OperationsFileStorage();
-
+        private List<Operation> Operations { get; set; } = new List<Operation>();
+        private OperationsFileStorage operationsFileStorage = new OperationsFileStorage();
+        private Operation operation = new Operation();
+     
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -36,8 +38,8 @@ namespace IS_Bolnica.Secretary
             InitializeComponent();
             this.DataContext = this;
 
-            Operacije = operationsFileStorage.loadFromFile("operations.json");
-            OperationList.ItemsSource = Operacije;
+            Operations = operationsFileStorage.loadFromFile("operations.json");
+            OperationList.ItemsSource = Operations;
 
         }
 
@@ -50,12 +52,68 @@ namespace IS_Bolnica.Secretary
 
         private void editOperation(object sender, RoutedEventArgs e)
         {
+            int i = -1;
+            i = OperationList.SelectedIndex;
 
+            operation = (Operation)OperationList.SelectedItem;
+
+            if(i == -1)
+            {
+                MessageBox.Show("Niste izabrali operaciju koju želite da izmenite!");
+            }
+            else
+            {
+                Secretary.EditOperationWindow eow = new Secretary.EditOperationWindow(operation);
+                Operations = operationsFileStorage.loadFromFile("operations.json");
+
+                eow.patientId.Text = operation.Patient.Id;
+                eow.hour.Text = operation.Date.Hour.ToString();
+                eow.minutes.Text = operation.Date.Minute.ToString();
+                eow.doctorBox.Text = operation.doctor.Name + " " + operation.doctor.Surname;
+                eow.date.SelectedDate = new DateTime(operation.Date.Year, operation.Date.Month, operation.Date.Day);
+                eow.room.Text = operation.RoomRecord.Id.ToString();
+
+                eow.Show();
+                this.Close();
+            }
+      
         }
 
         private void deleteOperation(object sender, RoutedEventArgs e)
         {
+            int i = -1;
+            i = OperationList.SelectedIndex;
 
+            operation = (Operation)OperationList.SelectedItem;
+
+            if(i == -1)
+            {
+                MessageBox.Show("Niste izabrali operaciju koju želita da obrišete!");
+            }
+            else
+            {
+                MessageBoxResult result = MessageBox.Show("Da li stvarno želite da obrišete datu operaciju?", "Brisanje operacije", MessageBoxButton.YesNo);
+                switch(result)
+                {
+                    case MessageBoxResult.Yes:
+                        Operations = operationsFileStorage.loadFromFile("operations.json");
+                        for(int k = 0; k < Operations.Count; k++)
+                        {
+                            if(Operations[k].Date.Equals(operation.Date) &&
+                                Operations[k].Patient.Id.Equals(operation.Patient.Id))
+                            {
+                                Operations.RemoveAt(k);
+                            }
+                        }
+                        operationsFileStorage.saveToFile(Operations, "operations.json");
+                        this.Close();
+                        Secretary.OperationListWindow olw = new Secretary.OperationListWindow();
+                        olw.Show();
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                }
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -1,55 +1,56 @@
 using System;
+using System.Collections.Generic;
 
 namespace Model
 {
     public class Operation
     {
         //  private RoomRecord roomRecord;
-        public System.Collections.Generic.List<Doctor> doctor;
         private Patient patient;
+        public Doctor doctor { get; set; }
 
-        public System.Collections.Generic.List<Doctor> Doctor
+        public List<Doctor> Doctor
         {
-            get
-            {
-                if (doctor == null)
-                    doctor = new System.Collections.Generic.List<Doctor>();
-                return doctor;
-            }
-            set
-            {
+            get;
+            /*{
+                if (Doctor == null)
+                    Doctor = new List<Doctor>();
+                return Doctor;
+            }*/
+            set;
+            /*{
                 RemoveAllDoctor();
                 if (value != null)
                 {
                     foreach (Doctor oDoctor in value)
                         AddDoctor(oDoctor);
                 }
-            }
+            }*/
         }
 
         public void AddDoctor(Doctor newDoctor)
         {
             if (newDoctor == null)
                 return;
-            if (this.doctor == null)
-                this.doctor = new System.Collections.Generic.List<Doctor>();
-            if (!this.doctor.Contains(newDoctor))
-                this.doctor.Add(newDoctor);
+            if (this.Doctor == null)
+                this.Doctor = new System.Collections.Generic.List<Doctor>();
+            if (!this.Doctor.Contains(newDoctor))
+                this.Doctor.Add(newDoctor);
         }
 
         public void RemoveDoctor(Doctor oldDoctor)
         {
             if (oldDoctor == null)
                 return;
-            if (this.doctor != null)
-                if (this.doctor.Contains(oldDoctor))
-                    this.doctor.Remove(oldDoctor);
+            if (this.Doctor != null)
+                if (this.Doctor.Contains(oldDoctor))
+                    this.Doctor.Remove(oldDoctor);
         }
 
         public void RemoveAllDoctor()
         {
-            if (doctor != null)
-                doctor.Clear();
+            if (Doctor != null)
+                Doctor.Clear();
         }
 
         public DateTime Date

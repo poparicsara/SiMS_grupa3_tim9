@@ -340,5 +340,121 @@
       "Address": null
     },
     "RoomRecord": null
+  },
+  {
+    "isPayed": false,
+    "evaluation": 0,
+    "durationInMinutes": 30,
+    "username": null,
+    "date": "2021-04-29T13:00:00",
+    "patient": {
+      "Allergens": [
+        "d"
+      ],
+      "Debit": 0.0,
+      "examinations": null,
+      "HealthCardNumber": null,
+      "Anamneses": null,
+      "Username": "wwww",
+      "Password": "sed",
+      "Name": "wwwwwwwwwww",
+      "Surname": "wwwwww",
+      "DateOfBirth": "2021-02-01T00:00:00",
+      "Phone": "5415",
+      "Email": "ede",
+      "Id": "525",
+      "UserType": 0,
+      "Address": {
+        "Street": "dxesc ",
+        "NumberOfBuilding": 8,
+        "Floor": 8,
+        "Apartment": 8,
+        "City": {
+          "name": "dsdc ",
+          "postalCode": "45",
+          "Country": {
+            "name": "sdfsd"
+          }
+        }
+      }
+    },
+    "doctor": {
+      "specialization": null,
+      "Username": null,
+      "Password": null,
+      "Name": "Mika",
+      "Surname": "Mikić",
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": null,
+      "Email": null,
+      "Id": null,
+      "UserType": 0,
+      "Address": null
+    },
+    "secretary": null,
+    "Secretary": null,
+    "Username": null,
+    "Date": "2021-04-29T13:00:00",
+    "Patient": {
+      "Allergens": [
+        "d"
+      ],
+      "Debit": 0.0,
+      "examinations": null,
+      "HealthCardNumber": null,
+      "Anamneses": null,
+      "Username": "wwww",
+      "Password": "sed",
+      "Name": "wwwwwwwwwww",
+      "Surname": "wwwwww",
+      "DateOfBirth": "2021-02-01T00:00:00",
+      "Phone": "5415",
+      "Email": "ede",
+      "Id": "525",
+      "UserType": 0,
+      "Address": {
+        "Street": "dxesc ",
+        "NumberOfBuilding": 8,
+        "Floor": 8,
+        "Apartment": 8,
+        "City": {
+          "name": "dsdc ",
+          "postalCode": "45",
+          "Country": {
+            "name": "sdfsd"
+          }
+        }
+      }
+    },
+    "RoomRecord": {
+      "Id": 103,
+      "HospitalWard": "Pedijatrija",
+      "inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "roomPurpose": {
+        "Name": "Operaciona sala"
+      }
+    }
   }
 ]

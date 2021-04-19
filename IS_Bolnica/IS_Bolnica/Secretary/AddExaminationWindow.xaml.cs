@@ -60,49 +60,83 @@ namespace IS_Bolnica.Secretary
             this.Close();
         }
 
+        private bool idExists(ObservableCollection<Patient> patients, string id )
+        {
+            for (int i = 0; i < Patients.Count; i++)
+            {
+                if (Patients[i].Id.Equals(id))
+                {
+                    return true;
+                }
+
+            }
+
+            MessageBox.Show("Pacijent sa ovim JMBG-om ne postoji!");
+            return false;
+
+        }
+
+        private bool isAvailable(Patient patient, RoomRecord room, Doctor doctor, int duration)
+        {
+            Examination examination = new Examination()
+            {
+                Patient = patient,
+                RoomRecord = room,
+                doctor = doctor,
+                durationInMinutes = duration
+            };
+
+            List<Examination> exam = examinationStorage.loadFromFile("Pregledi.json");
+            if (exam.Contains(examination))
+            {
+                return false;
+            }
+            return true;
+
+        }
+
         private void addExamination(object sender, RoutedEventArgs e)
         {
             Examinations = examinationStorage.loadFromFile("Pregledi.json");
             examination.durationInMinutes = 30;
 
             Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
-            int brojac = 0;
-            for(int i = 0; i < Patients.Count; i++)
+            if(idExists(Patients, idPatientBox.Text))
             {
-                if(Patients[i].Id.Equals(idPatientBox.Text))
+                for (int i = 0; i < Patients.Count; i++)
                 {
-                    examination.Patient = Patients[i];
-                    brojac++;
+                    if (Patients[i].Id.Equals(idPatientBox.Text))
+                    {
+                        examination.Patient = Patients[i];
+                    }
                 }
 
-            }
-            if(brojac == 0)
-            {
-                MessageBox.Show("Pacijent sa ovim JMBG-om ne postoji!");
-            }
+                string[] doctorNameAndSurname = doctor.Text.Split(' ');
+                examination.doctor = new Doctor();
+                examination.doctor.Name = doctorNameAndSurname[0];
+                examination.doctor.Surname = doctorNameAndSurname[1];
 
-            string[] doctorNameAndSurname = doctor.Text.Split(' ');
-            examination.doctor = new Doctor();
-            examination.doctor.Name = doctorNameAndSurname[0];
-            examination.doctor.Surname = doctorNameAndSurname[1];
+                DateTime datum = new DateTime();
+                datum = (DateTime)dateBox.SelectedDate;
+                int sat = Convert.ToInt32(hourBox.Text);
+                int minut = Convert.ToInt32(minutesBox.Text);
+                examination.date = new DateTime(datum.Year, datum.Month, datum.Day, sat, minut, 0);
 
-            DateTime datum = new DateTime();
-            datum = (DateTime) dateBox.SelectedDate;
-            int sat = Convert.ToInt32(hourBox.Text);
-            int minut = Convert.ToInt32(minutesBox.Text);
-            examination.date = new DateTime(datum.Year, datum.Month, datum.Day, sat, minut, 0);
-
-            examination.RoomRecord = new RoomRecord();
-            for(int i = 0; i < Rooms.Count; i++)
-            {
-                if(Rooms[i].Id == Convert.ToInt32(room.SelectedItem))
+                examination.RoomRecord = new RoomRecord();
+                for (int i = 0; i < Rooms.Count; i++)
                 {
-                    examination.RoomRecord = Rooms[i];
+                    if (Rooms[i].Id == Convert.ToInt32(room.SelectedItem))
+                    {
+                        examination.RoomRecord = Rooms[i];
+                    }
+                }
+
+                if (isAvailable(examination.patient, examination.RoomRecord, examination.doctor, examination.durationInMinutes))
+                {
+                    Examinations.Add(examination);
+                    examinationStorage.saveToFile(Examinations, "Pregledi.json");
                 }
             }
-
-            Examinations.Add(examination);
-            examinationStorage.saveToFile(Examinations, "Pregledi.json");
 
             Secretary.ExaminationListWindow elw = new Secretary.ExaminationListWindow();
             elw.Show();

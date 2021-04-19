@@ -1,6 +1,7 @@
 ﻿using Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +31,8 @@ namespace IS_Bolnica.Secretary
         private Operation operation = new Operation();
         private List<Operation> Operations = new List<Operation>();
         private OperationsFileStorage operationStorage = new OperationsFileStorage();
+        private ObservableCollection<Patient> Patients = new ObservableCollection<Patient>();
+        private PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
 
 
         public AddOperationWindow()
@@ -40,7 +43,7 @@ namespace IS_Bolnica.Secretary
             {
                 RoomNums.Add(Rooms[i].Id);
             }
-            room.ItemsSource = RoomNums;
+            roomBox.ItemsSource = RoomNums;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -54,25 +57,57 @@ namespace IS_Bolnica.Secretary
         {
             Operations = operationStorage.loadFromFile("operations.json");
 
-            List<String> doctors = (List<string>) doctorList.SelectedItems;
-            for(int i = 0; i < doctors.Count; i++)
+            //System.Collections.IList items = (System.Collections.IList)doctorList.SelectedItems;
+            //var doctors = items.Cast<string>().ToList();
+            //for(int i = 0; i < doctors.Count; i++)
+            //{
+            // string[] docNameAndSurname = doctors[i].Split(' '); 
+            // Doctor doc = new Doctor();
+            // doc.Name = docNameAndSurname[0];
+            // doc.Surname = docNameAndSurname[1];
+            // operation.doctor.Add(doc);
+            // }
+
+
+            string[] doctorNameAndSurname = doctorBox.Text.Split(' ');
+            Doctor doctor = new Doctor();
+            doctor.Name = doctorNameAndSurname[0];
+            doctor.Surname = doctorNameAndSurname[1];
+            operation.doctor = doctor;
+
+
+            Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
+            int brojac = 0;
+            for(int i = 0; i < Patients.Count; i++)
             {
-                string[] docNameAndSurname = doctors[i].Split(' '); 
-                Doctor doc = new Doctor();
-                doc.Name = docNameAndSurname[0];
-                doc.Surname = docNameAndSurname[1];
-                operation.doctor.Add(doc);
+                if(Patients[i].Id.Equals(patientId.Text))
+                {
+                    operation.Patient = Patients[i];
+                    brojac++;
+                }
+            }
+            if (brojac == 0)
+            {
+                MessageBox.Show("Pacijent sa ovim JMBG-om ne postoji!");
             }
 
+            DateTime datum = new DateTime();
+            datum = (DateTime)dateBox.SelectedDate;
+            int sat = Convert.ToInt32(hourBox.Text);
+            int minut = Convert.ToInt32(minuteBox.Text);
+            operation.Date = new DateTime(datum.Year, datum.Month, datum.Day,sat, minut, 0);
 
+            operation.RoomRecord = new RoomRecord();
+            for(int i = 0; i < Rooms.Count; i++)
+            {
+                if(Rooms[i].Id == Convert.ToInt32(roomBox.SelectedItem))
+                {
+                    operation.RoomRecord = Rooms[i];
+                }
+            }
 
-
-
-
-            
-
-
-
+            Operations.Add(operation);
+            operationStorage.saveToFile(Operations, "operations.json");
 
             Secretary.OperationListWindow olw = new Secretary.OperationListWindow();
             olw.Show();
