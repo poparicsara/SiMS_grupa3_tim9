@@ -25,24 +25,35 @@ namespace IS_Bolnica
             InitializeComponent();
 
             RoomRecordFileStorage storage = new RoomRecordFileStorage();
-            rooms = storage.loadFromFile("Sobe.json"); 
+            rooms = storage.loadFromFile("Sobe.json");
 
-            foreach(RoomRecord room in rooms)
+            foreach (RoomRecord room in rooms)
             {
-                if(room.Id == selectedRoom.Id)
+                int exist = 0;
+                foreach (Inventory i in room.inventory)
                 {
-                    inventories = selectedRoom.inventory;
-                    break;
+                    foreach (Inventory inList in inventories)
+                    {
+                        if (inList.Id == i.Id)
+                        {
+                            exist = 1;
+                        }
+                    }
+                    if (exist == 0)
+                    {
+                        inventories.Add(i);
+                    }
+
                 }
             }
 
-            InventoryFileStorage iStorage = new InventoryFileStorage();
-            List<Inventory> inv = iStorage.loadFromFile("Inventar.json");
+            /* InventoryFileStorage iStorage = new InventoryFileStorage();
+             List<Inventory> inv = iStorage.loadFromFile("Inventar.json");
 
-            foreach(Inventory i in inv)
-            {
-                inventories.Add(i);
-            }
+             foreach(Inventory i in inv)
+             {
+                 inventories.Add(i);
+             }*/
 
             inventoryBinding.ItemsSource = inventories;
         }

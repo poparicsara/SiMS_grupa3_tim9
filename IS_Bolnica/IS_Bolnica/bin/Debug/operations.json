@@ -244,5 +244,53 @@
         "Name": "Ordinacija"
       }
     }
+  },
+  {
+    "doctor": {
+      "specialization": null,
+      "Username": null,
+      "Password": null,
+      "Name": "Mika",
+      "Surname": "Mikić",
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": null,
+      "Email": null,
+      "Id": null,
+      "UserType": 0,
+      "Address": null
+    },
+    "Doctor": null,
+    "Date": "2021-04-24T10:30:00",
+    "Patient": null,
+    "RoomRecord": {
+      "Id": 707,
+      "HospitalWard": "Pedijatrija",
+      "inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "roomPurpose": {
+        "Name": "Ordinacija"
+      }
+    }
   }
 ]
