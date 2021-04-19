@@ -35,7 +35,7 @@ namespace IS_Bolnica
             dateOfBirthTxt.Text = examinations.ElementAt(selectedIndex).Patient.DateOfBirth.ToString("dd.MM.yyyy");
             jmbgTxt.Text = examinations.ElementAt(selectedIndex).Patient.Id.ToString();
             healthCardNumberTxt.Text = examinations.ElementAt(selectedIndex).Patient.HealthCardNumber;
-            addressTxt.Text = examinations.ElementAt(selectedIndex).Patient.Address.Street + ", " + 
+            addressTxt.Text = examinations.ElementAt(selectedIndex).Patient.Address.Street + ", " +
                 examinations.ElementAt(selectedIndex).Patient.Address.City.name;
 
             foreach (Prescription prescription in prescriptions)
