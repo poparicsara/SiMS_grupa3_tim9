@@ -109,7 +109,7 @@
       },
       {
         "Name": "Injekcija",
-        "CurrentAmount": 23,
+        "CurrentAmount": 22,
         "Minimum": 2,
         "Id": 202,
         "InventoryType": 0
@@ -169,7 +169,7 @@
       },
       {
         "Name": "Injekcija",
-        "CurrentAmount": 23,
+        "CurrentAmount": 26,
         "Minimum": 2,
         "Id": 202,
         "InventoryType": 0
@@ -213,7 +213,7 @@
       },
       {
         "Name": "Injekcija",
-        "CurrentAmount": 4,
+        "CurrentAmount": 2,
         "Minimum": 0,
         "Id": 202,
         "InventoryType": 0

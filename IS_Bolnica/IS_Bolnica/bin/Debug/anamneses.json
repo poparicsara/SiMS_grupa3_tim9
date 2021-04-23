@@ -126,5 +126,69 @@
       }
     },
     "Date": "2021-10-05T00:00:00"
+  },
+  {
+    "Diagnosis": "covid19",
+    "Symptoms": "temperatura, kasalj",
+    "Patient": {
+      "Allergens": null,
+      "Debit": 0.0,
+      "examinations": null,
+      "HealthCardNumber": "071189",
+      "Anamneses": null,
+      "Username": "milos",
+      "Password": "m123",
+      "Name": "Milos",
+      "Surname": "Milosevic",
+      "DateOfBirth": "1986-12-12T00:00:00",
+      "Phone": "0",
+      "Email": null,
+      "Id": "1209976807054",
+      "UserType": 0,
+      "Address": {
+        "Street": "Miroslava Antica 13",
+        "NumberOfBuilding": 0,
+        "Floor": 0,
+        "Apartment": 0,
+        "City": {
+          "name": "Novi Sad",
+          "postalCode": null,
+          "Country": null
+        }
+      }
+    },
+    "Date": "2021-06-14T00:00:00"
+  },
+  {
+    "Diagnosis": "bhhdv",
+    "Symptoms": "adadav",
+    "Patient": {
+      "Allergens": null,
+      "Debit": 0.0,
+      "examinations": null,
+      "HealthCardNumber": "071189",
+      "Anamneses": null,
+      "Username": "milos",
+      "Password": "m123",
+      "Name": "Milos",
+      "Surname": "Milosevic",
+      "DateOfBirth": "1986-12-12T00:00:00",
+      "Phone": "0",
+      "Email": null,
+      "Id": "1209976807054",
+      "UserType": 0,
+      "Address": {
+        "Street": "Miroslava Antica 13",
+        "NumberOfBuilding": 0,
+        "Floor": 0,
+        "Apartment": 0,
+        "City": {
+          "name": "Novi Sad",
+          "postalCode": null,
+          "Country": null
+        }
+      }
+    },
+    "Date": "2021-06-14T00:00:00"
   }
 ]

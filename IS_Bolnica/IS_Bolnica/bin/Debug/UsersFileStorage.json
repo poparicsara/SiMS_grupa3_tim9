@@ -96,13 +96,6 @@
     }
   },
   {
-    "Allergens": [
-      ""
-    ],
-    "Debit": 0.0,
-    "examinations": null,
-    "HealthCardNumber": null,
-    "Anamneses": null,
     "Username": "Vladimir",
     "Password": "ftn",
     "Name": "Petar",
@@ -127,13 +120,6 @@
     }
   },
   {
-    "Allergens": [
-      "penicilin"
-    ],
-    "Debit": 500.0,
-    "examinations": null,
-    "HealthCardNumber": null,
-    "Anamneses": null,
     "Username": "mare",
     "Password": "nesto",
     "Name": "Marko",
@@ -158,13 +144,6 @@
     }
   },
   {
-    "Allergens": [
-      "polen"
-    ],
-    "Debit": 1500.0,
-    "examinations": null,
-    "HealthCardNumber": null,
-    "Anamneses": null,
     "Username": "nikola_nikolic",
     "Password": "sasasa",
     "Name": "Nikola",
