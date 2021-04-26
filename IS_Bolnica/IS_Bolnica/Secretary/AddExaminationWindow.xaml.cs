@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace IS_Bolnica.Secretary
 {
-    /// <summary>
-    /// Interaction logic for AddExaminationWindow.xaml
-    /// </summary>
     public partial class AddExaminationWindow : Window
     {
 
@@ -80,9 +77,9 @@ namespace IS_Bolnica.Secretary
 
         private bool isPatientFree(List<Examination> exams ,Patient patient, DateTime dateAndTime)
         {
-            foreach(var exam in exams)
+            foreach(Examination exam in exams)
             {
-                if(exam.Patient == patient && exam.Date==dateAndTime)
+                if(exam.Patient.Id == patient.Id && exam.Date==dateAndTime)
                 {
                     return false;
                 }
@@ -93,11 +90,9 @@ namespace IS_Bolnica.Secretary
 
         private bool isRoomFree(List<Examination> exams , RoomRecord room, DateTime dateAndTime)
         {
-            exams = examinationStorage.loadFromFile("Pregledi.json");
-
-            foreach (var exam in exams)
+            foreach (Examination exam in exams)
             {
-                if(exam.RoomRecord == room && exam.Date==dateAndTime)
+                if(exam.RoomRecord.Id == room.Id && exam.Date==dateAndTime)
                 {
                     return false;
                 }
@@ -107,11 +102,9 @@ namespace IS_Bolnica.Secretary
 
         private bool isDoctorFree(List<Examination> exams , Doctor doc, DateTime dateAndTime)
         {
-            exams = examinationStorage.loadFromFile("Pregledi.json");
-
-            foreach (var exam in exams)
+            foreach (Examination exam in exams)
             {
-                if (exam.Doctor == doc && exam.Date == dateAndTime)
+                if (exam.Doctor.Name == doc.Name && exam.Doctor.Surname == doc.Surname && exam.Date == dateAndTime)
                 {
                     return false;
                 }
@@ -119,23 +112,8 @@ namespace IS_Bolnica.Secretary
             return true;
         }
 
-        private bool isAvailable(List<Examination> exams , Patient patient, RoomRecord room, Doctor doctor, DateTime dateAndTime/*, int duration*/)
+        private bool isAvailable(List<Examination> exams , Patient patient, RoomRecord room, Doctor doctor, DateTime dateAndTime)
         {
-           /* Examination examination = new Examination()
-            {
-                Patient = patient,
-                RoomRecord = room,
-                doctor = doctor,
-                durationInMinutes = duration
-            };
-
-            List<Examination> exam = examinationStorage.loadFromFile("Pregledi.json");
-            if (exam.Contains(examination))
-            {
-                return false;
-            }
-            return true;*/
-
             if(isPatientFree(exams, patient, dateAndTime) && isRoomFree(exams, room, dateAndTime) && isDoctorFree(exams, doctor, dateAndTime))
             {
                 return true;
@@ -185,16 +163,16 @@ namespace IS_Bolnica.Secretary
                     }
                 }
 
-                /*if (isAvailable(Examinations, examination.patient, examination.RoomRecord, examination.doctor, examination.date))
+                if (isAvailable(Examinations, examination.Patient, examination.RoomRecord, examination.Doctor, examination.Date))
                 {
                     Examinations.Add(examination);
                     examinationStorage.saveToFile(Examinations, "Pregledi.json");
                 } else
                 {
                     return;
-                }*/
+                }
 
-                if(isPatientFree(Examinations, examination.Patient, examination.Date))
+                /*if(isPatientFree(Examinations, examination.Patient, examination.Date))
                 {
                     if(isRoomFree(Examinations, examination.RoomRecord, examination.Date))
                     {
@@ -213,7 +191,7 @@ namespace IS_Bolnica.Secretary
                 } else
                 {
                     return;
-                }
+                }*/
 
 
 
