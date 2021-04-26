@@ -119,7 +119,7 @@ namespace IS_Bolnica
                 string[] pom = now.ToString().Split(' ');
                 string[] datum = pom[0].Split('/');
 
-                string[] pomocni = oznacen_pregled.date.ToString().Split(' ');
+                string[] pomocni = oznacen_pregled.Date.ToString().Split(' ');
                 string[] pomocni_datum = pomocni[0].Split('/');
 
                 if (Convert.ToInt32(datum[1]) + 2 < Convert.ToInt32(pomocni_datum[1]))
@@ -183,7 +183,7 @@ namespace IS_Bolnica
                 string[] pom = now.ToString().Split(' ');
                 string[] datum = pom[0].Split('/');
                 
-                string[] pomocni = oznacen_pregled.date.ToString().Split(' ');
+                string[] pomocni = oznacen_pregled.Date.ToString().Split(' ');
                 string[] pomocni_datum = pomocni[0].Split('/');
 
                 if (Convert.ToInt32(datum[0]) == Convert.ToInt32(pomocni_datum[0]))

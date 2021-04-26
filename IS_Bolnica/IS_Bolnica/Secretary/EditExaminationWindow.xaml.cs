@@ -56,8 +56,8 @@ namespace IS_Bolnica.Secretary
             examinations = examinationStorage.loadFromFile("Pregledi.json");
             for(int i = 0; i < examinations.Count; i++)
             {
-                if (examinations[i].date.Equals(examination.date) &&
-                                examinations[i].patient.Id.Equals(examination.patient.Id))
+                if (examinations[i].Date.Equals(examination.Date) &&
+                                examinations[i].Patient.Id.Equals(examination.Patient.Id))
                 {
                     examinations.RemoveAt(i);
                 }
@@ -81,15 +81,15 @@ namespace IS_Bolnica.Secretary
             }
 
             string[] doctorNameAndSurname = doctor.Text.Split(' ');
-            examination.doctor = new Doctor();
-            examination.doctor.Name = doctorNameAndSurname[0];
-            examination.doctor.Surname = doctorNameAndSurname[1];
+            examination.Doctor = new Doctor();
+            examination.Doctor.Name = doctorNameAndSurname[0];
+            examination.Doctor.Surname = doctorNameAndSurname[1];
 
             DateTime datum = new DateTime();
             datum = (DateTime)dateBox.SelectedDate;
             int sat = Convert.ToInt32(hourBox.Text);
             int minut = Convert.ToInt32(minutesBox.Text);
-            examination.date = new DateTime(datum.Year, datum.Month, datum.Day, sat, minut, 0);
+            examination.Date = new DateTime(datum.Year, datum.Month, datum.Day, sat, minut, 0);
 
             examination.RoomRecord = new RoomRecord();
             for (int i = 0; i < Rooms.Count; i++)

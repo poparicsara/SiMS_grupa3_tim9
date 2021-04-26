@@ -73,11 +73,11 @@ namespace IS_Bolnica.Secretary
                 examinations = examinationFileStorage.loadFromFile("Pregledi.json");
                 Secretary.EditExaminationWindow eew = new Secretary.EditExaminationWindow(examination);
 
-                eew.idPatientBox.Text = examination.patient.Id;
-                eew.hourBox.Text = examination.date.Hour.ToString();
-                eew.minutesBox.Text = examination.date.Minute.ToString();
-                eew.doctor.Text = examination.doctor.Name + " " + examination.doctor.Surname;
-                eew.dateBox.SelectedDate = new DateTime(examination.date.Year, examination.date.Month, examination.date.Day);
+                eew.idPatientBox.Text = examination.Patient.Id;
+                eew.hourBox.Text = examination.Date.Hour.ToString();
+                eew.minutesBox.Text = examination.Date.Minute.ToString();
+                eew.doctor.Text = examination.Doctor.Name + " " + examination.Doctor.Surname;
+                eew.dateBox.SelectedDate = new DateTime(examination.Date.Year, examination.Date.Month, examination.Date.Day);
                 eew.durationInMinutesBox.Text = "30";
                 eew.room.Text = examination.RoomRecord.Id.ToString();
 
@@ -107,8 +107,8 @@ namespace IS_Bolnica.Secretary
                         Pregledi = examinationFileStorage.loadFromFile("Pregledi.json");
                         for(int k = 0; k < Pregledi.Count; k++)
                         {
-                            if(Pregledi[k].date.Equals(examination.date) &&
-                                Pregledi[k].patient.Id.Equals(examination.patient.Id))
+                            if(Pregledi[k].Date.Equals(examination.Date) &&
+                                Pregledi[k].Patient.Id.Equals(examination.Patient.Id))
                             {
                                 Pregledi.RemoveAt(k);
                             }

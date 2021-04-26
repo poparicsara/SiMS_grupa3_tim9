@@ -35,7 +35,7 @@ namespace IS_Bolnica
                 Doctor d1 = new Doctor();
                 d1.Name = doktor_name;
                 d1.Surname = doktor_surname;
-                ex1.doctor = d1;
+                ex1.Doctor = d1;
                 ex1.Date = new DateTime(2021, 4, 22, 9, 30, 0);
                 predlozi.Add(ex1);
 
@@ -43,7 +43,7 @@ namespace IS_Bolnica
                 Doctor d2 = new Doctor();
                 d2.Name = doktor_name;
                 d2.Surname = doktor_surname;
-                ex2.doctor = d2;
+                ex2.Doctor = d2;
                 ex2.Date = new DateTime(2021, 4, 22, 14, 00, 0);
                 predlozi.Add(ex2);
 
@@ -51,7 +51,7 @@ namespace IS_Bolnica
                 Doctor d3 = new Doctor();
                 d3.Name = doktor_name;
                 d3.Surname = doktor_surname;
-                ex3.doctor = d3;
+                ex3.Doctor = d3;
                 ex3.Date = new DateTime(2021, 4, 23, 8, 00, 0);
                 predlozi.Add(ex3);
                 
@@ -59,7 +59,7 @@ namespace IS_Bolnica
                 Doctor d4 = new Doctor();
                 d4.Name = doktor_name;
                 d4.Surname = doktor_surname;
-                ex4.doctor = d4;
+                ex4.Doctor = d4;
                 ex4.Date = new DateTime(2021, 4, 23, 11, 30, 0);
                 predlozi.Add(ex4);
             }
@@ -69,7 +69,7 @@ namespace IS_Bolnica
                 Doctor d1 = new Doctor();
                 d1.Name = "Pera";
                 d1.Surname = "Peric";
-                ex1.doctor = d1;
+                ex1.Doctor = d1;
                 ex1.Date = new DateTime(godina, mesec, dan, 14, 00, 0);
                 predlozi.Add(ex1);
 
@@ -77,7 +77,7 @@ namespace IS_Bolnica
                 Doctor d2 = new Doctor();
                 d2.Name = "Mika";
                 d2.Surname = "Mikic";
-                ex2.doctor = d2;
+                ex2.Doctor = d2;
                 ex2.Date = new DateTime(godina, mesec, dan, 09, 30, 0); 
                 predlozi.Add(ex2);
 
@@ -85,7 +85,7 @@ namespace IS_Bolnica
                 Doctor d3 = new Doctor();
                 d3.Name = "Mika";
                 d3.Surname = "Mikic";
-                ex3.doctor = d3;
+                ex3.Doctor = d3;
                 ex3.Date = new DateTime(godina, mesec, dan, 11, 30, 0); 
                 predlozi.Add(ex3);
 
@@ -93,7 +93,7 @@ namespace IS_Bolnica
                 Doctor d4 = new Doctor();
                 d4.Name = "Ziva";
                 d4.Surname = "Zivic";
-                ex4.doctor = d4;
+                ex4.Doctor = d4;
                 ex4.Date = new DateTime(godina, mesec, dan, 08, 00, 0); 
                 predlozi.Add(ex4);
             }
@@ -102,7 +102,7 @@ namespace IS_Bolnica
                 Doctor d1 = new Doctor();
                 d1.Name = "Pera";
                 d1.Surname = "Peric";
-                ex1.doctor = d1;
+                ex1.Doctor = d1;
                 ex1.Date = new DateTime(2021, 4, 22, 08, 00, 0);
                 predlozi.Add(ex1);
                 
@@ -110,7 +110,7 @@ namespace IS_Bolnica
                 Doctor d2 = new Doctor();
                 d2.Name = "Mika";
                 d2.Surname = "Mikic";
-                ex2.doctor = d2;
+                ex2.Doctor = d2;
                 ex2.Date = new DateTime(2021, 4, 21, 09, 30, 0); 
                 predlozi.Add(ex2);
 
@@ -118,7 +118,7 @@ namespace IS_Bolnica
                 Doctor d3 = new Doctor();
                 d3.Name = "Mika";
                 d3.Surname = "Mikic";
-                ex3.doctor = d3;
+                ex3.Doctor = d3;
                 ex3.Date = new DateTime(2021, 4, 22, 14, 00, 0);
                 predlozi.Add(ex3);
 
@@ -126,7 +126,7 @@ namespace IS_Bolnica
                 Doctor d4 = new Doctor();
                 d4.Name = "Ziva";
                 d4.Surname = "Zivic";
-                ex4.doctor = d4;
+                ex4.Doctor = d4;
                 ex4.Date = new DateTime(2021, 4, 21, 08, 00, 0); 
                 predlozi.Add(ex4);
             }

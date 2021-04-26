@@ -29,7 +29,6 @@ namespace IS_Bolnica.Secretary
         }
         public List<int> RoomNums { get; set; } = new List<int>();
         private RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
-
         private ExaminationsRecordFileStorage examinationStorage = new ExaminationsRecordFileStorage();
         public List<Examination> Examinations { get; set; } = new List<Examination>();
         private Examination examination = new Examination();
@@ -79,9 +78,50 @@ namespace IS_Bolnica.Secretary
 
         }
 
-        private bool isAvailable(Patient patient, RoomRecord room, Doctor doctor, int duration)
+        private bool isPatientFree(List<Examination> exams ,Patient patient, DateTime dateAndTime)
         {
-            Examination examination = new Examination()
+            foreach(var exam in exams)
+            {
+                if(exam.Patient == patient && exam.Date==dateAndTime)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private bool isRoomFree(List<Examination> exams , RoomRecord room, DateTime dateAndTime)
+        {
+            exams = examinationStorage.loadFromFile("Pregledi.json");
+
+            foreach (var exam in exams)
+            {
+                if(exam.RoomRecord == room && exam.Date==dateAndTime)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private bool isDoctorFree(List<Examination> exams , Doctor doc, DateTime dateAndTime)
+        {
+            exams = examinationStorage.loadFromFile("Pregledi.json");
+
+            foreach (var exam in exams)
+            {
+                if (exam.Doctor == doc && exam.Date == dateAndTime)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private bool isAvailable(List<Examination> exams , Patient patient, RoomRecord room, Doctor doctor, DateTime dateAndTime/*, int duration*/)
+        {
+           /* Examination examination = new Examination()
             {
                 Patient = patient,
                 RoomRecord = room,
@@ -94,14 +134,25 @@ namespace IS_Bolnica.Secretary
             {
                 return false;
             }
-            return true;
+            return true;*/
+
+            if(isPatientFree(exams, patient, dateAndTime) && isRoomFree(exams, room, dateAndTime) && isDoctorFree(exams, doctor, dateAndTime))
+            {
+                return true;
+            } 
+            else
+            {
+                MessageBox.Show("Ovaj pregled je vec zauzet!");
+
+                return false;
+            }
 
         }
 
         private void addExamination(object sender, RoutedEventArgs e)
         {
             Examinations = examinationStorage.loadFromFile("Pregledi.json");
-            examination.durationInMinutes = 30;
+            examination.DurationInMinutes = 30;
 
             Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
             if(idExists(Patients, idPatientBox.Text))
@@ -115,15 +166,15 @@ namespace IS_Bolnica.Secretary
                 }
 
                 string[] doctorNameAndSurname = doctor.Text.Split(' ');
-                examination.doctor = new Doctor();
-                examination.doctor.Name = doctorNameAndSurname[0];
-                examination.doctor.Surname = doctorNameAndSurname[1];
+                examination.Doctor = new Doctor();
+                examination.Doctor.Name = doctorNameAndSurname[0];
+                examination.Doctor.Surname = doctorNameAndSurname[1];
 
                 DateTime datum = new DateTime();
                 datum = (DateTime)dateBox.SelectedDate;
                 int sat = Convert.ToInt32(hourBox.Text);
                 int minut = Convert.ToInt32(minutesBox.Text);
-                examination.date = new DateTime(datum.Year, datum.Month, datum.Day, sat, minut, 0);
+                examination.Date = new DateTime(datum.Year, datum.Month, datum.Day, sat, minut, 0);
 
                 examination.RoomRecord = new RoomRecord();
                 for (int i = 0; i < Rooms.Count; i++)
@@ -134,11 +185,41 @@ namespace IS_Bolnica.Secretary
                     }
                 }
 
-                if (isAvailable(examination.patient, examination.RoomRecord, examination.doctor, examination.durationInMinutes))
+                /*if (isAvailable(Examinations, examination.patient, examination.RoomRecord, examination.doctor, examination.date))
                 {
                     Examinations.Add(examination);
                     examinationStorage.saveToFile(Examinations, "Pregledi.json");
+                } else
+                {
+                    return;
+                }*/
+
+                if(isPatientFree(Examinations, examination.Patient, examination.Date))
+                {
+                    if(isRoomFree(Examinations, examination.RoomRecord, examination.Date))
+                    {
+                        if(isDoctorFree(Examinations, examination.Doctor, examination.Date))
+                        {
+                            Examinations.Add(examination);
+                            examinationStorage.saveToFile(Examinations, "Pregledi.json");
+                        } else
+                        {
+                            return;
+                        }
+                    } else
+                    {
+                        return;
+                    }
+                } else
+                {
+                    return;
                 }
+
+
+
+            } else
+            {
+                return;
             }
 
             Secretary.ExaminationListWindow elw = new Secretary.ExaminationListWindow();

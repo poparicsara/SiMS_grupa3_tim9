@@ -1,12 +1,8 @@
 [
   {
-    "isPayed": false,
-    "evaluation": 0,
-    "durationInMinutes": 0,
-    "date": "2021-06-14T00:00:00",
-    "doctor": null,
-    "secretary": null,
-    "Secretary": null,
+    "IsPayed": false,
+    "Evaluation": 0,
+    "DurationInMinutes": 0,
     "Date": "2021-06-14T00:00:00",
     "Patient": {
       "Allergens": null,
@@ -35,57 +31,14 @@
         }
       }
     },
+    "Doctor": null,
+    "Secretary": null,
     "RoomRecord": {
       "Id": 0,
       "HospitalWard": null,
       "inventory": null,
       "roomPurpose": {
         "Name": "room 10"
-      }
-    }
-  },
-  {
-    "isPayed": false,
-    "evaluation": 0,
-    "durationInMinutes": 0,
-    "date": "2021-10-05T00:00:00",
-    "doctor": null,
-    "secretary": null,
-    "Secretary": null,
-    "Date": "2021-10-05T00:00:00",
-    "Patient": {
-      "Allergens": null,
-      "Debit": 0.0,
-      "examinations": null,
-      "HealthCardNumber": "349109",
-      "Anamneses": null,
-      "Username": "pera123",
-      "Password": "perakralj123",
-      "Name": "Pera",
-      "Surname": "Peric",
-      "DateOfBirth": "1965-01-01T00:00:00",
-      "Phone": "0",
-      "Email": null,
-      "Id": "2311981789023",
-      "UserType": 0,
-      "Address": {
-        "Street": "Svetosavska 46",
-        "NumberOfBuilding": 0,
-        "Floor": 0,
-        "Apartment": 0,
-        "City": {
-          "name": "Novi Sad",
-          "postalCode": null,
-          "Country": null
-        }
-      }
-    },
-    "RoomRecord": {
-      "Id": 0,
-      "HospitalWard": null,
-      "inventory": null,
-      "roomPurpose": {
-        "Name": "room 1"
       }
     }
   }

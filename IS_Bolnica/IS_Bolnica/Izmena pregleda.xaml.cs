@@ -29,14 +29,14 @@ namespace IS_Bolnica
             List<Examination> pregledi = exStorage.loadFromFile("Pregledi.json");
 
             //2.3.2020. 09:15:00 
-            DateTime oznaceniDatum = pregledi.ElementAt(index).date;
+            DateTime oznaceniDatum = pregledi.ElementAt(index).Date;
             string[] pom = oznaceniDatum.ToString().Split(' ');
             string[] datum = pom[0].Split('/');
             string[] vreme = pom[1].Split(':');
 
             InitializeComponent();
 
-            DoktorBox.Text = pregledi.ElementAt(index).doctor.Name + " " + pregledi.ElementAt(index).doctor.Surname;
+            DoktorBox.Text = pregledi.ElementAt(index).Doctor.Name + " " + pregledi.ElementAt(index).Doctor.Surname;
             DateTime dat = new DateTime(Int32.Parse(datum[2]), Int32.Parse(datum[0]), Int32.Parse(datum[1]));
             DateBox.SelectedDate = dat;
             SatiBox.Text = vreme[0];
@@ -67,8 +67,8 @@ namespace IS_Bolnica
             int minuti = Convert.ToInt32(MinutiBox.Text);
             DateTime datumPregledaNovi = new DateTime(godina, mesec, dan, sati, minuti, 0);
 
-            pregledi.ElementAt(oznaceniIndex).date = datumPregledaNovi;
-            pregledi.ElementAt(oznaceniIndex).doctor = d1;
+            pregledi.ElementAt(oznaceniIndex).Date = datumPregledaNovi;
+            pregledi.ElementAt(oznaceniIndex).Doctor = d1;
             exStorage.saveToFile(pregledi, "Pregledi.json");
             PatientWindow pw = new PatientWindow(PatientWindow.username_patient);
             pw.Show();

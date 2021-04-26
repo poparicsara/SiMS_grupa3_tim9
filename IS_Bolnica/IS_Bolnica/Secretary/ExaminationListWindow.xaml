@@ -18,7 +18,7 @@
         <DataGrid x:Name="ExaminationList" ItemsSource="{Binding Path=Pregledi}" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" HorizontalAlignment="Stretch" Margin="10,111,10,142.8" VerticalAlignment="Stretch"  SelectionChanged="DataGrid_SelectionChanged" GridLinesVisibility="Vertical">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="JMBG pacijenta" Binding="{Binding Patient.Id}" Width="120"/>
-                <DataGridTextColumn Header="Doktor" Binding="{Binding doctor.Surname}" Width="120"/>
+                <DataGridTextColumn Header="Doktor" Binding="{Binding Doctor.Surname}" Width="120"/>
                 <DataGridTextColumn Header="Datum i vreme" Binding="{Binding Date}" Width="150"/>
             </DataGrid.Columns>
         </DataGrid>

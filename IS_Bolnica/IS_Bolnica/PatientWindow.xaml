@@ -29,10 +29,10 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Datum i vreme" Binding="{ Binding date }" />
-                <DataGridTextColumn Header="Ime" Binding="{ Binding doctor.Name}" />
-                <DataGridTextColumn Header="Prezime" Binding="{ Binding doctor.Surname}" />
-                <DataGridTextColumn Header="Trajanje(min)" Binding="{ Binding durationInMinutes}" />
+                <DataGridTextColumn Header="Datum i vreme" Binding="{ Binding Date }" />
+                <DataGridTextColumn Header="Ime" Binding="{ Binding Doctor.Name}" />
+                <DataGridTextColumn Header="Prezime" Binding="{ Binding Doctor.Surname}" />
+                <DataGridTextColumn Header="Trajanje(min)" Binding="{ Binding DurationInMinutes}" />
             </DataGrid.Columns>
 
         </DataGrid>
