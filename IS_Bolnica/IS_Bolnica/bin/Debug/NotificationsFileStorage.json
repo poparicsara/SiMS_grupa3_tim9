@@ -2,16 +2,31 @@
   {
     "title": "RENOVACIJE",
     "content": "...",
+    "Sender": 2,
     "notificationType": 2
   },
   {
     "title": "HITNO",
     "content": "Pomeren termin",
+    "Sender": 2,
     "notificationType": 2
   },
   {
     "title": "VAZNO",
     "content": "Obavestavamo Vas da promenite lozinku.",
+    "Sender": 2,
     "notificationType": 2
+  },
+  {
+    "title": "proba",
+    "content": "svasta",
+    "Sender": 2,
+    "notificationType": 0
+  },
+  {
+    "title": "Dodavanje leka u bazu",
+    "content": "101\nnovi\nsvaki\nmi",
+    "Sender": 3,
+    "notificationType": 0
   }
 ]

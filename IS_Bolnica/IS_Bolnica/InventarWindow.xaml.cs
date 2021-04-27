@@ -239,5 +239,19 @@ namespace IS_Bolnica
             //UpravnikWindow uw = new UpravnikWindow(director);
             //uw.Show();
         }
+
+        private void dinamickiKeyUp(object sender, KeyEventArgs e)
+        {
+            var filtered = inventoriesDinamicki.Where(inventory => inventory.Name.ToLower().Contains(searchBox.Text.ToLower()));
+
+            dinamickiData.ItemsSource = filtered;
+        }
+
+        private void statickiKeyUp(object sender, KeyEventArgs e)
+        {
+            var filtered = inventoriesStaticki.Where(inventory => inventory.Name.ToLower().Contains(searchBox.Text.ToLower()));
+
+            dinamickiData.ItemsSource = filtered;
+        }
     }
 }

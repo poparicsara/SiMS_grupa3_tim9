@@ -18,6 +18,7 @@ namespace IS_Bolnica.DoctorsWindows
     public partial class UpdateExaminationWindow : Window
     {
         private int selectedExamination;
+        private int ordination;
         public UpdateExaminationWindow(int selectedIndex)
         {
             InitializeComponent();
@@ -31,6 +32,8 @@ namespace IS_Bolnica.DoctorsWindows
             patientSurnameTxt.Text = examinations.ElementAt(selectedIndex).Patient.Surname;
 
             selectedExamination = selectedIndex;
+
+            ordination = (int)Int64.Parse(roomTxt.Text);
         }
 
         private void saveButtonClicked(object sender, RoutedEventArgs e)
@@ -54,7 +57,7 @@ namespace IS_Bolnica.DoctorsWindows
 
             examinationsRecordFileStorage.saveToFile(examinations, "examinations.json");
 
-            DoctorWindow doctorWindow = new DoctorWindow();
+            DoctorWindow doctorWindow = new DoctorWindow(ordination);
             doctorWindow.dataGridExaminations.Items.Refresh();
             doctorWindow.Show();
             this.Close();
@@ -68,7 +71,7 @@ namespace IS_Bolnica.DoctorsWindows
             switch (messageBox)
             {
                 case MessageBoxResult.Yes:
-                    DoctorWindow doctorWindow = new DoctorWindow();
+                    DoctorWindow doctorWindow = new DoctorWindow(ordination);
                     doctorWindow.Show();
                     this.Close();
                     break;

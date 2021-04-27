@@ -18,9 +18,7 @@ using System.Windows.Shapes;
 
 namespace IS_Bolnica
 {
-    /// <summary>
-    /// Interaction logic for PatientNotificationWindow.xaml
-    /// </summary>
+
     public partial class PatientNotificationWindow : Window, INotifyPropertyChanged
     {
 
@@ -33,7 +31,17 @@ namespace IS_Bolnica
             this.DataContext = this;
 
             Notifications = new ObservableCollection<Notification>();
-            Notifications = storage.LoadFromFile("NotificationsFileStorage.json");
+
+            ObservableCollection<Notification> temp = storage.LoadFromFile("NotificationsFileStorage.json");
+
+            foreach (Notification notification in temp)
+            {
+                if (notification.notificationType == NotificationType.patient || notification.notificationType == NotificationType.all)
+                {
+                    Notifications.Add(notification);
+                }
+            }
+
             NotificationList.ItemsSource = Notifications;
         }
 

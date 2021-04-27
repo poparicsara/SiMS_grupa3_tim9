@@ -50,6 +50,8 @@ namespace IS_Bolnica.Secretary
                 notification.notificationType = NotificationType.all;
             }
 
+            notification.Sender = UserType.patient;
+
             notifications = storage.LoadFromFile("NotificationsFileStorage.json");
             notifications.Add(notification);
             storage.SaveToFile(notifications, "NotificationsFileStorage.json");

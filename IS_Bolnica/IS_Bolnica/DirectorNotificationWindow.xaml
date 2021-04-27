@@ -7,10 +7,12 @@
         mc:Ignorable="d"
         Title="DirectorNotificationWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
-        <DataGrid x:Name="NotificationList" ItemsSource="{Binding Path=Notifications}" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" HorizontalAlignment="Stretch" Margin="10,37,9.6,10" VerticalAlignment="Stretch"  SelectionChanged="DataGrid_SelectionChanged" GridLinesVisibility="Vertical" >
+        <DataGrid x:Name="NotificationList" ItemsSource="{Binding Path=Notifications}" AutoGenerateColumns="False" SelectionMode="Single" 
+                  IsReadOnly="True" HorizontalAlignment="Stretch" Margin="10,37,9.6,10" VerticalAlignment="Stretch"  SelectionChanged="DataGrid_SelectionChanged" 
+                  GridLinesVisibility="Vertical">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Naslov" Binding="{Binding title}" Width="400"/>
-                <DataGridTextColumn Header="Sadržaj" Binding="{Binding content}" Width="550"/>
+                <DataGridTextColumn Header="NASLOV" Binding="{Binding title}" Width="400"/>
+                <DataGridTextColumn Header="POŠILJALAC" Binding="{Binding Sender}" Width="550"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

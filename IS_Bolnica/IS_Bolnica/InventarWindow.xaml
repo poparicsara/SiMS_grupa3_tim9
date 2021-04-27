@@ -35,6 +35,7 @@
                         </DataGrid.Columns>
                     </DataGrid>
 
+                    <TextBox Name="searchBox" Canvas.Left="535" Canvas.Top="26" Width="97" Height="24" KeyUp="dinamickiKeyUp"/>
                     <Button Content="IZMENI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" Canvas.Left="525" Canvas.Top="361" Click="EditButton" FontSize="11"/>
                     <Button Content="OBRIŠI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="525" Canvas.Top="332" Click="DeleteButton" FontSize="11"/>
                     <Button Name="addDinamicki" Content="DODAJ" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="525" Canvas.Top="303" FontSize="11" Click="AddButton"/>
@@ -42,7 +43,7 @@
 
             </TabItem>
             <TabItem Header="Statički" Height="32" Width="109" Background="#FFA5BC90" Margin="1,0,-1.2,0">
-                
+
                 <Canvas RenderTransformOrigin="0.069,0.186" Margin="0,0,0.4,-0.6" >
                     <DataGrid x:Name ="statickiData" HorizontalAlignment="Center" Height="396" Width="520" FontSize="13"
                   ColumnWidth="300" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserAddRows="False" AutoGenerateColumns="False"
@@ -68,12 +69,13 @@
                         </DataGrid.Columns>
                     </DataGrid>
 
+                    <TextBox Name="statickiSearchBox" Canvas.Left="535" Canvas.Top="26" Width="97" Height="24" KeyDown="statickiKeyUp"/>
                     <Button Content="IZMENI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" Canvas.Left="525" Canvas.Top="361" FontSize="11" Click="EditButtonStaticki"/>
                     <Button Content="OBRIŠI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="525" Canvas.Top="332" FontSize="11" Click="DeleteButtonStaticki"/>
                     <Button Content="DODAJ" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="525" Canvas.Top="303" FontSize="11" Click="AddButtonStaticki"/>
                 </Canvas>
-                
-                
+
+
             </TabItem>
 
         </TabControl>

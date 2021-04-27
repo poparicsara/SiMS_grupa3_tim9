@@ -1,0 +1,58 @@
+[
+  {
+    "Id": 101,
+    "Name": "Aspirin",
+    "Ingredients": null,
+    "Replacement": {
+      "Id": 102,
+      "Name": "AspirinPlusC",
+      "Ingredients": null,
+      "Replacement": null,
+      "Producer": "Bayer"
+    },
+    "Producer": "Bayer",
+    "Status":  0
+  },
+  {
+    "Id": 202,
+    "Name": "Brufen",
+    "Ingredients": null,
+    "Replacement": {
+      "Id": 102,
+      "Name": "AspirinPlusC",
+      "Ingredients": null,
+      "Replacement": null,
+      "Producer": "Bayer"
+    },
+    "Producer": "Bayer",
+    "Status": 0
+  },
+  {
+    "Id": 303,
+    "Name": "Persen",
+    "Ingredients": null,
+    "Replacement": {
+      "Id": 102,
+      "Name": "AspirinPlusC",
+      "Ingredients": null,
+      "Replacement": null,
+      "Producer": "Bayer"
+    },
+    "Producer": "Bayer",
+    "Status": 0
+  },
+  {
+    "Id": 404,
+    "Name": "Xanax",
+    "Ingredients": null,
+    "Replacement": {
+      "Id": 102,
+      "Name": "AspirinPlusC",
+      "Ingredients": null,
+      "Replacement": null,
+      "Producer": "Bayer"
+    },
+    "Producer": "Bayer",
+    "Status": 0
+  }
+]

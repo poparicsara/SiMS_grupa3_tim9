@@ -62,6 +62,9 @@
       <DependentUpon>AddExaminationWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="AddInventoryWindow.xaml.cs" />
+    <Compile Include="AddMedicamentWindow.xaml.cs">
+      <DependentUpon>AddMedicamentWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddOperationWindow.xaml.cs">
       <DependentUpon>AddOperationWindow.xaml</DependentUpon>
     </Compile>
@@ -90,6 +93,11 @@
     <Compile Include="ExaminationInfo.xaml.cs">
       <DependentUpon>ExaminationInfo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Ingredient.cs" />
+    <Compile Include="IngredientFileStorage.cs" />
+    <Compile Include="IngredientWindow.xaml.cs">
+      <DependentUpon>IngredientWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="InventarWindow.xaml.cs">
       <DependentUpon>InventarWindow.xaml</DependentUpon>
     </Compile>
@@ -100,12 +108,19 @@
     <Compile Include="Izmena pregleda.xaml.cs">
       <DependentUpon>Izmena pregleda.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MedicamentWindow.xaml.cs">
+      <DependentUpon>MedicamentWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\Anamnesis.cs" />
     <Compile Include="Model\AnamnesisFileStorage.cs" />
+    <Compile Include="Model\DoctorFileStorage.cs" />
     <Compile Include="Model\GuestUsersFileStorage.cs" />
     <Compile Include="Model\HospitalWard.cs" />
     <Compile Include="Model\HospitalWardFileStorage.cs" />
     <Compile Include="Model\InventoryType.cs" />
+    <Compile Include="Model\Medicament.cs" />
+    <Compile Include="Model\MedicamentFileStorage.cs" />
+    <Compile Include="Model\MedicamentStatus.cs" />
     <Compile Include="Model\Notification.cs" />
     <Compile Include="Model\NotificationsFileStorage.cs" />
     <Compile Include="Model\NotificationType.cs" />
@@ -202,6 +217,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="AddMedicamentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AddOperationWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -242,6 +261,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="IngredientWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="InventarWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -266,6 +289,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MedicamentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="NewInventory.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

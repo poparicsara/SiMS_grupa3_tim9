@@ -136,6 +136,13 @@ namespace IS_Bolnica
             DirectorNotificationWindow dnw = new DirectorNotificationWindow();
             dnw.Show();
         }
+
+        private void MedicamentButton(object sender, RoutedEventArgs e)
+        {
+            MedicamentWindow mw = new MedicamentWindow();
+            mw.Show();
+            this.Close();
+        }
     }
 
 }

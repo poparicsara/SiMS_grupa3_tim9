@@ -1,0 +1,32 @@
+﻿<Window x:Class="IS_Bolnica.AddMedicamentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IS_Bolnica"
+        mc:Ignorable="d"
+        Title="AddMedicamentWindow" Height="450" Width="800">
+    <Grid Margin="0,0,-0.4,0">
+        <TextBox x:Name="idBox" HorizontalAlignment="Left" Height="23" Margin="313,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Šifra:" HorizontalAlignment="Left" Margin="177,99,0,0" VerticalAlignment="Top"/>
+        <Label Content="Naziv:" HorizontalAlignment="Left" Margin="171,154,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Height="23" Margin="313,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Zamenski lek:" HorizontalAlignment="Left" Margin="171,210,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="replacementBox" HorizontalAlignment="Left" Height="23" Margin="313,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Proizvođač:" HorizontalAlignment="Left" Margin="171,250,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="producerBox" HorizontalAlignment="Left" Height="23" Margin="313,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="toBox" HorizontalAlignment="Left" Margin="313,303,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem>
+                DOKTOR
+            </ComboBoxItem>
+        </ComboBox>
+        <Button Content="ODUSTANI" HorizontalAlignment="Left" Margin="542,355,0,0" VerticalAlignment="Top" 
+                Width="81" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" 
+                BorderBrush="#FF425431"/>
+        <Button Content="POŠALJI ZAHTEV" HorizontalAlignment="Left" Margin="656,355,0,0" VerticalAlignment="Top"
+                Width="114" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" 
+                BorderBrush="#FF425431" Click="DoneButton"/>
+        <Label Content="Primalac:" HorizontalAlignment="Left" Margin="171,300,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

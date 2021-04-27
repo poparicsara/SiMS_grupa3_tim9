@@ -1,4 +1,5 @@
 ﻿using IS_Bolnica.DoctorsWindows;
+using IS_Bolnica.Model;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,9 @@ namespace IS_Bolnica
 {
     public partial class DoctorWindow : Window
     {
-        public DoctorWindow()
+        private int ordination = 0;
+
+        public DoctorWindow(int loggedUserOrdination)
         {
             InitializeComponent();
             this.DataContext = this;
@@ -35,11 +38,14 @@ namespace IS_Bolnica
             List<Operation> operations = operationsFileStorage.loadFromFile("operations.json");
 
             dataGridOperations.ItemsSource = operations;
+
+            ordination = loggedUserOrdination;
+
         }
 
         private void addExaminationButton(object sender, RoutedEventArgs e)
         {
-            AddExaminationWindow addExaminationWindow = new AddExaminationWindow();
+            AddExaminationWindow addExaminationWindow = new AddExaminationWindow(ordination);
             addExaminationWindow.Show();
             this.Close();
 
@@ -47,7 +53,7 @@ namespace IS_Bolnica
 
         private void addOperationButton(object sender, RoutedEventArgs e)
         {
-            AddOperationWindow addOperationWindow = new AddOperationWindow();
+            AddOperationWindow addOperationWindow = new AddOperationWindow(ordination);
             addOperationWindow.Show();
             this.Close();
         }
@@ -59,7 +65,7 @@ namespace IS_Bolnica
             examinations.RemoveAt(dataGridExaminations.SelectedIndex);
             examinationsRecordFileStorage.saveToFile(examinations, "examinations.json");
 
-            DoctorWindow doctorWindow = new DoctorWindow();
+            DoctorWindow doctorWindow = new DoctorWindow(ordination);
             doctorWindow.Show();
             this.Close();
         }
@@ -71,7 +77,7 @@ namespace IS_Bolnica
             operations.RemoveAt(dataGridOperations.SelectedIndex);
             operationsFileStorage.saveToFile(operations, "operations.json");
 
-            DoctorWindow doctorWindow = new DoctorWindow();
+            DoctorWindow doctorWindow = new DoctorWindow(ordination);
             doctorWindow.Show();
             this.Close();
         }

@@ -11,6 +11,7 @@ namespace Model
     {
         public string title { get; set; }
         public string content { get; set; }
+        public UserType Sender { get; set; }
         public NotificationType notificationType { get; set; }
 
     }

@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Collections.ObjectModel;
 using IS_Bolnica.Model;
+using System.Collections.Generic;
 
 namespace IS_Bolnica
 {
@@ -26,7 +27,7 @@ namespace IS_Bolnica
 
         private void doctorButtonClicked(object sender, RoutedEventArgs e)
         {
-            DoctorWindow doctorWindow = new DoctorWindow();
+            DoctorWindow doctorWindow = new DoctorWindow(102);
             doctorWindow.Show();
         }
 
@@ -61,7 +62,19 @@ namespace IS_Bolnica
                             pw.Show();
                             break;
                         case UserType.doctor:
-                            DoctorWindow doctorWindow = new DoctorWindow();
+                            int ordination = 0;
+                            DoctorFileStorage dStorage = new DoctorFileStorage();
+                            List<Doctor> doctors = dStorage.loadFromFile("Doctors.json");
+
+                            foreach(Doctor doctor in doctors)
+                            {
+                                if (doctor.Username.Equals(user.Username))
+                                {
+                                    ordination = doctor.Ordination;
+                                }
+                            }
+
+                            DoctorWindow doctorWindow = new DoctorWindow(ordination);
                             doctorWindow.Show();
                             break;
                         case UserType.director:

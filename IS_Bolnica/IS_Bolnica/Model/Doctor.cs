@@ -4,5 +4,7 @@ namespace Model
     {
         public Specialization specialization;
 
+        public int Ordination { get; set; }
+
     }
 }
