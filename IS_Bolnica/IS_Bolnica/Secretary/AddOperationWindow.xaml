@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Bolnica.Secretary"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="Zakaži operaciju" Height="750" Width="430" WindowStartupLocation="CenterScreen">
     <Grid RenderTransformOrigin="0.422,0.537">
@@ -41,7 +42,7 @@
         </ComboBox>
         <Button Content="Potvrdi" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="40,630,0,0" VerticalAlignment="Top" Width="342" Click="addOperation" Height="35" />
         <Button Content="Odustani" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="40,580,0,0" VerticalAlignment="Top" Width="342" Click="cancelAddingOperation" Height="35" />
-        <DatePicker x:Name="dateBox" HorizontalAlignment="Left" Margin="204,255,0,0" VerticalAlignment="Top" Width="178"/>
+        <DatePicker x:Name="dateBox" DisplayDateStart="{x:Static sys:DateTime.Today}" HorizontalAlignment="Left" Margin="204,255,0,0" VerticalAlignment="Top" Width="178"/>
         <Label Content="JMBG pacijenta:" HorizontalAlignment="Left" Margin="40,355,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="patientId" HorizontalAlignment="Left" Height="23" Margin="204,355,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
         <ComboBox x:Name="doctorBox" HorizontalAlignment="Left" Margin="204,305,0,0" VerticalAlignment="Top" Width="178">
