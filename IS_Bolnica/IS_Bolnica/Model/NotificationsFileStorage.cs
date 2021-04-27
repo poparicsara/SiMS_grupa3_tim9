@@ -12,25 +12,25 @@ namespace IS_Bolnica.Model
 {
     public class NotificationsFileStorage
     {
-        public ObservableCollection<Notification> GetAll()
+        public List<Notification> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public void SaveToFile(ObservableCollection<Notification> notifications, string fileName)
+        public void SaveToFile(List<Notification> notifications, string fileName)
         {
             string jsonString = JsonConvert.SerializeObject(notifications, Formatting.Indented);
             File.WriteAllText(fileName, jsonString);
         }
 
-        public ObservableCollection<Notification> LoadFromFile(string fileName)
+        public List<Notification> LoadFromFile(string fileName)
         {
-            var notifications = new ObservableCollection<Notification>();
+            var notifications = new List<Notification>();
 
             using (StreamReader file = File.OpenText(fileName))
             {
                 var serializer = new JsonSerializer();
-                notifications = (ObservableCollection<Notification>)serializer.Deserialize(file, typeof(ObservableCollection<Notification>));
+                notifications = (List<Notification>)serializer.Deserialize(file, typeof(List<Notification>));
             }
 
             return notifications;

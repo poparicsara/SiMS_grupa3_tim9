@@ -20,13 +20,12 @@ namespace IS_Bolnica.Secretary
 {
     public partial class PatientListWindow : Window, INotifyPropertyChanged
     {
+        private List<User> korisnici = new List<User>();
+        private UsersFileStorage storage1 = new UsersFileStorage();
+        private List<Patient> Pacijenti { get; set; } = new List<Patient>();
         private PatientRecordFileStorage storage = new PatientRecordFileStorage();
-        private Patient pacijent;
+        private Patient pacijent = new Patient();
         private UsersFileStorage usersStorage = new UsersFileStorage();
-        public ObservableCollection<Patient> Pacijenti
-        {
-            get; set;
-        }
         private ExaminationsRecordFileStorage examinationStorage = new ExaminationsRecordFileStorage();
         private List<Examination> examinations = new List<Examination>();
         private OperationsFileStorage operationsStorage = new OperationsFileStorage();
@@ -38,7 +37,6 @@ namespace IS_Bolnica.Secretary
             InitializeComponent();
             this.DataContext = this;
 
-            Pacijenti = new ObservableCollection<Patient>();
             Pacijenti = storage.loadFromFile("PatientRecordFileStorage.json");
             PatientList.ItemsSource = Pacijenti;
         }
@@ -67,14 +65,10 @@ namespace IS_Bolnica.Secretary
             }
             else
             {
-                ObservableCollection<User> korisnici = new ObservableCollection<User>();
-                UsersFileStorage storage1 = new UsersFileStorage();
+                
+
                 korisnici = storage1.loadFromFile("UsersFileStorage.json");
-
-                ObservableCollection<Patient> pacijenti = new ObservableCollection<Patient>();
-                PatientRecordFileStorage storage = new PatientRecordFileStorage();
-
-                pacijenti = storage.loadFromFile("PatientRecordFileStorage.json");
+                Pacijenti = storage.loadFromFile("PatientRecordFileStorage.json");
 
 
                 Secretary.EditPatient ep = new Secretary.EditPatient(patient);
@@ -114,11 +108,9 @@ namespace IS_Bolnica.Secretary
         {
             int i = -1;
             i = PatientList.SelectedIndex;
-            ObservableCollection<User> users = new ObservableCollection<User>();
+            List<User> users = new List<User>();
 
             Patient patient = (Patient)PatientList.SelectedItem;
-
-
 
             if (i == -1)
             {

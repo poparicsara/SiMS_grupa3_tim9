@@ -9,12 +9,12 @@ namespace Model
     public class PatientRecordFileStorage
     {
 
-        public ObservableCollection<Patient> GetAll()
+        public List<Patient> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public void saveToFile(ObservableCollection<Patient> patients, string fileName)
+        public void saveToFile(List<Patient> patients, string fileName)
         {
             string jsonString = JsonConvert.SerializeObject(patients, Formatting.Indented);
             File.WriteAllText(fileName, jsonString);
@@ -26,14 +26,14 @@ namespace Model
             File.WriteAllText(fileName, jsonString);
         }
 
-        public ObservableCollection<Patient> loadFromFile(string fileName)
+        public List<Patient> loadFromFile(string fileName)
         {
-            var patientsList = new ObservableCollection<Patient>();
+            var patientsList = new List<Patient>();
 
             using (StreamReader file = File.OpenText(fileName))
             {
                 var serializer = new JsonSerializer();
-                patientsList = (ObservableCollection<Patient>)serializer.Deserialize(file, typeof(ObservableCollection<Patient>));
+                patientsList = (List<Patient>)serializer.Deserialize(file, typeof(List<Patient>));
             }
 
             return patientsList;

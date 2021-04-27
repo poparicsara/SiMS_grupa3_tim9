@@ -59,6 +59,12 @@ namespace Model
             set;
         }
 
+        public DateTime endTime
+        {
+            get;
+            set;
+        }
+
         public Patient Patient
         {
             get;

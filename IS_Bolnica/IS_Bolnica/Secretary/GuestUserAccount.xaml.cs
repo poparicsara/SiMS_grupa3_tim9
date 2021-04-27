@@ -32,7 +32,7 @@ namespace IS_Bolnica.Secretary
             guest.SystemName = systemName.Text;
             guest.InjuryDescription = injury.Text;
 
-            ObservableCollection<GuestUser> lista = storage.loadFromFile("GuestUsersFile.json");
+            List<GuestUser> lista = storage.loadFromFile("GuestUsersFile.json");
             lista.Add(guest);
             storage.saveToFile(lista, "GuestUsersFile.json");
 

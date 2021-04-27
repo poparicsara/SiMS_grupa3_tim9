@@ -10,7 +10,7 @@ namespace IS_Bolnica
     {
 
         private UsersFileStorage storage = new UsersFileStorage();
-        private ObservableCollection<User> users = new ObservableCollection<User>();
+        private List<User> users = new List<User>();
         private User user = new User();
         public MainWindow()
         {

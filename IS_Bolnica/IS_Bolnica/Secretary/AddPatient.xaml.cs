@@ -79,7 +79,7 @@ namespace IS_Bolnica.Secretary
             patient.Address.City.Country = new Country();
             patient.Address.City.Country.name = county.Text;
 
-            ObservableCollection<Patient> pacijenti = new ObservableCollection<Patient>();
+            List<Patient> pacijenti = new List<Patient>();
             pacijenti = storage.loadFromFile("PatientRecordFileStorage.json");
             pacijenti.Add(patient);
             storage.saveToFile(pacijenti, "PatientRecordFileStorage.json");
@@ -96,7 +96,7 @@ namespace IS_Bolnica.Secretary
             user.UserType = UserType.patient;
             user.Address = patient.Address;
 
-            ObservableCollection<User> korisnici = new ObservableCollection<User>();
+            List<User> korisnici = new List<User>();
             korisnici = storage1.loadFromFile("UsersFileStorage.json");
             korisnici.Add(user);
             storage1.saveToFile(korisnici, "UsersFileStorage.json");

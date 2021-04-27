@@ -24,7 +24,7 @@ namespace IS_Bolnica.Secretary
     {
         private Notification notification1 = new Notification();
         private NotificationsFileStorage storage = new NotificationsFileStorage();
-        public ObservableCollection<Notification> Notifications { get; set; } = new ObservableCollection<Notification>();
+        public List<Notification> Notifications { get; set; } = new List<Notification>();
 
         public EditNotificationWindow(Notification notification)
         {

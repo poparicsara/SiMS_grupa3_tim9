@@ -23,7 +23,7 @@ namespace IS_Bolnica.Secretary
         {
             get;
             set;
-        }
+        } = new List<RoomRecord>();
         public List<int> RoomNums { get; set; } = new List<int>();
         private RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
         private ExaminationsRecordFileStorage examinationStorage = new ExaminationsRecordFileStorage();
@@ -31,7 +31,7 @@ namespace IS_Bolnica.Secretary
         private Examination examination = new Examination();
         private Patient patient = new Patient();
         private PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
-        public ObservableCollection<Patient> Patients { get; set; } = new ObservableCollection<Patient>();
+        public List<Patient> Patients { get; set; } = new List<Patient>();
 
         public AddExaminationWindow()
         {
@@ -59,11 +59,11 @@ namespace IS_Bolnica.Secretary
             this.Close();
         }
 
-        private bool idExists(ObservableCollection<Patient> patients, string id )
+        private bool idExists(List<Patient> patients, string id )
         {
-            for (int i = 0; i < Patients.Count; i++)
+            for (int i = 0; i < patients.Count; i++)
             {
-                if (Patients[i].Id.Equals(id))
+                if (patients[i].Id.Equals(id))
                 {
                     return true;
                 }
@@ -81,6 +81,7 @@ namespace IS_Bolnica.Secretary
             {
                 if(exam.Patient.Id == patient.Id && exam.Date==dateAndTime)
                 {
+                    MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
                     return false;
                 }
             }
@@ -92,8 +93,9 @@ namespace IS_Bolnica.Secretary
         {
             foreach (Examination exam in exams)
             {
-                if(exam.RoomRecord.Id == room.Id && exam.Date==dateAndTime)
+                if (exam.RoomRecord.Id == room.Id && exam.Date==dateAndTime)
                 {
+                    MessageBox.Show("Soba " + room.Id + "je zauzeta u izabranom terminu");
                     return false;
                 }
             }
@@ -104,8 +106,10 @@ namespace IS_Bolnica.Secretary
         {
             foreach (Examination exam in exams)
             {
+                MessageBox.Show(exam.RoomRecord.Id.ToString());
                 if (exam.Doctor.Name == doc.Name && exam.Doctor.Surname == doc.Surname && exam.Date == dateAndTime)
                 {
+                    MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
                     return false;
                 }
             }
@@ -114,13 +118,13 @@ namespace IS_Bolnica.Secretary
 
         private bool isAvailable(List<Examination> exams , Patient patient, RoomRecord room, Doctor doctor, DateTime dateAndTime)
         {
-            if(isPatientFree(exams, patient, dateAndTime) && isRoomFree(exams, room, dateAndTime) && isDoctorFree(exams, doctor, dateAndTime))
+            if (isPatientFree(exams, patient, dateAndTime) && isRoomFree(exams, room, dateAndTime) && isDoctorFree(exams, doctor, dateAndTime))
             {
                 return true;
             } 
             else
             {
-                MessageBox.Show("Ovaj pregled je vec zauzet!");
+                //MessageBox.Show("Ovaj pregled je vec zauzet!");
 
                 return false;
             }
@@ -171,30 +175,6 @@ namespace IS_Bolnica.Secretary
                 {
                     return;
                 }
-
-                /*if(isPatientFree(Examinations, examination.Patient, examination.Date))
-                {
-                    if(isRoomFree(Examinations, examination.RoomRecord, examination.Date))
-                    {
-                        if(isDoctorFree(Examinations, examination.Doctor, examination.Date))
-                        {
-                            Examinations.Add(examination);
-                            examinationStorage.saveToFile(Examinations, "Pregledi.json");
-                        } else
-                        {
-                            return;
-                        }
-                    } else
-                    {
-                        return;
-                    }
-                } else
-                {
-                    return;
-                }*/
-
-
-
             } else
             {
                 return;
