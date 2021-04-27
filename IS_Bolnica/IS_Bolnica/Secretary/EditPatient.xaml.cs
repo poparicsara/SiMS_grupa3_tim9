@@ -24,6 +24,10 @@ namespace IS_Bolnica.Secretary
     public partial class EditPatient : Window
     {
         private Patient patient;
+        List<Patient> pacijenti = new List<Patient>();
+        PatientRecordFileStorage storage = new PatientRecordFileStorage();
+        List<User> korisnici = new List<User>();
+        UsersFileStorage storage1 = new UsersFileStorage();
         public EditPatient(Patient patient)
         {
             InitializeComponent();
@@ -39,11 +43,6 @@ namespace IS_Bolnica.Secretary
 
         private void editPatient(object sender, RoutedEventArgs e)
         {
-            ObservableCollection<Patient> pacijenti = new ObservableCollection<Patient>();
-            PatientRecordFileStorage storage = new PatientRecordFileStorage();
-            ObservableCollection<User> korisnici = new ObservableCollection<User>();
-            UsersFileStorage storage1 = new UsersFileStorage();
-
             pacijenti = storage.loadFromFile("PatientRecordFileStorage.json");
             for (int i = 0; i < pacijenti.Count; i++)
             {

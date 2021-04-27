@@ -67,11 +67,13 @@ namespace IS_Bolnica.Secretary
                 Operations = operationsFileStorage.loadFromFile("operations.json");
 
                 eow.patientId.Text = operation.Patient.Id;
-                eow.hour.Text = operation.Date.Hour.ToString();
-                eow.minutes.Text = operation.Date.Minute.ToString();
+                eow.hourBoxStart.Text = operation.Date.Hour.ToString();
+                eow.minutesBoxStart.Text = operation.Date.Minute.ToString();
                 eow.doctorBox.Text = operation.doctor.Name + " " + operation.doctor.Surname;
                 eow.date.SelectedDate = new DateTime(operation.Date.Year, operation.Date.Month, operation.Date.Day);
                 eow.room.Text = operation.RoomRecord.Id.ToString();
+                eow.hourBoxEnd.Text = (operation.endTime.Hour - operation.Date.Hour).ToString();
+                eow.minuteBoxEnd.Text = (Math.Abs(operation.endTime.Minute - operation.Date.Minute)).ToString();
 
                 eow.Show();
                 this.Close();

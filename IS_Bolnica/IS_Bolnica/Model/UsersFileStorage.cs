@@ -12,25 +12,25 @@ namespace IS_Bolnica.Model
 {
     class UsersFileStorage
     {
-        public ObservableCollection<User> GetAll()
+        public List<User> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public void saveToFile(ObservableCollection<User> users, string fileName)
+        public void saveToFile(List<User> users, string fileName)
         {
             string jsonString = JsonConvert.SerializeObject(users, Formatting.Indented);
             File.WriteAllText(fileName, jsonString);
         }
 
-        public ObservableCollection<User> loadFromFile(string fileName)
+        public List<User> loadFromFile(string fileName)
         {
-            var usersList = new ObservableCollection<User>();
+            var usersList = new List<User>();
 
             using (StreamReader file = File.OpenText(fileName))
             {
                 var serializer = new JsonSerializer();
-                usersList = (ObservableCollection<User>)serializer.Deserialize(file, typeof(ObservableCollection<User>));
+                usersList = (List<User>)serializer.Deserialize(file, typeof(List<User>));
             }
 
             return usersList;

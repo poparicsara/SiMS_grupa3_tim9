@@ -43,7 +43,7 @@
             <ComboBoxItem>18</ComboBoxItem>
         </ComboBox>
         <ComboBox x:Name="minutesBox" HorizontalAlignment="Left" Margin="317,350,0,0" VerticalAlignment="Top" Width="65">
-            <ComboBoxItem>00</ComboBoxItem>
+            <ComboBoxItem>0</ComboBoxItem>
             <ComboBoxItem>30</ComboBoxItem>
         </ComboBox>
         <Button Content="Potvrdi" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="40,630,0,0" VerticalAlignment="Top" Width="342" Click="editExamination" Height="35" />

@@ -19,7 +19,7 @@
         <Label Content="Vreme:" HorizontalAlignment="Left" Margin="40,205,0,0" VerticalAlignment="Top"/>
         <Label Content="Datum:" HorizontalAlignment="Left" Margin="40,255,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.661,2.062"/>
         <ComboBox x:Name="room" ItemsSource="{Binding RoomNums}" HorizontalAlignment="Left" Margin="204,155,0,0" VerticalAlignment="Top" Width="178"/>
-        <ComboBox x:Name="hour" HorizontalAlignment="Left" Margin="204,205,0,0" VerticalAlignment="Top" Width="65">
+        <ComboBox x:Name="hourBoxStart" HorizontalAlignment="Left" Margin="204,205,0,0" VerticalAlignment="Top" Width="65">
             <ComboBoxItem>7</ComboBoxItem>
             <ComboBoxItem>8</ComboBoxItem>
             <ComboBoxItem>9</ComboBoxItem>
@@ -33,9 +33,9 @@
             <ComboBoxItem>17</ComboBoxItem>
             <ComboBoxItem>18</ComboBoxItem>
         </ComboBox>
-        <ComboBox x:Name="minutes" HorizontalAlignment="Left" Margin="317,205,0,0" VerticalAlignment="Top" Width="65">
+        <ComboBox x:Name="minutesBoxStart" HorizontalAlignment="Left" Margin="317,205,0,0" VerticalAlignment="Top" Width="65">
             <ComboBoxItem>
-                00
+                0
             </ComboBoxItem>
             <ComboBoxItem>
                 30
@@ -51,6 +51,41 @@
             <ComboBoxItem Content="Mika Mikić"/>
             <ComboBoxItem Content="Žika Žikić"/>
             <ComboBoxItem Content="Pera Perić"/>
+        </ComboBox>
+        <Label Content="Trajanje:" HorizontalAlignment="Left" Margin="40,405,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="hourBoxEnd" HorizontalAlignment="Left" Margin="204,405,0,0" VerticalAlignment="Top" Width="65">
+            <ComboBoxItem>
+                0
+            </ComboBoxItem>
+            <ComboBoxItem>
+                1
+            </ComboBoxItem>
+            <ComboBoxItem>
+                2
+            </ComboBoxItem>
+            <ComboBoxItem>
+                3
+            </ComboBoxItem>
+            <ComboBoxItem>
+                4
+            </ComboBoxItem>
+            <ComboBoxItem>
+                5
+            </ComboBoxItem>
+            <ComboBoxItem>
+                6
+            </ComboBoxItem>
+            <ComboBoxItem>
+                7
+            </ComboBoxItem>
+        </ComboBox>
+        <ComboBox x:Name="minuteBoxEnd" HorizontalAlignment="Left" Margin="317,405,0,0" VerticalAlignment="Top" Width="65">
+            <ComboBoxItem>
+                0
+            </ComboBoxItem>
+            <ComboBoxItem>
+                30
+            </ComboBoxItem>
         </ComboBox>
 
     </Grid>

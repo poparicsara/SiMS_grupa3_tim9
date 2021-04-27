@@ -21,7 +21,7 @@ namespace IS_Bolnica.Secretary
     public partial class NotificationListWindow : Window, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public ObservableCollection<Notification> Notifications { get; set; }
+        public List<Notification> Notifications { get; set; }
         private NotificationsFileStorage storage = new NotificationsFileStorage();
 
         public NotificationListWindow()
@@ -29,7 +29,7 @@ namespace IS_Bolnica.Secretary
             InitializeComponent();
             this.DataContext = this;
 
-            Notifications = new ObservableCollection<Notification>();
+            Notifications = new List<Notification>();
             //Notification not = new Notification { content = "Nestoo", title = "Vazno", notificationType = NotificationType.all };
             //Notifications.Add(not);
             Notifications = storage.LoadFromFile("NotificationsFileStorage.json");

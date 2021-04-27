@@ -11,20 +11,20 @@ namespace Model
 {
     public class GuestUsersFileStorage
     {
-        public void saveToFile(ObservableCollection<GuestUser> guestUsers, string fileName)
+        public void saveToFile(List<GuestUser> guestUsers, string fileName)
         {
             string jsonString = JsonConvert.SerializeObject(guestUsers, Formatting.Indented);
             File.WriteAllText(fileName, jsonString);
         }
 
-        public ObservableCollection<GuestUser> loadFromFile(string fileName) 
+        public List<GuestUser> loadFromFile(string fileName) 
         {
-            var guestUsersList = new ObservableCollection<GuestUser>();
+            var guestUsersList = new List<GuestUser>();
 
             using (StreamReader file = File.OpenText(fileName))
             {
                 var serializer = new JsonSerializer();
-                guestUsersList = (ObservableCollection<GuestUser>)serializer.Deserialize(file, typeof(ObservableCollection<GuestUser>));
+                guestUsersList = (List<GuestUser>)serializer.Deserialize(file, typeof(List<GuestUser>));
             }
 
             return guestUsersList;

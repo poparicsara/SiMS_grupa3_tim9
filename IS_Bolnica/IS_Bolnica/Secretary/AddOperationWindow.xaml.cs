@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace IS_Bolnica.Secretary
 {
-    /// <summary>
-    /// Interaction logic for AddOperationWindow.xaml
-    /// </summary>
     public partial class AddOperationWindow : Window
     {
         public List<RoomRecord> Rooms
@@ -31,7 +28,7 @@ namespace IS_Bolnica.Secretary
         private Operation operation = new Operation();
         private List<Operation> Operations = new List<Operation>();
         private OperationsFileStorage operationStorage = new OperationsFileStorage();
-        private ObservableCollection<Patient> Patients = new ObservableCollection<Patient>();
+        private List<Patient> Patients = new List<Patient>();
         private PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
 
 
@@ -56,61 +53,188 @@ namespace IS_Bolnica.Secretary
             this.Close();
         }
 
+        private bool idExists(List<Patient> patients, string id)
+        {
+            for (int i = 0; i < patients.Count; i++)
+            {
+                if (patients[i].Id.Equals(id))
+                {
+                    return true;
+                }
+
+            }
+
+            MessageBox.Show("Pacijent sa ovim JMBG-om ne postoji!");
+            return false;
+
+        }
+
+        private bool isPatientFree(List<Operation> operations, Patient patient, DateTime dateAndTimeStart, DateTime dateAndTimeEnd)
+        {
+            foreach (Operation operation in operations)
+            {
+                if (operation.Patient.Id == patient.Id)
+                {
+                    if (operation.Date <= dateAndTimeStart && dateAndTimeStart <= operation.endTime)
+                    {
+                        if (operation.Date <= dateAndTimeEnd && dateAndTimeEnd <= operation.endTime)
+                        {
+                            if (operation.Date >= dateAndTimeStart && operation.endTime <= dateAndTimeEnd)
+                            {
+                                MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
+                                return false;
+                            }
+                            MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
+                            return false;
+                        }
+                        MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
+                        return false;
+                    }
+                    
+                }
+
+            }
+
+            return true;
+        }
+
+        private bool isRoomFree(List<Operation> operations, RoomRecord room, DateTime dateAndTimeStart, DateTime dateAndTimeEnd)
+        {
+            foreach (Operation operation in operations)
+            {
+                if (operation.RoomRecord.Id == room.Id)
+                {
+                    if (operation.Date <= dateAndTimeStart && dateAndTimeStart <= operation.endTime)
+                    {
+                        if (operation.Date <= dateAndTimeEnd && dateAndTimeEnd <= operation.endTime)
+                        {
+                            if(operation.Date >= dateAndTimeStart && operation.endTime <= dateAndTimeEnd)
+                            {
+                                MessageBox.Show("Soba " + room.Id + " je zauzeta u izabranom terminu");
+                                return false;
+                            }
+                            MessageBox.Show("Soba " + room.Id + " je zauzeta u izabranom terminu");
+                            return false;
+                        }
+                        MessageBox.Show("Soba " + room.Id + " je zauzeta u izabranom terminu");
+                        return false;
+                    }
+                }
+
+            }
+            return true;
+        }
+
+        private bool isDoctorFree(List<Operation> operations, Doctor doc, DateTime dateAndTimeStart, DateTime dateAndTimeEnd)
+        {
+            foreach (Operation operation in operations)
+            {
+                if (operation.doctor.Name == doc.Name && operation.doctor.Surname == doc.Surname)
+                {
+                    if (operation.Date <= dateAndTimeStart && dateAndTimeStart <= operation.endTime)
+                    {
+                        if (operation.Date <= dateAndTimeEnd && dateAndTimeEnd <= operation.endTime)
+                        {
+                            if (operation.Date >= dateAndTimeStart && operation.endTime <= dateAndTimeEnd)
+                            {
+                                MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
+                                return false;
+                            }
+                            MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
+                            return false;
+                        }
+                        MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
+                        return false;
+                    }
+                }
+
+            }
+            return true;
+        }
+
+        private bool isAvailable(List<Operation> operations, Patient patient, RoomRecord room, Doctor doctor, DateTime dateAndTimeStart, DateTime dateAndTimeEnd)
+        {
+            if (isPatientFree(operations, patient, dateAndTimeStart, dateAndTimeEnd) 
+                && isRoomFree(operations, room, dateAndTimeStart, dateAndTimeEnd) 
+                && isDoctorFree(operations, doctor, dateAndTimeStart, dateAndTimeEnd))
+            {
+                return true;
+            }
+            else
+            {
+                //MessageBox.Show("Ovaj pregled je vec zauzet!");
+
+                return false;
+            }
+
+        }
+
         private void addOperation(object sender, RoutedEventArgs e)
         {
             Operations = operationStorage.loadFromFile("operations.json");
-
-            //System.Collections.IList items = (System.Collections.IList)doctorList.SelectedItems;
-            //var doctors = items.Cast<string>().ToList();
-            //for(int i = 0; i < doctors.Count; i++)
-            //{
-            // string[] docNameAndSurname = doctors[i].Split(' '); 
-            // Doctor doc = new Doctor();
-            // doc.Name = docNameAndSurname[0];
-            // doc.Surname = docNameAndSurname[1];
-            // operation.doctor.Add(doc);
-            // }
-
-
-            string[] doctorNameAndSurname = doctorBox.Text.Split(' ');
-            Doctor doctor = new Doctor();
-            doctor.Name = doctorNameAndSurname[0];
-            doctor.Surname = doctorNameAndSurname[1];
-            operation.doctor = doctor;
-
-
             Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
-            int brojac = 0;
-            for(int i = 0; i < Patients.Count; i++)
+
+            if (idExists(Patients, patientId.Text))
             {
-                if(Patients[i].Id.Equals(patientId.Text))
+                string[] doctorNameAndSurname = doctorBox.Text.Split(' ');
+                Doctor doctor = new Doctor();
+                doctor.Name = doctorNameAndSurname[0];
+                doctor.Surname = doctorNameAndSurname[1];
+                operation.doctor = doctor;
+
+                for (int i = 0; i < Patients.Count; i++)
                 {
-                    operation.Patient = Patients[i];
-                    brojac++;
+                    if (Patients[i].Id.Equals(patientId.Text))
+                    {
+                        operation.Patient = Patients[i];
+                    }
                 }
-            }
-            if (brojac == 0)
-            {
-                MessageBox.Show("Pacijent sa ovim JMBG-om ne postoji!");
-            }
 
-            DateTime datum = new DateTime();
-            datum = (DateTime)dateBox.SelectedDate;
-            int sat = Convert.ToInt32(hourBox.Text);
-            int minut = Convert.ToInt32(minuteBox.Text);
-            operation.Date = new DateTime(datum.Year, datum.Month, datum.Day,sat, minut, 0);
+                DateTime datumStart = new DateTime();
+                datumStart = (DateTime)dateBox.SelectedDate;
+                int satStart = Convert.ToInt32(hourBoxStart.Text);
+                int minutStart = Convert.ToInt32(minuteBoxStart.Text);
+                operation.Date = new DateTime(datumStart.Year, datumStart.Month, datumStart.Day, satStart, minutStart, 0);
 
-            operation.RoomRecord = new RoomRecord();
-            for(int i = 0; i < Rooms.Count; i++)
-            {
-                if(Rooms[i].Id == Convert.ToInt32(roomBox.SelectedItem))
+                DateTime datumEnd = new DateTime();
+                datumEnd = (DateTime)dateBox.SelectedDate;
+                int satEnd = satStart + Convert.ToInt32(hourBoxEnd.Text);
+                if(satEnd >= 24)
                 {
-                    operation.RoomRecord = Rooms[i];
+                    datumEnd.AddDays(1);
+                    satEnd = satEnd - 24;
                 }
-            }
+                int minutEnd = minutStart + Convert.ToInt32(minuteBoxEnd.Text);
+                if(minutEnd >= 60)
+                {
+                    satEnd += 1;
+                    minutEnd = minutEnd - 60;
+                }
+                operation.endTime = new DateTime(datumEnd.Year, datumEnd.Month, datumEnd.Day, satEnd, minutEnd, 0);
 
-            Operations.Add(operation);
-            operationStorage.saveToFile(Operations, "operations.json");
+                operation.RoomRecord = new RoomRecord();
+                for (int i = 0; i < Rooms.Count; i++)
+                {
+                    if (Rooms[i].Id == Convert.ToInt32(roomBox.SelectedItem))
+                    {
+                        operation.RoomRecord = Rooms[i];
+                    }
+                }
+
+                if (isAvailable(Operations, operation.Patient, operation.RoomRecord, operation.doctor, operation.Date, operation.endTime))
+                {
+                    Operations.Add(operation);
+                    operationStorage.saveToFile(Operations, "operations.json");
+                }
+                else
+                {
+                    return;
+                }
+            } 
+            else
+            {
+                return;
+            }
 
             Secretary.OperationListWindow olw = new Secretary.OperationListWindow();
             olw.Show();

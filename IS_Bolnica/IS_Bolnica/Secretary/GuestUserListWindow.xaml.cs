@@ -20,7 +20,7 @@ namespace IS_Bolnica.Secretary
     public partial class GuestUserListWindow : Window, INotifyPropertyChanged
     {
         private GuestUsersFileStorage storage = new GuestUsersFileStorage();
-        public ObservableCollection<GuestUser> GuestKorisnici
+        public List<GuestUser> GuestKorisnici
         {
             get; set;
         }
@@ -29,7 +29,7 @@ namespace IS_Bolnica.Secretary
             InitializeComponent();
             this.DataContext = this;
 
-            GuestKorisnici = new ObservableCollection<GuestUser>();
+            GuestKorisnici = new List<GuestUser>();
             GuestKorisnici = storage.loadFromFile("GuestUsersFile.json");
         }
 

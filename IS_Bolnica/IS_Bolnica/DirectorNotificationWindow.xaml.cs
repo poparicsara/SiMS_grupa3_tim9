@@ -23,7 +23,7 @@ namespace IS_Bolnica
     /// </summary>
     public partial class DirectorNotificationWindow : Window, INotifyPropertyChanged
     {
-        public ObservableCollection<Notification> Notifications { get; set; }
+        public List<Notification> Notifications { get; set; }
         private Model.NotificationsFileStorage storage = new NotificationsFileStorage();
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -33,7 +33,7 @@ namespace IS_Bolnica
             InitializeComponent();
             this.DataContext = this;
 
-            Notifications = new ObservableCollection<Notification>();
+            Notifications = new List<Notification>();
             Notifications = storage.LoadFromFile("NotificationsFileStorage.json");
             NotificationList.ItemsSource = Notifications;
         }

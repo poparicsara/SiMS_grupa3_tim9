@@ -12,11 +12,7 @@ namespace Model
         public Patient Patient { get; set; }
         public Doctor Doctor { get; set; }
         public Secretary Secretary { get; set; }
-        public RoomRecord RoomRecord
-        {
-            get;
-            set;
-        }
+        public RoomRecord RoomRecord { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string name)
