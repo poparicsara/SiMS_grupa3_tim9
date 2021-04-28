@@ -1,6 +1,7 @@
 ﻿using Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,9 +18,34 @@ namespace IS_Bolnica.DoctorsWindows
 {
     public partial class AddExaminationWindow : Window
     {
+        public List<RoomRecord> Rooms
+        {
+            get;
+            set;
+        }
+        public List<int> RoomId { get; set; } = new List<int>();
+        private RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+        private Patient patient = new Patient();
+        private Examination examination = new Examination();
+        private ExaminationsRecordFileStorage examinationStorage = new ExaminationsRecordFileStorage();
+        public List<Examination> Examinations { get; set; } = new List<Examination>();
+        public ObservableCollection<Patient> Patients { get; set; } = new ObservableCollection<Patient>();
+        private PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
         public AddExaminationWindow()
         {
             InitializeComponent();
+
+            Rooms = roomStorage.loadFromFile("Sobe.json");
+
+            foreach (RoomRecord room in Rooms)
+            {
+                if (room.roomPurpose.Name == "Ordinacija")
+                {
+                    RoomId.Add(room.Id);
+                }
+            }
+
+            roomComboBox.ItemsSource = RoomId;
         }
 
         private void cancelButtonClicked(object sender, RoutedEventArgs e)
@@ -41,32 +67,53 @@ namespace IS_Bolnica.DoctorsWindows
         }
 
         private void saveButtonClicked(object sender, RoutedEventArgs e)
-        {
-            Patient patient = new Patient();
-            RoomRecord room = new RoomRecord();
-            RoomPurpose purpose = new RoomPurpose();
-            patient.Name = patientNameTxt.Text;
-            patient.Surname = patientSurnameTxt.Text;
-            purpose.Name = roomTxt.Text;
-            room.roomPurpose = purpose;
+        { 
+            Examinations = examinationStorage.loadFromFile("examinations.json");
+            Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
 
-            Examination examination = new Examination
+            int cnt = 0;
+            string[] patientNameAndSurname = patientTxt.Text.Split(' ');
+
+            foreach (Patient patient in Patients)
             {
-                Patient = patient,
-                RoomRecord = room,
-                Date = DateTime.Parse(dateTxt.Text)
-            };
+                if (patient.Id.Equals(jmbgTxt.Text))
+                {
+                    examination.Patient = patient;
+                    cnt++;
+                }
+            }
 
-            ExaminationsRecordFileStorage storage = new ExaminationsRecordFileStorage();
-            List<Examination> examinations = storage.loadFromFile("examinations.json");
-            examinations.Add(examination);
-            storage.saveToFile(examinations, "examinations.json");
+            if ((patientNameAndSurname[0] != examination.Patient.Name) || (patientNameAndSurname[1] != examination.Patient.Surname))
+            {
+                MessageBox.Show("Pogresno ime ili prezime!");
+            } 
+            else if (cnt == 0)
+            {
+                MessageBox.Show("Pacijent sa ovim JMBG-om ne postoji!");
+            } else
+            {
+                examination.Date = DateTime.Parse(dateTxt.Text);
+                examination.RoomRecord = new RoomRecord();
 
-            DoctorWindow doctorWindow = new DoctorWindow();
-            doctorWindow.dataGridExaminations.Items.Refresh();
-            doctorWindow.Show();
+                foreach (RoomRecord room in Rooms)
+                {
+                    if (room.Id == Convert.ToInt32(roomComboBox.SelectedItem))
+                    {
+                        examination.RoomRecord = room;
+                    }
+                }
 
-            this.Close();
+                Examinations.Add(examination);
+                examinationStorage.saveToFile(Examinations, "examinations.json");
+
+                DoctorWindow doctorWindow = new DoctorWindow();
+                doctorWindow.dataGridExaminations.Items.Refresh();
+                doctorWindow.Show();
+
+                this.Close();
+            }
+
+
         }
     }
 }

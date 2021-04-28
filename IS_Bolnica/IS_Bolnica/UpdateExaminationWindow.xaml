@@ -11,9 +11,9 @@
         <Canvas Background="#FF15285D" Margin="0,0,706,0">
             <Label Content="Date and time:" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" BorderBrush="White" Height="34" Canvas.Left="82" Canvas.Top="58" Width="148"/>
             <Label Content="Room:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" Height="34" Canvas.Left="82" Canvas.Top="104"/>
-            <Label Content="Description:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="132" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" Canvas.Left="82" Canvas.Top="277" Height="34"/>
-            <Label Content="Name:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="132" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" Canvas.Left="82" Canvas.Top="164" Height="35"/>
-            <Label Content="Surname:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" Canvas.Left="82" Canvas.Top="218" RenderTransformOrigin="0.584,1.238" Height="34"/>
+            <Label Content="Description:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="132" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" Canvas.Left="82" Canvas.Top="501" Height="34"/>
+            <Label Content="Patient:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="132" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" Canvas.Left="82" Canvas.Top="164" Height="35"/>
+            <Label Content="JMBG:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" Canvas.Left="82" Canvas.Top="218" RenderTransformOrigin="0.584,1.238" Height="34"/>
         </Canvas>
 
 
@@ -22,10 +22,10 @@
 
         <TextBox Name ="dateTxt"  HorizontalAlignment="Left" Height="23" Margin="385,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" 
                  RenderTransformOrigin="0.05,0.526" />
-        <TextBox Name ="roomTxt" HorizontalAlignment="Left" Height="23" Margin="385,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
-        <TextBox Name="patientNameTxt" HorizontalAlignment="Left" Height="23" Margin="385,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
-        <TextBox Name="descriptionTxt" HorizontalAlignment="Left" Height="76" Margin="385,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
-        <TextBox x:Name="patientSurnameTxt" HorizontalAlignment="Left" Height="23" Margin="385,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <TextBox Name="patientTxt" HorizontalAlignment="Left" Height="23" Margin="385,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <TextBox Name="descriptionTxt" HorizontalAlignment="Left" Height="76" Margin="369,491,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <TextBox x:Name="jmbgTxt" HorizontalAlignment="Left" Height="23" Margin="385,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <ComboBox Name="roomComboBox" ItemsSource="{Binding RoomId}" HorizontalAlignment="Left" Margin="385,102,0,0" VerticalAlignment="Top" Width="179"/>
 
     </Grid>
 </Window>

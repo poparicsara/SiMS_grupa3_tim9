@@ -2,6 +2,7 @@
 using Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,63 +19,68 @@ namespace IS_Bolnica
 {
     public partial class Diagnosis : Window
     {
-        public Diagnosis()
+        private Examination examination;
+        private Anamnesis anamnesis = new Anamnesis();
+        private AnamnesisFileStorage anamnesisStorage = new AnamnesisFileStorage();
+        public List<Anamnesis> Anamneses { get; set; } = new List<Anamnesis>();
+        private PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
+        public ObservableCollection<Patient> Patients { get; set; } = new ObservableCollection<Patient>();
+        public Diagnosis(Examination examination)
         {
             InitializeComponent();
+            this.examination = examination;
+
+            patientTxt.Text = examination.Patient.Name + ' ' + examination.Patient.Surname;
+            jmbgTxt.Text = examination.Patient.Id;
+            dateOfBirthTxt.Text = examination.Patient.DateOfBirth.ToString();
+            healthCardNumberTxt.Text = examination.Patient.HealthCardNumber;
+            dateOfExaminationTxt.Text = examination.Date.ToString();
+            addressTxt.Text = examination.Patient.Address.Street + ", " + examination.Patient.Address.City.name;
         }
 
         private void izdajRecept(object sender, RoutedEventArgs e)
         {
-            CreatePrescription createPrescription = new CreatePrescription();
-            createPrescription.patientNameTxt.Text = patientNameTxt.Text;
-            createPrescription.patientSurnameTxt.Text = patientSurnameTxt.Text;
-            createPrescription.prescriptionDateTxt.Text = dateOfExaminationTxt.Text;
-            createPrescription.doctorTxt.Text = "Petar Petrović";
-            createPrescription.dateOfBirthTxt.Text = dateOfBirthTxt.Text;
-            createPrescription.jmbgTxt.Text = jmbgTxt.Text;
-            createPrescription.healthCardIdTxt.Text = healthCardNumberTxt.Text;
+            Anamneses = anamnesisStorage.loadFromFile("anamneses.json");
+            Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
 
-            Patient patient = new Patient();
-            patient.Name = patientNameTxt.Text;
-            patient.Surname = patientSurnameTxt.Text;
-            patient.DateOfBirth = DateTime.Parse(dateOfBirthTxt.Text);
-            patient.Id = jmbgTxt.Text;
-            patient.HealthCardNumber = healthCardNumberTxt.Text;
+            foreach (Patient patient in Patients)
+            {
+                if (patient.Id.Equals(jmbgTxt.Text))
+                {
+                    anamnesis.Patient = patient;
+                }
+            }
 
-            ExaminationsRecordFileStorage storage = new ExaminationsRecordFileStorage();
-            List<Examination> examinations = storage.loadFromFile("examinations.json");
-
-            Anamnesis anamnesis = new Anamnesis();
             anamnesis.Symptoms = symptomsTxt.Text;
             anamnesis.Diagnosis = diagnosisTxt.Text;
             anamnesis.Date = DateTime.Parse(dateOfExaminationTxt.Text);
-            //anamnesis.Patient = patient;
 
-            foreach (Examination examination in examinations)
-            {
-                if (examination.Patient.Id.Equals(jmbgTxt.Text))
-                {
-                    anamnesis.Patient = examination.Patient;
-                }
-            }
+            Anamneses.Add(anamnesis);
+            anamnesisStorage.saveToFile(Anamneses, "anamneses.json");
 
-            AnamnesisFileStorage anamnesisFileStorage = new AnamnesisFileStorage();
-            List<Anamnesis> anamneses = anamnesisFileStorage.loadFromFile("anamneses.json");
-            anamneses.Add(anamnesis);
-            anamnesisFileStorage.saveToFile(anamneses, "anamneses.json");
+            ExaminationsRecordFileStorage examinationsRecordFileStorage = new ExaminationsRecordFileStorage();
+            List<Examination> examinations = examinationsRecordFileStorage.loadFromFile("examinations.json");
 
-            createPrescription.diagnosisTxt.Text = diagnosisTxt.Text;
+            CreatePrescription createPrescription = new CreatePrescription(anamnesis);
 
-            PrescriptionFileStorage prescriptionFileStorage = new PrescriptionFileStorage();
-            List<Prescription> prescriptions = prescriptionFileStorage.loadFromFile("prescriptions.json");
+            //createPrescription.patientTxt.Text = examination.Patient.Name + ' ' + examination.Patient.Surname;
+            //createPrescription.prescriptionDateTxt.Text = examination.Date.ToString();
+            //createPrescription.doctorTxt.Text = "Petar Petrović";
+            //createPrescription.dateOfBirthTxt.Text = examination.Patient.DateOfBirth.ToString();
+            //createPrescription.jmbgTxt.Text = examination.Patient.Id;
+            //createPrescription.healthCardIdTxt.Text = examination.Patient.HealthCardNumber;
+            //createPrescription.diagnosisTxt.Text = diagnosisTxt.Text;
 
-            foreach (Prescription prescription in prescriptions)
-            {
-                if (prescription.Patient.Id.Equals(jmbgTxt.Text))
-                {
-                    prescription.Anamnesis = anamnesis;
-                }
-            }
+            //PrescriptionFileStorage prescriptionFileStorage = new PrescriptionFileStorage();
+            //List<Prescription> prescriptions = prescriptionFileStorage.loadFromFile("prescriptions.json");
+
+            //foreach (Prescription prescription in prescriptions)
+            //{
+            //    if (prescription.Patient.Id.Equals(jmbgTxt.Text))
+            //    {
+            //        prescription.Anamnesis = anamnesis;
+            //    }
+            //}
 
             createPrescription.Show();
 

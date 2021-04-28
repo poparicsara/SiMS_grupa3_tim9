@@ -232,5 +232,71 @@
         "Name": "Operaciona sala"
       }
     }
+  },
+  {
+    "doctor": null,
+    "Doctor": null,
+    "Date": "2021-05-05T00:00:00",
+    "Patient": {
+      "Allergens": [
+        ""
+      ],
+      "Debit": 0.0,
+      "examinations": null,
+      "HealthCardNumber": null,
+      "Anamneses": null,
+      "Username": "Vladimir",
+      "Password": "ftn",
+      "Name": "Petar",
+      "Surname": "Petrović",
+      "DateOfBirth": "1964-06-01T00:00:00",
+      "Phone": "069778189",
+      "Email": "pera@gmail.com",
+      "Id": "1111111111111",
+      "UserType": 0,
+      "Address": {
+        "Street": "Ive Lole Ribara ",
+        "NumberOfBuilding": 2,
+        "Floor": 5,
+        "Apartment": 9,
+        "City": {
+          "name": "Sombor ",
+          "postalCode": "25000",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "RoomRecord": {
+      "Id": 103,
+      "HospitalWard": "Pedijatrija",
+      "inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "roomPurpose": {
+        "Name": "Operaciona sala"
+      }
+    }
   }
 ]

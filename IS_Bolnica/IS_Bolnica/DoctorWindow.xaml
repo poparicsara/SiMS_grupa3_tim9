@@ -18,7 +18,7 @@
                               HorizontalScrollBarVisibility="Disabled" CanUserResizeRows="False" Canvas.Top="-145">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="DATE AND TIME" Width="160" Binding="{Binding Date}"/>
-                            <DataGridTextColumn Header="ROOM" Width="110" Binding="{Binding RoomRecord.roomPurpose.Name}"/>
+                            <DataGridTextColumn Header="ROOM" Width="110" Binding="{Binding RoomRecord.Id}"/>
                             <DataGridTextColumn Header="NAME" Width="110" Binding="{Binding Patient.Name}"/>
                             <DataGridTextColumn Header="SURNAME" Width="110" Binding="{Binding Patient.Surname}" />
                         </DataGrid.Columns>
@@ -41,7 +41,7 @@
                               IsReadOnly="True" AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserResizeColumns="False" Background="White" HorizontalScrollBarVisibility="Disabled" Canvas.Top="-144">
                         <DataGrid.Columns>
                             <DataGridTextColumn x:Name="dateColumn" Header="DATE AND TIME" Width="160" Binding="{Binding Date}"/>
-                            <DataGridTextColumn Header="ROOM" Width="110" Binding="{Binding RoomRecord.roomPurpose.Name}"/>
+                            <DataGridTextColumn Header="ROOM" Width="110" Binding="{Binding RoomRecord.Id}"/>
                             <DataGridTextColumn Header="NAME" Width="110" Binding="{Binding Patient.Name}"/>
                             <DataGridTextColumn Header="SURNAME" Width="110" Binding="{Binding Patient.Surname}" />
                         </DataGrid.Columns>

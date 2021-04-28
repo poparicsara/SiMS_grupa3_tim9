@@ -3,42 +3,223 @@
     "IsPayed": false,
     "Evaluation": 0,
     "DurationInMinutes": 0,
-    "Date": "2021-06-14T00:00:00",
+    "Date": "2021-05-05T00:00:00",
     "Patient": {
       "Allergens": null,
       "Debit": 0.0,
       "examinations": null,
-      "HealthCardNumber": "071189",
+      "HealthCardNumber": null,
       "Anamneses": null,
-      "Username": "milos",
-      "Password": "m123",
-      "Name": "Milos",
-      "Surname": "Milosevic",
-      "DateOfBirth": "1986-12-12T00:00:00",
-      "Phone": "0",
+      "Username": null,
+      "Password": null,
+      "Name": "Marko",
+      "Surname": "Nikolic",
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": null,
       "Email": null,
-      "Id": "1209976807054",
+      "Id": null,
+      "UserType": 0,
+      "Address": null
+    },
+    "Doctor": null,
+    "Secretary": null,
+    "RoomRecord": {
+      "Id": 707,
+      "HospitalWard": null,
+      "inventory": null,
+      "roomPurpose": null
+    }
+  },
+  {
+    "IsPayed": false,
+    "Evaluation": 0,
+    "DurationInMinutes": 0,
+    "Date": "2021-06-06T00:00:00",
+    "Patient": {
+      "Allergens": null,
+      "Debit": 0.0,
+      "examinations": null,
+      "HealthCardNumber": null,
+      "Anamneses": null,
+      "Username": null,
+      "Password": null,
+      "Name": "Bojan",
+      "Surname": "Mijatovic",
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": null,
+      "Email": null,
+      "Id": null,
+      "UserType": 0,
+      "Address": null
+    },
+    "Doctor": null,
+    "Secretary": null,
+    "RoomRecord": {
+      "Id": 303,
+      "HospitalWard": "Pedijatrija",
+      "inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 26,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "roomPurpose": {
+        "Name": "Ordinacija"
+      }
+    }
+  },
+  {
+    "IsPayed": false,
+    "Evaluation": 0,
+    "DurationInMinutes": 0,
+    "Date": "2021-05-05T00:00:00",
+    "Patient": {
+      "Allergens": [
+        "polen"
+      ],
+      "Debit": 1500.0,
+      "examinations": null,
+      "HealthCardNumber": null,
+      "Anamneses": null,
+      "Username": "nikola_nikolic",
+      "Password": "sasasa",
+      "Name": "Nikola",
+      "Surname": "Nikolic",
+      "DateOfBirth": "1984-12-01T00:00:00",
+      "Phone": "0647896587",
+      "Email": "nikolic@gmail.com",
+      "Id": "2222",
       "UserType": 0,
       "Address": {
-        "Street": "Miroslava Antica 13",
-        "NumberOfBuilding": 0,
-        "Floor": 0,
-        "Apartment": 0,
+        "Street": "Masarikova ulica ",
+        "NumberOfBuilding": 12,
+        "Floor": 25,
+        "Apartment": 13,
         "City": {
-          "name": "Novi Sad",
-          "postalCode": null,
-          "Country": null
+          "name": "Sombor ",
+          "postalCode": "12564",
+          "Country": {
+            "name": "Srbija"
+          }
         }
       }
     },
     "Doctor": null,
     "Secretary": null,
     "RoomRecord": {
-      "Id": 0,
-      "HospitalWard": null,
-      "inventory": null,
+      "Id": 202,
+      "HospitalWard": "Ortopedija",
+      "inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
       "roomPurpose": {
-        "Name": "room 10"
+        "Name": "Ordinacija"
+      }
+    }
+  },
+  {
+    "IsPayed": false,
+    "Evaluation": 0,
+    "DurationInMinutes": 0,
+    "Date": "2021-04-05T00:00:00",
+    "Patient": {
+      "Allergens": [
+        "brufen"
+      ],
+      "Debit": 1.0,
+      "examinations": null,
+      "HealthCardNumber": "19",
+      "Anamneses": null,
+      "Username": "nnnn",
+      "Password": "ftn",
+      "Name": "Nina",
+      "Surname": "Pavkovic",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "12345",
+      "Email": "dad",
+      "Id": "1234",
+      "UserType": 0,
+      "Address": {
+        "Street": "abc ",
+        "NumberOfBuilding": 4,
+        "Floor": 3,
+        "Apartment": 2,
+        "City": {
+          "name": "ns ",
+          "postalCode": "21000",
+          "Country": {
+            "name": "srb"
+          }
+        }
+      }
+    },
+    "Doctor": null,
+    "Secretary": null,
+    "RoomRecord": {
+      "Id": 202,
+      "HospitalWard": "Ortopedija",
+      "inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "roomPurpose": {
+        "Name": "Ordinacija"
       }
     }
   }

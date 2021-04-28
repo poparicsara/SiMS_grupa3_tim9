@@ -18,46 +18,40 @@ namespace IS_Bolnica
 {
     public partial class CreatePrescription : Window
     {
-        public CreatePrescription()
+        private Anamnesis anamnesis;
+        private Prescription prescription = new Prescription();
+        private Therapy therapy = new Therapy();
+        private Doctor doctor = new Doctor();
+        private PrescriptionFileStorage prescriptionStorage = new PrescriptionFileStorage();
+        private List<Prescription> Prescriptions { get; set; } = new List<Prescription>();
+        public List<Anamnesis> Anamneses { get; set; } = new List<Anamnesis>();
+        public CreatePrescription(Anamnesis anamnesis)
         {
             InitializeComponent();
+
+            this.anamnesis = anamnesis;
+
+            patientTxt.Text = anamnesis.Patient.Name + ' ' + anamnesis.Patient.Surname;
+            dateOfBirthTxt.Text = anamnesis.Patient.DateOfBirth.ToString();
+            jmbgTxt.Text = anamnesis.Patient.Id;
+            healthCardIdTxt.Text = anamnesis.Patient.HealthCardNumber;
+            prescriptionDateTxt.Text = anamnesis.Date.ToString();
+            diagnosisTxt.Text = anamnesis.Diagnosis;
+
         }
 
         private void potvrdiClicked(object sender, RoutedEventArgs e)
         {
-            Prescription prescription = new Prescription();
-            Doctor doctor = new Doctor();
-            Patient patient = new Patient();
-            Therapy therapy = new Therapy();
+            Prescriptions = prescriptionStorage.loadFromFile("prescriptions.json");
 
-           // patient.Name = patientNameTxt.Text;
-           // patient.Surname = patientSurnameTxt.Text;
-           // patient.DateOfBirth = DateTime.Parse(dateOfBirthTxt.Text);
-           // patient.Id = jmbgTxt.Text;
-           // patient.HealthCardNumber = healthCardIdTxt.Text;
-            //prescription.Diagnosis = diagnosisTxt.Text;
-           // prescription.Doctor.Name = doctorTxt.Text;
             therapy.MedicationName = medTxt.Text;
             therapy.Dose = int.Parse(doseTxt.Text);
             prescription.Therapy = therapy;
             prescription.Date = DateTime.Parse(prescriptionDateTxt.Text);
-           // prescription.Patient = patient;
+            prescription.Patient = anamnesis.Patient;
 
-            ExaminationsRecordFileStorage storage = new ExaminationsRecordFileStorage();
-            List<Examination> examinations = storage.loadFromFile("examinations.json");
-            
-            foreach (Examination examination in examinations)
-            {
-                if (examination.Patient.Id.Equals(jmbgTxt.Text))
-                {
-                    prescription.Patient = examination.Patient;
-                }
-            }
-
-            PrescriptionFileStorage prescriptionFileStorage = new PrescriptionFileStorage();
-            List<Prescription> prescriptions = prescriptionFileStorage.loadFromFile("prescriptions.json");
-            prescriptions.Add(prescription);
-            prescriptionFileStorage.saveToFile(prescriptions, "prescriptions.json");
+            Prescriptions.Add(prescription);
+            prescriptionStorage.saveToFile(Prescriptions, "prescriptions.json");
 
             this.Close();
         }

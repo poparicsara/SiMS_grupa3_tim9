@@ -11,12 +11,10 @@
             <RowDefinition Height="437*"/>
             <RowDefinition Height="296*"/>
         </Grid.RowDefinitions>
-        <Label Content="Ime:" HorizontalAlignment="Left" Margin="82,94,0,0" VerticalAlignment="Top" Width="91"/>
-        <Label Content="Prezime:" HorizontalAlignment="Left" Margin="82,133,0,0" VerticalAlignment="Top" Width="91"/>
+        <Label Content="Ime i prezime pacijenta:" HorizontalAlignment="Left" Margin="82,94,0,0" VerticalAlignment="Top" Width="148"/>
         <Label Content="Datum rodjenja:" HorizontalAlignment="Left" Margin="82,172,0,0" VerticalAlignment="Top" Width="105"/>
         <Label Content="JMBG:" HorizontalAlignment="Left" Margin="82,213,0,0" VerticalAlignment="Top" Width="91"/>
-        <TextBox Name="patientNameTxt" HorizontalAlignment="Left" Height="23" Margin="235,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" IsReadOnly="True"/>
-        <TextBox Name="patientSurnameTxt"  HorizontalAlignment="Left" Height="23" Margin="235,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" IsReadOnly="True"/>
+        <TextBox Name="patientTxt" HorizontalAlignment="Left" Height="23" Margin="235,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" IsReadOnly="True"/>
         <TextBox Name="dateOfBirthTxt" HorizontalAlignment="Left" Height="23" Margin="235,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" IsReadOnly="True"/>
         <TextBox Name="jmbgTxt" HorizontalAlignment="Left" Height="23" Margin="235,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" IsReadOnly="True"/>
         <Button Content="Anamneza" HorizontalAlignment="Left" Margin="808,158,0,0" VerticalAlignment="Top" Width="82" Click="anamnezaClicked" Height="25" Grid.Row="1"/>

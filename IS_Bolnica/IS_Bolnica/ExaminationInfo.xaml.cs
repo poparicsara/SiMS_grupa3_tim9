@@ -19,6 +19,7 @@ namespace IS_Bolnica
     public partial class ExaminationInfo : Window
     {
         private int selectedPatient;
+        private Examination examination;
         public ExaminationInfo(int selectedIndex)
         {
             InitializeComponent();
@@ -30,13 +31,12 @@ namespace IS_Bolnica
             AnamnesisFileStorage anamnesisFileStorage = new AnamnesisFileStorage();
             List<Anamnesis> anamneses = anamnesisFileStorage.loadFromFile("anamneses.json");
 
-            patientNameTxt.Text = examinations.ElementAt(selectedIndex).Patient.Name;
-            patientSurnameTxt.Text = examinations.ElementAt(selectedIndex).Patient.Surname;
-            dateOfBirthTxt.Text = examinations.ElementAt(selectedIndex).Patient.DateOfBirth.ToString("dd.MM.yyyy");
-            jmbgTxt.Text = examinations.ElementAt(selectedIndex).Patient.Id.ToString();
-            healthCardNumberTxt.Text = examinations.ElementAt(selectedIndex).Patient.HealthCardNumber;
-            addressTxt.Text = examinations.ElementAt(selectedIndex).Patient.Address.Street + ", " +
-                examinations.ElementAt(selectedIndex).Patient.Address.City.name;
+            this.examination = examinations.ElementAt(selectedIndex);
+            patientTxt.Text = examination.Patient.Name + ' ' + examination.Patient.Surname;
+            dateOfBirthTxt.Text = examination.Patient.DateOfBirth.ToString();
+            jmbgTxt.Text = examination.Patient.Id;
+            healthCardNumberTxt.Text = examination.Patient.HealthCardNumber;
+            addressTxt.Text = examination.Patient.Address.Street + ", " + examination.Patient.Address.City.name;
 
             foreach (Prescription prescription in prescriptions)
             {
@@ -59,19 +59,13 @@ namespace IS_Bolnica
 
         private void anamnezaClicked(object sender, RoutedEventArgs e)
         {
-            Diagnosis diagnosis = new Diagnosis();
             ExaminationsRecordFileStorage examinationsRecordFileStorage = new ExaminationsRecordFileStorage();
             List<Examination> examinations = examinationsRecordFileStorage.loadFromFile("examinations.json");
+            this.examination = examinations.ElementAt(selectedPatient);
 
-            diagnosis.patientNameTxt.Text = patientNameTxt.Text;
-            diagnosis.patientSurnameTxt.Text = patientSurnameTxt.Text;
-            diagnosis.dateOfBirthTxt.Text = dateOfBirthTxt.Text;
-            diagnosis.jmbgTxt.Text = jmbgTxt.Text;
-            diagnosis.healthCardNumberTxt.Text = healthCardNumberTxt.Text;
-            diagnosis.addressTxt.Text = addressTxt.Text;
-            diagnosis.dateOfExaminationTxt.Text = examinations.ElementAt(selectedPatient).Date.ToString();
+            Diagnosis diagnosis = new Diagnosis(examination);
+
             diagnosis.Show();
-
             this.Close();
 
         }

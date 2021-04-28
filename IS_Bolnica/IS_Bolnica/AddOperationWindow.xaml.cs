@@ -1,6 +1,7 @@
 ﻿using Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,9 +18,33 @@ namespace IS_Bolnica.DoctorsWindows
 {
     public partial class AddOperationWindow : Window
     {
+        public List<RoomRecord> Rooms
+        {
+            get;
+            set;
+        }
+        public List<int> RoomId { get; set; } = new List<int>();
+        private RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+        private Patient patient = new Patient();
+        private Operation operation = new Operation();
+        private OperationsFileStorage operationStorage = new OperationsFileStorage();
+        public List<Operation> Operations { get; set; } = new List<Operation>();
+        public ObservableCollection<Patient> Patients { get; set; } = new ObservableCollection<Patient>();
+        private PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
         public AddOperationWindow()
         {
             InitializeComponent();
+            Rooms = roomStorage.loadFromFile("Sobe.json");
+
+            foreach (RoomRecord room in Rooms)
+            {
+                if (room.roomPurpose.Name.Equals("Operaciona sala"))
+                {
+                    RoomId.Add(room.Id);
+                }
+            }
+
+            roomComboBox.ItemsSource = RoomId;
         }
 
         private void cancelButtonClicked(object sender, RoutedEventArgs e)
@@ -42,31 +67,52 @@ namespace IS_Bolnica.DoctorsWindows
 
         private void saveButtonClicked(object sender, RoutedEventArgs e)
         {
-            Patient patient = new Patient();
-            RoomRecord room = new RoomRecord();
-            RoomPurpose purpose = new RoomPurpose();
-            patient.Name = patientNameTxt.Text;
-            patient.Surname = patientSurnameTxt.Text;
-            purpose.Name = roomTxt.Text;
-            room.roomPurpose = purpose;
+            Operations = operationStorage.loadFromFile("operations.json");
+            Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
 
-            Operation operation = new Operation()
+            string[] patientNameAndSurname = patientTxt.Text.Split(' ');
+            int cnt = 0;
+
+            foreach (Patient patient in Patients)
             {
-                Patient = patient,
-                RoomRecord = room,
-                Date = DateTime.Parse(dateTxt.Text)
-            };
+                if (patient.Id.Equals(jmbgTxt.Text))
+                {
+                    operation.Patient = patient;
+                    cnt++;
+                }
+            }
 
-            OperationsFileStorage operationsFileStorage = new OperationsFileStorage();
-            List<Operation> operations = operationsFileStorage.loadFromFile("operations.json");
-            operations.Add(operation);
-            operationsFileStorage.saveToFile(operations, "operations.json");
+            if ((patientNameAndSurname[0] != operation.Patient.Name) || (patientNameAndSurname[1] != operation.Patient.Surname))
+            {
+                MessageBox.Show("Pogresno ime ili prezime!");
+            } 
+            else if (cnt == 0)
+            {
+                MessageBox.Show("Pacijent sa unetim JMBG-om ne postoji!");
+            }
+            else
+            {
+                operation.Date = DateTime.Parse(dateTxt.Text);
+                operation.RoomRecord = new RoomRecord();
 
-            DoctorWindow doctorWindow = new DoctorWindow();
-            doctorWindow.dataGridOperations.Items.Refresh();
-            doctorWindow.Show();
+                foreach (RoomRecord room in Rooms)
+                {
+                    if (room.Id == Convert.ToInt32(roomComboBox.SelectedItem))
+                    {
+                        operation.RoomRecord = room;
+                    }
+                }
 
-            this.Close();
+                Operations.Add(operation);
+                operationStorage.saveToFile(Operations, "operations.json");
+
+                DoctorWindow doctorWindow = new DoctorWindow();
+                doctorWindow.dataGridOperations.Items.Refresh();
+                doctorWindow.Show();
+
+                this.Close();
+            }
+
         }
     }
 }
