@@ -1,0 +1,20 @@
+[
+  {
+    "Title": "prvi",
+    "Content": "prvi",
+    "Sender": 3,
+    "Recipient": 0
+  },
+  {
+    "Title": "Dodavanje leka u bazu",
+    "Content": "555\nnesto\nsvasta\nmi",
+    "Sender": 3,
+    "Recipient": 0
+  },
+  {
+    "Title": "Dodavanje leka u bazu",
+    "Content": "666\nnesto\nsvasta\nneko",
+    "Sender": 3,
+    "Recipient": 0
+  }
+]

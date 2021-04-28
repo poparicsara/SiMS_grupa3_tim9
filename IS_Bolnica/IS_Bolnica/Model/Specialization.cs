@@ -45,6 +45,8 @@ namespace Model
             specializations.Add(s16);
             Specialization s17 = new Specialization { Name = "Urologija" };
             specializations.Add(s17);
+            Specialization s18 = new Specialization { Name = "Ortopedija" };
+            specializations.Add(s18);
 
             return specializations;
         }

@@ -8,10 +8,11 @@
       "Name": "AspirinPlusC",
       "Ingredients": null,
       "Replacement": null,
-      "Producer": "Bayer"
+      "Producer": "Bayer",
+      "Status": 0
     },
     "Producer": "Bayer",
-    "Status":  0
+    "Status": 0
   },
   {
     "Id": 202,
@@ -22,7 +23,8 @@
       "Name": "AspirinPlusC",
       "Ingredients": null,
       "Replacement": null,
-      "Producer": "Bayer"
+      "Producer": "Bayer",
+      "Status": 0
     },
     "Producer": "Bayer",
     "Status": 0
@@ -36,7 +38,8 @@
       "Name": "AspirinPlusC",
       "Ingredients": null,
       "Replacement": null,
-      "Producer": "Bayer"
+      "Producer": "Bayer",
+      "Status": 0
     },
     "Producer": "Bayer",
     "Status": 0
@@ -50,9 +53,18 @@
       "Name": "AspirinPlusC",
       "Ingredients": null,
       "Replacement": null,
-      "Producer": "Bayer"
+      "Producer": "Bayer",
+      "Status": 0
     },
     "Producer": "Bayer",
     "Status": 0
+  },
+  {
+    "Id": 666,
+    "Name": "nesto",
+    "Ingredients": null,
+    "Replacement": null,
+    "Producer": "neko",
+    "Status": 1
   }
 ]

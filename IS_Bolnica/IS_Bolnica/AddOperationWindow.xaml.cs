@@ -23,9 +23,6 @@ namespace IS_Bolnica.DoctorsWindows
             InitializeComponent();
 
             ordination = doctorsOrdination;
-
-            roomTxt.Text = ordination.ToString();
-            roomTxt.IsEnabled = false;
         }
 
         private void cancelButtonClicked(object sender, RoutedEventArgs e)

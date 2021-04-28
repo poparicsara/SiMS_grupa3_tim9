@@ -15,7 +15,7 @@
         <ComboBox Name="numberFromBox" HorizontalAlignment="Left" Margin="428,141,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="numberFromChanged"/>
         <ComboBox Name="wardToBox" HorizontalAlignment="Left" Margin="428,172,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="wardToChanged"/>
         <ComboBox Name="numberToBox" HorizontalAlignment="Left" Margin="428,237,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="numberToChanged"/>
-        <Button Content="POTVRDI" HorizontalAlignment="Left" Margin="622,312,0,0" VerticalAlignment="Top" 
+        <Button Content="POTVRDI" HorizontalAlignment="Left" Margin="670,386,0,0" VerticalAlignment="Top" 
                  Width="81" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" 
                 BorderBrush="#FF425431" Click="DoneButton"/>
         <Label Content="Količina:" HorizontalAlignment="Left" Margin="163,277,0,0" VerticalAlignment="Top"/>
@@ -24,6 +24,22 @@
         <ComboBox x:Name="purposeFromBox" HorizontalAlignment="Left" Margin="428,104,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="purposeFromChanged"/>
         <Label Content="Namena prostorije U koju se preraspoređuje:" HorizontalAlignment="Left" Margin="163,200,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="purposeToBox" HorizontalAlignment="Left" Margin="428,203,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="purposeToChanged"/>
-
+        <DatePicker Name="dateofChange" HorizontalAlignment="Left" Margin="428,319,0,0" VerticalAlignment="Top" Width="120" SelectedDateChanged="dateChanged"/>
+        <Label Content="Datum premeštanja:" HorizontalAlignment="Left" Margin="163,317,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="hourofChange" HorizontalAlignment="Left" Margin="428,364,0,0" VerticalAlignment="Top" Width="50" SelectionChanged="hourChanged">
+            <ComboBoxItem Content="18"/>
+            <ComboBoxItem Content="19"/>
+            <ComboBoxItem Content="20"/>
+        </ComboBox>
+        <Label Content="Vreme premeštanja:" HorizontalAlignment="Left" Margin="163,364,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="minuteOfChange" HorizontalAlignment="Left" Margin="497,364,0,0" VerticalAlignment="Top" Width="51" SelectionChanged="minuteChanged">
+            <ComboBoxItem Content="09"/>
+            <ComboBoxItem Content="10"/>
+            <ComboBoxItem Content="15"/>
+            <ComboBoxItem Content="20"/>
+            <ComboBoxItem Content="25"/>
+            <ComboBoxItem Content="38"/>
+            <ComboBoxItem Content="49"/>
+        </ComboBox>
     </Grid>
 </Window>

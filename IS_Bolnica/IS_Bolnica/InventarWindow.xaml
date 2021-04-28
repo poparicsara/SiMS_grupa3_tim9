@@ -59,7 +59,7 @@
                                 <Setter Property="FontWeight" Value="Bold"/>
                             </Style>
                             <Style TargetType="DataGridRow">
-                                <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClik"/>
+                                <EventSetter Event="MouseDoubleClick" Handler="RowStaticki_DoubleClik"/>
                             </Style>
                         </DataGrid.Resources>
                         <!-- Header -->

@@ -143,6 +143,13 @@ namespace IS_Bolnica
             mw.Show();
             this.Close();
         }
+
+        private void RenovationButton(object sender, RoutedEventArgs e)
+        {
+            RenovationWindow rw = new RenovationWindow();
+            rw.Show();
+            this.Close();
+        }
     }
 
 }

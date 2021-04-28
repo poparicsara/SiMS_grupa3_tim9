@@ -19,31 +19,43 @@ namespace IS_Bolnica
 {
     public partial class AddMedicamentWindow : Window
     {
-        private Notification notification = new Notification();
-        private NotificationsFileStorage storage = new NotificationsFileStorage();
-        private ObservableCollection<Notification> notifications = new ObservableCollection<Notification>();
+        private Request request = new Request();
+        private RequestFileStorage storage = new RequestFileStorage();
+        private ObservableCollection<Request> requests = new ObservableCollection<Request>();
         public AddMedicamentWindow()
         {
             InitializeComponent();
+
         }
 
         private void DoneButton(object sender, RoutedEventArgs e)
         {
-            notification.title = "Dodavanje leka u bazu";
+            request.Title = "Dodavanje leka u bazu";
 
             string content = idBox.Text + "\n" + nameBox.Text + "\n" + replacementBox.Text + "\n" + producerBox.Text;
-            notification.content = content;
+            request.Content = content;
 
             if (toBox.SelectedIndex == 0)
             {
-                notification.notificationType = NotificationType.doctor;
+                request.Recipient = NotificationType.doctor;
             }
 
-            notification.Sender = UserType.director;
+            request.Sender = UserType.director;
 
-            notifications = storage.LoadFromFile("NotificationsFileStorage.json");
-            notifications.Add(notification);
-            storage.SaveToFile(notifications, "NotificationsFileStorage.json");
+            requests = storage.LoadFromFile("Zahtevi.json");
+            requests.Add(request);
+            storage.SaveToFile(requests, "Zahtevi.json");
+
+            MedicamentFileStorage medStorage = new MedicamentFileStorage();
+            List<Medicament> meds = medStorage.loadFromFile("Lekovi.json");
+
+            //Medicament replacement = new Medicament { Id = 101, Name = ""}
+            Medicament med = new Medicament { Id = (int)Int64.Parse(idBox.Text), Name = nameBox.Text, Producer = producerBox.Text };
+            //med.Replacement.Name = replacementBox.Text;
+            med.Status = MedicamentStatus.dissapproved;
+
+            meds.Add(med);
+            medStorage.saveToFile(meds, "Lekovi.json");
 
             MedicamentWindow mw = new MedicamentWindow();
             mw.Show();
