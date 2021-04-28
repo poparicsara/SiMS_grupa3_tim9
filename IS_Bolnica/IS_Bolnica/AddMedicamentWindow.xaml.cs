@@ -21,7 +21,7 @@ namespace IS_Bolnica
     {
         private Notification notification = new Notification();
         private NotificationsFileStorage storage = new NotificationsFileStorage();
-        private ObservableCollection<Notification> notifications = new ObservableCollection<Notification>();
+        private List<Notification> notifications = new List<Notification>();
         public AddMedicamentWindow()
         {
             InitializeComponent();

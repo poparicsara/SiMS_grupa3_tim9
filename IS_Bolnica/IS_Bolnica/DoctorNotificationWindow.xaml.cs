@@ -21,7 +21,7 @@ namespace IS_Bolnica
 
     public partial class DoctorNotificationWindow : Window, INotifyPropertyChanged
     {
-        public ObservableCollection<Notification> Notifications { get; set; }
+        public List<Notification> Notifications { get; set; }
         private Model.NotificationsFileStorage storage = new NotificationsFileStorage();
 
 
@@ -30,9 +30,9 @@ namespace IS_Bolnica
             InitializeComponent();
             this.DataContext = this;
 
-            Notifications = new ObservableCollection<Notification>();
+            Notifications = new List<Notification>();
 
-            ObservableCollection<Notification> temp = storage.LoadFromFile("NotificationsFileStorage.json");
+            List<Notification> temp = storage.LoadFromFile("NotificationsFileStorage.json");
 
             foreach (Notification notification in temp)
             {
