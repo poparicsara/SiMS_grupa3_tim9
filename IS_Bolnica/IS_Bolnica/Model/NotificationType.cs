@@ -11,6 +11,7 @@ namespace Model
     {
         doctor,
         patient,
-        all
+        all,
+        specific
     }
 }

@@ -45,9 +45,15 @@ namespace IS_Bolnica.Secretary
             {
                 notification.notificationType = NotificationType.patient;
             }
-            else
+            else if(comboBox.SelectedIndex == 2)
             {
                 notification.notificationType = NotificationType.all;
+            }
+            else
+            {
+                notification.PersonId = idBox.Text;
+                notification.notificationType = NotificationType.specific;
+
             }
 
             notification.Sender = UserType.patient;
@@ -66,6 +72,27 @@ namespace IS_Bolnica.Secretary
             Secretary.ActionBarWindow abw = new Secretary.ActionBarWindow();
             abw.Show();
             this.Close();
+        }
+
+        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (comboBox.SelectedIndex == 0)
+            {
+                idBox.IsEnabled = false;
+            }
+            else if (comboBox.SelectedIndex == 1)
+            {
+                idBox.IsEnabled = false;
+            }
+            else if (comboBox.SelectedIndex == 2)
+            {
+                idBox.IsEnabled = false;
+            }
+            else
+            {
+                idBox.IsEnabled = true;
+
+            }
         }
     }
 }
