@@ -17,14 +17,14 @@ namespace IS_Bolnica.DoctorsWindows
 {
     public partial class AddOperationWindow : Window
     {
-        private int ordination = 0;
-        public AddOperationWindow(int doctorsOrdination)
+        private Doctor doctor = new Doctor();
+        public AddOperationWindow(Doctor doctor)
         {
             InitializeComponent();
 
-            ordination = doctorsOrdination;
+            this.doctor = doctor;
 
-            roomTxt.Text = ordination.ToString();
+            roomTxt.Text = doctor.Ordination.ToString();
             roomTxt.IsEnabled = false;
         }
 
@@ -36,7 +36,7 @@ namespace IS_Bolnica.DoctorsWindows
             switch (messageBox)
             {
                 case MessageBoxResult.Yes:
-                    DoctorWindow doctorWindow = new DoctorWindow(ordination);
+                    DoctorWindow doctorWindow = new DoctorWindow(doctor);
                     doctorWindow.Show();
                     this.Close();
                     break;
@@ -68,7 +68,7 @@ namespace IS_Bolnica.DoctorsWindows
             operations.Add(operation);
             operationsFileStorage.saveToFile(operations, "operations.json");
 
-            DoctorWindow doctorWindow = new DoctorWindow(ordination);
+            DoctorWindow doctorWindow = new DoctorWindow(doctor);
             doctorWindow.dataGridOperations.Items.Refresh();
             doctorWindow.Show();
 

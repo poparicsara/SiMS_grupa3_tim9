@@ -10,8 +10,11 @@ namespace IS_Bolnica
     {
 
         private UsersFileStorage storage = new UsersFileStorage();
+        private PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
         private List<User> users = new List<User>();
+        private List<Patient> patients = new List<Patient>();
         private User user = new User();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -27,7 +30,8 @@ namespace IS_Bolnica
 
         private void doctorButtonClicked(object sender, RoutedEventArgs e)
         {
-            DoctorWindow doctorWindow = new DoctorWindow(102);
+            Doctor doc = new Doctor();
+            DoctorWindow doctorWindow = new DoctorWindow(doc);
             doctorWindow.Show();
         }
 
@@ -48,6 +52,8 @@ namespace IS_Bolnica
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             users = storage.loadFromFile("UsersFileStorage.json");
+            patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
+            
             string username = usernameBox.Text;
             string password = passwordBox.Password.ToString();
 
@@ -58,8 +64,14 @@ namespace IS_Bolnica
                     switch (user.UserType)
                     {
                         case UserType.patient:
-                            PatientWindow pw = new PatientWindow(username);
-                            pw.Show();
+                            foreach(Patient patient in patients)
+                            {
+                                if(patient.Username.Equals(user.Username) && patient.Password.Equals(user.Password))
+                                {
+                                    PatientWindow pw = new PatientWindow(patient);
+                                    pw.Show();
+                                }
+                            }
                             break;
                         case UserType.doctor:
                             int ordination = 0;
@@ -68,14 +80,12 @@ namespace IS_Bolnica
 
                             foreach(Doctor doctor in doctors)
                             {
-                                if (doctor.Username.Equals(user.Username))
+                                if (doctor.Username.Equals(user.Username) && doctor.Password.Equals(user.Password))
                                 {
-                                    ordination = doctor.Ordination;
+                                    DoctorWindow doctorWindow = new DoctorWindow(doctor);
+                                    doctorWindow.Show();
                                 }
                             }
-
-                            DoctorWindow doctorWindow = new DoctorWindow(ordination);
-                            doctorWindow.Show();
                             break;
                         case UserType.director:
                             Director director = new Director();

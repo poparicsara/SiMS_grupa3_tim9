@@ -24,9 +24,11 @@ namespace IS_Bolnica
         public String doktor_ime = "";
         public String doktor_prezime = "";
         public String datum_predlozi = "";
-        public Zakazivanje_pregleda()
+        private Patient patient = new Patient();
+        public Zakazivanje_pregleda(Patient patient)
         {
             InitializeComponent();
+            this.patient = patient;
         }
 
         private void ButtonOdustaniClicked(object sender, RoutedEventArgs e) {
@@ -57,7 +59,7 @@ namespace IS_Bolnica
             Examination e1 = new Examination { IsPayed = false, DurationInMinutes = trajanje, Doctor = d1, Date = datumPregleda, Patient = pacijent};
             pregledi.Add(e1);
             exStorage.saveToFile(pregledi, "Pregledi.json");
-            PatientWindow pw = new PatientWindow(PatientWindow.username_patient);
+            PatientWindow pw = new PatientWindow(patient);
             pw.Show();
             this.Close();
         }

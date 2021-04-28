@@ -22,9 +22,9 @@ namespace IS_Bolnica
 {
     public partial class DoctorWindow : Window
     {
-        private int ordination = 0;
+        private Doctor doctor = new Doctor();
 
-        public DoctorWindow(int loggedUserOrdination)
+        public DoctorWindow(Doctor doctor)
         {
             InitializeComponent();
             this.DataContext = this;
@@ -39,13 +39,13 @@ namespace IS_Bolnica
 
             dataGridOperations.ItemsSource = operations;
 
-            ordination = loggedUserOrdination;
+            this.doctor = doctor;
 
         }
 
         private void addExaminationButton(object sender, RoutedEventArgs e)
         {
-            AddExaminationWindow addExaminationWindow = new AddExaminationWindow(ordination);
+            AddExaminationWindow addExaminationWindow = new AddExaminationWindow(doctor);
             addExaminationWindow.Show();
             this.Close();
 
@@ -53,7 +53,7 @@ namespace IS_Bolnica
 
         private void addOperationButton(object sender, RoutedEventArgs e)
         {
-            AddOperationWindow addOperationWindow = new AddOperationWindow(ordination);
+            AddOperationWindow addOperationWindow = new AddOperationWindow(doctor);
             addOperationWindow.Show();
             this.Close();
         }
@@ -65,7 +65,7 @@ namespace IS_Bolnica
             examinations.RemoveAt(dataGridExaminations.SelectedIndex);
             examinationsRecordFileStorage.saveToFile(examinations, "examinations.json");
 
-            DoctorWindow doctorWindow = new DoctorWindow(ordination);
+            DoctorWindow doctorWindow = new DoctorWindow(doctor);
             doctorWindow.Show();
             this.Close();
         }
@@ -77,7 +77,7 @@ namespace IS_Bolnica
             operations.RemoveAt(dataGridOperations.SelectedIndex);
             operationsFileStorage.saveToFile(operations, "operations.json");
 
-            DoctorWindow doctorWindow = new DoctorWindow(ordination);
+            DoctorWindow doctorWindow = new DoctorWindow(doctor);
             doctorWindow.Show();
             this.Close();
         }
@@ -85,7 +85,7 @@ namespace IS_Bolnica
         private void updateExaminationButton(object sender, RoutedEventArgs e)
         {
             int selectedIndex = dataGridExaminations.SelectedIndex;
-            UpdateExaminationWindow updateExaminationWindow = new UpdateExaminationWindow(selectedIndex);
+            UpdateExaminationWindow updateExaminationWindow = new UpdateExaminationWindow(selectedIndex, doctor);
             updateExaminationWindow.Show();
             this.Close();
         }
@@ -93,7 +93,7 @@ namespace IS_Bolnica
         private void updateOperationButton(object sender, RoutedEventArgs e)
         {
            int selectedIndex = dataGridOperations.SelectedIndex;
-           UpdateOperationWindow updateOperationWindow = new UpdateOperationWindow(selectedIndex);
+           UpdateOperationWindow updateOperationWindow = new UpdateOperationWindow(selectedIndex, doctor);
            updateOperationWindow.Show();
            this.Close();
         }
@@ -107,7 +107,7 @@ namespace IS_Bolnica
 
         private void notificationButton(object sender, RoutedEventArgs e)
         {
-            DoctorNotificationWindow dnw = new DoctorNotificationWindow();
+            DoctorNotificationWindow dnw = new DoctorNotificationWindow(doctor);
             dnw.Show();
         }
     }

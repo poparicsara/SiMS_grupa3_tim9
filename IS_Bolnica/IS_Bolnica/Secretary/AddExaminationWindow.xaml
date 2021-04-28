@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:IS_Bolnica.Secretary"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="AddExaminationWindow" Height="750" Width="430" WindowStartupLocation="CenterScreen">
+        Title="Zakazivanje pregleda" Height="750" Width="430" WindowStartupLocation="CenterScreen">
     <Grid>
         <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="48" Margin="10,10,0,0" Height="48" Click="Button_Click">
             <StackPanel>

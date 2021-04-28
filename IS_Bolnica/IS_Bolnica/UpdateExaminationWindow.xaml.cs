@@ -19,9 +19,11 @@ namespace IS_Bolnica.DoctorsWindows
     {
         private int selectedExamination;
         private int ordination;
-        public UpdateExaminationWindow(int selectedIndex)
+        private Doctor doctor = new Doctor();
+        public UpdateExaminationWindow(int selectedIndex, Doctor doctor)
         {
             InitializeComponent();
+            this.doctor = doctor;
 
             ExaminationsRecordFileStorage examinationsRecordFileStorage = new ExaminationsRecordFileStorage();
             List<Examination> examinations = examinationsRecordFileStorage.loadFromFile("examinations.json");
@@ -57,7 +59,7 @@ namespace IS_Bolnica.DoctorsWindows
 
             examinationsRecordFileStorage.saveToFile(examinations, "examinations.json");
 
-            DoctorWindow doctorWindow = new DoctorWindow(ordination);
+            DoctorWindow doctorWindow = new DoctorWindow(doctor);
             doctorWindow.dataGridExaminations.Items.Refresh();
             doctorWindow.Show();
             this.Close();
@@ -71,7 +73,7 @@ namespace IS_Bolnica.DoctorsWindows
             switch (messageBox)
             {
                 case MessageBoxResult.Yes:
-                    DoctorWindow doctorWindow = new DoctorWindow(ordination);
+                    DoctorWindow doctorWindow = new DoctorWindow(doctor);
                     doctorWindow.Show();
                     this.Close();
                     break;

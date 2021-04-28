@@ -160,6 +160,9 @@
     <Compile Include="Secretary\AddPatient.xaml.cs">
       <DependentUpon>AddPatient.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Secretary\AddUrgentExamination.xaml.cs">
+      <DependentUpon>AddUrgentExamination.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Secretary\EditExaminationWindow.xaml.cs">
       <DependentUpon>EditExaminationWindow.xaml</DependentUpon>
     </Compile>
@@ -332,6 +335,10 @@
     <Page Include="Secretary\AddPatient.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Secretary\AddUrgentExamination.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Secretary\EditExaminationWindow.xaml">
       <SubType>Designer</SubType>
