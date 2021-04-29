@@ -54,6 +54,14 @@ namespace IS_Bolnica
                 }
             }
 
+            if (examination.Patient.Id.Equals(jmbgTxt.Text))
+            {
+                for (int i = 0; i < examination.Patient.Allergens.Count; i++)
+                {
+                    allergiesList.Items.Add(examination.Patient.Allergens[i]);
+                }
+            }
+
             selectedPatient = selectedIndex;
         }
 

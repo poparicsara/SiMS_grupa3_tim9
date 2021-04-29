@@ -25,6 +25,7 @@ namespace IS_Bolnica
         private PrescriptionFileStorage prescriptionStorage = new PrescriptionFileStorage();
         private List<Prescription> Prescriptions { get; set; } = new List<Prescription>();
         public List<Anamnesis> Anamneses { get; set; } = new List<Anamnesis>();
+        private AnamnesisFileStorage anamnesisStorage = new AnamnesisFileStorage();
         public CreatePrescription(Anamnesis anamnesis)
         {
             InitializeComponent();
@@ -43,6 +44,7 @@ namespace IS_Bolnica
         private void potvrdiClicked(object sender, RoutedEventArgs e)
         {
             Prescriptions = prescriptionStorage.loadFromFile("prescriptions.json");
+            Anamneses = anamnesisStorage.loadFromFile("anamneses.json");
 
             therapy.MedicationName = medTxt.Text;
             therapy.Dose = int.Parse(doseTxt.Text);
@@ -54,6 +56,22 @@ namespace IS_Bolnica
             prescriptionStorage.saveToFile(Prescriptions, "prescriptions.json");
 
             this.Close();
+        }
+        private void medTxt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (anamnesis.Patient.Id.Equals(jmbgTxt.Text))
+            {
+                if (anamnesis.Patient.Allergens.Contains(medTxt.Text))
+                {
+                    allergyWarning.Content = "Pacijent je alergican na unesen lek/ sastojak!";
+                    potvrdiBtn.IsEnabled = false;
+                }
+                else
+                {
+                    allergyWarning.Content = ' ';
+                    potvrdiBtn.IsEnabled = true;
+                }
+            }
         }
     }
 }

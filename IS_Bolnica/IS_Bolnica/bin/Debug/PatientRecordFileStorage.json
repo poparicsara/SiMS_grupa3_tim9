@@ -98,7 +98,7 @@
     ],
     "Debit": 1500.0,
     "examinations": null,
-    "HealthCardNumber": "61",
+    "HealthCardNumber": "6",
     "Anamneses": null,
     "Username": "nikola_nikolic",
     "Password": "sasasa",
@@ -156,7 +156,7 @@
   },
   {
     "Allergens": [
-      "brufen"
+      "brufen", "penicilin"
     ],
     "Debit": 1.0,
     "examinations": null,
