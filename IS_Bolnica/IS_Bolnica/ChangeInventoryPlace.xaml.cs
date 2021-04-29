@@ -407,7 +407,9 @@ namespace IS_Bolnica
 
             if(abort == 1)
             {
+                Debug.WriteLine("Gasim");
                 thread.Abort();
+                thread.Join();
             }
         }
 
@@ -480,6 +482,7 @@ namespace IS_Bolnica
                     }
                     abort = 1;
                     Debug.WriteLine(abort);
+                    makeThread();
                     roomStorage.saveToFile(rooms, "Sobe.json");
 
                 }

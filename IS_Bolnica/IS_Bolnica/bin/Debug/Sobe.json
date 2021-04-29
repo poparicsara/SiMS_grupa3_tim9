@@ -12,7 +12,7 @@
       },
       {
         "Name": "Krevet",
-        "CurrentAmount": 17,
+        "CurrentAmount": 20,
         "Minimum": 2,
         "Id": 666,
         "InventoryType": 1
@@ -49,7 +49,7 @@
       },
       {
         "Name": "Krevet",
-        "CurrentAmount": 23,
+        "CurrentAmount": 20,
         "Minimum": 2,
         "Id": 666,
         "InventoryType": 1
