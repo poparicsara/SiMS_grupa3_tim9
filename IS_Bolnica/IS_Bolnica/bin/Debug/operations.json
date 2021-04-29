@@ -1,7 +1,8 @@
 [
   {
     "doctor": {
-      "specialization": null,
+      "Specialization": null,
+      "Ordination": 0,
       "Username": null,
       "Password": null,
       "Name": "Mika",
@@ -15,6 +16,7 @@
     },
     "Doctor": null,
     "Date": "2021-05-09T10:30:00",
+    "endTime": "2021-05-09T11:00:00",
     "Patient": {
       "Allergens": [
         "penicilin"
@@ -79,7 +81,8 @@
   },
   {
     "doctor": {
-      "specialization": null,
+      "Specialization": null,
+      "Ordination": 0,
       "Username": null,
       "Password": null,
       "Name": "Pera",
@@ -93,6 +96,7 @@
     },
     "Doctor": null,
     "Date": "2021-04-29T14:30:00",
+    "endTime": "2021-01-01T00:00:00",
     "Patient": {
       "Allergens": [
         ""
@@ -157,7 +161,8 @@
   },
   {
     "doctor": {
-      "specialization": null,
+      "Specialization": null,
+      "Ordination": 0,
       "Username": null,
       "Password": null,
       "Name": "Žika",
@@ -170,7 +175,8 @@
       "Address": null
     },
     "Doctor": null,
-    "Date": "2021-04-24T15:30:00",
+    "Date": "2021-04-30T23:30:00",
+    "endTime": "2021-05-01T01:00:00",
     "Patient": {
       "Allergens": [
         "penicilin"
@@ -202,6 +208,43 @@
         }
       }
     },
+    "RoomRecord": {
+      "Id": 103,
+      "HospitalWard": "Pedijatrija",
+      "inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "roomPurpose": {
+        "Name": "Operaciona sala"
+      }
+    }
+  },
+  {
+    "doctor": null,
+    "Doctor": null,
+    "Date": "2021-05-01T00:00:00",
+    "endTime": "2021-05-03T00:00:00",
+    "Patient": null,
     "RoomRecord": {
       "Id": 103,
       "HospitalWard": "Pedijatrija",

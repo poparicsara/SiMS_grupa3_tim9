@@ -22,6 +22,8 @@ namespace IS_Bolnica
     public partial class UpravnikWindow : Window, INotifyPropertyChanged
     {
         private List<RoomRecord> rooms = new List<RoomRecord>();
+        private RoomRecord selectedRoom;
+
         public UpravnikWindow(Director director)
         {
             InitializeComponent();
@@ -146,9 +148,19 @@ namespace IS_Bolnica
 
         private void RenovationButton(object sender, RoutedEventArgs e)
         {
-            RenovationWindow rw = new RenovationWindow();
-            rw.Show();
-            this.Close();
+            int index = lvDataBinding.SelectedIndex;
+            selectedRoom = (RoomRecord)lvDataBinding.SelectedItem;
+
+            if (index < 0)
+            {
+                MessageBox.Show("Niste izabrali nijednu prostoriju!");
+            }
+            else
+            {
+                RenovationWindow rWindow = new RenovationWindow(selectedRoom);
+                rWindow.Show();
+                this.Close();
+            }
         }
     }
 
