@@ -107,30 +107,6 @@ namespace IS_Bolnica
                 ExaminationsRecordFileStorage exStorage = new ExaminationsRecordFileStorage();
                 List<Examination> pregledi = exStorage.loadFromFile("Pregledi.json");
 
-
-                Examination oznacen_pregled = new Examination();
-
-                for (int i = 0; i < pregledi.Count; i++) {
-                    if (i == (lvDataBinding.SelectedIndex + 1)) {
-                        oznacen_pregled = pregledi[i];
-                    }
-                }
-                DateTime now = DateTime.Now;
-                string[] pom = now.ToString().Split(' ');
-                string[] datum = pom[0].Split('/');
-
-                string[] pomocni = oznacen_pregled.Date.ToString().Split(' ');
-                string[] pomocni_datum = pomocni[0].Split('/');
-
-                if (Convert.ToInt32(datum[1]) + 2 < Convert.ToInt32(pomocni_datum[1]))
-                {
-                    pregledi.Remove(oznacen_pregled);
-                }
-                else
-                {
-                    MessageBox.Show("Ne mozete da otkazete pregled jer je zakazan u periodu od naredna dva dana!");
-                }
-
                 List<Examination> pacijentovi_pregledi = new List<Examination>();
 
                 foreach (Examination ex in pregledi)
@@ -141,7 +117,48 @@ namespace IS_Bolnica
                     }
                 }
 
-                lvDataBinding.ItemsSource = pacijentovi_pregledi;
+                Examination oznacen_pregled = new Examination();
+
+                for (int i = 0; i < pacijentovi_pregledi.Count; i++) {
+                    if (i == lvDataBinding.SelectedIndex) {
+                        oznacen_pregled = pacijentovi_pregledi[i];
+                    }
+                }
+                
+                DateTime now = DateTime.Now;
+                string[] pom = now.AddDays(2).ToString().Split(' ');
+                string[] datum = pom[0].Split('/');
+
+                string[] pomocni = oznacen_pregled.Date.ToString().Split(' ');
+                string[] pomocni_datum = pomocni[0].Split('/');
+
+                if (Convert.ToInt32(datum[0]) == Convert.ToInt32(pomocni_datum[0]))
+                {
+                    if (Convert.ToInt32(datum[1]) + 2 < Convert.ToInt32(pomocni_datum[1]))
+                    {
+                        pregledi.Remove(oznacen_pregled);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ne mozete da otkazete pregled jer je zakazan u periodu od naredna dva dana!");
+                    }
+                }
+                else
+                {
+
+                    pregledi.Remove(oznacen_pregled);
+                }
+
+                List<Examination> novi_pregledi = new List<Examination>();
+                foreach (Examination ex in pregledi)
+                {
+                    if (ex.Patient.Username.Equals(username_patient))
+                    {
+                        novi_pregledi.Add(ex);
+                    }
+                }
+
+                lvDataBinding.ItemsSource = novi_pregledi;
 
                 exStorage.saveToFile(pregledi, "Pregledi.json");
             }
@@ -176,19 +193,19 @@ namespace IS_Bolnica
                         oznacen_pregled = pacijentovi_pregledi[i];
                     }
                 }
-
+                
                 Izmena_pregleda ip = new Izmena_pregleda(lvDataBinding.SelectedIndex);
 
-                DateTime now = DateTime.Now;
-                string[] pom = now.ToString().Split(' ');
+                DateTime now = DateTime.Now;              
+                string[] pom = now.AddDays(2).ToString().Split(' ');
                 string[] datum = pom[0].Split('/');
                 
                 string[] pomocni = oznacen_pregled.Date.ToString().Split(' ');
                 string[] pomocni_datum = pomocni[0].Split('/');
-
+                
                 if (Convert.ToInt32(datum[0]) == Convert.ToInt32(pomocni_datum[0]))
                 {
-                    if (Convert.ToInt32(datum[1]) + 2 < Convert.ToInt32(pomocni_datum[1]))
+                    if (Convert.ToInt32(datum[1]) < Convert.ToInt32(pomocni_datum[1]))
                     {
                         ip.Show();
                         this.Close();
@@ -199,6 +216,7 @@ namespace IS_Bolnica
                     }
                 }
                 else {
+
                     ip.Show();
                     this.Close();
                 }

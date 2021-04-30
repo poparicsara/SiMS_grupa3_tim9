@@ -30,6 +30,8 @@ namespace IS_Bolnica
         }
 
         private void ButtonOdustaniClicked(object sender, RoutedEventArgs e) {
+            PatientWindow pw = new PatientWindow(PatientWindow.username_patient);
+            pw.Show();
             this.Close();
         }
 
