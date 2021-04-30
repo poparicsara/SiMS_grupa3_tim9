@@ -166,5 +166,17 @@
         }
       }
     }
+  },
+  {
+    "Username": "nikola",
+    "Password": "dzoni",
+    "Name": "Nikola",
+    "Surname": "Spasojevic",
+    "DateOfBirth": "1980-11-01T00:00:00",
+    "Phone": "67894234",
+    "Email": "nikolas@gmail.com",
+    "Id": "4341009",
+    "UserType": 1,
+    "Address": null
   }
 ]

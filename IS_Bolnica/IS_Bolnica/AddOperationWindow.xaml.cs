@@ -31,9 +31,12 @@ namespace IS_Bolnica.DoctorsWindows
         public List<Operation> Operations { get; set; } = new List<Operation>();
         public ObservableCollection<Patient> Patients { get; set; } = new ObservableCollection<Patient>();
         private PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
+        public List<int> Hours { get; set; } = new List<int>();
+
         public AddOperationWindow()
         {
             InitializeComponent();
+
             Rooms = roomStorage.loadFromFile("Sobe.json");
 
             foreach (RoomRecord room in Rooms)
@@ -45,6 +48,13 @@ namespace IS_Bolnica.DoctorsWindows
             }
 
             roomComboBox.ItemsSource = RoomId;
+
+            for (int i = 7; i < 20; i++)
+            {
+                Hours.Add(i);
+            }
+
+            hourBox.ItemsSource = Hours;
         }
 
         private void cancelButtonClicked(object sender, RoutedEventArgs e)
@@ -92,7 +102,11 @@ namespace IS_Bolnica.DoctorsWindows
             }
             else
             {
-                operation.Date = DateTime.Parse(dateTxt.Text);
+                DateTime date = new DateTime();
+                date = (DateTime)datePicker.SelectedDate;
+                int hour = Convert.ToInt32(hourBox.Text);
+                int minute = Convert.ToInt32(minuteBox.Text);
+                operation.Date = new DateTime(date.Year, date.Month, date.Day, hour, minute, 0);
                 operation.RoomRecord = new RoomRecord();
 
                 foreach (RoomRecord room in Rooms)
@@ -107,11 +121,17 @@ namespace IS_Bolnica.DoctorsWindows
                 operationStorage.saveToFile(Operations, "operations.json");
 
                 DoctorWindow doctorWindow = new DoctorWindow();
+                doctorWindow.tabs.SelectedItem = doctorWindow.operationsTab;
                 doctorWindow.dataGridOperations.Items.Refresh();
                 doctorWindow.Show();
 
                 this.Close();
             }
+
+        }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
 
         }
     }

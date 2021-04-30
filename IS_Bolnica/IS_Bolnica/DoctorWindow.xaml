@@ -8,7 +8,7 @@
         Title="Zdravo korporacija" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
         Height="768" Width="1024">
     <Grid>
-        <TabControl TabStripPlacement="Right" Background="#FFA0BC98" Margin="44,43,42.6,26" BorderBrush="#FFA0BC98" FontFamily="Global Sans Serif">
+        <TabControl Name ="tabs" TabStripPlacement="Right" Background="#FFA0BC98" Margin="44,43,135.6,26.4" BorderBrush="#FFA0BC98" FontFamily="Global Sans Serif">
             <TabItem x:Name="examinationsTab" Header="EXAMINATIONS" FontWeight="Bold" FontFamily="Ebrima" BorderBrush="#FFA0BC98" Foreground="#FFA0BC98" Background="#FF15285D" IsSelected="True" Height="30" Width="116">
 
                 <Canvas Height="301" RenderTransformOrigin="0.069,0.186" Margin="0,22,0,22.6" >
@@ -24,11 +24,11 @@
                         </DataGrid.Columns>
                     </DataGrid>
 
-                    <Button Content="Schedule examination" HorizontalAlignment="Left" VerticalAlignment="Top" Width="118" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" Canvas.Left="587" Canvas.Top="97" Click="addExaminationButton" FontSize="11"/>
-                    <Button Content="Cancel examination" HorizontalAlignment="Left" VerticalAlignment="Top" Width="118" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="587" Canvas.Top="58" Click="cancelExaminationButton" FontSize="11"/>
-                    <Button Content="Edit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="118" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="587" Canvas.Top="10" FontSize="11" Click="updateExaminationButton"/>
-                    <Button Content="start" HorizontalAlignment="Left" VerticalAlignment="Top" Width="118" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="587" Canvas.Top="-62" FontSize="11" Click="startExamination"/>
-                    <Button Content="Notifications" HorizontalAlignment="Left" VerticalAlignment="Top" Width="118" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="587" Canvas.Top="-144" FontSize="11" Click="notificationButton"/>
+                    <Button Content="Schedule examination" HorizontalAlignment="Left" VerticalAlignment="Top" Width="118" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" Canvas.Left="564" Canvas.Top="104" Click="addExaminationButton" FontSize="11"/>
+                    <Button Content="Cancel examination" HorizontalAlignment="Left" VerticalAlignment="Top" Width="118" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="564" Canvas.Top="60" Click="cancelExaminationButton" FontSize="11"/>
+                    <Button Content="Edit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="118" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="564" Canvas.Top="10" FontSize="11" Click="updateExaminationButton"/>
+                    <Button Content="start" HorizontalAlignment="Left" VerticalAlignment="Top" Width="118" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="564" Canvas.Top="-59" FontSize="11" Click="startExamination"/>
+                    <Button Content="Notifications" HorizontalAlignment="Left" VerticalAlignment="Top" Width="118" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="564" Canvas.Top="-144" FontSize="11" Click="notificationButton"/>
                 </Canvas>
 
             </TabItem>
@@ -56,6 +56,7 @@
 
             </TabItem>
         </TabControl>
+        <Button Content="odjavi se" HorizontalAlignment="Left" Margin="903,633,0,0" VerticalAlignment="Top" Width="85" Height="30" Click="logOutButtonClicked"/>
 
 
     </Grid>

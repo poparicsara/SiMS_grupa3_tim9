@@ -1,0 +1,29 @@
+
+[
+  {
+    "Ordination": 102,
+    "Username": "Marija",
+    "Password": "ftn",
+    "Name": "Marija",
+    "Surname": "Mariæ",
+    "DateOfBirth": "1979-11-01T00:00:00",
+    "Phone": "67894652",
+    "Email": "maricm@hotmail.com",
+    "Id": "457896",
+    "UserType": 1,
+    "Address": null
+  },
+  {
+    "Ordination": 707,
+    "Username": "nikola",
+    "Password": "dzoni",
+    "Name": "Nikola",
+    "Surname": "Spasojevic",
+    "DateOfBirth": "1980-11-01T00:00:00",
+    "Phone": "67894234",
+    "Email": "nikolas@gmail.com",
+    "Id": "4341009",
+    "UserType": 1,
+    "Address": null
+  }
+]

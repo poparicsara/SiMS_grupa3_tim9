@@ -9,21 +9,30 @@
     <Grid Background="#FFA5BC90">
 
         <Canvas Background="#FF15285D" Margin="0,0,697,0">
-            <Label Content="Date and time:" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" Height="35" Canvas.Left="82" Canvas.Top="58" Width="157"/>
-            <Label Content="Room:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" Height="35" Canvas.Left="82" Canvas.Top="107"/>
-            <Label Content="Description:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="156" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" Canvas.Left="82" Canvas.Top="390" Height="35"/>
-            <Label Content="Patient:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" Height="35" Canvas.Left="82" Canvas.Top="174"/>
-            <Label Content="JMBG:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" Height="35" Canvas.Left="82" Canvas.Top="250"/>
+            <Label Content="Datum i vreme:" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" Height="35" Canvas.Left="82" Canvas.Top="58" Width="157"/>
+            <Label Content="Soba:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" Height="35" Canvas.Left="82" Canvas.Top="146"/>
+            <Label Content="Opis:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="156" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" Canvas.Left="82" Canvas.Top="458" Height="35"/>
+            <Label Content="Pacijent:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" Height="35" Canvas.Left="82" Canvas.Top="207"/>
+            <Label Content="JMBG:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" Height="35" Canvas.Left="82" Canvas.Top="272"/>
+            <Label Content="Lekar:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" Height="35" Canvas.Left="82" Canvas.Top="389"/>
+            <Label Content="Broj zdravstvene knjizice:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="229" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" Height="35" Canvas.Left="82" Canvas.Top="323"/>
         </Canvas>
 
-        <Button Content="Cancel" HorizontalAlignment="Left" Margin="654,537,0,0" VerticalAlignment="Top" Width="91" FontFamily="Ebrima" FontSize="16" Click="cancelButtonClicked" Background="#FF15285D" FontWeight="Bold" Foreground="White"/>
-        <Button Content="Save" HorizontalAlignment="Left" Margin="821,537,0,0" VerticalAlignment="Top" Width="89" FontFamily="Ebrima" FontSize="16" Click="saveButtonClicked" Background="#FF15285D" FontWeight="Bold" Foreground="White" RenderTransformOrigin="0,0"/>
-        <TextBox Name ="dateTxt"  HorizontalAlignment="Left" Height="23" Margin="397,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177" 
-                 RenderTransformOrigin="0.05,0.526"/>
-        <TextBox Name="descriptionTxt" HorizontalAlignment="Left" Height="76" Margin="397,394,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177"/>
-        <ComboBox Name="roomComboBox" ItemsSource="{Binding RoomId}" HorizontalAlignment="Left" Margin="397,129,0,0" VerticalAlignment="Top" Width="177"/>
-        <TextBox Name ="patientTxt" HorizontalAlignment="Left" Height="28" Margin="397,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177"/>
-        <TextBox x:Name ="jmbgTxt" HorizontalAlignment="Left" Height="28" Margin="397,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="852,594,0,0" VerticalAlignment="Top" Width="91" FontFamily="Ebrima" FontSize="16" Click="cancelButtonClicked" Background="#FF15285D" FontWeight="Bold" Foreground="White"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="852,540,0,0" VerticalAlignment="Top" Width="89" FontFamily="Ebrima" FontSize="16" Click="saveButtonClicked" Background="#FF15285D" FontWeight="Bold" Foreground="White" RenderTransformOrigin="0,0"/>
+        <TextBox Name="descriptionTxt" HorizontalAlignment="Left" Height="76" Margin="397,468,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177"/>
+        <ComboBox Name="roomComboBox" ItemsSource="{Binding RoomId}" HorizontalAlignment="Left" Margin="397,154,0,0" VerticalAlignment="Top" Width="177"/>
+        <TextBox Name ="patientTxt" HorizontalAlignment="Left" Height="28" Margin="397,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177"/>
+        <TextBox x:Name ="jmbgTxt" HorizontalAlignment="Left" Height="28" Margin="397,278,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177"/>
+        <DatePicker Name="datePicker" HorizontalAlignment="Left" Margin="397,52,0,0" VerticalAlignment="Top" Width="177" Height="26"/>
+        <ComboBox Name="hourBox" HorizontalAlignment="Left" Margin="397,95,0,0" VerticalAlignment="Top" Width="70"/>
+        <ComboBox Name="minuteBox" HorizontalAlignment="Left" Margin="499,95,0,0" VerticalAlignment="Top" Width="75">
+            <ComboBoxItem>00</ComboBoxItem>
+            <ComboBoxItem>30</ComboBoxItem>
+        </ComboBox>
+        <RadioButton Name="urgentRadioBtn" Content="Hitno" HorizontalAlignment="Left" Margin="642,468,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
+        <TextBox x:Name ="doctorTxt" HorizontalAlignment="Left" Height="28" Margin="397,394,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177"/>
+        <TextBox x:Name ="healthCardNumberTxt" HorizontalAlignment="Left" Height="28" Margin="397,330,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177"/>
 
     </Grid>
 </Window>

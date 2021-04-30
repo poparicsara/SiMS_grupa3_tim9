@@ -7,10 +7,10 @@ namespace IS_Bolnica
 {
     public partial class MainWindow : Window
     {
-
         private UsersFileStorage storage = new UsersFileStorage();
         private ObservableCollection<User> users = new ObservableCollection<User>();
-        private User user = new User();
+        private ObservableCollection<User> loggedUsers = new ObservableCollection<User>();
+        //private User user = new User();
         public MainWindow()
         {
             InitializeComponent();
@@ -61,8 +61,11 @@ namespace IS_Bolnica
                             pw.Show();
                             break;
                         case UserType.doctor:
+                            loggedUsers.Add(user);
+                            storage.saveToFile(loggedUsers, "loggedUsers.json");
                             DoctorWindow doctorWindow = new DoctorWindow();
                             doctorWindow.Show();
+                            this.Close();
                             break;
                         case UserType.director:
                             Director director = new Director();

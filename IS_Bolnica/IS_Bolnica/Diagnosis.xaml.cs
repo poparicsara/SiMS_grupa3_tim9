@@ -1,4 +1,5 @@
-﻿using IS_Bolnica.Model;
+﻿using IS_Bolnica.DoctorsWindows;
+using IS_Bolnica.Model;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -63,28 +64,15 @@ namespace IS_Bolnica
 
             CreatePrescription createPrescription = new CreatePrescription(anamnesis);
 
-            //createPrescription.patientTxt.Text = examination.Patient.Name + ' ' + examination.Patient.Surname;
-            //createPrescription.prescriptionDateTxt.Text = examination.Date.ToString();
-            //createPrescription.doctorTxt.Text = "Petar Petrović";
-            //createPrescription.dateOfBirthTxt.Text = examination.Patient.DateOfBirth.ToString();
-            //createPrescription.jmbgTxt.Text = examination.Patient.Id;
-            //createPrescription.healthCardIdTxt.Text = examination.Patient.HealthCardNumber;
-            //createPrescription.diagnosisTxt.Text = diagnosisTxt.Text;
-
-            //PrescriptionFileStorage prescriptionFileStorage = new PrescriptionFileStorage();
-            //List<Prescription> prescriptions = prescriptionFileStorage.loadFromFile("prescriptions.json");
-
-            //foreach (Prescription prescription in prescriptions)
-            //{
-            //    if (prescription.Patient.Id.Equals(jmbgTxt.Text))
-            //    {
-            //        prescription.Anamnesis = anamnesis;
-            //    }
-            //}
-
             createPrescription.Show();
 
             this.Close();
+        }
+
+        private void scheduleOperationButtonClicked(object sender, RoutedEventArgs e)
+        {
+            AddOperationWindow addOperationWindow = new AddOperationWindow();
+            addOperationWindow.Show();
         }
     }
 }

@@ -82,84 +82,6 @@
       "specialization": null,
       "Username": null,
       "Password": null,
-      "Name": "Pera",
-      "Surname": "Perić",
-      "DateOfBirth": "0001-01-01T00:00:00",
-      "Phone": null,
-      "Email": null,
-      "Id": null,
-      "UserType": 0,
-      "Address": null
-    },
-    "Doctor": null,
-    "Date": "2021-04-29T14:30:00",
-    "Patient": {
-      "Allergens": [
-        ""
-      ],
-      "Debit": 200.0,
-      "examinations": null,
-      "HealthCardNumber": null,
-      "Anamneses": null,
-      "Username": "mica",
-      "Password": "haha",
-      "Name": "Milica",
-      "Surname": "Milović",
-      "DateOfBirth": "2021-04-19T00:00:00+02:00",
-      "Phone": "068555647",
-      "Email": "milicam@gmail.com",
-      "Id": "3333",
-      "UserType": 0,
-      "Address": {
-        "Street": "Marka Oreškovića ",
-        "NumberOfBuilding": 5,
-        "Floor": 5,
-        "Apartment": 9,
-        "City": {
-          "name": "Vranje ",
-          "postalCode": "589",
-          "Country": {
-            "name": "Srbija"
-          }
-        }
-      }
-    },
-    "RoomRecord": {
-      "Id": 103,
-      "HospitalWard": "Pedijatrija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Operaciona sala"
-      }
-    }
-  },
-  {
-    "doctor": {
-      "specialization": null,
-      "Username": null,
-      "Password": null,
       "Name": "Žika",
       "Surname": "Žikić",
       "DateOfBirth": "0001-01-01T00:00:00",
@@ -262,6 +184,84 @@
         "City": {
           "name": "Sombor ",
           "postalCode": "25000",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "RoomRecord": {
+      "Id": 103,
+      "HospitalWard": "Pedijatrija",
+      "inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "roomPurpose": {
+        "Name": "Operaciona sala"
+      }
+    }
+  },
+  {
+    "doctor": {
+      "specialization": null,
+      "Username": null,
+      "Password": null,
+      "Name": "Pera",
+      "Surname": "Perić",
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": null,
+      "Email": null,
+      "Id": null,
+      "UserType": 0,
+      "Address": null
+    },
+    "Doctor": null,
+    "Date": "2021-04-28T11:30:00",
+    "Patient": {
+      "Allergens": [
+        ""
+      ],
+      "Debit": 200.0,
+      "examinations": null,
+      "HealthCardNumber": "10",
+      "Anamneses": null,
+      "Username": "mica",
+      "Password": "haha",
+      "Name": "Milica",
+      "Surname": "Milović",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "068555647",
+      "Email": "milicam@gmail.com",
+      "Id": "3333",
+      "UserType": 0,
+      "Address": {
+        "Street": "Marka Oreškovića ",
+        "NumberOfBuilding": 5,
+        "Floor": 5,
+        "Apartment": 9,
+        "City": {
+          "name": "Vranje ",
+          "postalCode": "589",
           "Country": {
             "name": "Srbija"
           }

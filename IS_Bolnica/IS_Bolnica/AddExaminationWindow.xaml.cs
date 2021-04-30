@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using IS_Bolnica.Model;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -31,6 +32,9 @@ namespace IS_Bolnica.DoctorsWindows
         public List<Examination> Examinations { get; set; } = new List<Examination>();
         public ObservableCollection<Patient> Patients { get; set; } = new ObservableCollection<Patient>();
         private PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
+        public List<int> Hours { get; set; } = new List<int>();
+        public List<Doctor> Doctors { get; set; } = new List<Doctor>();
+        private DoctorFileStorage doctorStorage = new DoctorFileStorage();
         public AddExaminationWindow()
         {
             InitializeComponent();
@@ -46,6 +50,18 @@ namespace IS_Bolnica.DoctorsWindows
             }
 
             roomComboBox.ItemsSource = RoomId;
+
+            for (int i = 7; i < 20; i++)
+            {
+                Hours.Add(i);
+            }
+
+            hourBox.ItemsSource = Hours;
+
+            List<int> Minutes = new List<int>();
+            Minutes.Add(00);
+            Minutes.Add(30);
+            minuteBox.ItemsSource = Minutes;
         }
 
         private void cancelButtonClicked(object sender, RoutedEventArgs e)
@@ -70,9 +86,19 @@ namespace IS_Bolnica.DoctorsWindows
         { 
             Examinations = examinationStorage.loadFromFile("examinations.json");
             Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
+            Doctors = doctorStorage.loadFromFile("Doctors.json");
 
             int cnt = 0;
             string[] patientNameAndSurname = patientTxt.Text.Split(' ');
+            string[] doctorNameAndSurname = doctorTxt.Text.Split(' ');
+
+            foreach (Doctor doctor in Doctors)
+            {
+                if (doctor.Name.Equals(doctorNameAndSurname[0]) && doctor.Surname.Equals(doctorNameAndSurname[1]))
+                {
+                    examination.Doctor = doctor;
+                }
+            }
 
             foreach (Patient patient in Patients)
             {
@@ -92,7 +118,11 @@ namespace IS_Bolnica.DoctorsWindows
                 MessageBox.Show("Pacijent sa ovim JMBG-om ne postoji!");
             } else
             {
-                examination.Date = DateTime.Parse(dateTxt.Text);
+                DateTime date = new DateTime();
+                date = (DateTime)datePicker.SelectedDate;
+                int hour = Convert.ToInt32(hourBox.Text);
+                int minute = Convert.ToInt32(minuteBox.Text);
+                examination.Date = new DateTime(date.Year, date.Month, date.Day, hour, minute, 0);
                 examination.RoomRecord = new RoomRecord();
 
                 foreach (RoomRecord room in Rooms)
@@ -103,8 +133,18 @@ namespace IS_Bolnica.DoctorsWindows
                     }
                 }
 
-                Examinations.Add(examination);
-                examinationStorage.saveToFile(Examinations, "examinations.json");
+                if (isAppointmentAvailable(Examinations, examination.Date) && isRoomAvailable(Examinations, examination.RoomRecord, examination.Date))
+                {
+                    Examinations.Add(examination);
+                    examinationStorage.saveToFile(Examinations, "examinations.json");
+                } 
+                else
+                {
+                    MessageBox.Show("Termin je zauzet");
+                }
+
+                //Examinations.Add(examination);
+                //examinationStorage.saveToFile(Examinations, "examinations.json");
 
                 DoctorWindow doctorWindow = new DoctorWindow();
                 doctorWindow.dataGridExaminations.Items.Refresh();
@@ -114,6 +154,31 @@ namespace IS_Bolnica.DoctorsWindows
             }
 
 
+        }
+        private bool isAppointmentAvailable(List<Examination> examinations, DateTime dateAndTime)
+        {
+            foreach (Examination examination in examinations)
+            {
+                if (examination.Date == dateAndTime)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private bool isRoomAvailable(List<Examination> examinations, RoomRecord room, DateTime dateAndTime)
+        {
+            foreach (Examination examination in examinations)
+            {
+                if (examination.RoomRecord.Id == room.Id && examination.Date == dateAndTime)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }

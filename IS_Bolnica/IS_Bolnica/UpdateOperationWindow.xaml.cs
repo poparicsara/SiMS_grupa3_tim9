@@ -1,6 +1,7 @@
 ﻿using Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,46 +19,113 @@ namespace IS_Bolnica.DoctorsWindows
     public partial class UpdateOperationWindow : Window
     {
         private int selectedOperation;
+        private Operation operation;
+        public List<RoomRecord> Rooms
+        {
+            get;
+            set;
+        }
+        public List<int> RoomId { get; set; } = new List<int>();
+        private RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+        public List<int> Hours { get; set; } = new List<int>();
         public UpdateOperationWindow(int selectedIndex)
         {
             InitializeComponent();
 
             OperationsFileStorage operationsFileStorage = new OperationsFileStorage();
             List<Operation> operations = operationsFileStorage.loadFromFile("operations.json");
+            Rooms = roomStorage.loadFromFile("Sobe.json");
 
-            dateTxt.Text = operations.ElementAt(selectedIndex).Date.ToString();
-            roomTxt.Text = operations.ElementAt(selectedIndex).RoomRecord.roomPurpose.Name;
-            patientNameTxt.Text = operations.ElementAt(selectedIndex).Patient.Name;
-            patientSurnameTxt.Text = operations.ElementAt(selectedIndex).Patient.Surname;
+            this.operation = operations.ElementAt(selectedIndex);
+
+            datePicker.SelectedDate = operation.Date;
+            patientTxt.Text = operation.Patient.Name + ' ' + operation.Patient.Surname;
+            jmbgTxt.Text = operation.Patient.Id;
+
+            foreach (RoomRecord room in Rooms)
+            {
+                if (room.roomPurpose.Name.Equals("Operaciona sala")) 
+                {
+                    RoomId.Add(room.Id);
+                }
+            }
+
+            roomsComboBox.ItemsSource = RoomId;
+            roomsComboBox.SelectedItem = operation.RoomRecord.Id;
+
+            for (int i = 7; i < 20; i++)
+            {
+                Hours.Add(i);
+            }
+
+            hourBox.ItemsSource = Hours;
 
             selectedOperation = selectedIndex;
         }
 
         private void saveButtonClicked(object sender, RoutedEventArgs e)
         {
-            Patient patient = new Patient();
-            Operation operation = new Operation();
-            RoomRecord room = new RoomRecord();
-            RoomPurpose purpose = new RoomPurpose();
-            operation.Date = DateTime.Parse(dateTxt.Text);
-            patient.Name = patientNameTxt.Text;
-            patient.Surname = patientSurnameTxt.Text;
-            purpose.Name = roomTxt.Text;
-            room.roomPurpose = purpose;
+            OperationsFileStorage operationStorage = new OperationsFileStorage();
+            List<Operation> operations = operationStorage.loadFromFile("operations.json");
 
-            OperationsFileStorage operationsFileStorage = new OperationsFileStorage();
-            List<Operation> operations = operationsFileStorage.loadFromFile("operations.json");
-            operations.ElementAt(selectedOperation).Date = operation.Date;
-            operations.ElementAt(selectedOperation).RoomRecord.roomPurpose = room.roomPurpose;
-            operations.ElementAt(selectedOperation).Patient.Name = patient.Name;
-            operations.ElementAt(selectedOperation).Patient.Surname = patient.Surname;
+            ObservableCollection<Patient> patients = new ObservableCollection<Patient>();
+            PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
 
-            operationsFileStorage.saveToFile(operations, "operations.json");
+            for (int i = 0; i < operations.Count; i++)
+            {
+                if (operations[i].Date.Equals(operation.Date) && operations[i].Patient.Id.Equals(operation.Patient.Id))
+                {
+                    operations.RemoveAt(i);
+                }
+            }
 
-            DoctorWindow doctorWindow = new DoctorWindow();
-            doctorWindow.dataGridOperations.Items.Refresh();
-            doctorWindow.Show();
-            this.Close();
+            patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
+            int cnt = 0;
+            string[] patientNameAndSurname = patientTxt.Text.Split(' ');
+
+            foreach (Patient patient in patients)
+            {
+                if (patient.Id.Equals(jmbgTxt.Text))
+                {
+                    operation.Patient = patient;
+                    cnt++;
+                }
+            }
+
+            if ((patientNameAndSurname[0] != operation.Patient.Name) || (patientNameAndSurname[1] != operation.Patient.Surname))
+            {
+                MessageBox.Show("Pogresno ime ili prezime!");
+            }
+            else if (cnt == 0)
+            {
+                MessageBox.Show("Pacijent sa unetim JMBG-om ne postoji!");
+            }
+            else
+            {
+                DateTime date = new DateTime();
+                date = (DateTime)datePicker.SelectedDate;
+                int hour = Convert.ToInt32(hourBox.Text);
+                int minute = Convert.ToInt32(minuteBox.Text);
+                operation.Date = new DateTime(date.Year, date.Month, date.Day, hour, minute, 0);
+                operation.RoomRecord = new RoomRecord();
+
+                foreach (RoomRecord room in Rooms)
+                {
+                    if (room.Id == Convert.ToInt32(roomsComboBox.SelectedItem))
+                    {
+                        operation.RoomRecord = room;
+                    }
+                }
+
+                operations.Add(operation);
+                operationStorage.saveToFile(operations, "operations.json");
+
+                DoctorWindow doctorWindow = new DoctorWindow();
+                doctorWindow.tabs.SelectedItem = doctorWindow.operationsTab;
+                doctorWindow.dataGridOperations.Items.Refresh();
+                doctorWindow.Show();
+                this.Close();
+            }
         }
 
         private void cancelButtonClicked(object sender, RoutedEventArgs e)
