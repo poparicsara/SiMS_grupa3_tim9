@@ -21,7 +21,6 @@ namespace IS_Bolnica
         private Anamnesis anamnesis;
         private Prescription prescription = new Prescription();
         private Therapy therapy = new Therapy();
-        private Doctor doctor = new Doctor();
         private PrescriptionFileStorage prescriptionStorage = new PrescriptionFileStorage();
         private List<Prescription> Prescriptions { get; set; } = new List<Prescription>();
         public List<Anamnesis> Anamneses { get; set; } = new List<Anamnesis>();
@@ -38,6 +37,7 @@ namespace IS_Bolnica
             healthCardIdTxt.Text = anamnesis.Patient.HealthCardNumber;
             prescriptionDateTxt.Text = anamnesis.Date.ToString();
             diagnosisTxt.Text = anamnesis.Diagnosis;
+            doctorTxt.Text = anamnesis.Doctor.Name + ' ' + anamnesis.Doctor.Surname;
 
         }
 
@@ -51,6 +51,7 @@ namespace IS_Bolnica
             prescription.Therapy = therapy;
             prescription.Date = DateTime.Parse(prescriptionDateTxt.Text);
             prescription.Patient = anamnesis.Patient;
+            prescription.Doctor = anamnesis.Doctor;
 
             Prescriptions.Add(prescription);
             prescriptionStorage.saveToFile(Prescriptions, "prescriptions.json");

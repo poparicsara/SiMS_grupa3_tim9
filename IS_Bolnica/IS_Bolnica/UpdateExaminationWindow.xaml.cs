@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using IS_Bolnica.Model;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -28,13 +29,15 @@ namespace IS_Bolnica.DoctorsWindows
         public List<int> RoomId { get; set; } = new List<int>();
         private RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
         public List<int> Hours { get; set; } = new List<int>();
+        public List<Doctor> Doctors { get; set; }
+        private DoctorFileStorage doctorStorage = new DoctorFileStorage();
+        private List<string> doctorNameAndSurname = new List<string>();
+        private List<string> specialistNameAndSurname = new List<string>();
         public UpdateExaminationWindow(int selectedIndex, List<Examination> loggedDoctorExaminations)
         {
             InitializeComponent();
 
             ExaminationsRecordFileStorage examinationsRecordFileStorage = new ExaminationsRecordFileStorage();
-           // List<Examination> examinations = examinationsRecordFileStorage.loadFromFile("examinations.json");
-            Rooms = roomStorage.loadFromFile("Sobe.json");
             List<Examination> examinations = loggedDoctorExaminations;
 
             this.examination = examinations.ElementAt(selectedIndex);
@@ -45,7 +48,8 @@ namespace IS_Bolnica.DoctorsWindows
             patientTxt.Text = examination.Patient.Name + ' ' + examination.Patient.Surname;
             jmbgTxt.Text = examination.Patient.Id;
             healthCardNumberTxt.Text = examination.Patient.HealthCardNumber;
-            doctorTxt.Text = examination.Doctor.Name + ' ' + examination.Doctor.Surname;
+
+            Rooms = roomStorage.loadFromFile("Sobe.json");
 
             foreach (RoomRecord room in Rooms)
             {
@@ -57,6 +61,19 @@ namespace IS_Bolnica.DoctorsWindows
 
             roomComboBox.ItemsSource = RoomId;
             roomComboBox.SelectedItem = examination.RoomRecord.Id;
+
+            if (examination.Doctor.Specialization == null)
+            {
+                opstaPraksaRadioBtn.IsChecked = true;
+                specijalistiRadioBtn.IsChecked = false;
+                doctorsComboBox.SelectedItem = examination.Doctor.Name + ' ' + examination.Doctor.Surname;
+            }
+            if (examination.Doctor.Specialization != null)
+            {
+                specijalistiRadioBtn.IsChecked = true;
+                opstaPraksaRadioBtn.IsChecked = false;
+                doctorsComboBox.SelectedItem = examination.Doctor.Name + ' ' + examination.Doctor.Surname;
+            }
 
             for (int i = 7; i < 20; i++)
             {
@@ -81,6 +98,9 @@ namespace IS_Bolnica.DoctorsWindows
             ObservableCollection<Patient> Patients = new ObservableCollection<Patient>();
             PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
 
+            List<Doctor> doctors = new List<Doctor>();
+            DoctorFileStorage doctorStorage = new DoctorFileStorage();
+
             for (int i = 0; i < examinations.Count; i++)
             {
                 if (examinations[i].Date.Equals(examination.Date) && examinations[i].Patient.Id.Equals(examination.Patient.Id))
@@ -90,8 +110,19 @@ namespace IS_Bolnica.DoctorsWindows
             }
 
             Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
+            doctors = doctorStorage.loadFromFile("Doctors.json");
             int cnt = 0;
             string[] patientNameAndSurname = patientTxt.Text.Split(' ');
+
+            foreach (Doctor doctor in doctors)
+            {
+                string drNameSurname = doctor.Name + ' ' + doctor.Surname;
+
+                if (drNameSurname.Equals(doctorsComboBox.SelectedItem.ToString()))
+                {
+                    examination.Doctor = doctor;
+                }
+            }
 
             foreach (Patient patient in Patients)
             {
@@ -127,7 +158,8 @@ namespace IS_Bolnica.DoctorsWindows
                     }
                 }
 
-                if (isAppointmentAvailable(examinations, examination.Date) && isRoomAvailable(examinations, examination.RoomRecord, examination.Date))
+                if (isRoomAvailable(examinations, examination.RoomRecord, examination.Date) && isPatientAvailable(examinations, examination.Patient, examination.Date)
+                    && isDoctorAvailable(examinations, examination.Doctor, examination.Date))
                 {
                     examinations.Add(examination);
                     examinationsRecordFileStorage.saveToFile(examinations, "examinations.json");
@@ -137,13 +169,8 @@ namespace IS_Bolnica.DoctorsWindows
                     MessageBox.Show("Termin je zauzet");
                 }
 
-                //examinations.Add(examination);
-                //examinationsRecordFileStorage.saveToFile(examinations, "examinations.json");
-
                 DoctorWindow doctorWindow = new DoctorWindow();
                 doctorWindow.dataGridExaminations.Items.Refresh();
-
-                doctorWindow.operationsTab.BeginInit();
                 doctorWindow.Show();
                 this.Close();
             }
@@ -192,17 +219,99 @@ namespace IS_Bolnica.DoctorsWindows
             return true;
         }
 
-        private bool isAppointmentAvailable(List<Examination> examinations, DateTime dateAndTime)
+        //private bool isAppointmentAvailable(List<Examination> examinations, DateTime dateAndTime)
+        //{
+        //    foreach (Examination examination in examinations)
+        //    {
+        //        if (examination.Date == dateAndTime)
+        //        {
+        //            return false;
+        //        }
+        //    }
+
+        //    return true;
+        //}
+        private bool isDoctorAvailable(List<Examination> examinations, Doctor doctor, DateTime dateAndTime)
         {
             foreach (Examination examination in examinations)
             {
-                if (examination.Date == dateAndTime)
+                string drNameSurname = doctor.Name + ' ' + doctor.Surname;
+
+                if (drNameSurname.Equals(doctorsComboBox.SelectedItem.ToString()) && examination.Date.Equals(dateAndTime))
                 {
                     return false;
                 }
             }
 
             return true;
+        }
+
+        private void specijalistiRadioBtn_Checked(object sender, RoutedEventArgs e)
+        {
+            Doctors = doctorStorage.loadFromFile("Doctors.json");
+            string dr;
+
+            foreach (Doctor doctor in Doctors)
+            {
+                if (doctor.Specialization != null)
+                {
+                    dr = doctor.Name + ' ' + doctor.Surname;
+                    specialistNameAndSurname.Add(dr);
+                }
+            }
+
+            doctorsComboBox.ItemsSource = specialistNameAndSurname;
+        }
+
+        private void opstaPraksaRadioBtn_Checked(object sender, RoutedEventArgs e)
+        {
+            Doctors = doctorStorage.loadFromFile("Doctors.json");
+            string dr;
+
+            foreach (Doctor doctor in Doctors)
+            {
+                if (doctor.Specialization == null)
+                {
+                    dr = doctor.Name + ' ' + doctor.Surname;
+                    doctorNameAndSurname.Add(dr);
+                }
+            }
+
+            doctorsComboBox.ItemsSource = doctorNameAndSurname;
+        }
+
+        private void opstaPraksaRadioBtn_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Doctors = doctorStorage.loadFromFile("Doctors.json");
+            string dr;
+
+            foreach (Doctor doctor in Doctors)
+            {
+                if (doctor.Specialization == null)
+                {
+                    dr = doctor.Name + ' ' + doctor.Surname;
+                    doctorNameAndSurname.Remove(dr);
+                }
+            }
+
+            doctorsComboBox.ItemsSource = doctorNameAndSurname;
+        }
+
+        private void specijalistiRadioBtn_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Doctors = doctorStorage.loadFromFile("Doctors.json");
+            string dr;
+
+            foreach (Doctor doctor in Doctors)
+            {
+                if (doctor.Specialization != null)
+                {
+                    dr = doctor.Name + ' ' + doctor.Surname;
+                    specialistNameAndSurname.Remove(dr);
+                }
+            }
+
+            doctorsComboBox.ItemsSource = specialistNameAndSurname;
         }
     }
     

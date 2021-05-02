@@ -1,37 +1,5 @@
 [
   {
-    "Diagnosis": "bhhdv",
-    "Symptoms": "adadav",
-    "Patient": {
-      "Allergens": null,
-      "Debit": 0.0,
-      "examinations": null,
-      "HealthCardNumber": "071189",
-      "Anamneses": null,
-      "Username": "milos",
-      "Password": "m123",
-      "Name": "Milos",
-      "Surname": "Milosevic",
-      "DateOfBirth": "1986-12-12T00:00:00",
-      "Phone": "0",
-      "Email": null,
-      "Id": "1209976807054",
-      "UserType": 0,
-      "Address": {
-        "Street": "Miroslava Antica 13",
-        "NumberOfBuilding": 0,
-        "Floor": 0,
-        "Apartment": 0,
-        "City": {
-          "name": "Novi Sad",
-          "postalCode": null,
-          "Country": null
-        }
-      }
-    },
-    "Date": "2021-06-14T00:00:00"
-  },
-  {
     "Diagnosis": "prehlada",
     "Symptoms": "curenje iz nosa",
     "Patient": {
@@ -65,117 +33,8 @@
         }
       }
     },
-    "Date": "2021-04-05T00:00:00"
-  },
-  {
-    "Diagnosis": "covid",
-    "Symptoms": "kasalj",
-    "Patient": {
-      "Allergens": [
-        "brufen"
-      ],
-      "Debit": 1.0,
-      "examinations": null,
-      "HealthCardNumber": "19",
-      "Anamneses": null,
-      "Username": "nnnn",
-      "Password": "ftn",
-      "Name": "Nina",
-      "Surname": "Pavkovic",
-      "DateOfBirth": "2021-04-19T00:00:00+02:00",
-      "Phone": "12345",
-      "Email": "dad",
-      "Id": "1234",
-      "UserType": 0,
-      "Address": {
-        "Street": "abc ",
-        "NumberOfBuilding": 4,
-        "Floor": 3,
-        "Apartment": 2,
-        "City": {
-          "name": "ns ",
-          "postalCode": "21000",
-          "Country": {
-            "name": "srb"
-          }
-        }
-      }
-    },
-    "Date": "2021-04-05T00:00:00"
-  },
-  {
-    "Diagnosis": "aa",
-    "Symptoms": "dd",
-    "Patient": {
-      "Allergens": [
-        "brufen",
-        "penicilin"
-      ],
-      "Debit": 1.0,
-      "examinations": null,
-      "HealthCardNumber": "19",
-      "Anamneses": null,
-      "Username": "nnnn",
-      "Password": "ftn",
-      "Name": "Nina",
-      "Surname": "Pavkovic",
-      "DateOfBirth": "2021-04-19T00:00:00+02:00",
-      "Phone": "12345",
-      "Email": "dad",
-      "Id": "1234",
-      "UserType": 0,
-      "Address": {
-        "Street": "abc ",
-        "NumberOfBuilding": 4,
-        "Floor": 3,
-        "Apartment": 2,
-        "City": {
-          "name": "ns ",
-          "postalCode": "21000",
-          "Country": {
-            "name": "srb"
-          }
-        }
-      }
-    },
-    "Date": "2021-06-06T00:00:00"
-  },
-  {
-    "Diagnosis": "x",
-    "Symptoms": "vvv",
-    "Patient": {
-      "Allergens": [
-        "brufen",
-        "penicilin"
-      ],
-      "Debit": 1.0,
-      "examinations": null,
-      "HealthCardNumber": "19",
-      "Anamneses": null,
-      "Username": "nnnn",
-      "Password": "ftn",
-      "Name": "Nina",
-      "Surname": "Pavkovic",
-      "DateOfBirth": "2021-04-19T00:00:00+02:00",
-      "Phone": "12345",
-      "Email": "dad",
-      "Id": "1234",
-      "UserType": 0,
-      "Address": {
-        "Street": "abc ",
-        "NumberOfBuilding": 4,
-        "Floor": 3,
-        "Apartment": 2,
-        "City": {
-          "name": "ns ",
-          "postalCode": "21000",
-          "Country": {
-            "name": "srb"
-          }
-        }
-      }
-    },
-    "Date": "2021-04-05T00:00:00"
+    "Date": "2021-04-05T00:00:00",
+    "Doctor": null
   },
   {
     "Diagnosis": "",
@@ -212,6 +71,107 @@
         }
       }
     },
-    "Date": "2021-06-06T13:30:00"
+    "Date": "2021-05-02T17:30:00",
+    "Doctor": null
+  },
+  {
+    "Diagnosis": "alergija",
+    "Symptoms": "osip",
+    "Patient": {
+      "Allergens": [
+        "penicilin"
+      ],
+      "Debit": 500.0,
+      "examinations": null,
+      "HealthCardNumber": "78",
+      "Anamneses": null,
+      "Username": "mare",
+      "Password": "nesto",
+      "Name": "Marko",
+      "Surname": "Markovic",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "064789552",
+      "Email": "marko@gmai.com",
+      "Id": "1111",
+      "UserType": 0,
+      "Address": {
+        "Street": "Marko Oreskovica",
+        "NumberOfBuilding": 12,
+        "Floor": 5,
+        "Apartment": 8,
+        "City": {
+          "name": "Novi Sad",
+          "postalCode": "21000",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "Date": "2021-05-15T11:00:00",
+    "Doctor": {
+      "Specialization": null,
+      "Ordination": 202,
+      "Username": "ana",
+      "Password": "ana",
+      "Name": "Ana",
+      "Surname": "Petrovic",
+      "DateOfBirth": "1970-10-01T00:00:00",
+      "Phone": "67890834",
+      "Email": "ana@gmail.com",
+      "Id": "4321009",
+      "UserType": 1,
+      "Address": null
+    }
+  },
+  {
+    "Diagnosis": "",
+    "Symptoms": "",
+    "Patient": {
+      "Allergens": [
+        "polen"
+      ],
+      "Debit": 1500.0,
+      "examinations": null,
+      "HealthCardNumber": "6",
+      "Anamneses": null,
+      "Username": "nikola_nikolic",
+      "Password": "sasasa",
+      "Name": "Nikola",
+      "Surname": "Nikolic",
+      "DateOfBirth": "1984-12-01T00:00:00",
+      "Phone": "0647896587",
+      "Email": "nikolic@gmail.com",
+      "Id": "2222",
+      "UserType": 0,
+      "Address": {
+        "Street": "Masarikova ulica ",
+        "NumberOfBuilding": 12,
+        "Floor": 25,
+        "Apartment": 13,
+        "City": {
+          "name": "Sombor ",
+          "postalCode": "12564",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "Date": "2021-05-12T07:30:00",
+    "Doctor": {
+      "Specialization": null,
+      "Ordination": 202,
+      "Username": "ana",
+      "Password": "ana",
+      "Name": "Ana",
+      "Surname": "Petrovic",
+      "DateOfBirth": "1970-10-01T00:00:00",
+      "Phone": "67890834",
+      "Email": "ana@gmail.com",
+      "Id": "4321009",
+      "UserType": 1,
+      "Address": null
+    }
   }
 ]

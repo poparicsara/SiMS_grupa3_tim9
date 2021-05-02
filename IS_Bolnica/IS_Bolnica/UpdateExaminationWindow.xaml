@@ -30,7 +30,9 @@
         <ComboBox Name="minuteBox" HorizontalAlignment="Left" Margin="491,107,0,0" VerticalAlignment="Top" Width="73">
         </ComboBox>
         <TextBox x:Name="healthCardNumberTxt" HorizontalAlignment="Left" Height="23" Margin="385,374,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
-        <TextBox x:Name="doctorTxt" HorizontalAlignment="Left" Height="23" Margin="385,436,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <RadioButton Name="opstaPraksaRadioBtn" Content="opsta praksa" HorizontalAlignment="Left" Margin="385,428,0,0" VerticalAlignment="Top" Checked="opstaPraksaRadioBtn_Checked" Unchecked="opstaPraksaRadioBtn_Unchecked"/>
+        <RadioButton Name="specijalistiRadioBtn" Content="specijalisti" HorizontalAlignment="Left" Margin="385,466,0,0" VerticalAlignment="Top" Checked="specijalistiRadioBtn_Checked" Unchecked="specijalistiRadioBtn_Unchecked"/>
+        <ComboBox Name ="doctorsComboBox" ItemsSource="{Binding doctorNameAndSurname}" HorizontalAlignment="Left" Margin="558,444,0,0" VerticalAlignment="Top" Width="144"/>
 
     </Grid>
 </Window>

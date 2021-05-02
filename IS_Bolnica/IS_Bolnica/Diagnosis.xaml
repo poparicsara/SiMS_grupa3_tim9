@@ -24,9 +24,11 @@
         <Label Content="Datum:" HorizontalAlignment="Left" Margin="480,41,0,0" VerticalAlignment="Top" Width="91"/>
         <TextBox x:Name="dateOfExaminationTxt" HorizontalAlignment="Left" Height="23" Margin="622,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" IsReadOnly="True"/>
         <TextBox Name ="symptomsTxt" HorizontalAlignment="Left" Height="79" Margin="234,341,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="340"/>
-        <TextBox Name ="diagnosisTxt" HorizontalAlignment="Left" Height="131" Margin="234,443,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="340"/>
+        <TextBox Name ="diagnosisTxt" HorizontalAlignment="Left" Height="99" Margin="234,443,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="340"/>
         <Button Content="Zakazi operaciju" HorizontalAlignment="Left" Margin="772,610,0,0" VerticalAlignment="Top" Width="114" Height="40" Click="scheduleOperationButtonClicked"/>
-        <Button Content="Izdaj uput" HorizontalAlignment="Left" Margin="772,470,0,0" VerticalAlignment="Top" Width="114" Height="40"/>
+        <Button Content="Izdaj uput" HorizontalAlignment="Left" Margin="772,470,0,0" VerticalAlignment="Top" Width="114" Height="40" Click="Button_Click"/>
+        <Label Content="Lekar:" HorizontalAlignment="Left" Margin="84,592,0,0" VerticalAlignment="Top" Width="118"/>
+        <TextBox Name="doctorTxt" HorizontalAlignment="Left" Height="23" Margin="234,592,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="205"/>
 
     </Grid>
 </Window>

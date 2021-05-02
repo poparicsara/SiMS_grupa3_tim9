@@ -27,12 +27,10 @@
         <DatePicker Name="datePicker" HorizontalAlignment="Left" Margin="391,65,0,0" VerticalAlignment="Top" Width="153"/>
         <ComboBox Name="hourBox" HorizontalAlignment="Left" Margin="391,106,0,0" VerticalAlignment="Top" Width="61"/>
         <ComboBox Name="minuteBox" HorizontalAlignment="Left" Margin="487,107,0,0" VerticalAlignment="Top" Width="57">
-            <ComboBoxItem>00</ComboBoxItem>
-            <ComboBoxItem>30</ComboBoxItem>
         </ComboBox>
         <TextBox x:Name="healthCardNumberTxt" HorizontalAlignment="Left" Height="23" Margin="391,354,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>
-        <TextBox x:Name="doctorTxt" HorizontalAlignment="Left" Height="23" Margin="391,426,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>
-        <RadioButton Content="Hitno" HorizontalAlignment="Left" Margin="672,582,0,0" VerticalAlignment="Top"/>
+        <RadioButton Name="urgentRadioBtn" Content="Hitno" HorizontalAlignment="Left" Margin="656,468,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="doctorsComboBox" HorizontalAlignment="Left" Margin="391,446,0,0" VerticalAlignment="Top" Width="153"/>
 
     </Grid>
 

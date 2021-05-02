@@ -20,18 +20,19 @@ namespace IS_Bolnica
     {
         private int selectedPatient;
         private Examination examination;
-        public ExaminationInfo(int selectedIndex)
+        private List<Examination> loggedExaminations;
+        public ExaminationInfo(int selectedIndex, List<Examination> loggedDoctorExaminations)
         {
             InitializeComponent();
 
             ExaminationsRecordFileStorage examinationsRecordFileStorage = new ExaminationsRecordFileStorage();
-            List<Examination> examinations = examinationsRecordFileStorage.loadFromFile("examinations.json");
+            this.loggedExaminations = loggedDoctorExaminations;
             PrescriptionFileStorage prescriptionFileStorage = new PrescriptionFileStorage();
             List<Prescription> prescriptions = prescriptionFileStorage.loadFromFile("prescriptions.json");
             AnamnesisFileStorage anamnesisFileStorage = new AnamnesisFileStorage();
             List<Anamnesis> anamneses = anamnesisFileStorage.loadFromFile("anamneses.json");
 
-            this.examination = examinations.ElementAt(selectedIndex);
+            this.examination = loggedExaminations.ElementAt(selectedIndex);
             patientTxt.Text = examination.Patient.Name + ' ' + examination.Patient.Surname;
             dateOfBirthTxt.Text = examination.Patient.DateOfBirth.ToString();
             jmbgTxt.Text = examination.Patient.Id;
@@ -67,11 +68,9 @@ namespace IS_Bolnica
 
         private void anamnezaClicked(object sender, RoutedEventArgs e)
         {
-            ExaminationsRecordFileStorage examinationsRecordFileStorage = new ExaminationsRecordFileStorage();
-            List<Examination> examinations = examinationsRecordFileStorage.loadFromFile("examinations.json");
-            this.examination = examinations.ElementAt(selectedPatient);
+            this.examination = loggedExaminations.ElementAt(selectedPatient);
 
-            Diagnosis diagnosis = new Diagnosis(examination);
+            Diagnosis diagnosis = new Diagnosis(examination, loggedExaminations);
 
             diagnosis.Show();
             this.Close();

@@ -26,6 +26,7 @@ namespace IS_Bolnica
         private ObservableCollection<User> loggedUsers = new ObservableCollection<User>();
         private User loggedUser;
         private List<Examination> loggedDoctorExaminations = new List<Examination>();
+        private List<Operation> loggedDoctorOperations = new List<Operation>();
         public DoctorWindow()
         {
             InitializeComponent();
@@ -34,6 +35,7 @@ namespace IS_Bolnica
             ExaminationsRecordFileStorage examinationFileStorage = new ExaminationsRecordFileStorage();
             List<Examination> examinations = examinationFileStorage.loadFromFile("examinations.json");
             loggedDoctorExaminations = new List<Examination>();
+            loggedDoctorOperations = new List<Operation>();
             loggedUsers = storage.loadFromFile("loggedUsers.json");
 
             foreach (Examination examination in examinations)
@@ -47,14 +49,25 @@ namespace IS_Bolnica
                     }
                 }
             }
-            dataGridExaminations.ItemsSource = loggedDoctorExaminations;
 
-            //dataGridExaminations.ItemsSource = examinations;
+            dataGridExaminations.ItemsSource = loggedDoctorExaminations;
 
             OperationsFileStorage operationsFileStorage = new OperationsFileStorage();
             List<Operation> operations = operationsFileStorage.loadFromFile("operations.json");
 
-            dataGridOperations.ItemsSource = operations;
+            foreach (Operation operation in operations)
+            {
+                foreach (User user in loggedUsers)
+                {
+                    if (operation.doctor.Username.Equals(user.Username))
+                    {
+                        this.loggedUser = user;
+                        loggedDoctorOperations.Add(operation);
+                    }
+                }
+            }
+
+            dataGridOperations.ItemsSource = loggedDoctorOperations;
         }
 
         private void addExaminationButton(object sender, RoutedEventArgs e)
@@ -107,7 +120,7 @@ namespace IS_Bolnica
         private void updateOperationButton(object sender, RoutedEventArgs e)
         {
            int selectedIndex = dataGridOperations.SelectedIndex;
-           UpdateOperationWindow updateOperationWindow = new UpdateOperationWindow(selectedIndex);
+           UpdateOperationWindow updateOperationWindow = new UpdateOperationWindow(selectedIndex, loggedDoctorOperations);
            updateOperationWindow.Show();
            this.Close();
         }
@@ -115,7 +128,7 @@ namespace IS_Bolnica
         private void startExamination(object sender, RoutedEventArgs e)
         {
             int selectedIndex = dataGridExaminations.SelectedIndex;
-            ExaminationInfo examinationInfo = new ExaminationInfo(selectedIndex);
+            ExaminationInfo examinationInfo = new ExaminationInfo(selectedIndex, loggedDoctorExaminations);
             examinationInfo.Show();
         }
 

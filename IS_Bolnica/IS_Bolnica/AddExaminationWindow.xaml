@@ -23,15 +23,15 @@
         <TextBox Name="descriptionTxt" HorizontalAlignment="Left" Height="76" Margin="395,560,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="289"/>
         <TextBox x:Name="patientTxt" HorizontalAlignment="Left" Height="23" Margin="399,181,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
         <ComboBox Name="roomComboBox" ItemsSource="{Binding RoomId}" HorizontalAlignment="Left" Margin="399,126,0,0" VerticalAlignment="Top" Width="175" RenderTransformOrigin="0.481,0.955"/>
-        <TextBox x:Name="jmbgTxt" HorizontalAlignment="Left" Height="22" Margin="399,240,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
-        <Label Name="patientWarningLbl" Content="Label" HorizontalAlignment="Left" Margin="645,181,0,0" VerticalAlignment="Top" Width="262"/>
-        <Label Name="jmbgWarningLbl" Content="Label" HorizontalAlignment="Left" Margin="645,240,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.05,0.504" Width="262"/>
+        <TextBox x:Name="jmbgTxt" HorizontalAlignment="Left" Height="22" Margin="399,240,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" LostFocus="jmbgTxt_LostFocus" />
         <DatePicker Name="datePicker" HorizontalAlignment="Left" Margin="399,38,0,0" VerticalAlignment="Top" Width="175"/>
         <ComboBox Name="hourBox" HorizontalAlignment="Left" Margin="399,81,0,0" VerticalAlignment="Top" Width="63"/>
         <ComboBox Name="minuteBox" HorizontalAlignment="Left" Margin="510,81,0,0" VerticalAlignment="Top" Width="64">
         </ComboBox>
         <TextBox x:Name="healthCardNumberTxt" HorizontalAlignment="Left" Height="22" Margin="399,308,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
-        <TextBox x:Name="doctorTxt" HorizontalAlignment="Left" Height="22" Margin="395,373,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
+        <ComboBox Name="doctorsComboBox" ItemsSource="{Binding doctorNameAndSurname}" HorizontalAlignment="Left" Margin="548,397,0,0" VerticalAlignment="Top" Width="149"/>
+        <RadioButton Name="opstaPraksaRadioBtn" Content="opsta praksa" HorizontalAlignment="Left" Margin="399,375,0,0" VerticalAlignment="Top" Checked="opstaPraksaRadioBtn_Checked" Unchecked="opstaPraksaRadioBtn_Unchecked"/>
+        <RadioButton Name="specijalistiRadioBtn" Content="specijalisti" HorizontalAlignment="Left" Margin="399,421,0,0" VerticalAlignment="Top" Checked="specijalistiRadioBtn_Checked" Unchecked="specijalistiRadioBtn_Unchecked"/>
 
     </Grid>
 </Window>

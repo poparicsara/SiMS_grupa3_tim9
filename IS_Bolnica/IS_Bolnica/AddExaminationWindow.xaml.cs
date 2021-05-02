@@ -26,15 +26,16 @@ namespace IS_Bolnica.DoctorsWindows
         }
         public List<int> RoomId { get; set; } = new List<int>();
         private RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
-        private Patient patient = new Patient();
         private Examination examination = new Examination();
         private ExaminationsRecordFileStorage examinationStorage = new ExaminationsRecordFileStorage();
         public List<Examination> Examinations { get; set; } = new List<Examination>();
         public ObservableCollection<Patient> Patients { get; set; } = new ObservableCollection<Patient>();
         private PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
         public List<int> Hours { get; set; } = new List<int>();
-        public List<Doctor> Doctors { get; set; } = new List<Doctor>();
+        public List<Doctor> Doctors { get; set; }
         private DoctorFileStorage doctorStorage = new DoctorFileStorage();
+        private List<string> doctorNameAndSurname = new List<string>();
+        private List<string> specialistNameAndSurname = new List<string>();
         public AddExaminationWindow()
         {
             InitializeComponent();
@@ -90,11 +91,12 @@ namespace IS_Bolnica.DoctorsWindows
 
             int cnt = 0;
             string[] patientNameAndSurname = patientTxt.Text.Split(' ');
-            string[] doctorNameAndSurname = doctorTxt.Text.Split(' ');
 
             foreach (Doctor doctor in Doctors)
             {
-                if (doctor.Name.Equals(doctorNameAndSurname[0]) && doctor.Surname.Equals(doctorNameAndSurname[1]))
+                string drNameSurname = doctor.Name + ' ' + doctor.Surname;
+
+                if (drNameSurname.Equals(doctorsComboBox.SelectedItem.ToString()))
                 {
                     examination.Doctor = doctor;
                 }
@@ -133,18 +135,16 @@ namespace IS_Bolnica.DoctorsWindows
                     }
                 }
 
-                if (isAppointmentAvailable(Examinations, examination.Date) && isRoomAvailable(Examinations, examination.RoomRecord, examination.Date))
+                if (isRoomAvailable(Examinations, examination.RoomRecord, examination.Date) && isDoctorAvailable(Examinations, examination.Doctor, examination.Date)
+                    && isPatientAvailable(Examinations, examination.Patient, examination.Date))
                 {
                     Examinations.Add(examination);
                     examinationStorage.saveToFile(Examinations, "examinations.json");
                 } 
                 else
                 {
-                    MessageBox.Show("Termin je zauzet");
+                    MessageBox.Show("Nije moguce zakazati pregled u zadatom terminu!");
                 }
-
-                //Examinations.Add(examination);
-                //examinationStorage.saveToFile(Examinations, "examinations.json");
 
                 DoctorWindow doctorWindow = new DoctorWindow();
                 doctorWindow.dataGridExaminations.Items.Refresh();
@@ -152,23 +152,24 @@ namespace IS_Bolnica.DoctorsWindows
 
                 this.Close();
             }
-
-
-        }
-        private bool isAppointmentAvailable(List<Examination> examinations, DateTime dateAndTime)
-        {
-            foreach (Examination examination in examinations)
-            {
-                if (examination.Date == dateAndTime)
-                {
-                    return false;
-                }
-            }
-
-            return true;
         }
 
-        private bool isRoomAvailable(List<Examination> examinations, RoomRecord room, DateTime dateAndTime)
+        // da li je nesto vec zakazano u tom terminu
+        //private bool isAppointmentAvailable(List<Examination> examinations, DateTime dateAndTime)   
+        //{
+        //    foreach (Examination examination in examinations)
+        //    {
+        //        if (examination.Date == dateAndTime)
+        //        {
+        //            return false;
+        //        }
+        //    }
+
+        //    return true;
+        //}
+
+        // da li je nesto vec zakazano u toj sobi u tom terminu
+        private bool isRoomAvailable(List<Examination> examinations, RoomRecord room, DateTime dateAndTime)   
         {
             foreach (Examination examination in examinations)
             {
@@ -179,6 +180,117 @@ namespace IS_Bolnica.DoctorsWindows
             }
 
             return true;
+        }
+
+        // da li je izabrani lekar slobodan u tom terminu
+        private bool isDoctorAvailable(List<Examination> examinations, Doctor doctor, DateTime dateAndTime) 
+        {
+            foreach (Examination examination in examinations)
+            {
+                string drNameSurname = doctor.Name + ' ' + doctor.Surname;
+
+                if (drNameSurname.Equals(doctorsComboBox.SelectedItem.ToString()) && examination.Date.Equals(dateAndTime))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        // da li je pacijent slobodan u tom terminu
+        private bool isPatientAvailable(List<Examination> examinations, Patient patient, DateTime dateAndTime)
+        {
+            foreach (Examination examination in examinations)
+            {
+                if (examination.Patient.Id == patient.Id && examination.Date == dateAndTime)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private void specijalistiRadioBtn_Checked(object sender, RoutedEventArgs e)
+        {
+            Doctors = doctorStorage.loadFromFile("Doctors.json");
+            string dr;
+
+            foreach (Doctor doctor in Doctors)
+            {
+                if (doctor.Specialization != null)
+                {
+                    dr = doctor.Name + ' ' + doctor.Surname;
+                    specialistNameAndSurname.Add(dr);
+                }
+            }
+
+            doctorsComboBox.ItemsSource = specialistNameAndSurname;
+        }
+
+        private void opstaPraksaRadioBtn_Checked(object sender, RoutedEventArgs e)
+        {
+            Doctors = doctorStorage.loadFromFile("Doctors.json");
+            string dr;
+
+            foreach (Doctor doctor in Doctors)
+            {
+                if (doctor.Specialization == null)
+                {
+                    dr = doctor.Name + ' ' + doctor.Surname;
+                    doctorNameAndSurname.Add(dr);
+                }
+            }
+
+            doctorsComboBox.ItemsSource = doctorNameAndSurname;
+        }
+
+        private void opstaPraksaRadioBtn_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Doctors = doctorStorage.loadFromFile("Doctors.json");
+            string dr;
+
+            foreach (Doctor doctor in Doctors)
+            {
+                if (doctor.Specialization == null)
+                {
+                    dr = doctor.Name + ' ' + doctor.Surname;
+                    doctorNameAndSurname.Remove(dr);
+                }
+            }
+
+            doctorsComboBox.ItemsSource = doctorNameAndSurname;
+        }
+
+        private void specijalistiRadioBtn_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Doctors = doctorStorage.loadFromFile("Doctors.json");
+            string dr;
+
+            foreach (Doctor doctor in Doctors)
+            {
+                if (doctor.Specialization != null)
+                {
+                    dr = doctor.Name + ' ' + doctor.Surname;
+                    specialistNameAndSurname.Remove(dr);
+                }
+            }
+
+            doctorsComboBox.ItemsSource = specialistNameAndSurname;
+        }
+
+        private void jmbgTxt_LostFocus(object sender, RoutedEventArgs e)
+        {
+            Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
+
+            foreach (Patient patient in Patients)
+            {
+                if (jmbgTxt.Text.Equals(patient.Id))
+                {
+                    healthCardNumberTxt.Text = patient.HealthCardNumber;
+                }
+            }
         }
     }
 }

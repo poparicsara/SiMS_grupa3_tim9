@@ -74,43 +74,56 @@
     "Anamnesis": null
   },
   {
-    "Doctor": null,
-    "Date": "2021-04-05T00:00:00",
+    "Doctor": {
+      "Specialization": null,
+      "Ordination": 202,
+      "Username": "ana",
+      "Password": "ana",
+      "Name": "Ana",
+      "Surname": "Petrovic",
+      "DateOfBirth": "1970-10-01T00:00:00",
+      "Phone": "67890834",
+      "Email": "ana@gmail.com",
+      "Id": "4321009",
+      "UserType": 1,
+      "Address": null
+    },
+    "Date": "2021-05-15T11:00:00",
     "Patient": {
       "Allergens": [
-        "brufen"
+        "penicilin"
       ],
-      "Debit": 1.0,
+      "Debit": 500.0,
       "examinations": null,
-      "HealthCardNumber": "19",
+      "HealthCardNumber": "78",
       "Anamneses": null,
-      "Username": "nnnn",
-      "Password": "ftn",
-      "Name": "Nina",
-      "Surname": "Pavkovic",
+      "Username": "mare",
+      "Password": "nesto",
+      "Name": "Marko",
+      "Surname": "Markovic",
       "DateOfBirth": "2021-04-19T00:00:00+02:00",
-      "Phone": "12345",
-      "Email": "dad",
-      "Id": "1234",
+      "Phone": "064789552",
+      "Email": "marko@gmai.com",
+      "Id": "1111",
       "UserType": 0,
       "Address": {
-        "Street": "abc ",
-        "NumberOfBuilding": 4,
-        "Floor": 3,
-        "Apartment": 2,
+        "Street": "Marko Oreskovica",
+        "NumberOfBuilding": 12,
+        "Floor": 5,
+        "Apartment": 8,
         "City": {
-          "name": "ns ",
+          "name": "Novi Sad",
           "postalCode": "21000",
           "Country": {
-            "name": "srb"
+            "name": "Srbija"
           }
         }
       }
     },
     "Therapy": {
       "StartDate": "0001-01-01T00:00:00",
-      "MedicationName": "panadol",
-      "Dose": 2
+      "MedicationName": "andol",
+      "Dose": 1
     },
     "Anamnesis": null
   }

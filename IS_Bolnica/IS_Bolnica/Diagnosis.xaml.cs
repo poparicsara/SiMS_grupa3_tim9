@@ -26,7 +26,9 @@ namespace IS_Bolnica
         public List<Anamnesis> Anamneses { get; set; } = new List<Anamnesis>();
         private PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
         public ObservableCollection<Patient> Patients { get; set; } = new ObservableCollection<Patient>();
-        public Diagnosis(Examination examination)
+        public List<Doctor> Doctors { get; set; }
+        private DoctorFileStorage doctorStorage = new DoctorFileStorage();
+        public Diagnosis(Examination examination, List<Examination> loggedExaminations)
         {
             InitializeComponent();
             this.examination = examination;
@@ -37,12 +39,25 @@ namespace IS_Bolnica
             healthCardNumberTxt.Text = examination.Patient.HealthCardNumber;
             dateOfExaminationTxt.Text = examination.Date.ToString();
             addressTxt.Text = examination.Patient.Address.Street + ", " + examination.Patient.Address.City.name;
+            doctorTxt.Text = examination.Doctor.Name + ' ' + examination.Doctor.Surname;
         }
 
         private void izdajRecept(object sender, RoutedEventArgs e)
         {
             Anamneses = anamnesisStorage.loadFromFile("anamneses.json");
             Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
+            Doctors = doctorStorage.loadFromFile("Doctors.json");
+
+            foreach (Doctor doctor in Doctors)
+            {
+
+                string drNameSurname = doctor.Name + ' ' + doctor.Surname;
+
+                if (drNameSurname.Equals(doctorTxt.Text))
+                {
+                    anamnesis.Doctor = doctor;
+                }
+            }
 
             foreach (Patient patient in Patients)
             {
@@ -73,6 +88,12 @@ namespace IS_Bolnica
         {
             AddOperationWindow addOperationWindow = new AddOperationWindow();
             addOperationWindow.Show();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            AddExaminationWindow addExaminationWindow = new AddExaminationWindow();
+            addExaminationWindow.Show();
         }
     }
 }
