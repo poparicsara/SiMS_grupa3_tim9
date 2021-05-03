@@ -80,7 +80,7 @@ namespace IS_Bolnica.Secretary
 
         private void createGuestAccount(object sender, RoutedEventArgs e)
         {
-            Secretary.GuestUserAccount gua = new Secretary.GuestUserAccount();
+            Secretary.GuestUserAccount gua = new Secretary.GuestUserAccount(sender);
             this.Close();
             gua.Show();
         }

@@ -16,14 +16,14 @@ using System.Windows.Shapes;
 namespace IS_Bolnica.Secretary
 {
     /// <summary>
-    /// Interaction logic for AddUrgentExamination.xaml
+    /// Interaction logic for AddUrgentOperationWindow.xaml
     /// </summary>
-    public partial class AddUrgentExamination : Window
+    public partial class AddUrgentOperationWindow : Window
     {
         private Specialization specialization = new Specialization();
         public List<String> Specializations { get; set; } = new List<String>();
         private List<Specialization> specializations;
-        private Examination examination;
+        private Operation operation;
         private PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
         private List<Patient> patients = new List<Patient>();
         private Patient patient = new Patient();
@@ -31,28 +31,20 @@ namespace IS_Bolnica.Secretary
         private List<GuestUser> guestUsers = new List<GuestUser>();
         private GuestUser guestUser = new GuestUser();
 
-        public AddUrgentExamination()
+        public AddUrgentOperationWindow()
         {
             InitializeComponent();
-            List<Specialization> specializations = specialization.getSpecializations();
-            foreach(Specialization spec in specializations)
+            specializations = specialization.getSpecializations();
+            foreach (Specialization spec in specializations)
             {
                 Specializations.Add(spec.Name);
             }
             specializationBox.ItemsSource = Specializations;
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Secretary.ActionBarWindow abw = new Secretary.ActionBarWindow();
-            abw.Show();
-            this.Close();
         }
 
         private void addGuestAccount(object sender, RoutedEventArgs e)
         {
-            Secretary.GuestUserAccount gua = new Secretary.GuestUserAccount(sender);
+            GuestUserAccount gua = new GuestUserAccount(sender);
             gua.Show();
             this.Close();
         }
@@ -79,9 +71,9 @@ namespace IS_Bolnica.Secretary
             GuestUser guest = new GuestUser();
             guestUsers = guestStorage.loadFromFile("GuestUsersFile.json");
 
-            foreach (GuestUser gUser in guestUsers)
+            foreach(GuestUser gUser in guestUsers)
             {
-                if (gUser.SystemName.Equals(systemName))
+                if(gUser.SystemName.Equals(systemName))
                 {
                     guest = gUser;
                 }
@@ -92,9 +84,9 @@ namespace IS_Bolnica.Secretary
 
         private void findSpecialization(string spec)
         {
-            foreach (Specialization s in specializations)
+            foreach(Specialization s in specializations)
             {
-                if (s.Name.Equals(spec))
+                if(s.Name.Equals(spec))
                 {
                     specialization = s;
                 }
@@ -103,37 +95,43 @@ namespace IS_Bolnica.Secretary
 
         private void getOptions(object sender, RoutedEventArgs e)
         {
-            if (patientIdBox.Text != null)
+            if(patientIdBox.Text != null)
             {
                 patient = findPatient(patientIdBox.Text);
-            }
-            else if (patientIdBox.Text == null && patientIdBox.IsEnabled)
+            } else if(patientIdBox.Text == null && patientIdBox.IsEnabled)
             {
                 MessageBox.Show("Niste uneli id pacijenta");
                 return;
-            }
-            else if (systemNameBox.Text != null)
+            } else if(systemNameBox.Text != null)
             {
                 guestUser = findGuest(systemNameBox.Text);
-            }
-            else if (systemNameBox.Text == null && systemNameBox.IsEnabled)
+            } else if(systemNameBox.Text == null && systemNameBox.IsEnabled)
             {
                 MessageBox.Show("Niste uneli sistemsko ime guest korisnika");
                 return;
             }
 
-            examination = new Examination { GuestUser = guestUser, Patient = patient };
+            int duration = Convert.ToInt32(hourBox.Text) * 60 + Convert.ToInt32(minuteBox);
+
+            operation = new Operation { DurationInMins = duration, GuestUser = guestUser, Patient = patient };
             findSpecialization(specializationBox.SelectedItem.ToString());
 
-            UrgentExaminationOptionsWindow uoow = new UrgentExaminationOptionsWindow(examination, specialization);
+            UrgentOperationOptionsWindow uoow = new UrgentOperationOptionsWindow(operation, specialization);
             uoow.Show();
+            this.Close();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ActionBarWindow abw = new ActionBarWindow();
+            abw.Show();
             this.Close();
         }
 
         private void existableRButton_Checked(object sender, RoutedEventArgs e)
         {
-            systemNameBox.IsEnabled = false;
             patientIdBox.IsEnabled = true;
+            systemNameBox.IsEnabled = false;
         }
 
         private void guestRButton_Checked(object sender, RoutedEventArgs e)

@@ -16,10 +16,12 @@ namespace IS_Bolnica.Secretary
     {
         private GuestUser guest = new GuestUser();
         private GuestUsersFileStorage storage = new GuestUsersFileStorage();
+        private object sender1 = new object();
 
-        public GuestUserAccount()
+        public GuestUserAccount(object sender)
         {
             InitializeComponent();
+            this.sender1 = sender;
         }
 
         private void cancelGuest(object sender, RoutedEventArgs e)
@@ -36,9 +38,22 @@ namespace IS_Bolnica.Secretary
             lista.Add(guest);
             storage.saveToFile(lista, "GuestUsersFile.json");
 
-            SekretarWindow sw = new SekretarWindow();
-            sw.Show();
-            this.Close();
+            if(sender1.ToString().Equals("System.Windows.Controls.Button: Kreiraj guest nalog"))
+            {
+                GuestUserListWindow gulw = new GuestUserListWindow();
+                gulw.Show();
+                this.Close();
+            } else if (sender1.ToString().Equals("System.Windows.Controls.Button: Prikaži opcije za pregled"))
+            {
+                AddUrgentExamination aue = new AddUrgentExamination();
+                aue.Show();
+                this.Close();
+            } else
+            {
+                AddUrgentOperationWindow auow = new AddUrgentOperationWindow();
+                auow.Show();
+                this.Close();
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
