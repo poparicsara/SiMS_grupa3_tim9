@@ -25,7 +25,7 @@ namespace IS_Bolnica
         private AnamnesisFileStorage anamnesisStorage = new AnamnesisFileStorage();
         public List<Anamnesis> Anamneses { get; set; } = new List<Anamnesis>();
         private PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
-        public ObservableCollection<Patient> Patients { get; set; } = new ObservableCollection<Patient>();
+        public List<Patient> Patients { get; set; } = new List<Patient>();
         public List<Doctor> Doctors { get; set; }
         private DoctorFileStorage doctorStorage = new DoctorFileStorage();
         public Diagnosis(Examination examination, List<Examination> loggedExaminations)

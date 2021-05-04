@@ -29,7 +29,7 @@ namespace IS_Bolnica.DoctorsWindows
         private Operation operation = new Operation();
         private OperationsFileStorage operationStorage = new OperationsFileStorage();
         public List<Operation> Operations { get; set; } = new List<Operation>();
-        public ObservableCollection<Patient> Patients { get; set; } = new ObservableCollection<Patient>();
+        public List<Patient> Patients { get; set; } = new List<Patient>();
         private PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
         public List<int> Hours { get; set; } = new List<int>();
         private List<string> doctorNameAndSurname = new List<string>();

@@ -20,10 +20,6 @@ namespace IS_Bolnica.DoctorsWindows
     public partial class UpdateOperationWindow : Window
     {
         private int selectedOperation;
-<<<<<<< HEAD
-        private int ordination;
-        public UpdateOperationWindow(int selectedIndex)
-=======
         private Operation operation;
         public List<RoomRecord> Rooms
         {
@@ -37,7 +33,6 @@ namespace IS_Bolnica.DoctorsWindows
         private DoctorFileStorage doctorStorage = new DoctorFileStorage();
         private List<string> doctorNameAndSurname = new List<string>();
         public UpdateOperationWindow(int selectedIndex, List<Operation> loggedDoctorOperations)
->>>>>>> Lekar
         {
             InitializeComponent();
 
@@ -57,7 +52,7 @@ namespace IS_Bolnica.DoctorsWindows
 
             foreach (RoomRecord room in Rooms)
             {
-                if (room.roomPurpose.Name.Equals("Operaciona sala")) 
+                if (room.roomPurpose.Name.Equals("Operaciona sala"))
                 {
                     RoomId.Add(room.Id);
                 }
@@ -92,8 +87,6 @@ namespace IS_Bolnica.DoctorsWindows
 
             doctorsComboBox.ItemsSource = doctorNameAndSurname;
             selectedOperation = selectedIndex;
-
-            ordination = (int)Int64.Parse(roomTxt.Text);
         }
 
         private void saveButtonClicked(object sender, RoutedEventArgs e)
@@ -101,22 +94,7 @@ namespace IS_Bolnica.DoctorsWindows
             OperationsFileStorage operationStorage = new OperationsFileStorage();
             List<Operation> operations = operationStorage.loadFromFile("operations.json");
 
-<<<<<<< HEAD
-            OperationsFileStorage operationsFileStorage = new OperationsFileStorage();
-            List<Operation> operations = operationsFileStorage.loadFromFile("operations.json");
-            operations.ElementAt(selectedOperation).Date = operation.Date;
-            operations.ElementAt(selectedOperation).RoomRecord.roomPurpose = room.roomPurpose;
-            operations.ElementAt(selectedOperation).Patient.Name = patient.Name;
-            operations.ElementAt(selectedOperation).Patient.Surname = patient.Surname;
-
-            operationsFileStorage.saveToFile(operations, "operations.json");
-
-            DoctorWindow doctorWindow = new DoctorWindow(ordination);
-            doctorWindow.dataGridOperations.Items.Refresh();
-            doctorWindow.Show();
-            this.Close();
-=======
-            ObservableCollection<Patient> patients = new ObservableCollection<Patient>();
+            List<Patient> patients = new List<Patient>();
             PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
 
             for (int i = 0; i < operations.Count; i++)
@@ -236,7 +214,6 @@ namespace IS_Bolnica.DoctorsWindows
             }
 
             return true;
->>>>>>> Lekar
         }
 
         private void cancelButtonClicked(object sender, RoutedEventArgs e)
@@ -247,7 +224,7 @@ namespace IS_Bolnica.DoctorsWindows
             switch (messageBox)
             {
                 case MessageBoxResult.Yes:
-                    DoctorWindow doctorWindow = new DoctorWindow(ordination);
+                    DoctorWindow doctorWindow = new DoctorWindow();
                     doctorWindow.Show();
                     this.Close();
                     break;

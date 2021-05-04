@@ -22,29 +22,8 @@ namespace IS_Bolnica
 {
     public partial class DoctorWindow : Window
     {
-<<<<<<< HEAD
-        private int ordination = 0;
-
-        public DoctorWindow(int loggedUserOrdination)
-        {
-            InitializeComponent();
-            this.DataContext = this;
-
-            ExaminationsRecordFileStorage examinationFileStorage = new ExaminationsRecordFileStorage();
-            List<Examination> examinations = examinationFileStorage.loadFromFile("examinations.json");
-
-            dataGridExaminations.ItemsSource = examinations;
-
-            OperationsFileStorage operationsFileStorage = new OperationsFileStorage();
-            List<Operation> operations = operationsFileStorage.loadFromFile("operations.json");
-
-            dataGridOperations.ItemsSource = operations;
-
-            ordination = loggedUserOrdination;
-
-=======
         private UsersFileStorage storage = new UsersFileStorage();
-        private ObservableCollection<User> loggedUsers = new ObservableCollection<User>();
+        private List<User> loggedUsers = new List<User>();
         private User loggedUser;
         private List<Examination> loggedDoctorExaminations = new List<Examination>();
         private List<Operation> loggedDoctorOperations = new List<Operation>();
@@ -58,7 +37,7 @@ namespace IS_Bolnica
         {
             InitializeComponent();
             this.DataContext = this;
-            
+
             List<Examination> examinations = examinationStorage.loadFromFile("examinations.json");
             loggedDoctorExaminations = new List<Examination>();
             loggedDoctorOperations = new List<Operation>();
@@ -93,12 +72,11 @@ namespace IS_Bolnica
             }
 
             dataGridOperations.ItemsSource = loggedDoctorOperations;
->>>>>>> Lekar
         }
 
         private void addExaminationButton(object sender, RoutedEventArgs e)
         {
-            AddExaminationWindow addExaminationWindow = new AddExaminationWindow(ordination);
+            AddExaminationWindow addExaminationWindow = new AddExaminationWindow();
             addExaminationWindow.Show();
             this.Close();
 
@@ -106,7 +84,7 @@ namespace IS_Bolnica
 
         private void addOperationButton(object sender, RoutedEventArgs e)
         {
-            AddOperationWindow addOperationWindow = new AddOperationWindow(ordination);
+            AddOperationWindow addOperationWindow = new AddOperationWindow();
             addOperationWindow.Show();
             this.Close();
         }
@@ -125,7 +103,7 @@ namespace IS_Bolnica
                 Examinations = examinationStorage.loadFromFile("examinations.json");
                 for (int i = 0; i < Examinations.Count; i++)
                 {
-                    if (Examinations[i].Date.Equals(examination.Date) && 
+                    if (Examinations[i].Date.Equals(examination.Date) &&
                         Examinations[i].Patient.Id.Equals(examination.Patient.Id))
                     {
                         Examinations.RemoveAt(i);
@@ -135,7 +113,7 @@ namespace IS_Bolnica
                 examinationStorage.saveToFile(Examinations, "examinations.json");
             }
 
-            DoctorWindow doctorWindow = new DoctorWindow(ordination);
+            DoctorWindow doctorWindow = new DoctorWindow();
             doctorWindow.Show();
             this.Close();
         }
@@ -164,12 +142,8 @@ namespace IS_Bolnica
                 operationStorage.saveToFile(Operations, "operations.json");
             }
 
-<<<<<<< HEAD
-            DoctorWindow doctorWindow = new DoctorWindow(ordination);
-=======
             DoctorWindow doctorWindow = new DoctorWindow();
             doctorWindow.tabs.SelectedItem = doctorWindow.operationsTab;
->>>>>>> Lekar
             doctorWindow.Show();
             this.Close();
         }
@@ -184,10 +158,10 @@ namespace IS_Bolnica
 
         private void updateOperationButton(object sender, RoutedEventArgs e)
         {
-           int selectedIndex = dataGridOperations.SelectedIndex;
-           UpdateOperationWindow updateOperationWindow = new UpdateOperationWindow(selectedIndex, loggedDoctorOperations);
-           updateOperationWindow.Show();
-           this.Close();
+            int selectedIndex = dataGridOperations.SelectedIndex;
+            UpdateOperationWindow updateOperationWindow = new UpdateOperationWindow(selectedIndex, loggedDoctorOperations);
+            updateOperationWindow.Show();
+            this.Close();
         }
 
         private void startExamination(object sender, RoutedEventArgs e)
@@ -203,16 +177,9 @@ namespace IS_Bolnica
             dnw.Show();
         }
 
-<<<<<<< HEAD
-        private void RequestButton(object sender, RoutedEventArgs e)
-        {
-            RequestWindow rw = new RequestWindow();
-            rw.Show();
-            this.Close();
-=======
         private void logOutButtonClicked(object sender, RoutedEventArgs e)
         {
-            ObservableCollection<User> users = new ObservableCollection<User>();
+            List<User> users = new List<User>();
             users = storage.loadFromFile("loggedUsers.json");
 
             for (int i = 0; i < users.Count; i++)
@@ -227,7 +194,13 @@ namespace IS_Bolnica
             MainWindow mainWindow = new MainWindow();
             this.Close();
             mainWindow.Show();
->>>>>>> Lekar
+        }
+
+        private void RequestButton(object sender, RoutedEventArgs e)
+        {
+            RequestWindow rw = new RequestWindow();
+            rw.Show();
+            this.Close();
         }
     }
 }

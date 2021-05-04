@@ -25,7 +25,7 @@ namespace IS_Bolnica
         private List<Operation> operations = new List<Operation>();
         private ExaminationsRecordFileStorage examinationStorage = new ExaminationsRecordFileStorage();
         private List<Examination> examinations = new List<Examination>();
-        private ObservableCollection<Notification> notifications = new ObservableCollection<Notification>();
+        private List<Notification> notifications = new List<Notification>();
 
         public RenovationWindow(RoomRecord selectedRoom)
         {

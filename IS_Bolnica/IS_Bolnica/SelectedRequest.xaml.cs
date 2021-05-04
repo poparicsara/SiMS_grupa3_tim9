@@ -63,7 +63,7 @@ namespace IS_Bolnica
             notification.Sender = UserType.doctor;
 
             NotificationsFileStorage notificationStorage = new NotificationsFileStorage();
-            ObservableCollection<Notification> notifications = notificationStorage.LoadFromFile("NotificationsFileStorage.json");
+            List<Notification> notifications = notificationStorage.LoadFromFile("NotificationsFileStorage.json");
 
             notifications.Add(notification);
 

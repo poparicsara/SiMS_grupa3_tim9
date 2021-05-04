@@ -9,14 +9,10 @@ namespace IS_Bolnica
     public partial class MainWindow : Window
     {
         private UsersFileStorage storage = new UsersFileStorage();
-<<<<<<< HEAD
         private List<User> users = new List<User>();
         private User user = new User();
-=======
-        private ObservableCollection<User> users = new ObservableCollection<User>();
-        private ObservableCollection<User> loggedUsers = new ObservableCollection<User>();
-        //private User user = new User();
->>>>>>> Lekar
+        private List<User> loggedUsers = new List<User>();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -32,7 +28,7 @@ namespace IS_Bolnica
 
         private void doctorButtonClicked(object sender, RoutedEventArgs e)
         {
-            DoctorWindow doctorWindow = new DoctorWindow(102);
+            DoctorWindow doctorWindow = new DoctorWindow();
             doctorWindow.Show();
         }
 
@@ -67,25 +63,9 @@ namespace IS_Bolnica
                             pw.Show();
                             break;
                         case UserType.doctor:
-<<<<<<< HEAD
-                            int ordination = 0;
-                            DoctorFileStorage dStorage = new DoctorFileStorage();
-                            List<Doctor> doctors = dStorage.loadFromFile("Doctors.json");
-
-                            foreach(Doctor doctor in doctors)
-                            {
-                                if (doctor.Username.Equals(user.Username))
-                                {
-                                    ordination = doctor.Ordination;
-                                }
-                            }
-
-                            DoctorWindow doctorWindow = new DoctorWindow(ordination);
-=======
                             loggedUsers.Add(user);
                             storage.saveToFile(loggedUsers, "loggedUsers.json");
                             DoctorWindow doctorWindow = new DoctorWindow();
->>>>>>> Lekar
                             doctorWindow.Show();
                             this.Close();
                             break;

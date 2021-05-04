@@ -168,16 +168,6 @@
     }
   },
   {
-<<<<<<< HEAD
-    "Username": "Pera",
-    "Password": "ftn",
-    "Name": "Pera",
-    "Surname": "Perić",
-    "DateOfBirth": "1979-11-01T00:00:00",
-    "Phone": "154189415",
-    "Email": "peraperic@gmail.com",
-    "Id": "848999",
-=======
     "Username": "nikola",
     "Password": "dzoni",
     "Name": "Nikola",
@@ -186,33 +176,10 @@
     "Phone": "67894234",
     "Email": "nikolas@gmail.com",
     "Id": "4341009",
->>>>>>> Lekar
     "UserType": 1,
     "Address": null
   },
   {
-<<<<<<< HEAD
-    "Username": "Mika",
-    "Password": "ftn",
-    "Name": "Mika",
-    "Surname": "Mikić",
-    "DateOfBirth": "1979-11-01T00:00:00",
-    "Phone": "154189415",
-    "Email": "mikamikic@gmail.com",
-    "Id": "777777",
-    "UserType": 1,
-    "Address": null
-  },
-  {
-    "Username": "Zika",
-    "Password": "ftn",
-    "Name": "Žika",
-    "Surname": "Žikić",
-    "DateOfBirth": "1979-11-01T00:00:00",
-    "Phone": "154189415",
-    "Email": "zikazikic@gmail.com",
-    "Id": "999999",
-=======
     "Username": "ana",
     "Password": "ana",
     "Name": "Ana",
@@ -221,7 +188,6 @@
     "Phone": "67890834",
     "Email": "ana@gmail.com",
     "Id": "4321009",
->>>>>>> Lekar
     "UserType": 1,
     "Address": null
   }

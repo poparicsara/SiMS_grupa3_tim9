@@ -30,6 +30,7 @@
             <ComboBoxItem Content="18"/>
             <ComboBoxItem Content="19"/>
             <ComboBoxItem Content="20"/>
+            <ComboBoxItem Content="24"/>
         </ComboBox>
         <Label Content="Vreme premeštanja:" HorizontalAlignment="Left" Margin="163,364,0,0" VerticalAlignment="Top"/>
         <ComboBox Name="minuteOfChange" HorizontalAlignment="Left" Margin="497,364,0,0" VerticalAlignment="Top" Width="51" SelectionChanged="minuteChanged">
@@ -40,6 +41,7 @@
             <ComboBoxItem Content="25"/>
             <ComboBoxItem Content="38"/>
             <ComboBoxItem Content="49"/>
+            <ComboBoxItem Content="05"/>
         </ComboBox>
     </Grid>
 </Window>

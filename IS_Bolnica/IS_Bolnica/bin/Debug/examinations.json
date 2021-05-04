@@ -331,48 +331,5 @@
         "Name": "Ordinacija"
       }
     }
-  },
-  {
-    "IsPayed": false,
-    "Evaluation": 0,
-    "DurationInMinutes": 0,
-    "Date": "2021-05-14T10:00:00",
-    "Patient": {
-      "Allergens": null,
-      "Debit": 0.0,
-      "examinations": null,
-      "HealthCardNumber": "071189",
-      "Anamneses": null,
-      "Username": "milos",
-      "Password": "m123",
-      "Name": "Milos",
-      "Surname": "Milosevic",
-      "DateOfBirth": "1986-12-12T00:00:00",
-      "Phone": "0",
-      "Email": null,
-      "Id": "1209976807054",
-      "UserType": 0,
-      "Address": {
-        "Street": "Miroslava Antica 13",
-        "NumberOfBuilding": 0,
-        "Floor": 0,
-        "Apartment": 0,
-        "City": {
-          "name": "Novi Sad",
-          "postalCode": null,
-          "Country": null
-        }
-      }
-    },
-    "Doctor": null,
-    "Secretary": null,
-    "RoomRecord": {
-      "Id": 102,
-      "HospitalWard": "Ortopedija",
-      "inventory": null,
-      "roomPurpose": {
-        "Name": "Ordinacija"
-      }
-    }
   }
 ]

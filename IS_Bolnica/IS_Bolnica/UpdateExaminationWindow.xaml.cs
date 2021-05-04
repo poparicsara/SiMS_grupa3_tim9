@@ -20,10 +20,6 @@ namespace IS_Bolnica.DoctorsWindows
     public partial class UpdateExaminationWindow : Window
     {
         private int selectedExamination;
-<<<<<<< HEAD
-        private int ordination;
-        public UpdateExaminationWindow(int selectedIndex)
-=======
         private Examination examination;
         public List<RoomRecord> Rooms
         {
@@ -38,7 +34,6 @@ namespace IS_Bolnica.DoctorsWindows
         private List<string> doctorNameAndSurname = new List<string>();
         private List<string> specialistNameAndSurname = new List<string>();
         public UpdateExaminationWindow(int selectedIndex, List<Examination> loggedDoctorExaminations)
->>>>>>> Lekar
         {
             InitializeComponent();
 
@@ -93,8 +88,6 @@ namespace IS_Bolnica.DoctorsWindows
             minuteBox.ItemsSource = Minutes;
 
             selectedExamination = selectedIndex;
-
-            ordination = (int)Int64.Parse(roomTxt.Text);
         }
 
         private void saveButtonClicked(object sender, RoutedEventArgs e)
@@ -102,18 +95,12 @@ namespace IS_Bolnica.DoctorsWindows
             ExaminationsRecordFileStorage examinationsRecordFileStorage = new ExaminationsRecordFileStorage();
             List<Examination> examinations = examinationsRecordFileStorage.loadFromFile("examinations.json");
 
-            ObservableCollection<Patient> Patients = new ObservableCollection<Patient>();
+            List<Patient> Patients = new List<Patient>();
             PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
 
             List<Doctor> doctors = new List<Doctor>();
             DoctorFileStorage doctorStorage = new DoctorFileStorage();
 
-<<<<<<< HEAD
-            DoctorWindow doctorWindow = new DoctorWindow(ordination);
-            doctorWindow.dataGridExaminations.Items.Refresh();
-            doctorWindow.Show();
-            this.Close();
-=======
             for (int i = 0; i < examinations.Count; i++)
             {
                 if (examinations[i].Date.Equals(examination.Date) && examinations[i].Patient.Id.Equals(examination.Patient.Id))
@@ -187,7 +174,6 @@ namespace IS_Bolnica.DoctorsWindows
                 doctorWindow.Show();
                 this.Close();
             }
->>>>>>> Lekar
         }
 
         private void cancelButtonClicked(object sender, RoutedEventArgs e)
@@ -198,7 +184,7 @@ namespace IS_Bolnica.DoctorsWindows
             switch (messageBox)
             {
                 case MessageBoxResult.Yes:
-                    DoctorWindow doctorWindow = new DoctorWindow(ordination);
+                    DoctorWindow doctorWindow = new DoctorWindow();
                     doctorWindow.Show();
                     this.Close();
                     break;
@@ -328,5 +314,5 @@ namespace IS_Bolnica.DoctorsWindows
             doctorsComboBox.ItemsSource = specialistNameAndSurname;
         }
     }
-    
+
 }
