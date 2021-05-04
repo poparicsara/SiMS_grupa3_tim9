@@ -58,6 +58,5 @@
         </TabControl>
         <Button Content="odjavi se" HorizontalAlignment="Left" Margin="903,633,0,0" VerticalAlignment="Top" Width="85" Height="30" Click="logOutButtonClicked"/>
 
-
     </Grid>
 </Window>
