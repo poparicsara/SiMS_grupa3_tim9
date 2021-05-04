@@ -35,6 +35,7 @@ namespace IS_Bolnica.DoctorsWindows
         private List<string> doctorNameAndSurname = new List<string>();
         public List<Doctor> Doctors { get; set; }
         private DoctorFileStorage doctorStorage = new DoctorFileStorage();
+        private DateTime dateTime;
         public AddOperationWindow()
         {
             InitializeComponent();
@@ -138,6 +139,23 @@ namespace IS_Bolnica.DoctorsWindows
                 date = (DateTime)datePicker.SelectedDate;
                 int hour = Convert.ToInt32(hourBox.Text);
                 int minute = Convert.ToInt32(minuteBox.Text);
+                dateTime = new DateTime(date.Year, date.Month, date.Day, hour, minute, 0);
+
+                //if (urgentRadioBtn.IsChecked == true)
+                //{
+                //    foreach (Operation o in Operations)
+                //    {
+                //        if (dateTime == o.Date)
+                //        {
+                //            o.Date.AddDays(1);
+                //        }
+                //        else
+                //        {
+                //            operation.Date = dateTime;
+                //        }
+                //    }
+                //}
+
                 operation.Date = new DateTime(date.Year, date.Month, date.Day, hour, minute, 0);
                 operation.RoomRecord = new RoomRecord();
 
@@ -149,7 +167,28 @@ namespace IS_Bolnica.DoctorsWindows
                     }
                 }
 
-                if (isRoomAvailable(Operations, operation.RoomRecord, operation.Date) && isDoctorAvailable(Operations, operation.doctor, operation.Date) 
+                if (urgentRadioBtn.IsChecked == true)
+                {
+                    operation.IsUrgent = true;
+                }
+                else
+                {
+                    operation.IsUrgent = false;
+                }
+
+                //if (operation.IsUrgent == true)
+                //{
+                //    for (int i = 1; i < Operations.Count; i++)
+                //    {
+                //        if (Operations[i].Date == operation.Date)
+                //        {
+                //            Operations[i].Date.AddDays(1);
+                //            operationStorage.saveToFile(Operations, "operations.json");
+                //        }
+                //    }
+                //}
+
+                if (isRoomAvailable(Operations, operation.RoomRecord, operation.Date) && isDoctorAvailable(Operations, operation.doctor, operation.Date)
                     && isPatientAvailable(Operations, operation.Patient, operation.Date))
                 {
                     Operations.Add(operation);
@@ -166,7 +205,6 @@ namespace IS_Bolnica.DoctorsWindows
                 DoctorWindow doctorWindow = new DoctorWindow();
                 doctorWindow.tabs.SelectedItem = doctorWindow.operationsTab;
                 doctorWindow.dataGridOperations.Items.Refresh();
-                doctorWindow.operationsTab.BeginInit();
                 doctorWindow.Show();
 
                 this.Close();
@@ -178,7 +216,7 @@ namespace IS_Bolnica.DoctorsWindows
         {
             foreach (Operation operation in operations)
             {
-                if (operation.RoomRecord.Id == room.Id && operation.Date == dateAndTime)
+                if (operation.RoomRecord.Id == room.Id && operation.Date == dateAndTime && operation.IsUrgent == false)
                 {
                     return false;
                 }
@@ -193,7 +231,7 @@ namespace IS_Bolnica.DoctorsWindows
             {
                 string drNameSurname = doctor.Name + ' ' + doctor.Surname;
 
-                if (drNameSurname.Equals(doctorsComboBox.SelectedItem.ToString()) && operation.Date.Equals(dateAndTime))
+                if (drNameSurname.Equals(doctorsComboBox.SelectedItem.ToString()) && operation.Date.Equals(dateAndTime) && operation.IsUrgent == false)
                 {
                     return false;
                 }
@@ -206,7 +244,7 @@ namespace IS_Bolnica.DoctorsWindows
         {
             foreach (Operation operation in operations)
             {
-                if (operation.Patient.Id == patient.Id && operation.Date == dateAndTime)
+                if (operation.Patient.Id == patient.Id && operation.Date == dateAndTime && operation.IsUrgent == false)
                 {
                     return false;
                 }
@@ -227,5 +265,35 @@ namespace IS_Bolnica.DoctorsWindows
                 }
             }
         }
+
+        //private void urgentRadioBtn_Checked(object sender, RoutedEventArgs e)
+        //{
+        //    DateTime date = new DateTime();
+        //    date = (DateTime)datePicker.SelectedDate;
+        //    int hour = Convert.ToInt32(hourBox.Text);
+        //    int minute = Convert.ToInt32(minuteBox.Text);
+        //    dateTime = new DateTime(date.Year, date.Month, date.Day, hour, minute, 0);
+
+        //    foreach (Operation o in Operations)
+        //    {
+        //        if (o.Date == dateTime)
+        //        {
+        //            o.Date = o.Date.AddDays(1);
+        //        }
+        //    }
+        //   // operationStorage.saveToFile(Operations, "operations.json");
+        //}
+
+        //private void urgentRadioBtn_Unchecked(object sender, RoutedEventArgs e)
+        //{
+        //    DateTime date = new DateTime();
+        //    date = (DateTime)datePicker.SelectedDate;
+        //    int hour = Convert.ToInt32(hourBox.Text);
+        //    int minute = Convert.ToInt32(minuteBox.Text);
+        //    dateTime = new DateTime(date.Year, date.Month, date.Day, hour, minute, 0);
+
+        //    operation.Date = dateTime;
+
+        //}
     }
 }

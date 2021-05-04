@@ -27,13 +27,18 @@ namespace IS_Bolnica
         private User loggedUser;
         private List<Examination> loggedDoctorExaminations = new List<Examination>();
         private List<Operation> loggedDoctorOperations = new List<Operation>();
+        private Examination examination = new Examination();
+        public List<Examination> Examinations { get; set; }
+        private ExaminationsRecordFileStorage examinationStorage = new ExaminationsRecordFileStorage();
+        private Operation operation = new Operation();
+        public List<Operation> Operations { get; set; }
+        private OperationsFileStorage operationStorage = new OperationsFileStorage();
         public DoctorWindow()
         {
             InitializeComponent();
             this.DataContext = this;
             
-            ExaminationsRecordFileStorage examinationFileStorage = new ExaminationsRecordFileStorage();
-            List<Examination> examinations = examinationFileStorage.loadFromFile("examinations.json");
+            List<Examination> examinations = examinationStorage.loadFromFile("examinations.json");
             loggedDoctorExaminations = new List<Examination>();
             loggedDoctorOperations = new List<Operation>();
             loggedUsers = storage.loadFromFile("loggedUsers.json");
@@ -52,8 +57,7 @@ namespace IS_Bolnica
 
             dataGridExaminations.ItemsSource = loggedDoctorExaminations;
 
-            OperationsFileStorage operationsFileStorage = new OperationsFileStorage();
-            List<Operation> operations = operationsFileStorage.loadFromFile("operations.json");
+            List<Operation> operations = operationStorage.loadFromFile("operations.json");
 
             foreach (Operation operation in operations)
             {
@@ -87,10 +91,27 @@ namespace IS_Bolnica
 
         private void cancelExaminationButton(object sender, RoutedEventArgs e)
         {
-            ExaminationsRecordFileStorage examinationsRecordFileStorage = new ExaminationsRecordFileStorage();
-            List<Examination> examinations = examinationsRecordFileStorage.loadFromFile("examinations.json");
-            examinations.RemoveAt(dataGridExaminations.SelectedIndex);
-            examinationsRecordFileStorage.saveToFile(examinations, "examinations.json");
+            int index = dataGridExaminations.SelectedIndex;
+            examination = (Examination)dataGridExaminations.SelectedItem;
+
+            if (index == -1)
+            {
+                MessageBox.Show("Niste izabrali pregled koji zelite da otkazete!");
+            }
+            else
+            {
+                Examinations = examinationStorage.loadFromFile("examinations.json");
+                for (int i = 0; i < Examinations.Count; i++)
+                {
+                    if (Examinations[i].Date.Equals(examination.Date) && 
+                        Examinations[i].Patient.Id.Equals(examination.Patient.Id))
+                    {
+                        Examinations.RemoveAt(i);
+                    }
+                }
+
+                examinationStorage.saveToFile(Examinations, "examinations.json");
+            }
 
             DoctorWindow doctorWindow = new DoctorWindow();
             doctorWindow.Show();
@@ -99,12 +120,30 @@ namespace IS_Bolnica
 
         private void cancelOperationButton(object sender, RoutedEventArgs e)
         {
-            OperationsFileStorage operationsFileStorage = new OperationsFileStorage();
-            List<Operation> operations = operationsFileStorage.loadFromFile("operations.json");
-            operations.RemoveAt(dataGridOperations.SelectedIndex);
-            operationsFileStorage.saveToFile(operations, "operations.json");
+            int index = dataGridOperations.SelectedIndex;
+            operation = (Operation)dataGridOperations.SelectedItem;
+
+            if (index == -1)
+            {
+                MessageBox.Show("Niste izabrali operaciju koju zelite da otkazete!");
+            }
+            else
+            {
+                Operations = operationStorage.loadFromFile("operations.json");
+
+                for (int i = 0; i < Operations.Count; i++)
+                {
+                    if (Operations[i].Date.Equals(operation.Date) && Operations[i].Patient.Id.Equals(operation.Patient.Id))
+                    {
+                        Operations.RemoveAt(i);
+                    }
+                }
+
+                operationStorage.saveToFile(Operations, "operations.json");
+            }
 
             DoctorWindow doctorWindow = new DoctorWindow();
+            doctorWindow.tabs.SelectedItem = doctorWindow.operationsTab;
             doctorWindow.Show();
             this.Close();
         }

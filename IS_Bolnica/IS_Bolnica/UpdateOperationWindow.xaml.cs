@@ -171,7 +171,6 @@ namespace IS_Bolnica.DoctorsWindows
                 DoctorWindow doctorWindow = new DoctorWindow();
                 doctorWindow.tabs.SelectedItem = doctorWindow.operationsTab;
                 doctorWindow.dataGridOperations.Items.Refresh();
-                doctorWindow.operationsTab.BeginInit();
                 doctorWindow.Show();
                 this.Close();
             }

@@ -71,5 +71,10 @@ namespace Model
             set;
         }
 
+        public bool IsUrgent
+        {
+            get;
+            set;
+        }
     }
 }
