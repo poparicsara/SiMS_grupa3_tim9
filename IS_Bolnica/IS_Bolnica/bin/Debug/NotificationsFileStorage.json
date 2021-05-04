@@ -3,19 +3,19 @@
     "title": "RENOVACIJE",
     "content": "...",
     "Sender": 2,
-    "notificationType": 3
+    "notificationType": 4
   },
   {
     "title": "HITNO",
     "content": "Pomeren termin",
     "Sender": 2,
-    "notificationType": 3
+    "notificationType": 4
   },
   {
     "title": "VAZNO",
     "content": "Obavestavamo Vas da promenite lozinku.",
     "Sender": 2,
-    "notificationType": 3
+    "notificationType": 4
   },
   {
     "title": "Potrebno pomeranje termina",
