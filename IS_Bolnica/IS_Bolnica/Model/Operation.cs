@@ -76,5 +76,11 @@ namespace Model
             get;
             set;
         }
+
+        public DateTime endTime
+        {
+            get;
+            set;
+        }
     }
 }
