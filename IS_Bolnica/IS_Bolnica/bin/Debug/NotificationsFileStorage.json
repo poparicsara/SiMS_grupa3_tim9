@@ -34,5 +34,23 @@
     "content": "Prostorija  103 se renovira.\nPotrebno je pomeranje zakazanog termina",
     "Sender": 3,
     "notificationType": 2
+  },
+  {
+    "title": "Potrebno pomeranje termina",
+    "content": "Prostorija  103 se renovira.\nPotrebno je pomeranje zakazanog termina",
+    "Sender": 3,
+    "notificationType": 2
+  },
+  {
+    "title": "Potrebno pomeranje termina",
+    "content": "Prostorija  103 se renovira.\nPotrebno je pomeranje zakazanog termina",
+    "Sender": 3,
+    "notificationType": 2
+  },
+  {
+    "title": "Izmena zahteva za novi lek",
+    "content": "666\nnesto\nsvasta\nneko\nSREDI OVO",
+    "Sender": 1,
+    "notificationType": 3
   }
 ]

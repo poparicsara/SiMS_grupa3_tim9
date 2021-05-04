@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace IS_Bolnica.Model
 {
-    class Request
+    public class Request
     {
         public string Title { get; set; }
         public string Content { get; set; }

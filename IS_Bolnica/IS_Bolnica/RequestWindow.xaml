@@ -7,7 +7,14 @@
         mc:Ignorable="d"
         Title="RequestWindow" Height="450" Width="800">
     <Grid>
-        <DataGrid x:Name="requestData" ItemsSource="{Binding Path=Notifications}" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" HorizontalAlignment="Stretch" Margin="10,65,9.6,10.4" VerticalAlignment="Stretch" GridLinesVisibility="Vertical" >
+        <DataGrid x:Name="requestData" ItemsSource="{Binding Path=Notifications}" AutoGenerateColumns="False" 
+                  SelectionMode="Single" IsReadOnly="True" HorizontalAlignment="Stretch" Margin="10,65,9.6,10.4" 
+                  VerticalAlignment="Stretch" GridLinesVisibility="Vertical" >
+            <DataGrid.Resources>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClik"/>
+                </Style>
+            </DataGrid.Resources>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="TITLE" Binding="{Binding Title}" Width="400"/>
                 <DataGridTextColumn Header="SENDER" Binding="{Binding Sender}" Width="550"/>

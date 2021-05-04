@@ -96,7 +96,7 @@
     },
     "Doctor": null,
     "Date": "2021-04-29T14:30:00",
-    "endTime": "2021-01-01T00:00:00",
+    "endTime": "2021-04-30T00:00:00",
     "Patient": {
       "Allergens": [
         ""
@@ -242,8 +242,8 @@
   {
     "doctor": null,
     "Doctor": null,
-    "Date": "2021-05-01T00:00:00",
-    "endTime": "2021-05-03T00:00:00",
+    "Date": "2021-04-28T00:00:00",
+    "endTime": "2021-05-02T00:00:00",
     "Patient": null,
     "RoomRecord": {
       "Id": 103,

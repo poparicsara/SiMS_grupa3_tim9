@@ -28,5 +28,13 @@ namespace IS_Bolnica
 
             requestData.ItemsSource = requests;
         }
+
+        private void Row_DoubleClik(object sender, MouseButtonEventArgs e)
+        {
+            Request selectedRequest = (Request)requestData.SelectedItem;
+            SelectedRequest selected = new SelectedRequest(selectedRequest);
+            selected.Show();
+            this.Close();
+        }
     }
 }
