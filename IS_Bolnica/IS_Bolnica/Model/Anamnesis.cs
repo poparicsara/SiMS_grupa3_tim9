@@ -33,5 +33,11 @@ namespace IS_Bolnica.Model
             set;
         }
 
+        public Doctor Doctor
+        {
+            get;
+            set;
+        }
+
     }
 }

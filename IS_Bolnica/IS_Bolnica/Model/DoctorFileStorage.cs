@@ -35,4 +35,8 @@ namespace IS_Bolnica.Model
             return doctors;
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> Lekar

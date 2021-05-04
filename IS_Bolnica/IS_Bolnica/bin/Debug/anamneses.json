@@ -1,194 +1,177 @@
 [
   {
-    "Diagnosis": "hipertenzija",
-    "Symptoms": "",
+    "Diagnosis": "prehlada",
+    "Symptoms": "curenje iz nosa",
     "Patient": {
-      "Allergens": null,
-      "Debit": 0.0,
+      "Allergens": [
+        "brufen"
+      ],
+      "Debit": 1.0,
       "examinations": null,
-      "HealthCardNumber": "349109",
+      "HealthCardNumber": "19",
       "Anamneses": null,
-      "Username": "pera123",
-      "Password": "perakralj123",
-      "Name": "Pera",
-      "Surname": "Peric",
-      "DateOfBirth": "1965-01-01T00:00:00",
-      "Phone": "0",
-      "Email": null,
-      "Id": "2311981789023",
+      "Username": "nnnn",
+      "Password": "ftn",
+      "Name": "Nina",
+      "Surname": "Pavkovic",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "12345",
+      "Email": "dad",
+      "Id": "1234",
       "UserType": 0,
       "Address": {
-        "Street": "Svetosavska 46",
-        "NumberOfBuilding": 0,
-        "Floor": 0,
-        "Apartment": 0,
+        "Street": "abc ",
+        "NumberOfBuilding": 4,
+        "Floor": 3,
+        "Apartment": 2,
         "City": {
-          "name": "Novi Sad",
-          "postalCode": null,
-          "Country": null
+          "name": "ns ",
+          "postalCode": "21000",
+          "Country": {
+            "name": "srb"
+          }
         }
       }
     },
-    "Date": "2021-10-05T00:00:00"
-  },
-  {
-    "Diagnosis": "mozdani udar",
-    "Symptoms": "",
-    "Patient": {
-      "Allergens": null,
-      "Debit": 0.0,
-      "examinations": null,
-      "HealthCardNumber": "071189",
-      "Anamneses": null,
-      "Username": "milos",
-      "Password": "m123",
-      "Name": "Milos",
-      "Surname": "Milosevic",
-      "DateOfBirth": "1986-12-12T00:00:00",
-      "Phone": "0",
-      "Email": null,
-      "Id": "1209976807054",
-      "UserType": 0,
-      "Address": {
-        "Street": "Miroslava Antica 13",
-        "NumberOfBuilding": 0,
-        "Floor": 0,
-        "Apartment": 0,
-        "City": {
-          "name": "Novi Sad",
-          "postalCode": null,
-          "Country": null
-        }
-      }
-    },
-    "Date": "2021-06-14T00:00:00"
+    "Date": "2021-04-05T00:00:00",
+    "Doctor": null
   },
   {
     "Diagnosis": "",
     "Symptoms": "",
     "Patient": {
-      "Allergens": null,
-      "Debit": 0.0,
+      "Allergens": [
+        "brufen",
+        "penicilin"
+      ],
+      "Debit": 1.0,
       "examinations": null,
-      "HealthCardNumber": "071189",
+      "HealthCardNumber": "19",
       "Anamneses": null,
-      "Username": "milos",
-      "Password": "m123",
-      "Name": "Milos",
-      "Surname": "Milosevic",
-      "DateOfBirth": "1986-12-12T00:00:00",
-      "Phone": "0",
-      "Email": null,
-      "Id": "1209976807054",
+      "Username": "nnnn",
+      "Password": "ftn",
+      "Name": "Nina",
+      "Surname": "Pavkovic",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "12345",
+      "Email": "dad",
+      "Id": "1234",
       "UserType": 0,
       "Address": {
-        "Street": "Miroslava Antica 13",
-        "NumberOfBuilding": 0,
-        "Floor": 0,
-        "Apartment": 0,
+        "Street": "abc ",
+        "NumberOfBuilding": 4,
+        "Floor": 3,
+        "Apartment": 2,
         "City": {
-          "name": "Novi Sad",
-          "postalCode": null,
-          "Country": null
+          "name": "ns ",
+          "postalCode": "21000",
+          "Country": {
+            "name": "srb"
+          }
         }
       }
     },
-    "Date": "2021-06-14T00:00:00"
+    "Date": "2021-05-02T17:30:00",
+    "Doctor": null
   },
   {
-    "Diagnosis": "astma",
-    "Symptoms": "gusenje",
+    "Diagnosis": "alergija",
+    "Symptoms": "osip",
     "Patient": {
-      "Allergens": null,
-      "Debit": 0.0,
+      "Allergens": [
+        "penicilin"
+      ],
+      "Debit": 500.0,
       "examinations": null,
-      "HealthCardNumber": "349109",
+      "HealthCardNumber": "78",
       "Anamneses": null,
-      "Username": "pera123",
-      "Password": "perakralj123",
-      "Name": "Pera",
-      "Surname": "Peric",
-      "DateOfBirth": "1965-01-01T00:00:00",
-      "Phone": "0",
-      "Email": null,
-      "Id": "2311981789023",
+      "Username": "mare",
+      "Password": "nesto",
+      "Name": "Marko",
+      "Surname": "Markovic",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "064789552",
+      "Email": "marko@gmai.com",
+      "Id": "1111",
       "UserType": 0,
       "Address": {
-        "Street": "Svetosavska 46",
-        "NumberOfBuilding": 0,
-        "Floor": 0,
-        "Apartment": 0,
+        "Street": "Marko Oreskovica",
+        "NumberOfBuilding": 12,
+        "Floor": 5,
+        "Apartment": 8,
         "City": {
           "name": "Novi Sad",
-          "postalCode": null,
-          "Country": null
+          "postalCode": "21000",
+          "Country": {
+            "name": "Srbija"
+          }
         }
       }
     },
-    "Date": "2021-10-05T00:00:00"
+    "Date": "2021-05-15T11:00:00",
+    "Doctor": {
+      "Specialization": null,
+      "Ordination": 202,
+      "Username": "ana",
+      "Password": "ana",
+      "Name": "Ana",
+      "Surname": "Petrovic",
+      "DateOfBirth": "1970-10-01T00:00:00",
+      "Phone": "67890834",
+      "Email": "ana@gmail.com",
+      "Id": "4321009",
+      "UserType": 1,
+      "Address": null
+    }
   },
   {
-    "Diagnosis": "covid19",
-    "Symptoms": "temperatura, kasalj",
+    "Diagnosis": "",
+    "Symptoms": "",
     "Patient": {
-      "Allergens": null,
-      "Debit": 0.0,
+      "Allergens": [
+        "polen"
+      ],
+      "Debit": 1500.0,
       "examinations": null,
-      "HealthCardNumber": "071189",
+      "HealthCardNumber": "6",
       "Anamneses": null,
-      "Username": "milos",
-      "Password": "m123",
-      "Name": "Milos",
-      "Surname": "Milosevic",
-      "DateOfBirth": "1986-12-12T00:00:00",
-      "Phone": "0",
-      "Email": null,
-      "Id": "1209976807054",
+      "Username": "nikola_nikolic",
+      "Password": "sasasa",
+      "Name": "Nikola",
+      "Surname": "Nikolic",
+      "DateOfBirth": "1984-12-01T00:00:00",
+      "Phone": "0647896587",
+      "Email": "nikolic@gmail.com",
+      "Id": "2222",
       "UserType": 0,
       "Address": {
-        "Street": "Miroslava Antica 13",
-        "NumberOfBuilding": 0,
-        "Floor": 0,
-        "Apartment": 0,
+        "Street": "Masarikova ulica ",
+        "NumberOfBuilding": 12,
+        "Floor": 25,
+        "Apartment": 13,
         "City": {
-          "name": "Novi Sad",
-          "postalCode": null,
-          "Country": null
+          "name": "Sombor ",
+          "postalCode": "12564",
+          "Country": {
+            "name": "Srbija"
+          }
         }
       }
     },
-    "Date": "2021-06-14T00:00:00"
-  },
-  {
-    "Diagnosis": "bhhdv",
-    "Symptoms": "adadav",
-    "Patient": {
-      "Allergens": null,
-      "Debit": 0.0,
-      "examinations": null,
-      "HealthCardNumber": "071189",
-      "Anamneses": null,
-      "Username": "milos",
-      "Password": "m123",
-      "Name": "Milos",
-      "Surname": "Milosevic",
-      "DateOfBirth": "1986-12-12T00:00:00",
-      "Phone": "0",
-      "Email": null,
-      "Id": "1209976807054",
-      "UserType": 0,
-      "Address": {
-        "Street": "Miroslava Antica 13",
-        "NumberOfBuilding": 0,
-        "Floor": 0,
-        "Apartment": 0,
-        "City": {
-          "name": "Novi Sad",
-          "postalCode": null,
-          "Country": null
-        }
-      }
-    },
-    "Date": "2021-06-14T00:00:00"
+    "Date": "2021-05-12T07:30:00",
+    "Doctor": {
+      "Specialization": null,
+      "Ordination": 202,
+      "Username": "ana",
+      "Password": "ana",
+      "Name": "Ana",
+      "Surname": "Petrovic",
+      "DateOfBirth": "1970-10-01T00:00:00",
+      "Phone": "67890834",
+      "Email": "ana@gmail.com",
+      "Id": "4321009",
+      "UserType": 1,
+      "Address": null
+    }
   }
 ]

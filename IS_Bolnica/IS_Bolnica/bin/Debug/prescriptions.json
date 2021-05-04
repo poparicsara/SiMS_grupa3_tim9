@@ -1,80 +1,6 @@
 [
   {
     "Doctor": null,
-    "Date": "2021-10-05T00:00:00",
-    "Patient": {
-      "Allergens": null,
-      "Debit": 0.0,
-      "examinations": null,
-      "HealthCardNumber": "349109",
-      "Anamneses": null,
-      "Username": "pera123",
-      "Password": "perakralj123",
-      "Name": "Pera",
-      "Surname": "Peric",
-      "DateOfBirth": "1965-01-01T00:00:00",
-      "Phone": "0",
-      "Email": null,
-      "Id": "2311981789023",
-      "UserType": 0,
-      "Address": {
-        "Street": "Svetosavska 46",
-        "NumberOfBuilding": 0,
-        "Floor": 0,
-        "Apartment": 0,
-        "City": {
-          "name": "Novi Sad",
-          "postalCode": null,
-          "Country": null
-        }
-      }
-    },
-    "Therapy": {
-      "StartDate": "0001-01-01T00:00:00",
-      "MedicationName": "Amoxil",
-      "Dose": 3
-    },
-    "Anamnesis": null
-  },
-  {
-    "Doctor": null,
-    "Date": "2021-06-14T00:00:00",
-    "Patient": {
-      "Allergens": null,
-      "Debit": 0.0,
-      "examinations": null,
-      "HealthCardNumber": "071189",
-      "Anamneses": null,
-      "Username": "milos",
-      "Password": "m123",
-      "Name": "Milos",
-      "Surname": "Milosevic",
-      "DateOfBirth": "1986-12-12T00:00:00",
-      "Phone": "0",
-      "Email": null,
-      "Id": "1209976807054",
-      "UserType": 0,
-      "Address": {
-        "Street": "Miroslava Antica 13",
-        "NumberOfBuilding": 0,
-        "Floor": 0,
-        "Apartment": 0,
-        "City": {
-          "name": "Novi Sad",
-          "postalCode": null,
-          "Country": null
-        }
-      }
-    },
-    "Therapy": {
-      "StartDate": "0001-01-01T00:00:00",
-      "MedicationName": "Atrovent",
-      "Dose": 2
-    },
-    "Anamnesis": null
-  },
-  {
-    "Doctor": null,
     "Date": "2021-06-14T00:00:00",
     "Patient": {
       "Allergens": null,
@@ -107,154 +33,6 @@
       "StartDate": "0001-01-01T00:00:00",
       "MedicationName": "Zovirax",
       "Dose": 3
-    },
-    "Anamnesis": null
-  },
-  {
-    "Doctor": null,
-    "Date": "2021-10-05T00:00:00",
-    "Patient": {
-      "Allergens": null,
-      "Debit": 0.0,
-      "examinations": null,
-      "HealthCardNumber": "349109",
-      "Anamneses": null,
-      "Username": "pera123",
-      "Password": "perakralj123",
-      "Name": "Pera",
-      "Surname": "Peric",
-      "DateOfBirth": "1965-01-01T00:00:00",
-      "Phone": "0",
-      "Email": null,
-      "Id": "2311981789023",
-      "UserType": 0,
-      "Address": {
-        "Street": "Svetosavska 46",
-        "NumberOfBuilding": 0,
-        "Floor": 0,
-        "Apartment": 0,
-        "City": {
-          "name": "Novi Sad",
-          "postalCode": null,
-          "Country": null
-        }
-      }
-    },
-    "Therapy": {
-      "StartDate": "0001-01-01T00:00:00",
-      "MedicationName": "Diovan",
-      "Dose": 2
-    },
-    "Anamnesis": null
-  },
-  {
-    "Doctor": null,
-    "Date": "2021-10-05T00:00:00",
-    "Patient": {
-      "Allergens": null,
-      "Debit": 0.0,
-      "examinations": null,
-      "HealthCardNumber": "349109",
-      "Anamneses": null,
-      "Username": "pera123",
-      "Password": "perakralj123",
-      "Name": "Pera",
-      "Surname": "Peric",
-      "DateOfBirth": "1965-01-01T00:00:00",
-      "Phone": "0",
-      "Email": null,
-      "Id": "2311981789023",
-      "UserType": 0,
-      "Address": {
-        "Street": "Svetosavska 46",
-        "NumberOfBuilding": 0,
-        "Floor": 0,
-        "Apartment": 0,
-        "City": {
-          "name": "Novi Sad",
-          "postalCode": null,
-          "Country": null
-        }
-      }
-    },
-    "Therapy": {
-      "StartDate": "0001-01-01T00:00:00",
-      "MedicationName": "Astan",
-      "Dose": 2
-    },
-    "Anamnesis": null
-  },
-  {
-    "Doctor": null,
-    "Date": "2021-06-14T00:00:00",
-    "Patient": {
-      "Allergens": null,
-      "Debit": 0.0,
-      "examinations": null,
-      "HealthCardNumber": "071189",
-      "Anamneses": null,
-      "Username": "milos",
-      "Password": "m123",
-      "Name": "Milos",
-      "Surname": "Milosevic",
-      "DateOfBirth": "1986-12-12T00:00:00",
-      "Phone": "0",
-      "Email": null,
-      "Id": "1209976807054",
-      "UserType": 0,
-      "Address": {
-        "Street": "Miroslava Antica 13",
-        "NumberOfBuilding": 0,
-        "Floor": 0,
-        "Apartment": 0,
-        "City": {
-          "name": "Novi Sad",
-          "postalCode": null,
-          "Country": null
-        }
-      }
-    },
-    "Therapy": {
-      "StartDate": "0001-01-01T00:00:00",
-      "MedicationName": "Colex",
-      "Dose": 1
-    },
-    "Anamnesis": null
-  },
-  {
-    "Doctor": null,
-    "Date": "2021-10-05T00:00:00",
-    "Patient": {
-      "Allergens": null,
-      "Debit": 0.0,
-      "examinations": null,
-      "HealthCardNumber": "349109",
-      "Anamneses": null,
-      "Username": "pera123",
-      "Password": "perakralj123",
-      "Name": "Pera",
-      "Surname": "Peric",
-      "DateOfBirth": "1965-01-01T00:00:00",
-      "Phone": "0",
-      "Email": null,
-      "Id": "2311981789023",
-      "UserType": 0,
-      "Address": {
-        "Street": "Svetosavska 46",
-        "NumberOfBuilding": 0,
-        "Floor": 0,
-        "Apartment": 0,
-        "City": {
-          "name": "Novi Sad",
-          "postalCode": null,
-          "Country": null
-        }
-      }
-    },
-    "Therapy": {
-      "StartDate": "0001-01-01T00:00:00",
-      "MedicationName": "Cetirizine",
-      "Dose": 1
     },
     "Anamnesis": null
   },
@@ -296,39 +74,56 @@
     "Anamnesis": null
   },
   {
-    "Doctor": null,
-    "Date": "2021-06-14T00:00:00",
+    "Doctor": {
+      "Specialization": null,
+      "Ordination": 202,
+      "Username": "ana",
+      "Password": "ana",
+      "Name": "Ana",
+      "Surname": "Petrovic",
+      "DateOfBirth": "1970-10-01T00:00:00",
+      "Phone": "67890834",
+      "Email": "ana@gmail.com",
+      "Id": "4321009",
+      "UserType": 1,
+      "Address": null
+    },
+    "Date": "2021-05-15T11:00:00",
     "Patient": {
-      "Allergens": null,
-      "Debit": 0.0,
+      "Allergens": [
+        "penicilin"
+      ],
+      "Debit": 500.0,
       "examinations": null,
-      "HealthCardNumber": "071189",
+      "HealthCardNumber": "78",
       "Anamneses": null,
-      "Username": "milos",
-      "Password": "m123",
-      "Name": "Milos",
-      "Surname": "Milosevic",
-      "DateOfBirth": "1986-12-12T00:00:00",
-      "Phone": "0",
-      "Email": null,
-      "Id": "1209976807054",
+      "Username": "mare",
+      "Password": "nesto",
+      "Name": "Marko",
+      "Surname": "Markovic",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "064789552",
+      "Email": "marko@gmai.com",
+      "Id": "1111",
       "UserType": 0,
       "Address": {
-        "Street": "Miroslava Antica 13",
-        "NumberOfBuilding": 0,
-        "Floor": 0,
-        "Apartment": 0,
+        "Street": "Marko Oreskovica",
+        "NumberOfBuilding": 12,
+        "Floor": 5,
+        "Apartment": 8,
         "City": {
           "name": "Novi Sad",
-          "postalCode": null,
-          "Country": null
+          "postalCode": "21000",
+          "Country": {
+            "name": "Srbija"
+          }
         }
       }
     },
     "Therapy": {
       "StartDate": "0001-01-01T00:00:00",
-      "MedicationName": "saasa",
-      "Dose": 2
+      "MedicationName": "andol",
+      "Dose": 1
     },
     "Anamnesis": null
   }

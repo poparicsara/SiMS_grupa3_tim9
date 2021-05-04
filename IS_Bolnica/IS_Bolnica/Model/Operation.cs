@@ -77,5 +77,16 @@ namespace Model
             set;
         }
 
+        public bool IsUrgent
+        {
+            get;
+            set;
+        }
+
+        public DateTime endTime
+        {
+            get;
+            set;
+        }
     }
 }

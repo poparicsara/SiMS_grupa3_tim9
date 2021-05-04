@@ -8,10 +8,15 @@ namespace IS_Bolnica
 {
     public partial class MainWindow : Window
     {
-
         private UsersFileStorage storage = new UsersFileStorage();
+<<<<<<< HEAD
         private List<User> users = new List<User>();
         private User user = new User();
+=======
+        private ObservableCollection<User> users = new ObservableCollection<User>();
+        private ObservableCollection<User> loggedUsers = new ObservableCollection<User>();
+        //private User user = new User();
+>>>>>>> Lekar
         public MainWindow()
         {
             InitializeComponent();
@@ -62,6 +67,7 @@ namespace IS_Bolnica
                             pw.Show();
                             break;
                         case UserType.doctor:
+<<<<<<< HEAD
                             int ordination = 0;
                             DoctorFileStorage dStorage = new DoctorFileStorage();
                             List<Doctor> doctors = dStorage.loadFromFile("Doctors.json");
@@ -75,7 +81,13 @@ namespace IS_Bolnica
                             }
 
                             DoctorWindow doctorWindow = new DoctorWindow(ordination);
+=======
+                            loggedUsers.Add(user);
+                            storage.saveToFile(loggedUsers, "loggedUsers.json");
+                            DoctorWindow doctorWindow = new DoctorWindow();
+>>>>>>> Lekar
                             doctorWindow.Show();
+                            this.Close();
                             break;
                         case UserType.director:
                             Director director = new Director();
