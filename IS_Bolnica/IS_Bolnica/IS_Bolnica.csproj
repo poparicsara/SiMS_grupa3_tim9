@@ -126,6 +126,8 @@
     <Compile Include="Model\NotificationType.cs" />
     <Compile Include="Model\Prescription.cs" />
     <Compile Include="Model\PrescriptionFileStorage.cs" />
+    <Compile Include="Model\Request.cs" />
+    <Compile Include="Model\RequestFileStorage.cs" />
     <Compile Include="Model\TherapiesFileStorage.cs" />
     <Compile Include="Model\Therapy.cs" />
     <Compile Include="Model\UsersFileStorage.cs" />
@@ -144,6 +146,12 @@
     </Compile>
     <Compile Include="Predlozi.xaml.cs">
       <DependentUpon>Predlozi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RenovationWindow.xaml.cs">
+      <DependentUpon>RenovationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RequestWindow.xaml.cs">
+      <DependentUpon>RequestWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\ActionBarWindow.xaml.cs">
       <DependentUpon>ActionBarWindow.xaml</DependentUpon>
@@ -195,6 +203,9 @@
     </Compile>
     <Compile Include="SelectedInventoryInRooms.xaml.cs">
       <DependentUpon>SelectedInventoryInRooms.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SelectedRequest.xaml.cs">
+      <DependentUpon>SelectedRequest.xaml</DependentUpon>
     </Compile>
     <Compile Include="UpdateExaminationWindow.xaml.cs">
       <DependentUpon>UpdateExaminationWindow.xaml</DependentUpon>
@@ -313,6 +324,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="RenovationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RequestWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Secretary\ActionBarWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -380,6 +399,10 @@
     <Page Include="SelectedInventoryInRooms.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SelectedRequest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UpdateExaminationWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

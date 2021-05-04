@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Diagnostics;
 
 namespace IS_Bolnica
 {
@@ -22,13 +24,16 @@ namespace IS_Bolnica
         private string selectedWardTo;
         private string selectedPurposeFrom;
         private string selectedPurposeTo;
-        private RoomRecord roomFrom = new RoomRecord();
-        private RoomRecord roomTo = new RoomRecord();
-        private int amount = 0;
-        private Inventory selectedInventory = new Inventory();
-        private string from;
-        private string to;
+        static int amount;
+        static Inventory selectedInventory;
+        static string from;
+        static string to;
         private List<RoomRecord> rooms = new List<RoomRecord>();
+        static string selectedDate;
+        static int selectedHour;
+        static int selectedMinute;
+        static int abort;
+        static int beggining;
 
         public ChangeInventoryPlace(Inventory selected)
         {
@@ -65,6 +70,14 @@ namespace IS_Bolnica
             purposeToBox.SelectedItem = "Ordinacija";
 
             selectedInventory = selected;
+
+            if(selectedInventory.InventoryType == Model.InventoryType.dinamicki)
+            {
+                dateofChange.IsEnabled = false;
+                hourofChange.IsEnabled = false;
+                minuteOfChange.IsEnabled = false;
+            }
+
 
         }
 
@@ -149,7 +162,67 @@ namespace IS_Bolnica
 
         private void DoneButton(object sender, RoutedEventArgs e)
         {
-            if (selectedWardFrom == "Magacin")
+            if(selectedWardFrom == "Magacin")
+            {
+                from = "1";
+            }
+            else
+            {
+                from = numberFromBox.SelectedItem.ToString();
+            }
+
+            to = numberToBox.SelectedItem.ToString();
+            
+
+            amount = (int)int.Parse(amountBox.Text);
+            RoomRecord roomFrom = new RoomRecord();
+            roomFrom.Id = (int)Int64.Parse(from);
+            RoomRecord roomTo = new RoomRecord();
+            roomTo.Id = (int)Int64.Parse(to);
+            RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+            rooms = roomStorage.loadFromFile("Sobe.json");
+
+            if (selectedInventory.InventoryType == Model.InventoryType.staticki)
+            {
+                makeThread();
+            }
+            else
+            {
+                foreach (RoomRecord room in rooms)
+                {
+                    if (room.Id == roomFrom.Id)
+                    {
+                        foreach (Inventory i in room.inventory)
+                        {
+                            if (i.Id == selectedInventory.Id)
+                            {
+                                i.CurrentAmount -= amount;
+                            }
+                        }
+                    }
+                    else if (room.Id == roomTo.Id)
+                    {
+                        foreach (Inventory i in room.inventory)
+                        {
+                            if (i.Id == selectedInventory.Id)
+                            {
+                                i.CurrentAmount += amount;
+                            }
+                        }
+                    }
+                }
+                roomStorage.saveToFile(rooms, "Sobe.json");
+            }
+
+            
+
+            SelectedInventoryInRooms sw = new SelectedInventoryInRooms(selectedInventory);
+            sw.Show();
+            this.Close();
+
+
+
+            /*if (selectedWardFrom == "Magacin")
             {
                 roomFrom.Id = 1;
             }
@@ -206,7 +279,7 @@ namespace IS_Bolnica
 
             SelectedInventoryInRooms sw = new SelectedInventoryInRooms(selectedInventory);
             sw.Show();
-            this.Close();
+            this.Close();*/
 
         }
 
@@ -327,5 +400,124 @@ namespace IS_Bolnica
 
         }
 
+        static void makeThread()
+        {
+            Thread thread = new Thread(new ThreadStart(changeAmount));
+            thread.Start();
+
+            if(abort == 1)
+            {
+                Debug.WriteLine("Gasim");
+                thread.Abort();
+                thread.Join();
+            }
+        }
+
+        static void changeAmount()
+        {
+            RoomRecord roomFrom = new RoomRecord();
+            roomFrom.Id = (int)Int64.Parse(from);
+            //Debug.WriteLine(roomFrom.Id);
+            RoomRecord roomTo = new RoomRecord();
+            roomTo.Id = (int)Int64.Parse(to);
+            //Debug.WriteLine(roomTo.Id);
+            //Debug.WriteLine(amount);
+            int h = selectedHour;
+            //Debug.WriteLine(h);
+            int m = selectedMinute;
+            //Debug.WriteLine(m);
+            Debug.WriteLine(abort);
+
+            while (true)
+            {
+                DateTime currentTime = DateTime.Now;
+                string[] temp = currentTime.ToString().Split(' ');
+                string[] time = temp[1].Split(':');
+                int hour = 0;
+
+                RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+                List<RoomRecord> rooms = roomStorage.loadFromFile("Sobe.json");
+
+                if (temp[2].Equals("PM"))
+                {
+                    hour = Convert.ToInt32(time[0]) + 12;
+                }
+                else
+                {
+                    hour = Convert.ToInt32(time[0]);
+                }
+
+                //Debug.WriteLine(temp[0]);
+                string[] date = selectedDate.Split(' ');
+                //Debug.WriteLine(date[0]);
+                //Debug.WriteLine(hour);
+                //Debug.WriteLine(selectedHour);
+                //Debug.WriteLine(time[1]);
+                //Debug.WriteLine(selectedMinute);
+                if (temp[0].Equals(date[0]) && hour == h && Convert.ToInt32(time[1]) == m)
+                {
+                    Debug.WriteLine("Stigao");
+                    foreach(RoomRecord room in rooms)
+                    {
+                        if(room.Id == roomFrom.Id)
+                        {
+                            foreach(Inventory i in room.inventory)
+                            {
+                                if(i.Id == selectedInventory.Id)
+                                {
+                                    i.CurrentAmount -= amount;
+                                }
+                            }
+                        }
+                        else if(room.Id == roomTo.Id)
+                        {
+                            foreach(Inventory i in room.inventory)
+                            {
+                                if(i.Id == selectedInventory.Id)
+                                {
+                                    i.CurrentAmount += amount;
+                                }
+                            }
+                        }
+                    }
+                    abort = 1;
+                    Debug.WriteLine(abort);
+                    makeThread();
+                    roomStorage.saveToFile(rooms, "Sobe.json");
+
+                }
+
+                Thread.Sleep(TimeSpan.FromSeconds(59));
+            } 
+        }
+
+        private void hourChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var combo = sender as ComboBox;
+            string hour = combo.SelectedItem.ToString();
+            
+            string[] temp = hour.Split(' ');
+            //Debug.WriteLine(temp[1]);
+            int.TryParse(temp[1], out selectedHour);
+            Debug.WriteLine(selectedHour);
+        }
+
+        private void minuteChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var combo = sender as ComboBox;
+            string minute = combo.SelectedItem.ToString();
+            //int.TryParse(minute, out selectedMinute);
+
+            string[] temp = minute.Split(' ');
+            //Debug.WriteLine(temp[1]);
+            int.TryParse(temp[1], out selectedMinute);
+            Debug.WriteLine(selectedMinute);
+        }
+
+        private void dateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var combo = sender as DatePicker;
+            selectedDate = dateofChange.SelectedDate.ToString();
+        }
     }
 }

@@ -3,30 +3,54 @@
     "title": "RENOVACIJE",
     "content": "...",
     "Sender": 2,
-    "notificationType": 2
+    "notificationType": 3
   },
   {
     "title": "HITNO",
     "content": "Pomeren termin",
     "Sender": 2,
-    "notificationType": 2
+    "notificationType": 3
   },
   {
     "title": "VAZNO",
     "content": "Obavestavamo Vas da promenite lozinku.",
     "Sender": 2,
+    "notificationType": 3
+  },
+  {
+    "title": "Potrebno pomeranje termina",
+    "content": "Prostorija  102 se renovira.\nPotrebno je pomeranje zakazanog termina",
+    "Sender": 3,
     "notificationType": 2
   },
   {
-    "title": "proba",
-    "content": "svasta",
-    "Sender": 2,
-    "notificationType": 0
+    "title": "Potrebno pomeranje termina",
+    "content": "Prostorija  102 se renovira.\nPotrebno je pomeranje zakazanog termina",
+    "Sender": 3,
+    "notificationType": 2
   },
   {
-    "title": "Dodavanje leka u bazu",
-    "content": "101\nnovi\nsvaki\nmi",
+    "title": "Potrebno pomeranje termina",
+    "content": "Prostorija  103 se renovira.\nPotrebno je pomeranje zakazanog termina",
     "Sender": 3,
-    "notificationType": 0
+    "notificationType": 2
+  },
+  {
+    "title": "Potrebno pomeranje termina",
+    "content": "Prostorija  103 se renovira.\nPotrebno je pomeranje zakazanog termina",
+    "Sender": 3,
+    "notificationType": 2
+  },
+  {
+    "title": "Potrebno pomeranje termina",
+    "content": "Prostorija  103 se renovira.\nPotrebno je pomeranje zakazanog termina",
+    "Sender": 3,
+    "notificationType": 2
+  },
+  {
+    "title": "Izmena zahteva za novi lek",
+    "content": "666\nnesto\nsvasta\nneko\nSREDI OVO",
+    "Sender": 1,
+    "notificationType": 3
   }
 ]

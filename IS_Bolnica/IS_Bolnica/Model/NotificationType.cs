@@ -11,6 +11,8 @@ namespace Model
     {
         doctor,
         patient,
+        secretory,
+        director,
         all
     }
 }

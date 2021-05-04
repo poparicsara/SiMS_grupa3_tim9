@@ -110,5 +110,12 @@ namespace IS_Bolnica
             DoctorNotificationWindow dnw = new DoctorNotificationWindow();
             dnw.Show();
         }
+
+        private void RequestButton(object sender, RoutedEventArgs e)
+        {
+            RequestWindow rw = new RequestWindow();
+            rw.Show();
+            this.Close();
+        }
     }
 }

@@ -1,6 +1,9 @@
 [
   {
     "Ordination": 102,
+    "Specialization": {
+      "Name":  "Ortopedija"
+    },
     "Username": "Marija",
     "Password": "ftn",
     "Name": "Marija",
@@ -9,6 +12,54 @@
     "Phone": "67894652",
     "Email": "maricm@hotmail.com",
     "Id": "457896",
+    "UserType": 1,
+    "Address": null
+  },
+  {
+    "Ordination": 707,
+    "Specialization": {
+      "Name": "Pedijatrija"
+    },
+    "Username": "Pera",
+    "Password": "ftn",
+    "Name": "Pera",
+    "Surname": "Periæ",
+    "DateOfBirth": "1979-11-01T00:00:00",
+    "Phone": "154189415",
+    "Email": "peraperic@gmail.com",
+    "Id": "848999",
+    "UserType": 1,
+    "Address": null
+  },
+  {
+    "Ordination": 202,
+    "Specialization": {
+      "Name": "Ortopedija"
+    },
+    "Username": "Mika",
+    "Password": "ftn",
+    "Name": "Mika",
+    "Surname": "Mikiæ",
+    "DateOfBirth": "1979-11-01T00:00:00",
+    "Phone": "154189415",
+    "Email": "mikamikic@gmail.com",
+    "Id": "777777",
+    "UserType": 1,
+    "Address": null
+  },
+  {
+    "Ordination": 303,
+    "Specialization": {
+      "Name": "Pedijatrija"
+    },
+    "Username": "Zika",
+    "Password": "ftn",
+    "Name": "Žika",
+    "Surname": "Žikiæ",
+    "DateOfBirth": "1979-11-01T00:00:00",
+    "Phone": "154189415",
+    "Email": "zikazikic@gmail.com",
+    "Id": "999999",
     "UserType": 1,
     "Address": null
   }

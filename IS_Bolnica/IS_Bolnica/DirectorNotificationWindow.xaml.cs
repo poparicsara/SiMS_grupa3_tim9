@@ -36,7 +36,7 @@ namespace IS_Bolnica
 
             foreach(Notification notification in temp)
             {
-                if(notification.notificationType == NotificationType.all)
+                if(notification.notificationType == NotificationType.all || notification.notificationType == NotificationType.director)
                 {
                     Notifications.Add(notification);
                 }

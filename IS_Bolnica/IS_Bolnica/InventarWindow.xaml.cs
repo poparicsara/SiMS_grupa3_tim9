@@ -232,6 +232,14 @@ namespace IS_Bolnica
             SelectedInventoryInRooms si = new SelectedInventoryInRooms(selectedInventory);
             si.Show();
         }
+        
+        private void RowStaticki_DoubleClik(object sender, MouseButtonEventArgs e)
+        {
+            Inventory selectedInventory = (Inventory)statickiData.SelectedItem;
+            DataGridRow row = sender as DataGridRow;
+            SelectedInventoryInRooms si = new SelectedInventoryInRooms(selectedInventory);
+            si.Show();
+        }
 
 
         private void ClosingWindow(object sender, System.ComponentModel.CancelEventArgs e)

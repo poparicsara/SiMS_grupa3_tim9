@@ -48,6 +48,13 @@
         "InventoryType": 0
       },
       {
+        "Name": "Krevet",
+        "CurrentAmount": 20,
+        "Minimum": 2,
+        "Id": 666,
+        "InventoryType": 1
+      },
+      {
         "Name": "Injekcija",
         "CurrentAmount": 20,
         "Minimum": 2,
@@ -109,7 +116,7 @@
       },
       {
         "Name": "Injekcija",
-        "CurrentAmount": 22,
+        "CurrentAmount": 21,
         "Minimum": 2,
         "Id": 202,
         "InventoryType": 0
@@ -169,7 +176,7 @@
       },
       {
         "Name": "Injekcija",
-        "CurrentAmount": 26,
+        "CurrentAmount": 27,
         "Minimum": 2,
         "Id": 202,
         "InventoryType": 0

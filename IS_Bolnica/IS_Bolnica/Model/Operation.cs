@@ -6,7 +6,7 @@ namespace Model
     public class Operation
     {
         //  private RoomRecord roomRecord;
-        private Patient patient;
+        //private Patient patient;
         public Doctor doctor { get; set; }
 
         public List<Doctor> Doctor

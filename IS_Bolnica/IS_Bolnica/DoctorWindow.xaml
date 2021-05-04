@@ -29,6 +29,7 @@
                     <Button Content="Edit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="118" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="587" Canvas.Top="10" FontSize="11" Click="updateExaminationButton"/>
                     <Button Content="start" HorizontalAlignment="Left" VerticalAlignment="Top" Width="118" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="587" Canvas.Top="-62" FontSize="11" Click="startExamination"/>
                     <Button Content="Notifications" HorizontalAlignment="Left" VerticalAlignment="Top" Width="118" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="587" Canvas.Top="-144" FontSize="11" Click="notificationButton"/>
+                    <Button Content="Requests" Width="118" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="587" Canvas.Top="-115" FontSize="11" Click="RequestButton"/>
                 </Canvas>
 
             </TabItem>
@@ -55,6 +56,7 @@
                 </Canvas>
 
             </TabItem>
+            
         </TabControl>
 
 
