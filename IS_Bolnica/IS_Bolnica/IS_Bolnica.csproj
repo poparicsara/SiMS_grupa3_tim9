@@ -108,6 +108,9 @@
     <Compile Include="Izmena pregleda.xaml.cs">
       <DependentUpon>Izmena pregleda.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ListOfMedications.xaml.cs">
+      <DependentUpon>ListOfMedications.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MedicamentWindow.xaml.cs">
       <DependentUpon>MedicamentWindow.xaml</DependentUpon>
     </Compile>
@@ -210,6 +213,9 @@
     <Compile Include="UpdateExaminationWindow.xaml.cs">
       <DependentUpon>UpdateExaminationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UpdateMedication.xaml.cs">
+      <DependentUpon>UpdateMedication.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UpdateOperationWindow.xaml.cs">
       <DependentUpon>UpdateOperationWindow.xaml</DependentUpon>
     </Compile>
@@ -285,6 +291,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Izmena pregleda.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListOfMedications.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -407,6 +417,10 @@
     <Page Include="UpdateExaminationWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UpdateMedication.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UpdateOperationWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
