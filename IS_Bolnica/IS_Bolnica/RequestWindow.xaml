@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Bolnica"
         mc:Ignorable="d"
-        Title="RequestWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="RequestWindow" Height="450" Width="800">
     <Grid>
         <DataGrid x:Name="requestData" ItemsSource="{Binding Path=Notifications}" AutoGenerateColumns="False" 
                   SelectionMode="Single" IsReadOnly="True" HorizontalAlignment="Stretch" Margin="10,65,9.6,10.4" 
