@@ -171,7 +171,7 @@ namespace IS_Bolnica
             examinationInfo.Show();
         }
 
-        private void notificationButton(object sender, RoutedEventArgs e)
+        private void notificationButtonClicked(object sender, RoutedEventArgs e)
         {
             DoctorNotificationWindow dnw = new DoctorNotificationWindow();
             dnw.Show();
@@ -196,11 +196,10 @@ namespace IS_Bolnica
             mainWindow.Show();
         }
 
-        private void RequestButton(object sender, RoutedEventArgs e)
+        private void requestButtonClicked(object sender, RoutedEventArgs e)
         {
             RequestWindow rw = new RequestWindow();
             rw.Show();
-            this.Close();
         }
 
         private void ClosingWindow(object sender, CancelEventArgs e)
@@ -216,9 +215,12 @@ namespace IS_Bolnica
                 }
             }
             storage.saveToFile(users, "loggedUsers.json");
+        }
 
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
+        private void medicationButtonClicked(object sender, RoutedEventArgs e)
+        {
+            ListOfMedications listOfMedications = new ListOfMedications();
+            listOfMedications.Show();
         }
     }
 }
