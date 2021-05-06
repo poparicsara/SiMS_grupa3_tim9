@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using IS_Bolnica.Model;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -30,6 +31,9 @@ namespace IS_Bolnica.Secretary
         private OperationsFileStorage operationStorage = new OperationsFileStorage();
         private List<Patient> Patients = new List<Patient>();
         private PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
+        private DoctorFileStorage doctorFileStorage = new DoctorFileStorage();
+        private List<Doctor> doctors = new List<Doctor>();
+        private List<string> DocNames = new List<string>();
 
 
         public AddOperationWindow()
@@ -44,6 +48,13 @@ namespace IS_Bolnica.Secretary
                 }
             }
             roomBox.ItemsSource = RoomNums;
+
+            doctors = doctorFileStorage.loadFromFile("Doctors.json");
+            for (int i = 0; i < doctors.Count; i++)
+            {
+                DocNames.Add(doctors[i].Name + " " + doctors[i].Surname);
+            }
+            doctorBox.ItemsSource = DocNames;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -77,20 +88,22 @@ namespace IS_Bolnica.Secretary
                 {
                     if (operation.Date <= dateAndTimeStart && dateAndTimeStart <= operation.endTime)
                     {
-                        if (operation.Date <= dateAndTimeEnd && dateAndTimeEnd <= operation.endTime)
-                        {
-                            if (operation.Date >= dateAndTimeStart && operation.endTime <= dateAndTimeEnd)
-                            {
-                                MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
-                                return false;
-                            }
-                            MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
-                            return false;
-                        }
                         MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
                         return false;
                     }
-                    
+
+                    if (operation.Date <= dateAndTimeEnd && dateAndTimeEnd <= operation.endTime)
+                    {
+                        MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
+                        return false;
+                    }
+
+                    if (operation.Date >= dateAndTimeStart && operation.endTime <= dateAndTimeEnd)
+                    {
+                        MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
+                        return false;
+                    }
+
                 }
 
             }
@@ -106,16 +119,18 @@ namespace IS_Bolnica.Secretary
                 {
                     if (operation.Date <= dateAndTimeStart && dateAndTimeStart <= operation.endTime)
                     {
-                        if (operation.Date <= dateAndTimeEnd && dateAndTimeEnd <= operation.endTime)
-                        {
-                            if(operation.Date >= dateAndTimeStart && operation.endTime <= dateAndTimeEnd)
-                            {
-                                MessageBox.Show("Soba " + room.Id + " je zauzeta u izabranom terminu");
-                                return false;
-                            }
-                            MessageBox.Show("Soba " + room.Id + " je zauzeta u izabranom terminu");
-                            return false;
-                        }
+                        MessageBox.Show("Soba " + room.Id + " je zauzeta u izabranom terminu");
+                        return false;
+                    }
+
+                    if (operation.Date >= dateAndTimeStart && operation.endTime <= dateAndTimeEnd)
+                    {
+                        MessageBox.Show("Soba " + room.Id + " je zauzeta u izabranom terminu");
+                        return false;
+                    }
+
+                    if (operation.Date <= dateAndTimeEnd && dateAndTimeEnd <= operation.endTime)
+                    {
                         MessageBox.Show("Soba " + room.Id + " je zauzeta u izabranom terminu");
                         return false;
                     }
@@ -129,20 +144,22 @@ namespace IS_Bolnica.Secretary
         {
             foreach (Operation operation in operations)
             {
-                if (operation.doctor.Name == doc.Name && operation.doctor.Surname == doc.Surname)
+                if (operation.doctor.Id == doc.Id)
                 {
                     if (operation.Date <= dateAndTimeStart && dateAndTimeStart <= operation.endTime)
                     {
-                        if (operation.Date <= dateAndTimeEnd && dateAndTimeEnd <= operation.endTime)
-                        {
-                            if (operation.Date >= dateAndTimeStart && operation.endTime <= dateAndTimeEnd)
-                            {
-                                MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
-                                return false;
-                            }
-                            MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
-                            return false;
-                        }
+                        MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
+                        return false;
+                    }
+
+                    if (operation.Date <= dateAndTimeEnd && dateAndTimeEnd <= operation.endTime)
+                    {
+                        MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
+                        return false;
+                    }
+
+                    if (operation.Date >= dateAndTimeStart && operation.endTime <= dateAndTimeEnd)
+                    {
                         MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
                         return false;
                     }
@@ -177,10 +194,16 @@ namespace IS_Bolnica.Secretary
             if (idExists(Patients, patientId.Text))
             {
                 string[] doctorNameAndSurname = doctorBox.Text.Split(' ');
-                Doctor doctor = new Doctor();
-                doctor.Name = doctorNameAndSurname[0];
-                doctor.Surname = doctorNameAndSurname[1];
-                operation.doctor = doctor;
+                string name = doctorNameAndSurname[0];
+                string surname = doctorNameAndSurname[1];
+
+                foreach (Doctor doc in doctors)
+                {
+                    if (doc.Name.Equals(name) && doc.Surname.Equals(surname))
+                    {
+                        operation.doctor = doc;
+                    }
+                }
 
                 for (int i = 0; i < Patients.Count; i++)
                 {

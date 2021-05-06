@@ -76,7 +76,7 @@ namespace IS_Bolnica.Secretary
                 eew.idPatientBox.Text = examination.Patient.Id;
                 eew.hourBox.Text = examination.Date.Hour.ToString();
                 eew.minutesBox.Text = examination.Date.Minute.ToString();
-                eew.doctor.Text = examination.Doctor.Name + " " + examination.Doctor.Surname;
+                eew.doctorBox.Text = examination.Doctor.Name + " " + examination.Doctor.Surname;
                 eew.dateBox.SelectedDate = new DateTime(examination.Date.Year, examination.Date.Month, examination.Date.Day);
                 eew.durationInMinutesBox.Text = "30";
                 eew.room.Text = examination.RoomRecord.Id.ToString();

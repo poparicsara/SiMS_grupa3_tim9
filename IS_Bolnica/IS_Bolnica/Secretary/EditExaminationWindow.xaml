@@ -24,10 +24,7 @@
         <Label Content="Izaberite datum: " HorizontalAlignment="Left" Margin="40,300,0,0" VerticalAlignment="Top"/>
         <Label Content="Izaberite vreme: " HorizontalAlignment="Left" Margin="40,350,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="idPatientBox" HorizontalAlignment="Left" Height="23" Margin="200,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" RenderTransformOrigin="0.067,-0.191"/>
-        <ComboBox x:Name="doctor" HorizontalAlignment="Left" Margin="200,250,0,0" VerticalAlignment="Top" Width="182">
-            <ComboBoxItem>Mika Mikić</ComboBoxItem>
-            <ComboBoxItem>Žika Žikić</ComboBoxItem>
-            <ComboBoxItem>Pera Perić</ComboBoxItem>
+        <ComboBox x:Name="doctorBox" HorizontalAlignment="Left" Margin="200,250,0,0" VerticalAlignment="Top" Width="182">
         </ComboBox>
         <ComboBox x:Name="hourBox" HorizontalAlignment="Left" Margin="200,350,0,0" VerticalAlignment="Top" Width="65" RenderTransformOrigin="0.34,0.098">
             <ComboBoxItem>7</ComboBoxItem>

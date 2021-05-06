@@ -70,6 +70,7 @@ namespace IS_Bolnica
                                 {
                                     PatientWindow pw = new PatientWindow(patient);
                                     pw.Show();
+                                    break;
                                 }
                             }
                             break;
@@ -84,6 +85,7 @@ namespace IS_Bolnica
                                 {
                                     DoctorWindow doctorWindow = new DoctorWindow(doctor);
                                     doctorWindow.Show();
+                                    break;
                                 }
                             }
                             break;

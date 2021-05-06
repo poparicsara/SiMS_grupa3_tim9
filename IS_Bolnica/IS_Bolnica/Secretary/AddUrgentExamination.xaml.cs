@@ -22,7 +22,6 @@ namespace IS_Bolnica.Secretary
     {
         private Specialization specialization = new Specialization();
         public List<String> Specializations { get; set; } = new List<String>();
-        private List<Specialization> specializations;
         private Examination examination;
         private PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
         private List<Patient> patients = new List<Patient>();
@@ -30,12 +29,13 @@ namespace IS_Bolnica.Secretary
         private GuestUsersFileStorage guestStorage = new GuestUsersFileStorage();
         private List<GuestUser> guestUsers = new List<GuestUser>();
         private GuestUser guestUser = new GuestUser();
+        private List<Specialization> specializations = new List<Specialization>();
 
         public AddUrgentExamination()
         {
             InitializeComponent();
-            List<Specialization> specializations = specialization.getSpecializations();
-            foreach(Specialization spec in specializations)
+            specializations = specialization.getSpecializations();
+            foreach (Specialization spec in specializations)
             {
                 Specializations.Add(spec.Name);
             }
@@ -60,7 +60,7 @@ namespace IS_Bolnica.Secretary
         private Patient findPatient(string id)
         {
             Patient patien = new Patient();
-            patients = patientStorage.loadFromFile("PatientRecordFileStorgae.json");
+            patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
 
             foreach (Patient pat in patients)
             {
@@ -124,6 +124,7 @@ namespace IS_Bolnica.Secretary
 
             examination = new Examination { GuestUser = guestUser, Patient = patient };
             findSpecialization(specializationBox.SelectedItem.ToString());
+            MessageBox.Show(specialization.Name);
 
             UrgentExaminationOptionsWindow uoow = new UrgentExaminationOptionsWindow(examination, specialization);
             uoow.Show();

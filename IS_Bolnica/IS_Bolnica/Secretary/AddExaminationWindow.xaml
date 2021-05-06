@@ -24,12 +24,16 @@
         <Label Content="Izaberite datum: " HorizontalAlignment="Left" Margin="40,300,0,0" VerticalAlignment="Top"/>
         <Label Content="Izaberite vreme: " HorizontalAlignment="Left" Margin="40,350,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="idPatientBox" HorizontalAlignment="Left" Height="23" Margin="200,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" RenderTransformOrigin="0.067,-0.191"/>
-        <ComboBox x:Name="doctor" HorizontalAlignment="Left" Margin="200,250,0,0" VerticalAlignment="Top" Width="182">
-            <ComboBoxItem>Mika Mikić</ComboBoxItem>
-            <ComboBoxItem>Žika Žikić</ComboBoxItem>
-            <ComboBoxItem>Pera Perić</ComboBoxItem>
+        <ComboBox x:Name="doctorBox" HorizontalAlignment="Left" Margin="200,250,0,0" VerticalAlignment="Top" Width="182">
         </ComboBox>
         <ComboBox x:Name="hourBox" HorizontalAlignment="Left" Margin="200,350,0,0" VerticalAlignment="Top" Width="65" RenderTransformOrigin="0.34,0.098">
+            <ComboBoxItem>00</ComboBoxItem>
+            <ComboBoxItem>1</ComboBoxItem>
+            <ComboBoxItem>2</ComboBoxItem>
+            <ComboBoxItem>3</ComboBoxItem>
+            <ComboBoxItem>4</ComboBoxItem>
+            <ComboBoxItem>5</ComboBoxItem>
+            <ComboBoxItem>6</ComboBoxItem>
             <ComboBoxItem>7</ComboBoxItem>
             <ComboBoxItem>8</ComboBoxItem>
             <ComboBoxItem>9</ComboBoxItem>
@@ -42,9 +46,15 @@
             <ComboBoxItem>16</ComboBoxItem>
             <ComboBoxItem>17</ComboBoxItem>
             <ComboBoxItem>18</ComboBoxItem>
+            <ComboBoxItem>19</ComboBoxItem>
+            <ComboBoxItem>20</ComboBoxItem>
+            <ComboBoxItem>21</ComboBoxItem>
+            <ComboBoxItem>22</ComboBoxItem>
+            <ComboBoxItem>23</ComboBoxItem>
         </ComboBox>
         <ComboBox x:Name="minutesBox" HorizontalAlignment="Left" Margin="317,350,0,0" VerticalAlignment="Top" Width="65">
             <ComboBoxItem>0</ComboBoxItem>
+            <ComboBoxItem>15</ComboBoxItem>
             <ComboBoxItem>30</ComboBoxItem>
         </ComboBox>
         <Button Content="Potvrdi" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="40,630,0,0" VerticalAlignment="Top" Width="342" Click="addExamination" Height="35" />
