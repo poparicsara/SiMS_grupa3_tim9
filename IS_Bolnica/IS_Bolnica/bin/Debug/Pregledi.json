@@ -79,5 +79,96 @@
         "Name": "Ordinacija"
       }
     }
+  },
+  {
+    "IsPayed": false,
+    "Evaluation": 0,
+    "DurationInMinutes": 0,
+    "Date": "2021-05-20T16:30:00",
+    "Patient": {
+      "Allergens": [
+        "polen"
+      ],
+      "Debit": 1500.0,
+      "examinations": null,
+      "HealthCardNumber": "6",
+      "Anamneses": null,
+      "Username": "nikola_nikolic",
+      "Password": "sasasa",
+      "Name": "Nikola",
+      "Surname": "Nikolic",
+      "DateOfBirth": "1984-12-01T00:00:00",
+      "Phone": "0647896587",
+      "Email": "nikolic@gmail.com",
+      "Id": "2222",
+      "UserType": 0,
+      "Address": {
+        "Street": "Masarikova ulica ",
+        "NumberOfBuilding": 12,
+        "Floor": 25,
+        "Apartment": 13,
+        "City": {
+          "name": "Sombor ",
+          "postalCode": "12564",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "Doctor": {
+      "Specialization": {
+        "Name": "Ortopedija"
+      },
+      "Ordination": 102,
+      "Username": "Marija",
+      "Password": "ftn",
+      "Name": "Marija",
+      "Surname": "Marić",
+      "DateOfBirth": "1979-11-01T00:00:00",
+      "Phone": "67894652",
+      "Email": "maricm@hotmail.com",
+      "Id": "457896",
+      "UserType": 1,
+      "Address": null
+    },
+    "Secretary": null,
+    "RoomRecord": {
+      "Id": 102,
+      "HospitalWard": "Ortopedija",
+      "inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Krevet",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 666,
+          "InventoryType": 1
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "roomPurpose": {
+        "Name": "Ordinacija"
+      }
+    }
   }
 ]

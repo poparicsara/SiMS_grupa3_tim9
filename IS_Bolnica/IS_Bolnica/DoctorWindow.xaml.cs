@@ -202,20 +202,20 @@ namespace IS_Bolnica
             rw.Show();
         }
 
-        private void ClosingWindow(object sender, CancelEventArgs e)
-        {
-            List<User> users = new List<User>();
-            users = storage.loadFromFile("loggedUsers.json");
+        //private void ClosingWindow(object sender, CancelEventArgs e)
+        //{
+        //    List<User> users = new List<User>();
+        //    users = storage.loadFromFile("loggedUsers.json");
 
-            for (int i = 0; i < users.Count; i++)
-            {
-                if (users[i].Username == loggedUser.Username)
-                {
-                    users.RemoveAt(i);
-                }
-            }
-            storage.saveToFile(users, "loggedUsers.json");
-        }
+        //    for (int i = 0; i < users.Count; i++)
+        //    {
+        //        if (users[i].Username == loggedUser.Username)
+        //        {
+        //            users.RemoveAt(i);
+        //        }
+        //    }
+        //    storage.saveToFile(users, "loggedUsers.json");
+        //}
 
         private void medicationButtonClicked(object sender, RoutedEventArgs e)
         {

@@ -53,26 +53,49 @@ namespace IS_Bolnica
             prescription.Patient = anamnesis.Patient;
             prescription.Doctor = anamnesis.Doctor;
 
+            if (isPatientAllergic(prescription.Patient, medTxt.Text)) 
+            {
+                MessageBox.Show("Pacijent je alergican na unesen lek/sastojak!");
+            }
+            else
+            {
+                createPrescription(prescription);
+                this.Close();
+            }
+
+            //this.Close();
+        }
+
+        //private void medTxt_TextChanged(object sender, TextChangedEventArgs e)
+        //{
+        //    if (anamnesis.Patient.Id.Equals(jmbgTxt.Text))
+        //    {
+        //        if (anamnesis.Patient.Allergens.Contains(medTxt.Text))
+        //        {
+        //            allergyWarning.Content = "Pacijent je alergican na unesen lek/sastojak!";
+        //            potvrdiBtn.IsEnabled = false;
+        //        }
+        //        else
+        //        {
+        //            allergyWarning.Content = ' ';
+        //            potvrdiBtn.IsEnabled = true;
+        //        }
+        //    }
+        //}
+
+        private bool isPatientAllergic(Patient patient, string allergen)
+        {
+            if (patient.Allergens.Contains(allergen))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private void createPrescription(Prescription prescription)
+        {
             Prescriptions.Add(prescription);
             prescriptionStorage.saveToFile(Prescriptions, "prescriptions.json");
-
-            this.Close();
-        }
-        private void medTxt_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (anamnesis.Patient.Id.Equals(jmbgTxt.Text))
-            {
-                if (anamnesis.Patient.Allergens.Contains(medTxt.Text))
-                {
-                    allergyWarning.Content = "Pacijent je alergican na unesen lek/ sastojak!";
-                    potvrdiBtn.IsEnabled = false;
-                }
-                else
-                {
-                    allergyWarning.Content = ' ';
-                    potvrdiBtn.IsEnabled = true;
-                }
-            }
         }
     }
 }

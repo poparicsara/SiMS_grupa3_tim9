@@ -13,7 +13,7 @@
         <TextBox x:Name="patientTxt" HorizontalAlignment="Left" Height="23" Margin="234,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="205" IsReadOnly="True"/>
         <TextBox x:Name="dateOfBirthTxt" HorizontalAlignment="Left" Height="24" Margin="234,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="205" IsReadOnly="True"/>
         <TextBox x:Name="jmbgTxt" HorizontalAlignment="Left" Height="22" Margin="234,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="205" IsReadOnly="True"/>
-        <Button Content="Izdaj recept" HorizontalAlignment="Left" Margin="772,540,0,0" VerticalAlignment="Top" Width="114" Height="34" Click="izdajRecept"/>
+        <Button Content="Izdaj recept" HorizontalAlignment="Left" Margin="772,540,0,0" VerticalAlignment="Top" Width="114" Height="43" Click="izdajRecept"/>
         <Label Content="ANAMNEZA" HorizontalAlignment="Left" Margin="59,41,0,0" VerticalAlignment="Top" Width="192" FontWeight="Bold" FontSize="16"/>
         <Label Content="Adresa:" HorizontalAlignment="Left" Margin="83,280,0,0" VerticalAlignment="Top" Width="91"/>
         <TextBox x:Name="addressTxt" HorizontalAlignment="Left" Height="24" Margin="234,282,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="205" IsReadOnly="True"/>

@@ -22,10 +22,10 @@
         <TextBox x:Name="hospitalTxt" HorizontalAlignment="Left" Height="23" Margin="314,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Text="&quot;Zdravo&quot; korporacija" IsReadOnly="True"/>
         <TextBox x:Name="patientTxt" HorizontalAlignment="Left" Height="24" Margin="310,158,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" IsReadOnly="True"/>
         <TextBox x:Name ="healthCardIdTxt"  HorizontalAlignment="Left" Height="23" Margin="710,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" IsReadOnly="True"/>
-        <TextBox x:Name="medTxt" HorizontalAlignment="Left" Height="22" Margin="312,442,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" TextChanged="medTxt_TextChanged" />
+        <TextBox x:Name="medTxt" HorizontalAlignment="Left" Height="22" Margin="312,442,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" />
         <TextBox x:Name="prescriptionDateTxt" HorizontalAlignment="Left" Height="23" Margin="710,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" IsReadOnly="True"/>
         <TextBox x:Name ="doctorTxt"  HorizontalAlignment="Left" Height="22" Margin="312,562,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" IsReadOnly="True" Grid.RowSpan="2"/>
-        <Button Name="potvrdiBtn" Content="potvrdi" HorizontalAlignment="Left" Margin="764,571,0,0" VerticalAlignment="Top" Width="103" Height="34" Click="potvrdiClicked" Grid.RowSpan="2"/>
+        <Button Name="potvrdiBtn" Content="potvrdi" HorizontalAlignment="Left" Margin="764,571,0,0" VerticalAlignment="Top" Width="103" Height="34" Grid.RowSpan="2" Click="potvrdiClicked"/>
         <Label Content="LEKARSKI RECEPT" HorizontalAlignment="Left" Margin="64,47,0,0" VerticalAlignment="Top" Width="192" FontWeight="Bold" FontSize="16"/>
         <Label Content="Datum rodjenja:" HorizontalAlignment="Left" Margin="116,208,0,0" VerticalAlignment="Top" Width="105"/>
         <Label Content="JMBG:" HorizontalAlignment="Left" Margin="116,248,0,0" VerticalAlignment="Top" Width="91"/>

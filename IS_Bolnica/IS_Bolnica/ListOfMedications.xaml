@@ -18,7 +18,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <DataGrid Name="medicationsDataGrid" HorizontalAlignment="Left" Height="339" Margin="61,129,0,0" VerticalAlignment="Top" Width="520"
+        <DataGrid Name="medicationsDataGrid" HorizontalAlignment="Left" Height="339" Margin="61,129,0,0" VerticalAlignment="Top" Width="683"
                   CanUserResizeRows="False" CanUserAddRows="False" AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="false"
                   SelectionMode="Single">
 
@@ -38,6 +38,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Width="170" Header="BROJ LEKA" Binding="{Binding Id}"/>
                 <DataGridTextColumn Width="170" Header="NAZIV" Binding="{Binding Name}"/>
+                <DataGridTextColumn Width="170" Header="ZAMENA" Binding="{Binding Replacement.Name}"/>
                 <DataGridTextColumn Width="170" Header="PROIZVODJAC" Binding="{Binding Producer}"/>
             </DataGrid.Columns>
             

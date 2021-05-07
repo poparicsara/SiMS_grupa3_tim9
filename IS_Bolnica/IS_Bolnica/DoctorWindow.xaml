@@ -6,14 +6,14 @@
         xmlns:local="clr-namespace:IS_Bolnica"
         mc:Ignorable="d"
         Title="Zdravo korporacija" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
-        Height="768" Width="1024" Closing="ClosingWindow">
+        Height="768" Width="1024">
     <Grid>
         <TabControl Name ="tabs" TabStripPlacement="Right" Background="#FFA0BC98" Margin="26,32,163,37" BorderBrush="#FFA0BC98" FontFamily="Global Sans Serif">
             <TabItem x:Name="examinationsTab" Header="EXAMINATIONS" FontWeight="Bold" FontFamily="Ebrima" BorderBrush="#FFA0BC98" Foreground="#FFA0BC98" Background="#FF15285D" IsSelected="True" Height="30" Width="116">
 
                 <Canvas Height="301" RenderTransformOrigin="0.069,0.186" Margin="0,22,0,22.6" >
                     <DataGrid x:Name="dataGridExaminations" Width="496" HorizontalAlignment="Left" Height="301" SelectionMode="Single" GridLinesVisibility="Vertical" 
-                              ColumnWidth="SizeToHeader" Foreground="#FF15285D" BorderBrush="#FF15285D" Canvas.Left="27" 
+                              ColumnWidth="SizeToHeader" Foreground="#FF15285D" BorderBrush="#FF15285D" Canvas.Left="10" 
                               CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True" AutoGenerateColumns="False" Background="White" 
                               HorizontalScrollBarVisibility="Disabled" CanUserResizeRows="False" Canvas.Top="-145">
                         <DataGrid.Columns>
@@ -24,10 +24,10 @@
                         </DataGrid.Columns>
                     </DataGrid>
 
-                    <Button Content="Schedule examination" HorizontalAlignment="Left" VerticalAlignment="Top" Width="118" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" Canvas.Left="549" Canvas.Top="116" Click="addExaminationButton" FontSize="11"/>
-                    <Button Content="Cancel examination" HorizontalAlignment="Left" VerticalAlignment="Top" Width="118" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="549" Canvas.Top="68" Click="cancelExaminationButton" FontSize="11"/>
-                    <Button Content="Edit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="118" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="549" Canvas.Top="10" FontSize="11" Click="updateExaminationButton"/>
-                    <Button Content="start" HorizontalAlignment="Left" VerticalAlignment="Top" Width="118" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="549" Canvas.Top="-60" FontSize="11" Click="startExamination"/>
+                    <Button Content="Schedule examination" HorizontalAlignment="Left" VerticalAlignment="Top" Width="119" Height="40" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" Canvas.Left="548" Canvas.Top="116" Click="addExaminationButton" FontSize="11"/>
+                    <Button Content="Cancel examination" HorizontalAlignment="Left" VerticalAlignment="Top" Width="119" Height="34" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="548" Canvas.Top="68" Click="cancelExaminationButton" FontSize="11"/>
+                    <Button Content="Edit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="119" Height="32" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="548" Canvas.Top="22" FontSize="11" Click="updateExaminationButton"/>
+                    <Button Content="start" HorizontalAlignment="Left" VerticalAlignment="Top" Width="119" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="548" Canvas.Top="-59" FontSize="11" Click="startExamination"/>
 
                 </Canvas>
 
@@ -36,28 +36,29 @@
             <TabItem x:Name="operationsTab" Header="OPERATIONS" FontWeight="Bold" FontFamily="Ebrima" BorderBrush="#FFA0BC98" Foreground="#FFA0BC98" Background="#FF15285D" IsSelected="True" Height="30" Width="120">
 
                 <Canvas Height="301" RenderTransformOrigin="0.069,0.186" Margin="0,22,0,22.6" >
-                    <DataGrid x:Name="dataGridOperations" Width="491" HorizontalAlignment="Left" Height="301" SelectionMode="Single" GridLinesVisibility="Vertical" 
-                              ColumnWidth="SizeToHeader" Foreground="#FF15285D" BorderBrush="#FF15285D" Canvas.Left="24" FontSize="12"
-                              IsReadOnly="True" AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserResizeColumns="False" Background="White" HorizontalScrollBarVisibility="Disabled" Canvas.Top="-144">
+                    <DataGrid x:Name="dataGridOperations" Width="537" HorizontalAlignment="Left" Height="301" SelectionMode="Single" GridLinesVisibility="Vertical" 
+                              ColumnWidth="SizeToHeader" Foreground="#FF15285D" BorderBrush="#FF15285D" Canvas.Left="10" FontSize="12"
+                              IsReadOnly="True" AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserResizeColumns="False" Background="White" HorizontalScrollBarVisibility="Disabled" Canvas.Top="-145">
                         <DataGrid.Columns>
-                            <DataGridTextColumn x:Name="dateColumn" Header="DATE AND TIME" Width="160" Binding="{Binding Date}"/>
-                            <DataGridTextColumn Header="ROOM" Width="110" Binding="{Binding RoomRecord.Id}"/>
+                            <DataGridTextColumn x:Name="dateColumn" Header="DATE AND TIME" Width="130" Binding="{Binding Date}"/>
+                            <DataGridTextColumn Header="ROOM" Width="90" Binding="{Binding RoomRecord.Id}"/>
                             <DataGridTextColumn Header="NAME" Width="110" Binding="{Binding Patient.Name}"/>
                             <DataGridTextColumn Header="SURNAME" Width="110" Binding="{Binding Patient.Surname}" />
+                            <DataGridTextColumn x:Name="urgentData" Header="URGENT" Width="100" Binding="{Binding IsUrgent}"/>
                         </DataGrid.Columns>
                     </DataGrid>
 
-                    <Button Content="Schedule operation" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" Canvas.Left="539" Canvas.Top="133" Click="addOperationButton" FontSize="11"/>
-                    <Button Content="Cancel operation" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="539" Canvas.Top="77" Click="cancelOperationButton" FontSize="11"/>
-                    <Button Content="Edit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="539" Canvas.Top="10" FontSize="11" Click="updateOperationButton"/>
-                    <Button Content="start" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="539" Canvas.Top="-65" FontSize="11" Click="updateOperationButton"/>
+                    <Button Content="Schedule operation" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Height="38" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" Canvas.Left="579" Canvas.Top="133" Click="addOperationButton" FontSize="11"/>
+                    <Button Content="Cancel operation" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Height="33" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="579" Canvas.Top="75" Click="cancelOperationButton" FontSize="11"/>
+                    <Button Content="Edit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Height="33" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="579" Canvas.Top="10" FontSize="11" Click="updateOperationButton" RenderTransformOrigin="0.76,0.542"/>
+                    <Button Content="start" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Height="24" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="579" Canvas.Top="-65" FontSize="11" Click="updateOperationButton"/>
                 </Canvas>
 
             </TabItem>
 
         </TabControl>
-        <Button Content="odjavi se" HorizontalAlignment="Left" Margin="903,633,0,0" VerticalAlignment="Top" Width="85" Height="30" Click="logOutButtonClicked"/>
-        <Button Content="Lekovi" HorizontalAlignment="Left" Margin="894,326,0,0" VerticalAlignment="Top" Width="94" Height="33" Click="medicationButtonClicked"/>
+        <Button Content="log out" HorizontalAlignment="Left" Margin="903,633,0,0" VerticalAlignment="Top" Width="85" Height="30" Click="logOutButtonClicked"/>
+        <Button Content="Medications" HorizontalAlignment="Left" Margin="894,326,0,0" VerticalAlignment="Top" Width="94" Height="33" Click="medicationButtonClicked"/>
         <Button Content="Requests" HorizontalAlignment="Left" Margin="894,261,0,0" VerticalAlignment="Top" Width="94" Height="35" Click="requestButtonClicked"/>
         <Button Content="Notifications" HorizontalAlignment="Left" Margin="894,203,0,0" VerticalAlignment="Top" Width="94" Height="35" Click="notificationButtonClicked"/>
 

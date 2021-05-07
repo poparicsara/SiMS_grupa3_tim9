@@ -36,8 +36,6 @@ namespace IS_Bolnica.DoctorsWindows
         public List<Doctor> Doctors { get; set; }
         private DoctorFileStorage doctorStorage = new DoctorFileStorage();
         private DateTime dateTime;
-
-        public List <Operation> NonUrgentOperations { get; set; }
         public AddOperationWindow()
         {
             InitializeComponent();
@@ -71,7 +69,7 @@ namespace IS_Bolnica.DoctorsWindows
 
             foreach (Doctor doctor in Doctors)
             {
-                if (doctor.Specialization != null)
+                if (doctor.Specialization.Name != " ")
                 {
                     dr = doctor.Name + ' ' + doctor.Surname;
                     doctorNameAndSurname.Add(dr);
@@ -104,8 +102,7 @@ namespace IS_Bolnica.DoctorsWindows
             Operations = operationStorage.loadFromFile("operations.json");
             Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
             Doctors = doctorStorage.loadFromFile("Doctors.json");
-            NonUrgentOperations = operationStorage.loadFromFile("operations.json");
-
+            
             string[] patientNameAndSurname = patientTxt.Text.Split(' ');
             int cnt = 0;
 
@@ -180,11 +177,8 @@ namespace IS_Bolnica.DoctorsWindows
                     operation.Date = dateTime;
                 }
 
-                //Operations.Add(operation); 
-                //operationStorage.saveToFile(Operations, "operations.json");
-
-                if (isRoomAvailable(Operations, operation.RoomRecord, operation.Date) && isDoctorAvailable(Operations, operation.doctor, operation.Date)
-                    && isPatientAvailable(Operations, operation.Patient, operation.Date))
+                if (isRoomAvailable(operation.RoomRecord, operation.Date) && isDoctorAvailable(operation.Date)
+                    && isPatientAvailable(operation.Patient, operation.Date))
                 {
                     Operations.Add(operation);
                     operationStorage.saveToFile(Operations, "operations.json");
@@ -204,9 +198,11 @@ namespace IS_Bolnica.DoctorsWindows
 
         }
 
-        private bool isRoomAvailable(List<Operation> operations, RoomRecord room, DateTime dateAndTime)
+        private bool isRoomAvailable(RoomRecord room, DateTime dateAndTime)
         {
-            foreach (Operation operation in operations)
+            Operations = operationStorage.loadFromFile("operations.json");
+
+            foreach (Operation operation in Operations)
             {
                 if (operation.RoomRecord.Id == room.Id && operation.Date == dateAndTime && operation.IsUrgent == false)
                 {
@@ -217,11 +213,13 @@ namespace IS_Bolnica.DoctorsWindows
             return true;
         }
 
-        private bool isDoctorAvailable(List<Operation> operations, Doctor doctor, DateTime dateAndTime)
+        private bool isDoctorAvailable(DateTime dateAndTime)
         {
-            foreach (Operation operation in operations)
+            Operations = operationStorage.loadFromFile("operations.json");
+
+            foreach (Operation operation in Operations)
             {
-                string drNameSurname = doctor.Name + ' ' + doctor.Surname;
+                string drNameSurname = operation.doctor.Name + ' ' + operation.doctor.Surname;
 
                 if (drNameSurname.Equals(doctorsComboBox.SelectedItem.ToString()) && operation.Date.Equals(dateAndTime) && operation.IsUrgent == false)
                 {
@@ -232,9 +230,11 @@ namespace IS_Bolnica.DoctorsWindows
             return true;
         }
 
-        private bool isPatientAvailable(List<Operation> operations, Patient patient, DateTime dateAndTime)
+        private bool isPatientAvailable(Patient patient, DateTime dateAndTime)
         {
-            foreach (Operation operation in operations)
+            Operations = operationStorage.loadFromFile("operations.json");
+
+            foreach (Operation operation in Operations)
             {
                 if (operation.Patient.Id == patient.Id && operation.Date == dateAndTime && operation.IsUrgent == false)
                 {

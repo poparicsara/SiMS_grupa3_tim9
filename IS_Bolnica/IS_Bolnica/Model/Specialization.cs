@@ -1,4 +1,4 @@
-using System;
+Ôªøusing System;
 using System.Collections.Generic;
 
 namespace Model
@@ -19,7 +19,7 @@ namespace Model
             specializations.Add(s3);
             Specialization s4 = new Specialization { Name = "Radiologija - dijagnostika" };
             specializations.Add(s4);
-            Specialization s5 = new Specialization { Name = "PorodiËna medicina" };
+            Specialization s5 = new Specialization { Name = "Porodiƒçna medicina" };
             specializations.Add(s5);
             Specialization s6 = new Specialization { Name = "Interna medicina" };
             specializations.Add(s6);
@@ -29,7 +29,7 @@ namespace Model
             specializations.Add(s8);
             Specialization s9 = new Specialization { Name = "Nuklearna medicina" };
             specializations.Add(s9);
-            Specialization s10 = new Specialization { Name = "Akuöerstvo i ginekologija" };
+            Specialization s10 = new Specialization { Name = "Aku≈°erstvo i ginekologija" };
             specializations.Add(s10);
             Specialization s11 = new Specialization { Name = "Oftalmologija" };
             specializations.Add(s11);
