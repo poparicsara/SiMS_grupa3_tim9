@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Bolnica"
         mc:Ignorable="d"
-        Title="ChangeInventoryPlace" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="ChangeInventoryPlace" Height="450" Width="800" WindowStartupLocation="CenterScreen" Closing="ClosingWindow">
     <Grid>
         <Label Content="Odeljenje IZ kog se preraspoređuje:" HorizontalAlignment="Left" Margin="163,70,0,0" VerticalAlignment="Top"/>
         <Label Content="Broj prostorije IZ koje se preraspoređuje:" HorizontalAlignment="Left" Margin="163,138,0,0" VerticalAlignment="Top"/>
@@ -29,17 +29,21 @@
         <ComboBox Name="hourofChange" HorizontalAlignment="Left" Margin="428,364,0,0" VerticalAlignment="Top" Width="50" SelectionChanged="hourChanged">
             <ComboBoxItem Content="18"/>
             <ComboBoxItem Content="19"/>
-            <ComboBoxItem Content="20"/>
+            <ComboBoxItem Content="16"/>
+            <ComboBoxItem Content="17"/>
         </ComboBox>
         <Label Content="Vreme premeštanja:" HorizontalAlignment="Left" Margin="163,364,0,0" VerticalAlignment="Top"/>
         <ComboBox Name="minuteOfChange" HorizontalAlignment="Left" Margin="497,364,0,0" VerticalAlignment="Top" Width="51" SelectionChanged="minuteChanged">
-            <ComboBoxItem Content="09"/>
+            <ComboBoxItem Content="06"/>
             <ComboBoxItem Content="10"/>
+            <ComboBoxItem Content="13"/>
             <ComboBoxItem Content="18"/>
             <ComboBoxItem Content="20"/>
+            <ComboBoxItem Content="23"/>
             <ComboBoxItem Content="25"/>
             <ComboBoxItem Content="38"/>
-            <ComboBoxItem Content="49"/>
+            <ComboBoxItem Content="55"/>
+            <ComboBoxItem Content="43"/>
         </ComboBox>
     </Grid>
 </Window>

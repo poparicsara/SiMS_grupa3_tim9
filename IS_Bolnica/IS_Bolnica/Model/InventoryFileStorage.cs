@@ -98,13 +98,8 @@ namespace Model
             RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
             List<RoomRecord> rooms = roomStorage.loadFromFile("Sobe.json");
 
-            foreach (RoomRecord r in rooms)
-            {
-                if (r.Id == room.Id)
-                {
-                    r.inventory.Add(newInventory);
-                }
-            }
+            newInventory.CurrentAmount = 0;
+            room.inventory.Add(newInventory);
 
             roomStorage.saveToFile(rooms, "Sobe.json");
         }
