@@ -127,6 +127,13 @@
         "Minimum": 2,
         "Id": 303,
         "InventoryType": 0
+      },
+      {
+        "Name": "nesto",
+        "CurrentAmount": 3,
+        "Minimum": 0,
+        "Id": 555,
+        "InventoryType": 0
       }
     ],
     "roomPurpose": {
@@ -223,6 +230,13 @@
         "CurrentAmount": 2,
         "Minimum": 0,
         "Id": 202,
+        "InventoryType": 0
+      },
+      {
+        "Name": "nesto",
+        "CurrentAmount": 1,
+        "Minimum": 0,
+        "Id": 555,
         "InventoryType": 0
       }
     ],

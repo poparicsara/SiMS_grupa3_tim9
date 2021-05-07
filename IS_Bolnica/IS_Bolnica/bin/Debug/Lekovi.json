@@ -1,56 +1,99 @@
 [
   {
     "Id": 101,
-    "Name": "Aspirin",
-    "Ingredients": null,
-    "Replacement": {
-      "Id": 102,
-      "Name": "AspirinPlusC",
-      "Ingredients": null,
-      "Replacement": null,
-      "Producer": "Bayer",
-      "Status": 0
-    },
+    "Name": "Alopurinol",
+    "Ingredients": [
+      {
+        "Name": "Alopurinol"
+      },
+      {
+        "Name": "Kukuruzni skrob"
+      },
+      {
+        "Name": "Celuloza"
+      },
+      {
+        "Name": "Natrijum-skrobglikolat"
+      },
+      {
+        "Name": "Talk"
+      },
+      {
+        "Name": "Magnezijum-stearat"
+      },
+      {
+        "Name": "Silicijum-dioksid"
+      }
+    ],
+    "Replacement": null,
     "Producer": "Bayer",
+    "Status": 0
+    },
+  {
+    "Id": 102,
+    "Name": "Altravesa",
+    "Ingredients": [
+      {
+        "Name": "Anastrozol"
+      },
+      {
+        "Name": "Laktoza"
+      },
+      {
+        "Name": "Natrijum-skrobglikolat"
+      },
+      {
+        "Name": "Povidon K25"
+      },
+      {
+        "Name": "Magnezijum-stearat"
+      }
+    ],
+    "Replacement": null,
+    "Producer": "Hemofarm",
     "Status": 0
   },
   {
-    "Id": 202,
-    "Name": "Brufen",
-    "Ingredients": null,
-    "Replacement": {
-      "Id": 102,
-      "Name": "AspirinPlusC",
-      "Ingredients": null,
-      "Replacement": null,
-      "Producer": "Bayer",
-      "Status": 0
-    },
-    "Producer": "Bayer",
+    "Id": 103,
+    "Name": "Aminosol",
+    "Ingredients": [
+      {
+        "Name": "Izoleucin"
+      },
+      {
+        "Name": "Leucin"
+      },
+      {
+        "Name": "Valin"
+      },
+      {
+        "Name": "Lizin"
+      },
+      {
+        "Name": "Metionin"
+      },
+      {
+        "Name": "Treonin"
+      }
+    ],
+    "Replacement": null,
+    "Producer": "Hemofarm",
     "Status": 0
   },
   {
-    "Id": 303,
-    "Name": "Persen",
-    "Ingredients": null,
+    "Id": 104,
+    "Name": "Bactim roche",
+    "Ingredients": [
+      {
+        "Name": "Sulfametoksazol"
+      },
+      {
+        "Name": "Trimetoprim"
+      }
+    ],
     "Replacement": {
       "Id": 102,
-      "Name": "AspirinPlusC",
-      "Ingredients": null,
-      "Replacement": null,
-      "Producer": "Bayer",
-      "Status": 0
-    },
-    "Producer": "Bayer",
-    "Status": 0
-  },
-  {
-    "Id": 404,
-    "Name": "Xanax",
-    "Ingredients": null,
-    "Replacement": {
-      "Id": 102,
-      "Name": "AspirinPlusC",
+      "Name": "ESBESUL",
       "Ingredients": null,
       "Replacement": null,
       "Producer": "Bayer",

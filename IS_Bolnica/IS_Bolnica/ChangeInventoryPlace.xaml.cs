@@ -24,20 +24,26 @@ namespace IS_Bolnica
         private string selectedWardTo;
         private string selectedPurposeFrom;
         private string selectedPurposeTo;
-        static int amount;
-        static Inventory selectedInventory;
-        static string from;
-        static string to;
+        private int amount;
+        private Inventory selectedInventory;
+        private string from;
+        private string to;
         private List<RoomRecord> rooms = new List<RoomRecord>();
-        static string selectedDate;
-        static int selectedHour;
-        static int selectedMinute;
-        static int abort;
-        static int beggining;
+        private string selectedDate;
+        private int selectedHour;
+        private int selectedMinute;
+        private RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+        private Inventory inventoryFrom = new Inventory();
+        private Inventory inventoryTo = new Inventory();
+        private Thread thread;
+        private RoomRecord roomFrom;
+        private RoomRecord roomTo;
 
         public ChangeInventoryPlace(Inventory selected)
         {
             InitializeComponent();
+
+            rooms = roomStorage.loadFromFile("Sobe.json");
 
             List<string> hospitalWardFrom = new List<string>();
             hospitalWardFrom.Add("Pedijatrija");
@@ -73,85 +79,78 @@ namespace IS_Bolnica
 
             if(selectedInventory.InventoryType == Model.InventoryType.dinamicki)
             {
-                dateofChange.IsEnabled = false;
-                hourofChange.IsEnabled = false;
-                minuteOfChange.IsEnabled = false;
+                DisableTime();
             }
+        }
 
-
+        private void DisableTime()
+        {
+            dateofChange.IsEnabled = false;
+            hourofChange.IsEnabled = false;
+            minuteOfChange.IsEnabled = false;
         }
 
         private void wardFromChanged(object sender, SelectionChangedEventArgs e)
         {
             var combo = sender as ComboBox;
             selectedWardFrom = (string)combo.SelectedItem;
+            IsMagacin();
+        }
 
+        private void IsMagacin()
+        {
             if (selectedWardFrom == "Magacin")
             {
-                purposeFromBox.IsEnabled = false;
-                numberFromBox.IsEnabled = false;
+                from = "1";
+                LockPurposeAndNumberBox();
             }
+        }
 
+        private void LockPurposeAndNumberBox()
+        {
+            purposeFromBox.IsEnabled = false;
+            numberFromBox.IsEnabled = false;
+        }
+
+        private void purposeFromChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var combo = sender as ComboBox;
+            selectedPurposeFrom = (string)combo.SelectedItem;
+
+            numberFromBox.ItemsSource = GetAppropriateRoomNumbers(selectedWardFrom, selectedPurposeFrom);
+        }
+
+        private List<int> GetAppropriateRoomNumbers(string hospitalWard, string roomPurpose)
+        {
+            List<int> roomNumbers = new List<int>();
+            foreach (RoomRecord room in rooms)
+            {
+                if (room.HospitalWard.Equals(hospitalWard) && room.roomPurpose.Name.Equals(roomPurpose))
+                {
+                    roomNumbers.Add(room.Id);
+                }
+            }
+            return roomNumbers;
+        }
+
+        private void numberFromChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var combo = sender as ComboBox;
+            from = combo.SelectedItem.ToString();
         }
 
         private void wardToChanged(object sender, SelectionChangedEventArgs e)
         {
             var combo = sender as ComboBox;
             selectedWardTo = (string)combo.SelectedItem;
-
         }
-        private void purposeFromChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var combo = sender as ComboBox;
-            selectedPurposeFrom = (string)combo.SelectedItem;
 
-            RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
-            List<RoomRecord> rooms = new List<RoomRecord>();
-            rooms = roomStorage.loadFromFile("Sobe.json");
-            List<int> numbers = new List<int>();
-
-
-            foreach (RoomRecord room in rooms)
-            {
-                if (room.HospitalWard.Equals(wardFromBox.SelectedItem) && room.roomPurpose.Name.Equals(purposeFromBox.SelectedItem))
-                {
-                    numbers.Add(room.Id);
-                }
-            }
-
-            numberFromBox.ItemsSource = numbers;
-        }
         private void purposeToChanged(object sender, SelectionChangedEventArgs e)
         {
             var combo = sender as ComboBox;
             selectedPurposeTo = (string)combo.SelectedItem;
 
-            RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
-            List<RoomRecord> rooms = new List<RoomRecord>();
-            rooms = roomStorage.loadFromFile("Sobe.json");
-            List<int> numbers = new List<int>();
-
-
-            foreach (RoomRecord room in rooms)
-            {
-                if (room.HospitalWard.Equals(wardToBox.SelectedItem) && room.roomPurpose.Name.Equals(purposeToBox.SelectedItem))
-                {
-                    numbers.Add(room.Id);
-                }
-            }
-
-            numberToBox.ItemsSource = numbers;
-        }
-
-        private void NumberValidation(object sender, TextCompositionEventArgs e)
-        {
-            Regex regex = new Regex("[^0-9]+");
-            e.Handled = regex.IsMatch(e.Text);
-        }
-        private void numberFromChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var combo = sender as ComboBox;
-            from = combo.SelectedItem.ToString();
+            numberToBox.ItemsSource = GetAppropriateRoomNumbers(selectedWardTo, selectedPurposeTo);
         }
 
         private void numberToChanged(object sender, SelectionChangedEventArgs e)
@@ -160,364 +159,240 @@ namespace IS_Bolnica
             to = combo.SelectedItem.ToString();
         }
 
+        private void NumberValidation(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void SetAmount()
+        {
+            amount = (int)Int64.Parse(amountBox.Text);
+        }
+
         private void DoneButton(object sender, RoutedEventArgs e)
         {
-            if(selectedWardFrom == "Magacin")
+            SetRooms();
+
+            SetAmount();
+
+            SetInventories();
+
+            HasEnoughAmount();
+        }
+
+        private void SetRooms()
+        {
+            roomFrom = GetRoomFrom();
+            roomTo = GetRoomTo();
+        }
+
+        private void SetInventories()
+        {
+            SetInventoryFrom(roomFrom);
+            SetInventoryTo(roomTo);
+        }
+
+        private void CheckInventoryType()
+        {
+            if(selectedInventory.InventoryType == Model.InventoryType.staticki)
             {
-                from = "1";
+                StartThread();
             }
             else
             {
-                from = numberFromBox.SelectedItem.ToString();
+                DoChange();
             }
-
-            to = numberToBox.SelectedItem.ToString();
-            
-
-            amount = (int)int.Parse(amountBox.Text);
-            RoomRecord roomFrom = new RoomRecord();
-            roomFrom.Id = (int)Int64.Parse(from);
-            RoomRecord roomTo = new RoomRecord();
-            roomTo.Id = (int)Int64.Parse(to);
-            RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
-            rooms = roomStorage.loadFromFile("Sobe.json");
-
-            if (selectedInventory.InventoryType == Model.InventoryType.staticki)
-            {
-                makeThread();
-            }
-            else
-            {
-                foreach (RoomRecord room in rooms)
-                {
-                    if (room.Id == roomFrom.Id)
-                    {
-                        foreach (Inventory i in room.inventory)
-                        {
-                            if (i.Id == selectedInventory.Id)
-                            {
-                                i.CurrentAmount -= amount;
-                            }
-                        }
-                    }
-                    else if (room.Id == roomTo.Id)
-                    {
-                        foreach (Inventory i in room.inventory)
-                        {
-                            if (i.Id == selectedInventory.Id)
-                            {
-                                i.CurrentAmount += amount;
-                            }
-                        }
-                    }
-                }
-                roomStorage.saveToFile(rooms, "Sobe.json");
-            }
-
-            
-
-            SelectedInventoryInRooms sw = new SelectedInventoryInRooms(selectedInventory);
-            sw.Show();
             this.Close();
+        }
 
-
-
-            /*if (selectedWardFrom == "Magacin")
+        private RoomRecord GetRoomFrom()
+        {
+            foreach(RoomRecord r in rooms)
             {
-                roomFrom.Id = 1;
+                if(r.Id == (int)Int64.Parse(from))
+                {
+                    return r;
+                }
+            }
+            return null;
+        }
+
+        private RoomRecord GetRoomTo()
+        {
+            foreach (RoomRecord r in rooms)
+            {
+                if (r.Id == (int)Int64.Parse(to))
+                {
+                    return r;
+                }
+            }
+            return null;
+        }
+
+        private void SetInventoryFrom(RoomRecord room)
+        {
+            if(FindInventory(room) != null)
+            {
+                inventoryFrom = FindInventory(room);
             }
             else
             {
-                roomFrom.Id = (int)Int64.Parse(from);
+                MessageBox.Show("Prostorija iz koje zelite da izvrsite preraspodelu ne sadrzi izabrani inventar!");
             }
+        }
 
-            roomTo.Id = (int)Int64.Parse(to);
-            amount = (int)Int64.Parse(amountBox.Text);
-
-            RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
-            rooms = roomStorage.loadFromFile("Sobe.json");
-
-            roomFrom = FindRoomFrom(roomFrom.Id);
-            roomTo = FindRoomTo(roomTo.Id);
-
-            bool containsFrom = DoesRoomFromContains(roomFrom, selectedInventory.Id);
-            bool enoughAmount = ContainsEnoughAmount(roomFrom, selectedInventory.Id, amount);
-            bool containsTo = DoesRoomToContains(roomTo, selectedInventory.Id);
-
-            if (containsFrom == true)
+        private void SetInventoryTo(RoomRecord room)
+        {
+            if (FindInventory(room) != null)
             {
-                if (enoughAmount == true)
-                {
-                    ReduceTheAmount(roomFrom, selectedInventory.Id, amount);
-
-                    if (containsTo == true)
-                    {
-                        IncreaseTheAmount(roomTo, selectedInventory.Id, amount);
-                    }
-                    else
-                    {
-                        InventoryFileStorage iStorage = new InventoryFileStorage();
-
-                        selectedInventory.CurrentAmount = 0;
-                        iStorage.AddInventoryInRoom(roomTo, selectedInventory);
-
-                        IncreaseTheAmount(roomTo, selectedInventory.Id, amount);
-
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Prostorija IZ koje želite da izvršite prebacivanje ne sadrži dovoljnu količinu ovog inventara");
-                }
+                inventoryTo = FindInventory(room);
             }
             else
             {
-                MessageBox.Show("Prostorija IZ koje želite da izvršite prebacivanje ne sadrži ovaj inventar");
+                AddInventory();
+                inventoryTo = FindInventory(room);
             }
-
-            roomStorage.saveToFile(rooms, "Sobe.json");
-
-            SelectedInventoryInRooms sw = new SelectedInventoryInRooms(selectedInventory);
-            sw.Show();
-            this.Close();*/
-
         }
 
-        private RoomRecord FindRoomFrom(int id)
+        private void AddInventory()
         {
-            RoomRecord roomFrom = new RoomRecord();
-
-            foreach (RoomRecord room in rooms)
-            {
-                if (room.Id == id)
-                {
-                    roomFrom = room; ;
-                }
-            }
-
-            return roomFrom;
+            InventoryFileStorage inventoryStorage = new InventoryFileStorage();
+            inventoryStorage.AddInventoryInRoom(roomTo, selectedInventory);
         }
 
-        private RoomRecord FindRoomTo(int id)
+        private Inventory FindInventory(RoomRecord room)
         {
-            RoomRecord roomTo = new RoomRecord();
-
-            foreach (RoomRecord room in rooms)
-            {
-                if (room.Id == id)
-                {
-                    roomTo = room; ;
-                }
-            }
-
-            return roomTo;
-        }
-
-        private bool DoesRoomFromContains(RoomRecord room, int inventoryId)
-        {
-            int exist = 0;
+            Inventory inventory = null;
             foreach (Inventory i in room.inventory)
             {
-                if (i.Id == inventoryId)
+                if (i.Id == selectedInventory.Id)
                 {
-                    exist = 1;
+                    inventory = i;
                 }
             }
+            return inventory;
+        }
 
-            if (exist == 0)
+        private void HasEnoughAmount()
+        {
+            if(inventoryFrom.CurrentAmount < amount)
             {
-                return false;
+                MessageBox.Show("Prostorija iz koje zelite da izvrsite preraspodelu ne sadrzi dovoljnu kolicinu izabranog inventara");
             }
             else
             {
-                return true;
+                CheckInventoryType();
             }
-
         }
 
-        private bool DoesRoomToContains(RoomRecord room, int inventoryId)
+        private void ReduceAmount()
         {
-            int exist = 0;
-            foreach (Inventory i in room.inventory)
-            {
-                if (i.Id == inventoryId)
-                {
-                    exist = 1;
-                }
-            }
-
-            if (exist == 0)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-
+            inventoryFrom.CurrentAmount -= amount;
+        }
+        private void IncreaseAmount()
+        {
+            inventoryTo.CurrentAmount += amount;
         }
 
-        private bool ContainsEnoughAmount(RoomRecord room, int inventoryId, int amount)
+        private void StartThread()
         {
-            foreach (Inventory i in room.inventory)
-            {
-                if (i.Id == inventoryId)
-                {
-                    if (i.CurrentAmount >= amount)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-            }
-
-            return false;
-        }
-
-        private void ReduceTheAmount(RoomRecord room, int inventoryId, int amount)
-        {
-            foreach (Inventory i in room.inventory)
-            {
-                if (i.Id == inventoryId)
-                {
-                    i.CurrentAmount -= amount;
-                }
-            }
-
-        }
-        private void IncreaseTheAmount(RoomRecord room, int inventoryId, int amount)
-        {
-            foreach (Inventory i in room.inventory)
-            {
-                if (i.Id == inventoryId)
-                {
-                    i.CurrentAmount += amount;
-                }
-            }
-
-        }
-
-        static void makeThread()
-        {
-            Thread thread = new Thread(new ThreadStart(changeAmount));
+            thread = new Thread(new ThreadStart(ChangePlace));
             thread.Start();
-
-            if(abort == 1)
-            {
-                Debug.WriteLine("Gasim");
-                thread.Abort();
-                thread.Join();
-            }
         }
 
-        static void changeAmount()
+        private void ChangePlace()
         {
-            RoomRecord roomFrom = new RoomRecord();
-            roomFrom.Id = (int)Int64.Parse(from);
-            //Debug.WriteLine(roomFrom.Id);
-            RoomRecord roomTo = new RoomRecord();
-            roomTo.Id = (int)Int64.Parse(to);
-            //Debug.WriteLine(roomTo.Id);
-            //Debug.WriteLine(amount);
-            int h = selectedHour;
-            //Debug.WriteLine(h);
-            int m = selectedMinute;
-            //Debug.WriteLine(m);
-            Debug.WriteLine(abort);
-
             while (true)
             {
-                DateTime currentTime = DateTime.Now;
-                string[] temp = currentTime.ToString().Split(' ');
-                string[] time = temp[1].Split(':');
-                int hour = 0;
-
-                RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
-                List<RoomRecord> rooms = roomStorage.loadFromFile("Sobe.json");
-
-                if (temp[2].Equals("PM"))
+                if (GetCurrentDate().Equals(selectedDate) && GetCurrentHour() == selectedHour && GetCurrentMinute() == selectedMinute)
                 {
-                    hour = Convert.ToInt32(time[0]) + 12;
+                    DoChange();
+                    thread.Abort();
                 }
-                else
-                {
-                    hour = Convert.ToInt32(time[0]);
-                }
-
-                //Debug.WriteLine(temp[0]);
-                string[] date = selectedDate.Split(' ');
-                //Debug.WriteLine(date[0]);
-                //Debug.WriteLine(hour);
-                //Debug.WriteLine(selectedHour);
-                //Debug.WriteLine(time[1]);
-                //Debug.WriteLine(selectedMinute);
-                if (temp[0].Equals(date[0]) && hour == h && Convert.ToInt32(time[1]) == m)
-                {
-                    Debug.WriteLine("Stigao");
-                    foreach(RoomRecord room in rooms)
-                    {
-                        if(room.Id == roomFrom.Id)
-                        {
-                            foreach(Inventory i in room.inventory)
-                            {
-                                if(i.Id == selectedInventory.Id)
-                                {
-                                    i.CurrentAmount -= amount;
-                                }
-                            }
-                        }
-                        else if(room.Id == roomTo.Id)
-                        {
-                            foreach(Inventory i in room.inventory)
-                            {
-                                if(i.Id == selectedInventory.Id)
-                                {
-                                    i.CurrentAmount += amount;
-                                }
-                            }
-                        }
-                    }
-                    abort = 1;
-                    Debug.WriteLine(abort);
-                    makeThread();
-                    roomStorage.saveToFile(rooms, "Sobe.json");
-
-                }
-
                 Thread.Sleep(TimeSpan.FromSeconds(59));
             } 
+        }
+
+        private void DoChange()
+        {
+            ReduceAmount();
+            IncreaseAmount();
+            roomStorage.saveToFile(rooms, "Sobe.json");
+        }
+
+        private string[] GetFullCurrentDate()
+        {
+            DateTime currentTime = DateTime.Now;
+            string[] time = currentTime.ToString().Split(' ');
+            return time;
+        }
+
+        private string GetCurrentDate()
+        {
+            string date = GetFullCurrentDate()[0];
+            return date;
+        }
+
+        private string[] GetCurrentTime()
+        {
+            string[] time = GetFullCurrentDate()[1].Split(':');
+            return time;
+        }
+
+        private int GetCurrentHour()
+        {
+            int hour = (int)Int64.Parse(GetCurrentTime()[0]);
+            if (!IsHourAM())
+            {
+                hour += 12;
+            }
+            return hour;
+        }
+
+        private int GetCurrentMinute()
+        {
+            int minute = (int)Int64.Parse(GetCurrentTime()[1]);
+            return minute;
+        }
+
+        private bool IsHourAM()
+        {
+            if (GetFullCurrentDate()[2].Equals("AM"))
+            {
+                return true;
+            }
+            return false;
         }
 
         private void hourChanged(object sender, SelectionChangedEventArgs e)
         {
             var combo = sender as ComboBox;
             string hour = combo.SelectedItem.ToString();
-            
             string[] temp = hour.Split(' ');
-            //Debug.WriteLine(temp[1]);
             int.TryParse(temp[1], out selectedHour);
-            Debug.WriteLine(selectedHour);
         }
 
         private void minuteChanged(object sender, SelectionChangedEventArgs e)
         {
             var combo = sender as ComboBox;
             string minute = combo.SelectedItem.ToString();
-            //int.TryParse(minute, out selectedMinute);
-
             string[] temp = minute.Split(' ');
-            //Debug.WriteLine(temp[1]);
             int.TryParse(temp[1], out selectedMinute);
-            Debug.WriteLine(selectedMinute);
         }
 
         private void dateChanged(object sender, SelectionChangedEventArgs e)
         {
             var combo = sender as DatePicker;
-            selectedDate = dateofChange.SelectedDate.ToString();
+            string fullDate = dateofChange.SelectedDate.ToString();
+            string[] dateParts = fullDate.Split(' ');
+            selectedDate = dateParts[0];
+        }
+
+        private void ClosingWindow(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            SelectedInventoryInRooms sw = new SelectedInventoryInRooms(selectedInventory);
+            sw.Show();
         }
     }
 }
