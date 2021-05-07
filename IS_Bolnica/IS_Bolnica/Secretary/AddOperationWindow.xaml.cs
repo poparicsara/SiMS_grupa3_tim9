@@ -80,25 +80,25 @@ namespace IS_Bolnica.Secretary
 
         }
 
-        private bool isPatientFree(List<Operation> operations, Patient patient, DateTime dateAndTimeStart, DateTime dateAndTimeEnd)
+        private bool isPatientFree(List<Operation> operations, Operation op)
         {
             foreach (Operation operation in operations)
             {
-                if (operation.Patient.Id == patient.Id)
+                if (operation.Patient.Id == op.Patient.Id)
                 {
-                    if (operation.Date <= dateAndTimeStart && dateAndTimeStart <= operation.endTime)
+                    if (operation.Date <= op.Date && op.Date <= operation.endTime)
                     {
                         MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
                         return false;
                     }
 
-                    if (operation.Date <= dateAndTimeEnd && dateAndTimeEnd <= operation.endTime)
+                    if (operation.Date <= op.endTime && op.endTime <= operation.endTime)
                     {
                         MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
                         return false;
                     }
 
-                    if (operation.Date >= dateAndTimeStart && operation.endTime <= dateAndTimeEnd)
+                    if (operation.Date >= op.Date && operation.endTime <= op.endTime)
                     {
                         MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
                         return false;
@@ -111,27 +111,27 @@ namespace IS_Bolnica.Secretary
             return true;
         }
 
-        private bool isRoomFree(List<Operation> operations, RoomRecord room, DateTime dateAndTimeStart, DateTime dateAndTimeEnd)
+        private bool isRoomFree(List<Operation> operations, Operation op)
         {
             foreach (Operation operation in operations)
             {
-                if (operation.RoomRecord.Id == room.Id)
+                if (operation.RoomRecord.Id == op.RoomRecord.Id)
                 {
-                    if (operation.Date <= dateAndTimeStart && dateAndTimeStart <= operation.endTime)
+                    if (operation.Date <= op.Date && op.Date <= operation.endTime)
                     {
-                        MessageBox.Show("Soba " + room.Id + " je zauzeta u izabranom terminu");
+                        MessageBox.Show("Soba " + op.RoomRecord.Id + " je zauzeta u izabranom terminu");
                         return false;
                     }
 
-                    if (operation.Date >= dateAndTimeStart && operation.endTime <= dateAndTimeEnd)
+                    if (operation.Date >= op.Date && operation.endTime <= op.endTime)
                     {
-                        MessageBox.Show("Soba " + room.Id + " je zauzeta u izabranom terminu");
+                        MessageBox.Show("Soba " + op.RoomRecord.Id + " je zauzeta u izabranom terminu");
                         return false;
                     }
 
-                    if (operation.Date <= dateAndTimeEnd && dateAndTimeEnd <= operation.endTime)
+                    if (operation.Date <= op.endTime && op.endTime <= operation.endTime)
                     {
-                        MessageBox.Show("Soba " + room.Id + " je zauzeta u izabranom terminu");
+                        MessageBox.Show("Soba " + op.RoomRecord.Id + " je zauzeta u izabranom terminu");
                         return false;
                     }
                 }
@@ -140,25 +140,25 @@ namespace IS_Bolnica.Secretary
             return true;
         }
 
-        private bool isDoctorFree(List<Operation> operations, Doctor doc, DateTime dateAndTimeStart, DateTime dateAndTimeEnd)
+        private bool isDoctorFree(List<Operation> operations, Operation op)
         {
             foreach (Operation operation in operations)
             {
-                if (operation.doctor.Id == doc.Id)
+                if (operation.doctor.Id == op.doctor.Id)
                 {
-                    if (operation.Date <= dateAndTimeStart && dateAndTimeStart <= operation.endTime)
+                    if (operation.Date <= op.Date && op.Date <= operation.endTime)
                     {
                         MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
                         return false;
                     }
 
-                    if (operation.Date <= dateAndTimeEnd && dateAndTimeEnd <= operation.endTime)
+                    if (operation.Date <= op.endTime && op.endTime <= operation.endTime)
                     {
                         MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
                         return false;
                     }
 
-                    if (operation.Date >= dateAndTimeStart && operation.endTime <= dateAndTimeEnd)
+                    if (operation.Date >= op.Date && operation.endTime <= op.endTime)
                     {
                         MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
                         return false;
@@ -169,11 +169,11 @@ namespace IS_Bolnica.Secretary
             return true;
         }
 
-        private bool isAvailable(List<Operation> operations, Patient patient, RoomRecord room, Doctor doctor, DateTime dateAndTimeStart, DateTime dateAndTimeEnd)
+        private bool isAvailable(List<Operation> operations, Operation op)
         {
-            if (isPatientFree(operations, patient, dateAndTimeStart, dateAndTimeEnd) 
-                && isRoomFree(operations, room, dateAndTimeStart, dateAndTimeEnd) 
-                && isDoctorFree(operations, doctor, dateAndTimeStart, dateAndTimeEnd))
+            if (isPatientFree(operations, op) 
+                && isRoomFree(operations, op) 
+                && isDoctorFree(operations, op))
             {
                 return true;
             }
@@ -244,7 +244,7 @@ namespace IS_Bolnica.Secretary
                     }
                 }
 
-                if (isAvailable(Operations, operation.Patient, operation.RoomRecord, operation.doctor, operation.Date, operation.endTime))
+                if (isAvailable(Operations, operation))
                 {
                     Operations.Add(operation);
                     operationStorage.saveToFile(Operations, "operations.json");

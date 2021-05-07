@@ -56,18 +56,18 @@ namespace IS_Bolnica.Secretary
 
         }
 
-        private bool isPatientFree(List<Examination> exams, Patient patient, DateTime dateAndTime)
+        private bool isPatientFree(List<Examination> exams, Examination ex)
         {
             DateTime endTimeNew = new DateTime();
-            endTimeNew = dateAndTime.AddMinutes(30);
+            endTimeNew = ex.Date.AddMinutes(30);
             foreach (Examination exam in exams)
             {
-                if (exam.Patient.Id == patient.Id)
+                if (exam.Patient.Id == ex.Patient.Id)
                 {
                     DateTime endTime = new DateTime();
                     endTime = exam.Date.AddMinutes(30);
 
-                    if (exam.Date <= dateAndTime && dateAndTime < endTime)
+                    if (exam.Date <= ex.Date && ex.Date < endTime)
                     {
                         return false;
                     }
@@ -77,7 +77,7 @@ namespace IS_Bolnica.Secretary
                         return false;
                     }
 
-                    if (exam.Date >= dateAndTime && endTime <= endTimeNew)
+                    if (exam.Date >= ex.Date && endTime <= endTimeNew)
                     {
                         return false;
                     }
@@ -87,17 +87,17 @@ namespace IS_Bolnica.Secretary
             return true;
         }
 
-        private bool isRoomFree(List<Examination> exams, RoomRecord room, DateTime dateAndTime)
+        private bool isRoomFree(List<Examination> exams, Examination ex)
         {
             DateTime endTimeNew = new DateTime();
-            endTimeNew = dateAndTime.AddMinutes(30);
+            endTimeNew = ex.Date.AddMinutes(30);
             foreach (Examination exam in exams)
             {
                 DateTime endTime = new DateTime();
                 endTime = exam.Date.AddMinutes(30);
-                if (exam.RoomRecord.Id == room.Id)
+                if (exam.RoomRecord.Id == ex.RoomRecord.Id)
                 {
-                    if (exam.Date <= dateAndTime && dateAndTime < endTime ) 
+                    if (exam.Date <= ex.Date && ex.Date < endTime ) 
                     {
                         return false;
                     }
@@ -107,7 +107,7 @@ namespace IS_Bolnica.Secretary
                         return false;
                     }
 
-                    if (exam.Date >= dateAndTime && endTime <= endTimeNew)
+                    if (exam.Date >= ex.Date && endTime <= endTimeNew)
                     {
                         return false;
                     }
@@ -116,17 +116,17 @@ namespace IS_Bolnica.Secretary
             return true;
         }
 
-        private bool isDoctorFree(List<Examination> exams, Doctor doc, DateTime dateTimeStart)
+        private bool isDoctorFree(List<Examination> exams, Examination ex)
         {
             DateTime dateTimeEnd = new DateTime();
-            dateTimeEnd = dateTimeStart.AddMinutes(30);
+            dateTimeEnd = ex.Date.AddMinutes(30);
             foreach (Examination exam in exams)
             {
                 DateTime endTime = new DateTime();
                 endTime = exam.Date.AddMinutes(30);
-                if (exam.Doctor.Id == doc.Id)
+                if (exam.Doctor.Id == ex.Doctor.Id)
                 {
-                    if (exam.Date <= dateTimeStart && dateTimeStart < endTime)
+                    if (exam.Date <= ex.Date && ex.Date < endTime)
                     {
                         return false;
                     }
@@ -136,7 +136,7 @@ namespace IS_Bolnica.Secretary
                         return false;
                     }
 
-                    if (exam.Date >= dateTimeStart && endTime <= dateTimeEnd)
+                    if (exam.Date >= ex.Date && endTime <= dateTimeEnd)
                     {
                         return false;
                     }
@@ -146,11 +146,11 @@ namespace IS_Bolnica.Secretary
             return true;
         }
 
-        private bool isAvailable(List<Examination> exams, Patient patient, RoomRecord room, Doctor doctor, DateTime dateAndTime)
+        private bool isAvailable(List<Examination> exams, Examination ex)
         {
-            if (patient != null)
+            if (ex.Patient != null)
             {
-                if (isPatientFree(exams, patient, dateAndTime) && isRoomFree(exams, room, dateAndTime) && isDoctorFree(exams, doctor, dateAndTime))
+                if (isPatientFree(exams, ex) && isRoomFree(exams, ex) && isDoctorFree(exams, ex))
                 {
                     return true;
                 }
@@ -160,7 +160,7 @@ namespace IS_Bolnica.Secretary
                 }
             } else
             {
-                if (isRoomFree(exams, room, dateAndTime) && isDoctorFree(exams, doctor, dateAndTime))
+                if (isRoomFree(exams, ex) && isDoctorFree(exams, ex))
                 {
                     return true;
                 }
@@ -200,35 +200,19 @@ namespace IS_Bolnica.Secretary
                         }
 
                     }
-
-                    if (currentDate.Minute <= 30)
+                    for (int i = 1; i <= 90; i++)
                     {
-                        for (int i = 1; i <= 90; i++)
+                        temp1 = currentDate.AddMinutes(i);
+                        examOption1.Date = new DateTime(temp1.Year, temp1.Month, temp1.Day, temp1.Hour, temp1.Minute, 0);
+                        if (isAvailable(scheduledExaminations, examOption1))
                         {
-                            temp1 = currentDate.AddMinutes(i);
-                            examOption1.Date = new DateTime(temp1.Year, temp1.Month, temp1.Day, temp1.Hour, temp1.Minute, 0);
-                            if (isAvailable(scheduledExaminations, examOption1.Patient, examOption1.RoomRecord, examOption1.Doctor, examOption1.Date))
-                            {
-                                MessageBox.Show("PROSLO " + i.ToString());
-                                options.Add(examOption1);
-                                break;
-                            }
+                            MessageBox.Show("PROSLO " + i.ToString());
+                            options.Add(examOption1);
+                            break;
                         }
                     }
-                    else
-                    {
-                        for (int i = 1; i <= 90; i++)
-                        {
-                            temp1 = currentDate.AddMinutes(i);
-                            examOption1.Date = new DateTime(temp1.Year, temp1.Month, temp1.Day, temp1.Hour, temp1.Minute, 0);
-                            if (isAvailable(scheduledExaminations, examOption1.Patient, examOption1.RoomRecord, examOption1.Doctor, examOption1.Date))
-                            {
-                                MessageBox.Show("PROSLO " + i.ToString());
-                                options.Add(examOption1);
-                                break;
-                            }
-                        }
-                    }
+                    
+             
                 }
 
             }
@@ -269,7 +253,7 @@ namespace IS_Bolnica.Secretary
                 MessageBox.Show("FOR " + i);
                 temp1 = dateNew.AddMinutes(i*10);
                 examination1.Date = new DateTime(temp1.Year, temp1.Month, temp1.Day, temp1.Hour, temp1.Minute, 0);
-                if (isAvailable(exams, examination1.Patient, examination1.RoomRecord, examination1.Doctor, examination1.Date))
+                if (isAvailable(exams, examination1))
                 {
                     MessageBox.Show("AVAILABLE");
                     exams.Add(examination1);

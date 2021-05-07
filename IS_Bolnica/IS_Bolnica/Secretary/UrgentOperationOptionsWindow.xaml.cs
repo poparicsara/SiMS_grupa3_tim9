@@ -72,7 +72,7 @@ namespace IS_Bolnica.Secretary
                         temp = currentDate.AddMinutes(i);
                         operOption.Date = new DateTime(temp.Year, temp.Month, temp.Day, temp.Hour, temp.Minute, 0);
                         operOption.endTime = operOption.Date.AddMinutes(operOption.DurationInMins);
-                        if(isAvailable(scheduledOperations, operOption.Patient, operOption.RoomRecord, operOption.doctor, operOption.Date, operOption.endTime))
+                        if(isAvailable(scheduledOperations, operOption))
                         {
                             MessageBox.Show("PROSLO " + i.ToString());
                             options.Add(operOption);
@@ -113,24 +113,24 @@ namespace IS_Bolnica.Secretary
 
         }
 
-        private bool isPatientFree(List<Operation> operations, Patient patient, DateTime dateAndTimeStart, DateTime dateAndTimeEnd)
+        private bool isPatientFree(List<Operation> operations, Operation op)
         {
             foreach (Operation operation in operations)
             {
-                if (operation.Patient.Id == patient.Id)
+                if (operation.Patient.Id == operation.Patient.Id)
                 {
-                    if (operation.Date <= dateAndTimeStart && dateAndTimeStart < operation.endTime)
+                    if (operation.Date <= op.Date && op.Date < operation.endTime)
                     {
                         return false;
                     }
 
-                    if (operation.Date < dateAndTimeEnd && dateAndTimeEnd <= operation.endTime)
+                    if (operation.Date < op.endTime && op.endTime <= operation.endTime)
                     {
                         return false;
                     }
 
-                    if (operation.Date >= dateAndTimeStart && operation.endTime <= dateAndTimeEnd)
-                    {
+                    if (operation.Date >= op.Date && operation.endTime <= op.endTime) 
+                    { 
                         return false;
                     }
 
@@ -141,23 +141,23 @@ namespace IS_Bolnica.Secretary
             return true;
         }
 
-        private bool isRoomFree(List<Operation> operations, RoomRecord room, DateTime dateAndTimeStart, DateTime dateAndTimeEnd)
+        private bool isRoomFree(List<Operation> operations, Operation op)
         {
             foreach (Operation operation in operations)
             {
-                if (operation.RoomRecord.Id == room.Id)
+                if (operation.RoomRecord.Id == op.RoomRecord.Id)
                 {
-                    if (operation.Date <= dateAndTimeStart && dateAndTimeStart < operation.endTime)
+                    if (operation.Date <= op.Date && op.Date < operation.endTime)
                     {
                         return false;
                     }
 
-                    if (operation.Date >= dateAndTimeStart && operation.endTime <= dateAndTimeEnd)
+                    if (operation.Date >= op.Date && operation.endTime <= op.endTime)
                     {
                         return false;
                     }
 
-                    if (operation.Date < dateAndTimeEnd && dateAndTimeEnd <= operation.endTime)
+                    if (operation.Date < op.Date && op.endTime <= operation.endTime)
                     {
                         return false;
                     }
@@ -167,23 +167,23 @@ namespace IS_Bolnica.Secretary
             return true;
         }
 
-        private bool isDoctorFree(List<Operation> operations, Doctor doc, DateTime dateAndTimeStart, DateTime dateAndTimeEnd)
+        private bool isDoctorFree(List<Operation> operations, Operation op)
         {
             foreach (Operation operation in operations)
             {
-                if (operation.doctor.Id == doc.Id)
+                if (operation.doctor.Id == op.doctor.Id)
                 {
-                    if (operation.Date <= dateAndTimeStart && dateAndTimeStart < operation.endTime)
+                    if (operation.Date <= op.Date && op.Date < operation.endTime)
                     {
                         return false;
                     }
 
-                    if (operation.Date < dateAndTimeEnd && dateAndTimeEnd <= operation.endTime)
+                    if (operation.Date < op.endTime && op.endTime <= operation.endTime)
                     {
                         return false;
                     }
 
-                    if (operation.Date >= dateAndTimeStart && operation.endTime <= dateAndTimeEnd)
+                    if (operation.Date >= op.Date && operation.endTime <= op.endTime)
                     {
                         return false;
                     }
@@ -193,12 +193,12 @@ namespace IS_Bolnica.Secretary
             return true;
         }
 
-        private bool isAvailable(List<Operation> operations, Patient patient, RoomRecord room, Doctor doctor, DateTime dateAndTimeStart, DateTime dateAndTimeEnd)
+        private bool isAvailable(List<Operation> operations, Operation operation)
         {
-            if (patient != null) {
-                if (isPatientFree(operations, patient, dateAndTimeStart, dateAndTimeEnd)
-                    && isRoomFree(operations, room, dateAndTimeStart, dateAndTimeEnd)
-                    && isDoctorFree(operations, doctor, dateAndTimeStart, dateAndTimeEnd))
+            if (operation.Patient != null) {
+                if (isPatientFree(operations, operation)
+                    && isRoomFree(operations, operation)
+                    && isDoctorFree(operations, operation))
                 {
                     return true;
                 }
@@ -209,8 +209,8 @@ namespace IS_Bolnica.Secretary
             } 
             else
             {
-                if (isRoomFree(operations, room, dateAndTimeStart, dateAndTimeEnd)
-                    && isDoctorFree(operations, doctor, dateAndTimeStart, dateAndTimeEnd))
+                if (isRoomFree(operations,operation)
+                    && isDoctorFree(operations, operation))
                 {
                     return true;
                 }
@@ -276,7 +276,7 @@ namespace IS_Bolnica.Secretary
                 temp = dateNew.AddMinutes(i*10);
                 operation1.Date = new DateTime( temp.Year, temp.Month, temp.Day, temp.Hour, temp.Minute, 0);
                 operation1.endTime = operation1.Date.AddMinutes(operation1.DurationInMins);
-                if(isAvailable(opers, operation1.Patient, operation1.RoomRecord, operation1.doctor, operation1.Date, operation1.endTime))
+                if(isAvailable(opers, operation1))
                 {
                     MessageBox.Show("AVAILABLE");
                     opers.Add(operation1);
