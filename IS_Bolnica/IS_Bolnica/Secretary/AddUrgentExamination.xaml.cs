@@ -124,7 +124,7 @@ namespace IS_Bolnica.Secretary
 
             examination = new Examination { GuestUser = guestUser, Patient = patient };
             findSpecialization(specializationBox.SelectedItem.ToString());
-            MessageBox.Show(specialization.Name);
+            //MessageBox.Show(specialization.Name);
 
             UrgentExaminationOptionsWindow uoow = new UrgentExaminationOptionsWindow(examination, specialization);
             uoow.Show();

@@ -77,7 +77,7 @@ namespace IS_Bolnica.Secretary
                         return false;
                     }
 
-                    if (exam.Date >= dateAndTime && endTime < endTimeNew)
+                    if (exam.Date >= dateAndTime && endTime <= endTimeNew)
                     {
                         return false;
                     }
@@ -228,9 +228,7 @@ namespace IS_Bolnica.Secretary
                                 break;
                             }
                         }
-
                     }
-
                 }
 
             }

@@ -40,7 +40,9 @@
         </ComboBox>
         <ComboBox x:Name="minuteBox" HorizontalAlignment="Left" Margin="317,340,0,0" VerticalAlignment="Top" Width="65">
             <ComboBoxItem Content="0"/>
+            <ComboBoxItem Content="15"/>
             <ComboBoxItem Content="30"/>
+            <ComboBoxItem Content="45"/>
         </ComboBox>
 
     </Grid>

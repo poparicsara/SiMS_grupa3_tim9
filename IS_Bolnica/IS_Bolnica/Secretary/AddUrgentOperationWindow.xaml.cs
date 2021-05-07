@@ -52,7 +52,7 @@ namespace IS_Bolnica.Secretary
         private Patient findPatient(string id)
         {
             Patient patien = new Patient();
-            patients = patientStorage.loadFromFile("PatientRecordFileStorgae.json");
+            patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
 
             foreach (Patient pat in patients)
             {
@@ -98,20 +98,26 @@ namespace IS_Bolnica.Secretary
             if(patientIdBox.Text != null)
             {
                 patient = findPatient(patientIdBox.Text);
-            } else if(patientIdBox.Text == null && patientIdBox.IsEnabled)
+            }
+            else if(patientIdBox.Text == null && patientIdBox.IsEnabled)
             {
                 MessageBox.Show("Niste uneli id pacijenta");
                 return;
-            } else if(systemNameBox.Text != null)
+            } 
+            else if(systemNameBox.Text != null)
             {
                 guestUser = findGuest(systemNameBox.Text);
-            } else if(systemNameBox.Text == null && systemNameBox.IsEnabled)
+            } 
+            else if(systemNameBox.Text == null && systemNameBox.IsEnabled)
             {
                 MessageBox.Show("Niste uneli sistemsko ime guest korisnika");
                 return;
             }
 
-            int duration = Convert.ToInt32(hourBox.Text) * 60 + Convert.ToInt32(minuteBox);
+            int satiMin = Convert.ToInt32(hourBox.Text);
+            int min = Convert.ToInt32(minuteBox.Text);
+
+            int duration = satiMin * 60 + min;
 
             operation = new Operation { DurationInMins = duration, GuestUser = guestUser, Patient = patient };
             findSpecialization(specializationBox.SelectedItem.ToString());
