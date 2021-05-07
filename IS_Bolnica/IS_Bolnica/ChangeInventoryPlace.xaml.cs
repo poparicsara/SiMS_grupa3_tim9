@@ -190,7 +190,7 @@ namespace IS_Bolnica
         private void SetInventories()
         {
             SetInventoryFrom(roomFrom);
-            SetOrAddInventoryTo(roomTo);
+            SetInventoryTo(roomTo);
         }
 
         private void CheckInventoryType()
@@ -242,7 +242,7 @@ namespace IS_Bolnica
             }
         }
 
-        private void SetOrAddInventoryTo(RoomRecord room)
+        private void SetInventoryTo(RoomRecord room)
         {
             if (FindInventory(room) != null)
             {
@@ -250,10 +250,15 @@ namespace IS_Bolnica
             }
             else
             {
-                InventoryFileStorage inventoryStorage = new InventoryFileStorage();
-                inventoryStorage.AddInventoryInRoom(roomTo, selectedInventory);
+                AddInventory();
                 inventoryTo = FindInventory(room);
             }
+        }
+
+        private void AddInventory()
+        {
+            InventoryFileStorage inventoryStorage = new InventoryFileStorage();
+            inventoryStorage.AddInventoryInRoom(roomTo, selectedInventory);
         }
 
         private Inventory FindInventory(RoomRecord room)
