@@ -33,6 +33,7 @@ namespace IS_Bolnica
         private Operation operation = new Operation();
         public List<Operation> Operations { get; set; }
         private OperationsFileStorage operationStorage = new OperationsFileStorage();
+
         public DoctorWindow()
         {
             InitializeComponent();
@@ -173,7 +174,7 @@ namespace IS_Bolnica
 
         private void notificationButton(object sender, RoutedEventArgs e)
         {
-            DoctorNotificationWindow dnw = new DoctorNotificationWindow();
+            DoctorNotificationWindow dnw = new DoctorNotificationWindow(this.loggedUser);
             dnw.Show();
         }
 

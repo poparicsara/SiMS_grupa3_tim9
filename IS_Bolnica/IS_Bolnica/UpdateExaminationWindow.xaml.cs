@@ -37,7 +37,6 @@ namespace IS_Bolnica.DoctorsWindows
 
         {
             InitializeComponent();
-            this.doctor = doctor;
 
             ExaminationsRecordFileStorage examinationsRecordFileStorage = new ExaminationsRecordFileStorage();
             List<Examination> examinations = loggedDoctorExaminations;

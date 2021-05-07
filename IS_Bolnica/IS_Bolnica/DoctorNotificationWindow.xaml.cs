@@ -23,10 +23,10 @@ namespace IS_Bolnica
     {
         public List<Notification> Notifications { get; set; }
         private Model.NotificationsFileStorage storage = new NotificationsFileStorage();
-        private Doctor doctor = new Doctor();
+        private User doctor = new User();
 
 
-        public DoctorNotificationWindow(Doctor doctor)
+        public DoctorNotificationWindow(User doctor)
         {
             InitializeComponent();
             this.DataContext = this;

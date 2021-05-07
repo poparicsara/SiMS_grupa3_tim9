@@ -55,7 +55,7 @@ namespace IS_Bolnica.Secretary
 
             foreach(Doctor doc in doctors)
             {
-                if(doc.specialization.Name.Equals(specialization1.Name))
+                if(doc.Specialization.Name.Equals(specialization1.Name))
                 {
                     operOption.doctor = doc;
                     
@@ -87,7 +87,7 @@ namespace IS_Bolnica.Secretary
                 MessageBox.Show("Lista je prazna");
                 foreach(Operation op in scheduledOperations)
                 {
-                    if(op.doctor.specialization.Name.Equals(specialization1.Name) && op.Date > currentDate)
+                    if(op.doctor.Specialization.Name.Equals(specialization1.Name) && op.Date > currentDate)
                     {
                         options.Add(op);
                     }

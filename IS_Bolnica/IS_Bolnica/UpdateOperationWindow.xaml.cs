@@ -36,7 +36,6 @@ namespace IS_Bolnica.DoctorsWindows
 
         {
             InitializeComponent();
-            this.doctor = doctor;
 
             OperationsFileStorage operationsFileStorage = new OperationsFileStorage();
             Rooms = roomStorage.loadFromFile("Sobe.json");

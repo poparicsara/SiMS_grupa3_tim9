@@ -1,7 +1,7 @@
 [
   {
     "doctor": {
-      "specialization": {
+      "Specialization": {
         "Name": "Alergologija i imunologija"
       },
       "Ordination": 102,
@@ -20,7 +20,6 @@
     "GuestUser": null,
     "Doctor": null,
     "Date": "2021-05-07T00:30:00",
-    "endTime": "2021-05-07T04:30:00",
     "Patient": {
       "Allergens": [
         "penicilin"
@@ -81,11 +80,13 @@
       "roomPurpose": {
         "Name": "Operaciona sala"
       }
-    }
+    },
+    "IsUrgent": false,
+    "endTime": "2021-05-07T04:30:00"
   },
   {
     "doctor": {
-      "specialization": {
+      "Specialization": {
         "Name": "Alergologija i imunologija"
       },
       "Ordination": 102,
@@ -107,7 +108,6 @@
     },
     "Doctor": null,
     "Date": "2021-05-07T09:00:00",
-    "endTime": "2021-05-07T10:15:00",
     "Patient": {
       "Allergens": [
         ""
@@ -168,11 +168,13 @@
       "roomPurpose": {
         "Name": "Operaciona sala"
       }
-    }
+    },
+    "IsUrgent": false,
+    "endTime": "2021-05-07T10:15:00"
   },
   {
     "doctor": {
-      "specialization": {
+      "Specialization": {
         "Name": "Alergologija i imunologija"
       },
       "Ordination": 102,
@@ -191,7 +193,6 @@
     "GuestUser": null,
     "Doctor": null,
     "Date": "2021-05-07T10:20:00",
-    "endTime": "2021-05-07T10:20:00",
     "Patient": {
       "Allergens": [
         "penicilin"
@@ -252,11 +253,13 @@
       "roomPurpose": {
         "Name": "Operaciona sala"
       }
-    }
+    },
+    "IsUrgent": false,
+    "endTime": "2021-05-07T10:20:00"
   },
   {
     "doctor": {
-      "specialization": {
+      "Specialization": {
         "Name": "Alergologija i imunologija"
       },
       "Ordination": 102,
@@ -278,7 +281,6 @@
     },
     "Doctor": null,
     "Date": "2021-05-07T17:00:00",
-    "endTime": "2021-05-07T21:00:00",
     "Patient": {
       "Allergens": [
         "polen"
@@ -339,11 +341,13 @@
       "roomPurpose": {
         "Name": "Operaciona sala"
       }
-    }
+    },
+    "IsUrgent": false,
+    "endTime": "2021-05-07T21:00:00"
   },
   {
     "doctor": {
-      "specialization": {
+      "Specialization": {
         "Name": "Alergologija i imunologija"
       },
       "Ordination": 102,
@@ -365,7 +369,6 @@
     },
     "Doctor": null,
     "Date": "2021-05-07T21:00:00",
-    "endTime": "2021-05-07T23:00:00",
     "Patient": {
       "Allergens": [
         "penicilin"
@@ -426,6 +429,103 @@
       "roomPurpose": {
         "Name": "Operaciona sala"
       }
-    }
+    },
+    "IsUrgent": false,
+    "endTime": "2021-05-07T23:00:00"
+  },
+  {
+    "doctor": {
+      "Specialization": {
+        "Name": "Alergologija i imunologija"
+      },
+      "Ordination": 102,
+      "Username": "Ognjen",
+      "Password": "ognjen",
+      "Name": "Ognjen",
+      "Surname": "Nestorović",
+      "DateOfBirth": "1979-11-01T00:00:00",
+      "Phone": "67894652",
+      "Email": "maricm@hotmail.com",
+      "Id": "1",
+      "UserType": 1,
+      "Address": null
+    },
+    "DurationInMins": 135,
+    "GuestUser": {
+      "SystemName": null,
+      "InjuryDescription": null
+    },
+    "Doctor": null,
+    "Date": "2021-05-07T23:08:00",
+    "Patient": {
+      "Allergens": [
+        "polen"
+      ],
+      "Debit": 1500.0,
+      "examinations": null,
+      "HealthCardNumber": "6",
+      "Anamneses": null,
+      "Username": "nikola_nikolic",
+      "Password": "sasasa",
+      "Name": "Nikola",
+      "Surname": "Nikolic",
+      "DateOfBirth": "1984-12-01T00:00:00",
+      "Phone": "0647896587",
+      "Email": "nikolic@gmail.com",
+      "Id": "2222",
+      "UserType": 0,
+      "Address": {
+        "Street": "Masarikova ulica ",
+        "NumberOfBuilding": 12,
+        "Floor": 25,
+        "Apartment": 13,
+        "City": {
+          "name": "Sombor ",
+          "postalCode": "12564",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "RoomRecord": {
+      "Id": 102,
+      "HospitalWard": "Ortopedija",
+      "inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Krevet",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 666,
+          "InventoryType": 1
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "roomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "IsUrgent": false,
+    "endTime": "2021-05-08T01:23:00"
   }
 ]
