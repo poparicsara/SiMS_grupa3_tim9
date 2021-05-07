@@ -13,6 +13,8 @@ namespace Model
         patient,
         secretory,
         director,
-        all
+        all,
+        specific
+
     }
 }

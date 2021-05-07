@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using IS_Bolnica.Model;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -32,6 +33,10 @@ namespace IS_Bolnica.Secretary
         private Patient patient = new Patient();
         private PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
         public List<Patient> Patients { get; set; } = new List<Patient>();
+        private DoctorFileStorage doctorFileStorage = new DoctorFileStorage();
+        private Doctor doctor = new Doctor();
+        private List<Doctor> doctors = new List<Doctor>();
+        public List<string> DocNames = new List<string>();
 
         public AddExaminationWindow()
         {
@@ -45,6 +50,13 @@ namespace IS_Bolnica.Secretary
                 }
             }
             room.ItemsSource = RoomNums;
+
+            doctors = doctorFileStorage.loadFromFile("Doctors.json");
+            for(int i = 0; i < doctors.Count; i++)
+            {
+                DocNames.Add(doctors[i].Name + " " + doctors[i].Surname);
+            }
+            doctorBox.ItemsSource = DocNames;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -75,42 +87,99 @@ namespace IS_Bolnica.Secretary
 
         }
 
-        private bool isPatientFree(List<Examination> exams ,Patient patient, DateTime dateAndTime)
+        private bool isPatientFree(List<Examination> exams, Patient patient, DateTime dateAndTime)
         {
-            foreach(Examination exam in exams)
+            DateTime endTimeNew = new DateTime();
+            endTimeNew = dateAndTime.AddMinutes(30);
+            foreach (Examination exam in exams)
             {
-                if(exam.Patient.Id == patient.Id && exam.Date==dateAndTime)
+                DateTime endTime = new DateTime();
+                endTime = exam.Date.AddMinutes(30);
+                if (exam.Patient.Id == patient.Id && exam.Date == dateAndTime)
                 {
-                    MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
-                    return false;
+                    if (exam.Date <= dateAndTime && dateAndTime < endTime)
+                    {
+                        MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
+                        return false;
+                    }
+
+                    if (exam.Date < endTimeNew && endTimeNew <= endTime)
+                    {
+                        MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
+                        return false;
+                    }
+
+                    if (exam.Date >= dateAndTime && endTime < endTimeNew)
+                    {
+                        MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
+                        return false;
+                    }
                 }
+
             }
 
             return true;
         }
 
-        private bool isRoomFree(List<Examination> exams , RoomRecord room, DateTime dateAndTime)
+        private bool isRoomFree(List<Examination> exams, RoomRecord room, DateTime dateAndTime)
         {
+            DateTime endTimeNew = new DateTime();
+            endTimeNew = dateAndTime.AddMinutes(30);
             foreach (Examination exam in exams)
             {
-                if (exam.RoomRecord.Id == room.Id && exam.Date==dateAndTime)
+                DateTime endTime = new DateTime();
+                endTime = exam.Date.AddMinutes(30);
+                if (exam.RoomRecord.Id == room.Id)
                 {
-                    MessageBox.Show("Soba " + room.Id + "je zauzeta u izabranom terminu");
-                    return false;
+                    if (exam.Date <= dateAndTime && dateAndTime < endTime)
+                    {
+                        MessageBox.Show("Soba " + room.Id + "je zauzeta u izabranom terminu");
+                        return false;
+                    }
+
+                    if (exam.Date < endTimeNew && endTimeNew <= endTime)
+                    {
+                        MessageBox.Show("Soba " + room.Id + "je zauzeta u izabranom terminu");
+                        return false;
+                    }
+
+                    if (exam.Date >= dateAndTime && endTime < endTimeNew)
+                    {
+                        MessageBox.Show("Soba " + room.Id + "je zauzeta u izabranom terminu");
+                        return false;
+                    }
                 }
             }
             return true;
         }
 
-        private bool isDoctorFree(List<Examination> exams , Doctor doc, DateTime dateAndTime)
+        private bool isDoctorFree(List<Examination> exams, Doctor doc, DateTime dateAndTime)
         {
+            DateTime endTimeNew = new DateTime();
+            endTimeNew = dateAndTime.AddMinutes(30);
             foreach (Examination exam in exams)
             {
-                MessageBox.Show(exam.RoomRecord.Id.ToString());
+                DateTime endTime = new DateTime();
+                endTime = exam.Date.AddMinutes(30);
                 if (exam.Doctor.Name == doc.Name && exam.Doctor.Surname == doc.Surname && exam.Date == dateAndTime)
                 {
-                    MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
-                    return false;
+                    if (exam.Date <= dateAndTime && dateAndTime < endTime)
+                    {
+                        MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
+                        return false;
+                    }
+
+                    if (exam.Date < endTimeNew && endTimeNew <= endTime)
+                    {
+                        MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
+                        return false;
+                    }
+
+                    if (exam.Date >= dateAndTime && endTime <= endTimeNew)
+                    {
+                        MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
+                        return false;
+                    }
                 }
             }
             return true;
@@ -147,10 +216,19 @@ namespace IS_Bolnica.Secretary
                     }
                 }
 
-                string[] doctorNameAndSurname = doctor.Text.Split(' ');
-                examination.Doctor = new Doctor();
-                examination.Doctor.Name = doctorNameAndSurname[0];
-                examination.Doctor.Surname = doctorNameAndSurname[1];
+                string[] doctorNameAndSurname = doctorBox.Text.Split(' ');
+                string name = doctorNameAndSurname[0];
+                string surname = doctorNameAndSurname[1];
+
+                foreach (Doctor doc in doctors)
+                {
+                    if(doc.Name.Equals(name) && doc.Surname.Equals(surname))
+                    {
+                        doctor = doc;
+                    }
+                }
+
+                examination.Doctor = doctor;
 
                 DateTime datum = new DateTime();
                 datum = (DateTime)dateBox.SelectedDate;

@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using IS_Bolnica.Model;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -34,6 +35,10 @@ namespace IS_Bolnica.Secretary
         List<Patient> Patients = new List<Patient>();
         PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
         private Examination oldExamination = new Examination();
+        private DoctorFileStorage doctorFileStorage = new DoctorFileStorage();
+        private Doctor doctor = new Doctor();
+        private List<Doctor> doctors = new List<Doctor>();
+        public List<string> DocNames = new List<string>();
 
         public EditExaminationWindow(Examination oldExamination)
         {
@@ -49,6 +54,13 @@ namespace IS_Bolnica.Secretary
                 }
             }
             room.ItemsSource = RoomNums;
+
+            doctors = doctorFileStorage.loadFromFile("Doctors.json");
+            for (int i = 0; i < doctors.Count; i++)
+            {
+                DocNames.Add(doctors[i].Name + " " + doctors[i].Surname);
+            }
+            doctorBox.ItemsSource = DocNames;
         }
 
         private bool idExists(List<Patient> patients, string id)
@@ -140,10 +152,19 @@ namespace IS_Bolnica.Secretary
 
                 }
 
-                string[] doctorNameAndSurname = doctor.Text.Split(' ');
-                examination.Doctor = new Doctor();
-                examination.Doctor.Name = doctorNameAndSurname[0];
-                examination.Doctor.Surname = doctorNameAndSurname[1];
+                string[] doctorNameAndSurname = doctorBox.Text.Split(' ');
+                string name = doctorNameAndSurname[0];
+                string surname = doctorNameAndSurname[1];
+
+                foreach (Doctor doc in doctors)
+                {
+                    if (doc.Name.Equals(name) && doc.Surname.Equals(surname))
+                    {
+                        doctor = doc;
+                    }
+                }
+
+                examination.Doctor = doctor;
 
                 DateTime datum = new DateTime();
                 datum = (DateTime)dateBox.SelectedDate;

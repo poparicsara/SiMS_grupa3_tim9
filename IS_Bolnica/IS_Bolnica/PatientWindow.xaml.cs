@@ -24,17 +24,20 @@ namespace IS_Bolnica
     public partial class PatientWindow : Window
     {
         public static String username_patient { get; set; }
-        public PatientWindow(String username)
+        private Patient patient = new Patient();
+
+        public PatientWindow(Patient patient)
         {
             InitializeComponent();
+
+            this.patient = patient;
             
             ExaminationsRecordFileStorage exStorage = new ExaminationsRecordFileStorage();
             List<Examination> pregledi = exStorage.loadFromFile("Pregledi.json");
             List<Examination> pacijentovi_pregledi = new List<Examination>();
-            username_patient = username;
 
             foreach (Examination ex in pregledi) {
-                if (ex.Patient.Username.Equals(username)) {
+                if (ex.Patient.Username.Equals(patient.Username)) {
                     pacijentovi_pregledi.Add(ex);
                 }
             }
@@ -91,7 +94,7 @@ namespace IS_Bolnica
 
         private void AddButtonClicked(object sender, RoutedEventArgs e)
         {
-            Zakazivanje_pregleda zp = new Zakazivanje_pregleda();
+            Zakazivanje_pregleda zp = new Zakazivanje_pregleda(patient);
             zp.Show();
             this.Close();
         }
@@ -177,7 +180,7 @@ namespace IS_Bolnica
                     }
                 }
 
-                Izmena_pregleda ip = new Izmena_pregleda(lvDataBinding.SelectedIndex);
+                Izmena_pregleda ip = new Izmena_pregleda(lvDataBinding.SelectedIndex, patient);
 
                 DateTime now = DateTime.Now;
                 string[] pom = now.ToString().Split(' ');
@@ -207,7 +210,7 @@ namespace IS_Bolnica
 
         private void ObavestenjaButtonClicked(object sender, RoutedEventArgs e)
         {
-            PatientNotificationWindow pnw = new PatientNotificationWindow();
+            PatientNotificationWindow pnw = new PatientNotificationWindow(patient);
             pnw.Show();
         }
 

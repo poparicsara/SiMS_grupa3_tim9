@@ -1,8 +1,7 @@
-
-[
+﻿[
   {
     "Specialization": {
-      "Name":  "Ortopedija"
+      "Name": "Ortopedija"
     },
     "Ordination": 102,
     "Username": "Marija",
@@ -33,7 +32,9 @@
     "Address": null
   },
   {
-    "Specialization": null,
+    "Specialization": {
+      "Name": "Anesteziologija"
+    },
     "Ordination": 202,
     "Username": "ana",
     "Password": "ana",
@@ -43,6 +44,262 @@
     "Phone": "67890834",
     "Email": "ana@gmail.com",
     "Id": "4321009",
+    "UserType": 1,
+    "Address": null
+  },
+  {
+    "Specialization": {
+      "Name": "Alergologija i imunologija"
+    },
+    "Ordination": 102,
+    "Username": "Ognjen",
+    "Password": "ognjen",
+    "Name": "Ognjen",
+    "Surname": "Nestorović",
+    "DateOfBirth": "1979-11-01T00:00:00",
+    "Phone": "67894652",
+    "Email": "maricm@hotmail.com",
+    "Id": "1",
+    "UserType": 1,
+    "Address": null
+  },
+  {
+    "Specialization": {
+      "Name": "Dermatologija"
+    },
+    "Ordination": 102,
+    "Username": "Vladan",
+    "Password": "vladan",
+    "Name": "Vladan",
+    "Surname": "Bogić",
+    "DateOfBirth": "1979-11-01T00:00:00",
+    "Phone": "67894652",
+    "Email": "maricm@hotmail.com",
+    "Id": "2",
+    "UserType": 1,
+    "Address": null
+  },
+  {
+    "Specialization": {
+      "Name": "Radiologija - dijagnostika"
+    },
+    "Ordination": 102,
+    "Username": "Vuk",
+    "Password": "ftn",
+    "Name": "Vuk",
+    "Surname": "Veljković",
+    "DateOfBirth": "1979-11-01T00:00:00",
+    "Phone": "67894652",
+    "Email": "maricm@hotmail.com",
+    "Id": "3",
+    "UserType": 1,
+    "Address": null
+  },
+  {
+    "Specialization": {
+      "Name": "Porodična medicina"
+    },
+    "Ordination": 102,
+    "Username": "Mateja",
+    "Password": "ftn",
+    "Name": "Mateja",
+    "Surname": "Protić",
+    "DateOfBirth": "1979-11-01T00:00:00",
+    "Phone": "67894652",
+    "Email": "maricm@hotmail.com",
+    "Id": "4",
+    "UserType": 1,
+    "Address": null
+  },
+  {
+    "Specialization": {
+      "Name": "Interna medicina"
+    },
+    "Ordination": 102,
+    "Username": "Brankica",
+    "Password": "ftn",
+    "Name": "Brankica",
+    "Surname": "Banić",
+    "DateOfBirth": "1979-11-01T00:00:00",
+    "Phone": "67894652",
+    "Email": "maricm@hotmail.com",
+    "Id": "5",
+    "UserType": 1,
+    "Address": null
+  },
+  {
+    "Specialization": {
+      "Name": "Medicinska genetika"
+    },
+    "Ordination": 102,
+    "Username": "Igor",
+    "Password": "ftn",
+    "Name": "Igor",
+    "Surname": "Katanić",
+    "DateOfBirth": "1979-11-01T00:00:00",
+    "Phone": "67894652",
+    "Email": "maricm@hotmail.com",
+    "Id": "6",
+    "UserType": 1,
+    "Address": null
+  },
+  {
+    "Specialization": {
+      "Name": "Neurologija"
+    },
+    "Ordination": 102,
+    "Username": "Milena",
+    "Password": "ftn",
+    "Name": "Milena",
+    "Surname": "Matić",
+    "DateOfBirth": "1979-11-01T00:00:00",
+    "Phone": "67894652",
+    "Email": "maricm@hotmail.com",
+    "Id": "7",
+    "UserType": 1,
+    "Address": null
+  },
+  {
+    "Specialization": {
+      "Name": "Neurologija"
+    },
+    "Ordination": 102,
+    "Username": "Maja",
+    "Password": "ftn",
+    "Name": "Maja",
+    "Surname": "Mitić",
+    "DateOfBirth": "1979-11-01T00:00:00",
+    "Phone": "67894652",
+    "Email": "maricm@hotmail.com",
+    "Id": "8",
+    "UserType": 1,
+    "Address": null
+  },
+  {
+    "Specialization": {
+      "Name": "Nuklearna medicina"
+    },
+    "Ordination": 102,
+    "Username": "Goran",
+    "Password": "ftn",
+    "Name": "Goran",
+    "Surname": "Goranović",
+    "DateOfBirth": "1979-11-01T00:00:00",
+    "Phone": "67894652",
+    "Email": "maricm@hotmail.com",
+    "Id": "9",
+    "UserType": 1,
+    "Address": null
+  },
+  {
+    "Specialization": {
+      "Name": "Akušerstvo i ginekologija"
+    },
+    "Ordination": 102,
+    "Username": "Aleksandar",
+    "Password": "ftn",
+    "Name": "Aleksandar",
+    "Surname": "Aleksić",
+    "DateOfBirth": "1979-11-01T00:00:00",
+    "Phone": "67894652",
+    "Email": "maricm@hotmail.com",
+    "Id": "10",
+    "UserType": 1,
+    "Address": null
+  },
+  {
+    "Specialization": {
+      "Name": "Oftalmologija"
+    },
+    "Ordination": 102,
+    "Username": "Dusan",
+    "Password": "ftn",
+    "Name": "Dušan",
+    "Surname": "Dušanić",
+    "DateOfBirth": "1979-11-01T00:00:00",
+    "Phone": "67894652",
+    "Email": "maricm@hotmail.com",
+    "Id": "11",
+    "UserType": 1,
+    "Address": null
+  },
+  {
+    "Specialization": {
+      "Name": "Patologija"
+    },
+    "Ordination": 102,
+    "Username": "Katarina",
+    "Password": "ftn",
+    "Name": "Katarina",
+    "Surname": "Katić",
+    "DateOfBirth": "1979-11-01T00:00:00",
+    "Phone": "67894652",
+    "Email": "maricm@hotmail.com",
+    "Id": "12",
+    "UserType": 1,
+    "Address": null
+  },
+  {
+    "Specialization": {
+      "Name": "Fizikalna medicina i rehabilitacija"
+    },
+    "Ordination": 102,
+    "Username": "Silvana",
+    "Password": "ftn",
+    "Name": "Silvana",
+    "Surname": "Silvanić",
+    "DateOfBirth": "1979-11-01T00:00:00",
+    "Phone": "67894652",
+    "Email": "maricm@hotmail.com",
+    "Id": "13",
+    "UserType": 1,
+    "Address": null
+  },
+  {
+    "Specialization": {
+      "Name": "Psihijatrija"
+    },
+    "Ordination": 102,
+    "Username": "Jelena",
+    "Password": "ftn",
+    "Name": "Jelena",
+    "Surname": "Jelić",
+    "DateOfBirth": "1979-11-01T00:00:00",
+    "Phone": "67894652",
+    "Email": "maricm@hotmail.com",
+    "Id": "14",
+    "UserType": 1,
+    "Address": null
+  },
+  {
+    "Specialization": {
+      "Name": "Hirurgija"
+    },
+    "Ordination": 102,
+    "Username": "Srdjan",
+    "Password": "ftn",
+    "Name": "Srđan",
+    "Surname": "Srdić",
+    "DateOfBirth": "1979-11-01T00:00:00",
+    "Phone": "67894652",
+    "Email": "maricm@hotmail.com",
+    "Id": "15",
+    "UserType": 1,
+    "Address": null
+  },
+  {
+    "Specialization": {
+      "Name": "Urologija"
+    },
+    "Ordination": 102,
+    "Username": "Marko",
+    "Password": "ftn",
+    "Name": "Marko",
+    "Surname": "Marković",
+    "DateOfBirth": "1979-11-01T00:00:00",
+    "Phone": "67894652",
+    "Email": "maricm@hotmail.com",
+    "Id": "16",
     "UserType": 1,
     "Address": null
   }

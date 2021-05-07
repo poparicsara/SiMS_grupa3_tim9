@@ -73,6 +73,7 @@ namespace IS_Bolnica.DoctorsWindows
             switch(messageBox)
             {
                 case MessageBoxResult.Yes:
+
                     DoctorWindow doctorWindow = new DoctorWindow();
                     doctorWindow.Show();
                     this.Close();
@@ -171,6 +172,7 @@ namespace IS_Bolnica.DoctorsWindows
         // da li je nesto vec zakazano u toj sobi u tom terminu
         private bool isRoomAvailable(List<Examination> examinations, RoomRecord room, DateTime dateAndTime)   
         {
+
             foreach (Examination examination in examinations)
             {
                 if (examination.RoomRecord.Id == room.Id && examination.Date == dateAndTime)
@@ -291,6 +293,7 @@ namespace IS_Bolnica.DoctorsWindows
                     healthCardNumberTxt.Text = patient.HealthCardNumber;
                 }
             }
+
         }
     }
 }

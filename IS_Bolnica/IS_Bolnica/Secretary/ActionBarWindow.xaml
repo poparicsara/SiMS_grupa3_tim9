@@ -99,6 +99,20 @@
                     </TextBlock>
                 </StackPanel>
             </ListBoxItem>
+            <ListBoxItem FontSize="20" FontWeight="Bold" Foreground="#FF15285D" Selected="ZakaziHitanPregled_Selected">
+                <StackPanel>
+                    <TextBlock>
+                        Zakaži hitan pregled
+                    </TextBlock>
+                </StackPanel>
+            </ListBoxItem>
+            <ListBoxItem FontSize="20" FontWeight="Bold" Foreground="#FF15285D" Selected="ZakaziHitnuOperaciju_Selected">
+                <StackPanel>
+                    <TextBlock>
+                        Zakaži hitnu operaciju
+                    </TextBlock>
+                </StackPanel>
+            </ListBoxItem>
         </ListBox>
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using IS_Bolnica.Model;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -34,6 +35,9 @@ namespace IS_Bolnica.Secretary
         private OperationsFileStorage operationStorage = new OperationsFileStorage();
         private List<Patient> Patients = new List<Patient>();
         private PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
+        private List<Doctor> doctors = new List<Doctor>();
+        private DoctorFileStorage doctorFileStorage = new DoctorFileStorage();
+        private List<string> DocNames = new List<string>();
 
         public EditOperationWindow(Operation oldOperation)
         {
@@ -50,6 +54,13 @@ namespace IS_Bolnica.Secretary
                 }
             }
             room.ItemsSource = RoomNums;
+
+            doctors = doctorFileStorage.loadFromFile("Doctors.json");
+            for (int i = 0; i < doctors.Count; i++)
+            {
+                DocNames.Add(doctors[i].Name + " " + doctors[i].Surname);
+            }
+            doctorBox.ItemsSource = DocNames;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

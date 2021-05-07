@@ -33,8 +33,10 @@ namespace IS_Bolnica.DoctorsWindows
         private DoctorFileStorage doctorStorage = new DoctorFileStorage();
         private List<string> doctorNameAndSurname = new List<string>();
         public UpdateOperationWindow(int selectedIndex, List<Operation> loggedDoctorOperations)
+
         {
             InitializeComponent();
+            this.doctor = doctor;
 
             OperationsFileStorage operationsFileStorage = new OperationsFileStorage();
             Rooms = roomStorage.loadFromFile("Sobe.json");
@@ -214,6 +216,7 @@ namespace IS_Bolnica.DoctorsWindows
             }
 
             return true;
+
         }
 
         private void cancelButtonClicked(object sender, RoutedEventArgs e)
@@ -224,7 +227,9 @@ namespace IS_Bolnica.DoctorsWindows
             switch (messageBox)
             {
                 case MessageBoxResult.Yes:
+
                     DoctorWindow doctorWindow = new DoctorWindow();
+
                     doctorWindow.Show();
                     this.Close();
                     break;

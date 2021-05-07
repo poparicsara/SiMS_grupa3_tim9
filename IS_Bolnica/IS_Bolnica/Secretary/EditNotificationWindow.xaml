@@ -22,7 +22,7 @@
         <Button Content="Odustani" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="17,580,0,0" VerticalAlignment="Top" Width="379" Click="cancelEditing" Height="35"/>
         <Button Content="Potvrdi" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="17,630,0,0" VerticalAlignment="Top" Width="379" RenderTransformOrigin="0.393,0.417" Click="editNotification" Height="35" />
         <Label Content="Tip korisnika:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,323,0,0" Width="131" Height="26"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="165,327,0,0" VerticalAlignment="Top" Width="231">
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="165,327,0,0" VerticalAlignment="Top" Width="231" SelectionChanged="comboBox_SelectionChanged">
             <ComboBoxItem>
                 DOKTOR
             </ComboBoxItem>
@@ -33,5 +33,7 @@
                 SVI
             </ComboBoxItem>
         </ComboBox>
+        <Label Content="Korisnik:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,383,0,0" Width="131" Height="26"/>
+        <TextBox x:Name="idBox" HorizontalAlignment="Left" Height="23" Margin="165,383,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="231"/>
     </Grid>
 </Window>

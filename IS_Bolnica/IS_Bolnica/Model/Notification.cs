@@ -13,6 +13,7 @@ namespace Model
         public string content { get; set; }
         public UserType Sender { get; set; }
         public NotificationType notificationType { get; set; }
+        public string PersonId { get; set; }
 
     }
 }

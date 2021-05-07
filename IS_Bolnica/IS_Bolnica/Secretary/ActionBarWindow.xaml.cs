@@ -47,7 +47,7 @@ namespace IS_Bolnica.Secretary
 
         private void DodajGuestNalog_Selected(object sender, RoutedEventArgs e)
         {
-            Secretary.GuestUserAccount gua = new Secretary.GuestUserAccount();
+            Secretary.GuestUserAccount gua = new Secretary.GuestUserAccount(sender);
             this.Close();
             gua.Show();
         }
@@ -98,6 +98,20 @@ namespace IS_Bolnica.Secretary
         {
             Secretary.AddOperationWindow aow = new Secretary.AddOperationWindow();
             aow.Show();
+            this.Close();
+        }
+
+        private void ZakaziHitanPregled_Selected(object sender, RoutedEventArgs e)
+        {
+            Secretary.AddUrgentExamination aue = new Secretary.AddUrgentExamination();
+            aue.Show();
+            this.Close();
+        }
+
+        private void ZakaziHitnuOperaciju_Selected(object sender, RoutedEventArgs e)
+        {
+            AddUrgentOperationWindow auow = new AddUrgentOperationWindow();
+            auow.Show();
             this.Close();
         }
     }

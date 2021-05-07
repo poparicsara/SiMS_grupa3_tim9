@@ -9,9 +9,12 @@ namespace IS_Bolnica
     public partial class MainWindow : Window
     {
         private UsersFileStorage storage = new UsersFileStorage();
+        private PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
         private List<User> users = new List<User>();
+        private List<Patient> patients = new List<Patient>();
         private User user = new User();
         private List<User> loggedUsers = new List<User>();
+
 
         public MainWindow()
         {
@@ -49,6 +52,8 @@ namespace IS_Bolnica
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             users = storage.loadFromFile("UsersFileStorage.json");
+            patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
+            
             string username = usernameBox.Text;
             string password = passwordBox.Password.ToString();
 
@@ -59,15 +64,24 @@ namespace IS_Bolnica
                     switch (user.UserType)
                     {
                         case UserType.patient:
-                            PatientWindow pw = new PatientWindow(username);
-                            pw.Show();
+                            foreach(Patient patient in patients)
+                            {
+                                if(patient.Username.Equals(user.Username) && patient.Password.Equals(user.Password))
+                                {
+                                    PatientWindow pw = new PatientWindow(patient);
+                                    pw.Show();
+                                    break;
+                                }
+                            }
                             break;
                         case UserType.doctor:
+
                             loggedUsers.Add(user);
                             storage.saveToFile(loggedUsers, "loggedUsers.json");
                             DoctorWindow doctorWindow = new DoctorWindow();
                             doctorWindow.Show();
                             this.Close();
+
                             break;
                         case UserType.director:
                             Director director = new Director();

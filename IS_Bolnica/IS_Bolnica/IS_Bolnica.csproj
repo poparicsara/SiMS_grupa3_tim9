@@ -168,6 +168,12 @@
     <Compile Include="Secretary\AddPatient.xaml.cs">
       <DependentUpon>AddPatient.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Secretary\AddUrgentExamination.xaml.cs">
+      <DependentUpon>AddUrgentExamination.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\AddUrgentOperationWindow.xaml.cs">
+      <DependentUpon>AddUrgentOperationWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Secretary\EditExaminationWindow.xaml.cs">
       <DependentUpon>EditExaminationWindow.xaml</DependentUpon>
     </Compile>
@@ -197,6 +203,12 @@
     </Compile>
     <Compile Include="Secretary\PatientListWindow.xaml.cs">
       <DependentUpon>PatientListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\UrgentExaminationOptionsWindow.xaml.cs">
+      <DependentUpon>UrgentExaminationOptionsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\UrgentOperationOptionsWindow.xaml.cs">
+      <DependentUpon>UrgentOperationOptionsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="SekretarWindow.xaml.cs">
       <DependentUpon>SekretarWindow.xaml</DependentUpon>
@@ -352,6 +364,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Secretary\AddUrgentExamination.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary\AddUrgentOperationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Secretary\EditExaminationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -391,6 +411,14 @@
     <Page Include="Secretary\PatientListWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Secretary\UrgentExaminationOptionsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary\UrgentOperationOptionsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SekretarWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

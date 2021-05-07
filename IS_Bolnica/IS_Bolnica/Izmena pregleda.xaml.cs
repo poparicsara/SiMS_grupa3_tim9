@@ -22,8 +22,12 @@ namespace IS_Bolnica
     public partial class Izmena_pregleda : Window
     {
         private int oznaceniIndex;
-        public Izmena_pregleda(int index)
+        private Patient patient = new Patient();
+
+        public Izmena_pregleda(int index, Patient patient)
         {
+            this.patient = patient;
+
             oznaceniIndex = index;
             ExaminationsRecordFileStorage exStorage = new ExaminationsRecordFileStorage();
             List<Examination> pregledi = exStorage.loadFromFile("Pregledi.json");
@@ -70,7 +74,7 @@ namespace IS_Bolnica
             pregledi.ElementAt(oznaceniIndex).Date = datumPregledaNovi;
             pregledi.ElementAt(oznaceniIndex).Doctor = d1;
             exStorage.saveToFile(pregledi, "Pregledi.json");
-            PatientWindow pw = new PatientWindow(PatientWindow.username_patient);
+            PatientWindow pw = new PatientWindow(patient);
             pw.Show();
             this.Close();
         }

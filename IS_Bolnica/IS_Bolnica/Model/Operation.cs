@@ -8,6 +8,8 @@ namespace Model
         //  private RoomRecord roomRecord;
         //private Patient patient;
         public Doctor doctor { get; set; }
+        public int DurationInMins { get; set; }
+        public GuestUser GuestUser { get; set; }
 
         public List<Doctor> Doctor
         {

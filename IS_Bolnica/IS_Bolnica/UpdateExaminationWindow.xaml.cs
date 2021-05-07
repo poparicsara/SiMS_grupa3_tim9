@@ -34,8 +34,10 @@ namespace IS_Bolnica.DoctorsWindows
         private List<string> doctorNameAndSurname = new List<string>();
         private List<string> specialistNameAndSurname = new List<string>();
         public UpdateExaminationWindow(int selectedIndex, List<Examination> loggedDoctorExaminations)
+
         {
             InitializeComponent();
+            this.doctor = doctor;
 
             ExaminationsRecordFileStorage examinationsRecordFileStorage = new ExaminationsRecordFileStorage();
             List<Examination> examinations = loggedDoctorExaminations;
@@ -133,6 +135,7 @@ namespace IS_Bolnica.DoctorsWindows
                 }
             }
 
+
             if ((patientNameAndSurname[0] != examination.Patient.Name) || (patientNameAndSurname[1] != examination.Patient.Surname))
             {
                 MessageBox.Show("Pogresno ime ili prezime!");
@@ -174,6 +177,7 @@ namespace IS_Bolnica.DoctorsWindows
                 doctorWindow.Show();
                 this.Close();
             }
+
         }
 
         private void cancelButtonClicked(object sender, RoutedEventArgs e)
@@ -184,7 +188,9 @@ namespace IS_Bolnica.DoctorsWindows
             switch (messageBox)
             {
                 case MessageBoxResult.Yes:
+
                     DoctorWindow doctorWindow = new DoctorWindow();
+
                     doctorWindow.Show();
                     this.Close();
                     break;

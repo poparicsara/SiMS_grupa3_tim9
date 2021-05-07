@@ -24,11 +24,13 @@ namespace IS_Bolnica
 
         public List<Notification> Notifications { get; set; }
         private Model.NotificationsFileStorage storage = new NotificationsFileStorage();
+        private Patient patient = new Patient();
 
-        public PatientNotificationWindow()
+        public PatientNotificationWindow(Patient patient)
         {
             InitializeComponent();
             this.DataContext = this;
+            this.patient = patient;
 
             Notifications = new List<Notification>();
 
@@ -37,6 +39,11 @@ namespace IS_Bolnica
             foreach (Notification notification in temp)
             {
                 if (notification.notificationType == NotificationType.patient || notification.notificationType == NotificationType.all)
+                {
+                    Notifications.Add(notification);
+                }
+
+                if(notification.PersonId != null && notification.PersonId == patient.Id)
                 {
                     Notifications.Add(notification);
                 }
