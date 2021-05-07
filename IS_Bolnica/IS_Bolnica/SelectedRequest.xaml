@@ -5,23 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Bolnica"
         mc:Ignorable="d"
-        Title="SelectedRequest" Height="450" Width="800">
+        Title="SelectedRequest" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        Height="768" Width="1024">
     <Grid>
-        <TextBox x:Name="idBox" HorizontalAlignment="Left" Height="23" Margin="313,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
-        <Label Content="Šifra:" HorizontalAlignment="Left" Margin="177,99,0,0" VerticalAlignment="Top"/>
-        <Label Content="Naziv:" HorizontalAlignment="Left" Margin="171,154,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Height="23" Margin="313,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
-        <Label Content="Zamenski lek:" HorizontalAlignment="Left" Margin="171,210,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="replacementBox" HorizontalAlignment="Left" Height="23" Margin="313,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
-        <Label Content="Proizvođač:" HorizontalAlignment="Left" Margin="171,250,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="producerBox" HorizontalAlignment="Left" Height="23" Margin="313,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
-        <Button Content="POŠALJI NA IZMENU" HorizontalAlignment="Left" Margin="529,386,0,0" VerticalAlignment="Top" 
-                Width="136" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" 
-                BorderBrush="#FF425431" Click="SentToEditButton"/>
-        <Button Content="ODOBRI LEK" HorizontalAlignment="Left" Margin="670,386,0,0" VerticalAlignment="Top"
-                Width="114" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" 
+        <TextBox x:Name="idBox" HorizontalAlignment="Left" Height="23" Margin="313,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" IsEnabled="False"/>
+        <Label Content="Šifra:" HorizontalAlignment="Left" Margin="128,107,0,0" VerticalAlignment="Top" Width="85"/>
+        <Label Content="Naziv:" HorizontalAlignment="Left" Margin="128,159,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.003,1.119" Width="60"/>
+        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Height="23" Margin="313,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" IsEnabled="False"/>
+        <Label Content="Zamenski lek:" HorizontalAlignment="Left" Margin="128,210,0,0" VerticalAlignment="Top" Width="102"/>
+        <TextBox x:Name="replacementBox" HorizontalAlignment="Left" Height="23" Margin="313,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" IsEnabled="False"/>
+        <Label Content="Proizvođač:" HorizontalAlignment="Left" Margin="128,259,0,0" VerticalAlignment="Top" Width="102"/>
+        <TextBox x:Name="producerBox" HorizontalAlignment="Left" Height="23" Margin="313,262,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" IsEnabled="False"/>
+        <Button Content="POŠALJI NA IZMENU" HorizontalAlignment="Left" Margin="717,450,0,0" VerticalAlignment="Top" 
+                Width="136" Height="36" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" 
+                BorderBrush="#FF425431" Click="SentToEditButton" RenderTransformOrigin="1.224,0.405"/>
+        <Button Content="ODOBRI LEK" HorizontalAlignment="Left" Margin="717,376,0,0" VerticalAlignment="Top"
+                Width="136" Height="34" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" 
                 BorderBrush="#FF425431" Click="AcceptMedicamentButton"/>
-        <Label Content="Odgovor" HorizontalAlignment="Left" Margin="177,295,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="responceBox" HorizontalAlignment="Left" Height="75" Margin="313,298,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="326"/>
+        <Label Content="Odgovor:" HorizontalAlignment="Left" Margin="131,323,0,0" VerticalAlignment="Top" Width="82"/>
+        <TextBox x:Name="responceBox" HorizontalAlignment="Left" Height="111" Margin="313,323,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296"/>
     </Grid>
 </Window>

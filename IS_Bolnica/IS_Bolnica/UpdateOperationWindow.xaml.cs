@@ -32,6 +32,8 @@ namespace IS_Bolnica.DoctorsWindows
         public List<Doctor> Doctors { get; set; }
         private DoctorFileStorage doctorStorage = new DoctorFileStorage();
         private List<string> doctorNameAndSurname = new List<string>();
+        private List<Operation> operations = new List<Operation>();
+        private OperationsFileStorage operationStorage = new OperationsFileStorage();
         public UpdateOperationWindow(int selectedIndex, List<Operation> loggedDoctorOperations)
 
         {
@@ -91,9 +93,8 @@ namespace IS_Bolnica.DoctorsWindows
         }
 
         private void saveButtonClicked(object sender, RoutedEventArgs e)
-        {
-            OperationsFileStorage operationStorage = new OperationsFileStorage();
-            List<Operation> operations = operationStorage.loadFromFile("operations.json");
+        {           
+            operations = operationStorage.loadFromFile("operations.json");
 
             List<Patient> patients = new List<Patient>();
             PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
@@ -155,8 +156,8 @@ namespace IS_Bolnica.DoctorsWindows
                     }
                 }
 
-                if (isRoomAvailable(operations, operation.RoomRecord, operation.Date) && isDoctorAvailable(operations, operation.doctor, operation.Date)
-                         && isPatientAvailable(operations, operation.Patient, operation.Date))
+                if (isRoomAvailable(operation.RoomRecord, operation.Date) && isDoctorAvailable(operation.Date)
+                         && isPatientAvailable(operation.Patient, operation.Date))
                 {
                     operations.Add(operation);
                     operationStorage.saveToFile(operations, "operations.json");
@@ -166,9 +167,6 @@ namespace IS_Bolnica.DoctorsWindows
                     MessageBox.Show("Nije moguce zakazati operaciju u zadatom terminu!");
                 }
 
-                //operations.Add(operation);
-                //operationStorage.saveToFile(operations, "operations.json");
-
                 DoctorWindow doctorWindow = new DoctorWindow();
                 doctorWindow.tabs.SelectedItem = doctorWindow.operationsTab;
                 doctorWindow.dataGridOperations.Items.Refresh();
@@ -176,8 +174,10 @@ namespace IS_Bolnica.DoctorsWindows
                 this.Close();
             }
         }
-        private bool isRoomAvailable(List<Operation> operations, RoomRecord room, DateTime dateAndTime)
+        private bool isRoomAvailable(RoomRecord room, DateTime dateAndTime)
         {
+            operations = operationStorage.loadFromFile("operations.json");
+
             foreach (Operation operation in operations)
             {
                 if (operation.RoomRecord.Id == room.Id && operation.Date == dateAndTime)
@@ -189,11 +189,13 @@ namespace IS_Bolnica.DoctorsWindows
             return true;
         }
 
-        private bool isDoctorAvailable(List<Operation> operations, Doctor doctor, DateTime dateAndTime)
+        private bool isDoctorAvailable(DateTime dateAndTime)
         {
+            operations = operationStorage.loadFromFile("operations.json");
+
             foreach (Operation operation in operations)
             {
-                string drNameSurname = doctor.Name + ' ' + doctor.Surname;
+                string drNameSurname = operation.doctor.Name + ' ' + operation.doctor.Surname;
 
                 if (drNameSurname.Equals(doctorsComboBox.SelectedItem.ToString()) && operation.Date.Equals(dateAndTime))
                 {
@@ -204,8 +206,10 @@ namespace IS_Bolnica.DoctorsWindows
             return true;
         }
 
-        private bool isPatientAvailable(List<Operation> operations, Patient patient, DateTime dateAndTime)
+        private bool isPatientAvailable(Patient patient, DateTime dateAndTime)
         {
+            operations = operationStorage.loadFromFile("operations.json");
+
             foreach (Operation operation in operations)
             {
                 if (operation.Patient.Id == patient.Id && operation.Date == dateAndTime)

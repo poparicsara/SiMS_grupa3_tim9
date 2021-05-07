@@ -190,5 +190,17 @@
     "Id": "4321009",
     "UserType": 1,
     "Address": null
+  },
+  {
+    "Username": "Brankica",
+    "Password": "ftn",
+    "Name": "Brankica",
+    "Surname": "Banić",
+    "DateOfBirth": "1979-11-01T00:00:00",
+    "Phone": "67894652",
+    "Email": "maricm@hotmail.com",
+    "Id": "5",
+    "UserType": 1,
+    "Address": null
   }
 ]

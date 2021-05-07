@@ -172,7 +172,7 @@ namespace IS_Bolnica
             examinationInfo.Show();
         }
 
-        private void notificationButton(object sender, RoutedEventArgs e)
+        private void notificationButtonClicked(object sender, RoutedEventArgs e)
         {
             DoctorNotificationWindow dnw = new DoctorNotificationWindow(this.loggedUser);
             dnw.Show();
@@ -197,29 +197,31 @@ namespace IS_Bolnica
             mainWindow.Show();
         }
 
-        private void RequestButton(object sender, RoutedEventArgs e)
+        private void requestButtonClicked(object sender, RoutedEventArgs e)
         {
             RequestWindow rw = new RequestWindow();
             rw.Show();
-            this.Close();
         }
 
-        private void ClosingWindow(object sender, CancelEventArgs e)
+        //private void ClosingWindow(object sender, CancelEventArgs e)
+        //{
+        //    List<User> users = new List<User>();
+        //    users = storage.loadFromFile("loggedUsers.json");
+
+        //    for (int i = 0; i < users.Count; i++)
+        //    {
+        //        if (users[i].Username == loggedUser.Username)
+        //        {
+        //            users.RemoveAt(i);
+        //        }
+        //    }
+        //    storage.saveToFile(users, "loggedUsers.json");
+        //}
+
+        private void medicationButtonClicked(object sender, RoutedEventArgs e)
         {
-            List<User> users = new List<User>();
-            users = storage.loadFromFile("loggedUsers.json");
-
-            for (int i = 0; i < users.Count; i++)
-            {
-                if (users[i].Username == loggedUser.Username)
-                {
-                    users.RemoveAt(i);
-                }
-            }
-            storage.saveToFile(users, "loggedUsers.json");
-
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
+            ListOfMedications listOfMedications = new ListOfMedications();
+            listOfMedications.Show();
         }
     }
 }
