@@ -39,13 +39,6 @@
     "Status": 0
   },
   {
-    "Id": 666,
-    "Name": "nesto",
-    "Replacement": null,
-    "Producer": "neko",
-    "Status": 1
-  },
-  {
     "Id": 202,
     "Name": "Brufen",
     "Replacement": {
