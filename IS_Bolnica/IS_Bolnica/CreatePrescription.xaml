@@ -12,29 +12,29 @@
             <RowDefinition Height="290*"/>
             <RowDefinition Height="79*"/>
         </Grid.RowDefinitions>
-        <Label Content="Naziv zdravstvene ustanove:" HorizontalAlignment="Left" Margin="120,145,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="Datum:" HorizontalAlignment="Left" Margin="612,58,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="Ime i prezime pacijenta:" HorizontalAlignment="Left" Margin="120,201,0,0" VerticalAlignment="Top" Width="149" FontWeight="Bold"/>
-        <Label Content="Broj zdravstvene knjižice:" HorizontalAlignment="Left" Margin="120,318,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="Dijagnoza:" HorizontalAlignment="Left" Margin="120,365,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="Lek:" HorizontalAlignment="Left" Margin="120,485,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="Lekar:" HorizontalAlignment="Left" Margin="120,24,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.752,5.449" Grid.Row="1" FontWeight="Bold"/>
-        <TextBox x:Name="hospitalTxt" HorizontalAlignment="Left" Height="23" Margin="316,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" Text="&quot;Zdravo&quot; korporacija" IsReadOnly="True"/>
-        <TextBox x:Name="patientTxt" HorizontalAlignment="Left" Height="24" Margin="316,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" IsReadOnly="True"/>
-        <TextBox x:Name ="healthCardIdTxt"  HorizontalAlignment="Left" Height="23" Margin="316,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90" IsReadOnly="True"/>
-        <TextBox x:Name="medTxt" HorizontalAlignment="Left" Height="22" Margin="316,485,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" />
-        <TextBox x:Name="prescriptionDateTxt" HorizontalAlignment="Left" Height="23" Margin="727,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" IsReadOnly="True"/>
-        <TextBox x:Name ="doctorTxt"  HorizontalAlignment="Left" Height="22" Margin="316,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" IsReadOnly="True" Grid.Row="1"/>
-        <Button Name="potvrdiBtn" Content="Potvrdi" HorizontalAlignment="Left" Margin="764,16,0,0" VerticalAlignment="Top" Width="103" Height="34" Click="potvrdiClicked" Grid.Row="1" Background="#FF15285D" Foreground="White" FontWeight="Bold" FontSize="14" FontFamily="Ebrima"/>
-        <Label Content="LEKARSKI RECEPT" HorizontalAlignment="Left" Margin="118,44,0,0" VerticalAlignment="Top" Width="192" FontWeight="Bold" FontSize="20"/>
-        <Label Content="Datum rođenja:" HorizontalAlignment="Left" Margin="120,242,0,0" VerticalAlignment="Top" Width="105" FontWeight="Bold"/>
-        <Label Content="JMBG:" HorizontalAlignment="Left" Margin="120,277,0,0" VerticalAlignment="Top" Width="91" FontWeight="Bold"/>
-        <TextBox x:Name="dateOfBirthTxt" HorizontalAlignment="Left" Height="24" Margin="316,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" IsReadOnly="True"/>
-        <TextBox x:Name="jmbgTxt" HorizontalAlignment="Left" Height="22" Margin="316,281,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" IsReadOnly="True"/>
-        <TextBox x:Name ="diagnosisTxt" HorizontalAlignment="Left" Height="93" Margin="316,365,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="248"/>
-        <Label Content="Doza:" HorizontalAlignment="Left" Margin="120,535,0,0" VerticalAlignment="Top" Width="130" Height="38" FontWeight="Bold"/>
-        <TextBox x:Name="doseTxt" HorizontalAlignment="Left" Height="22" Margin="316,535,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90"/>
-        <Label Name="allergyWarning" Content="" HorizontalAlignment="Left" Margin="522,485,0,0" VerticalAlignment="Top" Width="290" Height="35" Foreground="Red" FontWeight="Bold"/>
+        <Label Content="Naziv zdravstvene ustanove:" HorizontalAlignment="Left" Margin="116,97,0,0" VerticalAlignment="Top"/>
+        <Label Content="Datum:" HorizontalAlignment="Left" Margin="520,97,0,0" VerticalAlignment="Top"/>
+        <Label Content="Ime i prezime pacijenta:" HorizontalAlignment="Left" Margin="116,158,0,0" VerticalAlignment="Top" Width="149"/>
+        <Label Content="Broj zdravstvene knjizice:" HorizontalAlignment="Left" Margin="516,190,0,0" VerticalAlignment="Top"/>
+        <Label Content="Dijagnoza:" HorizontalAlignment="Left" Margin="118,322,0,0" VerticalAlignment="Top"/>
+        <Label Content="Lek:" HorizontalAlignment="Left" Margin="124,438,0,0" VerticalAlignment="Top"/>
+        <Label Content="Lekar:" HorizontalAlignment="Left" Margin="124,562,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.752,5.449" Grid.RowSpan="2"/>
+        <TextBox x:Name="hospitalTxt" HorizontalAlignment="Left" Height="23" Margin="314,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Text="&quot;Zdravo&quot; korporacija" IsReadOnly="True"/>
+        <TextBox x:Name="patientTxt" HorizontalAlignment="Left" Height="24" Margin="310,158,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" IsReadOnly="True"/>
+        <TextBox x:Name ="healthCardIdTxt"  HorizontalAlignment="Left" Height="23" Margin="710,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" IsReadOnly="True"/>
+        <TextBox x:Name="medTxt" HorizontalAlignment="Left" Height="22" Margin="312,442,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" />
+        <TextBox x:Name="prescriptionDateTxt" HorizontalAlignment="Left" Height="23" Margin="710,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" IsReadOnly="True"/>
+        <TextBox x:Name ="doctorTxt"  HorizontalAlignment="Left" Height="22" Margin="312,562,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" IsReadOnly="True" Grid.RowSpan="2"/>
+        <Button Name="potvrdiBtn" Content="potvrdi" HorizontalAlignment="Left" Margin="764,571,0,0" VerticalAlignment="Top" Width="103" Height="34" Grid.RowSpan="2" Click="potvrdiClicked"/>
+        <Label Content="LEKARSKI RECEPT" HorizontalAlignment="Left" Margin="64,47,0,0" VerticalAlignment="Top" Width="192" FontWeight="Bold" FontSize="16"/>
+        <Label Content="Datum rodjenja:" HorizontalAlignment="Left" Margin="116,208,0,0" VerticalAlignment="Top" Width="105"/>
+        <Label Content="JMBG:" HorizontalAlignment="Left" Margin="116,248,0,0" VerticalAlignment="Top" Width="91"/>
+        <TextBox x:Name="dateOfBirthTxt" HorizontalAlignment="Left" Height="24" Margin="310,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" IsReadOnly="True"/>
+        <TextBox x:Name="jmbgTxt" HorizontalAlignment="Left" Height="22" Margin="310,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144" IsReadOnly="True"/>
+        <TextBox x:Name ="diagnosisTxt" HorizontalAlignment="Left" Height="112" Margin="312,303,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250"/>
+        <Label Content="Doza:" HorizontalAlignment="Left" Margin="124,492,0,0" VerticalAlignment="Top" Width="130" Height="38"/>
+        <TextBox x:Name="doseTxt" HorizontalAlignment="Left" Height="22" Margin="312,492,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144"/>
+        <Label Name="allergyWarning" Content="" HorizontalAlignment="Left" Margin="520,442,0,0" VerticalAlignment="Top" Width="290" Height="35" Foreground="Red" FontWeight="Bold"/>
 
     </Grid>
 </Window>

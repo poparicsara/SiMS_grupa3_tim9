@@ -11,24 +11,24 @@
             <RowDefinition Height="437*"/>
             <RowDefinition Height="296*"/>
         </Grid.RowDefinitions>
-        <Label Content="Ime i prezime pacijenta:" HorizontalAlignment="Left" Margin="82,94,0,0" VerticalAlignment="Top" Width="148" FontWeight="Bold"/>
-        <Label Content="Datum rodjenja:" HorizontalAlignment="Left" Margin="82,139,0,0" VerticalAlignment="Top" Width="105" FontWeight="Bold"/>
-        <Label Content="JMBG:" HorizontalAlignment="Left" Margin="82,180,0,0" VerticalAlignment="Top" Width="91" FontWeight="Bold"/>
+        <Label Content="Ime i prezime pacijenta:" HorizontalAlignment="Left" Margin="82,94,0,0" VerticalAlignment="Top" Width="148"/>
+        <Label Content="Datum rodjenja:" HorizontalAlignment="Left" Margin="82,139,0,0" VerticalAlignment="Top" Width="105"/>
+        <Label Content="JMBG:" HorizontalAlignment="Left" Margin="82,180,0,0" VerticalAlignment="Top" Width="91"/>
         <TextBox Name="patientTxt" HorizontalAlignment="Left" Height="23" Margin="235,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" IsReadOnly="True"/>
         <TextBox Name="dateOfBirthTxt" HorizontalAlignment="Left" Height="23" Margin="235,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" IsReadOnly="True"/>
         <TextBox Name="jmbgTxt" HorizontalAlignment="Left" Height="23" Margin="235,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" IsReadOnly="True"/>
-        <Button Content="Anamneza" HorizontalAlignment="Left" Margin="851,186,0,0" VerticalAlignment="Top" Width="99" Click="anamnezaClicked" Height="39" Grid.Row="1" FontFamily="Ebrima" Foreground="White" Background="#FF15285D" FontWeight="Bold" FontSize="14"/>
-        <Label Content="Lekovi i terapije:" HorizontalAlignment="Left" Margin="82,384,0,0" VerticalAlignment="Top" Width="114" FontWeight="Bold"/>
-        <ListBox Name="medicationsList"  HorizontalAlignment="Left" Height="114" Margin="235,384,0,0" VerticalAlignment="Top" Width="191" Grid.RowSpan="2"/>
-        <Label Content="Broj knjižice:" HorizontalAlignment="Left" Margin="82,227,0,0" VerticalAlignment="Top" Width="91" FontWeight="Bold"/>
-        <TextBox x:Name="healthCardNumberTxt" HorizontalAlignment="Left" Height="23" Margin="235,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
-        <Label Content="ZDRAVSTVENI KARTON" HorizontalAlignment="Left" Margin="82,22,0,0" VerticalAlignment="Top" Width="294" FontWeight="Bold" FontSize="20"/>
-        <Label Content="Adresa:" HorizontalAlignment="Left" Margin="82,277,0,0" VerticalAlignment="Top" Width="91" FontWeight="Bold"/>
-        <TextBox x:Name="addressTxt" HorizontalAlignment="Left" Height="23" Margin="235,280,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" IsReadOnly="True"/>
-        <Label Content="Alergije:" HorizontalAlignment="Left" Margin="476,384,0,0" VerticalAlignment="Top" Width="114" FontWeight="Bold"/>
-        <ListBox x:Name="allergiesList"  HorizontalAlignment="Left" Height="114" Margin="595,384,0,0" VerticalAlignment="Top" Width="209" Grid.RowSpan="2"/>
-        <Label Content="Istorija bolesti:" HorizontalAlignment="Left" Margin="82,111,0,0" VerticalAlignment="Top" Width="114" Grid.Row="1" FontWeight="Bold"/>
-        <ListBox x:Name="historyList"  HorizontalAlignment="Left" Height="114" Margin="235,111,0,0" VerticalAlignment="Top" Width="355" Grid.Row="1"/>
+        <Button Content="Anamneza" HorizontalAlignment="Left" Margin="808,158,0,0" VerticalAlignment="Top" Width="82" Click="anamnezaClicked" Height="25" Grid.Row="1"/>
+        <Label Content="Lekovi i terapije:" HorizontalAlignment="Left" Margin="82,308,0,0" VerticalAlignment="Top" Width="114"/>
+        <ListBox Name="medicationsList"  HorizontalAlignment="Left" Height="114" Margin="233,308,0,0" VerticalAlignment="Top" Width="191"/>
+        <Label Content="Broj knjizice:" HorizontalAlignment="Left" Margin="469,97,0,0" VerticalAlignment="Top" Width="91"/>
+        <TextBox x:Name="healthCardNumberTxt" HorizontalAlignment="Left" Height="23" Margin="590,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <Label Content="ZDRAVSTVENI KARTON" HorizontalAlignment="Left" Margin="59,22,0,0" VerticalAlignment="Top" Width="194" FontWeight="Bold" FontSize="16"/>
+        <Label Content="Adresa:" HorizontalAlignment="Left" Margin="82,224,0,0" VerticalAlignment="Top" Width="91"/>
+        <TextBox x:Name="addressTxt" HorizontalAlignment="Left" Height="23" Margin="235,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" IsReadOnly="True"/>
+        <Label Content="Alergije:" HorizontalAlignment="Left" Margin="476,308,0,0" VerticalAlignment="Top" Width="114"/>
+        <ListBox x:Name="allergiesList"  HorizontalAlignment="Left" Height="114" Margin="590,308,0,0" VerticalAlignment="Top" Width="209"/>
+        <Label Content="Istorija bolesti:" HorizontalAlignment="Left" Margin="82,50,0,0" VerticalAlignment="Top" Width="114" Grid.Row="1"/>
+        <ListBox x:Name="historyList"  HorizontalAlignment="Left" Height="114" Margin="233,50,0,0" VerticalAlignment="Top" Width="331" Grid.Row="1"/>
 
     </Grid>
 </Window>

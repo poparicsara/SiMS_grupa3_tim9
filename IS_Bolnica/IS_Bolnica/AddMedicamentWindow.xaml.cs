@@ -51,8 +51,7 @@ namespace IS_Bolnica
 
             //Medicament replacement = new Medicament { Id = 101, Name = ""}
             Medicament med = new Medicament { Id = (int)Int64.Parse(idBox.Text), Name = nameBox.Text, Producer = producerBox.Text };
-            med.Replacement = new Medicament();
-            med.Replacement.Name = replacementBox.Text;
+            //med.Replacement.Name = replacementBox.Text;
             med.Status = MedicamentStatus.dissapproved;
 
             meds.Add(med);
