@@ -19,11 +19,11 @@
     "Specialization": {
       "Name": "Pedijatrija"
     },
-    "Ordination": 707,
+    "Ordination": 107,
     "Username": "nikola",
     "Password": "dzoni",
     "Name": "Nikola",
-    "Surname": "Spasojevic",
+    "Surname": "Spasojević",
     "DateOfBirth": "1980-11-01T00:00:00",
     "Phone": "67894234",
     "Email": "nikolas@gmail.com",
@@ -39,7 +39,7 @@
     "Username": "ana",
     "Password": "ana",
     "Name": "Ana",
-    "Surname": "Petrovic",
+    "Surname": "Petrović",
     "DateOfBirth": "1970-10-01T00:00:00",
     "Phone": "67890834",
     "Email": "ana@gmail.com",
@@ -51,7 +51,7 @@
     "Specialization": {
       "Name": "Alergologija i imunologija"
     },
-    "Ordination": 102,
+    "Ordination": 300,
     "Username": "Ognjen",
     "Password": "ognjen",
     "Name": "Ognjen",
@@ -67,7 +67,7 @@
     "Specialization": {
       "Name": "Dermatologija"
     },
-    "Ordination": 102,
+    "Ordination": 301,
     "Username": "Vladan",
     "Password": "vladan",
     "Name": "Vladan",
@@ -83,7 +83,7 @@
     "Specialization": {
       "Name": "Radiologija - dijagnostika"
     },
-    "Ordination": 102,
+    "Ordination": 302,
     "Username": "Vuk",
     "Password": "ftn",
     "Name": "Vuk",
@@ -99,7 +99,7 @@
     "Specialization": {
       "Name": "Porodična medicina"
     },
-    "Ordination": 102,
+    "Ordination": 106,
     "Username": "Mateja",
     "Password": "ftn",
     "Name": "Mateja",
@@ -115,7 +115,7 @@
     "Specialization": {
       "Name": "Interna medicina"
     },
-    "Ordination": 102,
+    "Ordination": 110,
     "Username": "Brankica",
     "Password": "ftn",
     "Name": "Brankica",
@@ -131,7 +131,7 @@
     "Specialization": {
       "Name": "Medicinska genetika"
     },
-    "Ordination": 102,
+    "Ordination": 400,
     "Username": "Igor",
     "Password": "ftn",
     "Name": "Igor",
@@ -147,7 +147,7 @@
     "Specialization": {
       "Name": "Neurologija"
     },
-    "Ordination": 102,
+    "Ordination": 302,
     "Username": "Milena",
     "Password": "ftn",
     "Name": "Milena",
@@ -163,7 +163,7 @@
     "Specialization": {
       "Name": "Neurologija"
     },
-    "Ordination": 102,
+    "Ordination": 304,
     "Username": "Maja",
     "Password": "ftn",
     "Name": "Maja",
@@ -179,7 +179,7 @@
     "Specialization": {
       "Name": "Nuklearna medicina"
     },
-    "Ordination": 102,
+    "Ordination": 404,
     "Username": "Goran",
     "Password": "ftn",
     "Name": "Goran",
@@ -195,7 +195,7 @@
     "Specialization": {
       "Name": "Akušerstvo i ginekologija"
     },
-    "Ordination": 102,
+    "Ordination": 212,
     "Username": "Aleksandar",
     "Password": "ftn",
     "Name": "Aleksandar",
@@ -211,7 +211,7 @@
     "Specialization": {
       "Name": "Oftalmologija"
     },
-    "Ordination": 102,
+    "Ordination": 109,
     "Username": "Dusan",
     "Password": "ftn",
     "Name": "Dušan",
@@ -227,7 +227,7 @@
     "Specialization": {
       "Name": "Patologija"
     },
-    "Ordination": 102,
+    "Ordination": 405,
     "Username": "Katarina",
     "Password": "ftn",
     "Name": "Katarina",
@@ -243,7 +243,7 @@
     "Specialization": {
       "Name": "Fizikalna medicina i rehabilitacija"
     },
-    "Ordination": 102,
+    "Ordination": 100,
     "Username": "Silvana",
     "Password": "ftn",
     "Name": "Silvana",
@@ -259,7 +259,7 @@
     "Specialization": {
       "Name": "Psihijatrija"
     },
-    "Ordination": 102,
+    "Ordination": 406,
     "Username": "Jelena",
     "Password": "ftn",
     "Name": "Jelena",
@@ -275,7 +275,7 @@
     "Specialization": {
       "Name": "Hirurgija"
     },
-    "Ordination": 102,
+    "Ordination": 311,
     "Username": "Srdjan",
     "Password": "ftn",
     "Name": "Srđan",
@@ -291,7 +291,7 @@
     "Specialization": {
       "Name": "Urologija"
     },
-    "Ordination": 102,
+    "Ordination": 208,
     "Username": "Marko",
     "Password": "ftn",
     "Name": "Marko",
