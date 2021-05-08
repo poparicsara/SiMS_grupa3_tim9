@@ -95,9 +95,6 @@
     </Compile>
     <Compile Include="Ingredient.cs" />
     <Compile Include="IngredientFileStorage.cs" />
-    <Compile Include="IngredientWindow.xaml.cs">
-      <DependentUpon>IngredientWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="InventarWindow.xaml.cs">
       <DependentUpon>InventarWindow.xaml</DependentUpon>
     </Compile>
@@ -108,8 +105,14 @@
     <Compile Include="Izmena pregleda.xaml.cs">
       <DependentUpon>Izmena pregleda.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ListOfMedications.xaml.cs">
-      <DependentUpon>ListOfMedications.xaml</DependentUpon>
+    <Compile Include="MedicamentCompositionWindow.xaml.cs">
+      <DependentUpon>MedicamentCompositionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MedicamentInfoWindow.xaml.cs">
+      <DependentUpon>MedicamentInfoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MedicamentReplacementWindow.xaml.cs">
+      <DependentUpon>MedicamentReplacementWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MedicamentWindow.xaml.cs">
       <DependentUpon>MedicamentWindow.xaml</DependentUpon>
@@ -171,12 +174,6 @@
     <Compile Include="Secretary\AddPatient.xaml.cs">
       <DependentUpon>AddPatient.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Secretary\AddUrgentExamination.xaml.cs">
-      <DependentUpon>AddUrgentExamination.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Secretary\AddUrgentOperationWindow.xaml.cs">
-      <DependentUpon>AddUrgentOperationWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Secretary\EditExaminationWindow.xaml.cs">
       <DependentUpon>EditExaminationWindow.xaml</DependentUpon>
     </Compile>
@@ -207,12 +204,6 @@
     <Compile Include="Secretary\PatientListWindow.xaml.cs">
       <DependentUpon>PatientListWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Secretary\UrgentExaminationOptionsWindow.xaml.cs">
-      <DependentUpon>UrgentExaminationOptionsWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Secretary\UrgentOperationOptionsWindow.xaml.cs">
-      <DependentUpon>UrgentOperationOptionsWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="SekretarWindow.xaml.cs">
       <DependentUpon>SekretarWindow.xaml</DependentUpon>
     </Compile>
@@ -224,9 +215,6 @@
     </Compile>
     <Compile Include="UpdateExaminationWindow.xaml.cs">
       <DependentUpon>UpdateExaminationWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UpdateMedication.xaml.cs">
-      <DependentUpon>UpdateMedication.xaml</DependentUpon>
     </Compile>
     <Compile Include="UpdateOperationWindow.xaml.cs">
       <DependentUpon>UpdateOperationWindow.xaml</DependentUpon>
@@ -290,10 +278,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="IngredientWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="InventarWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -303,10 +287,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Izmena pregleda.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ListOfMedications.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -322,6 +302,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MedicamentCompositionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MedicamentInfoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MedicamentReplacementWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MedicamentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -374,14 +366,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Secretary\AddUrgentExamination.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Secretary\AddUrgentOperationWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Secretary\EditExaminationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -422,14 +406,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Secretary\UrgentExaminationOptionsWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Secretary\UrgentOperationOptionsWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="SekretarWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -445,10 +421,6 @@
     <Page Include="UpdateExaminationWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UpdateMedication.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UpdateOperationWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

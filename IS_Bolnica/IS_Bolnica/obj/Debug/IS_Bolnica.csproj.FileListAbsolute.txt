@@ -303,8 +303,6 @@ C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\EditExaminationWindow.baml
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\EditOperationWindow.baml
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\OperationListWindow.baml
-C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\IngredientWindow.g.cs
-C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\IngredientWindow.baml
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\AddMedicamentWindow.g.cs
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\AddMedicamentWindow.baml
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\RenovationWindow.g.cs
@@ -313,153 +311,9 @@ C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\RequestWindow.baml
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\SelectedRequest.g.cs
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\SelectedRequest.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\bin\Debug\IS_Bolnica.exe.config
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\bin\Debug\IS_Bolnica.exe
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\bin\Debug\IS_Bolnica.pdb
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\bin\Debug\Newtonsoft.Json.dll
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\bin\Debug\Newtonsoft.Json.xml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\IS_Bolnica.csprojAssemblyReference.cache
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\AddExaminationWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\AddInventoryWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\AddOperationWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\ChangeInventoryPlace.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\CreatePrescription.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Diagnosis.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DirectorNotificationWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorNotificationWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\EditInventoryWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\EditWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\ExaminationInfo.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\InventarWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\InventoryWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Izmena pregleda.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\MainWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\NewInventory.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\NewRoomWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\PatientNotificationWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\PatientWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Predlozi.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\ActionBarWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\AddExaminationWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\AddNotificationWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\AddOperationWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\AddPatient.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\EditExaminationWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\EditNotificationWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\EditOperationWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\EditPatient.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\ExaminationListWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\GuestUserAccount.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\GuestUserListWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\NotificationListWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\OperationListWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\PatientListWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\SekretarWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\SelectedInventoryInRooms.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\UpdateExaminationWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\UpdateOperationWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\UpravnikWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Zakazivanje pregleda.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\App.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\IS_Bolnica_MarkupCompile.cache
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\IS_Bolnica_MarkupCompile.lref
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\AddExaminationWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\AddInventoryWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\AddOperationWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\ChangeInventoryPlace.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\CreatePrescription.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Diagnosis.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DirectorNotificationWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorNotificationWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\EditInventoryWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\EditWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\ExaminationInfo.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\InventarWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\InventoryWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Izmena pregleda.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\MainWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\NewInventory.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\NewRoomWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\PatientNotificationWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\PatientWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Predlozi.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\ActionBarWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\AddExaminationWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\AddNotificationWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\AddOperationWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\AddPatient.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\EditExaminationWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\EditNotificationWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\EditOperationWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\EditPatient.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\ExaminationListWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\GuestUserAccount.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\GuestUserListWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\NotificationListWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\OperationListWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\PatientListWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\SekretarWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\SelectedInventoryInRooms.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\UpdateExaminationWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\UpdateOperationWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\UpravnikWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Zakazivanje pregleda.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\IS_Bolnica.g.resources
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\IS_Bolnica.Properties.Resources.resources
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\IS_Bolnica.csproj.GenerateResource.cache
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\IS_Bolnica.csproj.CoreCompileInputs.cache
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\IS_Bolnica.csproj.CopyComplete
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\IS_Bolnica.exe
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\IS_Bolnica.pdb
-C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\AddMedicamentWindow.g.cs
-C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\IngredientWindow.g.cs
-C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\MedicamentWindow.g.cs
-C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\RenovationWindow.g.cs
-C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\RequestWindow.g.cs
-C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\SelectedRequest.g.cs
-C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\AddMedicamentWindow.baml
-C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\IngredientWindow.baml
-C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\MedicamentWindow.baml
-C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\RenovationWindow.baml
-C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\RequestWindow.baml
-C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\SelectedRequest.baml
-
-C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\AddMedicamentWindow.g.cs
-C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\IngredientWindow.g.cs
-C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\MedicamentWindow.g.cs
-C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\AddMedicamentWindow.baml
-C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\IngredientWindow.baml
-C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\MedicamentWindow.baml
-C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\AddUrgentExamination.g.cs
-C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\AddUrgentExamination.baml
-C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\AddUrgentOperationWindow.g.cs
-C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\AddUrgentOperationWindow.baml
-C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\UrgentExaminationOptionsWindow.g.cs
-C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\UrgentOperationOptionsWindow.g.cs
-C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\UrgentExaminationOptionsWindow.baml
-C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\UrgentOperationOptionsWindow.baml
-C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\RenovationWindow.g.cs
-C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\RequestWindow.g.cs
-C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\SelectedRequest.g.cs
-C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\RenovationWindow.baml
-C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\RequestWindow.baml
-C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\SelectedRequest.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\AddMedicamentWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\IngredientWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\MedicamentWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\RenovationWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\RequestWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\SelectedRequest.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\AddMedicamentWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\IngredientWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\MedicamentWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\RenovationWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\RequestWindow.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\SelectedRequest.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\ListOfMedications.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\ListOfMedications.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\UpdateMedication.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\UpdateMedication.baml
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\MedicamentInfoWindow.g.cs
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\MedicamentInfoWindow.baml
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\MedicamentCompositionWindow.g.cs
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\MedicamentCompositionWindow.baml
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\MedicamentReplacementWindow.g.cs
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\MedicamentReplacementWindow.baml

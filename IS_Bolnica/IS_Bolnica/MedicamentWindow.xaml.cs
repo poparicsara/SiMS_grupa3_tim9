@@ -38,8 +38,9 @@ namespace IS_Bolnica
 
         private void Row_DoubleClik(object sender, MouseButtonEventArgs e)
         {
-            IngredientWindow iw = new IngredientWindow();
-            iw.Show();
+            Medicament selectedMedicament = (Medicament)medicamentData.SelectedItem;
+            MedicamentInfoWindow medWindow = new MedicamentInfoWindow(selectedMedicament);
+            medWindow.Show();
             this.Close();
         }
 
