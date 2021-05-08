@@ -56,18 +56,18 @@ namespace IS_Bolnica.Secretary
 
         }
 
-        private bool isPatientFree(List<Examination> exams, Patient patient, DateTime dateAndTime)
+        private bool isPatientFree(List<Examination> exams, Examination ex)
         {
             DateTime endTimeNew = new DateTime();
-            endTimeNew = dateAndTime.AddMinutes(30);
+            endTimeNew = ex.Date.AddMinutes(30);
             foreach (Examination exam in exams)
             {
-                if (exam.Patient.Id == patient.Id)
+                if (exam.Patient.Id == ex.Patient.Id)
                 {
                     DateTime endTime = new DateTime();
                     endTime = exam.Date.AddMinutes(30);
 
-                    if (exam.Date <= dateAndTime && dateAndTime < endTime)
+                    if (exam.Date <= ex.Date && ex.Date < endTime)
                     {
                         return false;
                     }
@@ -77,7 +77,7 @@ namespace IS_Bolnica.Secretary
                         return false;
                     }
 
-                    if (exam.Date >= dateAndTime && endTime <= endTimeNew)
+                    if (exam.Date >= ex.Date && endTime <= endTimeNew)
                     {
                         return false;
                     }
@@ -87,17 +87,17 @@ namespace IS_Bolnica.Secretary
             return true;
         }
 
-        private bool isRoomFree(List<Examination> exams, RoomRecord room, DateTime dateAndTime)
+        private bool isRoomFree(List<Examination> exams, Examination ex)
         {
             DateTime endTimeNew = new DateTime();
-            endTimeNew = dateAndTime.AddMinutes(30);
+            endTimeNew = ex.Date.AddMinutes(30);
             foreach (Examination exam in exams)
             {
                 DateTime endTime = new DateTime();
                 endTime = exam.Date.AddMinutes(30);
-                if (exam.RoomRecord.Id == room.Id)
+                if (exam.RoomRecord.Id == ex.RoomRecord.Id)
                 {
-                    if (exam.Date <= dateAndTime && dateAndTime < endTime ) 
+                    if (exam.Date <= ex.Date && ex.Date < endTime ) 
                     {
                         return false;
                     }
@@ -107,7 +107,7 @@ namespace IS_Bolnica.Secretary
                         return false;
                     }
 
-                    if (exam.Date >= dateAndTime && endTime <= endTimeNew)
+                    if (exam.Date >= ex.Date && endTime <= endTimeNew)
                     {
                         return false;
                     }
@@ -116,17 +116,17 @@ namespace IS_Bolnica.Secretary
             return true;
         }
 
-        private bool isDoctorFree(List<Examination> exams, Doctor doc, DateTime dateTimeStart)
+        private bool isDoctorFree(List<Examination> exams, Examination ex)
         {
             DateTime dateTimeEnd = new DateTime();
-            dateTimeEnd = dateTimeStart.AddMinutes(30);
+            dateTimeEnd = ex.Date.AddMinutes(30);
             foreach (Examination exam in exams)
             {
                 DateTime endTime = new DateTime();
                 endTime = exam.Date.AddMinutes(30);
-                if (exam.Doctor.Id == doc.Id)
+                if (exam.Doctor.Id == ex.Doctor.Id)
                 {
-                    if (exam.Date <= dateTimeStart && dateTimeStart < endTime)
+                    if (exam.Date <= ex.Date && ex.Date < endTime)
                     {
                         return false;
                     }
@@ -136,7 +136,7 @@ namespace IS_Bolnica.Secretary
                         return false;
                     }
 
-                    if (exam.Date >= dateTimeStart && endTime <= dateTimeEnd)
+                    if (exam.Date >= ex.Date && endTime <= dateTimeEnd)
                     {
                         return false;
                     }
@@ -146,11 +146,11 @@ namespace IS_Bolnica.Secretary
             return true;
         }
 
-        private bool isAvailable(List<Examination> exams, Patient patient, RoomRecord room, Doctor doctor, DateTime dateAndTime)
+        private bool isAvailable(List<Examination> exams, Examination ex)
         {
-            if (patient != null)
+            if (ex.Patient != null)
             {
-                if (isPatientFree(exams, patient, dateAndTime) && isRoomFree(exams, room, dateAndTime) && isDoctorFree(exams, doctor, dateAndTime))
+                if (isPatientFree(exams, ex) && isRoomFree(exams, ex) && isDoctorFree(exams, ex))
                 {
                     return true;
                 }
@@ -160,7 +160,7 @@ namespace IS_Bolnica.Secretary
                 }
             } else
             {
-                if (isRoomFree(exams, room, dateAndTime) && isDoctorFree(exams, doctor, dateAndTime))
+                if (isRoomFree(exams, ex) && isDoctorFree(exams, ex))
                 {
                     return true;
                 }
@@ -172,9 +172,129 @@ namespace IS_Bolnica.Secretary
 
         }
 
+        private bool isPatientFreePostponed(List<Examination> exams, Examination ex)
+        {
+            DateTime endTimeNew = new DateTime();
+            endTimeNew = ex.PostponedDate.AddMinutes(30);
+            foreach (Examination exam in exams)
+            {
+                if (exam.Patient.Id == ex.Patient.Id)
+                {
+                    DateTime endTime = new DateTime();
+                    endTime = exam.Date.AddMinutes(30);
+
+                    if (exam.Date <= ex.PostponedDate && ex.PostponedDate < endTime)
+                    {
+                        return false;
+                    }
+
+                    if (exam.Date < endTimeNew && endTimeNew <= endTime)
+                    {
+                        return false;
+                    }
+
+                    if (exam.Date >= ex.PostponedDate && endTime <= endTimeNew)
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        private bool isRoomFreePostponed(List<Examination> exams, Examination ex)
+        {
+            DateTime endTimeNew = new DateTime();
+            endTimeNew = ex.PostponedDate.AddMinutes(30);
+            foreach (Examination exam in exams)
+            {
+                DateTime endTime = new DateTime();
+                endTime = exam.Date.AddMinutes(30);
+                if (exam.RoomRecord.Id == ex.RoomRecord.Id)
+                {
+                    if (exam.Date <= ex.PostponedDate && ex.PostponedDate < endTime)
+                    {
+                        return false;
+                    }
+
+                    if (exam.Date < endTimeNew && endTimeNew <= endTime)
+                    {
+                        return false;
+                    }
+
+                    if (exam.Date >= ex.PostponedDate && endTime <= endTimeNew)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        private bool isDoctorFreePostponed(List<Examination> exams, Examination ex)
+        {
+            DateTime dateTimeEnd = new DateTime();
+            dateTimeEnd = ex.PostponedDate.AddMinutes(30);
+            foreach (Examination exam in exams)
+            {
+                DateTime endTime = new DateTime();
+                endTime = exam.Date.AddMinutes(30);
+                if (exam.Doctor.Id == ex.Doctor.Id)
+                {
+                    if (exam.Date <= ex.PostponedDate && ex.PostponedDate < endTime)
+                    {
+                        return false;
+                    }
+
+                    if (exam.Date < dateTimeEnd && dateTimeEnd <= endTime)
+                    {
+                        return false;
+                    }
+
+                    if (exam.Date >= ex.PostponedDate && endTime <= dateTimeEnd)
+                    {
+                        return false;
+                    }
+
+                }
+            }
+            return true;
+        }
+
+        private bool isAvailablePostponed(List<Examination> exams, Examination ex)
+        {
+            if (ex.Patient != null)
+            {
+                if (isPatientFreePostponed(exams, ex) && isRoomFreePostponed(exams, ex) && isDoctorFreePostponed(exams, ex))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (isRoomFreePostponed(exams, ex) && isDoctorFreePostponed(exams, ex))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+
+
         private List<Examination> getExaminationOptions(Examination examination, Specialization specialization1)
         {
             List<Examination> options = new List<Examination>();
+            List<Examination> optionOrder = new List<Examination>();
+            Examination exam = new Examination();
             doctors = doctorFileStorage.loadFromFile("Doctors.json");
             rooms = roomFileStorage.loadFromFile("Sobe.json");
             scheduledExaminations = examinationsFileStorage.loadFromFile("Pregledi.json");
@@ -200,58 +320,39 @@ namespace IS_Bolnica.Secretary
                         }
 
                     }
-
-                    if (currentDate.Minute <= 30)
+                    for (int i = 1; i <= 90; i++)
                     {
-                        for (int i = 1; i <= 90; i++)
+                        temp1 = currentDate.AddMinutes(i);
+                        examOption1.Date = new DateTime(temp1.Year, temp1.Month, temp1.Day, temp1.Hour, temp1.Minute, 0);
+                        if (isAvailable(scheduledExaminations, examOption1))
                         {
-                            temp1 = currentDate.AddMinutes(i);
-                            examOption1.Date = new DateTime(temp1.Year, temp1.Month, temp1.Day, temp1.Hour, temp1.Minute, 0);
-                            if (isAvailable(scheduledExaminations, examOption1.Patient, examOption1.RoomRecord, examOption1.Doctor, examOption1.Date))
-                            {
-                                MessageBox.Show("PROSLO " + i.ToString());
-                                options.Add(examOption1);
-                                break;
-                            }
+                            MessageBox.Show("PROSLO " + i.ToString());
+                            options.Add(examOption1);
+                            break;
                         }
-                    }
-                    else
-                    {
-                        for (int i = 1; i <= 90; i++)
-                        {
-                            temp1 = currentDate.AddMinutes(i);
-                            examOption1.Date = new DateTime(temp1.Year, temp1.Month, temp1.Day, temp1.Hour, temp1.Minute, 0);
-                            if (isAvailable(scheduledExaminations, examOption1.Patient, examOption1.RoomRecord, examOption1.Doctor, examOption1.Date))
-                            {
-                                MessageBox.Show("PROSLO " + i.ToString());
-                                options.Add(examOption1);
-                                break;
-                            }
-                        }
-                    }
+                    }             
                 }
-
             }
 
             if(options.Count == 0)
             {
-                MessageBox.Show("Lista je prazna");
+                MessageBox.Show("Nema slobodnih termina, morate da odložite");
                 foreach(Examination ex in scheduledExaminations)
                 {
                     if(ex.Doctor.Specialization.Name.Equals(specialization1.Name) && ex.Date > currentDate)
                     {
+                        ex.PostponedDate = setPostponedDate(ex).PostponedDate;
                         options.Add(ex);
+                        
                     }
                 }
+                options = sortByPostponeDates(options);
             }
 
             return options;
         }
 
-
-
-
-        private void postponeExamination(Examination examination1)
+        private Examination setPostponedDate(Examination examination1)
         {
             List<Examination> exams = new List<Examination>();
             exams = examinationsFileStorage.loadFromFile("Pregledi.json");
@@ -260,23 +361,70 @@ namespace IS_Bolnica.Secretary
             dateNew = examination1.Date;
             DateTime temp1 = new DateTime();
 
+            for (int i = 1; i < 1000; i++)
+            {
+                temp1 = dateNew.AddMinutes(i * 10);
+                examination1.PostponedDate = new DateTime(temp1.Year, temp1.Month, temp1.Day, temp1.Hour, temp1.Minute, 0);
+                if (isAvailablePostponed(exams, examination1))
+                {
+                    MessageBox.Show("AVAILABLE");
+                    break;
+                }
+            }
+            return examination1;
+        }
 
-            MessageBox.Show("Pre for petlje");
+        private List<Examination> sortByPostponeDates(List<Examination> examinations)
+        {
+            List<Examination> orderedExams = new List<Examination>();
+            DateTime minDate = new DateTime();
 
+            while (examinations.Count != 0) {
+                minDate = examinations[0].PostponedDate;
+                foreach (Examination ex in examinations)
+                {
+                    if(minDate >= ex.PostponedDate)
+                    {
+                        minDate = ex.PostponedDate;
+                    }
+                }
+
+                for(int i = 0; i < examinations.Count; i++)
+                {
+                    if(minDate == examinations[i].PostponedDate)
+                    {
+                        orderedExams.Add(examinations[i]);
+                        examinations.RemoveAt(i);
+                    }
+                }
+            }
+
+            return orderedExams;
+        }
+
+        private Examination postponeExamination(Examination examination1)
+        {
+            List<Examination> exams = new List<Examination>();
+            Examination exami = examination1;
+            exams = examinationsFileStorage.loadFromFile("Pregledi.json");
+
+            DateTime dateNew = new DateTime();
+            dateNew = exami.Date;
+            DateTime temp1 = new DateTime();
 
             for (int i = 1; i < 1000; i++)
             {
-                MessageBox.Show("FOR " + i);
                 temp1 = dateNew.AddMinutes(i*10);
-                examination1.Date = new DateTime(temp1.Year, temp1.Month, temp1.Day, temp1.Hour, temp1.Minute, 0);
-                if (isAvailable(exams, examination1.Patient, examination1.RoomRecord, examination1.Doctor, examination1.Date))
+                exami.Date = new DateTime(temp1.Year, temp1.Month, temp1.Day, temp1.Hour, temp1.Minute, 0);
+                if (isAvailable(exams, exami))
                 {
                     MessageBox.Show("AVAILABLE");
-                    exams.Add(examination1);
+                    exams.Add(exami);
                     examinationsFileStorage.saveToFile(exams, "Pregledi.json");
                     break;
                 }
             }
+            return exami;
 
         }
 
@@ -294,8 +442,6 @@ namespace IS_Bolnica.Secretary
             ex = (Examination)ExaminationOptions.SelectedItem;
             List<Examination> examinations = examinationsFileStorage.loadFromFile("Pregledi.json");
 
-            MessageBox.Show(ex.Date.ToString());
-
             if(i == -1)
             {
                 MessageBox.Show("Niste izabrali pregled koji želite da zakažete!");
@@ -303,9 +449,7 @@ namespace IS_Bolnica.Secretary
             else
             {
                 foreach (Examination exami in examinations)
-                {
-                    MessageBox.Show(exami.Date.ToString());
-
+                { 
                     if (exami.Date == ex.Date && exami.Doctor.Id.Equals(ex.Doctor.Id))
                     {
                         MessageBox.Show("CONTAINS");
@@ -317,7 +461,8 @@ namespace IS_Bolnica.Secretary
                         examinations.Remove(exami);
                         examinations.Add(examination);
                         examinationsFileStorage.saveToFile(examinations, "Pregledi.json");
-                        postponeExamination(exami);
+                        examinations.Add(postponeExamination(exami));
+                        examinationsFileStorage.saveToFile(examinations, "Pregledi.json");
                         return;
                     }
                 }
@@ -327,11 +472,7 @@ namespace IS_Bolnica.Secretary
                 examinationsFileStorage.saveToFile(examinations, "Pregledi.json");
             }
         }
-
-
-
     }
-
 
  }
 

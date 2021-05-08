@@ -84,5 +84,11 @@ namespace Model
             get;
             set;
         }
+
+        public DateTime PosponedDate
+        { 
+            get; 
+            set; 
+        }
     }
 }

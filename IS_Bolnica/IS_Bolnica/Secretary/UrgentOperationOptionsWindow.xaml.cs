@@ -72,7 +72,7 @@ namespace IS_Bolnica.Secretary
                         temp = currentDate.AddMinutes(i);
                         operOption.Date = new DateTime(temp.Year, temp.Month, temp.Day, temp.Hour, temp.Minute, 0);
                         operOption.endTime = operOption.Date.AddMinutes(operOption.DurationInMins);
-                        if(isAvailable(scheduledOperations, operOption.Patient, operOption.RoomRecord, operOption.doctor, operOption.Date, operOption.endTime))
+                        if(isAvailable(scheduledOperations, operOption))
                         {
                             MessageBox.Show("PROSLO " + i.ToString());
                             options.Add(operOption);
@@ -84,17 +84,71 @@ namespace IS_Bolnica.Secretary
 
             if(options.Count == 0)
             {
-                MessageBox.Show("Lista je prazna");
+                MessageBox.Show("Nema slobodnih termina, morate da odložite");
                 foreach(Operation op in scheduledOperations)
                 {
                     if(op.doctor.Specialization.Name.Equals(specialization1.Name) && op.Date > currentDate)
                     {
+                        op.PosponedDate = setPostponedDate(op).PosponedDate;
                         options.Add(op);
+                    }
+                }
+                options = sortByPostponeDates(options);
+            }
+
+            return options;
+        }
+
+        private Operation setPostponedDate(Operation operation1)
+        {
+            List<Operation> opers = new List<Operation>();
+            opers = operationsFileStorage.loadFromFile("operations.json");
+
+            DateTime dateNew = new DateTime();
+            dateNew = operation1.Date;
+            DateTime temp = new DateTime();
+
+            MessageBox.Show("Pre for petlje");
+
+            for (int i = 0; i < 1000; i++)
+            {
+                temp = dateNew.AddMinutes(i * 10);
+                operation1.PosponedDate = new DateTime(temp.Year, temp.Month, temp.Day, temp.Hour, temp.Minute, 0);
+                if (isAvailablePosponed(opers, operation1))
+                {
+                    break;
+                }
+            }
+            return operation1;
+        }
+
+        private List<Operation> sortByPostponeDates(List<Operation> operations) 
+        {
+            List<Operation> orderedOperations = new List<Operation>();
+            DateTime minDate = new DateTime();
+
+            while(operations.Count != 0)
+            {
+                minDate = operations[0].PosponedDate;
+                foreach(Operation op in operations)
+                {
+                    if(minDate >= op.PosponedDate)
+                    {
+                        minDate = op.PosponedDate;
+                    }
+                }
+
+                for(int i = 0; i < operations.Count; i++)
+                {
+                    if(minDate == operations[i].PosponedDate)
+                    {
+                        orderedOperations.Add(operations[i]);
+                        operations.RemoveAt(i);
                     }
                 }
             }
 
-            return options;
+            return orderedOperations;
         }
 
         private bool idExists(List<Patient> patients, string id)
@@ -113,24 +167,24 @@ namespace IS_Bolnica.Secretary
 
         }
 
-        private bool isPatientFree(List<Operation> operations, Patient patient, DateTime dateAndTimeStart, DateTime dateAndTimeEnd)
+        private bool isPatientFree(List<Operation> operations, Operation op)
         {
             foreach (Operation operation in operations)
             {
-                if (operation.Patient.Id == patient.Id)
+                if (operation.Patient.Id == operation.Patient.Id)
                 {
-                    if (operation.Date <= dateAndTimeStart && dateAndTimeStart < operation.endTime)
+                    if (operation.Date <= op.Date && op.Date < operation.endTime)
                     {
                         return false;
                     }
 
-                    if (operation.Date < dateAndTimeEnd && dateAndTimeEnd <= operation.endTime)
+                    if (operation.Date < op.endTime && op.endTime <= operation.endTime)
                     {
                         return false;
                     }
 
-                    if (operation.Date >= dateAndTimeStart && operation.endTime <= dateAndTimeEnd)
-                    {
+                    if (operation.Date >= op.Date && operation.endTime <= op.endTime) 
+                    { 
                         return false;
                     }
 
@@ -141,23 +195,23 @@ namespace IS_Bolnica.Secretary
             return true;
         }
 
-        private bool isRoomFree(List<Operation> operations, RoomRecord room, DateTime dateAndTimeStart, DateTime dateAndTimeEnd)
+        private bool isRoomFree(List<Operation> operations, Operation op)
         {
             foreach (Operation operation in operations)
             {
-                if (operation.RoomRecord.Id == room.Id)
+                if (operation.RoomRecord.Id == op.RoomRecord.Id)
                 {
-                    if (operation.Date <= dateAndTimeStart && dateAndTimeStart < operation.endTime)
+                    if (operation.Date <= op.Date && op.Date < operation.endTime)
                     {
                         return false;
                     }
 
-                    if (operation.Date >= dateAndTimeStart && operation.endTime <= dateAndTimeEnd)
+                    if (operation.Date >= op.Date && operation.endTime <= op.endTime)
                     {
                         return false;
                     }
 
-                    if (operation.Date < dateAndTimeEnd && dateAndTimeEnd <= operation.endTime)
+                    if (operation.Date < op.Date && op.endTime <= operation.endTime)
                     {
                         return false;
                     }
@@ -167,23 +221,23 @@ namespace IS_Bolnica.Secretary
             return true;
         }
 
-        private bool isDoctorFree(List<Operation> operations, Doctor doc, DateTime dateAndTimeStart, DateTime dateAndTimeEnd)
+        private bool isDoctorFree(List<Operation> operations, Operation op)
         {
             foreach (Operation operation in operations)
             {
-                if (operation.doctor.Id == doc.Id)
+                if (operation.doctor.Id == op.doctor.Id)
                 {
-                    if (operation.Date <= dateAndTimeStart && dateAndTimeStart < operation.endTime)
+                    if (operation.Date <= op.Date && op.Date < operation.endTime)
                     {
                         return false;
                     }
 
-                    if (operation.Date < dateAndTimeEnd && dateAndTimeEnd <= operation.endTime)
+                    if (operation.Date < op.endTime && op.endTime <= operation.endTime)
                     {
                         return false;
                     }
 
-                    if (operation.Date >= dateAndTimeStart && operation.endTime <= dateAndTimeEnd)
+                    if (operation.Date >= op.Date && operation.endTime <= op.endTime)
                     {
                         return false;
                     }
@@ -193,12 +247,12 @@ namespace IS_Bolnica.Secretary
             return true;
         }
 
-        private bool isAvailable(List<Operation> operations, Patient patient, RoomRecord room, Doctor doctor, DateTime dateAndTimeStart, DateTime dateAndTimeEnd)
+        private bool isAvailable(List<Operation> operations, Operation operation)
         {
-            if (patient != null) {
-                if (isPatientFree(operations, patient, dateAndTimeStart, dateAndTimeEnd)
-                    && isRoomFree(operations, room, dateAndTimeStart, dateAndTimeEnd)
-                    && isDoctorFree(operations, doctor, dateAndTimeStart, dateAndTimeEnd))
+            if (operation.Patient != null) {
+                if (isPatientFree(operations, operation)
+                    && isRoomFree(operations, operation)
+                    && isDoctorFree(operations, operation))
                 {
                     return true;
                 }
@@ -209,8 +263,121 @@ namespace IS_Bolnica.Secretary
             } 
             else
             {
-                if (isRoomFree(operations, room, dateAndTimeStart, dateAndTimeEnd)
-                    && isDoctorFree(operations, doctor, dateAndTimeStart, dateAndTimeEnd))
+                if (isRoomFree(operations,operation)
+                    && isDoctorFree(operations, operation))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+        }
+
+        private bool isPatientFreePostponed(List<Operation> operations, Operation op)
+        {
+            DateTime postponeEnd = op.PosponedDate.AddMinutes(op.DurationInMins);
+            foreach (Operation operation in operations)
+            {
+                if (operation.Patient.Id == operation.Patient.Id)
+                {
+                    if (operation.Date <= op.PosponedDate && op.PosponedDate < operation.endTime)
+                    {
+                        return false;
+                    }
+
+                    if (operation.Date < postponeEnd && postponeEnd <= operation.endTime)
+                    {
+                        return false;
+                    }
+
+                    if (operation.Date >= op.PosponedDate && operation.endTime <= postponeEnd)
+                    {
+                        return false;
+                    }
+
+                }
+
+            }
+
+            return true;
+        }
+
+        private bool isRoomFreePostponed(List<Operation> operations, Operation op)
+        {
+            DateTime postponeEnd = op.PosponedDate.AddMinutes(op.DurationInMins);
+            foreach (Operation operation in operations)
+            {
+                if (operation.RoomRecord.Id == op.RoomRecord.Id)
+                {
+                    if (operation.Date <= op.PosponedDate && op.PosponedDate < operation.endTime)
+                    {
+                        return false;
+                    }
+
+                    if (operation.Date >= op.PosponedDate && operation.endTime <= postponeEnd)
+                    {
+                        return false;
+                    }
+
+                    if (operation.Date < op.PosponedDate && postponeEnd <= operation.endTime)
+                    {
+                        return false;
+                    }
+                }
+
+            }
+            return true;
+        }
+
+        private bool isDoctorFreePostponed(List<Operation> operations, Operation op)
+        {
+            DateTime postponeEnd = op.PosponedDate.AddMinutes(op.DurationInMins);
+            foreach (Operation operation in operations)
+            {
+                if (operation.doctor.Id == op.doctor.Id)
+                {
+                    if (operation.Date <= op.PosponedDate && op.PosponedDate < operation.endTime)
+                    {
+                        return false;
+                    }
+
+                    if (operation.Date < postponeEnd && postponeEnd <= operation.endTime)
+                    {
+                        return false;
+                    }
+
+                    if (operation.Date >= op.PosponedDate && operation.endTime <= postponeEnd)
+                    {
+                        return false;
+                    }
+                }
+
+            }
+            return true;
+        }
+
+        private bool isAvailablePosponed(List<Operation> operations, Operation operation)
+        {
+            if (operation.Patient != null)
+            {
+                if (isPatientFreePostponed(operations, operation)
+                    && isRoomFreePostponed(operations, operation)
+                    && isDoctorFreePostponed(operations, operation))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                if (isRoomFreePostponed(operations, operation)
+                    && isDoctorFreePostponed(operations, operation))
                 {
                     return true;
                 }
@@ -225,62 +392,113 @@ namespace IS_Bolnica.Secretary
         private void addUrgentExamination(object sender, RoutedEventArgs e)
         {
             int i = OperationOptions.SelectedIndex;
-            Operation op = new Operation();
-            op = (Operation)OperationOptions.SelectedItem;
+            List<Operation> ops = new List<Operation>();
+            ops = OperationOptions.SelectedItems.Cast<Operation>().ToList();
             List<Operation> operations = operationsFileStorage.loadFromFile("operations.json");
 
-            if(i == -1)
+            if (i == -1)
             {
                 MessageBox.Show("Niste izabrali operaciju koju želite da zakažete!");
             }
             else
             {
-                foreach(Operation oper in operations)
+                for (int k = 0; k < operations.Count; k++)
                 {
-                    if(oper.Date == op.Date && oper.doctor.Id.Equals(op.doctor.Id))
+                    if (ops.Count == 1) 
                     {
-                        MessageBox.Show("CONTAINS");
+                        if (operations[k].Date == ops[0].Date && operations[k].doctor.Id.Equals(ops[0].doctor.Id))
+                        {
+                            if(ops[0].DurationInMins < operation.DurationInMins)
+                            {
+                                MessageBox.Show("Operacije koju ste izabrali nije dovoljno duga, izaberite još!");
+                                return;
+                            }
+                            MessageBox.Show("CONTAINS");
 
-                        operation.Date = op.Date;
-                        operation.endTime = operation.Date.AddMinutes(operation.DurationInMins);
-                        operation.doctor = op.doctor;
-                        operation.RoomRecord = op.RoomRecord;
-                        operations.Remove(oper);
-                        operations.Add(operation);
-                        operationsFileStorage.saveToFile(operations, "operations.json");
-                        postponeOperation(oper);
-                        return;
+                            operation.Date = ops[0].Date;
+                            operation.endTime = operation.Date.AddMinutes(operation.DurationInMins);
+                            operation.doctor = ops[0].doctor;
+                            operation.RoomRecord = ops[0].RoomRecord;
+                            operations.RemoveAt(k);
+                            operations.Add(operation);
+                            operationsFileStorage.saveToFile(operations, "operations.json");
+                            postponeOperation(ops[0], operations);
+                            return;
+                        }
                     }
                 }
-                operations.Add(op);
+
+                if (ops.Count > 1)
+                {
+                    int duration = 0;
+                    foreach(Operation o in ops)
+                    {
+                        duration += o.DurationInMins;
+                    }
+
+                    if(duration < operation.DurationInMins)
+                    {
+                        MessageBox.Show("Operacije koje ste izabrali nisu dovoljno dugačke, izaberite još!");
+                        return;
+                    }
+
+                    operation.Date = ops[0].Date;
+                    operation.endTime = operation.Date.AddMinutes(operation.DurationInMins);
+                    operation.doctor = ops[0].doctor;
+                    operation.RoomRecord = ops[0].RoomRecord;
+                    for (int k = 0; k<operations.Count; k++)
+                    {
+                        if(operations[k].Date.Equals(ops[0].Date) && operations[k].doctor.Id.Equals(ops[0].doctor.Id))
+                        {
+                            operations.RemoveAt(k);
+                        }
+                    }
+                    operations.Add(operation);
+                    operationsFileStorage.saveToFile(operations, "operations.json");
+                    postponeOperation(ops[0], operations);
+
+                    for(int k = 1; k < ops.Count; k++)
+                    {
+                        for (int j = 0; j < operations.Count; j++)
+                        {
+                            if (operations[j].Date.Equals(ops[k].Date) && operations[j].doctor.Id.Equals(ops[k].doctor.Id))
+                            {
+                                operations.RemoveAt(j);
+                                MessageBox.Show("OKKKKKKKKKK");
+                            }
+                        }
+                        postponeOperation(ops[k], operations);
+                    }
+                    return;
+                }
+
+
+                operations.Add(ops[0]);
                 MessageBox.Show("Okay");
                 operationsFileStorage.saveToFile(operations, "operations.json");
             }
 
         }
 
-        private void postponeOperation(Operation operation1)
+        private void postponeOperation(Operation operation1, List<Operation> operations)
         {
-            List<Operation> opers = new List<Operation>();
-            opers = operationsFileStorage.loadFromFile("operations.json");
-
             DateTime dateNew = new DateTime();
             dateNew = operation1.Date;
             DateTime temp = new DateTime();
 
             MessageBox.Show("Pre for petlje");
 
-            for(int i = 0; i<1000; i++)
+            for(int i = 0; i<1000000; i++)
             {
-                MessageBox.Show("FOR " + i);
                 temp = dateNew.AddMinutes(i*10);
                 operation1.Date = new DateTime( temp.Year, temp.Month, temp.Day, temp.Hour, temp.Minute, 0);
                 operation1.endTime = operation1.Date.AddMinutes(operation1.DurationInMins);
-                if(isAvailable(opers, operation1.Patient, operation1.RoomRecord, operation1.doctor, operation1.Date, operation1.endTime))
+                
+                if(isAvailable(operations, operation1))
                 {
                     MessageBox.Show("AVAILABLE");
-                    opers.Add(operation1);
-                    operationsFileStorage.saveToFile(opers, "operations.json");
+                    operations.Add(operation1);
+                    operationsFileStorage.saveToFile(operations, "operations.json");
                     break;
                 }
             }

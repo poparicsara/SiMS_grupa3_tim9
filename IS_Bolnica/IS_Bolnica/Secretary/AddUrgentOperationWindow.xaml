@@ -19,9 +19,9 @@
         <ComboBox x:Name="specializationBox" ItemsSource="{Binding Specializations}" HorizontalAlignment="Left" Margin="204,190,0,0" VerticalAlignment="Top" Width="178"/>
         <Label Content="JMBG pacijenta: " HorizontalAlignment="Left" Margin="40,240,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="patientIdBox" HorizontalAlignment="Left" Height="23" Margin="204,240,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
-        <Label Content="Da li želite da napravite guest nalog?" HorizontalAlignment="Left" Margin="40,417,0,0" VerticalAlignment="Top"/>
+        <Label Content="Da li želite da napravite guest nalog?" HorizontalAlignment="Left" Margin="40,450,0,0" VerticalAlignment="Top"/>
         <Button Content="Prikaži opcije za operaciju" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="40,580,0,0" VerticalAlignment="Top" Width="342" Click="getOptions" Height="35" />
-        <Button Content="Napravi guest nalog" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="250,417,0,0" VerticalAlignment="Top" Width="132" Click="addGuestAccount" Height="23" />
+        <Button Content="Napravi guest nalog" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="250,450,0,0" VerticalAlignment="Top" Width="132" Click="addGuestAccount" Height="23" />
         <Label Content="Sistemsko ime: " HorizontalAlignment="Left" Margin="40,290,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="systemNameBox" HorizontalAlignment="Left" Height="23" Margin="204,290,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
         <Label Content="*tip korisnika: " HorizontalAlignment="Left" Margin="40,142,0,0" VerticalAlignment="Top"/>
@@ -44,6 +44,8 @@
             <ComboBoxItem Content="30"/>
             <ComboBoxItem Content="45"/>
         </ComboBox>
+        <Label Content="Sala: " HorizontalAlignment="Left" Margin="40,390,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="operatiomRoomBox" HorizontalAlignment="Left" Margin="204,390,0,0" VerticalAlignment="Top" Width="178"/>
 
     </Grid>
 </Window>

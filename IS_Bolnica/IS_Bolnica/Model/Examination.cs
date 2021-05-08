@@ -14,6 +14,7 @@ namespace Model
         public Secretary Secretary { get; set; }
         public RoomRecord RoomRecord { get; set; }
         public GuestUser GuestUser { get; set; }
+        public DateTime PostponedDate { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string name)
