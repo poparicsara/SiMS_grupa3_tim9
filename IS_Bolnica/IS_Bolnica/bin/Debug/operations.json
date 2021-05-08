@@ -248,5 +248,338 @@
     },
     "IsUrgent": true,
     "endTime": "0001-01-01T00:00:00"
+  },
+  {
+    "doctor": {
+      "Specialization": {
+        "Name": "Pedijatrija"
+      },
+      "Ordination": 707,
+      "Username": "nikola",
+      "Password": "dzoni",
+      "Name": "Nikola",
+      "Surname": "Spasojević",
+      "DateOfBirth": "1980-11-01T00:00:00",
+      "Phone": "67894234",
+      "Email": "nikolas@gmail.com",
+      "Id": "4341009",
+      "UserType": 1,
+      "Address": null
+    },
+    "Doctor": null,
+    "Date": "2021-05-12T11:30:00",
+    "Patient": {
+      "Allergens": [
+        "polen"
+      ],
+      "Debit": 1500.0,
+      "examinations": null,
+      "HealthCardNumber": "6",
+      "Anamneses": null,
+      "Username": "nikola_nikolic",
+      "Password": "sasasa",
+      "Name": "Nikola",
+      "Surname": "Nikolic",
+      "DateOfBirth": "1984-12-01T00:00:00",
+      "Phone": "0647896587",
+      "Email": "nikolic@gmail.com",
+      "Id": "2222",
+      "UserType": 0,
+      "Address": {
+        "Street": "Masarikova ulica ",
+        "NumberOfBuilding": 12,
+        "Floor": 25,
+        "Apartment": 13,
+        "City": {
+          "name": "Sombor ",
+          "postalCode": "12564",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "RoomRecord": {
+      "Id": 103,
+      "HospitalWard": "Pedijatrija",
+      "inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "roomPurpose": {
+        "Name": "Operaciona sala"
+      }
+    },
+    "IsUrgent": true,
+    "endTime": "0001-01-01T00:00:00"
+  },
+  {
+    "doctor": {
+      "Specialization": {
+        "Name": "Pedijatrija"
+      },
+      "Ordination": 707,
+      "Username": "nikola",
+      "Password": "dzoni",
+      "Name": "Nikola",
+      "Surname": "Spasojević",
+      "DateOfBirth": "1980-11-01T00:00:00",
+      "Phone": "67894234",
+      "Email": "nikolas@gmail.com",
+      "Id": "4341009",
+      "UserType": 1,
+      "Address": null
+    },
+    "Doctor": null,
+    "Date": "2021-05-12T11:30:00",
+    "Patient": {
+      "Allergens": [
+        "penicilin"
+      ],
+      "Debit": 500.0,
+      "examinations": null,
+      "HealthCardNumber": "78",
+      "Anamneses": null,
+      "Username": "mare",
+      "Password": "nesto",
+      "Name": "Marko",
+      "Surname": "Markovic",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "064789552",
+      "Email": "marko@gmai.com",
+      "Id": "1111",
+      "UserType": 0,
+      "Address": {
+        "Street": "Marko Oreskovica",
+        "NumberOfBuilding": 12,
+        "Floor": 5,
+        "Apartment": 8,
+        "City": {
+          "name": "Novi Sad",
+          "postalCode": "21000",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "RoomRecord": {
+      "Id": 103,
+      "HospitalWard": "Pedijatrija",
+      "inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "roomPurpose": {
+        "Name": "Operaciona sala"
+      }
+    },
+    "IsUrgent": true,
+    "endTime": "0001-01-01T00:00:00"
+  },
+  {
+    "doctor": {
+      "Specialization": {
+        "Name": "Pedijatrija"
+      },
+      "Ordination": 707,
+      "Username": "nikola",
+      "Password": "dzoni",
+      "Name": "Nikola",
+      "Surname": "Spasojević",
+      "DateOfBirth": "1980-11-01T00:00:00",
+      "Phone": "67894234",
+      "Email": "nikolas@gmail.com",
+      "Id": "4341009",
+      "UserType": 1,
+      "Address": null
+    },
+    "Doctor": null,
+    "Date": "2021-05-15T15:30:00",
+    "Patient": {
+      "Allergens": [
+        "brufen",
+        "penicilin"
+      ],
+      "Debit": 1.0,
+      "examinations": null,
+      "HealthCardNumber": "19",
+      "Anamneses": null,
+      "Username": "nnnn",
+      "Password": "ftn",
+      "Name": "Nina",
+      "Surname": "Pavkovic",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "12345",
+      "Email": "dad",
+      "Id": "1234",
+      "UserType": 0,
+      "Address": {
+        "Street": "abc ",
+        "NumberOfBuilding": 4,
+        "Floor": 3,
+        "Apartment": 2,
+        "City": {
+          "name": "ns ",
+          "postalCode": "21000",
+          "Country": {
+            "name": "srb"
+          }
+        }
+      }
+    },
+    "RoomRecord": {
+      "Id": 103,
+      "HospitalWard": "Pedijatrija",
+      "inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "roomPurpose": {
+        "Name": "Operaciona sala"
+      }
+    },
+    "IsUrgent": false,
+    "endTime": "0001-01-01T00:00:00"
+  },
+  {
+    "doctor": {
+      "Specialization": {
+        "Name": "Pedijatrija"
+      },
+      "Ordination": 707,
+      "Username": "nikola",
+      "Password": "dzoni",
+      "Name": "Nikola",
+      "Surname": "Spasojević",
+      "DateOfBirth": "1980-11-01T00:00:00",
+      "Phone": "67894234",
+      "Email": "nikolas@gmail.com",
+      "Id": "4341009",
+      "UserType": 1,
+      "Address": null
+    },
+    "Doctor": null,
+    "Date": "2021-05-14T15:30:00",
+    "Patient": {
+      "Allergens": [
+        "penicilin"
+      ],
+      "Debit": 500.0,
+      "examinations": null,
+      "HealthCardNumber": "78",
+      "Anamneses": null,
+      "Username": "mare",
+      "Password": "nesto",
+      "Name": "Marko",
+      "Surname": "Markovic",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "064789552",
+      "Email": "marko@gmai.com",
+      "Id": "1111",
+      "UserType": 0,
+      "Address": {
+        "Street": "Marko Oreskovica",
+        "NumberOfBuilding": 12,
+        "Floor": 5,
+        "Apartment": 8,
+        "City": {
+          "name": "Novi Sad",
+          "postalCode": "21000",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "RoomRecord": {
+      "Id": 103,
+      "HospitalWard": "Pedijatrija",
+      "inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "roomPurpose": {
+        "Name": "Operaciona sala"
+      }
+    },
+    "IsUrgent": true,
+    "endTime": "0001-01-01T00:00:00"
   }
 ]

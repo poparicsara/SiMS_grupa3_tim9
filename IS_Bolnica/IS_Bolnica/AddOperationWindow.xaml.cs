@@ -36,6 +36,8 @@ namespace IS_Bolnica.DoctorsWindows
         public List<Doctor> Doctors { get; set; }
         private DoctorFileStorage doctorStorage = new DoctorFileStorage();
         private DateTime dateTime;
+
+        public List<Operation> NonUrgentOperations { get; set; }
         public AddOperationWindow()
         {
             InitializeComponent();
@@ -69,7 +71,7 @@ namespace IS_Bolnica.DoctorsWindows
 
             foreach (Doctor doctor in Doctors)
             {
-                if (doctor.Specialization.Name != " ")
+                if (doctor.Specialization != null)
                 {
                     dr = doctor.Name + ' ' + doctor.Surname;
                     doctorNameAndSurname.Add(dr);
@@ -102,7 +104,8 @@ namespace IS_Bolnica.DoctorsWindows
             Operations = operationStorage.loadFromFile("operations.json");
             Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
             Doctors = doctorStorage.loadFromFile("Doctors.json");
-            
+            NonUrgentOperations = operationStorage.loadFromFile("operations.json");
+
             string[] patientNameAndSurname = patientTxt.Text.Split(' ');
             int cnt = 0;
 
@@ -128,7 +131,7 @@ namespace IS_Bolnica.DoctorsWindows
             if ((patientNameAndSurname[0] != operation.Patient.Name) || (patientNameAndSurname[1] != operation.Patient.Surname))
             {
                 MessageBox.Show("Pogresno ime ili prezime!");
-            } 
+            }
             else if (cnt == 0)
             {
                 MessageBox.Show("Pacijent sa unetim JMBG-om ne postoji!");
@@ -177,8 +180,11 @@ namespace IS_Bolnica.DoctorsWindows
                     operation.Date = dateTime;
                 }
 
-                if (isRoomAvailable(operation.RoomRecord, operation.Date) && isDoctorAvailable(operation.Date)
-                    && isPatientAvailable(operation.Patient, operation.Date))
+                //Operations.Add(operation); 
+                //operationStorage.saveToFile(Operations, "operations.json");
+
+                if (isRoomAvailable(Operations, operation.RoomRecord, operation.Date) && isDoctorAvailable(Operations, operation.doctor, operation.Date)
+                    && isPatientAvailable(Operations, operation.Patient, operation.Date))
                 {
                     Operations.Add(operation);
                     operationStorage.saveToFile(Operations, "operations.json");
@@ -198,11 +204,9 @@ namespace IS_Bolnica.DoctorsWindows
 
         }
 
-        private bool isRoomAvailable(RoomRecord room, DateTime dateAndTime)
+        private bool isRoomAvailable(List<Operation> operations, RoomRecord room, DateTime dateAndTime)
         {
-            Operations = operationStorage.loadFromFile("operations.json");
-
-            foreach (Operation operation in Operations)
+            foreach (Operation operation in operations)
             {
                 if (operation.RoomRecord.Id == room.Id && operation.Date == dateAndTime && operation.IsUrgent == false)
                 {
@@ -213,13 +217,11 @@ namespace IS_Bolnica.DoctorsWindows
             return true;
         }
 
-        private bool isDoctorAvailable(DateTime dateAndTime)
+        private bool isDoctorAvailable(List<Operation> operations, Doctor doctor, DateTime dateAndTime)
         {
-            Operations = operationStorage.loadFromFile("operations.json");
-
-            foreach (Operation operation in Operations)
+            foreach (Operation operation in operations)
             {
-                string drNameSurname = operation.doctor.Name + ' ' + operation.doctor.Surname;
+                string drNameSurname = doctor.Name + ' ' + doctor.Surname;
 
                 if (drNameSurname.Equals(doctorsComboBox.SelectedItem.ToString()) && operation.Date.Equals(dateAndTime) && operation.IsUrgent == false)
                 {
@@ -230,11 +232,9 @@ namespace IS_Bolnica.DoctorsWindows
             return true;
         }
 
-        private bool isPatientAvailable(Patient patient, DateTime dateAndTime)
+        private bool isPatientAvailable(List<Operation> operations, Patient patient, DateTime dateAndTime)
         {
-            Operations = operationStorage.loadFromFile("operations.json");
-
-            foreach (Operation operation in Operations)
+            foreach (Operation operation in operations)
             {
                 if (operation.Patient.Id == patient.Id && operation.Date == dateAndTime && operation.IsUrgent == false)
                 {
