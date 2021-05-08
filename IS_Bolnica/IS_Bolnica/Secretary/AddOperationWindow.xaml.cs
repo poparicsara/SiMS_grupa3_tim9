@@ -86,13 +86,13 @@ namespace IS_Bolnica.Secretary
             {
                 if (operation.Patient.Id == op.Patient.Id)
                 {
-                    if (operation.Date <= op.Date && op.Date <= operation.endTime)
+                    if (operation.Date <= op.Date && op.Date < operation.endTime)
                     {
                         MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
                         return false;
                     }
 
-                    if (operation.Date <= op.endTime && op.endTime <= operation.endTime)
+                    if (operation.Date < op.endTime && op.endTime <= operation.endTime)
                     {
                         MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
                         return false;
@@ -117,7 +117,7 @@ namespace IS_Bolnica.Secretary
             {
                 if (operation.RoomRecord.Id == op.RoomRecord.Id)
                 {
-                    if (operation.Date <= op.Date && op.Date <= operation.endTime)
+                    if (operation.Date <= op.Date && op.Date < operation.endTime)
                     {
                         MessageBox.Show("Soba " + op.RoomRecord.Id + " je zauzeta u izabranom terminu");
                         return false;
@@ -129,7 +129,7 @@ namespace IS_Bolnica.Secretary
                         return false;
                     }
 
-                    if (operation.Date <= op.endTime && op.endTime <= operation.endTime)
+                    if (operation.Date < op.endTime && op.endTime <= operation.endTime)
                     {
                         MessageBox.Show("Soba " + op.RoomRecord.Id + " je zauzeta u izabranom terminu");
                         return false;
@@ -146,13 +146,13 @@ namespace IS_Bolnica.Secretary
             {
                 if (operation.doctor.Id == op.doctor.Id)
                 {
-                    if (operation.Date <= op.Date && op.Date <= operation.endTime)
+                    if (operation.Date <= op.Date && op.Date < operation.endTime)
                     {
                         MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
                         return false;
                     }
 
-                    if (operation.Date <= op.endTime && op.endTime <= operation.endTime)
+                    if (operation.Date < op.endTime && op.endTime <= operation.endTime)
                     {
                         MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
                         return false;
@@ -243,6 +243,10 @@ namespace IS_Bolnica.Secretary
                         operation.RoomRecord = Rooms[i];
                     }
                 }
+
+                int hours = Convert.ToInt32(hourBoxEnd.Text);
+                int minutes = Convert.ToInt32(minuteBoxEnd.Text);
+                operation.DurationInMins = hours * 60 + minutes;
 
                 if (isAvailable(Operations, operation))
                 {

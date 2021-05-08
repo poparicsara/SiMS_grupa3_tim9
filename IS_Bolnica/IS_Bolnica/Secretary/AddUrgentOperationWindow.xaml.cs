@@ -1,17 +1,7 @@
 ﻿using Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace IS_Bolnica.Secretary
 {
@@ -30,6 +20,9 @@ namespace IS_Bolnica.Secretary
         private GuestUsersFileStorage guestStorage = new GuestUsersFileStorage();
         private List<GuestUser> guestUsers = new List<GuestUser>();
         private GuestUser guestUser = new GuestUser();
+        private List<RoomRecord> Rooms = new List<RoomRecord>();
+        private RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+        private List<int> RoomNums = new List<int>();
 
         public AddUrgentOperationWindow()
         {
@@ -40,6 +33,16 @@ namespace IS_Bolnica.Secretary
                 Specializations.Add(spec.Name);
             }
             specializationBox.ItemsSource = Specializations;
+
+            Rooms = roomStorage.loadFromFile("Sobe.json");
+            for (int i = 0; i < Rooms.Count; i++)
+            {
+                if (Rooms[i].roomPurpose.Name == "Operaciona sala")
+                {
+                    RoomNums.Add(Rooms[i].Id);
+                }
+            }
+            operatiomRoomBox.ItemsSource = RoomNums;
         }
 
         private void addGuestAccount(object sender, RoutedEventArgs e)
