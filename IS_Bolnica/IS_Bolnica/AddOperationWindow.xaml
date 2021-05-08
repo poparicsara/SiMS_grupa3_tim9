@@ -15,7 +15,7 @@
             <Label Content="Pacijent:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" Height="35" Canvas.Left="82" Canvas.Top="207"/>
             <Label Content="JMBG:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" Height="35" Canvas.Left="82" Canvas.Top="272"/>
             <Label Content="Lekar:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" Height="35" Canvas.Left="82" Canvas.Top="389"/>
-            <Label Content="Broj zdravstvene knjizice:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="229" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" Height="35" Canvas.Left="82" Canvas.Top="323"/>
+            <Label Content="Broj zdravstvene knjižice:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="229" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" Height="35" Canvas.Left="82" Canvas.Top="323"/>
         </Canvas>
 
         <Button Content="Cancel" HorizontalAlignment="Left" Margin="852,594,0,0" VerticalAlignment="Top" Width="91" FontFamily="Ebrima" FontSize="16" Click="cancelButtonClicked" Background="#FF15285D" FontWeight="Bold" Foreground="White"/>
@@ -28,7 +28,7 @@
         <ComboBox Name="hourBox" HorizontalAlignment="Left" Margin="397,95,0,0" VerticalAlignment="Top" Width="70"/>
         <ComboBox Name="minuteBox" HorizontalAlignment="Left" Margin="499,95,0,0" VerticalAlignment="Top" Width="75">
         </ComboBox>
-        <RadioButton Name="urgentRadioBtn" Content="Hitno" HorizontalAlignment="Left" Margin="697,436,0,0" VerticalAlignment="Top" />
+        <RadioButton Name="urgentRadioBtn" Content="Hitno" HorizontalAlignment="Left" Margin="678,52,0,0" VerticalAlignment="Top" Foreground="#FF15285D" FontWeight="Bold" />
         <TextBox x:Name ="healthCardNumberTxt" HorizontalAlignment="Left" Height="28" Margin="397,330,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177"/>
         <ComboBox Name="doctorsComboBox" HorizontalAlignment="Left" Margin="397,404,0,0" VerticalAlignment="Top" Width="177"/>
 

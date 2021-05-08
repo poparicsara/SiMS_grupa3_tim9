@@ -13,8 +13,8 @@
             <Label Content="Opis:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="207" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" Canvas.Left="95" Canvas.Top="560" Height="34"/>
             <Label Content="Pacijent:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="152" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" Canvas.Left="95" Canvas.Top="134" RenderTransformOrigin="0.506,0.146" Height="33"/>
             <Label Content="JMBG:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="152" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" Canvas.Left="95" Canvas.Top="190" RenderTransformOrigin="0.506,0.146" Height="34"/>
-            <Label Content="Broj zdravstvene knjizice:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="228" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" Canvas.Left="95" Canvas.Top="255" RenderTransformOrigin="0.506,0.146" Height="34"/>
-            <Label Content="Lekar:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="152" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" Canvas.Left="95" Canvas.Top="325" RenderTransformOrigin="0.506,0.146" Height="34"/>
+            <Label Content="Broj zdravstvene knjižice:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="228" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" Canvas.Left="95" Canvas.Top="255" RenderTransformOrigin="0.506,0.146" Height="34"/>
+            <Label Content="Lekar:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="152" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" Canvas.Left="95" Canvas.Top="339" RenderTransformOrigin="0.506,0.146" Height="34"/>
             <Label Content="Soba:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="152" FontFamily="Ebrima" FontSize="18" Foreground="White" FontWeight="Bold" Canvas.Left="95" Canvas.Top="439" Height="33"/>
         </Canvas>
 
@@ -28,12 +28,12 @@
         <ComboBox Name="minuteBox" HorizontalAlignment="Left" Margin="510,81,0,0" VerticalAlignment="Top" Width="64">
         </ComboBox>
         <TextBox x:Name="healthCardNumberTxt" HorizontalAlignment="Left" Height="22" Margin="399,246,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179"/>
-        <ComboBox Name="doctorsComboBox" ItemsSource="{Binding doctorNameAndSurname}" HorizontalAlignment="Left" Margin="658,338,0,0" VerticalAlignment="Top" Width="164" SelectionChanged="doctorsComboBoxSelectionChanged"/>
-        <RadioButton Name="opstaPraksaRadioBtn" Content="opsta praksa" HorizontalAlignment="Left" Margin="399,320,0,0" VerticalAlignment="Top" Checked="opstaPraksaRadioBtn_Checked" Unchecked="opstaPraksaRadioBtn_Unchecked"/>
-        <RadioButton Name="specijalistiRadioBtn" Content="specijalisti" HorizontalAlignment="Left" Margin="399,357,0,0" VerticalAlignment="Top" Checked="specijalistiRadioBtn_Checked" Unchecked="specijalistiRadioBtn_Unchecked"/>
+        <ComboBox Name="doctorsComboBox" ItemsSource="{Binding doctorNameAndSurname}" HorizontalAlignment="Left" Margin="399,370,0,0" VerticalAlignment="Top" Width="221" SelectionChanged="doctorsComboBoxSelectionChanged"/>
+        <RadioButton Name="opstaPraksaRadioBtn" Content="opšta praksa" HorizontalAlignment="Left" Margin="399,329,0,0" VerticalAlignment="Top" Checked="opstaPraksaRadioBtn_Checked" Unchecked="opstaPraksaRadioBtn_Unchecked" Foreground="#FF15285D" FontWeight="Bold"/>
+        <RadioButton Name="specijalistiRadioBtn" Content="specijalisti" HorizontalAlignment="Left" Margin="543,329,0,0" VerticalAlignment="Top" Checked="specijalistiRadioBtn_Checked" Unchecked="specijalistiRadioBtn_Unchecked" Foreground="#FF15285D" FontWeight="Bold"/>
         <TextBox Name="roomTxt" HorizontalAlignment="Left" Height="23" Margin="399,451,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
         <ComboBox Name="timeComboBox" HorizontalAlignment="Left" Margin="636,81,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox Name="chooseSpecComboBox" HorizontalAlignment="Left" Margin="399,377,0,0" VerticalAlignment="Top" Width="179" SelectionChanged="chooseSpecComboBox_SelectionChanged"/>
+        <ComboBox Name="chooseSpecComboBox" HorizontalAlignment="Left" Margin="672,329,0,0" VerticalAlignment="Top" Width="159" SelectionChanged="chooseSpecComboBox_SelectionChanged"/>
 
     </Grid>
 </Window>

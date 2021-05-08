@@ -1,100 +1,10 @@
 [
   {
     "Id": 101,
-    "Name": "Alopurinol",
-    "Ingredients": [
-      {
-        "Name": "Alopurinol"
-      },
-      {
-        "Name": "Kukuruzni skrob"
-      },
-      {
-        "Name": "Celuloza"
-      },
-      {
-        "Name": "Natrijum-skrobglikolat"
-      },
-      {
-        "Name": "Talk"
-      },
-      {
-        "Name": "Magnezijum-stearat"
-      },
-      {
-        "Name": "Silicijum-dioksid"
-      }
-    ],
-    "Replacement": null,
-    "Producer": "Bayer",
-    "Status": 0
-    },
-  {
-    "Id": 102,
-    "Name": "Altravesa",
-    "Ingredients": [
-      {
-        "Name": "Anastrozol"
-      },
-      {
-        "Name": "Laktoza"
-      },
-      {
-        "Name": "Natrijum-skrobglikolat"
-      },
-      {
-        "Name": "Povidon K25"
-      },
-      {
-        "Name": "Magnezijum-stearat"
-      }
-    ],
-    "Replacement": null,
-    "Producer": "Hemofarm",
-    "Status": 0
-  },
-  {
-    "Id": 103,
-    "Name": "Aminosol",
-    "Ingredients": [
-      {
-        "Name": "Izoleucin"
-      },
-      {
-        "Name": "Leucin"
-      },
-      {
-        "Name": "Valin"
-      },
-      {
-        "Name": "Lizin"
-      },
-      {
-        "Name": "Metionin"
-      },
-      {
-        "Name": "Treonin"
-      }
-    ],
-    "Replacement": null,
-    "Producer": "Hemofarm",
-    "Status": 0
-  },
-  {
-    "Id": 104,
-    "Name": "Bactim roche",
-    "Ingredients": [
-      {
-        "Name": "Sulfametoksazol"
-      },
-      {
-        "Name": "Trimetoprim"
-      }
-    ],
+    "Name": "Aspirin",
     "Replacement": {
       "Id": 102,
-      "Name": "ESBESUL",
-      "Ingredients": null,
+      "Name": "AspirinPlusC",
       "Replacement": null,
       "Producer": "Bayer",
       "Status": 0
@@ -103,27 +13,42 @@
     "Status": 0
   },
   {
-    "Id": 666,
-    "Name": "nesto",
-    "Ingredients": null,
-    "Replacement": null,
-    "Producer": "neko",
-    "Status": 1
-  },
-  {
-    "Id": 999,
-    "Name": "novo",
-    "Ingredients": null,
-    "Replacement": null,
-    "Producer": "novo",
+    "Id": 303,
+    "Name": "Persen",
+    "Replacement": {
+      "Id": 102,
+      "Name": "AspirinPlusC",
+      "Replacement": null,
+      "Producer": "Bayer",
+      "Status": 0
+    },
+    "Producer": "Bayer",
     "Status": 0
   },
   {
-    "Id": 123,
-    "Name": "ddd",
-    "Ingredients": null,
-    "Replacement": null,
-    "Producer": "ddd",
+    "Id": 404,
+    "Name": "Xanax",
+    "Replacement": {
+      "Id": 102,
+      "Name": "AspirinPlusC",
+      "Replacement": null,
+      "Producer": "Bayer",
+      "Status": 0
+    },
+    "Producer": "Bayer",
+    "Status": 0
+  },
+  {
+    "Id": 202,
+    "Name": "Brufen",
+    "Replacement": {
+      "Id": 102,
+      "Name": "AspirinPlusC",
+      "Replacement": null,
+      "Producer": "Bayer",
+      "Status": 0
+    },
+    "Producer": "Bayer",
     "Status": 0
   }
 ]
