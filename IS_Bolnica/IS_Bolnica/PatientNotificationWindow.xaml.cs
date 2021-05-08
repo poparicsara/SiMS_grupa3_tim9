@@ -38,12 +38,18 @@ namespace IS_Bolnica
 
             foreach (Notification notification in temp)
             {
-                if (notification.notificationType == NotificationType.patient || notification.notificationType == NotificationType.all)
+                if (notification.notificationType == NotificationType.patient && notification.PersonId == null)
                 {
                     Notifications.Add(notification);
                 }
 
-                if(notification.PersonId != null && notification.PersonId == patient.Id)
+                if(notification.notificationType == NotificationType.all && notification.PersonId == null)
+                {
+                    Notifications.Add(notification);
+
+                }
+
+                if (notification.PersonId != null && notification.PersonId == patient.Id)
                 {
                     Notifications.Add(notification);
                 }
