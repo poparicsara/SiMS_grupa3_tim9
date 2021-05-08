@@ -91,16 +91,14 @@
         "Name": "Trimetoprim"
       }
     ],
-    "Replacement": [
-      {
-        "Id": 102,
-        "Name": "ESBESUL",
-        "Ingredients": null,
-        "Replacement": null,
-        "Producer": "Bayer",
-        "Status": 0
-      }
-    ],
+    "Replacement": {
+      "Id": 102,
+      "Name": "ESBESUL",
+      "Ingredients": null,
+      "Replacement": null,
+      "Producer": "Bayer",
+      "Status": 0
+    },
     "Producer": "Bayer",
     "Status": 0
   },

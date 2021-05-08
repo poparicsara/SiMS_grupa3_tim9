@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IS_Bolnica
 {
-    public class Ingredient
+    class Ingredient
     {
         public string Name { get; set; }
     }
