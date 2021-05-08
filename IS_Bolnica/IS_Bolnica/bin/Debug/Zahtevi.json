@@ -16,17 +16,5 @@
     "Content": "666\nnesto\nsvasta\nneko",
     "Sender": 3,
     "Recipient": 0
-  },
-  {
-    "Title": "Dodavanje leka u bazu",
-    "Content": "999\nnovo\nnovo\nnovo",
-    "Sender": 3,
-    "Recipient": 0
-  },
-  {
-    "Title": "Dodavanje leka u bazu",
-    "Content": "123\nddd\nddd\nddd",
-    "Sender": 3,
-    "Recipient": 0
   }
 ]

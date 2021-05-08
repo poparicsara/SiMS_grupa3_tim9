@@ -29,7 +29,7 @@
         <ComboBox Name="minuteBox" HorizontalAlignment="Left" Margin="487,107,0,0" VerticalAlignment="Top" Width="57">
         </ComboBox>
         <TextBox x:Name="healthCardNumberTxt" HorizontalAlignment="Left" Height="23" Margin="391,354,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>
-        <RadioButton Name="urgentRadioBtn" Content="Hitno" HorizontalAlignment="Left" Margin="656,468,0,0" VerticalAlignment="Top"/>
+        <RadioButton Name="urgentRadioBtn" Content="Hitno" HorizontalAlignment="Left" Margin="659,65,0,0" VerticalAlignment="Top" Foreground="#FF15285D" FontWeight="Bold"/>
         <ComboBox Name="doctorsComboBox" HorizontalAlignment="Left" Margin="391,446,0,0" VerticalAlignment="Top" Width="153"/>
 
     </Grid>
