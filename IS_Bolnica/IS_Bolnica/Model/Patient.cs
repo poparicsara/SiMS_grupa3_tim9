@@ -9,8 +9,8 @@ namespace Model
     {
         public List<string> Allergens { get; set; }
         public double Debit { get; set; }
-
-        //public Examination[] examination;
+        public int Akcije { get; set; }
+        public int brojOcenjenihPregleda { get; set; }
         public List<Examination> examinations { get; set; }
 
         public Patient()

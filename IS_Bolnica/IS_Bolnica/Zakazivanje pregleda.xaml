@@ -18,11 +18,8 @@
         <DatePicker Name="Datum"  HorizontalAlignment="Left" FontSize="15" Margin="61.9,199,0,0" VerticalAlignment="Top" Height="25" Width="135" DisplayDateStart="{Binding DisplayDate, ElementName=Datum}" Grid.Column="1"/>
         <Button Content="Zakazi" FontSize="18" HorizontalAlignment="Left" Margin="61.9,356,0,0" VerticalAlignment="Top" Width="94" Height="36" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="ButtonZakaziClicked" Grid.Column="1"/>
         <Button Content="Odustani" FontSize="18" HorizontalAlignment="Left" Margin="237.9,356,0,0" VerticalAlignment="Top" Width="94" Height="36" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="ButtonOdustaniClicked" Grid.Column="1"/>
-        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="61.9,133,0,0" Width="135" Name="DoctorCombo" Grid.Column="1">
-            <ComboBoxItem Content="Pera Peric"/>
-            <ComboBoxItem Content="Mika Mikic"/>
-            <ComboBoxItem Content="Zika Zikic"/>
-        </ComboBox>
+        <ComboBox ItemsSource="{Binding Path=doktori}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="61.9,133,0,0" Width="135" Name="DoctorCombo" Grid.Column="1" />
+        
         <Label Content="Vreme" FontSize="20" HorizontalAlignment="Left" Margin="96,261,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
         <ComboBox HorizontalAlignment="Left" FontSize="18" Margin="61.9,265,0,0" VerticalAlignment="Top" Width="53" x:Name="hourBox" Grid.Column="1">
             <ComboBoxItem Content="07"/>

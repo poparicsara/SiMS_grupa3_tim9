@@ -3,6 +3,7 @@ using System.Windows;
 using System.Collections.ObjectModel;
 using IS_Bolnica.Model;
 using System.Collections.Generic;
+using System;
 
 namespace IS_Bolnica
 {
@@ -58,7 +59,7 @@ namespace IS_Bolnica
                     switch (user.UserType)
                     {
                         case UserType.patient:
-                            PatientWindow pw = new PatientWindow(username);
+                            PatientWindow pw = new PatientWindow(username, true);
                             pw.Show();
                             break;
                         case UserType.doctor:
@@ -94,5 +95,7 @@ namespace IS_Bolnica
                 }
             }
         }
+
+        
     }
 }

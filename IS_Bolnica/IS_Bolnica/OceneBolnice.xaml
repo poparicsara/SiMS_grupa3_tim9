@@ -1,0 +1,45 @@
+﻿<Window x:Class="IS_Bolnica.OceneBolnice"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IS_Bolnica"
+        mc:Ignorable="d"
+        Title="OceneBolnice" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="422" Margin="0,0,-4.4,-2" Stroke="Black" VerticalAlignment="Top" Width="798" Grid.ColumnSpan="2"/>
+        <DataGrid AutoGenerateColumns="False" 
+          Height="316" 
+          Width="724"
+          ColumnHeaderHeight="30"
+          ColumnWidth="241.3"
+          FontSize="15"
+          HorizontalAlignment="Center" 
+          Name="OceneBolniceDataBinding"
+          IsReadOnly="True"
+          VerticalAlignment="Center" Margin="41,69,28.6,35" >
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FF4E8E73"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="Height" Value="30"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Ime bolnice i grad" Binding="{ Binding Bolnica}" />
+                <DataGridTextColumn Header="Ocena" Binding="{ Binding Assessment}" />
+                <DataGridTextColumn Header="Komentar" Binding="{ Binding Comment }" />
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Label Content="Vase dosadasnje ocene bolnice" FontSize="26" HorizontalAlignment="Left" Height="54" Margin="206,10,0,0" VerticalAlignment="Top" Width="392"/>
+    </Grid>
+</Window>

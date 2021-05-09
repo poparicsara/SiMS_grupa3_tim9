@@ -1,11 +1,11 @@
 namespace Model
 {
-    public enum Evaluation
+    public class Evaluation
     {
-        poor,
-        fair,
-        good,
-        veryGood,
-        excellent
+        public Patient Patient { get; set; }
+        public Doctor Doctor { get; set; }
+        public string Comment { get; set; }
+        public int Assessment { get; set; }
+        public string Bolnica { get; set; }
     }
 }
