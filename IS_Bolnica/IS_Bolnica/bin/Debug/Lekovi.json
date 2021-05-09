@@ -122,7 +122,7 @@
       "Status": 0
     },
     "Producer": "aaa",
-    "Status": 1
+    "Status": 0
   },
   {
     "Id": 103,
@@ -157,5 +157,37 @@
     },
     "Producer": "Hemofarm",
     "Status": 0
+  },
+  {
+    "Id": 123,
+    "Name": "proba",
+    "Ingredients": [
+      {
+        "Name": "b"
+      },
+      {
+        "Name": "svasta"
+      },
+      {
+        "Name": "c"
+      }
+    ],
+    "Replacement": {
+      "Id": 333,
+      "Name": "aaa",
+      "Ingredients": null,
+      "Replacement": {
+        "Id": 0,
+        "Name": "aaa",
+        "Ingredients": null,
+        "Replacement": null,
+        "Producer": null,
+        "Status": 0
+      },
+      "Producer": "aaa",
+      "Status": 0
+    },
+    "Producer": "proba",
+    "Status": 1
   }
 ]

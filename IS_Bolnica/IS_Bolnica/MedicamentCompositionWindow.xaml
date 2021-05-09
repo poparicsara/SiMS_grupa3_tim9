@@ -26,8 +26,8 @@
                 <DataGridTextColumn Width="200" Header = "NAZIV" Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="DODAJ" HorizontalAlignment="Left" Margin="645,228,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="IZMENI" HorizontalAlignment="Left" Margin="645,265,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="OBRIŠI" HorizontalAlignment="Left" Margin="645,304,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="DODAJ" HorizontalAlignment="Left" Margin="645,228,0,0" VerticalAlignment="Top" Width="75" Click="AddIngredientButton"/>
+        <Button Content="IZMENI" HorizontalAlignment="Left" Margin="645,265,0,0" VerticalAlignment="Top" Width="75" Click="EditButton"/>
+        <Button Content="OBRIŠI" HorizontalAlignment="Left" Margin="645,304,0,0" VerticalAlignment="Top" Width="75" Click="DeleteButton"/>
     </Grid>
 </Window>

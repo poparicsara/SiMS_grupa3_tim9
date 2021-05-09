@@ -1,61 +1,31 @@
 [
   {
-    "Title": "prvi",
-    "Content": "prvi",
+    "Title": "Dodavanje leka u bazu",
+    "Content": "555|nesto|svasta|mi",
     "Sender": 3,
     "Recipient": 0
   },
   {
     "Title": "Dodavanje leka u bazu",
-    "Content": "555\nnesto\nsvasta\nmi",
+    "Content": "666|nesto|svasta|neko",
     "Sender": 3,
     "Recipient": 0
   },
   {
     "Title": "Dodavanje leka u bazu",
-    "Content": "666\nnesto\nsvasta\nneko",
+    "Content": "1|1|novo|1",
     "Sender": 3,
     "Recipient": 0
   },
   {
     "Title": "Dodavanje leka u bazu",
-    "Content": "1\n1\nnovo\n1",
+    "Content": "1|a|aaa|a|b\r\nb\r\nb",
     "Sender": 3,
     "Recipient": 0
   },
   {
     "Title": "Dodavanje leka u bazu",
-    "Content": "aa\naa\nnesto\naa",
-    "Sender": 3,
-    "Recipient": 0
-  },
-  {
-    "Title": "Dodavanje leka u bazu",
-    "Content": "222\naa\nnovo\naaa",
-    "Sender": 3,
-    "Recipient": 0
-  },
-  {
-    "Title": "Dodavanje leka u bazu",
-    "Content": "333\najmo\nnesto\najde",
-    "Sender": 3,
-    "Recipient": 0
-  },
-  {
-    "Title": "Brisanje leka iz baze",
-    "Content": "333\najmo\nnesto\najde",
-    "Sender": 3,
-    "Recipient": 0
-  },
-  {
-    "Title": "Dodavanje leka u bazu",
-    "Content": "222\najde\nnovo\najde",
-    "Sender": 3,
-    "Recipient": 0
-  },
-  {
-    "Title": "Dodavanje leka u bazu",
-    "Content": "222\najde\nnesto\najde",
+    "Content": "123|proba|aaa|proba|a\r\na\r\na",
     "Sender": 3,
     "Recipient": 0
   }

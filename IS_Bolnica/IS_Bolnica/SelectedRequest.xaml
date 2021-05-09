@@ -27,5 +27,7 @@
         <Button x:Name="deleteButton" Content="Dozvoli brisanje leka" HorizontalAlignment="Left" Margin="717,498,0,0" VerticalAlignment="Top" 
             Width="136" Height="36" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" 
             BorderBrush="#FF425431" RenderTransformOrigin="1.224,0.405" FontSize="13" Click="ConfirmDeletingButton"/>
+        <Label Content="Sastav:" HorizontalAlignment="Left" Margin="660,110,0,0" VerticalAlignment="Top" Width="85" FontWeight="Bold"/>
+        <TextBox x:Name="ingredientBox" HorizontalAlignment="Left" Height="217" Margin="717,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" IsEnabled="False"/>
     </Grid>
 </Window>

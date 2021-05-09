@@ -3,6 +3,7 @@ using Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,14 +27,16 @@ namespace IS_Bolnica
             InitializeComponent();
 
             selectedRequest = selected;
+            Debug.WriteLine(selectedRequest.Content);
 
-            string[] content = selectedRequest.Content.Split('\n');
+            string[] content = selectedRequest.Content.Split('|');
 
             selectedId = (int)Int64.Parse(content[0]);
             idBox.Text = content[0];
             nameBox.Text = content[1];
             replacementBox.Text = content[2];
             producerBox.Text = content[3];
+            ingredientBox.Text = content[4];
 
             if(selected.Title.Equals("Dodavanje leka u bazu"))
             {
@@ -51,31 +54,22 @@ namespace IS_Bolnica
         {
             MedicamentFileStorage medStorage = new MedicamentFileStorage();
             List<Medicament> meds = medStorage.loadFromFile("Lekovi.json");
-            Medicament medicament = new Medicament();
-
-            medicament.Id = (int)Int64.Parse(idBox.Text);
-            medicament.Name = nameBox.Text;
-            medicament.Replacement = new Medicament();
-            medicament.Replacement.Name = replacementBox.Text;
-            medicament.Producer = producerBox.Text;
 
             foreach (Medicament med in meds)
             {
                 if(med.Id == (int)Int64.Parse(idBox.Text))
                 {
                     med.Status = MedicamentStatus.approved;
-                    medicament.Status = MedicamentStatus.approved;
-
                 }
             }
 
-            meds.Add(medicament);
             medStorage.saveToFile(meds, "Lekovi.json");
 
+            DeleteRequest();
             RequestWindow requestWindow = new RequestWindow();
             requestWindow.Show();
             this.Close();
-            DeleteRequest();
+            
         }
 
         private void SentToEditButton(object sender, RoutedEventArgs e)
@@ -93,10 +87,11 @@ namespace IS_Bolnica
 
             notificationStorage.SaveToFile(notifications, "NotificationsFileStorage.json");
 
+            DeleteRequest();
             RequestWindow requestWindow = new RequestWindow();
             requestWindow.Show();
             this.Close();
-            DeleteRequest();
+            
         }
 
         private void ConfirmDeletingButton(object sender, RoutedEventArgs e)
@@ -123,8 +118,8 @@ namespace IS_Bolnica
                 case MessageBoxResult.No:
                     break;
             }
-            this.Close();
             DeleteRequest();
+            this.Close();            
             
         }
 

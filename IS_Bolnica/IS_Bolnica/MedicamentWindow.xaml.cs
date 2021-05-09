@@ -55,16 +55,56 @@ namespace IS_Bolnica
 
         private void DeleteButtonClicked(object sender, RoutedEventArgs e)
         {
-            List<Request> requests = requestStorage.LoadFromFile("Zahtevi.json");
+            int index = medicamentData.SelectedIndex;
+            if(index < 0)
+            {
+                MessageBox.Show("Niste označili nijedan lek!");
+            }
+            else
+            {
+                MessageBoxResult messageBox = MessageBox.Show("Da li ste sigurni da želite da pošaljete zahtev za brisanje leka",
+                "Brisanje leka", MessageBoxButton.YesNo);
+                switch (messageBox)
+                {
+                    case MessageBoxResult.Yes:
+                        List<Request> requests = requestStorage.LoadFromFile("Zahtevi.json");
+                        Medicament selectedMed = (Medicament)medicamentData.SelectedItem;
+                        request.Title = "Brisanje leka iz baze";
 
-            request.Title = "Brisanje leka iz baze";
-            Medicament selectedMed = (Medicament)medicamentData.SelectedItem;
-            request.Content = selectedMed.Id + "\n" + selectedMed.Name + "\n" + selectedMed.Replacement.Name + "\n" + selectedMed.Producer;
-            request.Recipient = NotificationType.doctor;
-            request.Sender = UserType.director;
+                        string content = selectedMed.Id + "|" + selectedMed.Name + "|" + selectedMed.Replacement.Name + "|" + selectedMed.Producer + "|";
 
-            requests.Add(request);
-            requestStorage.SaveToFile(requests, "Zahtevi.json");
+                        foreach (Ingredient i in selectedMed.Ingredients)
+                        {
+                            content += i.Name + "\n";
+                        }
+
+                        request.Content = content;
+                        request.Recipient = NotificationType.doctor;
+                        request.Sender = UserType.director;
+
+                        requests.Add(request);
+                        requestStorage.SaveToFile(requests, "Zahtevi.json");
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                }
+            }  
+        }
+
+        private void EditButton(object sender, RoutedEventArgs e)
+        {
+            int index = medicamentData.SelectedIndex;
+            if (index < 0)
+            {
+                MessageBox.Show("Niste označili nijedan lek!");
+            }
+            else
+            {
+                Medicament med = (Medicament)medicamentData.SelectedItem;
+                MedicamentInfoWindow medicamentInfo = new MedicamentInfoWindow(med);
+                medicamentInfo.Show();
+                this.Close();
+            }
         }
     }
 }

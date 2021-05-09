@@ -48,7 +48,8 @@ namespace IS_Bolnica
         {
             request.Title = "Dodavanje leka u bazu";
 
-            request.Content = idBox.Text + "\n" + nameBox.Text + "\n" + replacement + "\n" + producerBox.Text;
+            request.Content = idBox.Text + "|" + nameBox.Text + "|" + replacement + "|" + producerBox.Text + "|" + ingredientBox.Text;
+            Debug.WriteLine(request.Content);
 
             if (toBox.SelectedIndex == 0)
             {
