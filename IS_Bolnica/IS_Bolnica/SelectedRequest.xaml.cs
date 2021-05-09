@@ -61,7 +61,7 @@ namespace IS_Bolnica
 
             foreach (Medicament med in meds)
             {
-                if (med.Id == (int)Int64.Parse(idBox.Text))
+                if(med.Id == (int)Int64.Parse(idBox.Text))
                 {
                     med.Status = MedicamentStatus.approved;
                     medicament.Status = MedicamentStatus.approved;

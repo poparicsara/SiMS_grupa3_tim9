@@ -17,39 +17,54 @@ namespace IS_Bolnica
 {
     public partial class UpdateMedication : Window
     {
-        private Medicament med;
+        private Medicament selectedMedication;
+        private MedicamentFileStorage medStorage = new MedicamentFileStorage();
+        private List<Medicament> meds = new List<Medicament>();
+        private Ingredient ingredient;
         public UpdateMedication(Medicament medicament)
         {
             InitializeComponent();
 
-            this.med = medicament;
+            this.selectedMedication = medicament;
+            meds = medStorage.loadFromFile("Lekovi.json");
 
-            medIdTxt.Text = med.Id.ToString();
-            medNameTxt.Text = med.Name;
-            medReplacementTxt.Text = med.Replacement.Name;
-            producerTxt.Text = med.Producer;
+            medIdTxt.Text = selectedMedication.Id.ToString();
+            medNameTxt.Text = selectedMedication.Name;
+            medReplacementTxt.Text = selectedMedication.Replacement.Name;
+            producerTxt.Text = selectedMedication.Producer;
 
+            //for (int i = 0; i < selectedMedication.Ingredients.Count; i++)
+            //{
+            //    ingredientsNames.Add(selectedMedication.Ingredients[i].Name);
+            //    //ingredientsList.Items.Add(selectedMedication.Ingredients[i].Name);
+            //}
+
+            //for (int i = 0; i < ingredientsNames.Count; i++)
+            //{
+            //    ingredientsList.Items.Add(ingredientsNames[i]);
+            //}
+
+            ingredientsData.ItemsSource = selectedMedication.Ingredients;
         }
 
         private void potvrdiButtonClicked(object sender, RoutedEventArgs e)
         {
-            MedicamentFileStorage medStorage = new MedicamentFileStorage();
-            List<Medicament> meds = medStorage.loadFromFile("Lekovi.json");
+            meds = medStorage.loadFromFile("Lekovi.json");
 
             for (int i = 0; i < meds.Count; i++)
             {
-                if (meds[i].Id.Equals(med.Id))
+                if (meds[i].Id.Equals(selectedMedication.Id))
                 {
                     meds.RemoveAt(i);
                 }
             }
 
-            med.Id = Convert.ToInt32(medIdTxt.Text);
-            med.Name = medNameTxt.Text;
-            med.Replacement.Name = medReplacementTxt.Text;
-            med.Producer = producerTxt.Text;
+            selectedMedication.Id = Convert.ToInt32(medIdTxt.Text);
+            selectedMedication.Name = medNameTxt.Text;
+            selectedMedication.Replacement.Name = medReplacementTxt.Text;
+            selectedMedication.Producer = producerTxt.Text;
 
-            meds.Add(med);
+            meds.Add(selectedMedication);
 
             medStorage.saveToFile(meds, "Lekovi.json");
 
@@ -63,6 +78,52 @@ namespace IS_Bolnica
             ListOfMedications listOfMedicationsWindow = new ListOfMedications();
             listOfMedicationsWindow.Show();
             this.Close();
+        }
+
+        private void removeIngredientButtonClicked(object sender, RoutedEventArgs e)
+        {
+            int index = ingredientsData.SelectedIndex;
+            ingredient = (Ingredient)ingredientsData.SelectedItem;
+            Medicament newMedicament = new Medicament();
+
+            if (index == -1)
+            {
+                MessageBox.Show("Niste izabrali sastojak koji zelite da obrisete!");
+            }
+            else
+            {
+                meds = medStorage.loadFromFile("Lekovi.json");
+
+                for (int i = 0; i < selectedMedication.Ingredients.Count; i++)
+                {
+                    if (selectedMedication.Ingredients[i].Name == ingredient.Name)
+                    {
+                        selectedMedication.Ingredients.RemoveAt(i);
+                    }
+                }
+
+                newMedicament = selectedMedication;
+
+                for (int i = 0; i < meds.Count; i++)
+                {
+                    if (meds[i].Id == selectedMedication.Id)
+                    {
+                        meds.RemoveAt(i);
+                    }
+                }
+
+                meds.Add(newMedicament);
+                medStorage.saveToFile(meds, "Lekovi.json");
+            }
+
+            this.Close();
+
+        }
+
+        private void addIngredientButtonClicked(object sender, RoutedEventArgs e)
+        {
+            AddIngredientWindow addIngredientWindow = new AddIngredientWindow(selectedMedication);
+            addIngredientWindow.Show();
         }
     }
 }

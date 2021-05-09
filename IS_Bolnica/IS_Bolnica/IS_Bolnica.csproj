@@ -61,6 +61,9 @@
     <Compile Include="AddExaminationWindow.xaml.cs">
       <DependentUpon>AddExaminationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddIngredientWindow.xaml.cs">
+      <DependentUpon>AddIngredientWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddInventoryWindow.xaml.cs" />
     <Compile Include="AddMedicamentWindow.xaml.cs">
       <DependentUpon>AddMedicamentWindow.xaml</DependentUpon>
@@ -248,6 +251,10 @@
       <DependentUpon>Zakazivanje pregleda.xaml</DependentUpon>
     </Compile>
     <Page Include="AddExaminationWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AddIngredientWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
