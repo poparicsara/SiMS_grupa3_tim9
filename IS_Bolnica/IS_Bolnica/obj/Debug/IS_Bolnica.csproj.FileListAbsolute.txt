@@ -498,3 +498,9 @@ C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\UrgentExaminationOptionsWindow.baml
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\UrgentOperationOptionsWindow.baml
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\UpdateMedication.baml
+C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\MedicamentCompositionWindow.g.cs
+C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\MedicamentInfoWindow.g.cs
+C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\MedicamentReplacementWindow.g.cs
+C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\MedicamentCompositionWindow.baml
+C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\MedicamentInfoWindow.baml
+C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\MedicamentReplacementWindow.baml
