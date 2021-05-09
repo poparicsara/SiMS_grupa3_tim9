@@ -28,7 +28,7 @@
     "Replacement": null,
     "Producer": "Bayer",
     "Status": 0
-    },
+  },
   {
     "Id": 102,
     "Name": "Altravesa",
@@ -125,5 +125,20 @@
     "Replacement": null,
     "Producer": "ddd",
     "Status": 0
+  },
+  {
+    "Id": 333,
+    "Name": "aaa",
+    "Ingredients": null,
+    "Replacement": {
+      "Id": 0,
+      "Name": "aaa",
+      "Ingredients": null,
+      "Replacement": null,
+      "Producer": null,
+      "Status": 0
+    },
+    "Producer": "aaa",
+    "Status": 1
   }
 ]
