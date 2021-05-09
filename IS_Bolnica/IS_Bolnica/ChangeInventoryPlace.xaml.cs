@@ -20,6 +20,7 @@ namespace IS_Bolnica
 {
     public partial class ChangeInventoryPlace : Window
     {
+        List<string> hospitalWards = new List<string>();
         private string selectedWardFrom;
         private string selectedWardTo;
         private string selectedPurposeFrom;
@@ -38,6 +39,9 @@ namespace IS_Bolnica
         private Thread thread;
         private RoomRecord roomFrom;
         private RoomRecord roomTo;
+        private const int FROM = 1;
+        private const int TO = 0;
+        private Specialization spec = new Specialization();
 
         public ChangeInventoryPlace(Inventory selected)
         {
@@ -45,35 +49,15 @@ namespace IS_Bolnica
 
             rooms = roomStorage.loadFromFile("Sobe.json");
 
-            List<string> hospitalWardFrom = new List<string>();
-            hospitalWardFrom.Add("Pedijatrija");
-            hospitalWardFrom.Add("Ortopedija");
-            hospitalWardFrom.Add("Ginekologija");
-            hospitalWardFrom.Add("Urologija");
-            hospitalWardFrom.Add("Magacin");
+            wardFromBox.ItemsSource = GetHospitalWards(FROM);
+            wardFromBox.SelectedItem = GetHospitalWards(FROM).ElementAt(0);
+            wardToBox.ItemsSource = GetHospitalWards(TO);
+            wardToBox.SelectedItem = GetHospitalWards(TO).ElementAt(0);
 
-            List<string> hospitalWard = new List<string>();
-            hospitalWard.Add("Pedijatrija");
-            hospitalWard.Add("Ortopedija");
-            hospitalWard.Add("Ginekologija");
-            hospitalWard.Add("Urologija");
-
-            wardFromBox.ItemsSource = hospitalWardFrom;
-            wardFromBox.SelectedItem = "Pedijatrija";
-
-            wardToBox.ItemsSource = hospitalWard;
-            wardToBox.SelectedItem = "Pedijatrija";
-
-            List<string> purpose = new List<string>();
-            purpose.Add("Ordinacija");
-            purpose.Add("Operaciona sala");
-            purpose.Add("Soba");
-
-            purposeFromBox.ItemsSource = purpose;
-            purposeFromBox.SelectedItem = "Ordinacija";
-
-            purposeToBox.ItemsSource = purpose;
-            purposeToBox.SelectedItem = "Ordinacija";
+            purposeFromBox.ItemsSource = GetRoomPurposes();
+            purposeFromBox.SelectedItem = GetRoomPurposes().ElementAt(0);
+            purposeToBox.ItemsSource = GetRoomPurposes();
+            purposeToBox.SelectedItem = GetRoomPurposes().ElementAt(0);
 
             selectedInventory = selected;
 
@@ -81,6 +65,27 @@ namespace IS_Bolnica
             {
                 DisableTime();
             }
+        }
+
+        private List<string> GetHospitalWards(int room)
+        {
+            List<Specialization> specializations = spec.getSpecializations();           
+            foreach(Specialization s in specializations)
+            {
+                hospitalWards.Add(s.Name);
+            }
+            if (room == FROM)
+            {
+                hospitalWards.Add("Magacin");
+            }            
+            return hospitalWards;
+        }
+
+        public List<string> GetRoomPurposes()
+        {
+            RoomPurpose purpose = new RoomPurpose();
+            List<string> purposes = purpose.GetPurposes();
+            return purposes;
         }
 
         private void DisableTime()
@@ -170,21 +175,27 @@ namespace IS_Bolnica
             amount = (int)Int64.Parse(amountBox.Text);
         }
 
-        private void DoneButton(object sender, RoutedEventArgs e)
+        private void SettingValues(object sender, RoutedEventArgs e)
         {
             SetRooms();
-
             SetAmount();
-
             SetInventories();
-
-            HasEnoughAmount();
+            CheckAmount();
         }
 
         private void SetRooms()
         {
-            roomFrom = GetRoomFrom();
-            roomTo = GetRoomTo();
+            foreach (RoomRecord r in rooms)
+            {
+                if (r.Id == (int)Int64.Parse(from))
+                {
+                    roomFrom = r;
+                }
+                else if(r.Id == (int)Int64.Parse(to))
+                {
+                    roomTo = r;
+                }
+            }
         }
 
         private void SetInventories()
@@ -204,30 +215,6 @@ namespace IS_Bolnica
                 DoChange();
             }
             this.Close();
-        }
-
-        private RoomRecord GetRoomFrom()
-        {
-            foreach(RoomRecord r in rooms)
-            {
-                if(r.Id == (int)Int64.Parse(from))
-                {
-                    return r;
-                }
-            }
-            return null;
-        }
-
-        private RoomRecord GetRoomTo()
-        {
-            foreach (RoomRecord r in rooms)
-            {
-                if (r.Id == (int)Int64.Parse(to))
-                {
-                    return r;
-                }
-            }
-            return null;
         }
 
         private void SetInventoryFrom(RoomRecord room)
@@ -274,7 +261,7 @@ namespace IS_Bolnica
             return inventory;
         }
 
-        private void HasEnoughAmount()
+        private void CheckAmount()
         {
             if(inventoryFrom.CurrentAmount < amount)
             {
@@ -297,21 +284,26 @@ namespace IS_Bolnica
 
         private void StartThread()
         {
-            thread = new Thread(new ThreadStart(ChangePlace));
+            thread = new Thread(new ThreadStart(CheckingTime));
             thread.Start();
         }
 
-        private void ChangePlace()
+        private void CheckingTime()
         {
             while (true)
             {
-                if (GetCurrentDate().Equals(selectedDate) && GetCurrentHour() == selectedHour && GetCurrentMinute() == selectedMinute)
+                if (IsSelectedTime())
                 {
                     DoChange();
                     thread.Abort();
                 }
                 Thread.Sleep(TimeSpan.FromSeconds(59));
             } 
+        }
+
+        private bool IsSelectedTime()
+        {
+            return GetCurrentDate().Equals(selectedDate) && GetCurrentHour() == selectedHour && GetCurrentMinute() == selectedMinute;
         }
 
         private void DoChange()

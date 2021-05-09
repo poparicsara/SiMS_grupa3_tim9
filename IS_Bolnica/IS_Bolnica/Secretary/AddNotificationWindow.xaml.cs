@@ -40,14 +40,26 @@ namespace IS_Bolnica.Secretary
             if (comboBox.SelectedIndex == 0)
             {
                 notification.notificationType = NotificationType.doctor;
+                if(idBox.Text != "")
+                {
+                    notification.PersonId = idBox.Text;
+                }
             }
             else if (comboBox.SelectedIndex == 1)
             {
                 notification.notificationType = NotificationType.patient;
+                if (idBox.Text != "")
+                {
+                    notification.PersonId = idBox.Text;
+                }
             }
             else if(comboBox.SelectedIndex == 2)
             {
                 notification.notificationType = NotificationType.all;
+                if (idBox.Text != "")
+                {
+                    notification.PersonId = idBox.Text;
+                }
             }
             else
             {
@@ -76,7 +88,7 @@ namespace IS_Bolnica.Secretary
 
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (comboBox.SelectedIndex == 0)
+           /* if (comboBox.SelectedIndex == 0)
             {
                 idBox.IsEnabled = false;
             }
@@ -92,7 +104,7 @@ namespace IS_Bolnica.Secretary
             {
                 idBox.IsEnabled = true;
 
-            }
+            }*/
         }
     }
 }

@@ -134,7 +134,7 @@ namespace IS_Bolnica.Secretary
         private void existableRButton_Checked(object sender, RoutedEventArgs e)
         {
             systemNameBox.IsEnabled = false;
-            patientIdBox.IsEnabled = true;
+            //patientIdBox.IsEnabled = true;
         }
 
         private void guestRButton_Checked(object sender, RoutedEventArgs e)

@@ -21,7 +21,7 @@ namespace IS_Bolnica
     {
         private Request request = new Request();
         private RequestFileStorage storage = new RequestFileStorage();
-        private ObservableCollection<Request> requests = new ObservableCollection<Request>();
+        private List<Request> requests = new List<Request>();
         public AddMedicamentWindow()
         {
             InitializeComponent();

@@ -19,7 +19,7 @@ namespace IS_Bolnica
     public partial class RequestWindow : Window
     {
         private RequestFileStorage requestStorage = new RequestFileStorage();
-        private ObservableCollection<Request> requests = new ObservableCollection<Request>();
+        private List<Request> requests = new List<Request>();
         public RequestWindow()
         {
             InitializeComponent();

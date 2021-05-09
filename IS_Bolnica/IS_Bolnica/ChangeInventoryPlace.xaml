@@ -17,7 +17,7 @@
         <ComboBox Name="numberToBox" HorizontalAlignment="Left" Margin="428,237,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="numberToChanged"/>
         <Button Content="POTVRDI" HorizontalAlignment="Left" Margin="670,386,0,0" VerticalAlignment="Top" 
                  Width="81" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" 
-                BorderBrush="#FF425431" Click="DoneButton"/>
+                BorderBrush="#FF425431" Click="SettingValues"/>
         <Label Content="Količina:" HorizontalAlignment="Left" Margin="163,277,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="amountBox" HorizontalAlignment="Left" Height="23" Margin="428,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidation"/>
         <Label Content="Namena prostorije IZ koje se preraspoređuje:" HorizontalAlignment="Left" Margin="163,101,0,0" VerticalAlignment="Top"/>
