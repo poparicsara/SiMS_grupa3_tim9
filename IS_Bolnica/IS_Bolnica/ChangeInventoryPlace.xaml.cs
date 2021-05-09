@@ -170,21 +170,27 @@ namespace IS_Bolnica
             amount = (int)Int64.Parse(amountBox.Text);
         }
 
-        private void DoneButton(object sender, RoutedEventArgs e)
+        private void SettingValues(object sender, RoutedEventArgs e)
         {
             SetRooms();
-
             SetAmount();
-
             SetInventories();
-
-            HasEnoughAmount();
+            CheckAmount();
         }
 
         private void SetRooms()
         {
-            roomFrom = GetRoomFrom();
-            roomTo = GetRoomTo();
+            foreach (RoomRecord r in rooms)
+            {
+                if (r.Id == (int)Int64.Parse(from))
+                {
+                    roomFrom = r;
+                }
+                else if(r.Id == (int)Int64.Parse(to))
+                {
+                    roomTo = r;
+                }
+            }
         }
 
         private void SetInventories()
@@ -204,30 +210,6 @@ namespace IS_Bolnica
                 DoChange();
             }
             this.Close();
-        }
-
-        private RoomRecord GetRoomFrom()
-        {
-            foreach(RoomRecord r in rooms)
-            {
-                if(r.Id == (int)Int64.Parse(from))
-                {
-                    return r;
-                }
-            }
-            return null;
-        }
-
-        private RoomRecord GetRoomTo()
-        {
-            foreach (RoomRecord r in rooms)
-            {
-                if (r.Id == (int)Int64.Parse(to))
-                {
-                    return r;
-                }
-            }
-            return null;
         }
 
         private void SetInventoryFrom(RoomRecord room)
@@ -274,7 +256,7 @@ namespace IS_Bolnica
             return inventory;
         }
 
-        private void HasEnoughAmount()
+        private void CheckAmount()
         {
             if(inventoryFrom.CurrentAmount < amount)
             {
@@ -297,21 +279,26 @@ namespace IS_Bolnica
 
         private void StartThread()
         {
-            thread = new Thread(new ThreadStart(ChangePlace));
+            thread = new Thread(new ThreadStart(CheckingTime));
             thread.Start();
         }
 
-        private void ChangePlace()
+        private void CheckingTime()
         {
             while (true)
             {
-                if (GetCurrentDate().Equals(selectedDate) && GetCurrentHour() == selectedHour && GetCurrentMinute() == selectedMinute)
+                if (IsSelectedTime())
                 {
                     DoChange();
                     thread.Abort();
                 }
                 Thread.Sleep(TimeSpan.FromSeconds(59));
             } 
+        }
+
+        private bool IsSelectedTime()
+        {
+            return GetCurrentDate().Equals(selectedDate) && GetCurrentHour() == selectedHour && GetCurrentMinute() == selectedMinute;
         }
 
         private void DoChange()
