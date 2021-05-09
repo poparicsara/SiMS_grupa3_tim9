@@ -111,6 +111,15 @@
     <Compile Include="ListOfMedications.xaml.cs">
       <DependentUpon>ListOfMedications.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MedicamentCompositionWindow.xaml.cs">
+      <DependentUpon>MedicamentCompositionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MedicamentInfoWindow.xaml.cs">
+      <DependentUpon>MedicamentInfoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MedicamentReplacementWindow.xaml.cs">
+      <DependentUpon>MedicamentReplacementWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MedicamentWindow.xaml.cs">
       <DependentUpon>MedicamentWindow.xaml</DependentUpon>
     </Compile>
@@ -322,6 +331,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MedicamentCompositionWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MedicamentInfoWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MedicamentReplacementWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MedicamentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
