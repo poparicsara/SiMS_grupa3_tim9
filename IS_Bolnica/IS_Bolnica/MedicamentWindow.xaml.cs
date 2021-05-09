@@ -26,10 +26,8 @@ namespace IS_Bolnica
 
             /*Medicament r1 = new Medicament { Id = 102, Name = "AspirinPlusC", Producer = "Bayer" };
             Medicament m = new Medicament { Name = "Aspirin", Id = 101, Replacement = r1, Producer = "Bayer" };
-
             List<Medicament> meds = new List<Medicament>();
             meds.Add(m);
-
             medStorage.saveToFile(meds, "Lekovi.json");*/
 
             medicamentData.ItemsSource = meds;
@@ -38,8 +36,9 @@ namespace IS_Bolnica
 
         private void Row_DoubleClik(object sender, MouseButtonEventArgs e)
         {
-            IngredientWindow iw = new IngredientWindow();
-            iw.Show();
+            Medicament selectedMedicament = (Medicament)medicamentData.SelectedItem;
+            MedicamentInfoWindow medWindow = new MedicamentInfoWindow(selectedMedicament);
+            medWindow.Show();
             this.Close();
         }
 

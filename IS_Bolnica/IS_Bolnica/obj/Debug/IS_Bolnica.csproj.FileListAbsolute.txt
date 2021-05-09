@@ -466,3 +466,21 @@ C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolni
 C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\UpdateMedication.g.cs
 C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\ListOfMedications.baml
 C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\UpdateMedication.baml
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\ListOfMedications.g.cs
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\MedicamentCompositionWindow.g.cs
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\MedicamentInfoWindow.g.cs
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\MedicamentReplacementWindow.g.cs
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\AddUrgentExamination.g.cs
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\AddUrgentOperationWindow.g.cs
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\UrgentExaminationOptionsWindow.g.cs
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\UrgentOperationOptionsWindow.g.cs
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\UpdateMedication.g.cs
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\ListOfMedications.baml
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\MedicamentCompositionWindow.baml
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\MedicamentInfoWindow.baml
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\MedicamentReplacementWindow.baml
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\AddUrgentExamination.baml
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\AddUrgentOperationWindow.baml
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\UrgentExaminationOptionsWindow.baml
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\UrgentOperationOptionsWindow.baml
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\UpdateMedication.baml
