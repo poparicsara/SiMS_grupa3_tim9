@@ -7,15 +7,14 @@
         mc:Ignorable="d"
         Title="AddMedicamentWindow" Height="450" Width="800">
     <Grid Margin="0,0,-0.4,0">
-        <TextBox x:Name="idBox" HorizontalAlignment="Left" Height="23" Margin="313,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Šifra:" HorizontalAlignment="Left" Margin="177,99,0,0" VerticalAlignment="Top"/>
-        <Label Content="Naziv:" HorizontalAlignment="Left" Margin="171,154,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Height="23" Margin="313,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Zamenski lek:" HorizontalAlignment="Left" Margin="171,210,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="replacementBox" HorizontalAlignment="Left" Height="23" Margin="313,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Proizvođač:" HorizontalAlignment="Left" Margin="171,250,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="producerBox" HorizontalAlignment="Left" Height="23" Margin="313,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="toBox" HorizontalAlignment="Left" Margin="313,303,0,0" VerticalAlignment="Top" Width="120">
+        <TextBox x:Name="idBox" HorizontalAlignment="Left" Height="23" Margin="267,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Šifra:" HorizontalAlignment="Left" Margin="131,58,0,0" VerticalAlignment="Top"/>
+        <Label Content="Naziv:" HorizontalAlignment="Left" Margin="125,113,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Height="23" Margin="267,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Zamenski lek:" HorizontalAlignment="Left" Margin="125,169,0,0" VerticalAlignment="Top"/>
+        <Label Content="Proizvođač:" HorizontalAlignment="Left" Margin="125,209,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="producerBox" HorizontalAlignment="Left" Height="23" Margin="267,214,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="toBox" HorizontalAlignment="Left" Margin="267,262,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem>
                 DOKTOR
             </ComboBoxItem>
@@ -26,7 +25,10 @@
         <Button Content="POŠALJI ZAHTEV" HorizontalAlignment="Left" Margin="656,355,0,0" VerticalAlignment="Top"
                 Width="114" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" 
                 BorderBrush="#FF425431" Click="DoneButton"/>
-        <Label Content="Primalac:" HorizontalAlignment="Left" Margin="171,300,0,0" VerticalAlignment="Top"/>
+        <Label Content="Primalac:" HorizontalAlignment="Left" Margin="125,259,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="replacementBox" HorizontalAlignment="Left" Margin="267,169,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ReplacementComboBoxSelectionChanged"/>
+        <TextBox x:Name="ingredientBox" HorizontalAlignment="Left" Height="202" Margin="542,62,0,0" TextWrapping="Wrap" AcceptsReturn="True" VerticalAlignment="Top" Width="173"/>
+        <Label Content="Sastav:" HorizontalAlignment="Left" Margin="483,62,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

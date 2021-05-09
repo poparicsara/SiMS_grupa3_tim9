@@ -1,4 +1,5 @@
 ﻿using IS_Bolnica.Model;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,9 @@ namespace IS_Bolnica
 {
     public partial class MedicamentWindow : Window
     {
+        private Request request = new Request();
+        private RequestFileStorage requestStorage = new RequestFileStorage();
+
         public MedicamentWindow()
         {
             InitializeComponent();
@@ -47,6 +51,20 @@ namespace IS_Bolnica
             AddMedicamentWindow addMed = new AddMedicamentWindow();
             addMed.Show();
             this.Close();
+        }
+
+        private void DeleteButtonClicked(object sender, RoutedEventArgs e)
+        {
+            List<Request> requests = requestStorage.LoadFromFile("Zahtevi.json");
+
+            request.Title = "Brisanje leka iz baze";
+            Medicament selectedMed = (Medicament)medicamentData.SelectedItem;
+            request.Content = selectedMed.Id + "\n" + selectedMed.Name + "\n" + selectedMed.Replacement.Name + "\n" + selectedMed.Producer;
+            request.Recipient = NotificationType.doctor;
+            request.Sender = UserType.director;
+
+            requests.Add(request);
+            requestStorage.SaveToFile(requests, "Zahtevi.json");
         }
     }
 }

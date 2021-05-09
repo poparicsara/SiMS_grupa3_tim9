@@ -34,7 +34,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="DODAJ" HorizontalAlignment="Left" Margin="696,367,0,0" VerticalAlignment="Top" Width="81" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" Click="AddMedicamentButton"/>
-        <Button Content="OBRIŠI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="81" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" Margin="696,325,0,0"/>
+        <Button Content="OBRIŠI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="81" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" Margin="696,325,0,0" Click="DeleteButtonClicked"/>
         <Button Content="IZMENI" HorizontalAlignment="Left" Margin="696,282,0,0" VerticalAlignment="Top" Width="81" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431"/>
         <TextBox Name="searchBox" HorizontalAlignment="Left" Height="23" Margin="580,24,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
     </Grid>

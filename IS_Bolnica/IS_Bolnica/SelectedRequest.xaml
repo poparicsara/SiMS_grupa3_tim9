@@ -16,13 +16,16 @@
         <TextBox x:Name="replacementBox" HorizontalAlignment="Left" Height="23" Margin="313,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" IsEnabled="False"/>
         <Label Content="Proizvođač:" HorizontalAlignment="Left" Margin="128,259,0,0" VerticalAlignment="Top" Width="102" FontWeight="Bold"/>
         <TextBox x:Name="producerBox" HorizontalAlignment="Left" Height="23" Margin="313,262,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" IsEnabled="False"/>
-        <Button Content="Pošalji na izmenu" HorizontalAlignment="Left" Margin="717,450,0,0" VerticalAlignment="Top" 
+        <Button x:Name="sentToEditButton" Content="Pošalji na izmenu" HorizontalAlignment="Left" Margin="717,433,0,0" VerticalAlignment="Top" 
                 Width="136" Height="36" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" 
                 BorderBrush="#FF425431" Click="SentToEditButton" RenderTransformOrigin="1.224,0.405" FontSize="13"/>
-        <Button Content="Odobri lek" HorizontalAlignment="Left" Margin="717,376,0,0" VerticalAlignment="Top"
+        <Button x:Name="acceptMedButton" Content="Odobri lek" HorizontalAlignment="Left" Margin="717,376,0,0" VerticalAlignment="Top"
                 Width="136" Height="34" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" 
                 BorderBrush="#FF425431" Click="AcceptMedicamentButton" FontSize="13"/>
         <Label Content="Odgovor:" HorizontalAlignment="Left" Margin="128,323,0,0" VerticalAlignment="Top" Width="82" FontWeight="Bold"/>
         <TextBox x:Name="responceBox" HorizontalAlignment="Left" Height="111" Margin="313,323,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296"/>
+        <Button x:Name="deleteButton" Content="Dozvoli brisanje leka" HorizontalAlignment="Left" Margin="717,498,0,0" VerticalAlignment="Top" 
+            Width="136" Height="36" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" 
+            BorderBrush="#FF425431" RenderTransformOrigin="1.224,0.405" FontSize="13" Click="ConfirmDeletingButton"/>
     </Grid>
 </Window>
