@@ -8,17 +8,38 @@
         Title="UpdateMedication" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
         Height="768" Width="1024">
     <Grid>
-        <Label Content="Informacije o leku" HorizontalAlignment="Left" Margin="80,43,0,0" VerticalAlignment="Top" Width="199" FontWeight="Bold" FontSize="16"/>
-        <Label Content="Sifra:" HorizontalAlignment="Left" Margin="80,134,0,0" VerticalAlignment="Top"/>
-        <Label Content="Naziv:" HorizontalAlignment="Left" Margin="80,190,0,0" VerticalAlignment="Top" Width="60"/>
-        <Label Content="Zamenski lek:" HorizontalAlignment="Left" Margin="80,245,0,0" VerticalAlignment="Top" Width="109"/>
-        <Label Content="Proizvodjac:" HorizontalAlignment="Left" Margin="80,306,0,0" VerticalAlignment="Top" Width="94"/>
-        <TextBox Name="medIdTxt" HorizontalAlignment="Left" Height="23" Margin="270,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="medNameTxt" HorizontalAlignment="Left" Height="23" Margin="270,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="medReplacementTxt" HorizontalAlignment="Left" Height="23" Margin="270,245,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="producerTxt" HorizontalAlignment="Left" Height="23" Margin="270,306,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Odustani" HorizontalAlignment="Left" Margin="628,387,0,0" VerticalAlignment="Top" Width="86" Height="33" Click="odustaniButtonClicked"/>
-        <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="426,387,0,0" VerticalAlignment="Top" Width="83" Height="33" Click="potvrdiButtonClicked"/>
+        <Label Content="Informacije o leku" HorizontalAlignment="Left" Margin="80,43,0,0" VerticalAlignment="Top" Width="199" FontWeight="Bold" FontSize="20"/>
+        <Label Content="Šifra:" HorizontalAlignment="Left" Margin="80,134,0,0" VerticalAlignment="Top" Width="60" FontWeight="Bold"/>
+        <Label Content="Naziv:" HorizontalAlignment="Left" Margin="80,190,0,0" VerticalAlignment="Top" Width="60" FontWeight="Bold"/>
+        <Label Content="Zamenski lek:" HorizontalAlignment="Left" Margin="80,245,0,0" VerticalAlignment="Top" Width="109" FontWeight="Bold"/>
+        <Label Content="Proizvođač:" HorizontalAlignment="Left" Margin="80,306,0,0" VerticalAlignment="Top" Width="94" FontWeight="Bold"/>
+        <TextBox Name="medIdTxt" HorizontalAlignment="Left" Height="23" Margin="270,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138"/>
+        <TextBox Name="medNameTxt" HorizontalAlignment="Left" Height="23" Margin="270,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138"/>
+        <TextBox Name="medReplacementTxt" HorizontalAlignment="Left" Height="23" Margin="270,245,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138"/>
+        <TextBox Name="producerTxt" HorizontalAlignment="Left" Height="23" Margin="270,306,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138"/>
+        <Button Content="Odustani" HorizontalAlignment="Left" Margin="699,634,0,0" VerticalAlignment="Top" Width="86" Height="33" Click="odustaniButtonClicked"/>
+        <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="525,634,0,0" VerticalAlignment="Top" Width="83" Height="33" Click="potvrdiButtonClicked"/>
+        <Button Content="Dodaj sastojak" HorizontalAlignment="Left" Margin="840,173,0,0" VerticalAlignment="Top" Width="105" Height="23" RenderTransformOrigin="-4.649,3.048" Click="addIngredientButtonClicked" />
+        <DataGrid Name="ingredientsData" HorizontalAlignment="Left" Height="279" Margin="525,134,0,0" VerticalAlignment="Top" Width="260"
+                  AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserDeleteRows="True"
+                  CanUserAddRows="False" HorizontalScrollBarVisibility="Hidden">
+
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="Height" Value="25"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Style>
+            </DataGrid.Resources>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="260" Header="Sastojci" Binding="{Binding Name}" />
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Button Content="Izbaci sastojak" HorizontalAlignment="Left" Margin="840,216,0,0" VerticalAlignment="Top" Width="105" Height="23" RenderTransformOrigin="-4.649,3.048" Click="removeIngredientButtonClicked" />
 
     </Grid>
 </Window>

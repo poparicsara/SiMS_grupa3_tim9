@@ -20,15 +20,19 @@
       },
       {
         "Name": "Magnezijum-stearat"
-      },
-      {
-        "Name": "Silicijum-dioksid"
       }
     ],
-    "Replacement": null,
+    "Replacement": {
+      "Id": 102,
+      "Name": "ESBESUL",
+      "Ingredients": null,
+      "Replacement": null,
+      "Producer": "Bayer",
+      "Status": 0
+    },
     "Producer": "Bayer",
     "Status": 0
-    },
+  },
   {
     "Id": 102,
     "Name": "Altravesa",
@@ -49,34 +53,14 @@
         "Name": "Magnezijum-stearat"
       }
     ],
-    "Replacement": null,
-    "Producer": "Hemofarm",
-    "Status": 0
-  },
-  {
-    "Id": 103,
-    "Name": "Aminosol",
-    "Ingredients": [
-      {
-        "Name": "Izoleucin"
-      },
-      {
-        "Name": "Leucin"
-      },
-      {
-        "Name": "Valin"
-      },
-      {
-        "Name": "Lizin"
-      },
-      {
-        "Name": "Metionin"
-      },
-      {
-        "Name": "Treonin"
-      }
-    ],
-    "Replacement": null,
+    "Replacement": {
+      "Id": 102,
+      "Name": "ESBESUL",
+      "Ingredients": null,
+      "Replacement": null,
+      "Producer": "Bayer",
+      "Status": 0
+    },
     "Producer": "Hemofarm",
     "Status": 0
   },
@@ -106,24 +90,49 @@
     "Id": 666,
     "Name": "nesto",
     "Ingredients": null,
-    "Replacement": null,
+    "Replacement": {
+      "Id": 0,
+      "Name": "svasta",
+      "Ingredients": null,
+      "Replacement": null,
+      "Producer": null,
+      "Status": 0
+    },
     "Producer": "neko",
-    "Status": 1
-  },
-  {
-    "Id": 999,
-    "Name": "novo",
-    "Ingredients": null,
-    "Replacement": null,
-    "Producer": "novo",
     "Status": 0
   },
   {
-    "Id": 123,
-    "Name": "ddd",
-    "Ingredients": null,
-    "Replacement": null,
-    "Producer": "ddd",
+    "Id": 103,
+    "Name": "Aminosol",
+    "Ingredients": [
+      {
+        "Name": "Izoleucin"
+      },
+      {
+        "Name": "Leucin"
+      },
+      {
+        "Name": "Valin"
+      },
+      {
+        "Name": "Lizin"
+      },
+      {
+        "Name": "Metionin"
+      },
+      {
+        "Name": "Treonin"
+      }
+    ],
+    "Replacement": {
+      "Id": 102,
+      "Name": "ESBESUL",
+      "Ingredients": null,
+      "Replacement": null,
+      "Producer": "Bayer",
+      "Status": 0
+    },
+    "Producer": "Hemofarm",
     "Status": 0
   }
 ]

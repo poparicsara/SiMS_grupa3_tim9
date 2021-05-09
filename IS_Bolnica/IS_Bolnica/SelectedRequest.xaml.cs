@@ -39,15 +39,26 @@ namespace IS_Bolnica
         {
             MedicamentFileStorage medStorage = new MedicamentFileStorage();
             List<Medicament> meds = medStorage.loadFromFile("Lekovi.json");
+            Medicament medicament = new Medicament();
 
-            foreach(Medicament med in meds)
+            medicament.Id = (int)Int64.Parse(idBox.Text);
+            medicament.Name = nameBox.Text;
+            medicament.Replacement = new Medicament();
+            medicament.Replacement.Name = replacementBox.Text;
+            medicament.Producer = producerBox.Text;
+
+            foreach (Medicament med in meds)
             {
                 if(med.Id == (int)Int64.Parse(idBox.Text))
                 {
                     med.Status = MedicamentStatus.approved;
-                    medStorage.saveToFile(meds, "Lekovi.json");
+                    medicament.Status = MedicamentStatus.approved;
+                   
                 }
             }
+
+            meds.Add(medicament);
+            medStorage.saveToFile(meds, "Lekovi.json");
 
             RequestWindow requestWindow = new RequestWindow();
             requestWindow.Show();
