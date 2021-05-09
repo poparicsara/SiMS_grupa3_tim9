@@ -26,6 +26,9 @@ namespace IS_Bolnica.Secretary
         private Doctor doctor = new Doctor();
         private List<Doctor> doctors = new List<Doctor>();
         public List<string> DocNames = new List<string>();
+        private Operation operation = new Operation();
+        private List<Operation> operations = new List<Operation>();
+        private OperationsFileStorage operationsFileStorage = new OperationsFileStorage();
 
         public AddExaminationWindow()
         {
@@ -76,7 +79,7 @@ namespace IS_Bolnica.Secretary
             {
                 DateTime endTime = new DateTime();
                 endTime = exam.Date.AddMinutes(30);
-                if (exam.Patient.Id == patient.Id && exam.Date == ex.Date)
+                if (exam.Patient.Id == ex.Patient.Id && exam.Date == ex.Date)
                 {
                     if (exam.Date <= ex.Date && ex.Date < endTime)
                     {
@@ -226,7 +229,13 @@ namespace IS_Bolnica.Secretary
                     }
                 }
 
-                if (isAvailable(Examinations, examination))
+                operations = operationsFileStorage.loadFromFile("operations.json");
+                operation.Date = examination.Date;
+                operation.endTime = operation.Date.AddMinutes(30);
+                operation.Patient = examination.Patient;
+                operation.doctor = examination.Doctor;
+                operation.RoomRecord = examination.RoomRecord;
+                if (isAvailable(Examinations, examination) && isAvailableOp(operations, operation))
                 {
                     Examinations.Add(examination);
                     examinationStorage.saveToFile(Examinations, "Pregledi.json");
@@ -244,5 +253,115 @@ namespace IS_Bolnica.Secretary
             this.Close();
         }
 
+
+        private bool isPatientFreeOp(List<Operation> operations, Operation op)
+        {
+            foreach (Operation operation in operations)
+            {
+                if (operation.Patient.Id == op.Patient.Id)
+                {
+                    if (operation.Date <= op.Date && op.Date < operation.endTime)
+                    {
+                        MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
+                        return false;
+                    }
+
+                    if (operation.Date < op.endTime && op.endTime <= operation.endTime)
+                    {
+                        MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
+                        return false;
+                    }
+
+                    if (operation.Date >= op.Date && operation.endTime <= op.endTime)
+                    {
+                        MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
+                        return false;
+                    }
+
+                }
+
+            }
+
+            return true;
+        }
+
+        private bool isRoomFreeOp(List<Operation> operations, Operation op)
+        {
+            foreach (Operation operation in operations)
+            {
+                if (operation.RoomRecord.Id == op.RoomRecord.Id)
+                {
+                    if (operation.Date <= op.Date && op.Date < operation.endTime)
+                    {
+                        MessageBox.Show("Soba " + op.RoomRecord.Id + " je zauzeta u izabranom terminu");
+                        return false;
+                    }
+
+                    if (operation.Date >= op.Date && operation.endTime <= op.endTime)
+                    {
+                        MessageBox.Show("Soba " + op.RoomRecord.Id + " je zauzeta u izabranom terminu");
+                        return false;
+                    }
+
+                    if (operation.Date < op.endTime && op.endTime <= operation.endTime)
+                    {
+                        MessageBox.Show("Soba " + op.RoomRecord.Id + " je zauzeta u izabranom terminu");
+                        return false;
+                    }
+                }
+
+            }
+            return true;
+        }
+
+        private bool isDoctorFreeOp(List<Operation> operations, Operation op)
+        {
+            foreach (Operation operation in operations)
+            {
+                if (operation.doctor.Id == op.doctor.Id)
+                {
+                    if (operation.Date <= op.Date && op.Date < operation.endTime)
+                    {
+                        MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
+                        return false;
+                    }
+
+                    if (operation.Date < op.endTime && op.endTime <= operation.endTime)
+                    {
+                        MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
+                        return false;
+                    }
+
+                    if (operation.Date >= op.Date && operation.endTime <= op.endTime)
+                    {
+                        MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
+                        return false;
+                    }
+                }
+
+            }
+            return true;
+        }
+
+        private bool isAvailableOp(List<Operation> operations, Operation op)
+        {
+            if (isPatientFreeOp(operations, op)
+                && isRoomFreeOp(operations, op)
+                && isDoctorFreeOp(operations, op))
+            {
+                return true;
+            }
+            else
+            {
+                //MessageBox.Show("Ovaj pregled je vec zauzet!");
+
+                return false;
+            }
+
+        }
+
     }
+
+
+
 }

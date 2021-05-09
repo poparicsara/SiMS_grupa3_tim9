@@ -29,6 +29,11 @@ namespace IS_Bolnica.Secretary
         private DoctorFileStorage doctorFileStorage = new DoctorFileStorage();
         private List<RoomRecord> rooms = new List<RoomRecord>();
         private RoomRecordFileStorage roomFileStorage = new RoomRecordFileStorage();
+        private Examination examination = new Examination();
+        private List<Examination> examinations = new List<Examination>();
+        private ExaminationsRecordFileStorage examinationsFileStorage = new ExaminationsRecordFileStorage();
+
+
 
         public UrgentOperationOptionsWindow(Operation operation, Specialization specialization)
         {
@@ -72,7 +77,13 @@ namespace IS_Bolnica.Secretary
                         temp = currentDate.AddMinutes(i);
                         operOption.Date = new DateTime(temp.Year, temp.Month, temp.Day, temp.Hour, temp.Minute, 0);
                         operOption.endTime = operOption.Date.AddMinutes(operOption.DurationInMins);
-                        if(isAvailable(scheduledOperations, operOption))
+                        examinations = examinationsFileStorage.loadFromFile("Pregledi.json");
+                        examination.Date = operOption.Date;
+                        examination.DurationInMinutes = operOption.DurationInMins;
+                        examination.Patient = operOption.Patient;
+                        examination.Doctor = operOption.doctor;
+                        examination.RoomRecord = operOption.RoomRecord;
+                        if (isAvailable(scheduledOperations, operOption) && isAvailableEx(examinations, examination))
                         {
                             MessageBox.Show("PROSLO " + i.ToString());
                             options.Add(operOption);
@@ -493,8 +504,14 @@ namespace IS_Bolnica.Secretary
                 temp = dateNew.AddMinutes(i*10);
                 operation1.Date = new DateTime( temp.Year, temp.Month, temp.Day, temp.Hour, temp.Minute, 0);
                 operation1.endTime = operation1.Date.AddMinutes(operation1.DurationInMins);
-                
-                if(isAvailable(operations, operation1))
+
+                examinations = examinationsFileStorage.loadFromFile("Pregledi.json");
+                examination.Date = operation1.Date;
+                examination.DurationInMinutes = operation1.DurationInMins;
+                examination.Patient = operation1.Patient;
+                examination.Doctor = operation1.doctor;
+                examination.RoomRecord = operation1.RoomRecord;
+                if (isAvailable(operations, operation1) && isAvailableEx(examinations, examination))
                 {
                     MessageBox.Show("AVAILABLE");
                     operations.Add(operation1);
@@ -509,6 +526,119 @@ namespace IS_Bolnica.Secretary
             this.Close();
             ActionBarWindow abw = new ActionBarWindow();
             abw.Show();
+        }
+
+
+
+        private bool isPatientFreeEx(List<Examination> exams, Examination ex)
+        {
+            DateTime endTimeNew = new DateTime();
+            endTimeNew = ex.Date.AddMinutes(ex.DurationInMinutes);
+            foreach (Examination exam in exams)
+            {
+                DateTime endTime = new DateTime();
+                endTime = exam.Date.AddMinutes(30);
+                if (exam.Patient.Id == ex.Patient.Id && exam.Date == ex.Date)
+                {
+                    if (exam.Date <= ex.Date && ex.Date < endTime)
+                    {
+                        MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
+                        return false;
+                    }
+
+                    if (exam.Date < endTimeNew && endTimeNew <= endTime)
+                    {
+                        MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
+                        return false;
+                    }
+
+                    if (exam.Date >= ex.Date && endTime < endTimeNew)
+                    {
+                        MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
+                        return false;
+                    }
+                }
+
+            }
+
+            return true;
+        }
+
+        private bool isRoomFreeEx(List<Examination> exams, Examination ex)
+        {
+            DateTime endTimeNew = new DateTime();
+            endTimeNew = ex.Date.AddMinutes(ex.DurationInMinutes);
+            foreach (Examination exam in exams)
+            {
+                DateTime endTime = new DateTime();
+                endTime = exam.Date.AddMinutes(30);
+                if (exam.RoomRecord.Id == ex.RoomRecord.Id)
+                {
+                    if (exam.Date <= ex.Date && ex.Date < endTime)
+                    {
+                        MessageBox.Show("Soba " + ex.RoomRecord.Id + "je zauzeta u izabranom terminu");
+                        return false;
+                    }
+
+                    if (exam.Date < endTimeNew && endTimeNew <= endTime)
+                    {
+                        MessageBox.Show("Soba " + ex.RoomRecord.Id + "je zauzeta u izabranom terminu");
+                        return false;
+                    }
+
+                    if (exam.Date >= ex.Date && endTime < endTimeNew)
+                    {
+                        MessageBox.Show("Soba " + ex.RoomRecord.Id + "je zauzeta u izabranom terminu");
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        private bool isDoctorFreeEx(List<Examination> exams, Examination ex)
+        {
+            DateTime endTimeNew = new DateTime();
+            endTimeNew = ex.Date.AddMinutes(ex.DurationInMinutes);
+            foreach (Examination exam in exams)
+            {
+                DateTime endTime = new DateTime();
+                endTime = exam.Date.AddMinutes(30);
+                if (exam.Doctor.Id == ex.Doctor.Id && exam.Date == ex.Date)
+                {
+                    if (exam.Date <= ex.Date && ex.Date < endTime)
+                    {
+                        MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
+                        return false;
+                    }
+
+                    if (exam.Date < endTimeNew && endTimeNew <= endTime)
+                    {
+                        MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
+                        return false;
+                    }
+
+                    if (exam.Date >= ex.Date && endTime <= endTimeNew)
+                    {
+                        MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        private bool isAvailableEx(List<Examination> exams, Examination ex)
+        {
+            if (isPatientFreeEx(exams, ex) && isRoomFreeEx(exams, ex) && isDoctorFreeEx(exams, ex))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
     }
 }
