@@ -618,7 +618,7 @@
       "Specialization": {
         "Name": "Alergologija i imunologija"
       },
-      "Ordination": 102,
+      "Ordination": 300,
       "Username": "Ognjen",
       "Password": "ognjen",
       "Name": "Ognjen",
@@ -633,185 +633,7 @@
     "DurationInMins": 60,
     "GuestUser": null,
     "Doctor": null,
-    "Date": "2021-05-09T04:00:00",
-    "Patient": {
-      "Allergens": [
-        "penicilin"
-      ],
-      "examinations": null,
-      "Debit": 500.0,
-      "HealthCardNumber": "78",
-      "Anamneses": null,
-      "Username": "mare",
-      "Password": "nesto",
-      "Name": "Marko",
-      "Surname": "Markovic",
-      "DateOfBirth": "2021-04-19T00:00:00+02:00",
-      "Phone": "064789552",
-      "Email": "marko@gmai.com",
-      "Id": "1111",
-      "UserType": 0,
-      "Address": {
-        "Street": "Marko Oreskovica",
-        "NumberOfBuilding": 12,
-        "Floor": 5,
-        "Apartment": 8,
-        "City": {
-          "name": "Novi Sad",
-          "postalCode": "21000",
-          "Country": {
-            "name": "Srbija"
-          }
-        }
-      }
-    },
-    "RoomRecord": {
-      "Id": 103,
-      "HospitalWard": "Pedijatrija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Operaciona sala"
-      }
-    },
-    "IsUrgent": false,
-    "endTime": "2021-05-09T05:00:00",
-    "PosponedDate": "2021-05-15T20:30:00"
-  },
-  {
-    "doctor": {
-      "Specialization": {
-        "Name": "Alergologija i imunologija"
-      },
-      "Ordination": 102,
-      "Username": "Ognjen",
-      "Password": "ognjen",
-      "Name": "Ognjen",
-      "Surname": "Nestorović",
-      "DateOfBirth": "1979-11-01T00:00:00",
-      "Phone": "67894652",
-      "Email": "maricm@hotmail.com",
-      "Id": "1",
-      "UserType": 1,
-      "Address": null
-    },
-    "DurationInMins": 60,
-    "GuestUser": {
-      "SystemName": null,
-      "InjuryDescription": null
-    },
-    "Doctor": null,
-    "Date": "2021-05-09T03:00:00",
-    "Patient": {
-      "Allergens": [
-        "penicilin"
-      ],
-      "examinations": null,
-      "Debit": 500.0,
-      "HealthCardNumber": "78",
-      "Anamneses": null,
-      "Username": "mare",
-      "Password": "nesto",
-      "Name": "Marko",
-      "Surname": "Markovic",
-      "DateOfBirth": "2021-04-19T00:00:00+02:00",
-      "Phone": "064789552",
-      "Email": "marko@gmai.com",
-      "Id": "1111",
-      "UserType": 0,
-      "Address": {
-        "Street": "Marko Oreskovica",
-        "NumberOfBuilding": 12,
-        "Floor": 5,
-        "Apartment": 8,
-        "City": {
-          "name": "Novi Sad",
-          "postalCode": "21000",
-          "Country": {
-            "name": "Srbija"
-          }
-        }
-      }
-    },
-    "RoomRecord": {
-      "Id": 103,
-      "HospitalWard": "Pedijatrija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Operaciona sala"
-      }
-    },
-    "IsUrgent": false,
-    "endTime": "2021-05-09T04:00:00",
-    "PosponedDate": "0001-01-01T00:00:00"
-  },
-  {
-    "doctor": {
-      "Specialization": {
-        "Name": "Alergologija i imunologija"
-      },
-      "Ordination": 102,
-      "Username": "Ognjen",
-      "Password": "ognjen",
-      "Name": "Ognjen",
-      "Surname": "Nestorović",
-      "DateOfBirth": "1979-11-01T00:00:00",
-      "Phone": "67894652",
-      "Email": "maricm@hotmail.com",
-      "Id": "1",
-      "UserType": 1,
-      "Address": null
-    },
-    "DurationInMins": 60,
-    "GuestUser": {
-      "SystemName": null,
-      "InjuryDescription": null
-    },
-    "Doctor": null,
-    "Date": "2021-05-09T05:00:00",
+    "Date": "2021-05-09T06:00:00",
     "Patient": {
       "Allergens": [
         "polen"
@@ -874,64 +696,66 @@
       }
     },
     "IsUrgent": false,
-    "endTime": "2021-05-09T06:00:00",
-    "PosponedDate": "2021-05-09T05:00:00"
+    "endTime": "2021-05-09T07:00:00",
+    "PosponedDate": "0001-01-01T00:00:00"
   },
   {
     "doctor": {
       "Specialization": {
-        "Name": "Pedijatrija"
+        "Name": "Alergologija i imunologija"
       },
-      "Ordination": 107,
-      "Username": "nikola",
-      "Password": "dzoni",
-      "Name": "Nikola",
-      "Surname": "Spasojević",
-      "DateOfBirth": "1980-11-01T00:00:00",
-      "Phone": "67894234",
-      "Email": "nikolas@gmail.com",
-      "Id": "4341009",
+      "Ordination": 300,
+      "Username": "Ognjen",
+      "Password": "ognjen",
+      "Name": "Ognjen",
+      "Surname": "Nestorović",
+      "DateOfBirth": "1979-11-01T00:00:00",
+      "Phone": "67894652",
+      "Email": "maricm@hotmail.com",
+      "Id": "1",
       "UserType": 1,
       "Address": null
     },
-    "DurationInMins": 0,
-    "GuestUser": null,
+    "DurationInMins": 120,
+    "GuestUser": {
+      "SystemName": null,
+      "InjuryDescription": null
+    },
     "Doctor": null,
-    "Date": "2021-05-22T13:30:00",
+    "Date": "2021-05-10T13:34:00",
     "Patient": {
       "Allergens": [
-        "brufen",
-        "penicilin"
+        "polen"
       ],
       "examinations": null,
-      "Debit": 1.0,
-      "HealthCardNumber": "19",
+      "Debit": 1500.0,
+      "HealthCardNumber": "6",
       "Anamneses": null,
-      "Username": "nnnn",
-      "Password": "ftn",
-      "Name": "Nina",
-      "Surname": "Pavkovic",
-      "DateOfBirth": "2021-04-19T00:00:00+02:00",
-      "Phone": "12345",
-      "Email": "dad",
-      "Id": "1234",
+      "Username": "nikola_nikolic",
+      "Password": "sasasa",
+      "Name": "Nikola",
+      "Surname": "Nikolic",
+      "DateOfBirth": "1984-12-01T00:00:00",
+      "Phone": "0647896587",
+      "Email": "nikolic@gmail.com",
+      "Id": "2222",
       "UserType": 0,
       "Address": {
-        "Street": "abc ",
-        "NumberOfBuilding": 4,
-        "Floor": 3,
-        "Apartment": 2,
+        "Street": "Masarikova ulica ",
+        "NumberOfBuilding": 12,
+        "Floor": 25,
+        "Apartment": 13,
         "City": {
-          "name": "ns ",
-          "postalCode": "21000",
+          "name": "Sombor ",
+          "postalCode": "12564",
           "Country": {
-            "name": "srb"
+            "name": "Srbija"
           }
         }
       }
     },
     "RoomRecord": {
-      "Id": 103,
+      "Id": 300,
       "HospitalWard": "Pedijatrija",
       "inventory": [
         {
@@ -943,7 +767,7 @@
         },
         {
           "Name": "Injekcija",
-          "CurrentAmount": 20,
+          "CurrentAmount": 27,
           "Minimum": 2,
           "Id": 202,
           "InventoryType": 0
@@ -957,34 +781,123 @@
         }
       ],
       "roomPurpose": {
-        "Name": "Operaciona sala"
+        "Name": "Ordinacija"
       }
     },
     "IsUrgent": false,
-    "endTime": "0001-01-01T00:00:00",
+    "endTime": "2021-05-10T15:34:00",
     "PosponedDate": "0001-01-01T00:00:00"
   },
   {
     "doctor": {
       "Specialization": {
-        "Name": "Pedijatrija"
+        "Name": "Alergologija i imunologija"
       },
-      "Ordination": 107,
-      "Username": "nikola",
-      "Password": "dzoni",
-      "Name": "Nikola",
-      "Surname": "Spasojević",
-      "DateOfBirth": "1980-11-01T00:00:00",
-      "Phone": "67894234",
-      "Email": "nikolas@gmail.com",
-      "Id": "4341009",
+      "Ordination": 300,
+      "Username": "Ognjen",
+      "Password": "ognjen",
+      "Name": "Ognjen",
+      "Surname": "Nestorović",
+      "DateOfBirth": "1979-11-01T00:00:00",
+      "Phone": "67894652",
+      "Email": "maricm@hotmail.com",
+      "Id": "1",
       "UserType": 1,
       "Address": null
     },
-    "DurationInMins": 0,
+    "DurationInMins": 60,
+    "GuestUser": {
+      "SystemName": null,
+      "InjuryDescription": null
+    },
+    "Doctor": null,
+    "Date": "2021-05-10T15:54:00",
+    "Patient": {
+      "Allergens": [
+        "penicilin"
+      ],
+      "examinations": null,
+      "Debit": 500.0,
+      "HealthCardNumber": "78",
+      "Anamneses": null,
+      "Username": "mare",
+      "Password": "nesto",
+      "Name": "Marko",
+      "Surname": "Markovic",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "064789552",
+      "Email": "marko@gmai.com",
+      "Id": "1111",
+      "UserType": 0,
+      "Address": {
+        "Street": "Marko Oreskovica",
+        "NumberOfBuilding": 12,
+        "Floor": 5,
+        "Apartment": 8,
+        "City": {
+          "name": "Novi Sad",
+          "postalCode": "21000",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "RoomRecord": {
+      "Id": 300,
+      "HospitalWard": "Pedijatrija",
+      "inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 27,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "roomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "IsUrgent": false,
+    "endTime": "2021-05-10T16:54:00",
+    "PosponedDate": "2021-05-10T15:54:00"
+  },
+  {
+    "doctor": {
+      "Specialization": {
+        "Name": "Alergologija i imunologija"
+      },
+      "Ordination": 300,
+      "Username": "Ognjen",
+      "Password": "ognjen",
+      "Name": "Ognjen",
+      "Surname": "Nestorović",
+      "DateOfBirth": "1979-11-01T00:00:00",
+      "Phone": "67894652",
+      "Email": "maricm@hotmail.com",
+      "Id": "1",
+      "UserType": 1,
+      "Address": null
+    },
+    "DurationInMins": 60,
     "GuestUser": null,
     "Doctor": null,
-    "Date": "2021-05-20T13:30:00",
+    "Date": "2021-05-10T16:55:00",
     "Patient": {
       "Allergens": [
         "penicilin"
@@ -1046,56 +959,8 @@
         "Name": "Operaciona sala"
       }
     },
-    "IsUrgent": true,
-    "endTime": "0001-01-01T00:00:00",
-    "PosponedDate": "0001-01-01T00:00:00"
-  },
-  {
-    "doctor": null,
-    "DurationInMins": 0,
-    "GuestUser": null,
-    "Doctor": null,
-    "Date": "2021-05-10T00:00:00",
-    "Patient": null,
-    "RoomRecord": {
-      "Id": 707,
-      "HospitalWard": "Pedijatrija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 24,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        },
-        {
-          "Name": "nesto",
-          "CurrentAmount": 3,
-          "Minimum": 0,
-          "Id": 555,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Ordinacija"
-      }
-    },
     "IsUrgent": false,
-    "endTime": "2021-05-14T00:00:00",
-    "PosponedDate": "0001-01-01T00:00:00"
+    "endTime": "2021-05-10T17:55:00",
+    "PosponedDate": "2021-05-10T15:45:00"
   }
 ]

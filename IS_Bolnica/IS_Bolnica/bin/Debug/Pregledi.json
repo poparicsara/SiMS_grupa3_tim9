@@ -8,8 +8,8 @@
       "Allergens": [
         "polen"
       ],
-      "Debit": 1500.0,
       "examinations": null,
+      "Debit": 1500.0,
       "HealthCardNumber": "6",
       "Anamneses": null,
       "Username": "nikola_nikolic",
@@ -101,8 +101,8 @@
       "Allergens": [
         "penicilin"
       ],
-      "Debit": 500.0,
       "examinations": null,
+      "Debit": 500.0,
       "HealthCardNumber": "78",
       "Anamneses": null,
       "Username": "mare",
@@ -194,8 +194,8 @@
       "Allergens": [
         "penicilin"
       ],
-      "Debit": 500.0,
       "examinations": null,
+      "Debit": 500.0,
       "HealthCardNumber": "78",
       "Anamneses": null,
       "Username": "mare",
@@ -287,8 +287,8 @@
       "Allergens": [
         "polen"
       ],
-      "Debit": 1500.0,
       "examinations": null,
+      "Debit": 1500.0,
       "HealthCardNumber": "6",
       "Anamneses": null,
       "Username": "nikola_nikolic",
@@ -383,8 +383,8 @@
       "Allergens": [
         "penicilin"
       ],
-      "Debit": 500.0,
       "examinations": null,
+      "Debit": 500.0,
       "HealthCardNumber": "78",
       "Anamneses": null,
       "Username": "mare",
@@ -479,8 +479,8 @@
       "Allergens": [
         "polen"
       ],
-      "Debit": 1500.0,
       "examinations": null,
+      "Debit": 1500.0,
       "HealthCardNumber": "6",
       "Anamneses": null,
       "Username": "nikola_nikolic",
@@ -575,8 +575,8 @@
       "Allergens": [
         "penicilin"
       ],
-      "Debit": 500.0,
       "examinations": null,
+      "Debit": 500.0,
       "HealthCardNumber": "78",
       "Anamneses": null,
       "Username": "mare",
@@ -668,8 +668,8 @@
       "Allergens": [
         ""
       ],
-      "Debit": 200.0,
       "examinations": null,
+      "Debit": 200.0,
       "HealthCardNumber": "10",
       "Anamneses": null,
       "Username": "mica",
@@ -764,8 +764,8 @@
       "Allergens": [
         "penicilin"
       ],
-      "Debit": 500.0,
       "examinations": null,
+      "Debit": 500.0,
       "HealthCardNumber": "78",
       "Anamneses": null,
       "Username": "mare",
@@ -857,8 +857,8 @@
       "Allergens": [
         "penicilin"
       ],
-      "Debit": 500.0,
       "examinations": null,
+      "Debit": 500.0,
       "HealthCardNumber": "78",
       "Anamneses": null,
       "Username": "mare",
@@ -946,8 +946,8 @@
       "Allergens": [
         ""
       ],
-      "Debit": 200.0,
       "examinations": null,
+      "Debit": 200.0,
       "HealthCardNumber": "10",
       "Anamneses": null,
       "Username": "mica",
@@ -1021,6 +1021,95 @@
       }
     },
     "GuestUser": null,
+    "PostponedDate": "0001-01-01T00:00:00"
+  },
+  {
+    "IsPayed": false,
+    "Evaluation": 0,
+    "DurationInMinutes": 30,
+    "Date": "2021-05-10T13:04:00",
+    "Patient": {
+      "Allergens": [
+        "penicilin"
+      ],
+      "examinations": null,
+      "Debit": 500.0,
+      "HealthCardNumber": "78",
+      "Anamneses": null,
+      "Username": "mare",
+      "Password": "nesto",
+      "Name": "Marko",
+      "Surname": "Markovic",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "064789552",
+      "Email": "marko@gmai.com",
+      "Id": "1111",
+      "UserType": 0,
+      "Address": {
+        "Street": "Marko Oreskovica",
+        "NumberOfBuilding": 12,
+        "Floor": 5,
+        "Apartment": 8,
+        "City": {
+          "name": "Novi Sad",
+          "postalCode": "21000",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "Doctor": {
+      "Specialization": {
+        "Name": "Alergologija i imunologija"
+      },
+      "Ordination": 300,
+      "Username": "Ognjen",
+      "Password": "ognjen",
+      "Name": "Ognjen",
+      "Surname": "Nestorović",
+      "DateOfBirth": "1979-11-01T00:00:00",
+      "Phone": "67894652",
+      "Email": "maricm@hotmail.com",
+      "Id": "1",
+      "UserType": 1,
+      "Address": null
+    },
+    "Secretary": null,
+    "RoomRecord": {
+      "Id": 300,
+      "HospitalWard": "Pedijatrija",
+      "inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 27,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "roomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "GuestUser": {
+      "SystemName": null,
+      "InjuryDescription": null
+    },
     "PostponedDate": "0001-01-01T00:00:00"
   }
 ]
