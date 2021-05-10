@@ -79,7 +79,14 @@ namespace IS_Bolnica
                 }
             }
             storage.saveToFile(meds, "Lekovi.json");
-            compositionData.Items.Refresh();
+            
+            foreach(Medicament m in meds)
+            {
+                if(m.Id == selectedMedicament.Id)
+                {
+                    compositionData.ItemsSource = m.Ingredients;
+                }
+            }
         }
     }
 }

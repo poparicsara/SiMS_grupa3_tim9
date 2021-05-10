@@ -237,6 +237,9 @@
     <Compile Include="SelectedInventoryInRooms.xaml.cs">
       <DependentUpon>SelectedInventoryInRooms.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SelectedNotificationWindow.xaml.cs">
+      <DependentUpon>SelectedNotificationWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SelectedRequest.xaml.cs">
       <DependentUpon>SelectedRequest.xaml</DependentUpon>
     </Compile>
@@ -479,6 +482,10 @@
     <Page Include="SelectedInventoryInRooms.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SelectedNotificationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SelectedRequest.xaml">
       <SubType>Designer</SubType>

@@ -59,7 +59,8 @@ namespace IS_Bolnica
                     {
                         if (ex.Date >= operation.Date && ex.Date <= operation.endTime)
                         {
-                            string contentOfNotification = "Prostorija " + " " + room.Id + " se renovira." + "\n" + "Potrebno je pomeranje zakazanog termina";
+                            string exInfo = ex.Date + "\n" + ex.Patient.Name + " " + ex.Patient.Surname + "\n" + ex.Doctor.Name + " " + ex.Doctor.Surname;
+                            string contentOfNotification = "Prostorija " + " " + room.Id + " se renovira." + "\n" + "Potrebno je pomeranje zakazanog termina" + "\n" + exInfo;
                             Notification notification = new Notification { title = "Potrebno pomeranje termina", content = contentOfNotification, notificationType = NotificationType.secretory, Sender = UserType.director };
                             notifications.Add(notification);
                             notificationStorage.SaveToFile(notifications, "NotificationsFileStorage.json");

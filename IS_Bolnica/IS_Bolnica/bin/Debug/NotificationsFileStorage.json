@@ -56,21 +56,6 @@
     "PersonId": null
   },
   {
-    "title": "Izmena zahteva za novi lek",
-    "content": "666\nnesto\nsvasta\nneko\nSREDI OVO",
-    "Sender": 1,
-    "notificationType": 3,
-    "PersonId": null
-
-  },
-  {
-    "title": "Izmena zahteva za novi lek",
-    "content": "666\nnesto\nsvasta\nneko\njjjj",
-    "Sender": 1,
-    "notificationType": 3,
-    "PersonId": null
-  },
-  {
     "title": "aaa",
     "content": "aaa",
     "Sender": 0,
@@ -83,5 +68,12 @@
     "Sender": 0,
     "notificationType": 1,
     "PersonId": "1111"
+  },
+  {
+    "title": "Potrebno pomeranje termina",
+    "content": "Prostorija  707 se renovira.\nPotrebno je pomeranje zakazanog termina\n5/13/2021 11:00:00 AM\nMarko Markovic\nNikola Spasojević",
+    "Sender": 3,
+    "notificationType": 2,
+    "PersonId": null
   }
 ]

@@ -143,5 +143,26 @@ namespace IS_Bolnica
             cw.Show();
             this.Close();
         }
+
+        private void ordinacijaKeyUp(object sender, KeyEventArgs e)
+        {
+            var filtered = inRoomListOrdinacija.Where(inventory => inventory.HospitalWard.ToLower().StartsWith(ordinacijaSearchBox.Text.ToLower()));
+
+            selectedInventoryOrdinacija.ItemsSource = filtered;
+        }
+
+        private void operacionaKeyUp(object sender, KeyEventArgs e)
+        {
+            var filtered = inRoomListOperacionaSala.Where(inventory => inventory.HospitalWard.ToLower().StartsWith(operacionaSearchBox.Text.ToLower()));
+
+            selectedInventoryOperacionaSala.ItemsSource = filtered;
+        }
+
+        private void sobaKeyUp(object sender, KeyEventArgs e)
+        {
+            var filtered = inRoomListSoba.Where(inventory => inventory.HospitalWard.ToLower().StartsWith(sobaSearchBox.Text.ToLower()));
+
+            selectedInventorySoba.ItemsSource = filtered;
+        }
     }
 }

@@ -39,8 +39,18 @@ namespace IS_Bolnica
                 }
             }
             medStorage.saveToFile(meds, "Lekovi.json");
-            MedicamentCompositionWindow compositionWindow = new MedicamentCompositionWindow(medicament);
-            compositionWindow.Show();
+            MedicamentCompositionWindow cw = new MedicamentCompositionWindow(medicament);
+
+            foreach(Medicament m in meds)
+            {
+                if(m.Id == medicament.Id)
+                {
+                    cw.compositionData.ItemsSource = m.Ingredients;
+                }
+            }
+
+            MedicamentWindow mw = new MedicamentWindow();
+            mw.Show();
             this.Close();
         }
     }

@@ -76,7 +76,9 @@ namespace IS_Bolnica
         {
             Notification notification = new Notification();
             notification.title = "Izmena zahteva za novi lek";
-            notification.content = selectedRequest.Content + "\n" + responceBox.Text;
+            string temp = selectedRequest.Content.Replace('|', '\n');
+            temp += "\n";
+            notification.content = temp + "\n" + responceBox.Text.ToUpper();
             notification.notificationType = NotificationType.director;
             notification.Sender = UserType.doctor;
 

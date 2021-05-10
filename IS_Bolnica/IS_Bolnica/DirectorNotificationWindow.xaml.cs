@@ -49,5 +49,13 @@ namespace IS_Bolnica
         {
 
         }
+
+        private void Row_DoubleClik(object sender, MouseButtonEventArgs e)
+        {
+            Notification selectedNotification = (Notification)NotificationList.SelectedItem;
+            SelectedNotificationWindow selected = new SelectedNotificationWindow(selectedNotification);
+            selected.Show();
+            this.Close();
+        }
     }
 }

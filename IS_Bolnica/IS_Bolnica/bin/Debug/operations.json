@@ -1049,5 +1049,53 @@
     "IsUrgent": true,
     "endTime": "0001-01-01T00:00:00",
     "PosponedDate": "0001-01-01T00:00:00"
+  },
+  {
+    "doctor": null,
+    "DurationInMins": 0,
+    "GuestUser": null,
+    "Doctor": null,
+    "Date": "2021-05-10T00:00:00",
+    "Patient": null,
+    "RoomRecord": {
+      "Id": 707,
+      "HospitalWard": "Pedijatrija",
+      "inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 24,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        },
+        {
+          "Name": "nesto",
+          "CurrentAmount": 3,
+          "Minimum": 0,
+          "Id": 555,
+          "InventoryType": 0
+        }
+      ],
+      "roomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "IsUrgent": false,
+    "endTime": "2021-05-14T00:00:00",
+    "PosponedDate": "0001-01-01T00:00:00"
   }
 ]

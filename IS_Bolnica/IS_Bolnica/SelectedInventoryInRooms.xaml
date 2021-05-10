@@ -34,7 +34,7 @@
                         </DataGrid.Columns>
                     </DataGrid>
 
-                    <TextBox x:Name="ordinacijaSearchBox" Height="23" TextWrapping="Wrap" Width="120" Canvas.Left="525" Canvas.Top="36"/>
+                    <TextBox x:Name="ordinacijaSearchBox" Height="23" TextWrapping="Wrap" Width="120" Canvas.Left="525" Canvas.Top="36" KeyUp="ordinacijaKeyUp"/>
                     <Button Content="PRERASPODELA" HorizontalAlignment="Left" VerticalAlignment="Top" 
                 Width="107" Height="26" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" 
                 BorderBrush="#FF425431" Click="ChangeButton" Canvas.Left="530" Canvas.Top="326"/>
@@ -69,7 +69,7 @@
                         </DataGrid.Columns>
                     </DataGrid>
 
-                    <TextBox x:Name="operacionaSearchBox" Height="23" TextWrapping="Wrap" Width="120" Canvas.Left="525" Canvas.Top="36"/>
+                    <TextBox x:Name="operacionaSearchBox" Height="23" TextWrapping="Wrap" Width="120" Canvas.Left="525" Canvas.Top="36" KeyDown="operacionaKeyUp"/>
                     <Button Content="PRERASPODELA" HorizontalAlignment="Left" VerticalAlignment="Top" 
                 Width="107" Height="26" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" 
                 BorderBrush="#FF425431" Click="ChangeButton" Canvas.Left="530" Canvas.Top="326"/>
@@ -103,7 +103,7 @@
                         </DataGrid.Columns>
                     </DataGrid>
 
-                    <TextBox x:Name="sobaSearchBox" Height="23" TextWrapping="Wrap" Width="120" Canvas.Left="525" Canvas.Top="36"/>
+                    <TextBox x:Name="sobaSearchBox" Height="23" TextWrapping="Wrap" Width="120" Canvas.Left="525" Canvas.Top="36" KeyDown="sobaKeyUp"/>
                     <Button Content="PRERASPODELA" HorizontalAlignment="Left" VerticalAlignment="Top" 
                 Width="107" Height="26" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" 
                 BorderBrush="#FF425431" Click="ChangeButton" Canvas.Left="530" Canvas.Top="326"/>

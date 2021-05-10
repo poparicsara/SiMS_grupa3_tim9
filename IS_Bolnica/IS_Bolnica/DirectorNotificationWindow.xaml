@@ -10,6 +10,11 @@
         <DataGrid x:Name="NotificationList" ItemsSource="{Binding Path=Notifications}" AutoGenerateColumns="False" SelectionMode="Single" 
                   IsReadOnly="True" HorizontalAlignment="Stretch" Margin="10,37,9.6,10" VerticalAlignment="Stretch"  SelectionChanged="DataGrid_SelectionChanged" 
                   GridLinesVisibility="Vertical">
+            <DataGrid.Resources>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClik"/>
+                </Style>
+            </DataGrid.Resources>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="NASLOV" Binding="{Binding title}" Width="400"/>
                 <DataGridTextColumn Header="POŠILJALAC" Binding="{Binding Sender}" Width="550"/>

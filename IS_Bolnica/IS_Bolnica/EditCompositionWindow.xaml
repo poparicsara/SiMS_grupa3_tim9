@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Bolnica"
         mc:Ignorable="d"
-        Title="EditCompositionWindow" Height="450" Width="800">
+        Title="EditCompositionWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <TextBox Name="ingredientNameTxt" HorizontalAlignment="Left" Height="23" Margin="320,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177"/>
         <Label Content="Unesite naziv sastojka:" HorizontalAlignment="Left" Margin="331,103,0,0" VerticalAlignment="Top" Width="139" FontWeight="Bold"/>

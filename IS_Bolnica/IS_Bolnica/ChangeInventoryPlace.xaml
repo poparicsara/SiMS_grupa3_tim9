@@ -27,23 +27,45 @@
         <DatePicker Name="dateofChange" HorizontalAlignment="Left" Margin="428,319,0,0" VerticalAlignment="Top" Width="120" SelectedDateChanged="dateChanged"/>
         <Label Content="Datum premeštanja:" HorizontalAlignment="Left" Margin="163,317,0,0" VerticalAlignment="Top"/>
         <ComboBox Name="hourofChange" HorizontalAlignment="Left" Margin="428,364,0,0" VerticalAlignment="Top" Width="50" SelectionChanged="hourChanged">
-            <ComboBoxItem Content="18"/>
-            <ComboBoxItem Content="19"/>
+            <ComboBoxItem Content="00"/>
+            <ComboBoxItem Content="01"/>
+            <ComboBoxItem Content="02"/>
+            <ComboBoxItem Content="03"/>
+            <ComboBoxItem Content="04"/>
+            <ComboBoxItem Content="05"/>
+            <ComboBoxItem Content="06"/>
+            <ComboBoxItem Content="07"/>
+            <ComboBoxItem Content="08"/>
+            <ComboBoxItem Content="09"/>
+            <ComboBoxItem Content="10"/>
+            <ComboBoxItem Content="11"/>
+            <ComboBoxItem Content="12"/>
+            <ComboBoxItem Content="13"/>
+            <ComboBoxItem Content="14"/>
+            <ComboBoxItem Content="15"/>
             <ComboBoxItem Content="16"/>
             <ComboBoxItem Content="17"/>
+            <ComboBoxItem Content="18"/>
+            <ComboBoxItem Content="19"/>
+            <ComboBoxItem Content="20"/>
+            <ComboBoxItem Content="21"/>
+            <ComboBoxItem Content="22"/>
+            <ComboBoxItem Content="23"/>
         </ComboBox>
         <Label Content="Vreme premeštanja:" HorizontalAlignment="Left" Margin="163,364,0,0" VerticalAlignment="Top"/>
         <ComboBox Name="minuteOfChange" HorizontalAlignment="Left" Margin="497,364,0,0" VerticalAlignment="Top" Width="51" SelectionChanged="minuteChanged">
-            <ComboBoxItem Content="06"/>
+            <ComboBoxItem Content="00"/>
+            <ComboBoxItem Content="05"/>
             <ComboBoxItem Content="10"/>
-            <ComboBoxItem Content="13"/>
-            <ComboBoxItem Content="18"/>
+            <ComboBoxItem Content="15"/>
             <ComboBoxItem Content="20"/>
-            <ComboBoxItem Content="23"/>
             <ComboBoxItem Content="25"/>
-            <ComboBoxItem Content="38"/>
+            <ComboBoxItem Content="30"/>
+            <ComboBoxItem Content="35"/>
+            <ComboBoxItem Content="40"/>
+            <ComboBoxItem Content="45"/>
+            <ComboBoxItem Content="50"/>
             <ComboBoxItem Content="55"/>
-            <ComboBoxItem Content="43"/>
         </ComboBox>
     </Grid>
 </Window>
