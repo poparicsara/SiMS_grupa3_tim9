@@ -47,7 +47,11 @@ namespace IS_Bolnica
             }
 
             replacementBox.ItemsSource = replacements;
-            replacementBox.SelectedItem = selectedMedicament.Replacement.Name;
+            if(selectedMedicament.Replacement != null)
+            {
+                replacementBox.SelectedItem = selectedMedicament.Replacement.Name;
+            }
+            
 
         }
 
@@ -131,6 +135,21 @@ namespace IS_Bolnica
         {
             var combo = sender as ComboBox;
             replacement = (string)combo.SelectedItem;
+        }
+
+        private void DeleteReplacementButton(object sender, RoutedEventArgs e)
+        {
+            foreach(Medicament m in meds)
+            {
+                if(m.Id == medicament.Id)
+                {
+                    m.Replacement = null;
+                }
+            }
+            medStorage.saveToFile(meds, "Lekovi.json");
+            MedicamentWindow mw = new MedicamentWindow();
+            mw.Show();
+            this.Close();
         }
     }
 }

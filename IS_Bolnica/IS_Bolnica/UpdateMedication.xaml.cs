@@ -30,19 +30,21 @@ namespace IS_Bolnica
 
             medIdTxt.Text = selectedMedication.Id.ToString();
             medNameTxt.Text = selectedMedication.Name;
-            medReplacementTxt.Text = selectedMedication.Replacement.Name;
             producerTxt.Text = selectedMedication.Producer;
 
-            //for (int i = 0; i < selectedMedication.Ingredients.Count; i++)
-            //{
-            //    ingredientsNames.Add(selectedMedication.Ingredients[i].Name);
-            //    //ingredientsList.Items.Add(selectedMedication.Ingredients[i].Name);
-            //}
+            meds = medStorage.loadFromFile("Lekovi.json");
+            List<string> replacements = new List<string>();
 
-            //for (int i = 0; i < ingredientsNames.Count; i++)
-            //{
-            //    ingredientsList.Items.Add(ingredientsNames[i]);
-            //}
+            foreach (Medicament med in meds)
+            {
+                replacements.Add(med.Name);
+            }
+
+            replacementBox.ItemsSource = replacements;
+            if (selectedMedication.Replacement != null)
+            {
+                replacementBox.SelectedItem = selectedMedication.Replacement.Name;
+            }
 
             ingredientsData.ItemsSource = selectedMedication.Ingredients;
         }
@@ -61,9 +63,18 @@ namespace IS_Bolnica
 
             selectedMedication.Id = Convert.ToInt32(medIdTxt.Text);
             selectedMedication.Name = medNameTxt.Text;
-            selectedMedication.Replacement.Name = medReplacementTxt.Text;
             selectedMedication.Producer = producerTxt.Text;
 
+            Medicament replacement = new Medicament();
+            foreach(Medicament m in meds)
+            {
+                if(m.Name.Equals(replacementBox.SelectedItem.ToString()))
+                {
+                    replacement = m;
+                }
+            }
+
+            selectedMedication.Replacement = replacement;
             meds.Add(selectedMedication);
 
             medStorage.saveToFile(meds, "Lekovi.json");
@@ -124,6 +135,21 @@ namespace IS_Bolnica
         {
             AddIngredientWindow addIngredientWindow = new AddIngredientWindow(selectedMedication);
             addIngredientWindow.Show();
+        }
+
+        private void DeleteReplacementButton(object sender, RoutedEventArgs e)
+        {
+            foreach (Medicament m in meds)
+            {
+                if (m.Id == selectedMedication.Id)
+                {
+                    m.Replacement = null;
+                }
+            }
+            medStorage.saveToFile(meds, "Lekovi.json");
+            ListOfMedications listOfMedicationsWindow = new ListOfMedications();
+            listOfMedicationsWindow.Show();
+            this.Close();
         }
     }
 }
