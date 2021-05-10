@@ -580,5 +580,8 @@
   <ItemGroup>
     <Resource Include="Images\nasLogo.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\notification icon.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

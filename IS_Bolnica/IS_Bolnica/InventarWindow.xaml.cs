@@ -256,5 +256,27 @@ namespace IS_Bolnica
 
             dinamickiData.ItemsSource = filtered;
         }
+
+        private void MedicamentButton(object sender, RoutedEventArgs e)
+        {
+            MedicamentWindow medicamentWindow = new MedicamentWindow();
+            medicamentWindow.Show();
+            this.Close();
+        }
+
+        private void RoomButton(object sender, RoutedEventArgs e)
+        {
+            Director director = new Director();
+            UpravnikWindow uw = new UpravnikWindow(director);
+            uw.Show();
+            this.Close();
+        }
+
+        private void ProfilButton(object sender, RoutedEventArgs e)
+        {
+            DirectorProfileWindow profileWindow = new DirectorProfileWindow();
+            profileWindow.Show();
+            this.Close();
+        }
     }
 }

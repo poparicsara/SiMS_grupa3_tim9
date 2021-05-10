@@ -8,26 +8,25 @@
         Title="InventarWindow" Height="540" Width="950" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closing="ClosingWindow">
     <Grid>
         <WrapPanel x:Name="Wrap1" Width ="207" HorizontalAlignment="Left" Margin="0,0,0,0.4">
-            <Button x:Name="pacijent" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima"  Foreground="Black" BorderBrush="#FF050510" Background="White">
+            <Button x:Name="pacijent" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima"  Foreground="Black" BorderBrush="#FF050510" BorderThickness="1" Background="White" Click="ProfilButton">
                 Profil
             </Button>
-            <Button x:Name="lekar" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black" BorderBrush="#FF050510" Background="White">
+            <Button x:Name="lekar" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black" BorderBrush="#FF050510" BorderThickness="1" Canvas.Left="543" Canvas.Top="71" Background="White" Click="RoomButton">
                 Prostorije
             </Button>
-            <Button x:Name="sekretar" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black" BorderBrush="#FF050510" Background="White">
+            <Button x:Name="sekretar" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black" BorderBrush="#FF050510" BorderThickness="1" Canvas.Left="543" Canvas.Top="71" Background="White">
                 Inventar
             </Button>
-            <Button x:Name="upravnik" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black" BorderBrush="#FF050510" Background="White">
-                Lekovi
-            </Button>
+            <Button x:Name="upravnik" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black" BorderBrush="#FF050510" BorderThickness="1" Background="White" Content="Lekovi" Click="MedicamentButton"/>
+            <Border BorderBrush="Black" BorderThickness="1" Height="315" Width="206"/>
         </WrapPanel>
-        <TabControl Name="tabs" HorizontalAlignment="Left" Margin="212,69,0,0" VerticalAlignment="Top" TabStripPlacement="Left" Height="431" Width="722" BorderBrush="White">
-            <TabItem Header="Dinamički" Height="32" Margin="0,41,-4,-41">
+        <TabControl Name="tabs" HorizontalAlignment="Left" Margin="212,31,0,0" VerticalAlignment="Top" TabStripPlacement="Left" Height="469" Width="722" BorderBrush="White">
+            <TabItem Header="Dinamički" Height="32" Margin="0,61,-0.2,-61" HorizontalAlignment="Left" Width="105">
 
                 <Canvas  RenderTransformOrigin="0.069,0.186" Margin="0,-72,0,-0.6" >
-                    <DataGrid x:Name ="dinamickiData" HorizontalAlignment="Center" Height="388" Width="520" FontSize="14"
+                    <DataGrid x:Name ="dinamickiData" HorizontalAlignment="Center" Height="406" Width="484" FontSize="14"
                   ColumnWidth="300" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserAddRows="False" AutoGenerateColumns="False"
-                  IsReadOnly="True" SelectionMode="Single" CanUserDeleteRows="True" CanUserReorderColumns="False" Canvas.Top="110" Canvas.Left="5">
+                  IsReadOnly="True" SelectionMode="Single" CanUserDeleteRows="True" CanUserReorderColumns="False" Canvas.Top="130">
                         <!-- Style -->
                         <DataGrid.Resources>
                             <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -44,24 +43,24 @@
                         </DataGrid.Resources>
                         <!-- Header -->
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header ="ŠIFRA" Width="255" Binding="{Binding Id}"/>
-                            <DataGridTextColumn Header ="NAZIV" Width="255" Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header ="ŠIFRA" Width="237" Binding="{Binding Id}"/>
+                            <DataGridTextColumn Header ="NAZIV" Width="237" Binding="{Binding Name}"/>
                         </DataGrid.Columns>
                     </DataGrid>
 
-                    <TextBox Name="searchBox" BorderThickness="1" BorderBrush="Black" Canvas.Left="543" Canvas.Top="71" Width="97" Height="24" KeyUp="dinamickiKeyUp" Background="White"/>
-                    <Button Content="IZMENI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" BorderBrush="#FF425431" Canvas.Left="533" Canvas.Top="474" Click="EditButton" FontSize="14"/>
-                    <Button Content="OBRIŠI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Height="24" Background="White" FontFamily="Ebrima" FontWeight="Bold" Foreground="Black" BorderBrush="#FF425431" Canvas.Left="533" Canvas.Top="447" Click="DeleteButton" FontSize="14"/>
-                    <Button Name="addDinamicki" Content="DODAJ" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Height="24" Background="White" FontFamily="Ebrima" FontWeight="Bold" Foreground="Black" BorderBrush="#FF425431" Canvas.Left="533" Canvas.Top="417" FontSize="14" Click="AddButton"/>
+                    <TextBox Name="searchBox" BorderThickness="1" BorderBrush="Black" Canvas.Left="503" Canvas.Top="77" Width="97" Height="24" KeyUp="dinamickiKeyUp" Background="White"/>
+                    <Button Content="IZMENI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" BorderBrush="#FF425431" Canvas.Left="503" Canvas.Top="512" Click="EditButton" FontSize="14"/>
+                    <Button Content="OBRIŠI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Height="24" Background="White" FontFamily="Ebrima" FontWeight="Bold" Foreground="Black" BorderBrush="#FF425431" Canvas.Left="503" Canvas.Top="486" Click="DeleteButton" FontSize="14"/>
+                    <Button Name="addDinamicki" Content="DODAJ" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Height="24" Background="White" FontFamily="Ebrima" FontWeight="Bold" Foreground="Black" BorderBrush="#FF425431" Canvas.Left="503" Canvas.Top="456" FontSize="14" Click="AddButton"/>
                 </Canvas>
 
             </TabItem>
-            <TabItem Header="Statički" Height="32" Background="White" Margin="0,41,-4,-41">
+            <TabItem Header="Statički" Height="32" Background="#FFF0F0F0" Margin="0,61,-0.2,-61" VerticalAlignment="Top">
 
                 <Canvas RenderTransformOrigin="0.069,0.186" Margin="0,-72,0,-0.6" >
-                    <DataGrid x:Name ="statickiData" HorizontalAlignment="Center" Height="388" Width="520" FontSize="14"
+                    <DataGrid x:Name ="statickiData" HorizontalAlignment="Center" Height="404" Width="484" FontSize="14"
                   ColumnWidth="300" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserAddRows="False" AutoGenerateColumns="False"
-                  IsReadOnly="True" SelectionMode="Single" CanUserDeleteRows="True" CanUserReorderColumns="False" Canvas.Top="110" Canvas.Left="5">
+                  IsReadOnly="True" SelectionMode="Single" CanUserDeleteRows="True" CanUserReorderColumns="False" Canvas.Top="132">
                         <!-- Style -->
                         <DataGrid.Resources>
                             <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -78,22 +77,22 @@
                         </DataGrid.Resources>
                         <!-- Header -->
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header ="ŠIFRA" Width="255" Binding="{Binding Id}"/>
-                            <DataGridTextColumn Header ="NAZIV" Width="255" Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header ="ŠIFRA" Width="237" Binding="{Binding Id}"/>
+                            <DataGridTextColumn Header ="NAZIV" Width="237" Binding="{Binding Name}"/>
                         </DataGrid.Columns>
                     </DataGrid>
 
-                    <TextBox Name="statickiSearchBox" BorderBrush="Black" BorderThickness="1" Canvas.Left="543" Canvas.Top="71" Width="97" Height="24" KeyDown="statickiKeyUp"/>
-                    <Button Content="IZMENI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" BorderBrush="#FF425431" Canvas.Left="543" Canvas.Top="474" FontSize="14" Click="EditButtonStaticki"/>
-                    <Button Content="OBRIŠI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Height="24" Background="White" FontFamily="Ebrima" FontWeight="Bold" Foreground="Black" BorderBrush="#FF425431" Canvas.Left="543" Canvas.Top="446" FontSize="14" Click="DeleteButtonStaticki"/>
-                    <Button Content="DODAJ" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Height="24" Background="White" FontFamily="Ebrima" FontWeight="Bold" Foreground="Black" BorderBrush="#FF425431" Canvas.Left="543" Canvas.Top="418" FontSize="14" Click="AddButtonStaticki"/>
+                    <TextBox Name="statickiSearchBox" BorderBrush="Black" BorderThickness="1" Canvas.Left="503" Canvas.Top="76" Width="97" Height="24" KeyDown="statickiKeyUp"/>
+                    <Button Content="IZMENI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" BorderBrush="#FF425431" Canvas.Left="503" Canvas.Top="512" FontSize="14" Click="EditButtonStaticki"/>
+                    <Button Content="OBRIŠI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Height="24" Background="White" FontFamily="Ebrima" FontWeight="Bold" Foreground="Black" BorderBrush="#FF425431" Canvas.Left="503" Canvas.Top="485" FontSize="14" Click="DeleteButtonStaticki"/>
+                    <Button Content="DODAJ" HorizontalAlignment="Left" VerticalAlignment="Top" Width="107" Height="24" Background="White" FontFamily="Ebrima" FontWeight="Bold" Foreground="Black" BorderBrush="#FF425431" Canvas.Left="503" Canvas.Top="456" FontSize="14" Click="AddButtonStaticki"/>
                 </Canvas>
 
 
             </TabItem>
 
         </TabControl>
-        <Label Content="INVENTAR" HorizontalAlignment="Left" Margin="509,32,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black"/>
+        <Label Content="INVENTAR" HorizontalAlignment="Left" Margin="504,31,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black"/>
 
 
     </Grid>

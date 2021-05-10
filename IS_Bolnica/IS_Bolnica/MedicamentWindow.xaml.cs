@@ -106,5 +106,27 @@ namespace IS_Bolnica
                 this.Close();
             }
         }
+
+        private void InventoryButton(object sender, RoutedEventArgs e)
+        {
+            InventarWindow iw = new InventarWindow();
+            iw.Show();
+            this.Close();
+        }
+
+        private void RoomButton(object sender, RoutedEventArgs e)
+        {
+            Director d = new Director();
+            UpravnikWindow uw = new UpravnikWindow(d);
+            uw.Show();
+            this.Close();
+        }
+
+        private void ProfilButton(object sender, RoutedEventArgs e)
+        {
+            DirectorProfileWindow profileWindow = new DirectorProfileWindow();
+            profileWindow.Show();
+            this.Close();
+        }
     }
 }

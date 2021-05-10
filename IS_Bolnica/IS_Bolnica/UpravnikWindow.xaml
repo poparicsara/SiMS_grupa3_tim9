@@ -9,22 +9,23 @@
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <WrapPanel x:Name="Wrap1" Width ="207" HorizontalAlignment="Left" Margin="0,0,0,0.4">
-            <Button x:Name="pacijent" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima"  Foreground="Black" BorderBrush="#FF050510" Background="White" Click="ProfilButton">
+            <Button x:Name="pacijent" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima"  Foreground="Black" BorderThickness="1" BorderBrush="#FF050510" Background="White" Click="ProfilButton">
                 Profil
             </Button>
-            <Button x:Name="lekar" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black" BorderBrush="#FF050510" Background="White">
+            <Button x:Name="lekar" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black" BorderThickness="1" BorderBrush="#FF050510" Background="White">
                 Prostorije
             </Button>
-            <Button x:Name="sekretar" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black" BorderBrush="#FF050510" Background="White" Click="InventoryButton">
+            <Button x:Name="sekretar" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black" BorderThickness="1" BorderBrush="#FF050510" Background="White" Click="InventoryButton">
                 Inventar
             </Button>
-            <Button x:Name="upravnik" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black" BorderBrush="#FF050510" Background="White" Click="MedicamentButton">
+            <Button x:Name="upravnik" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black" BorderThickness="1" BorderBrush="#FF050510" Background="White" Click="MedicamentButton">
                 Lekovi
             </Button>
+            <Border BorderBrush="Black" BorderThickness="1" Height="317" Width="206"/>
         </WrapPanel>
-        <DataGrid x:Name ="lvDataBinding" HorizontalAlignment="Center" Height="382" VerticalAlignment="Center" Width="588" FontSize="14"
+        <DataGrid x:Name ="lvDataBinding" HorizontalAlignment="Center" Height="410" VerticalAlignment="Center" Width="588" FontSize="14"
                   ColumnWidth="187.7" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserAddRows="False" AutoGenerateColumns="False"
-                  IsReadOnly="True" SelectionMode="Single" CanUserDeleteRows="True" Margin="224,103,132,25.4" BorderThickness="1" BorderBrush="Black">
+                  IsReadOnly="True" SelectionMode="Single" CanUserDeleteRows="True" Margin="224,90,132,10.4" BorderThickness="1" BorderBrush="Black">
             <!-- Style -->
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -42,12 +43,13 @@
                 <DataGridTextColumn Header ="NAMENA" Binding="{Binding Path = roomPurpose.Name, UpdateSourceTrigger=PropertyChanged}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="DODAJ" HorizontalAlignment="Left" Margin="823,461,0,0" VerticalAlignment="Top" Width="111" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" Click="AddButtonClicked" FontSize="14"/>
-        <Button Content="OBRIŠI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" Margin="823,419,0,0" Click="DeleteButtonClicked" FontSize="14"/>
-        <Button Content="IZMENI" HorizontalAlignment="Left" Margin="823,376,0,0" VerticalAlignment="Top" Width="111" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" Click="EditButtonClicked" FontSize="14"/>
-        <TextBox Name="searchBox" HorizontalAlignment="Left" Height="23" Margin="774,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" KeyUp="searchKeyUp"/>
-        <Button Content="Obaveštenja" HorizontalAlignment="Left" Margin="840,266,0,0" VerticalAlignment="Top" Width="81" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" Click="ObavestenjaButtonClicked"/>
-        <Button Content="RENOVIRANJE" HorizontalAlignment="Left" Margin="823,339,0,0" VerticalAlignment="Top" Width="111" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" Click="RenovationButton" FontSize="14"/>
-        <Label Content="PROSTORIJE" HorizontalAlignment="Left" Margin="461,37,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black"/>
+        <Button Content="DODAJ" HorizontalAlignment="Left" Margin="823,476,0,0" VerticalAlignment="Top" Width="111" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" Click="AddButtonClicked" FontSize="14"/>
+        <Button Content="OBRIŠI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" Margin="823,434,0,0" Click="DeleteButtonClicked" FontSize="14"/>
+        <Button Content="IZMENI" HorizontalAlignment="Left" Margin="823,391,0,0" VerticalAlignment="Top" Width="111" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" Click="EditButtonClicked" FontSize="14"/>
+        <TextBox Name="searchBox" HorizontalAlignment="Left" Height="23" Margin="774,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" KeyUp="searchKeyUp"/>
+        <Button Content="Obaveštenja" HorizontalAlignment="Left" Margin="224,20,0,0" VerticalAlignment="Top" Width="92" Height="32" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" Click="ObavestenjaButtonClicked"/>
+        <Button Content="RENOVIRANJE" HorizontalAlignment="Left" Margin="823,354,0,0" VerticalAlignment="Top" Width="111" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" Click="RenovationButton" FontSize="14"/>
+        <Label Content="PROSTORIJE" HorizontalAlignment="Left" Margin="463,20,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black"/>
+
     </Grid>
 </Window>

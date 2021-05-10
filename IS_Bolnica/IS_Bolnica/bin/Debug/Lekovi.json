@@ -87,14 +87,6 @@
     "Status": 0
   },
   {
-    "Id": 999,
-    "Name": "novo",
-    "Ingredients": null,
-    "Replacement": null,
-    "Producer": "novo",
-    "Status": 0
-  },
-  {
     "Id": 333,
     "Name": "aaa",
     "Ingredients": null,

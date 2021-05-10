@@ -38,7 +38,7 @@ namespace IS_Bolnica
             this.Close();
         }
 
-        private void MedicamentWindow(object sender, RoutedEventArgs e)
+        private void MedicamentButton(object sender, RoutedEventArgs e)
         {
             MedicamentWindow mw = new MedicamentWindow();
             mw.Show();
