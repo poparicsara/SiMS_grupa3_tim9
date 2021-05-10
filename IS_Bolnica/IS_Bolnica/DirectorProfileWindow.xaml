@@ -1,0 +1,43 @@
+﻿<Window Name="window" x:Class="IS_Bolnica.DirectorProfileWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IS_Bolnica"
+        mc:Ignorable="d"
+        Title="DirectorProfileWindow" Height="540" Width="950" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <WrapPanel x:Name="Wrap1" Width ="259" HorizontalAlignment="Left" Margin="0,0,0,0.4">
+            <Button x:Name="pacijent" Height="49" Width="259" FontSize="20" FontWeight="Bold" FontFamily="Ebrima"  Foreground="Black" BorderBrush="#FF050510" Background="White">
+                Profil
+            </Button>
+            <Button x:Name="lekar" Height="49" Width="259" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black" BorderBrush="#FF050510" Background="White" Click="RoomButton">
+                Prostorije
+            </Button>
+            <Button x:Name="sekretar" Height="49" Width="259" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black" BorderBrush="#FF050510" Background="White" Click="InventoryButton" >
+                Inventar
+            </Button>
+            <Button x:Name="upravnik" Height="49" Width="259" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black" BorderBrush="#FF050510" Background="White" Click="MedicamentWindow">
+                Lekovi
+            </Button>
+        </WrapPanel>
+        <Label Content="PROFIL" HorizontalAlignment="Left" Margin="461,37,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black"/>
+        <Label Content="ID:" HorizontalAlignment="Left" Margin="359,109,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Ime:" HorizontalAlignment="Left" Margin="359,141,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Prezime:" HorizontalAlignment="Left" Margin="359,172,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Datum rođenja:" HorizontalAlignment="Left" Margin="359,207,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Broj telefona:" HorizontalAlignment="Left" Margin="359,244,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Email:" HorizontalAlignment="Left" Margin="359,279,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Radno mesto:" HorizontalAlignment="Left" Margin="359,310,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="60" HorizontalAlignment="Left" Margin="563,112,0,0" VerticalAlignment="Top" Width="32" FontSize="14"/>
+        <Label Content="Ivan" HorizontalAlignment="Left" Margin="563,144,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Ivanović" HorizontalAlignment="Left" Margin="563,174,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="31.01.1985." HorizontalAlignment="Left" Margin="563,209,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="0601234567" HorizontalAlignment="Left" Margin="563,246,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="ivanivanovic@gmail.com" HorizontalAlignment="Left" Margin="563,279,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="Upravnik" HorizontalAlignment="Left" Margin="563,310,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Button Content="ODJAVA" FontWeight="Bold" HorizontalAlignment="Left" Margin="622,407,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="LogOutButton" Height="34" Background="White"/>
+        <Button Content="IZMENA PODATAKA" FontWeight="Bold" HorizontalAlignment="Left" Margin="744,407,0,0" VerticalAlignment="Top" Width="153" FontSize="14" Height="34" Click="EditButton" Background="White"/>
+
+    </Grid>
+</Window>

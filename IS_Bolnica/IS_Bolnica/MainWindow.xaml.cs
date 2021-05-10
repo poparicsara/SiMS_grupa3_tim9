@@ -24,9 +24,8 @@ namespace IS_Bolnica
 
         private void ButtonUpravnikClicked(object sender, RoutedEventArgs e)
         {
-            Director director = new Director();
-            UpravnikWindow uw = new UpravnikWindow(director);
-            uw.Show();
+            DirectorProfileWindow profileWindow = new DirectorProfileWindow();
+            profileWindow.Show();
         }
 
         private void doctorButtonClicked(object sender, RoutedEventArgs e)
@@ -84,9 +83,8 @@ namespace IS_Bolnica
 
                             break;
                         case UserType.director:
-                            Director director = new Director();
-                            UpravnikWindow uw = new UpravnikWindow(director);
-                            uw.Show();
+                            DirectorProfileWindow profileWindow = new DirectorProfileWindow();
+                            profileWindow.Show();
                             break;
                         case UserType.secretary:
                             SekretarWindow sw = new SekretarWindow();

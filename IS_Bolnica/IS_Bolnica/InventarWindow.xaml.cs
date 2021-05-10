@@ -96,11 +96,6 @@ namespace IS_Bolnica
 
         }
 
-        private void inventarData_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
         private void AddButton(object sender, RoutedEventArgs e)
         {
             String type = "dinamicki";

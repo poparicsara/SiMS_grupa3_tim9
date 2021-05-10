@@ -86,6 +86,9 @@
     <Compile Include="DirectorNotificationWindow.xaml.cs">
       <DependentUpon>DirectorNotificationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DirectorProfileWindow.xaml.cs">
+      <DependentUpon>DirectorProfileWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DoctorNotificationWindow.xaml.cs">
       <DependentUpon>DoctorNotificationWindow.xaml</DependentUpon>
     </Compile>
@@ -96,6 +99,9 @@
       <DependentUpon>EditCompositionWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="EditInventoryWindow.xaml.cs" />
+    <Compile Include="EditProfileWindow.xaml.cs">
+      <DependentUpon>EditProfileWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditWindow.xaml.cs">
       <DependentUpon>EditWindow.xaml</DependentUpon>
     </Compile>
@@ -299,6 +305,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="DirectorProfileWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DoctorNotificationWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -314,6 +324,10 @@
     <Page Include="EditInventoryWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EditProfileWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EditWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

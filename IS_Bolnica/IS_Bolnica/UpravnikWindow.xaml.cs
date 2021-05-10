@@ -162,6 +162,27 @@ namespace IS_Bolnica
                 this.Close();
             }
         }
+
+        private void Button(object sender, RoutedEventArgs e)
+        {
+            DirectorProfileWindow dw = new DirectorProfileWindow();
+            dw.Show();
+            this.Close();
+        }
+
+        private void ProfilButton(object sender, RoutedEventArgs e)
+        {
+            DirectorProfileWindow profileWindow = new DirectorProfileWindow();
+            profileWindow.Show();
+            this.Close();
+        }
+
+        private void InventoryButton(object sender, RoutedEventArgs e)
+        {
+            InventarWindow inventarWindow = new InventarWindow();
+            inventarWindow.Show();
+            this.Close();
+        }
     }
 
 }
