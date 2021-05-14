@@ -8,10 +8,9 @@ namespace Model
     public class Patient : User
     {
         public List<string> Allergens { get; set; }
-
-        //public Examination[] examination;
         public List<Examination> examinations { get; set; }
-
+        public int Akcije { get; set; }
+        public int brojOcenjenihPregleda { get; set; }
         public double Debit { get; set; }
 
         public Patient()

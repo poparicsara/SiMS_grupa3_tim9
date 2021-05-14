@@ -8,26 +8,19 @@
         Title="Izmena_pregleda" Height="450" Width="800"
         WindowStartupLocation="CenterScreen">
     <Grid>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="422" Margin="0,0,-4.4,-2" Stroke="Black" VerticalAlignment="Top" Width="798" Grid.ColumnSpan="2"/>
+        <Button Click="BackButtonClicked">
+            <Image Margin="676,27,83.6,366" Source="back.png" Stretch="Fill" RenderTransformOrigin="1.313,1.419" />
+        </Button>
         <Label Content="Izmeni pregled" FontSize="32" HorizontalAlignment="Left" Margin="268,53,0,0" VerticalAlignment="Top" Height="53" Width="224"/>
         <Label Content="Doktor" FontSize="20" HorizontalAlignment="Left" Margin="95,139,0,0" VerticalAlignment="Top" Height="37" Width="76"/>
         <Label Content="Datum pregleda" FontSize="20" HorizontalAlignment="Left" Margin="95,205,0,0" VerticalAlignment="Top" Width="160"/>
         <Label Content="Vreme pregleda" FontSize="20" HorizontalAlignment="Left" Margin="95,267,0,0" VerticalAlignment="Top"/>
         <Button Content="Izmeni" FontSize="20" HorizontalAlignment="Left" Margin="208,350,0,0" VerticalAlignment="Top" Width="97" Height="38" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="IzmeniButtonClicked"/>
         <Button Content="Odustani" FontSize="20" HorizontalAlignment="Left" Margin="386,350,0,0" VerticalAlignment="Top" Width="106" Height="38" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="OdustaniButtonClicked" />
-        <ComboBox HorizontalAlignment="Left" FontSize="18" Height="37" Margin="296,139,0,0" VerticalAlignment="Top" Width="151" Name="DoktorBox" >
-            <ComboBoxItem Content="Pera Peric"/>
-            <ComboBoxItem Content="Mika Mikic"/>
-            <ComboBoxItem Content="Zika Zikic"/>
-        </ComboBox>
+        <ComboBox ItemsSource="{Binding Path=doktori}" HorizontalAlignment="Left" FontSize="18" Height="37" Margin="296,139,0,0" VerticalAlignment="Top" Width="151" Name="DoktorBox" />
         <DatePicker HorizontalAlignment="Left" FontSize="18" Margin="296,210,0,0" VerticalAlignment="Top" Height="32" Width="151" Name="DateBox"/>
         <ComboBox HorizontalAlignment="Left" FontSize="18" Margin="296,273,0,0" VerticalAlignment="Top" Width="60" Name="SatiBox">
-            <ComboBoxItem Content="00"/>
-            <ComboBoxItem Content="01"/>
-            <ComboBoxItem Content="02"/>
-            <ComboBoxItem Content="03"/>
-            <ComboBoxItem Content="04"/>
-            <ComboBoxItem Content="05"/>
-            <ComboBoxItem Content="06"/>
             <ComboBoxItem Content="07"/>
             <ComboBoxItem Content="08"/>
             <ComboBoxItem Content="09"/>
@@ -40,17 +33,13 @@
             <ComboBoxItem Content="16"/>
             <ComboBoxItem Content="17"/>
             <ComboBoxItem Content="18"/>
-            <ComboBoxItem Content="19"/>
-            <ComboBoxItem Content="20"/>
-            <ComboBoxItem Content="21"/>
-            <ComboBoxItem Content="22"/>
-            <ComboBoxItem Content="23"/>
         </ComboBox>
         <ComboBox HorizontalAlignment="Left" FontSize="18" Margin="394,273,0,0" VerticalAlignment="Top" Width="53" Name="MinutiBox">
             <ComboBoxItem Content="00" />
-            <ComboBoxItem Content="15" />
             <ComboBoxItem Content="30" />
-            <ComboBoxItem Content="45" />
         </ComboBox>
+        <Image Margin="30,10,709.6,354" Source="nasLogo.jpg" Stretch="Fill"/>
+        <Label Content="Zdravo bolnica" HorizontalAlignment="Left" Height="27" Margin="10,66,0,0" VerticalAlignment="Top" Width="93"/>
+        <Label Content="Back" FontSize="16" HorizontalAlignment="Left" Height="27" Margin="706,27,0,0" VerticalAlignment="Top" Width="48"/>
     </Grid>
 </Window>

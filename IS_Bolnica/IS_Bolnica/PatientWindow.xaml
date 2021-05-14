@@ -8,8 +8,12 @@
         Title="PatientWindow" Height="450" Width="800"
         WindowStartupLocation="CenterScreen">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="422" Margin="0,0,-4.4,-2" Stroke="Black" VerticalAlignment="Top" Width="798"/>
         <DataGrid AutoGenerateColumns="False" 
-          Height="350" 
+          Height="280" 
           Width="644"
           ColumnHeaderHeight="30"
           ColumnWidth="162.5"
@@ -17,7 +21,7 @@
           HorizontalAlignment="Center" 
           Name="lvDataBinding" 
           IsReadOnly="True"
-          VerticalAlignment="Center" Margin="38,35,111.6,35" >
+          VerticalAlignment="Center" Margin="28,116,121.6,24" >
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FF4E8E73"/>
@@ -36,9 +40,14 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <Button Content="Zakazi pregled" HorizontalAlignment="Left" Margin="687,267,0,0" VerticalAlignment="Top" Width="97" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="AddButtonClicked"/>
-        <Button Content="Otkazi pregled" HorizontalAlignment="Left" Margin="687,304,0,0" VerticalAlignment="Top" Width="97" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="OtkaziButtonClicked"/>
-        <Button Content="Izmeni" HorizontalAlignment="Left" Margin="687,341,0,0" VerticalAlignment="Top" Width="97" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="IzmeniButtonClicked"/>
-        <Button Content="Obaveštenja" HorizontalAlignment="Left" Margin="687,222,0,0" VerticalAlignment="Top" Width="97" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="ObavestenjaButtonClicked"/>
+        <Button Content="Zakazi pregled" HorizontalAlignment="Left" Margin="692,267,0,0" VerticalAlignment="Top" Width="97" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="AddButtonClicked" Height="19"/>
+        <Button Content="Otkazi pregled" HorizontalAlignment="Left" Margin="692,304,0,0" VerticalAlignment="Top" Width="97" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="OtkaziButtonClicked" Height="19"/>
+        <Button Content="Izmeni" HorizontalAlignment="Left" Margin="692,341,0,0" VerticalAlignment="Top" Width="97" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="IzmeniButtonClicked" Height="19"/>
+        <Button Content="Obaveštenja" HorizontalAlignment="Left" Margin="692,222,0,0" VerticalAlignment="Top" Width="97" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="ObavestenjaButtonClicked" Height="19"/>
+        <Button Content="Ocenjivanje" HorizontalAlignment="Left" Margin="692,185,0,0" VerticalAlignment="Top" Width="97" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="OcenjivanjeButtonClicked" Height="19"/>
+        <Label Content="Vasi pregledi" FontSize="30" HorizontalAlignment="Left" Height="51" Margin="273,47,0,0" VerticalAlignment="Top" Width="180"/>
+        <Button Content="Odjavite se" HorizontalAlignment="Left" Margin="692,83,0,0" VerticalAlignment="Top" Width="97" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="OdjavljivanjeButtonClicked" Height="19"/>
+        <Image Margin="28,10,707.6,354" Source="nasLogo.jpg" Stretch="Fill"/>
+        <Label Content="Zdravo bolnica" HorizontalAlignment="Left" Height="27" Margin="10,66,0,0" VerticalAlignment="Top" Width="93"/>
     </Grid>
 </Window>
