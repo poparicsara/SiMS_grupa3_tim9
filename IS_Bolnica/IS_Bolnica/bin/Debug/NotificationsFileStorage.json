@@ -61,7 +61,6 @@
     "Sender": 1,
     "notificationType": 3,
     "PersonId": null
-
   },
   {
     "title": "Izmena zahteva za novi lek",
@@ -83,5 +82,12 @@
     "Sender": 0,
     "notificationType": 1,
     "PersonId": "1111"
+  },
+  {
+    "title": "wwww",
+    "content": "wwww",
+    "Sender": 0,
+    "notificationType": 0,
+    "PersonId": "5"
   }
 ]

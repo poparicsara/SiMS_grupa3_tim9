@@ -14,6 +14,7 @@ namespace IS_Bolnica.Secretary
             get;
             set;
         } = new List<RoomRecord>();
+        private RoomRecord room = new RoomRecord();
         public List<int> RoomNums { get; set; } = new List<int>();
         private RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
         private ExaminationsRecordFileStorage examinationStorage = new ExaminationsRecordFileStorage();
@@ -182,6 +183,45 @@ namespace IS_Bolnica.Secretary
                 return false;
             }
 
+        }
+
+        private Patient findPatient(string patientsId)
+        {
+            Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
+            for (int i = 0; i < Patients.Count; i++)
+            {
+                if (Patients[i].Id.Equals(idPatientBox.Text))
+                {
+                    patient = Patients[i];
+                }
+            }
+            return patient;
+        }
+
+        private Doctor findDoctor(string doctorName, string doctorSurname)
+        {
+            doctors = doctorFileStorage.loadFromFile("Doctors.json");
+            foreach (Doctor doc in doctors)
+            {
+                if (doc.Name.Equals(doctorName) && doc.Surname.Equals(doctorSurname))
+                {
+                    doctor = doc;
+                }
+            }
+            return doctor;
+        }
+
+        private RoomRecord findRoom(Doctor doctor)
+        {
+            Rooms = roomStorage.loadFromFile("Sobe.json");
+            for (int i = 0; i < Rooms.Count; i++)
+            {
+                if (Rooms[i].Id == doctor.Ordination)
+                {
+                    examination.RoomRecord = Rooms[i];
+                }
+            }
+            return room;
         }
 
         private void addExamination(object sender, RoutedEventArgs e)

@@ -698,5 +698,272 @@
     "IsUrgent": false,
     "endTime": "2021-05-09T07:00:00",
     "PosponedDate": "0001-01-01T00:00:00"
+  },
+  {
+    "doctor": {
+      "Specialization": {
+        "Name": "Alergologija i imunologija"
+      },
+      "Ordination": 300,
+      "Username": "Ognjen",
+      "Password": "ognjen",
+      "Name": "Ognjen",
+      "Surname": "Nestorović",
+      "DateOfBirth": "1979-11-01T00:00:00",
+      "Phone": "67894652",
+      "Email": "maricm@hotmail.com",
+      "Id": "1",
+      "UserType": 1,
+      "Address": null
+    },
+    "DurationInMins": 120,
+    "GuestUser": {
+      "SystemName": null,
+      "InjuryDescription": null
+    },
+    "Doctor": null,
+    "Date": "2021-05-11T16:24:00",
+    "Patient": {
+      "Allergens": [
+        ""
+      ],
+      "Debit": 200.0,
+      "examinations": null,
+      "HealthCardNumber": "10",
+      "Anamneses": null,
+      "Username": "mica",
+      "Password": "haha",
+      "Name": "Milica",
+      "Surname": "Milović",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "068555647",
+      "Email": "milicam@gmail.com",
+      "Id": "3333",
+      "UserType": 0,
+      "Address": {
+        "Street": "Marka Oreškovića ",
+        "NumberOfBuilding": 5,
+        "Floor": 5,
+        "Apartment": 9,
+        "City": {
+          "name": "Vranje ",
+          "postalCode": "589",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "RoomRecord": {
+      "Id": 300,
+      "HospitalWard": "Pedijatrija",
+      "inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 27,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "roomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "IsUrgent": false,
+    "endTime": "2021-05-11T18:24:00",
+    "PosponedDate": "0001-01-01T00:00:00"
+  },
+  {
+    "doctor": {
+      "Specialization": {
+        "Name": "Alergologija i imunologija"
+      },
+      "Ordination": 300,
+      "Username": "Ognjen",
+      "Password": "ognjen",
+      "Name": "Ognjen",
+      "Surname": "Nestorović",
+      "DateOfBirth": "1979-11-01T00:00:00",
+      "Phone": "67894652",
+      "Email": "maricm@hotmail.com",
+      "Id": "1",
+      "UserType": 1,
+      "Address": null
+    },
+    "DurationInMins": 60,
+    "GuestUser": {
+      "SystemName": null,
+      "InjuryDescription": null
+    },
+    "Doctor": null,
+    "Date": "2021-05-11T18:24:00",
+    "Patient": {
+      "Allergens": [
+        "polen"
+      ],
+      "Debit": 1500.0,
+      "examinations": null,
+      "HealthCardNumber": "6",
+      "Anamneses": null,
+      "Username": "nikola_nikolic",
+      "Password": "sasasa",
+      "Name": "Nikola",
+      "Surname": "Nikolic",
+      "DateOfBirth": "1984-12-01T00:00:00",
+      "Phone": "0647896587",
+      "Email": "nikolic@gmail.com",
+      "Id": "2222",
+      "UserType": 0,
+      "Address": {
+        "Street": "Masarikova ulica ",
+        "NumberOfBuilding": 12,
+        "Floor": 25,
+        "Apartment": 13,
+        "City": {
+          "name": "Sombor ",
+          "postalCode": "12564",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "RoomRecord": {
+      "Id": 300,
+      "HospitalWard": "Pedijatrija",
+      "inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 27,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "roomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "IsUrgent": false,
+    "endTime": "2021-05-11T19:24:00",
+    "PosponedDate": "2021-05-11T18:24:00"
+  },
+  {
+    "doctor": {
+      "Specialization": {
+        "Name": "Alergologija i imunologija"
+      },
+      "Ordination": 300,
+      "Username": "Ognjen",
+      "Password": "ognjen",
+      "Name": "Ognjen",
+      "Surname": "Nestorović",
+      "DateOfBirth": "1979-11-01T00:00:00",
+      "Phone": "67894652",
+      "Email": "maricm@hotmail.com",
+      "Id": "1",
+      "UserType": 1,
+      "Address": null
+    },
+    "DurationInMins": 60,
+    "GuestUser": {
+      "SystemName": null,
+      "InjuryDescription": null
+    },
+    "Doctor": null,
+    "Date": "2021-05-11T19:24:00",
+    "Patient": {
+      "Allergens": [
+        "polen"
+      ],
+      "Debit": 1500.0,
+      "examinations": null,
+      "HealthCardNumber": "6",
+      "Anamneses": null,
+      "Username": "nikola_nikolic",
+      "Password": "sasasa",
+      "Name": "Nikola",
+      "Surname": "Nikolic",
+      "DateOfBirth": "1984-12-01T00:00:00",
+      "Phone": "0647896587",
+      "Email": "nikolic@gmail.com",
+      "Id": "2222",
+      "UserType": 0,
+      "Address": {
+        "Street": "Masarikova ulica ",
+        "NumberOfBuilding": 12,
+        "Floor": 25,
+        "Apartment": 13,
+        "City": {
+          "name": "Sombor ",
+          "postalCode": "12564",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "RoomRecord": {
+      "Id": 300,
+      "HospitalWard": "Pedijatrija",
+      "inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 27,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "roomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "IsUrgent": false,
+    "endTime": "2021-05-11T20:24:00",
+    "PosponedDate": "2021-05-11T18:24:00"
   }
 ]
