@@ -8,8 +8,11 @@
         Title="Predlozi" Height="450" Width="800"
         WindowStartupLocation="CenterScreen">
     <Grid>
+        <Button Click="BackButtonClicked">
+            <Image Margin="676,27,83.6,366" Source="back.png" Stretch="Fill" RenderTransformOrigin="1.313,1.419" />
+        </Button>
         <DataGrid AutoGenerateColumns="False" 
-          Height="350" 
+          Height="272" 
           Width="644"
           ColumnHeaderHeight="30"
           ColumnWidth="162.5"
@@ -17,7 +20,7 @@
           HorizontalAlignment="Center" 
           Name="PredloziBinding" 
           IsReadOnly="True"
-          VerticalAlignment="Center" Margin="38,35,111.6,35" RenderTransformOrigin="1.721,0.487"  >
+          VerticalAlignment="Center" Margin="38,113,111.6,35" RenderTransformOrigin="1.721,0.487"  >
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FF4E8E73"/>
@@ -34,7 +37,10 @@
                 <DataGridTextColumn Width="213" Header="Prezime" Binding="{ Binding doctor.Surname}" />
             </DataGrid.Columns>
         </DataGrid>
+        <Image Margin="28,10,711.6,354" Source="nasLogo.jpg" Stretch="Fill"/>
+        <Label Content="Zdravo bolnica" HorizontalAlignment="Left" Height="27" Margin="10,66,0,0" VerticalAlignment="Top" Width="93"/>
         
-        <Button Content="Nazad" HorizontalAlignment="Left" Margin="687,267,0,0" VerticalAlignment="Top" Width="97" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="NazadButtonClicked"/>
+        <Label Content="Back" FontSize="16" HorizontalAlignment="Left" Height="27" Margin="715,27,0,0" VerticalAlignment="Top" Width="48"/>
+        <Label Content="Predlozi" FontSize="30" HorizontalAlignment="Left" Height="46" Margin="314,47,0,0" VerticalAlignment="Top" Width="124"/>
     </Grid>
 </Window>

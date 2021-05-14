@@ -37,5 +37,10 @@ namespace IS_Bolnica
 
             OceneBolniceDataBinding.ItemsSource = oceneUlogovanogPacijenta;
         }
+
+        private void BackButtonClicked(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

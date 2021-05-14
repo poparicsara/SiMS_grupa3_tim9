@@ -35,5 +35,10 @@ namespace IS_Bolnica
             OceneBolnice oceneBolnice = new OceneBolnice();
             oceneBolnice.Show();
         }
+
+        private void BackButtonClicked(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

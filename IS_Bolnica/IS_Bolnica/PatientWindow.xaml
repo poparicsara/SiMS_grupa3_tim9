@@ -14,7 +14,7 @@
         </Grid.ColumnDefinitions>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="422" Margin="0,0,-4.4,-2" Stroke="Black" VerticalAlignment="Top" Width="798" Grid.ColumnSpan="2"/>
         <DataGrid AutoGenerateColumns="False" 
-          Height="308" 
+          Height="280" 
           Width="644"
           ColumnHeaderHeight="30"
           ColumnWidth="162.5"
@@ -22,7 +22,7 @@
           HorizontalAlignment="Center" 
           Name="lvDataBinding" 
           IsReadOnly="True"
-          VerticalAlignment="Center" Margin="38,77,111.6,35" Grid.ColumnSpan="2" >
+          VerticalAlignment="Center" Margin="28,116,121.6,24" Grid.ColumnSpan="2" >
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FF4E8E73"/>
@@ -46,6 +46,9 @@
         <Button Content="Izmeni" HorizontalAlignment="Left" Margin="498.4,341,0,0" VerticalAlignment="Top" Width="97" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="IzmeniButtonClicked" Grid.Column="1" Height="19"/>
         <Button Content="Obaveštenja" HorizontalAlignment="Left" Margin="498.4,222,0,0" VerticalAlignment="Top" Width="97" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="ObavestenjaButtonClicked" Grid.Column="1" Height="19"/>
         <Button Content="Ocenjivanje" HorizontalAlignment="Left" Margin="498.4,185,0,0" VerticalAlignment="Top" Width="97" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="OcenjivanjeButtonClicked" Grid.Column="1" Height="19"/>
-
+        <Label Content="Vasi pregledi" FontSize="30" Grid.Column="1" HorizontalAlignment="Left" Height="51" Margin="79.4,47,0,0" VerticalAlignment="Top" Width="180"/>
+        <Button Content="Odjavite se" HorizontalAlignment="Left" Margin="498.4,83,0,0" VerticalAlignment="Top" Width="97" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="OdjavljivanjeButtonClicked" Grid.Column="1" Height="19"/>
+        <Image Margin="28,10,107.6,354" Source="nasLogo.jpg" Stretch="Fill"/>
+        <Label Content="Zdravo bolnica" HorizontalAlignment="Left" Height="27" Margin="10,66,0,0" VerticalAlignment="Top" Width="93"/>
     </Grid>
 </Window>

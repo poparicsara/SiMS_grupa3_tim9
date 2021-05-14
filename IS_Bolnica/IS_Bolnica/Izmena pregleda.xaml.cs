@@ -24,35 +24,12 @@ namespace IS_Bolnica
     public partial class Izmena_pregleda : Window
     {
         private int oznaceniIndex;
-
         public List<String> doktori { get; set; }
         public Izmena_pregleda(int index)
         {
-            UsersFileStorage userStorage = new UsersFileStorage();
-            List<User> users = userStorage.loadFromFile("UsersFileStorage.json");
-
-            doktori = new List<String>();
-
-            foreach (User user in users)
-            {
-                if (Convert.ToInt32(user.UserType) == 1)
-                {
-                    doktori.Add(user.Name + " " + user.Surname);
-                }
-            }
-
+            nabaviDoktore();
             oznaceniIndex = index;
-            ExaminationsRecordFileStorage exStorage = new ExaminationsRecordFileStorage();
-            List<Examination> pregledi = exStorage.loadFromFile("Pregledi.json");
-            ObservableCollection<Examination> pacijentovi_pregledi = new ObservableCollection<Examination>();
-
-            foreach (Examination ex in pregledi)
-            {
-                if (ex.Patient.Username.Equals(PatientWindow.username_patient))
-                {
-                    pacijentovi_pregledi.Add(ex);
-                }
-            }
+            ObservableCollection<Examination> pacijentovi_pregledi = dobaviPacijentovePreglede();
 
             //2.3.2020. 09:15:00 
             DateTime oznaceniDatum = pacijentovi_pregledi.ElementAt(index).Date;
@@ -74,8 +51,37 @@ namespace IS_Bolnica
             }
             MinutiBox.Text = vreme[1];
             DataContext = this;
-
         }
+
+        private void nabaviDoktore() {
+            UsersFileStorage userStorage = new UsersFileStorage();
+            List<User> users = userStorage.loadFromFile("UsersFileStorage.json");
+            doktori = new List<String>();
+
+            foreach (User user in users)
+            {
+                if (Convert.ToInt32(user.UserType) == 1)
+                {
+                    doktori.Add(user.Name + " " + user.Surname);
+                }
+            }
+        }
+        private ObservableCollection<Examination> dobaviPacijentovePreglede() {
+            ExaminationsRecordFileStorage exStorage = new ExaminationsRecordFileStorage();
+            List<Examination> pregledi = exStorage.loadFromFile("Pregledi.json");
+            ObservableCollection<Examination> pacijentovi_pregledi = new ObservableCollection<Examination>();
+
+            foreach (Examination ex in pregledi)
+            {
+                if (ex.Patient.Username.Equals(PatientWindow.username_patient))
+                {
+                    pacijentovi_pregledi.Add(ex);
+                }
+            }
+
+            return pacijentovi_pregledi;
+        }
+
         private void OdustaniButtonClicked(object sender, RoutedEventArgs e)
         {
             PatientWindow pw = new PatientWindow(PatientWindow.username_patient, false);
@@ -138,6 +144,13 @@ namespace IS_Bolnica
                 
                 exStorage.saveToFile(pregledi, "Pregledi.json");
             }
+            PatientWindow pw = new PatientWindow(PatientWindow.username_patient, false);
+            pw.Show();
+            this.Close();
+        }
+
+        private void BackButtonClicked(object sender, RoutedEventArgs e)
+        {
             PatientWindow pw = new PatientWindow(PatientWindow.username_patient, false);
             pw.Show();
             this.Close();

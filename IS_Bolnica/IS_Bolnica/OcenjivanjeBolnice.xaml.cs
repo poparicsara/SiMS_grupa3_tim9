@@ -43,5 +43,10 @@ namespace IS_Bolnica
             this.Close();
             exStorage.saveToFile(ocene, "Ocene.json");
         }
+
+        private void BackButtonClicked(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -117,5 +117,12 @@ namespace IS_Bolnica
             Predlozi predlozi = new Predlozi(doktor_ime, doktor_prezime, Convert.ToDateTime(Datum.SelectedDate));
             predlozi.Show();
         }
+
+        private void BackButtonClicked(object sender, RoutedEventArgs e)
+        {
+            PatientWindow pw = new PatientWindow(PatientWindow.username_patient, false);
+            pw.Show();
+            this.Close();
+        }
     }
 }

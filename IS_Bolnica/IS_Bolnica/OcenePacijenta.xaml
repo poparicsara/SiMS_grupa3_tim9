@@ -9,8 +9,14 @@
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="422" Margin="0,0,-4.4,-2" Stroke="Black" VerticalAlignment="Top" Width="798" Grid.ColumnSpan="2"/>
+        <Button Click="BackButtonClicked">
+            <Image Margin="676,27,83.6,366" Source="back.png" Stretch="Fill" RenderTransformOrigin="1.313,1.419" />
+        </Button>
         <Label Content="Vase ocene" FontSize="50" HorizontalAlignment="Left" Height="79" Margin="260,70,0,0" VerticalAlignment="Top" Width="271"/>
         <Button Content="Ocene pregleda" FontSize="30" HorizontalAlignment="Left" Height="55" Margin="133,272,0,0" VerticalAlignment="Top" Width="236" Click="ButtonOcenePregledaClicked"/>
         <Button Content="Ocene bolnice" FontSize="30" HorizontalAlignment="Left" Height="55" Margin="475,272,0,0" VerticalAlignment="Top" Width="229" RenderTransformOrigin="0.346,0.569" Click="ButtonOceneBolniceClicked"/>
+        <Image Margin="28,10,711.6,354" Source="nasLogo.jpg" Stretch="Fill"/>
+        <Label Content="Zdravo bolnica" HorizontalAlignment="Left" Height="27" Margin="10,66,0,0" VerticalAlignment="Top" Width="93"/>
+        <Label Content="Back" FontSize="16" HorizontalAlignment="Left" Height="27" Margin="715,27,0,0" VerticalAlignment="Top" Width="48"/>
     </Grid>
 </Window>

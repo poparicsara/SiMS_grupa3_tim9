@@ -86,7 +86,7 @@ namespace IS_Bolnica
 
         private void AddButtonClicked(object sender, RoutedEventArgs e)
         {
-            if(!povecajAkcije())
+            if(!obradiAkcije())
             {
                 Zakazivanje_pregleda zp = new Zakazivanje_pregleda(akcije, ocenePacijentove);
                 zp.Show();
@@ -94,38 +94,39 @@ namespace IS_Bolnica
             }
         }
 
-        private Boolean povecajAkcije() {
+        private Boolean obradiAkcije() {
+            povecajAkcije();
+            return proveriAkcije();
+        }
+
+        private void povecajAkcije() {
             ExaminationsRecordFileStorage exStorage = new ExaminationsRecordFileStorage();
             List<Examination> pregledi = exStorage.loadFromFile("Pregledi.json");
-            
-            foreach (Examination ex in pregledi) {
+            foreach (Examination ex in pregledi)
+            {
                 if (ex.Patient.Username.Equals(username_patient))
                 {
                     ex.Patient.Akcije++;
                     akcije = ex.Patient.Akcije;
                 }
             }
-
             exStorage.saveToFile(pregledi, "Pregledi.json");
-            
+        }
+
+        private Boolean proveriAkcije() {
             if (akcije >= 6)
             {
                 MessageBox.Show("Najvise 6 akcija nad pregledima mozete izvrsiti prilikom logovanja!");
                 return true;
             }
-
             return false;
         }
 
         private void OtkaziButtonClicked(object sender, RoutedEventArgs e) {
 
-            if (lvDataBinding.SelectedIndex == -1)
+            if (!proveriOznaceniIndex(lvDataBinding.SelectedIndex, false))
             {
-                MessageBox.Show("Oznacite pregled koji zelite da otkazete!");
-            }
-            else
-            {
-                if (!povecajAkcije())
+                if (!obradiAkcije())
                 {
                     ExaminationsRecordFileStorage exStorage = new ExaminationsRecordFileStorage();
                     List<Examination> pregledi = exStorage.loadFromFile("Pregledi.json");
@@ -143,23 +144,11 @@ namespace IS_Bolnica
                         if (i == lvDataBinding.SelectedIndex)
                             oznacen_pregled = pacijentovi_pregledi[i];
                     }
-                    
-                    DateTime now = DateTime.Now;
-                    string[] pom = now.AddDays(2).ToString().Split(' ');
-                    string[] datum = pom[0].Split('/');
-                    
-                    string[] pomocni = oznacen_pregled.Date.ToString().Split(' ');
-                    string[] pomocni_datum = pomocni[0].Split('/');
 
-                    if (Convert.ToInt32(datum[0]) == Convert.ToInt32(pomocni_datum[0]))
-                    {
-                        if (Convert.ToInt32(datum[1]) + 2 < Convert.ToInt32(pomocni_datum[1]))
-                            pregledi.Remove(oznacen_pregled);
-                        else
-                            MessageBox.Show("Ne mozete da otkazete pregled jer je zakazan u periodu od naredna dva dana!");
-                    }
-                    else
+                    if (!proveriDatum(oznacen_pregled))
                         pregledi.Remove(oznacen_pregled);
+                    else
+                        MessageBox.Show("Ne mozete da otkazete pregled jer je zakazan u periodu od naredna dva dana!");
 
                     exStorage.saveToFile(pregledi, "Pregledi.json");
                     refreshView();
@@ -205,43 +194,52 @@ namespace IS_Bolnica
         }
 
         private void IzmeniButtonClicked(object sender, RoutedEventArgs e) {
-            if (lvDataBinding.SelectedIndex == -1)
+            if (!proveriOznaceniIndex(lvDataBinding.SelectedIndex, true))
             {
-                MessageBox.Show("Oznacite pregled koji zelite da izmenite!");
-            }
-            else
-            {
-                if (!povecajAkcije())
+                if (!obradiAkcije())
                 {
                     Examination oznacen_pregled = pronadjiOznaceniPregled();
                     Izmena_pregleda ip = new Izmena_pregleda(lvDataBinding.SelectedIndex);
-
-                    DateTime now = DateTime.Now;
-                    string[] pom = now.AddDays(2).ToString().Split(' ');
-                    string[] datum = pom[0].Split('/');
-
-                    string[] pomocni = oznacen_pregled.Date.ToString().Split(' ');
-                    string[] pomocni_datum = pomocni[0].Split('/');
-
-                    if (Convert.ToInt32(datum[0]) == Convert.ToInt32(pomocni_datum[0]))
-                    {
-                        if (Convert.ToInt32(datum[1]) < Convert.ToInt32(pomocni_datum[1]))
-                        {
-                            ip.Show();
-                            this.Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Ne mozete da izmenite pregled jer je zakazan u periodu od naredna dva dana!");
-                        }
-                    }
-                    else
+                    
+                    if (!proveriDatum(oznacen_pregled))
                     {
                         ip.Show();
                         this.Close();
                     }
+                    else
+                        MessageBox.Show("Ne mozete da izmenite pregled jer je zakazan u periodu od naredna dva dana!");
                 }
             }
+        }  
+
+        private Boolean proveriOznaceniIndex(int index, Boolean value) {
+            if (index == -1 && value)
+            {
+                MessageBox.Show("Oznacite pregled koji zelite da izmenite!");
+                return true;
+            }
+            else if (index == -1 && !value) {
+                MessageBox.Show("Oznacite pregled koji zelite da otkazete!");
+                return true;
+            }
+            return false;
+        }
+
+        public Boolean proveriDatum(Examination pregled) {
+            DateTime now = DateTime.Now;
+            string[] pom = now.AddDays(2).ToString().Split(' ');
+            string[] datum = pom[0].Split('/');
+            string[] pomocni = pregled.Date.ToString().Split(' ');
+            string[] pomocni_datum = pomocni[0].Split('/');
+
+            if (Convert.ToInt32(datum[0]) == Convert.ToInt32(pomocni_datum[0]))
+            {
+                if (Convert.ToInt32(datum[1]) < Convert.ToInt32(pomocni_datum[1]))
+                    return false;
+                else
+                    return true;
+            }
+            return false;
         }
 
         private void ObavestenjaButtonClicked(object sender, RoutedEventArgs e)
@@ -351,6 +349,11 @@ namespace IS_Bolnica
         {
             OcenePacijenta pacijentoveOcene = new OcenePacijenta();
             pacijentoveOcene.Show();
+        }
+
+        private void OdjavljivanjeButtonClicked(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

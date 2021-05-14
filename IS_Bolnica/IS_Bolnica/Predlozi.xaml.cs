@@ -134,7 +134,7 @@ namespace IS_Bolnica
             PredloziBinding.ItemsSource = predlozi;
         }
 
-        private void NazadButtonClicked(object sender, RoutedEventArgs e)
+        private void BackButtonClicked(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
