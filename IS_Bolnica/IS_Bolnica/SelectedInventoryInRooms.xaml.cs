@@ -36,6 +36,9 @@ namespace IS_Bolnica
             foreach (RoomRecord room in rooms)
             {
                 InventoryInRoom inRoom = new InventoryInRoom();
+                Inventory iOr = new Inventory();
+                Inventory iOp = new Inventory();
+                Inventory iS = new Inventory();
                 int existOr = 0;
                 int amountOr = 0;
                 string wardOr = "";
@@ -58,6 +61,7 @@ namespace IS_Bolnica
                         {
                             existOr = 1;
                             amountOr = i.CurrentAmount;
+                            iOr = i;
                         }
                     }
                 }
@@ -74,6 +78,7 @@ namespace IS_Bolnica
                         {
                             existOp = 1;
                             amountOp = i.CurrentAmount;
+                            iOp = i;
                         }
                     }
                 }
@@ -90,6 +95,7 @@ namespace IS_Bolnica
                         {
                             existS = 1;
                             amountS = i.CurrentAmount;
+                            iS = i;
                         }
                     }
                 }
@@ -110,23 +116,20 @@ namespace IS_Bolnica
                 }
                 if (existOr == 1)
                 {
-                    inRoom.RoomNumber = room.Id;
-                    inRoom.CurrentAmount = amountOr;
-                    inRoom.HospitalWard = wardOr;
+                    inRoom.Room = room;
+                    inRoom.Inventory = iOr;
                     inRoomListOrdinacija.Add(inRoom);
                 }
                 else if(existOp == 1)
                 {
-                    inRoom.RoomNumber = room.Id;
-                    inRoom.CurrentAmount = amountOp;
-                    inRoom.HospitalWard = wardOp;
+                    inRoom.Room = room;
+                    inRoom.Inventory = iOp;
                     inRoomListOperacionaSala.Add(inRoom);
                 }
                 else if(existS == 1)
                 {
-                    inRoom.RoomNumber = room.Id;
-                    inRoom.CurrentAmount = amountS;
-                    inRoom.HospitalWard = wardS;
+                    inRoom.Room = room;
+                    inRoom.Inventory = iS;
                     inRoomListSoba.Add(inRoom);
                 }
             }
@@ -146,21 +149,21 @@ namespace IS_Bolnica
 
         private void ordinacijaKeyUp(object sender, KeyEventArgs e)
         {
-            var filtered = inRoomListOrdinacija.Where(inventory => inventory.HospitalWard.ToLower().StartsWith(ordinacijaSearchBox.Text.ToLower()));
+            var filtered = inRoomListOrdinacija.Where(inventory => inventory.Room.HospitalWard.ToLower().StartsWith(ordinacijaSearchBox.Text.ToLower()));
 
             selectedInventoryOrdinacija.ItemsSource = filtered;
         }
 
         private void operacionaKeyUp(object sender, KeyEventArgs e)
         {
-            var filtered = inRoomListOperacionaSala.Where(inventory => inventory.HospitalWard.ToLower().StartsWith(operacionaSearchBox.Text.ToLower()));
+            var filtered = inRoomListOperacionaSala.Where(inventory => inventory.Room.HospitalWard.ToLower().StartsWith(operacionaSearchBox.Text.ToLower()));
 
             selectedInventoryOperacionaSala.ItemsSource = filtered;
         }
 
         private void sobaKeyUp(object sender, KeyEventArgs e)
         {
-            var filtered = inRoomListSoba.Where(inventory => inventory.HospitalWard.ToLower().StartsWith(sobaSearchBox.Text.ToLower()));
+            var filtered = inRoomListSoba.Where(inventory => inventory.Room.HospitalWard.ToLower().StartsWith(sobaSearchBox.Text.ToLower()));
 
             selectedInventorySoba.ItemsSource = filtered;
         }

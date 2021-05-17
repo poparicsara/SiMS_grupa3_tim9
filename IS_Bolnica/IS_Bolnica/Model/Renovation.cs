@@ -5,11 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IS_Bolnica
+namespace IS_Bolnica.Model
 {
-    class InventoryInRoom
+    class Renovation
     {
         public RoomRecord Room { get; set; }
-        public Inventory Inventory { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+
     }
 }

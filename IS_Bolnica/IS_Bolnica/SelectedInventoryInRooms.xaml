@@ -28,9 +28,9 @@
                         </DataGrid.Resources>
                         <!-- Header -->
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header ="BROJ PROSTORIJE" Width="168" Binding="{Binding RoomNumber}"/>
-                            <DataGridTextColumn Header ="BOLNIČKO ODELJENJE" Width="168" Binding="{Binding HospitalWard}"/>
-                            <DataGridTextColumn Header ="TRENUTNA KOLIČINA" Width="168" Binding="{Binding CurrentAmount}"/>
+                            <DataGridTextColumn Header ="BROJ PROSTORIJE" Width="168" Binding="{Binding Path = Room.Id}"/>
+                            <DataGridTextColumn Header ="BOLNIČKO ODELJENJE" Width="168" Binding="{Binding Path = Room.HospitalWard}"/>
+                            <DataGridTextColumn Header ="TRENUTNA KOLIČINA" Width="168" Binding="{Binding Path = Inventory.CurrentAmount}"/>
                         </DataGrid.Columns>
                     </DataGrid>
 
@@ -63,9 +63,9 @@
                         </DataGrid.Resources>
                         <!-- Header -->
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header ="BROJ PROSTORIJE" Width="168" Binding="{Binding RoomNumber}"/>
-                            <DataGridTextColumn Header ="BOLNIČKO ODELJENJE" Width="168" Binding="{Binding HospitalWard}"/>
-                            <DataGridTextColumn Header ="TRENUTNA KOLIČINA" Width="168" Binding="{Binding CurrentAmount}"/>
+                            <DataGridTextColumn Header ="BROJ PROSTORIJE" Width="168" Binding="{Binding Path = Room.Id}"/>
+                            <DataGridTextColumn Header ="BOLNIČKO ODELJENJE" Width="168" Binding="{Binding Path = Room.HospitalWard}"/>
+                            <DataGridTextColumn Header ="TRENUTNA KOLIČINA" Width="168" Binding="{Binding Path = Inventory.CurrentAmount}"/>
                         </DataGrid.Columns>
                     </DataGrid>
 
@@ -97,9 +97,9 @@
                         </DataGrid.Resources>
                         <!-- Header -->
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header ="BROJ PROSTORIJE" Width="168" Binding="{Binding RoomNumber}"/>
-                            <DataGridTextColumn Header ="BOLNIČKO ODELJENJE" Width="168" Binding="{Binding HospitalWard}"/>
-                            <DataGridTextColumn Header ="TRENUTNA KOLIČINA" Width="168" Binding="{Binding CurrentAmount}"/>
+                            <DataGridTextColumn Header ="BROJ PROSTORIJE" Width="168" Binding="{Binding Path=Room.Id}"/>
+                            <DataGridTextColumn Header ="BOLNIČKO ODELJENJE" Width="168" Binding="{Binding Path=Room.HospitalWard}"/>
+                            <DataGridTextColumn Header ="TRENUTNA KOLIČINA" Width="168" Binding="{Binding Path=Inventory.CurrentAmount}"/>
                         </DataGrid.Columns>
                     </DataGrid>
 
