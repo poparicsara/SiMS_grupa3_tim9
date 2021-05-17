@@ -1,16 +1,15 @@
 [
   {
     "IsPayed": false,
+    "Evaluation": 0,
     "DurationInMinutes": 30,
     "Date": "2021-05-08T04:00:00",
     "Patient": {
       "Allergens": [
         "polen"
       ],
-      "examinations": null,
-      "Akcije": 0,
-      "brojOcenjenihPregleda": 0,
       "Debit": 1500.0,
+      "examinations": null,
       "HealthCardNumber": "6",
       "Anamneses": null,
       "Username": "nikola_nikolic",
@@ -95,16 +94,15 @@
   },
   {
     "IsPayed": false,
+    "Evaluation": 0,
     "DurationInMinutes": 30,
     "Date": "2021-05-08T15:30:00",
     "Patient": {
       "Allergens": [
         "penicilin"
       ],
-      "examinations": null,
-      "Akcije": 0,
-      "brojOcenjenihPregleda": 0,
       "Debit": 500.0,
+      "examinations": null,
       "HealthCardNumber": "78",
       "Anamneses": null,
       "Username": "mare",
@@ -189,16 +187,15 @@
   },
   {
     "IsPayed": false,
+    "Evaluation": 0,
     "DurationInMinutes": 30,
     "Date": "2021-05-08T16:00:00",
     "Patient": {
       "Allergens": [
         "penicilin"
       ],
-      "examinations": null,
-      "Akcije": 0,
-      "brojOcenjenihPregleda": 0,
       "Debit": 500.0,
+      "examinations": null,
       "HealthCardNumber": "78",
       "Anamneses": null,
       "Username": "mare",
@@ -283,16 +280,15 @@
   },
   {
     "IsPayed": false,
+    "Evaluation": 0,
     "DurationInMinutes": 30,
     "Date": "2021-05-08T16:30:00",
     "Patient": {
       "Allergens": [
         "polen"
       ],
-      "examinations": null,
-      "Akcije": 0,
-      "brojOcenjenihPregleda": 0,
       "Debit": 1500.0,
+      "examinations": null,
       "HealthCardNumber": "6",
       "Anamneses": null,
       "Username": "nikola_nikolic",
@@ -380,16 +376,15 @@
   },
   {
     "IsPayed": false,
+    "Evaluation": 0,
     "DurationInMinutes": 30,
     "Date": "2021-05-08T18:00:00",
     "Patient": {
       "Allergens": [
         "penicilin"
       ],
-      "examinations": null,
-      "Akcije": 0,
-      "brojOcenjenihPregleda": 0,
       "Debit": 500.0,
+      "examinations": null,
       "HealthCardNumber": "78",
       "Anamneses": null,
       "Username": "mare",
@@ -477,16 +472,15 @@
   },
   {
     "IsPayed": false,
+    "Evaluation": 0,
     "DurationInMinutes": 30,
     "Date": "2021-05-08T17:00:00",
     "Patient": {
       "Allergens": [
         "polen"
       ],
-      "examinations": null,
-      "Akcije": 0,
-      "brojOcenjenihPregleda": 0,
       "Debit": 1500.0,
+      "examinations": null,
       "HealthCardNumber": "6",
       "Anamneses": null,
       "Username": "nikola_nikolic",
@@ -574,16 +568,15 @@
   },
   {
     "IsPayed": false,
+    "Evaluation": 0,
     "DurationInMinutes": 30,
     "Date": "2021-05-08T18:30:00",
     "Patient": {
       "Allergens": [
         "penicilin"
       ],
-      "examinations": null,
-      "Akcije": 0,
-      "brojOcenjenihPregleda": 0,
       "Debit": 500.0,
+      "examinations": null,
       "HealthCardNumber": "78",
       "Anamneses": null,
       "Username": "mare",
@@ -668,16 +661,15 @@
   },
   {
     "IsPayed": false,
+    "Evaluation": 0,
     "DurationInMinutes": 30,
     "Date": "2021-05-08T17:30:00",
     "Patient": {
       "Allergens": [
         ""
       ],
-      "examinations": null,
-      "Akcije": 0,
-      "brojOcenjenihPregleda": 0,
       "Debit": 200.0,
+      "examinations": null,
       "HealthCardNumber": "10",
       "Anamneses": null,
       "Username": "mica",
@@ -765,16 +757,15 @@
   },
   {
     "IsPayed": false,
+    "Evaluation": 0,
     "DurationInMinutes": 30,
     "Date": "2021-05-08T19:00:00",
     "Patient": {
       "Allergens": [
         "penicilin"
       ],
-      "examinations": null,
-      "Akcije": 0,
-      "brojOcenjenihPregleda": 0,
       "Debit": 500.0,
+      "examinations": null,
       "HealthCardNumber": "78",
       "Anamneses": null,
       "Username": "mare",
@@ -859,16 +850,15 @@
   },
   {
     "IsPayed": false,
+    "Evaluation": 0,
     "DurationInMinutes": 30,
     "Date": "2021-05-08T19:30:00",
     "Patient": {
       "Allergens": [
         "penicilin"
       ],
-      "examinations": null,
-      "Akcije": 0,
-      "brojOcenjenihPregleda": 0,
       "Debit": 500.0,
+      "examinations": null,
       "HealthCardNumber": "78",
       "Anamneses": null,
       "Username": "mare",
@@ -949,16 +939,15 @@
   },
   {
     "IsPayed": false,
+    "Evaluation": 0,
     "DurationInMinutes": 30,
     "Date": "2021-05-10T10:00:00",
     "Patient": {
       "Allergens": [
         ""
       ],
-      "examinations": null,
-      "Akcije": 0,
-      "brojOcenjenihPregleda": 0,
       "Debit": 200.0,
+      "examinations": null,
       "HealthCardNumber": "10",
       "Anamneses": null,
       "Username": "mica",
@@ -1036,16 +1025,15 @@
   },
   {
     "IsPayed": false,
+    "Evaluation": 0,
     "DurationInMinutes": 30,
     "Date": "2021-05-11T15:24:00",
     "Patient": {
       "Allergens": [
         "penicilin"
       ],
-      "examinations": null,
-      "Akcije": 0,
-      "brojOcenjenihPregleda": 0,
       "Debit": 500.0,
+      "examinations": null,
       "HealthCardNumber": "78",
       "Anamneses": null,
       "Username": "mare",
@@ -1126,16 +1114,15 @@
   },
   {
     "IsPayed": false,
+    "Evaluation": 0,
     "DurationInMinutes": 30,
     "Date": "2021-05-11T15:54:00",
     "Patient": {
       "Allergens": [
         "polen"
       ],
-      "examinations": null,
-      "Akcije": 0,
-      "brojOcenjenihPregleda": 0,
       "Debit": 1500.0,
+      "examinations": null,
       "HealthCardNumber": "6",
       "Anamneses": null,
       "Username": "nikola_nikolic",
@@ -1212,90 +1199,6 @@
       "SystemName": null,
       "InjuryDescription": null
     },
-    "PostponedDate": "0001-01-01T00:00:00"
-  },
-  {
-    "IsPayed": false,
-    "DurationInMinutes": 24,
-    "Date": "2021-05-26T12:00:00",
-    "Patient": {
-      "Allergens": null,
-      "examinations": null,
-      "Akcije": 0,
-      "brojOcenjenihPregleda": 0,
-      "Debit": 0.0,
-      "HealthCardNumber": null,
-      "Anamneses": null,
-      "Username": "Vladimir",
-      "Password": null,
-      "Name": null,
-      "Surname": null,
-      "DateOfBirth": "0001-01-01T00:00:00",
-      "Phone": null,
-      "Email": null,
-      "Id": null,
-      "UserType": 0,
-      "Address": null
-    },
-    "Doctor": {
-      "Specialization": null,
-      "Ordination": 0,
-      "Username": null,
-      "Password": null,
-      "Name": "Ana",
-      "Surname": "Petrovic",
-      "DateOfBirth": "0001-01-01T00:00:00",
-      "Phone": null,
-      "Email": null,
-      "Id": null,
-      "UserType": 0,
-      "Address": null
-    },
-    "Secretary": null,
-    "RoomRecord": null,
-    "GuestUser": null,
-    "PostponedDate": "0001-01-01T00:00:00"
-  },
-  {
-    "IsPayed": false,
-    "DurationInMinutes": 23,
-    "Date": "2021-05-27T10:30:00",
-    "Patient": {
-      "Allergens": null,
-      "examinations": null,
-      "Akcije": 0,
-      "brojOcenjenihPregleda": 0,
-      "Debit": 0.0,
-      "HealthCardNumber": null,
-      "Anamneses": null,
-      "Username": "Vladimir",
-      "Password": null,
-      "Name": null,
-      "Surname": null,
-      "DateOfBirth": "0001-01-01T00:00:00",
-      "Phone": null,
-      "Email": null,
-      "Id": null,
-      "UserType": 0,
-      "Address": null
-    },
-    "Doctor": {
-      "Specialization": null,
-      "Ordination": 0,
-      "Username": null,
-      "Password": null,
-      "Name": "Ana",
-      "Surname": "Petrovic",
-      "DateOfBirth": "0001-01-01T00:00:00",
-      "Phone": null,
-      "Email": null,
-      "Id": null,
-      "UserType": 0,
-      "Address": null
-    },
-    "Secretary": null,
-    "RoomRecord": null,
-    "GuestUser": null,
     "PostponedDate": "0001-01-01T00:00:00"
   }
 ]
