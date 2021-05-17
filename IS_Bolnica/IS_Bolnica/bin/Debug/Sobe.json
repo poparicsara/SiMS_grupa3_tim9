@@ -49,7 +49,7 @@
       },
       {
         "Name": "Krevet",
-        "CurrentAmount": 17,
+        "CurrentAmount": 20,
         "Minimum": 2,
         "Id": 666,
         "InventoryType": 1
@@ -116,7 +116,7 @@
       },
       {
         "Name": "Injekcija",
-        "CurrentAmount": 24,
+        "CurrentAmount": 21,
         "Minimum": 2,
         "Id": 202,
         "InventoryType": 0
@@ -164,13 +164,6 @@
         "Minimum": 2,
         "Id": 303,
         "InventoryType": 0
-      },
-      {
-        "Name": "Krevet",
-        "CurrentAmount": 3,
-        "Minimum": 0,
-        "Id": 666,
-        "InventoryType": 1
       }
     ],
     "roomPurpose": {
@@ -190,7 +183,7 @@
       },
       {
         "Name": "Injekcija",
-        "CurrentAmount": 24,
+        "CurrentAmount": 27,
         "Minimum": 2,
         "Id": 202,
         "InventoryType": 0
@@ -761,4 +754,5 @@
       "Name": "Ordinacija"
     }
   }
+
 ]

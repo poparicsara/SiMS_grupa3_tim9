@@ -217,23 +217,5 @@
     "Replacement": null,
     "Producer": "neko",
     "Status": 0
-  },
-  {
-    "Id": 5,
-    "Name": "bla",
-    "Ingredients": [
-      {
-        "Name": "a"
-      },
-      {
-        "Name": "a"
-      },
-      {
-        "Name": "a"
-      }
-    ],
-    "Replacement": null,
-    "Producer": "bla",
-    "Status": 0
   }
 ]

@@ -307,7 +307,7 @@ namespace IS_Bolnica.Secretary
 
                     foreach (RoomRecord room in rooms)
                     {
-                        if(room.Id.Equals(doc.Ordination))
+                        if(room.Id == doc.Ordination)
                         {
                             examOption1.RoomRecord = room;
                         }

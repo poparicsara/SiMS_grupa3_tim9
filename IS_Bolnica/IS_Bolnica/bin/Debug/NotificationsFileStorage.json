@@ -75,5 +75,19 @@
     "Sender": 3,
     "notificationType": 2,
     "PersonId": null
+  },
+  {
+    "title": "Izmena zahteva za novi lek",
+    "content": "555\nnesto\nAlopurinol\nmi\na\r\na\r\na\n\nIZMENI",
+    "Sender": 1,
+    "notificationType": 3,
+    "PersonId": null
+  },
+  {
+    "title": "Izmena zahteva za novi lek",
+    "content": "555\nnovi\nAlopurinol\nmi\na\r\na\r\na\n\nPROMENI",
+    "Sender": 1,
+    "notificationType": 3,
+    "PersonId": null
   }
 ]

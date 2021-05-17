@@ -75,6 +75,8 @@ namespace IS_Bolnica
             med.Id = (int)Int64.Parse(idBox.Text);
             med.Name = nameBox.Text;
             med.Producer = producerBox.Text;
+            med.Ingredients = medicament.Ingredients;
+            med.Status = medicament.Status;
 
             foreach(Medicament m in meds)
             {

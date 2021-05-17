@@ -28,5 +28,11 @@
     "Content": "123|proba|aaa|proba|a\r\na\r\na",
     "Sender": 3,
     "Recipient": 0
+  },
+  {
+    "Title": "Dodavanje leka u bazu",
+    "Content": "555|novi|Alopurinol|mi|a\r\na\r\na",
+    "Sender": 3,
+    "Recipient": 0
   }
 ]
