@@ -141,6 +141,7 @@
     <Compile Include="Model\Anamnesis.cs" />
     <Compile Include="Model\AnamnesisFileStorage.cs" />
     <Compile Include="Model\DoctorFileStorage.cs" />
+    <Compile Include="Model\EvaluationFileStorage.cs" />
     <Compile Include="Model\GuestUsersFileStorage.cs" />
     <Compile Include="Model\HospitalWard.cs" />
     <Compile Include="Model\HospitalWardFileStorage.cs" />
@@ -164,6 +165,21 @@
     </Compile>
     <Compile Include="NewRoomWindow.xaml.cs">
       <DependentUpon>NewRoomWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ocene.xaml.cs">
+      <DependentUpon>Ocene.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OceneBolnice.xaml.cs">
+      <DependentUpon>OceneBolnice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OcenePacijenta.xaml.cs">
+      <DependentUpon>OcenePacijenta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OcenjivanjeBolnice.xaml.cs">
+      <DependentUpon>OcenjivanjeBolnice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OcenjivanjePregleda.xaml.cs">
+      <DependentUpon>OcenjivanjePregleda.xaml</DependentUpon>
     </Compile>
     <Compile Include="PatientNotificationWindow.xaml.cs">
       <DependentUpon>PatientNotificationWindow.xaml</DependentUpon>
@@ -390,6 +406,26 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="NewRoomWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Ocene.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OceneBolnice.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OcenePacijenta.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OcenjivanjeBolnice.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OcenjivanjePregleda.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
