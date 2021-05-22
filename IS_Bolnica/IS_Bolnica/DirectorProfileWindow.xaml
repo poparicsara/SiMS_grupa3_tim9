@@ -11,13 +11,13 @@
             <Button x:Name="pacijent" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima"  Foreground="Black" BorderThickness="1" BorderBrush="#FF050510" Background="White">
                 Profil
             </Button>
-            <Button x:Name="lekar" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black" BorderThickness="1" BorderBrush="#FF050510" Background="White" Click="RoomButton">
+            <Button x:Name="lekar" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black" BorderThickness="1" BorderBrush="#FF050510" Background="White" Click="RoomButtonClicked">
                 Prostorije
             </Button>
-            <Button x:Name="sekretar" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black" BorderThickness="1" BorderBrush="#FF050510" Background="White" Click="InventoryButton">
+            <Button x:Name="sekretar" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black" BorderThickness="1" BorderBrush="#FF050510" Background="White" Click="InventoryButtonClicked">
                 Inventar
             </Button>
-            <Button x:Name="upravnik" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black" BorderThickness="1" BorderBrush="#FF050510" Background="White" Click="MedicamentButton">
+            <Button x:Name="upravnik" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black" BorderThickness="1" BorderBrush="#FF050510" Background="White" Click="MedicamentButtonClicked">
                 Lekovi
             </Button>
             <Border BorderBrush="Black" BorderThickness="1" Height="317" Width="206"/>
@@ -37,8 +37,8 @@
         <Label Content="0601234567" HorizontalAlignment="Left" Margin="613,246,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label Content="ivanivanovic@gmail.com" HorizontalAlignment="Left" Margin="613,279,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Label Content="Upravnik" HorizontalAlignment="Left" Margin="613,310,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Button Content="ODJAVA" FontWeight="Bold" HorizontalAlignment="Left" Margin="622,407,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="LogOutButton" Height="34" Background="White"/>
-        <Button Content="IZMENA PODATAKA" FontWeight="Bold" HorizontalAlignment="Left" Margin="744,407,0,0" VerticalAlignment="Top" Width="153" FontSize="14" Height="34" Click="EditButton" Background="White"/>
+        <Button Content="ODJAVA" FontWeight="Bold" HorizontalAlignment="Left" Margin="622,407,0,0" VerticalAlignment="Top" Width="90" FontSize="14" Click="LogOutButtonClicked" Height="34" Background="White"/>
+        <Button Content="IZMENA PODATAKA" FontWeight="Bold" HorizontalAlignment="Left" Margin="744,407,0,0" VerticalAlignment="Top" Width="153" FontSize="14" Height="34" Click="EditButtonClicked" Background="White"/>
 
     </Grid>
 </Window>

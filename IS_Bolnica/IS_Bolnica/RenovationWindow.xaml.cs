@@ -90,7 +90,7 @@ namespace IS_Bolnica
             operationStorage.saveToFile(operations, "operations.json");
 
             Director director = new Director();
-            UpravnikWindow uw = new UpravnikWindow(director);
+            RoomWindow uw = new RoomWindow(director);
             uw.Show();
             this.Close();
 

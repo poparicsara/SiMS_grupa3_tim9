@@ -753,6 +753,21 @@
     "roomPurpose": {
       "Name": "Ordinacija"
     }
+  },
+  {
+    "Id": 5,
+    "HospitalWard": "Nuklearna medicina",
+    "inventory": null,
+    "roomPurpose": {
+      "Name": "Ordinacija"
+    }
+  },
+  {
+    "Id": 3,
+    "HospitalWard": "Alergologija i imunologija",
+    "inventory": null,
+    "roomPurpose": {
+      "Name": "Operaciona sala"
+    }
   }
-
 ]

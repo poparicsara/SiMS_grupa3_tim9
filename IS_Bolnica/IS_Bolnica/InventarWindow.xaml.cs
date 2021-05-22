@@ -267,7 +267,7 @@ namespace IS_Bolnica
         private void RoomButton(object sender, RoutedEventArgs e)
         {
             Director director = new Director();
-            UpravnikWindow uw = new UpravnikWindow(director);
+            RoomWindow uw = new RoomWindow(director);
             uw.Show();
             this.Close();
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,21 +15,16 @@ using System.Windows.Shapes;
 
 namespace IS_Bolnica
 {
-    /// <summary>
-    /// Interaction logic for EditProfileWindow.xaml
-    /// </summary>
-    public partial class EditProfileWindow : Window
+
+    public partial class InventoryFromRoomWindow : Window
     {
-        public EditProfileWindow()
+
+        public InventoryFromRoomWindow(RoomRecord selectedRoom)
         {
             InitializeComponent();
+
+            inventoryDataGrid.ItemsSource = selectedRoom.inventory;
         }
 
-        private void DoneButton(object sender, RoutedEventArgs e)
-        {
-            DirectorProfileWindow profileWindow = new DirectorProfileWindow();
-            profileWindow.Show();
-            this.Close();
-        }
     }
 }

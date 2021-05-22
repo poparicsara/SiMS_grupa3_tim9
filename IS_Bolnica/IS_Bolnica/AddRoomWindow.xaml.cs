@@ -16,66 +16,80 @@ using System.Windows.Shapes;
 
 namespace IS_Bolnica
 {
-    public partial class NewRoomWindow : Window
+    public partial class AddRoomWindow : Window
     {
         RoomRecord newRoom = new RoomRecord();
         Director director = new Director();
-        string ward;
+        string selectedWard;
         string selectedPurpose;
+        private List<RoomRecord> rooms = new List<RoomRecord>();
+        private List<string> hospitalWards = new List<string>();
+        private Specialization specialization = new Specialization();
 
-        public NewRoomWindow()
+        public AddRoomWindow()
         {
             InitializeComponent();
 
-            List<string> hospitalWard = new List<string>();
-            hospitalWard.Add("Pedijatrija");
-            hospitalWard.Add("Ortopedija");
-            hospitalWard.Add("Ginekologija");
-            hospitalWard.Add("Urologija");
+            wardBox.ItemsSource = GetHospitalWards();
+            wardBox.SelectedItem = GetHospitalWards().ElementAt(0);
 
-            wardBox.ItemsSource = hospitalWard;
-            wardBox.SelectedItem = "Pedijatrija";
-
-            List<string> roomPurpose = new List<string>();
-            RoomPurpose purpose1 = new RoomPurpose { Name = "Ordinacija" };
-            RoomPurpose purpose2 = new RoomPurpose { Name = "Operaciona sala" };
-            RoomPurpose purpose3 = new RoomPurpose { Name = "Soba" };
-            roomPurpose.Add(purpose1.Name);
-            roomPurpose.Add(purpose2.Name);
-            roomPurpose.Add(purpose3.Name);
-
-            purposeBox.ItemsSource = roomPurpose;
-            purposeBox.SelectedItem = "Ordinacija";
+            purposeBox.ItemsSource = GetRoomPurposes();
+            purposeBox.SelectedItem = GetRoomPurposes().ElementAt(0);
         }
 
-        private void DoneAddingButton(object sender, RoutedEventArgs e)
+        private List<string> GetHospitalWards()
         {
-            newRoom.Id = (int)Int64.Parse(roomBox.Text);
-            newRoom.HospitalWard = ward;
-            RoomPurpose purpose = new RoomPurpose { Name = selectedPurpose };
-            newRoom.roomPurpose = purpose;
+            List<Specialization> specializations = specialization.getSpecializations();
+            foreach (Specialization s in specializations)
+            {
+                hospitalWards.Add(s.Name);
+            }
+            return hospitalWards;
+        }
 
-            RoomRecordFileStorage storage = new RoomRecordFileStorage();
-            storage.AddRoom(newRoom);
+        private List<string> GetRoomPurposes()
+        {
+            RoomPurpose purpose = new RoomPurpose();
+            List<string> purposes = purpose.GetPurposes();
+            return purposes;
+        }
 
+        private void DoneButtonClicked(object sender, RoutedEventArgs e)
+        {
+            SetRoomInfo();
+            Save();
             this.Close();
         }
 
-        private void CancelButton(object sender, RoutedEventArgs e)
+        private void SetRoomInfo()
+        {
+            newRoom.Id = (int)Int64.Parse(roomBox.Text);
+            newRoom.HospitalWard = selectedWard;
+            RoomPurpose purpose = new RoomPurpose { Name = selectedPurpose };
+            newRoom.roomPurpose = purpose;
+        }
+
+        private void Save()
+        {
+            RoomRecordFileStorage storage = new RoomRecordFileStorage();
+            storage.AddRoom(newRoom);
+        }
+
+        private void CancelButtonClicked(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
         private void ClosingWindow(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            UpravnikWindow uw = new UpravnikWindow(director);
-            uw.Show();
+            RoomWindow rw = new RoomWindow(director);
+            rw.Show();
         }
 
         private void SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var combo = sender as ComboBox;
-            ward = (string)combo.SelectedItem;
+            selectedWard = (string)combo.SelectedItem;
         }
 
         private void PurposeSelectionChanged(object sender, SelectionChangedEventArgs e)

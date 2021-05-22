@@ -2,13 +2,13 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 
 namespace Model
 {
     public class RoomRecordFileStorage
     {
-        private string fileName;
         private List<RoomRecord> rooms;
 
         public RoomRecordFileStorage()
@@ -30,27 +30,36 @@ namespace Model
 
         public void DeleteRoom(RoomRecord selectedRoom)
         {
-            int index = 0;
-
             rooms = loadFromFile("Sobe.json");
+            int index = FindIndex(selectedRoom);
+            rooms.RemoveAt(index);
+            saveToFile(rooms, "Sobe.json");
+        }
 
-            //find right index
-            foreach (RoomRecord room in rooms)
+        private int FindIndex(RoomRecord room)
+        {
+            int index = 0;
+            foreach(RoomRecord r in rooms)
             {
-                if (room.Id == selectedRoom.Id)
+                if(r.Id == room.Id)
                 {
                     break;
                 }
                 index++;
             }
-
-            rooms.RemoveAt(index);
-            saveToFile(rooms, "Sobe.json");
+            return index;
         }
 
         public void EditRoom(RoomRecord oldRoom, RoomRecord newRoom)
         {
-            int index = 0;
+            rooms = loadFromFile("Sobe.json");
+            int index = FindIndex(oldRoom);
+            rooms.RemoveAt(index);
+            rooms.Insert(index, newRoom);
+            saveToFile(rooms, "Sobe.json");
+
+
+            /*int index = 0;
 
             rooms = loadFromFile("Sobe.json");
 
@@ -66,7 +75,7 @@ namespace Model
 
             rooms.RemoveAt(index);
             rooms.Insert(index, newRoom);
-            saveToFile(rooms, "Sobe.json");
+            saveToFile(rooms, "Sobe.json");*/
 
         }
 
@@ -79,13 +88,11 @@ namespace Model
         public List<RoomRecord> loadFromFile(string fileName)
         {
             var roomList = new List<RoomRecord>();
-
             using (StreamReader file = File.OpenText(fileName))
             {
                 var serializer = new JsonSerializer();
                 roomList = (List<RoomRecord>)serializer.Deserialize(file, typeof(List<RoomRecord>));
             }
-
             return roomList;
         }
 
