@@ -75,12 +75,12 @@ namespace IS_Bolnica
 
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
-            SetRoomInfo();
+            SetNewRoom();
             Save();
             this.Close();
         }
 
-        private void SetRoomInfo()
+        private void SetNewRoom()
         {
             newRoom.Id = (int)Int64.Parse(idBox.Text);
             newRoom.HospitalWard = wardBox.Text;

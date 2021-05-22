@@ -20,6 +20,7 @@ namespace IS_Bolnica
     {
         private Inventory inventory = new Inventory();
         private String type;
+        private InventoryFileStorage storage = new InventoryFileStorage();
 
         public AddInventoryWindow(String inventoryType)
         {
@@ -28,13 +29,24 @@ namespace IS_Bolnica
             type = inventoryType;
         }
 
-        private void DoneClicked(object sender, RoutedEventArgs e)
+        private void DoneButtonClicked(object sender, RoutedEventArgs e)
+        {
+            SetNewInventory();
+            storage.AddInventory(inventory);
+            this.Close();
+        }
+
+        private void SetNewInventory()
         {
             inventory.Id = (int)Int64.Parse(idBox.Text);
             inventory.Name = nameBox.Text;
             inventory.CurrentAmount = (int)Int64.Parse(currentBox.Text);
             inventory.Minimum = (int)Int64.Parse(minBox.Text);
+            SetInventoryType();
+        }
 
+        private void SetInventoryType()
+        {
             if (type.Equals("dinamicki"))
             {
                 inventory.InventoryType = Model.InventoryType.dinamicki;
@@ -43,22 +55,17 @@ namespace IS_Bolnica
             {
                 inventory.InventoryType = Model.InventoryType.staticki;
             }
-
-            InventoryFileStorage storage = new InventoryFileStorage();
-            storage.AddInventory(inventory);
-
-            this.Close();
         }
 
 
-        private void CancelClicked(object sender, RoutedEventArgs e)
+        private void CancelButtonClicked(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
         private void ClosingWindow(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            InventarWindow iw = new InventarWindow();
+            InventoryWindow iw = new InventoryWindow();
             iw.Show();
         }
 

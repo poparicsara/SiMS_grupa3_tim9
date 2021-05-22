@@ -138,14 +138,10 @@ C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\UpdateO
 C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\UpravnikWindow.baml
 C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Zakazivanje pregleda.baml
 C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\IS_Bolnica.csproj.CopyComplete
-C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\InventarWindow.g.cs
-C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\InventarWindow.baml
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\AddInventoryWindow.g.cs
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\AddInventoryWindow.baml
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\EditInventoryWindow.g.cs
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\EditInventoryWindow.baml
-C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\SelectedInventoryInRooms.g.cs
-C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\SelectedInventoryInRooms.baml
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\ChangeInventoryPlace.g.cs
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\ChangeInventoryPlace.baml
 C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\AddInventoryWindow.g.cs
@@ -473,8 +469,6 @@ C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secreta
 C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\AddIngredientWindow.g.cs
 C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\AddIngredientWindow.baml
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\ListOfMedications.g.cs
-C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\MedicamentCompositionWindow.g.cs
-C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\MedicamentInfoWindow.g.cs
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\MedicamentReplacementWindow.g.cs
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\AddUrgentExamination.g.cs
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\AddUrgentOperationWindow.g.cs
@@ -482,8 +476,6 @@ C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\UrgentOperationOptionsWindow.g.cs
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\UpdateMedication.g.cs
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\ListOfMedications.baml
-C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\MedicamentCompositionWindow.baml
-C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\MedicamentInfoWindow.baml
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\MedicamentReplacementWindow.baml
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\AddUrgentExamination.baml
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\AddUrgentOperationWindow.baml
@@ -713,3 +705,11 @@ C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\EditRoomWindow.baml
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\InventoryFromRoomWindow.g.cs
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\InventoryFromRoomWindow.baml
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\InventoryWindow.g.cs
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\InventoryWindow.baml
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\InventoryPerRooms.g.cs
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\InventoryPerRooms.baml
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\EditMedicamentWindow.g.cs
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\EditMedicamentWindow.baml
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\IngredientsWindow.g.cs
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\IngredientsWindow.baml

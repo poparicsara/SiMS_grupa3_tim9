@@ -9,19 +9,19 @@
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <WrapPanel x:Name="Wrap1" Width ="207" HorizontalAlignment="Left" Margin="0,0,0,0.4">
-            <Button x:Name="pacijent" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima"  Foreground="Black" BorderBrush="#FF050510" BorderThickness="1" Background="White" Click="ProfilButton">
+            <Button x:Name="pacijent" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima"  Foreground="Black" BorderBrush="#FF050510" BorderThickness="1" Background="White" Click="ProfileButtonClicked">
                 Profil
             </Button>
-            <Button x:Name="lekar" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black" BorderBrush="#FF050510" BorderThickness="1" Canvas.Left="543" Canvas.Top="71" Background="White" Click="RoomButton">
+            <Button x:Name="lekar" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black" BorderBrush="#FF050510" BorderThickness="1" Canvas.Left="543" Canvas.Top="71" Background="White" Click="RoomButtonClicked">
                 Prostorije
             </Button>
-            <Button x:Name="sekretar" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black" BorderBrush="#FF050510" BorderThickness="1" Canvas.Left="543" Canvas.Top="71" Background="White" Click="InventoryButton">
+            <Button x:Name="sekretar" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black" BorderBrush="#FF050510" BorderThickness="1" Canvas.Left="543" Canvas.Top="71" Background="White" Click="InventoryButtonClicked">
                 Inventar
             </Button>
             <Button x:Name="upravnik" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black" BorderBrush="#FF050510" BorderThickness="1" Background="White" Content="Lekovi"/>
             <Border BorderBrush="Black" BorderThickness="1" Height="315" Width="206"/>
         </WrapPanel>
-        <DataGrid x:Name ="medicamentData" HorizontalAlignment="Center" Height="340" VerticalAlignment="Center" Width="588" FontSize="14"
+        <DataGrid x:Name ="medicamentDataGrid" HorizontalAlignment="Center" Height="340" VerticalAlignment="Center" Width="588" FontSize="14"
                    CanUserResizeRows="False" CanUserResizeColumns="False" CanUserAddRows="False" AutoGenerateColumns="False"
                   IsReadOnly="True" SelectionMode="Single" CanUserDeleteRows="True" Margin="231,112,125,58.4">
             <!-- Style -->
@@ -35,7 +35,7 @@
                     <Setter Property="FontWeight" Value="Bold"/>
                 </Style>
                 <Style TargetType="DataGridRow">
-                    <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClik"/>
+                    <EventSetter Event="MouseDoubleClick" Handler="RowDoubleClick"/>
                 </Style>
             </DataGrid.Resources>
             <!-- Header -->
@@ -46,9 +46,9 @@
                 <DataGridTextColumn Width="145" Header = "STATUS" Binding="{Binding Status}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="DODAJ" HorizontalAlignment="Left" Margin="824,420,0,0" VerticalAlignment="Top" Width="110" Height="32" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" BorderBrush="#FF425431" Click="AddMedicamentButton" FontSize="14"/>
+        <Button Content="DODAJ" HorizontalAlignment="Left" Margin="824,420,0,0" VerticalAlignment="Top" Width="110" Height="32" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" BorderBrush="#FF425431" Click="AddButtonClicked" FontSize="14"/>
         <Button Content="OBRIŠI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Height="32" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" BorderBrush="#FF425431" Margin="824,378,0,0" Click="DeleteButtonClicked" FontSize="14"/>
-        <Button Content="IZMENI" HorizontalAlignment="Left" Margin="824,335,0,0" VerticalAlignment="Top" Width="110" Height="32" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" BorderBrush="#FF425431" Click="EditButton" FontSize="14"/>
+        <Button Content="IZMENI" HorizontalAlignment="Left" Margin="824,335,0,0" VerticalAlignment="Top" Width="110" Height="32" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" BorderBrush="#FF425431" Click="EditButtonClicked" FontSize="14"/>
         <TextBox Name="searchBox" HorizontalAlignment="Left" Height="23" Margin="781,63,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Label Content="LEKOVI" HorizontalAlignment="Left" Margin="504,31,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black"/>
 

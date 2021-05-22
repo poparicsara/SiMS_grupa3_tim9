@@ -17,41 +17,50 @@ namespace IS_Bolnica
 {
     public partial class AddCompositionWindow : Window
     {
-        private Medicament medicament;
-        public AddCompositionWindow(Medicament selectedMedicament)
+        private Medicament selectedMedicament;
+        private Ingredient ingredient = new Ingredient();
+        private MedicamentFileStorage medStorage = new MedicamentFileStorage();
+        private List<Medicament> meds = new List<Medicament>();
+
+        public AddCompositionWindow(Medicament selected)
         {
             InitializeComponent();
 
-            medicament = selectedMedicament;
+            selectedMedicament = selected;
+
+            List<Medicament> meds = medStorage.loadFromFile("Lekovi.json");
         }
 
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
-            Ingredient ingredient = new Ingredient { Name = ingredientNameTxt.Text };
+            ingredient = new Ingredient { Name = ingredientNameTxt.Text };
+            AddToMedicament();
 
-            MedicamentFileStorage medStorage = new MedicamentFileStorage();
-            List<Medicament> meds = medStorage.loadFromFile("Lekovi.json");
-            foreach(Medicament m in meds)
+            IngredientsWindow iw = new IngredientsWindow(selectedMedicament);
+
+            /*foreach(Medicament m in meds)
             {
-                if(m.Id == medicament.Id)
+                if(m.Id == selectedMedicament.Id)
+                {
+                    cw.compositionData.ItemsSource = m.Ingredients;
+                }
+            }*/
+
+            //MedicamentWindow ew = new MedicamentWindow();
+            iw.Show();
+            this.Close();
+        }
+
+        private void AddToMedicament()
+        {
+            foreach (Medicament m in meds)
+            {
+                if (m.Id == selectedMedicament.Id)
                 {
                     m.Ingredients.Add(ingredient);
                 }
             }
             medStorage.saveToFile(meds, "Lekovi.json");
-            MedicamentCompositionWindow cw = new MedicamentCompositionWindow(medicament);
-
-            foreach(Medicament m in meds)
-            {
-                if(m.Id == medicament.Id)
-                {
-                    cw.compositionData.ItemsSource = m.Ingredients;
-                }
-            }
-
-            MedicamentWindow mw = new MedicamentWindow();
-            mw.Show();
-            this.Close();
         }
     }
 }

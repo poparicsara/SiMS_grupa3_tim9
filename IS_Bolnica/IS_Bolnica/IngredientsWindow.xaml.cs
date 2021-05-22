@@ -15,10 +15,10 @@ using System.Windows.Shapes;
 
 namespace IS_Bolnica
 {
-    public partial class MedicamentCompositionWindow : Window
+    public partial class IngredientsWindow : Window
     {
         private Medicament selectedMedicament;
-        public MedicamentCompositionWindow(Medicament selected)
+        public IngredientsWindow(Medicament selected)
         {
             InitializeComponent();
 
@@ -27,14 +27,7 @@ namespace IS_Bolnica
             MedicamentFileStorage storage = new MedicamentFileStorage();
             List<Medicament> meds = storage.loadFromFile("Lekovi.json");
 
-            foreach(Medicament m in meds)
-            {
-                if(m.Id == selectedMedicament.Id)
-                {
-                    compositionData.ItemsSource = selectedMedicament.Ingredients;
-                    break;
-                }
-            }
+            compositionData.ItemsSource = selectedMedicament.Ingredients;
         }
 
         private void AddIngredientButton(object sender, RoutedEventArgs e)
