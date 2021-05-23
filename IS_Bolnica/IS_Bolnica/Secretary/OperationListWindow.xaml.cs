@@ -52,7 +52,8 @@ namespace IS_Bolnica.Secretary
 
         private void editOperation(object sender, RoutedEventArgs e)
         {
-            int i = OperationList.SelectedIndex;
+            int i = -1;
+            i = OperationList.SelectedIndex;
 
             operation = (Operation)OperationList.SelectedItem;
 
@@ -63,7 +64,18 @@ namespace IS_Bolnica.Secretary
             else
             {
                 Secretary.EditOperationWindow eow = new Secretary.EditOperationWindow(operation);
-                setElementsEOW(eow, operation);
+                Operations = operationsFileStorage.loadFromFile("operations.json");
+
+                eow.patientId.Text = operation.Patient.Id;
+                eow.hourBoxStart.Text = operation.Date.Hour.ToString();
+                eow.minutesBoxStart.Text = operation.Date.Minute.ToString();
+                eow.doctorBox.Text = operation.doctor.Name + " " + operation.doctor.Surname;
+                eow.date.SelectedDate = new DateTime(operation.Date.Year, operation.Date.Month, operation.Date.Day);
+                eow.room.Text = operation.RoomRecord.Id.ToString();
+                int hours = operation.DurationInMins / 60;
+                int mins = operation.DurationInMins % 60;
+                eow.hourBoxEnd.Text = hours.ToString();
+                eow.minuteBoxEnd.Text = mins.ToString();
 
                 eow.Show();
                 this.Close();
@@ -71,23 +83,10 @@ namespace IS_Bolnica.Secretary
       
         }
 
-        private void setElementsEOW(EditOperationWindow eow, Operation operation)
-        {
-            eow.patientId.Text = operation.Patient.Id;
-            eow.hourBoxStart.Text = operation.Date.Hour.ToString();
-            eow.minutesBoxStart.Text = operation.Date.Minute.ToString();
-            eow.doctorBox.Text = operation.doctor.Name + " " + operation.doctor.Surname;
-            eow.date.SelectedDate = new DateTime(operation.Date.Year, operation.Date.Month, operation.Date.Day);
-            eow.room.Text = operation.RoomRecord.Id.ToString();
-            int hours = operation.DurationInMins / 60;
-            int mins = operation.DurationInMins % 60;
-            eow.hourBoxEnd.Text = hours.ToString();
-            eow.minuteBoxEnd.Text = mins.ToString();
-        }
-
         private void deleteOperation(object sender, RoutedEventArgs e)
         {
-            int i = OperationList.SelectedIndex;
+            int i = -1;
+            i = OperationList.SelectedIndex;
 
             operation = (Operation)OperationList.SelectedItem;
 
@@ -101,7 +100,15 @@ namespace IS_Bolnica.Secretary
                 switch(result)
                 {
                     case MessageBoxResult.Yes:
-                        Operations = removeOperation(operation);
+                        Operations = operationsFileStorage.loadFromFile("operations.json");
+                        for(int k = 0; k < Operations.Count; k++)
+                        {
+                            if(Operations[k].Date.Equals(operation.Date) &&
+                                Operations[k].Patient.Id.Equals(operation.Patient.Id))
+                            {
+                                Operations.RemoveAt(k);
+                            }
+                        }
                         operationsFileStorage.saveToFile(Operations, "operations.json");
                         this.Close();
                         Secretary.OperationListWindow olw = new Secretary.OperationListWindow();
@@ -111,20 +118,6 @@ namespace IS_Bolnica.Secretary
                         break;
                 }
             }
-        }
-
-        private List<Operation> removeOperation(Operation operation)
-        {
-            Operations = operationsFileStorage.loadFromFile("operations.json");
-            for (int k = 0; k < Operations.Count; k++)
-            {
-                if (Operations[k].Date.Equals(operation.Date) &&
-                    Operations[k].Patient.Id.Equals(operation.Patient.Id))
-                {
-                    Operations.RemoveAt(k);
-                }
-            }
-            return Operations;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
