@@ -18,16 +18,15 @@ using System.Globalization;
 
 namespace IS_Bolnica.Secretary
 {
-    /// <summary>
-    /// Interaction logic for EditPatient.xaml
-    /// </summary>
     public partial class EditPatient : Window
     {
         private Patient patient;
-        List<Patient> pacijenti = new List<Patient>();
-        PatientRecordFileStorage storage = new PatientRecordFileStorage();
-        List<User> korisnici = new List<User>();
-        UsersFileStorage storage1 = new UsersFileStorage();
+        private List<Patient> patients = new List<Patient>();
+        private PatientRecordFileStorage storage = new PatientRecordFileStorage();
+        private List<User> users = new List<User>();
+        private User user = new User();
+        private UsersFileStorage storage1 = new UsersFileStorage();
+
         public EditPatient(Patient patient)
         {
             InitializeComponent();
@@ -41,98 +40,119 @@ namespace IS_Bolnica.Secretary
             plw.Show();
         }
 
-        private void editPatient(object sender, RoutedEventArgs e)
+        private void removePatient(string id)
         {
-            pacijenti = storage.loadFromFile("PatientRecordFileStorage.json");
-            for (int i = 0; i < pacijenti.Count; i++)
+            patients = storage.loadFromFile("PatientRecordFileStorage.json");
+            for (int i = 0; i < patients.Count; i++)
             {
-                if (pacijenti[i].Id.Equals(patient.Id))
+                if (patients[i].Id.Equals(id))
                 {
-                    pacijenti.RemoveAt(i);
+                    patients.RemoveAt(i);
+                }
+            }
+        }
+
+        private void removeUser(string id)
+        {
+            users = storage1.loadFromFile("UsersFileStorage.json");
+            for (int i = 0; i < users.Count; i++)
+            {
+                if (users[i].Id.Equals(id))
+                {
+                    users.RemoveAt(i);
                 }
             }
 
-            korisnici = storage1.loadFromFile("UsersFileStorage.json");
-            for (int i = 0; i < korisnici.Count; i++)
-            {
-                if (korisnici[i].Id.Equals(patient.Id))
-                {
-                    korisnici.RemoveAt(i);
-                }
-            }
+        }
 
-            patient.Email = email.Text;
-            patient.DateOfBirth = dateOfBirth.DisplayDate;
-            patient.Name = name.Text;
-            patient.Id = id.Text;
-            patient.Password = iniciallyPassword.Text;
-            patient.Phone = phone.Text;
-            patient.Surname = surname.Text;
-            patient.Username = username.Text;
-            patient.UserType = UserType.patient;
-            patient.Debit = Convert.ToDouble(debit.Text);
+        private Patient setPatient()
+        {
+            Patient pat = new Patient();
+
+            pat.Email = email.Text;
+            pat.DateOfBirth = dateOfBirth.DisplayDate;
+            pat.Name = name.Text;
+            pat.Id = id.Text;
+            pat.Password = iniciallyPassword.Text;
+            pat.Phone = phone.Text;
+            pat.Surname = surname.Text;
+            pat.Username = username.Text;
+            pat.UserType = UserType.patient;
+            pat.Debit = Convert.ToDouble(debit.Text);
             //formiranje alergena
-            patient.Allergens = new List<string>();
+            pat.Allergens = new List<string>();
             String[] alergeni = (allergens.Text).Split(',');
             for (int k = 0; k < alergeni.Length; k++)
             {
-                patient.Allergens.Add(alergeni[k]);
+                pat.Allergens.Add(alergeni[k]);
             }
             //formiranje adrese
-            patient.Address.Street = "";
+            pat.Address.Street = "";
             String[] adresa = (adress.Text).Split(' ');
             for (int i = 0; i < adresa.Length - 1; i++)
             {
-                patient.Address.Street += adresa[i] + " ";
+                pat.Address.Street += adresa[i] + " ";
                 if (i == adresa.Length - 2)
                 {
-                    String pom = patient.Address.Street;
-                    patient.Address.Street = pom.Remove(pom.Length - 1, 1);
+                    String pom = pat.Address.Street;
+                    pat.Address.Street = pom.Remove(pom.Length - 1, 1);
                 }
             }
 
-
             String[] brojSpratStan = adresa[adresa.Length - 1].Split('/');
-            patient.Address.NumberOfBuilding = Convert.ToInt32(brojSpratStan[0]);
-            patient.Address.Floor = Convert.ToInt32(brojSpratStan[1]);
-            patient.Address.Apartment = Convert.ToInt32(brojSpratStan[2]);
+            pat.Address.NumberOfBuilding = Convert.ToInt32(brojSpratStan[0]);
+            pat.Address.Floor = Convert.ToInt32(brojSpratStan[1]);
+            pat.Address.Apartment = Convert.ToInt32(brojSpratStan[2]);
 
-            patient.Address.City.name = "";
+            pat.Address.City.name = "";
             String[] grad = (city.Text).Split(' ');
             for (int brojac = 0; brojac < grad.Length - 1; brojac++)
             {
-                patient.Address.City.name += grad[brojac] + " ";
+                pat.Address.City.name += grad[brojac] + " ";
                 if (brojac == grad.Length - 2)
                 {
-                    String pom = patient.Address.City.name;
-                    patient.Address.City.name = pom.Remove(pom.Length - 1, 1);
+                    String pom = pat.Address.City.name;
+                    pat.Address.City.name = pom.Remove(pom.Length - 1, 1);
                 }
             }
-            patient.Address.City.postalCode = grad[grad.Length - 1];
-            patient.Address.City.Country.name = country.Text;
+            pat.Address.City.postalCode = grad[grad.Length - 1];
+            pat.Address.City.Country.name = country.Text;
 
-            pacijenti.Add(patient);
+            return pat;
+        }
 
-            foreach (User korisnik in korisnici)
+        private User setUser(Patient pat)
+        {
+            User user1 = new User
             {
-                if (korisnik.Id.Equals(patient.Id))
-                {
-                    korisnik.Email = patient.Email;
-                    korisnik.DateOfBirth = patient.DateOfBirth;
-                    korisnik.Name = patient.Name;
-                    korisnik.Id = patient.Id;
-                    korisnik.Password = patient.Password;
-                    korisnik.Phone = patient.Phone;
-                    korisnik.Surname = patient.Surname;
-                    korisnik.Username = patient.Username;
-                    korisnik.UserType = UserType.patient;
-                    korisnik.Address = patient.Address;
-                    korisnici.Add(korisnik);
-                }
-            }
+                Id = pat.Id,
+                Email = pat.Email,
+                Address = pat.Address,
+                DateOfBirth = pat.DateOfBirth,
+                Name = pat.Name,
+                Password = pat.Password,
+                Phone = pat.Phone,
+                Surname = pat.Surname,
+                Username = pat.Username,
+                UserType = UserType.patient
+            };
 
-            storage.saveToFile(pacijenti, "PatientRecordFileStorage.json");
-            storage1.saveToFile(korisnici, "UsersFileStorage.json");
+            return user1;
+        }
+
+        private void editPatient(object sender, RoutedEventArgs e)
+        {
+            removePatient(patient.Id);
+            removeUser(patient.Id);
+
+            patient = setPatient();
+            patients.Add(patient);
+
+            user = setUser(patient);
+            users.Add(user);
+
+            storage.saveToFile(patients, "PatientRecordFileStorage.json");
+            storage1.saveToFile(users, "UsersFileStorage.json");
 
             Secretary.PatientListWindow plw = new Secretary.PatientListWindow();
             plw.Show();
