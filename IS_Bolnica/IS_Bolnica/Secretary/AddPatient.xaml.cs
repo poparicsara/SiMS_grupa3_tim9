@@ -84,17 +84,7 @@ namespace IS_Bolnica.Secretary
             pacijenti.Add(patient);
             storage.saveToFile(pacijenti, "PatientRecordFileStorage.json");
 
-            addUser(patient);
 
-            Secretary.PatientListWindow plw = new Secretary.PatientListWindow();
-            plw.Show();
-            this.Close();
-
-
-        }
-
-        private void addUser(Patient patient)
-        {
             user.Email = email.Text;
             user.DateOfBirth = dateOfBirth.DisplayDate;
             user.Name = name.Text;
@@ -106,10 +96,16 @@ namespace IS_Bolnica.Secretary
             user.UserType = UserType.patient;
             user.Address = patient.Address;
 
-            List<User> users = new List<User>();
-            users = storage1.loadFromFile("UsersFileStorage.json");
-            users.Add(user);
-            storage1.saveToFile(users, "UsersFileStorage.json");
+            List<User> korisnici = new List<User>();
+            korisnici = storage1.loadFromFile("UsersFileStorage.json");
+            korisnici.Add(user);
+            storage1.saveToFile(korisnici, "UsersFileStorage.json");
+
+            Secretary.PatientListWindow plw = new Secretary.PatientListWindow();
+            plw.Show();
+            this.Close();
+
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

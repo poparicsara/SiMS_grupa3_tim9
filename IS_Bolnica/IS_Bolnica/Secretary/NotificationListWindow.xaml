@@ -18,8 +18,8 @@
         <Label Content="OBAVEŠTENJA" FontWeight="Bold"  Foreground="Green" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,69,0,0" Width="246" Height="37"/>
         <DataGrid x:Name="NotificationList" ItemsSource="{Binding Path=Notifications}" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" HorizontalAlignment="Stretch" Margin="10,111,10,142.8" VerticalAlignment="Stretch"  SelectionChanged="DataGrid_SelectionChanged" GridLinesVisibility="Vertical" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Naslov" Binding="{Binding Title}" Width="90"/>
-                <DataGridTextColumn Header="Sadržaj" Binding="{Binding Content}" Width="200"/>
+                <DataGridTextColumn Header="Naslov" Binding="{Binding title}" Width="90"/>
+                <DataGridTextColumn Header="Sadržaj" Binding="{Binding content}" Width="200"/>
                 <DataGridTextColumn Header="Tip korisnika" Binding="{Binding notificationType}" Width="110"/>
             </DataGrid.Columns>
         </DataGrid>

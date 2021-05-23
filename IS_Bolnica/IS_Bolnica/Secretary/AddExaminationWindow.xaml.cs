@@ -36,19 +36,8 @@ namespace IS_Bolnica.Secretary
             InitializeComponent();
             Rooms = roomStorage.loadFromFile("Sobe.json");
 
-            //doctors = doctorFileStorage.loadFromFile("Doctors.json");
-            //for(int i = 0; i < doctors.Count; i++)
-            //{
-            //    DocNames.Add(doctors[i].Name + " " + doctors[i].Surname);
-            //}
-            //doctorBox.ItemsSource = DocNames;
-            setDoctorBox();
-        }
-
-        private void setDoctorBox()
-        {
             doctors = doctorFileStorage.loadFromFile("Doctors.json");
-            for (int i = 0; i < doctors.Count; i++)
+            for(int i = 0; i < doctors.Count; i++)
             {
                 DocNames.Add(doctors[i].Name + " " + doctors[i].Surname);
             }
@@ -189,6 +178,8 @@ namespace IS_Bolnica.Secretary
             } 
             else
             {
+                //MessageBox.Show("Ovaj pregled je vec zauzet!");
+
                 return false;
             }
 
@@ -227,11 +218,10 @@ namespace IS_Bolnica.Secretary
             {
                 if (Rooms[i].Id == doctor.Ordination)
                 {
-                    return Rooms[i];
+                    examination.RoomRecord = Rooms[i];
                 }
             }
-            MessageBox.Show("Doktor nema ordinaciju");
-            return null;
+            return room;
         }
 
         private void addExamination(object sender, RoutedEventArgs e)
@@ -242,13 +232,27 @@ namespace IS_Bolnica.Secretary
             Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
             if(idExists(Patients, idPatientBox.Text))
             {
-                examination.Patient = findPatient(idPatientBox.Text);
+                for (int i = 0; i < Patients.Count; i++)
+                {
+                    if (Patients[i].Id.Equals(idPatientBox.Text))
+                    {
+                        examination.Patient = Patients[i];
+                    }
+                }
 
                 string[] doctorNameAndSurname = doctorBox.Text.Split(' ');
                 string name = doctorNameAndSurname[0];
                 string surname = doctorNameAndSurname[1];
 
-                examination.Doctor = findDoctor(name, surname);
+                foreach (Doctor doc in doctors)
+                {
+                    if(doc.Name.Equals(name) && doc.Surname.Equals(surname))
+                    {
+                        doctor = doc;
+                    }
+                }
+
+                examination.Doctor = doctor;
 
                 DateTime datum = new DateTime();
                 datum = (DateTime)dateBox.SelectedDate;
@@ -256,7 +260,14 @@ namespace IS_Bolnica.Secretary
                 int minut = Convert.ToInt32(minutesBox.Text);
                 examination.Date = new DateTime(datum.Year, datum.Month, datum.Day, sat, minut, 0);
 
-                examination.RoomRecord = findRoom(examination.Doctor);
+                examination.RoomRecord = new RoomRecord();
+                for (int i = 0; i < Rooms.Count; i++)
+                {
+                    if (Rooms[i].Id == examination.Doctor.Ordination)
+                    {
+                        examination.RoomRecord = Rooms[i];
+                    }
+                }
 
                 operations = operationsFileStorage.loadFromFile("operations.json");
                 operation.Date = examination.Date;
@@ -382,6 +393,8 @@ namespace IS_Bolnica.Secretary
             }
             else
             {
+                //MessageBox.Show("Ovaj pregled je vec zauzet!");
+
                 return false;
             }
 

@@ -28,11 +28,12 @@ namespace IS_Bolnica.Secretary
             get;
             set;
         }
+        public List<int> RoomNums { get; set; } = new List<int>();
         private RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
-        private List<Examination> examinations = new List<Examination>();
-        private ExaminationsRecordFileStorage examinationStorage = new ExaminationsRecordFileStorage();
-        private List<Patient> Patients = new List<Patient>();
-        private PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
+        List<Examination> examinations = new List<Examination>();
+        ExaminationsRecordFileStorage examinationStorage = new ExaminationsRecordFileStorage();
+        List<Patient> Patients = new List<Patient>();
+        PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
         private Examination oldExamination = new Examination();
         private DoctorFileStorage doctorFileStorage = new DoctorFileStorage();
         private Doctor doctor = new Doctor();
@@ -44,11 +45,16 @@ namespace IS_Bolnica.Secretary
             InitializeComponent();
             this.oldExamination = oldExamination;
 
-            setDoctorBox();
-        }
+            Rooms = roomStorage.loadFromFile("Sobe.json");
+            for (int i = 0; i < Rooms.Count; i++)
+            {
+                if (Rooms[i].roomPurpose.Name == "Ordinacija")
+                {
+                    RoomNums.Add(Rooms[i].Id);
+                }
+            }
+            room.ItemsSource = RoomNums;
 
-        private void setDoctorBox()
-        {
             doctors = doctorFileStorage.loadFromFile("Doctors.json");
             for (int i = 0; i < doctors.Count; i++)
             {
@@ -122,66 +128,43 @@ namespace IS_Bolnica.Secretary
             }
             else
             {
+                //MessageBox.Show("Ovaj pregled je vec zauzet!");
+
                 return false;
             }
 
-        }
-
-        private Patient findPatient(string id)
-        {
-            Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
-            for (int i = 0; i < Patients.Count; i++)
-            {
-                if (Patients[i].Id.Equals(id))
-                {
-                    return Patients[i];
-                }
-
-            }
-            MessageBox.Show("Pacijent sa ovim JMBG-om ne postoji!");
-            return null;
-        }
-
-        private Doctor findDoctor(string name, string surname)
-        {
-            doctors = doctorFileStorage.loadFromFile("Doctors.json");
-            foreach (Doctor doc in doctors)
-            {
-                if (doc.Name.Equals(name) && doc.Surname.Equals(surname))
-                {
-                    return doc;
-                }
-            }
-
-            return null;
-        }
-
-        private RoomRecord findRoom(Doctor doc)
-        {
-            Rooms = roomStorage.loadFromFile("Sobe.json");
-            for (int i = 0; i < Rooms.Count; i++)
-            {
-                if (Rooms[i].Id == doc.Ordination)
-                {
-                    return Rooms[i];
-                }
-            }
-            return null;
         }
 
         private void editExamination(object sender, RoutedEventArgs e)
         {
             examinations = examinationStorage.loadFromFile("Pregledi.json");
             Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
+            int brojac = 0;
             if (idExists(Patients, idPatientBox.Text))
             {
-                examination.Patient = findPatient(idPatientBox.Text);
+                for (int i = 0; i < Patients.Count; i++)
+                {
+                    if (Patients[i].Id.Equals(idPatientBox.Text))
+                    {
+                        examination.Patient = Patients[i];
+                        brojac++;
+                    }
+
+                }
 
                 string[] doctorNameAndSurname = doctorBox.Text.Split(' ');
                 string name = doctorNameAndSurname[0];
                 string surname = doctorNameAndSurname[1];
 
-                examination.Doctor = findDoctor(name, surname);
+                foreach (Doctor doc in doctors)
+                {
+                    if (doc.Name.Equals(name) && doc.Surname.Equals(surname))
+                    {
+                        doctor = doc;
+                    }
+                }
+
+                examination.Doctor = doctor;
 
                 DateTime datum = new DateTime();
                 datum = (DateTime)dateBox.SelectedDate;
@@ -189,27 +172,32 @@ namespace IS_Bolnica.Secretary
                 int minut = Convert.ToInt32(minutesBox.Text);
                 examination.Date = new DateTime(datum.Year, datum.Month, datum.Day, sat, minut, 0);
 
-                examination.RoomRecord = findRoom(examination.Doctor);
-
-                for (int i = 0; i < examinations.Count; i++)
+                examination.RoomRecord = new RoomRecord();
+                for (int i = 0; i < Rooms.Count; i++)
                 {
-                    if (examinations[i].Date.Equals(oldExamination.Date) &&
-                                    examinations[i].Patient.Id.Equals(oldExamination.Patient.Id))
+                    if (Rooms[i].Id == Convert.ToInt32(room.SelectedItem))
                     {
-                        examinations.RemoveAt(i);
+                        examination.RoomRecord = Rooms[i];
                     }
                 }
-
 
                 if (isAvailable(examinations, examination.Patient, examination.RoomRecord, examination.Doctor, examination.Date))
                 {
                     examinations.Add(examination);
+
+                    for (int i = 0; i < examinations.Count; i++)
+                    {
+                        if (examinations[i].Date.Equals(oldExamination.Date) &&
+                                        examinations[i].Patient.Id.Equals(oldExamination.Patient.Id))
+                        {
+                            examinations.RemoveAt(i);
+                        }
+                    }
+
                     examinationStorage.saveToFile(examinations, "Pregledi.json");
                 } 
                 else
                 {
-                    examinations.Add(oldExamination);
-                    examinationStorage.saveToFile(examinations, "Pregledi.json");
                     return;
                 }
             } else
