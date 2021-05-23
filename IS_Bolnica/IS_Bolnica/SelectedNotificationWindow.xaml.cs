@@ -30,7 +30,7 @@ namespace IS_Bolnica
             storage = new NotificationsFileStorage();
             notifications = storage.LoadFromFile("NotificationsFileStorage.json");
 
-            contentBox.Text = notification.content;
+            contentBox.Text = notification.Content;
         }
 
         private void ClosingWindow(object sender, System.ComponentModel.CancelEventArgs e)
@@ -52,7 +52,7 @@ namespace IS_Bolnica
             int index = 0;
             foreach (Notification n in notifications)
             {
-                if (n.title.Equals(selectedNotification.title) && n.content.Equals(selectedNotification.content))
+                if (n.Title.Equals(selectedNotification.Title) && n.Content.Equals(selectedNotification.Content))
                 {
                     break;
                 }

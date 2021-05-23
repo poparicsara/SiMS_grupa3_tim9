@@ -45,7 +45,6 @@ namespace IS_Bolnica
         {
             SekretarWindow sw = new SekretarWindow();
             sw.Show();
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

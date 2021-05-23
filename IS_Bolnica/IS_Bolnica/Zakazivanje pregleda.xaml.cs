@@ -92,7 +92,7 @@ namespace IS_Bolnica
                     pacijent.Username = PatientWindow.username_patient;
                     pacijent.Akcije = akcije;
                     pacijent.brojOcenjenihPregleda = ocenePacijenta;
-                    Examination e1 = new Examination { IsPayed = false, DurationInMinutes = trajanje, Doctor = d1, Date = datumPregleda, Patient = pacijent, RoomRecord = pronadjiSobu(d1.Ordination)};
+                    Examination e1 = new Examination { DurationInMinutes = trajanje, Doctor = d1, Date = datumPregleda, Patient = pacijent, RoomRecord = pronadjiSobu(d1.Ordination)};
                     pregledi.Add(e1);
                 }
 
