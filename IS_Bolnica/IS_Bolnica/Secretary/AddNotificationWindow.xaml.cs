@@ -22,6 +22,9 @@ namespace IS_Bolnica.Secretary
         private Notification notification = new Notification();
         private NotificationsFileStorage storage = new NotificationsFileStorage();
         private List<Notification> notifications = new List<Notification>();
+        private List<User> users = new List<User>();
+        private UsersFileStorage usersFileStorage = new UsersFileStorage();
+        private List<string> userList = new List<string>();
 
         public AddNotificationWindow()
         {
@@ -35,35 +38,23 @@ namespace IS_Bolnica.Secretary
 
         private void addNotification(object sender, RoutedEventArgs e)
         {
-            notification.title = title.Text;
-            notification.content = content.Text;
+            notification.Title = title.Text;
+            notification.Content = content.Text;
             if (comboBox.SelectedIndex == 0)
             {
                 notification.notificationType = NotificationType.doctor;
-                if(idBox.Text != "")
-                {
-                    notification.PersonId = idBox.Text;
-                }
             }
             else if (comboBox.SelectedIndex == 1)
             {
                 notification.notificationType = NotificationType.patient;
-                if (idBox.Text != "")
-                {
-                    notification.PersonId = idBox.Text;
-                }
             }
             else if(comboBox.SelectedIndex == 2)
             {
                 notification.notificationType = NotificationType.all;
-                if (idBox.Text != "")
-                {
-                    notification.PersonId = idBox.Text;
-                }
             }
             else
             {
-                notification.PersonId = idBox.Text;
+                notification.PersonId = idListBox.Items.Cast<String>().ToList();
                 notification.notificationType = NotificationType.specific;
 
             }
@@ -88,7 +79,7 @@ namespace IS_Bolnica.Secretary
 
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           /* if (comboBox.SelectedIndex == 0)
+            if (comboBox.SelectedIndex == 0)
             {
                 idBox.IsEnabled = false;
             }
@@ -99,12 +90,110 @@ namespace IS_Bolnica.Secretary
             else if (comboBox.SelectedIndex == 2)
             {
                 idBox.IsEnabled = false;
+            } 
+            else if (comboBox.SelectedIndex == -1)
+            {
+                idBox.IsEnabled = false;
             }
             else
             {
                 idBox.IsEnabled = true;
 
-            }*/
+            }
         }
+
+        private void Button_Add_Clicked(object sender, RoutedEventArgs e)
+        {
+            string userId = idBox.Text;
+            
+            if(!isBoxEmpty(userId) && isUserValid(userId) && !existsInList(userList, userId))
+            {
+                userList.Add(userId);
+                refreshListBox(userList);
+            } else
+            {
+                return;
+            }
+            
+        }
+
+        private void refreshListBox(List<string> idList)
+        {
+            idListBox.Items.Clear();
+            foreach(string id in idList)
+            {
+                idListBox.Items.Add(id);
+            }
+        }
+
+        private bool existsInList(List<string> idList, string id)
+        {
+            foreach(string i in idList)
+            {
+                if(i.Equals(id))
+                {
+                    MessageBox.Show("Korisnik već postoji u listi!");
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool isBoxEmpty(string id)
+        {
+            if(id.Equals(""))
+            {
+                MessageBox.Show("Niste uneli id korisnika");
+                return true;
+            }
+            return false;
+        }
+
+        private bool isUserValid(string id)
+        {
+            users = usersFileStorage.loadFromFile("UsersFileStorage.json");
+            foreach(User u in users)
+            {
+                if(u.Id.Equals(id))
+                {
+                    return true;
+                }
+            }
+            MessageBox.Show("Niste uneli postojeći id");
+            return false;
+        }
+
+        private void Button_Remove_Clicked(object sender, RoutedEventArgs e)
+        {
+            if (isSelected())
+            {
+                string id = (string)idListBox.SelectedItem;
+                idListBox.Items.Remove(idListBox.SelectedItem);
+                for (int i = 0; i < userList.Count; i++)
+                {
+                    if (id.Equals(userList[i]))
+                    {
+                        userList.RemoveAt(i);
+                    }
+                }
+            } else
+            {
+                MessageBox.Show("Niste označili id koji želite da uklonite!");
+                return;
+            }
+        }
+
+        private bool isSelected()
+        {
+            int i = idListBox.SelectedIndex;
+            if(i == -1)
+            {
+                return false;
+            } else
+            {
+                return true;
+            }
+        }
+
     }
 }
