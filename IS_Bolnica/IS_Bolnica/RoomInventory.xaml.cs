@@ -16,10 +16,10 @@ using System.Windows.Shapes;
 namespace IS_Bolnica
 {
 
-    public partial class InventoryFromRoomWindow : Window
+    public partial class RoomInventory : Window
     {
 
-        public InventoryFromRoomWindow(RoomRecord selectedRoom)
+        public RoomInventory(RoomRecord selectedRoom)
         {
             InitializeComponent();
 

@@ -30,10 +30,10 @@
         <TextBox x:Name="minBox" HorizontalAlignment="Left" Height="23" Margin="621,279,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="14"/>
         <Button Content="POTVRDI" HorizontalAlignment="Left" Margin="791,384,0,0" VerticalAlignment="Top"
                 Width="92" Height="38" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" 
-                BorderBrush="#FF425431" Click="DoneButton" FontSize="14"/>
+                BorderBrush="#FF425431" Click="DoneButtonClicked" FontSize="14"/>
         <Button Content="ODUSTANI" HorizontalAlignment="Left" Margin="672,384,0,0" VerticalAlignment="Top"
                 Width="92" Height="38" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black"
-                BorderBrush="#FF425431" Click="CancelButton" FontSize="14"/>
+                BorderBrush="#FF425431" Click="CancelButtonClicked" FontSize="14"/>
         <Label Content="IZMENA INFORMACIJA O INVENTARU" HorizontalAlignment="Left" Margin="393,39,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black"/>
     </Grid>
 </Window>

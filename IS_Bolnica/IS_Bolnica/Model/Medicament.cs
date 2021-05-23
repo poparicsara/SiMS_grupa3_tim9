@@ -15,4 +15,5 @@ namespace IS_Bolnica.Model
         public string Producer { get; set; }
         public MedicamentStatus Status { get; set; }
     }
+
 }
