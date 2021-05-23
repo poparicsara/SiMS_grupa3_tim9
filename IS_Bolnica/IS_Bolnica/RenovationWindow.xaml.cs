@@ -61,7 +61,7 @@ namespace IS_Bolnica
                         {
                             string exInfo = ex.Date + "\n" + ex.Patient.Name + " " + ex.Patient.Surname + "\n" + ex.Doctor.Name + " " + ex.Doctor.Surname;
                             string contentOfNotification = "Prostorija " + " " + room.Id + " se renovira." + "\n" + "Potrebno je pomeranje zakazanog termina" + "\n" + exInfo;
-                            Notification notification = new Notification { Title = "Potrebno pomeranje termina", Content = contentOfNotification, notificationType = NotificationType.secretory, Sender = UserType.director };
+                            Notification notification = new Notification { title = "Potrebno pomeranje termina", content = contentOfNotification, notificationType = NotificationType.secretory, Sender = UserType.director };
                             notifications.Add(notification);
                             notificationStorage.SaveToFile(notifications, "NotificationsFileStorage.json");
                         } 
@@ -77,7 +77,7 @@ namespace IS_Bolnica
                         if(((operation.Date <= op.Date) && (op.Date <= operation.endTime)) || ((operation.Date <= op.endTime) && (op.endTime <= operation.endTime)))
                         {
                             string contentOfNotification = "Prostorija " + " " + room.Id + " se renovira." + "\n" + "Potrebno je pomeranje zakazanog termina";
-                            Notification notification = new Notification { Title = "Potrebno pomeranje termina", Content = contentOfNotification, notificationType = NotificationType.secretory, Sender = UserType.director };
+                            Notification notification = new Notification { title = "Potrebno pomeranje termina", content = contentOfNotification, notificationType = NotificationType.secretory, Sender = UserType.director };
                             notifications.Add(notification);
                             notificationStorage.SaveToFile(notifications, "NotificationsFileStorage.json");
                         }
