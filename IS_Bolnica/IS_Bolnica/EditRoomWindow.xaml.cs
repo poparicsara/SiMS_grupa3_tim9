@@ -75,12 +75,12 @@ namespace IS_Bolnica
 
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
-            SetNewRoom();
+            SetRoomInfo();
             Save();
             this.Close();
         }
 
-        private void SetNewRoom()
+        private void SetRoomInfo()
         {
             newRoom.Id = (int)Int64.Parse(idBox.Text);
             newRoom.HospitalWard = wardBox.Text;
@@ -96,7 +96,7 @@ namespace IS_Bolnica
 
         private void InventoryButtonClicked(object sender, RoutedEventArgs e)
         {
-            RoomInventory iw = new RoomInventory(oldRoom);
+            InventoryFromRoomWindow iw = new InventoryFromRoomWindow(oldRoom);
             iw.Show();
         }
 

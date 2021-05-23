@@ -20,30 +20,33 @@ namespace IS_Bolnica
     {
         private Request request = new Request();
         private RequestFileStorage requestStorage = new RequestFileStorage();
-        private Medicament selectedMedicament = new Medicament();
-        private MedicamentFileStorage medStorage = new MedicamentFileStorage();
-        private List<Request> requests = new List<Request>();
 
         public MedicamentWindow()
         {
             InitializeComponent();
-            
+
+            MedicamentFileStorage medStorage = new MedicamentFileStorage();
             List<Medicament> meds = medStorage.loadFromFile("Lekovi.json");
 
-            medicamentDataGrid.ItemsSource = meds;
+            /*Medicament r1 = new Medicament { Id = 102, Name = "AspirinPlusC", Producer = "Bayer" };
+            Medicament m = new Medicament { Name = "Aspirin", Id = 101, Replacement = r1, Producer = "Bayer" };
+            List<Medicament> meds = new List<Medicament>();
+            meds.Add(m);
+            medStorage.saveToFile(meds, "Lekovi.json");*/
 
-            requests = requestStorage.LoadFromFile("Zahtevi.json");
+            medicamentData.ItemsSource = meds;
+
         }
 
-        private void RowDoubleClick(object sender, MouseButtonEventArgs e)
+        private void Row_DoubleClik(object sender, MouseButtonEventArgs e)
         {
-            Medicament selectedMedicament = (Medicament)medicamentDataGrid.SelectedItem;
-            EditMedicamentWindow medWindow = new EditMedicamentWindow(selectedMedicament);
+            Medicament selectedMedicament = (Medicament)medicamentData.SelectedItem;
+            MedicamentInfoWindow medWindow = new MedicamentInfoWindow(selectedMedicament);
             medWindow.Show();
             this.Close();
         }
 
-        private void AddButtonClicked(object sender, RoutedEventArgs e)
+        private void AddMedicamentButton(object sender, RoutedEventArgs e)
         {
             AddMedicamentWindow addMed = new AddMedicamentWindow();
             addMed.Show();
@@ -52,79 +55,66 @@ namespace IS_Bolnica
 
         private void DeleteButtonClicked(object sender, RoutedEventArgs e)
         {
-            if (IsAnyMedicamentSelected())
+            int index = medicamentData.SelectedIndex;
+            if(index < 0)
+            {
+                MessageBox.Show("Niste označili nijedan lek!");
+            }
+            else
             {
                 MessageBoxResult messageBox = MessageBox.Show("Da li ste sigurni da želite da pošaljete zahtev za brisanje leka",
                 "Brisanje leka", MessageBoxButton.YesNo);
                 switch (messageBox)
                 {
                     case MessageBoxResult.Yes:
-                        SendDeletingRequest();
+                        List<Request> requests = requestStorage.LoadFromFile("Zahtevi.json");
+                        Medicament selectedMed = (Medicament)medicamentData.SelectedItem;
+                        request.Title = "Brisanje leka iz baze";
+
+                        string content = selectedMed.Id + "|" + selectedMed.Name + "|" + selectedMed.Replacement.Name + "|" + selectedMed.Producer + "|";
+
+                        foreach (Ingredient i in selectedMed.Ingredients)
+                        {
+                            content += i.Name + "\n";
+                        }
+
+                        request.Content = content;
+                        request.Recipient = NotificationType.doctor;
+                        request.Sender = UserType.director;
+
+                        requests.Add(request);
+                        requestStorage.SaveToFile(requests, "Zahtevi.json");
                         break;
                     case MessageBoxResult.No:
                         break;
                 }
-            }
+            }  
         }
 
-        private void SendDeletingRequest()
-        {           
-            SetRequestAttributes();
-            requests.Add(request);
-            requestStorage.SaveToFile(requests, "Zahtevi.json");
-        }
-
-        private void SetRequestAttributes()
+        private void EditButton(object sender, RoutedEventArgs e)
         {
-            request.Title = "Brisanje leka iz baze";
-            SetRequestContent();
-            request.Recipient = NotificationType.doctor;
-            request.Sender = UserType.director;
-        }
-
-        private void SetRequestContent()
-        {
-            string content = selectedMedicament.Id + "|" + selectedMedicament.Name + "|" + selectedMedicament.Replacement.Name + "|" + selectedMedicament.Producer + "|";
-            foreach (Ingredient i in selectedMedicament.Ingredients)
+            int index = medicamentData.SelectedIndex;
+            if (index < 0)
             {
-                content += i.Name + "\n";
-            }
-            request.Content = content;
-        }
-
-        private bool IsAnyMedicamentSelected()
-        {
-            if (medicamentDataGrid.SelectedIndex < 0)
-            {
-                MessageBox.Show("Niste izabrali nijedan lek!");
-                return false;
+                MessageBox.Show("Niste označili nijedan lek!");
             }
             else
             {
-                selectedMedicament = (Medicament)medicamentDataGrid.SelectedItem;
-                return true;
-            }
-        }
-
-        private void EditButtonClicked(object sender, RoutedEventArgs e)
-        {
-            if (IsAnyMedicamentSelected())
-            {
-                Medicament med = (Medicament)medicamentDataGrid.SelectedItem;
-                EditMedicamentWindow medicamentInfo = new EditMedicamentWindow(med);
+                Medicament med = (Medicament)medicamentData.SelectedItem;
+                MedicamentInfoWindow medicamentInfo = new MedicamentInfoWindow(med);
                 medicamentInfo.Show();
                 this.Close();
             }
         }
 
-        private void InventoryButtonClicked(object sender, RoutedEventArgs e)
+        private void InventoryButton(object sender, RoutedEventArgs e)
         {
-            InventoryWindow iw = new InventoryWindow();
+            InventarWindow iw = new InventarWindow();
             iw.Show();
             this.Close();
         }
 
-        private void RoomButtonClicked(object sender, RoutedEventArgs e)
+        private void RoomButton(object sender, RoutedEventArgs e)
         {
             Director d = new Director();
             RoomWindow uw = new RoomWindow(d);
@@ -132,7 +122,7 @@ namespace IS_Bolnica
             this.Close();
         }
 
-        private void ProfileButtonClicked(object sender, RoutedEventArgs e)
+        private void ProfilButton(object sender, RoutedEventArgs e)
         {
             DirectorProfileWindow profileWindow = new DirectorProfileWindow();
             profileWindow.Show();

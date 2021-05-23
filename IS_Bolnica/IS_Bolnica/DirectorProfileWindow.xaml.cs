@@ -33,7 +33,7 @@ namespace IS_Bolnica
 
         private void InventoryButtonClicked(object sender, RoutedEventArgs e)
         {
-            InventoryWindow uw = new InventoryWindow();
+            InventarWindow uw = new InventarWindow();
             uw.Show();
             this.Close();
         }
