@@ -90,6 +90,10 @@ namespace IS_Bolnica.Secretary
             else if (comboBox.SelectedIndex == 2)
             {
                 idBox.IsEnabled = false;
+            } 
+            else if (comboBox.SelectedIndex == -1)
+            {
+                idBox.IsEnabled = false;
             }
             else
             {

@@ -17,9 +17,6 @@ using System.Windows.Shapes;
 
 namespace IS_Bolnica.Secretary
 {
-    /// <summary>
-    /// Interaction logic for EditNotificationWindow.xaml
-    /// </summary>
     public partial class EditNotificationWindow : Window
     {
         private Notification notification1 = new Notification();

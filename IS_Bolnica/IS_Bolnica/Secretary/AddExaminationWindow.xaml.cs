@@ -36,8 +36,19 @@ namespace IS_Bolnica.Secretary
             InitializeComponent();
             Rooms = roomStorage.loadFromFile("Sobe.json");
 
+            //doctors = doctorFileStorage.loadFromFile("Doctors.json");
+            //for(int i = 0; i < doctors.Count; i++)
+            //{
+            //    DocNames.Add(doctors[i].Name + " " + doctors[i].Surname);
+            //}
+            //doctorBox.ItemsSource = DocNames;
+            setDoctorBox();
+        }
+
+        private void setDoctorBox()
+        {
             doctors = doctorFileStorage.loadFromFile("Doctors.json");
-            for(int i = 0; i < doctors.Count; i++)
+            for (int i = 0; i < doctors.Count; i++)
             {
                 DocNames.Add(doctors[i].Name + " " + doctors[i].Surname);
             }
@@ -178,8 +189,6 @@ namespace IS_Bolnica.Secretary
             } 
             else
             {
-                //MessageBox.Show("Ovaj pregled je vec zauzet!");
-
                 return false;
             }
 

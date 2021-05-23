@@ -65,7 +65,7 @@
         <Button Content="Odustani" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="40,580,0,0" VerticalAlignment="Top" Width="342" Click="cancelAddingOperation" Height="35" />
         <DatePicker x:Name="dateBox" DisplayDateStart="{x:Static sys:DateTime.Today}" HorizontalAlignment="Left" Margin="204,255,0,0" VerticalAlignment="Top" Width="178"/>
         <Label Content="JMBG pacijenta:" HorizontalAlignment="Left" Margin="40,355,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="patientId" HorizontalAlignment="Left" Height="23" Margin="204,355,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
+        <TextBox x:Name="idPatientBox" HorizontalAlignment="Left" Height="23" Margin="204,355,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
         <ComboBox x:Name="doctorBox" HorizontalAlignment="Left" Margin="204,305,0,0" VerticalAlignment="Top" Width="178">
         </ComboBox>
         <Label Content="Trajanje:" HorizontalAlignment="Left" Margin="40,405,0,0" VerticalAlignment="Top"/>

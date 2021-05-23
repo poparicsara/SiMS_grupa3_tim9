@@ -67,23 +67,33 @@ namespace IS_Bolnica.Secretary
             }
             else
             {
-                List<Examination> examinations = new List<Examination>();
-                ExaminationsRecordFileStorage examinationStorage = new ExaminationsRecordFileStorage();
-
-                examinations = examinationFileStorage.loadFromFile("Pregledi.json");
                 Secretary.EditExaminationWindow eew = new Secretary.EditExaminationWindow(examination);
-
-                eew.idPatientBox.Text = examination.Patient.Id;
-                eew.hourBox.Text = examination.Date.Hour.ToString();
-                eew.minutesBox.Text = examination.Date.Minute.ToString();
-                eew.doctorBox.Text = examination.Doctor.Name + " " + examination.Doctor.Surname;
-                eew.dateBox.SelectedDate = new DateTime(examination.Date.Year, examination.Date.Month, examination.Date.Day);
-                eew.durationInMinutesBox.Text = "30";
-                eew.room.Text = examination.RoomRecord.Id.ToString();
+                setElementsEEW(eew, examination);
 
                 eew.Show();
                 this.Close();
 
+            }
+        }
+
+        private void setElementsEEW(EditExaminationWindow eew, Examination examination)
+        {
+            eew.idPatientBox.Text = examination.Patient.Id;
+            eew.hourBox.Text = examination.Date.Hour.ToString();
+            eew.minutesBox.Text = examination.Date.Minute.ToString();
+            eew.doctorBox.Text = examination.Doctor.Name + " " + examination.Doctor.Surname;
+            eew.dateBox.SelectedDate = new DateTime(examination.Date.Year, examination.Date.Month, examination.Date.Day);
+            eew.durationInMinutesBox.Text = "30";
+        }
+
+        private bool isSelected(int i)
+        {
+            if(i == -1)
+            {
+                return false;
+            } else
+            {
+                return true;
             }
         }
 
@@ -94,7 +104,7 @@ namespace IS_Bolnica.Secretary
 
             examination = (Examination)ExaminationList.SelectedItem;
 
-            if(i == -1)
+            if(!isSelected(i))
             {
                 MessageBox.Show("Niste izabrali pregled koji želite da obrišete!");
             }
@@ -104,15 +114,7 @@ namespace IS_Bolnica.Secretary
                 switch(result)
                 {
                     case MessageBoxResult.Yes:
-                        Pregledi = examinationFileStorage.loadFromFile("Pregledi.json");
-                        for(int k = 0; k < Pregledi.Count; k++)
-                        {
-                            if(Pregledi[k].Date.Equals(examination.Date) &&
-                                Pregledi[k].Patient.Id.Equals(examination.Patient.Id))
-                            {
-                                Pregledi.RemoveAt(k);
-                            }
-                        }
+                        Pregledi = removeExamination(examination);
                         examinationFileStorage.saveToFile(Pregledi, "Pregledi.json");
                         this.Close();
                         Secretary.ExaminationListWindow elw = new Secretary.ExaminationListWindow();
@@ -123,6 +125,21 @@ namespace IS_Bolnica.Secretary
                         break;
                 }
             }
+        }
+
+        private List<Examination> removeExamination(Examination examination)
+        {
+            Pregledi = examinationFileStorage.loadFromFile("Pregledi.json");
+            for (int k = 0; k < Pregledi.Count; k++)
+            {
+                if (Pregledi[k].Date.Equals(examination.Date) &&
+                    Pregledi[k].Patient.Id.Equals(examination.Patient.Id))
+                {
+                    Pregledi.RemoveAt(k);
+                }
+            }
+
+            return Pregledi;
         }
 
 

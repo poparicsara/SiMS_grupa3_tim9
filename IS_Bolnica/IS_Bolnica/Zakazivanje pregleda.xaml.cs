@@ -56,7 +56,7 @@ namespace IS_Bolnica
             int trajanje = rnd.Next(23,29);
             Patient pacijent = new Patient();
             pacijent.Username = PatientWindow.username_patient;
-            Examination e1 = new Examination { IsPayed = false, DurationInMinutes = trajanje, Doctor = d1, Date = datumPregleda, Patient = pacijent};
+            Examination e1 = new Examination { DurationInMinutes = trajanje, Doctor = d1, Date = datumPregleda, Patient = pacijent};
             pregledi.Add(e1);
             exStorage.saveToFile(pregledi, "Pregledi.json");
             PatientWindow pw = new PatientWindow(patient);

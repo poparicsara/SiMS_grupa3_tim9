@@ -8,5 +8,6 @@ namespace IS_Bolnica.Model
 {
     class Appointment
     {
+
     }
 }
