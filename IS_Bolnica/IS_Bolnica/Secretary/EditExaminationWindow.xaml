@@ -51,7 +51,5 @@
         <ComboBox x:Name="durationInMinutesBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" Margin="200,400,0,0">
             <ComboBoxItem>30</ComboBoxItem>
         </ComboBox>
-        <Label Content="Odaberite ordinaciju: " HorizontalAlignment="Left" Margin="40,450,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="room" ItemsSource="{Binding RoomNums}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" Margin="200,450,0,0"/>
     </Grid>
 </Window>

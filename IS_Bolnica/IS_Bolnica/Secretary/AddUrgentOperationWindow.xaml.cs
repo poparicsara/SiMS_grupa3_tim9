@@ -27,13 +27,40 @@ namespace IS_Bolnica.Secretary
         public AddUrgentOperationWindow()
         {
             InitializeComponent();
+            //specializations = specialization.getSpecializations();
+            //foreach (Specialization spec in specializations)
+            //{
+            //    Specializations.Add(spec.Name);
+            //}
+            //specializationBox.ItemsSource = Specializations;
+
+            setSpecializationsBox();
+
+            //Rooms = roomStorage.loadFromFile("Sobe.json");
+            //for (int i = 0; i < Rooms.Count; i++)
+            //{
+            //    if (Rooms[i].roomPurpose.Name == "Operaciona sala")
+            //    {
+            //        RoomNums.Add(Rooms[i].Id);
+            //    }
+            //}
+            //operatiomRoomBox.ItemsSource = RoomNums;
+
+            setRoomBox();
+        }
+
+        private void setSpecializationsBox()
+        {
             specializations = specialization.getSpecializations();
             foreach (Specialization spec in specializations)
             {
                 Specializations.Add(spec.Name);
             }
             specializationBox.ItemsSource = Specializations;
+        }
 
+        private void setRoomBox()
+        {
             Rooms = roomStorage.loadFromFile("Sobe.json");
             for (int i = 0; i < Rooms.Count; i++)
             {
@@ -43,6 +70,7 @@ namespace IS_Bolnica.Secretary
                 }
             }
             operatiomRoomBox.ItemsSource = RoomNums;
+
         }
 
         private void addGuestAccount(object sender, RoutedEventArgs e)

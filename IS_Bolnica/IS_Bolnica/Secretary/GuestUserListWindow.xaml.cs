@@ -20,17 +20,16 @@ namespace IS_Bolnica.Secretary
     public partial class GuestUserListWindow : Window, INotifyPropertyChanged
     {
         private GuestUsersFileStorage storage = new GuestUsersFileStorage();
-        public List<GuestUser> GuestKorisnici
+        public List<GuestUser> GuestUsers
         {
             get; set;
-        }
+        } = new List<GuestUser>();
         public GuestUserListWindow()
         {
             InitializeComponent();
             this.DataContext = this;
 
-            GuestKorisnici = new List<GuestUser>();
-            GuestKorisnici = storage.loadFromFile("GuestUsersFile.json");
+            GuestUsers = storage.loadFromFile("GuestUsersFile.json");
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -43,10 +42,10 @@ namespace IS_Bolnica.Secretary
         private void deleteGuestAccount(object sender, RoutedEventArgs e)
         {
             int i = -1;
-            i = GuestUsers.SelectedIndex;
+            i = guestUsersGrid.SelectedIndex;
 
-            GuestUser guestKorisnik = new GuestUser();
-            guestKorisnik = (GuestUser)GuestUsers.SelectedItem;
+            GuestUser guestUser = new GuestUser();
+            guestUser = (GuestUser)guestUsersGrid.SelectedItem;
 
             if (i == -1)
             {
@@ -58,24 +57,32 @@ namespace IS_Bolnica.Secretary
                 switch (result)
                 {
                     case MessageBoxResult.Yes:
-                        GuestKorisnici = storage.loadFromFile("GuestUsersFile.json");
-                        for (int k = 0; k < GuestKorisnici.Count; k++)
-                        {
-                            if (guestKorisnik.SystemName.Equals(GuestKorisnici[k].SystemName))
-                            {
-                                GuestKorisnici.RemoveAt(k);
-                            }
-                        }
-                        storage.saveToFile(GuestKorisnici, "GuestUsersFile.json");
+                        GuestUsers = removeGuestUser(guestUser);
+                        storage.saveToFile(GuestUsers, "GuestUsersFile.json");
                         this.Close();
-
+                        GuestUserListWindow gulw = new GuestUserListWindow();
+                        gulw.Show();
 
                         break;
                     case MessageBoxResult.No:
-                        this.Close();
+                        return;
                         break;
                 }
             }
+        }
+
+        private List<GuestUser> removeGuestUser(GuestUser guestUser)
+        {
+            List<GuestUser> users = storage.loadFromFile("GuestUsersFile.json");
+            for (int k = 0; k < users.Count; k++)
+            {
+                if (guestUser.SystemName.Equals(users[k].SystemName))
+                {
+                    users.RemoveAt(k);
+                }
+            }
+
+            return users;
         }
 
         private void createGuestAccount(object sender, RoutedEventArgs e)

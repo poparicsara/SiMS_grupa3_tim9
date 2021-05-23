@@ -34,13 +34,24 @@ namespace IS_Bolnica.Secretary
         public AddUrgentExamination()
         {
             InitializeComponent();
+            //specializations = specialization.getSpecializations();
+            //foreach (Specialization spec in specializations)
+            //{
+            //    Specializations.Add(spec.Name);
+            //}
+            //specializationBox.ItemsSource = Specializations;
+            setSpecializationsBox();
+
+        }
+
+        private void setSpecializationsBox()
+        {
             specializations = specialization.getSpecializations();
             foreach (Specialization spec in specializations)
             {
                 Specializations.Add(spec.Name);
             }
             specializationBox.ItemsSource = Specializations;
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -66,11 +77,11 @@ namespace IS_Bolnica.Secretary
             {
                 if (pat.Id.Equals(id))
                 {
-                    patien = pat;
+                    return pat;
                 }
             }
-
-            return patien;
+            MessageBox.Show("Id koji ste uneli ne postoji!");
+            return null;
 
         }
 
@@ -124,7 +135,6 @@ namespace IS_Bolnica.Secretary
 
             examination = new Examination { GuestUser = guestUser, Patient = patient };
             findSpecialization(specializationBox.SelectedItem.ToString());
-            //MessageBox.Show(specialization.Name);
 
             UrgentExaminationOptionsWindow uoow = new UrgentExaminationOptionsWindow(examination, specialization);
             uoow.Show();
@@ -134,7 +144,7 @@ namespace IS_Bolnica.Secretary
         private void existableRButton_Checked(object sender, RoutedEventArgs e)
         {
             systemNameBox.IsEnabled = false;
-            //patientIdBox.IsEnabled = true;
+            patientIdBox.IsEnabled = true;
         }
 
         private void guestRButton_Checked(object sender, RoutedEventArgs e)

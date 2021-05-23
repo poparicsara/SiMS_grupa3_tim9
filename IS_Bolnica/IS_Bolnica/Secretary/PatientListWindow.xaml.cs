@@ -20,11 +20,10 @@ namespace IS_Bolnica.Secretary
 {
     public partial class PatientListWindow : Window, INotifyPropertyChanged
     {
-        private List<User> korisnici = new List<User>();
+        private List<User> users = new List<User>();
         private UsersFileStorage storage1 = new UsersFileStorage();
         private List<Patient> Pacijenti { get; set; } = new List<Patient>();
         private PatientRecordFileStorage storage = new PatientRecordFileStorage();
-        private Patient pacijent = new Patient();
         private UsersFileStorage usersStorage = new UsersFileStorage();
         private ExaminationsRecordFileStorage examinationStorage = new ExaminationsRecordFileStorage();
         private List<Examination> examinations = new List<Examination>();
@@ -65,50 +64,46 @@ namespace IS_Bolnica.Secretary
             }
             else
             {
-                
-
-                korisnici = storage1.loadFromFile("UsersFileStorage.json");
-                Pacijenti = storage.loadFromFile("PatientRecordFileStorage.json");
-
-
                 Secretary.EditPatient ep = new Secretary.EditPatient(patient);
-
-                ep.name.Text = patient.Name;
-                ep.surname.Text = patient.Surname;
-                ep.username.Text = patient.Username;
-                ep.dateOfBirth.SelectedDate = new DateTime(patient.DateOfBirth.Year, patient.DateOfBirth.Month, patient.DateOfBirth.Day);
-                ep.iniciallyPassword.Text = patient.Password;
-                ep.id.Text = patient.Id.ToString();
-                ep.phone.Text = patient.Phone.ToString();
-                ep.email.Text = patient.Email;
-                ep.adress.Text = patient.Address.Street + " "
-                    + patient.Address.NumberOfBuilding + "/"
-                    + patient.Address.Floor + "/"
-                    + patient.Address.Apartment;
-                ep.city.Text = patient.Address.City.name + " "
-                    + Convert.ToString(patient.Address.City.postalCode);
-                ep.country.Text = patient.Address.City.Country.name;
-                ep.debit.Text = Convert.ToString(patient.Debit);
-                List<string> alergeni = patient.Allergens;
-                foreach (var alergen in alergeni)
-                {
-                    ep.allergens.Text += alergen + ",";
-
-                }
-                String pom = ep.allergens.Text;
-                ep.allergens.Text = pom.Remove(pom.Length - 1, 1);
-
+                setElementsEPW(ep, patient);
                 ep.Show();
                 this.Close();
             }
 
         }
 
+        private void setElementsEPW(EditPatient ep, Patient patient)
+        {
+            ep.name.Text = patient.Name;
+            ep.surname.Text = patient.Surname;
+            ep.username.Text = patient.Username;
+            ep.dateOfBirth.SelectedDate = new DateTime(patient.DateOfBirth.Year, patient.DateOfBirth.Month, patient.DateOfBirth.Day);
+            ep.iniciallyPassword.Text = patient.Password;
+            ep.id.Text = patient.Id.ToString();
+            ep.phone.Text = patient.Phone.ToString();
+            ep.email.Text = patient.Email;
+            ep.adress.Text = patient.Address.Street + " "
+                + patient.Address.NumberOfBuilding + "/"
+                + patient.Address.Floor + "/"
+                + patient.Address.Apartment;
+            ep.city.Text = patient.Address.City.name + " "
+                + Convert.ToString(patient.Address.City.postalCode);
+            ep.country.Text = patient.Address.City.Country.name;
+            ep.debit.Text = Convert.ToString(patient.Debit);
+            List<string> alergeni = patient.Allergens;
+            foreach (var alergen in alergeni)
+            {
+                ep.allergens.Text += alergen + ",";
+
+            }
+            String pom = ep.allergens.Text;
+            ep.allergens.Text = pom.Remove(pom.Length - 1, 1);
+        }
+
         private void deletePatient(object sender, RoutedEventArgs e)
         {
-            int i = -1;
-            i = PatientList.SelectedIndex;
-            List<User> users = new List<User>();
+            
+            int i = PatientList.SelectedIndex;
 
             Patient patient = (Patient)PatientList.SelectedItem;
 
@@ -123,49 +118,21 @@ namespace IS_Bolnica.Secretary
                 switch (result)
                 {
                     case MessageBoxResult.Yes:
-                        Pacijenti = storage.loadFromFile("PatientRecordFileStorage.json");
-                        for (int k = 0; k < Pacijenti.Count; k++)
-                        {
-                            if (Pacijenti[k].Id.Equals(patient.Id))
-                            {
-                                Pacijenti.RemoveAt(k);
-                            }
-                        }
+                        Pacijenti = removePatient(patient);
                         storage.saveToFile(Pacijenti, "PatientRecordFileStorage.json");
 
-                        users = usersStorage.loadFromFile("UsersFileStorage.json");
-                        for (int k = 0; k < users.Count; k++)
-                        {
-                            if (users[k].Id.Equals(patient.Id))
-                            {
-                                users.RemoveAt(k);
-                            }
-                        }
+                        users = removeUser(patient);
                         usersStorage.saveToFile(users, "UsersFileStorage.json");
 
-                        examinations = examinationStorage.loadFromFile("Pregledi.json");
-                        for (int k = 0; k< examinations.Count; k++)
-                        {
-                            if(examinations[k].Patient.Id.Equals(patient.Id))
-                            {
-                                examinations.RemoveAt(k);
-                            }
-                        }
+                        examinations = removePatientsExaminations(patient);
                         examinationStorage.saveToFile(examinations, "Pregledi.json");
 
-                        operations = operationsStorage.loadFromFile("operations.json");
-                        for (int k = 0; k < operations.Count; k++)
-                        {
-                            if (operations[k].Patient.Id.Equals(patient.Id))
-                            {
-                                operations.RemoveAt(k);
-                            }
-                        }
+                        operations = removePatientOperations(patient);
                         operationsStorage.saveToFile(operations, "operations.json");
 
-                        SekretarWindow sw = new SekretarWindow();
+                        PatientListWindow plw = new PatientListWindow();
 
-                        sw.Show();
+                        plw.Show();
                         this.Close();
 
                         break;
@@ -173,6 +140,61 @@ namespace IS_Bolnica.Secretary
                         break;
                 }
             }
+        }
+
+        private List<Patient> removePatient(Patient patient)
+        {
+            Pacijenti = storage.loadFromFile("PatientRecordFileStorage.json");
+            for (int k = 0; k < Pacijenti.Count; k++)
+            {
+                if (Pacijenti[k].Id.Equals(patient.Id))
+                {
+                    Pacijenti.RemoveAt(k);
+                }
+            }
+
+            return Pacijenti;
+        }
+
+        private List<User> removeUser(Patient patient)
+        {
+            users = usersStorage.loadFromFile("UsersFileStorage.json");
+            for (int k = 0; k < users.Count; k++)
+            {
+                if (users[k].Id.Equals(patient.Id))
+                {
+                    users.RemoveAt(k);
+                }
+            }
+
+            return users;
+        }
+
+        private List<Examination> removePatientsExaminations(Patient patient)
+        {
+            examinations = examinationStorage.loadFromFile("Pregledi.json");
+            for (int k = 0; k < examinations.Count; k++)
+            {
+                if (examinations[k].Patient.Id.Equals(patient.Id))
+                {
+                    examinations.RemoveAt(k);
+                }
+            }
+
+            return examinations;
+        }
+
+        private List<Operation> removePatientOperations(Patient patient)
+        {
+            operations = operationsStorage.loadFromFile("operations.json");
+            for (int k = 0; k < operations.Count; k++)
+            {
+                if (operations[k].Patient.Id.Equals(patient.Id))
+                {
+                    operations.RemoveAt(k);
+                }
+            }
+            return operations;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
