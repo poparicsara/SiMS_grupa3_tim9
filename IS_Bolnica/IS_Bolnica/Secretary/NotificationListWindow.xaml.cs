@@ -63,8 +63,8 @@ namespace IS_Bolnica.Secretary
             Notifications = storage.LoadFromFile("NotificationsFileStorage.json");
 
             Secretary.EditNotificationWindow enw = new Secretary.EditNotificationWindow(notification);
-            enw.title.Text = notification.title;
-            enw.content.Text = notification.content;
+            enw.title.Text = notification.Title;
+            enw.content.Text = notification.Content;
             if (notification.notificationType == NotificationType.doctor)
             {
                 enw.comboBox.SelectedIndex = 0;
@@ -73,9 +73,12 @@ namespace IS_Bolnica.Secretary
             {
                 enw.comboBox.SelectedIndex = 1;
             }
-            else
+            else if(notification.notificationType == NotificationType.all)
             {
                 enw.comboBox.SelectedIndex = 2;
+            } else
+            {
+                enw.comboBox.SelectedIndex = 3;
             }
 
             enw.Show();
@@ -105,8 +108,8 @@ namespace IS_Bolnica.Secretary
                         Notifications = storage.LoadFromFile("NotificationsFileStorage.json");
                         for (int k = 0; k < Notifications.Count; k++)
                         {
-                            if (notification.content.Equals(Notifications[k].content)
-                                && notification.title.Equals(Notifications[k].title))
+                            if (notification.Content.Equals(Notifications[k].Content)
+                                && notification.Title.Equals(Notifications[k].Title))
                             {
                                 Notifications.RemoveAt(k);
                             }

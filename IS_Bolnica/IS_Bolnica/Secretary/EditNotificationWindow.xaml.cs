@@ -46,12 +46,12 @@ namespace IS_Bolnica.Secretary
             Notifications = storage.LoadFromFile("NotificationsFileStorage.json");
             for (int i = 0; i < Notifications.Count; i++)
             {
-                if (notification1.content.Equals(Notifications[i].content)
-                    && notification1.title.Equals(Notifications[i].title)
+                if (notification1.Content.Equals(Notifications[i].Content)
+                    && notification1.Title.Equals(Notifications[i].Title)
                     && notification1.notificationType.Equals(Notifications[i].notificationType))
                 {
-                    Notifications[i].content = content.Text;
-                    Notifications[i].title = title.Text;
+                    Notifications[i].Content = content.Text;
+                    Notifications[i].Title = title.Text;
                     if (comboBox.SelectedIndex == 0)
                     {
                         Notifications[i].notificationType = NotificationType.doctor;
@@ -67,7 +67,11 @@ namespace IS_Bolnica.Secretary
                     else
                     {
                         Notifications[i].notificationType = NotificationType.specific;
-                        Notifications[i].PersonId = idBox.Text;
+                        foreach(string id in Notifications[i].PersonId)
+                        {
+                            
+                        }
+                        //Notifications[i].PersonId = 
                     }
                 }
             }

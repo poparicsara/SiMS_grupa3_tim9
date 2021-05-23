@@ -218,10 +218,11 @@ namespace IS_Bolnica.Secretary
             {
                 if (Rooms[i].Id == doctor.Ordination)
                 {
-                    examination.RoomRecord = Rooms[i];
+                    return Rooms[i];
                 }
             }
-            return room;
+            MessageBox.Show("Doktor nema ordinaciju");
+            return null;
         }
 
         private void addExamination(object sender, RoutedEventArgs e)
@@ -232,29 +233,12 @@ namespace IS_Bolnica.Secretary
             Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
             if(idExists(Patients, idPatientBox.Text))
             {
-                /* for (int i = 0; i < Patients.Count; i++)
-                 {
-                     if (Patients[i].Id.Equals(idPatientBox.Text))
-                     {
-                         examination.Patient = Patients[i];
-                     }
-                 }*/
-
                 examination.Patient = findPatient(idPatientBox.Text);
 
                 string[] doctorNameAndSurname = doctorBox.Text.Split(' ');
                 string name = doctorNameAndSurname[0];
                 string surname = doctorNameAndSurname[1];
 
-                /*foreach (Doctor doc in doctors)
-                {
-                    if(doc.Name.Equals(name) && doc.Surname.Equals(surname))
-                    {
-                        doctor = doc;
-                    }
-                }*/
-
-                //examination.Doctor = doctor;
                 examination.Doctor = findDoctor(name, surname);
 
                 DateTime datum = new DateTime();
@@ -262,15 +246,6 @@ namespace IS_Bolnica.Secretary
                 int sat = Convert.ToInt32(hourBox.Text);
                 int minut = Convert.ToInt32(minutesBox.Text);
                 examination.Date = new DateTime(datum.Year, datum.Month, datum.Day, sat, minut, 0);
-
-                /*examination.RoomRecord = new RoomRecord();
-                for (int i = 0; i < Rooms.Count; i++)
-                {
-                    if (Rooms[i].Id == examination.Doctor.Ordination)
-                    {
-                        examination.RoomRecord = Rooms[i];
-                    }
-                }*/
 
                 examination.RoomRecord = findRoom(examination.Doctor);
 
@@ -398,8 +373,6 @@ namespace IS_Bolnica.Secretary
             }
             else
             {
-                //MessageBox.Show("Ovaj pregled je vec zauzet!");
-
                 return false;
             }
 
