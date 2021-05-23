@@ -18,37 +18,36 @@ using System.Windows.Shapes;
 
 namespace IS_Bolnica
 {
-    public partial class DirectorNotificationWindow : Window
+    public partial class DirectorNotificationWindow : Window, INotifyPropertyChanged
     {
-        public List<Notification> notifications = new List<Notification>();
+        public List<Notification> Notifications { get; set; }
         private Model.NotificationsFileStorage storage = new NotificationsFileStorage();
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public DirectorNotificationWindow()
         {
             InitializeComponent();
             this.DataContext = this;
 
-            notifications = storage.LoadFromFile("NotificationsFileStorage.json");
+            Notifications = new List<Notification>();
 
-            NotificationList.ItemsSource = GetDirectorNotifications();
-        }
+            List<Notification> temp = storage.LoadFromFile("NotificationsFileStorage.json");
 
-        private List<Notification> GetDirectorNotifications()
-        {
-            List<Notification> directorNotifications = new List<Notification>();
-            foreach (Notification n in notifications)
+            foreach(Notification notification in temp)
             {
-                if (IsDirectorNotification(n))
+                if(notification.notificationType == NotificationType.all || notification.notificationType == NotificationType.director)
                 {
-                    directorNotifications.Add(n);
+                    Notifications.Add(notification);
                 }
             }
-            return directorNotifications;
+
+            NotificationList.ItemsSource = Notifications;
         }
 
-        private bool IsDirectorNotification(Notification n)
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            return n.notificationType == NotificationType.all || n.notificationType == NotificationType.director;
+
         }
 
         private void Row_DoubleClik(object sender, MouseButtonEventArgs e)

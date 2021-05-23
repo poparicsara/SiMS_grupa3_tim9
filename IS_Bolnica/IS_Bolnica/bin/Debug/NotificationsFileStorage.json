@@ -14,6 +14,13 @@
     "PersonId": null
   },
   {
+    "title": "VAZNO",
+    "content": "Obavestavamo Vas da promenite lozinku.",
+    "Sender": 2,
+    "notificationType": 4,
+    "PersonId": null
+  },
+  {
     "title": "Potrebno pomeranje termina",
     "content": "Prostorija  102 se renovira.\nPotrebno je pomeranje zakazanog termina",
     "Sender": 3,
@@ -67,6 +74,20 @@
     "content": "Prostorija  707 se renovira.\nPotrebno je pomeranje zakazanog termina\n5/13/2021 11:00:00 AM\nMarko Markovic\nNikola Spasojević",
     "Sender": 3,
     "notificationType": 2,
+    "PersonId": null
+  },
+  {
+    "title": "Izmena zahteva za novi lek",
+    "content": "555\nnesto\nAlopurinol\nmi\na\r\na\r\na\n\nIZMENI",
+    "Sender": 1,
+    "notificationType": 3,
+    "PersonId": null
+  },
+  {
+    "title": "Izmena zahteva za novi lek",
+    "content": "555\nnovi\nAlopurinol\nmi\na\r\na\r\na\n\nPROMENI",
+    "Sender": 1,
+    "notificationType": 3,
     "PersonId": null
   }
 ]

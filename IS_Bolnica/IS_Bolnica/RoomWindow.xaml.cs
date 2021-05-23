@@ -43,7 +43,7 @@ namespace IS_Bolnica
 
         private void DeleteButtonClicked(object sender, RoutedEventArgs e)
         {
-            if (IsAnyRoomSelected())
+            if (IsSomeRoomSelected())
             {
                 storage.DeleteRoom(selectedRoom);
                 RefreshRoomDataGrid();
@@ -55,7 +55,7 @@ namespace IS_Bolnica
             selectedRoom = (RoomRecord)roomDataGrid.SelectedItem;
         }
 
-        private bool IsAnyRoomSelected()
+        private bool IsSomeRoomSelected()
         {
             if(roomDataGrid.SelectedIndex < 0)
             {
@@ -71,7 +71,7 @@ namespace IS_Bolnica
 
         private void EditButtonClicked(object sender, RoutedEventArgs e)
         {
-            if (IsAnyRoomSelected())
+            if (IsSomeRoomSelected())
             {
                 EditRoomWindow ew = new EditRoomWindow(selectedRoom);
                 ew.Show();
@@ -105,7 +105,7 @@ namespace IS_Bolnica
 
         private void RenovationButton(object sender, RoutedEventArgs e)
         {
-            if (IsAnyRoomSelected())
+            if (IsSomeRoomSelected())
             {
                 RenovationWindow rWindow = new RenovationWindow(selectedRoom);
                 rWindow.Show();
@@ -122,7 +122,7 @@ namespace IS_Bolnica
 
         private void InventoryButtonClicked(object sender, RoutedEventArgs e)
         {
-            InventoryWindow inventarWindow = new InventoryWindow();
+            InventarWindow inventarWindow = new InventarWindow();
             inventarWindow.Show();
             this.Close();
         }

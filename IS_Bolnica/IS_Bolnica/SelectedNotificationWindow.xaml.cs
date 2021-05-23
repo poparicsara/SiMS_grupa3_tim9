@@ -20,45 +20,34 @@ namespace IS_Bolnica
     public partial class SelectedNotificationWindow : Window
     {
         private Notification selectedNotification = new Notification();
-        private List<Notification> notifications = new List<Notification>();
-        private NotificationsFileStorage storage = new NotificationsFileStorage();
         public SelectedNotificationWindow(Notification notification)
         {
             InitializeComponent();
 
             selectedNotification = notification;
-            storage = new NotificationsFileStorage();
-            notifications = storage.LoadFromFile("NotificationsFileStorage.json");
 
             contentBox.Text = notification.content;
         }
 
         private void ClosingWindow(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            DeleteNotification();
-            DirectorNotificationWindow nw = new DirectorNotificationWindow();
-            nw.Show();
-        }
+            NotificationsFileStorage storage = new NotificationsFileStorage();
+            List<Notification> notifications = storage.LoadFromFile("NotificationsFileStorage.json");
 
-        private void DeleteNotification()
-        {
-            int index = GetNotificationIndex();
-            notifications.RemoveAt(index);
-            storage.SaveToFile(notifications, "NotificationsFileStorage.json");
-        }
-
-        private int GetNotificationIndex()
-        {
-            int index = 0;
+            int i = 0;
             foreach (Notification n in notifications)
             {
                 if (n.title.Equals(selectedNotification.title) && n.content.Equals(selectedNotification.content))
                 {
                     break;
                 }
-                index++;
+                i++;
             }
-            return index;
+
+            notifications.RemoveAt(i);
+            storage.SaveToFile(notifications, "NotificationsFileStorage.json");
+            DirectorNotificationWindow nw = new DirectorNotificationWindow();
+            nw.Show();
         }
     }
 }
