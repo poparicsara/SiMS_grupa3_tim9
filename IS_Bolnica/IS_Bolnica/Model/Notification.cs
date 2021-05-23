@@ -4,17 +4,16 @@
 // Purpose: Definition of Class Notification
 
 using System;
-using System.Collections.Generic;
 
 namespace Model
 {
     public class Notification
     {
-        public string Title { get; set; }
-        public string Content { get; set; }
+        public string title { get; set; }
+        public string content { get; set; }
         public UserType Sender { get; set; }
         public NotificationType notificationType { get; set; }
-        public List<string> PersonId { get; set; }
+        public string PersonId { get; set; }
 
     }
 }

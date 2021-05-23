@@ -33,32 +33,11 @@
                 SVI
             </ComboBoxItem>
             <ComboBoxItem>
-                ODREĐENI KORISNIK/CI
+                ODREĐENI KORISNIK
             </ComboBoxItem>
         </ComboBox>
         <Label Content="Korisnik:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="17,383,0,0" Width="131" Height="26"/>
-        <TextBox x:Name="idBox" HorizontalAlignment="Left" Height="23" Margin="165,383,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
-        <Button Content="Dodaj" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="344,385,0,0" VerticalAlignment="Top" Width="52" RenderTransformOrigin="0.5,0.5" Click="Button_Add_Clicked">
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-0.811"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
-        <ListBox x:Name="idListBox" HorizontalAlignment="Left" Height="100" Margin="165,439,0,0" VerticalAlignment="Top" Width="170"/>
-        <Button Content="Izbaci" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="344,519,0,0" VerticalAlignment="Top" Width="52" RenderTransformOrigin="0.5,0.5" Click="Button_Remove_Clicked">
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-0.811"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
+        <TextBox x:Name="idBox" HorizontalAlignment="Left" Height="23" Margin="165,383,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="231"/>
     </Grid>
 </Window>
 

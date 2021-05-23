@@ -281,18 +281,7 @@ namespace IS_Bolnica.Secretary
             }
         }
 
-        private RoomRecord findRoom(int id)
-        {
-            foreach (RoomRecord room in rooms)
-            {
-                if (room.Id.Equals(id))
-                {
-                    return room;
-                }
 
-            }
-            return null;
-        }
 
         private List<Examination> getExaminationOptions(Examination examination, Specialization specialization1)
         {
@@ -316,15 +305,14 @@ namespace IS_Bolnica.Secretary
 
                     examOption1.DurationInMinutes = 30;
 
-                    //foreach (RoomRecord room in rooms)
-                    //{
-                    //    if(room.Id.Equals(doc.Ordination))
-                    //    {
-                    //        examOption1.RoomRecord = room;
-                    //    }
+                    foreach (RoomRecord room in rooms)
+                    {
+                        if(room.Id == doc.Ordination)
+                        {
+                            examOption1.RoomRecord = room;
+                        }
 
-                    //}
-                    examOption1.RoomRecord = findRoom(doc.Ordination);
+                    }
                     for (int i = 1; i <= 90; i++)
                     {
                         temp1 = currentDate.AddMinutes(i);
@@ -372,6 +360,7 @@ namespace IS_Bolnica.Secretary
                 examination1.PostponedDate = new DateTime(temp1.Year, temp1.Month, temp1.Day, temp1.Hour, temp1.Minute, 0);
                 if (isAvailablePostponed(exams, examination1))
                 {
+                    MessageBox.Show("AVAILABLE");
                     break;
                 }
             }
@@ -416,12 +405,13 @@ namespace IS_Bolnica.Secretary
             dateNew = exami.Date;
             DateTime temp1 = new DateTime();
 
-            for (int i = 1; i < 10000; i++)
+            for (int i = 1; i < 1000; i++)
             {
                 temp1 = dateNew.AddMinutes(i*10);
                 exami.Date = new DateTime(temp1.Year, temp1.Month, temp1.Day, temp1.Hour, temp1.Minute, 0);
                 if (isAvailable(exams, exami))
                 {
+                    MessageBox.Show("AVAILABLE");
                     exams.Add(exami);
                     examinationsFileStorage.saveToFile(exams, "Pregledi.json");
                     break;
