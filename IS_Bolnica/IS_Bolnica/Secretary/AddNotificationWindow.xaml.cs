@@ -158,5 +158,38 @@ namespace IS_Bolnica.Secretary
             MessageBox.Show("Niste uneli postojeći id");
             return false;
         }
+
+        private void Button_Remove_Clicked(object sender, RoutedEventArgs e)
+        {
+            if (isSelected())
+            {
+                string id = (string)idListBox.SelectedItem;
+                idListBox.Items.Remove(idListBox.SelectedItem);
+                for (int i = 0; i < userList.Count; i++)
+                {
+                    if (id.Equals(userList[i]))
+                    {
+                        userList.RemoveAt(i);
+                    }
+                }
+            } else
+            {
+                MessageBox.Show("Niste označili id koji želite da uklonite!");
+                return;
+            }
+        }
+
+        private bool isSelected()
+        {
+            int i = idListBox.SelectedIndex;
+            if(i == -1)
+            {
+                return false;
+            } else
+            {
+                return true;
+            }
+        }
+
     }
 }

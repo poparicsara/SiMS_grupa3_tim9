@@ -81,6 +81,14 @@ namespace IS_Bolnica.Secretary
                 enw.comboBox.SelectedIndex = 3;
             }
 
+            if(notification.PersonId.Count != 0)
+            {
+                foreach(string id in notification.PersonId)
+                {
+                    enw.idListBox.Items.Add(id);
+                }
+            }
+
             enw.Show();
             this.Close();
 

@@ -1,93 +1,91 @@
 [
   {
-    "title": "RENOVACIJE",
-    "content": "...",
+    "Title": "RENOVACIJE",
+    "Content": "...",
     "Sender": 2,
     "notificationType": 4,
     "PersonId": null
   },
   {
-    "title": "HITNO",
-    "content": "Pomeren termin",
+    "Title": "HITNO",
+    "Content": "Pomeren termin",
     "Sender": 2,
     "notificationType": 4,
     "PersonId": null
   },
   {
-    "title": "VAZNO",
-    "content": "Obavestavamo Vas da promenite lozinku.",
+    "Title": "VAZNO",
+    "Content": "Obavestavamo Vas da promenite lozinku.",
     "Sender": 2,
     "notificationType": 4,
     "PersonId": null
   },
   {
-    "title": "Potrebno pomeranje termina",
-    "content": "Prostorija  102 se renovira.\nPotrebno je pomeranje zakazanog termina",
+    "Title": "Potrebno pomeranje termina",
+    "Content": "Prostorija  102 se renovira.\nPotrebno je pomeranje zakazanog termina",
     "Sender": 3,
     "notificationType": 2,
     "PersonId": null
   },
   {
-    "title": "Potrebno pomeranje termina",
-    "content": "Prostorija  102 se renovira.\nPotrebno je pomeranje zakazanog termina",
+    "Title": "Potrebno pomeranje termina",
+    "Content": "Prostorija  102 se renovira.\nPotrebno je pomeranje zakazanog termina",
     "Sender": 3,
     "notificationType": 2,
     "PersonId": null
   },
   {
-    "title": "Potrebno pomeranje termina",
-    "content": "Prostorija  103 se renovira.\nPotrebno je pomeranje zakazanog termina",
+    "Title": "Potrebno pomeranje termina",
+    "Content": "Prostorija  103 se renovira.\nPotrebno je pomeranje zakazanog termina",
     "Sender": 3,
     "notificationType": 2,
     "PersonId": null
   },
   {
-    "title": "Potrebno pomeranje termina",
-    "content": "Prostorija  103 se renovira.\nPotrebno je pomeranje zakazanog termina",
+    "Title": "Potrebno pomeranje termina",
+    "Content": "Prostorija  103 se renovira.\nPotrebno je pomeranje zakazanog termina",
     "Sender": 3,
     "notificationType": 2,
     "PersonId": null
   },
   {
-    "title": "Potrebno pomeranje termina",
-    "content": "Prostorija  103 se renovira.\nPotrebno je pomeranje zakazanog termina",
+    "Title": "Potrebno pomeranje termina",
+    "Content": "Prostorija  103 se renovira.\nPotrebno je pomeranje zakazanog termina",
     "Sender": 3,
     "notificationType": 2,
     "PersonId": null
   },
   {
-    "title": "Izmena zahteva za novi lek",
-    "content": "666\nnesto\nsvasta\nneko\nSREDI OVO",
+    "Title": "Izmena zahteva za novi lek",
+    "Content": "666\nnesto\nsvasta\nneko\nSREDI OVO",
     "Sender": 1,
     "notificationType": 3,
     "PersonId": null
   },
   {
-    "title": "Izmena zahteva za novi lek",
-    "content": "666\nnesto\nsvasta\nneko\njjjj",
+    "Title": "Izmena zahteva za novi lek",
+    "Content": "666\nnesto\nsvasta\nneko\njjjj",
     "Sender": 1,
     "notificationType": 3,
     "PersonId": null
   },
   {
-    "title": "aaa",
-    "content": "aaa",
+    "Title": "aaaa",
+    "Content": "aaaa",
     "Sender": 0,
-    "notificationType": 0,
-    "PersonId": "5"
+    "notificationType": 5,
+    "PersonId": [
+      "1111",
+      "2222"
+    ]
   },
   {
-    "title": "nnnn",
-    "content": "bbbb",
+    "Title": "jjjjjjjjjj",
+    "Content": "jjjjjjjj",
     "Sender": 0,
-    "notificationType": 1,
-    "PersonId": "1111"
-  },
-  {
-    "title": "wwww",
-    "content": "wwww",
-    "Sender": 0,
-    "notificationType": 0,
-    "PersonId": "5"
+    "notificationType": 5,
+    "PersonId": [
+      "3333"
+    ]
   }
 ]

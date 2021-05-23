@@ -48,7 +48,17 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <ListBox x:Name="idListBox" HorizontalAlignment="Left" Height="100" Margin="165,439,0,0" VerticalAlignment="Top" Width="231"/>
+        <ListBox x:Name="idListBox" HorizontalAlignment="Left" Height="100" Margin="165,439,0,0" VerticalAlignment="Top" Width="170"/>
+        <Button Content="Izbaci" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="344,519,0,0" VerticalAlignment="Top" Width="52" RenderTransformOrigin="0.5,0.5" Click="Button_Remove_Clicked">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.811"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
     </Grid>
 </Window>
 
