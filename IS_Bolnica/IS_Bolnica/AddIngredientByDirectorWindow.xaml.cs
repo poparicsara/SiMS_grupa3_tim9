@@ -15,20 +15,20 @@ using System.Windows.Shapes;
 
 namespace IS_Bolnica
 {
-    public partial class AddCompositionWindow : Window
+    public partial class AddIngredientByDirectorWindow : Window
     {
         private Medicament selectedMedicament;
         private Ingredient ingredient = new Ingredient();
         private MedicamentFileStorage medStorage = new MedicamentFileStorage();
         private List<Medicament> meds = new List<Medicament>();
 
-        public AddCompositionWindow(Medicament selected)
+        public AddIngredientByDirectorWindow(Medicament selected)
         {
             InitializeComponent();
 
             selectedMedicament = selected;
 
-            List<Medicament> meds = medStorage.loadFromFile("Lekovi.json");
+            meds = medStorage.loadFromFile("Lekovi.json");
         }
 
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
@@ -37,6 +37,10 @@ namespace IS_Bolnica
             AddToMedicament();
 
             IngredientsWindow iw = new IngredientsWindow(selectedMedicament);
+            iw.Show();
+            this.Close();
+
+
 
             /*foreach(Medicament m in meds)
             {
@@ -47,8 +51,7 @@ namespace IS_Bolnica
             }*/
 
             //MedicamentWindow ew = new MedicamentWindow();
-            iw.Show();
-            this.Close();
+
         }
 
         private void AddToMedicament()
@@ -57,10 +60,19 @@ namespace IS_Bolnica
             {
                 if (m.Id == selectedMedicament.Id)
                 {
+                    IsException(m);
                     m.Ingredients.Add(ingredient);
                 }
             }
             medStorage.saveToFile(meds, "Lekovi.json");
+        }
+
+        private void IsException(Medicament med)
+        {
+            if (med.Ingredients == null)
+            {
+                med.Ingredients = new List<Ingredient>();
+            }
         }
     }
 }

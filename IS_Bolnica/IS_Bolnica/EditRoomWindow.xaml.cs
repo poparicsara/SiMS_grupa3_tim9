@@ -96,7 +96,7 @@ namespace IS_Bolnica
 
         private void InventoryButtonClicked(object sender, RoutedEventArgs e)
         {
-            InventoryFromRoomWindow iw = new InventoryFromRoomWindow(oldRoom);
+            RoomInventory iw = new RoomInventory(oldRoom);
             iw.Show();
         }
 

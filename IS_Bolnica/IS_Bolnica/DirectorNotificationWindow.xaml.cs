@@ -18,36 +18,37 @@ using System.Windows.Shapes;
 
 namespace IS_Bolnica
 {
-    public partial class DirectorNotificationWindow : Window, INotifyPropertyChanged
+    public partial class DirectorNotificationWindow : Window
     {
-        public List<Notification> Notifications { get; set; }
+        public List<Notification> notifications = new List<Notification>();
         private Model.NotificationsFileStorage storage = new NotificationsFileStorage();
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public DirectorNotificationWindow()
         {
             InitializeComponent();
             this.DataContext = this;
 
-            Notifications = new List<Notification>();
+            notifications = storage.LoadFromFile("NotificationsFileStorage.json");
 
-            List<Notification> temp = storage.LoadFromFile("NotificationsFileStorage.json");
-
-            foreach(Notification notification in temp)
-            {
-                if(notification.notificationType == NotificationType.all || notification.notificationType == NotificationType.director)
-                {
-                    Notifications.Add(notification);
-                }
-            }
-
-            NotificationList.ItemsSource = Notifications;
+            NotificationList.ItemsSource = GetDirectorNotifications();
         }
 
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private List<Notification> GetDirectorNotifications()
         {
+            List<Notification> directorNotifications = new List<Notification>();
+            foreach (Notification n in notifications)
+            {
+                if (IsDirectorNotification(n))
+                {
+                    directorNotifications.Add(n);
+                }
+            }
+            return directorNotifications;
+        }
 
+        private bool IsDirectorNotification(Notification n)
+        {
+            return n.notificationType == NotificationType.all || n.notificationType == NotificationType.director;
         }
 
         private void Row_DoubleClik(object sender, MouseButtonEventArgs e)

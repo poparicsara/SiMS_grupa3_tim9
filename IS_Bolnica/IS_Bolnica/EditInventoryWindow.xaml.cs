@@ -29,7 +29,6 @@ namespace IS_Bolnica
             oldInventory = selectedInventory;
 
             FillTextBoxes();
-            
         }
 
         private void FillTextBoxes()

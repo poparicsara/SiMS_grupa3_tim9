@@ -69,7 +69,7 @@ namespace IS_Bolnica
             }
         }
 
-        private void MedCompositionButtonClicked(object sender, RoutedEventArgs e)
+        private void IngredientButtonClicked(object sender, RoutedEventArgs e)
         {
             IngredientsWindow compositionWindow = new IngredientsWindow(oldMedicament);
             compositionWindow.Show();
@@ -177,12 +177,6 @@ namespace IS_Bolnica
                     m.Replacement = null;
                 }
             }
-        }
-
-        private void ClosingWindow(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            MedicamentWindow mw = new MedicamentWindow();
-            mw.Show();
         }
     }
 }

@@ -39,7 +39,6 @@ namespace IS_Bolnica
 
             dynamicDataGrid.ItemsSource = dynamicInventories;
             staticDataGrid.ItemsSource = staticInventories;
-
         }
 
         private void SetMagacin()
@@ -183,14 +182,12 @@ namespace IS_Bolnica
         private void DynamicKeyUp(object sender, KeyEventArgs e)
         {
             var filtered = dynamicInventories.Where(inventory => inventory.Name.ToLower().Contains(searchBox.Text.ToLower()));
-
             dynamicDataGrid.ItemsSource = filtered;
         }
 
         private void StaticKeyUp(object sender, KeyEventArgs e)
         {
             var filtered = staticInventories.Where(inventory => inventory.Name.ToLower().Contains(searchBox.Text.ToLower()));
-
             staticDataGrid.ItemsSource = filtered;
         }
 

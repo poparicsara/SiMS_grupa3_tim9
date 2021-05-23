@@ -205,7 +205,20 @@
   {
     "Id": 4,
     "Name": "AJDE",
-    "Ingredients": null,
+    "Ingredients": [
+      {
+        "Name": "proba1"
+      },
+      {
+        "Name": "proba2"
+      },
+      {
+        "Name": "c"
+      },
+      {
+        "Name": "d"
+      }
+    ],
     "Replacement": null,
     "Producer": "oni",
     "Status": 0

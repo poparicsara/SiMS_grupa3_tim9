@@ -18,68 +18,83 @@ namespace IS_Bolnica
     public partial class IngredientsWindow : Window
     {
         private Medicament selectedMedicament;
+        private List<Medicament> meds;
+        private MedicamentFileStorage storage = new MedicamentFileStorage();
         public IngredientsWindow(Medicament selected)
         {
             InitializeComponent();
-
-            selectedMedicament = selected;
-
-            MedicamentFileStorage storage = new MedicamentFileStorage();
-            List<Medicament> meds = storage.loadFromFile("Lekovi.json");
-
-            compositionData.ItemsSource = selectedMedicament.Ingredients;
+            
+            storage = new MedicamentFileStorage();
+            meds = storage.loadFromFile("Lekovi.json");
+            SetSelectedMedicament(selected.Id);
+            ingredientDataGrid.ItemsSource = GetSelectedMedicamentIngredients();
         }
 
-        private void AddIngredientButton(object sender, RoutedEventArgs e)
+        private void SetSelectedMedicament(int id)
         {
-            AddCompositionWindow compositionWindow = new AddCompositionWindow(selectedMedicament);
-            compositionWindow.Show();
+            foreach(Medicament m in meds)
+            {
+                if(m.Id == id)
+                {
+                    selectedMedicament = m;
+                }
+            }
+        }
+
+        private List<Ingredient> GetSelectedMedicamentIngredients()
+        {
+            List<Ingredient> ingredients = new List<Ingredient>();
+            if(selectedMedicament.Ingredients != null)
+            {
+                foreach (Ingredient i in selectedMedicament.Ingredients)
+                {
+                    ingredients.Add(i);
+                }
+            }            
+            return ingredients;
+        }
+
+        private void AddButtonClicked(object sender, RoutedEventArgs e)
+        {
+            AddIngredientByDirectorWindow addWindow = new AddIngredientByDirectorWindow(selectedMedicament);
+            addWindow.Show();
             this.Close();
         }
 
-        private void ClosingWndow(object sender, System.ComponentModel.CancelEventArgs e)
+        private void EditButtonClicked(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void EditButton(object sender, RoutedEventArgs e)
-        {
-            Ingredient ing = (Ingredient)compositionData.SelectedItem;
-            EditCompositionWindow ew = new EditCompositionWindow(selectedMedicament, ing);
+            Ingredient ing = (Ingredient)ingredientDataGrid.SelectedItem;
+            EditIngredientWindow ew = new EditIngredientWindow(selectedMedicament, ing);
             ew.Show();
             this.Close();
         }
 
-        private void DeleteButton(object sender, RoutedEventArgs e)
+        private void DeleteButtonClicked(object sender, RoutedEventArgs e)
         {
-            Ingredient ing = (Ingredient)compositionData.SelectedItem;
-            MedicamentFileStorage storage = new MedicamentFileStorage();
-            List<Medicament> meds = storage.loadFromFile("Lekovi.json");
-            int index = 0;
-            foreach(Medicament m in meds)
-            {
-                if(m.Id == selectedMedicament.Id)
-                {
-                    foreach(Ingredient i in m.Ingredients)
-                    {
-                        if(i.Name == ing.Name)
-                        {
-                            m.Ingredients.RemoveAt(index);
-                            break;
-                        }
-                        index++;
-                    }
-                }
-            }
+            DoChange();
+            ingredientDataGrid.ItemsSource = selectedMedicament.Ingredients;
+        }
+
+        private void DoChange()
+        {
+            Ingredient ing = (Ingredient)ingredientDataGrid.SelectedItem;
+            int index = GetIngredientIndex(ing);
+            selectedMedicament.Ingredients.RemoveAt(index);
             storage.saveToFile(meds, "Lekovi.json");
-            
-            foreach(Medicament m in meds)
+        }
+
+        private int GetIngredientIndex(Ingredient selectedIngredient)
+        {
+            int index = 0;
+            foreach (Ingredient i in selectedMedicament.Ingredients)
             {
-                if(m.Id == selectedMedicament.Id)
+                if (i.Name.Equals(selectedIngredient.Name))
                 {
-                    compositionData.ItemsSource = m.Ingredients;
+                    break;
                 }
+                index++;
             }
+            return index;
         }
     }
 }

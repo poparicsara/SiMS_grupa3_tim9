@@ -35,11 +35,16 @@ namespace IS_Bolnica
             RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
             rooms = roomStorage.loadFromFile("Sobe.json");
 
+            SearchAllRooms();
+            SetItemsSource();
+        }
+
+        private void SearchAllRooms()
+        {
             foreach (RoomRecord room in rooms)
             {
                 SetInventoryAttributes(room);
             }
-            SetItemsSource();
         }
 
         private void SetItemsSource()

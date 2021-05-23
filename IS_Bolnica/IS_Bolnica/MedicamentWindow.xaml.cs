@@ -33,7 +33,6 @@ namespace IS_Bolnica
             medicamentDataGrid.ItemsSource = meds;
 
             requests = requestStorage.LoadFromFile("Zahtevi.json");
-
         }
 
         private void RowDoubleClick(object sender, MouseButtonEventArgs e)
