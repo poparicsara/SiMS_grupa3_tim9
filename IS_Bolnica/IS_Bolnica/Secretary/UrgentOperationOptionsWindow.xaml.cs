@@ -46,19 +46,6 @@ namespace IS_Bolnica.Secretary
 
         }
 
-        private RoomRecord findRoom(int id)
-        {
-            rooms = roomFileStorage.loadFromFile("Sobe.json");
-            foreach (RoomRecord room in rooms)
-            {
-                if (room.Id.Equals(id))
-                {
-                    return room;
-                }
-            }
-            return null;
-        }
-
         private List<Operation> getOperationOptions(Operation operation, Specialization specialization1)
         {
             List<Operation> options = new List<Operation>();
@@ -76,16 +63,14 @@ namespace IS_Bolnica.Secretary
                 if(doc.Specialization.Name.Equals(specialization1.Name))
                 {
                     operOption.doctor = doc;
-
-                    //foreach(RoomRecord room in rooms)
-                    //{
-                    //    if(room.Id.Equals(doc.Ordination))
-                    //    {
-                    //        operOption.RoomRecord = room;
-                    //    }
-                    //}
-
-                    operOption.RoomRecord = findRoom(doc.Ordination);
+                    
+                    foreach(RoomRecord room in rooms)
+                    {
+                        if(room.Id.Equals(doc.Ordination))
+                        {
+                            operOption.RoomRecord = room;
+                        }
+                    }
 
                     for(int i = 1; i <=90; i++)
                     {
@@ -100,6 +85,7 @@ namespace IS_Bolnica.Secretary
                         examination.RoomRecord = operOption.RoomRecord;
                         if (isAvailable(scheduledOperations, operOption) && isAvailableEx(examinations, examination))
                         {
+                            MessageBox.Show("PROSLO " + i.ToString());
                             options.Add(operOption);
                             break;
                         }
@@ -132,6 +118,8 @@ namespace IS_Bolnica.Secretary
             DateTime dateNew = new DateTime();
             dateNew = operation1.Date;
             DateTime temp = new DateTime();
+
+            MessageBox.Show("Pre for petlje");
 
             for (int i = 0; i < 1000; i++)
             {
@@ -436,12 +424,12 @@ namespace IS_Bolnica.Secretary
                                 MessageBox.Show("Operacije koju ste izabrali nije dovoljno duga, izaberite još!");
                                 return;
                             }
+                            MessageBox.Show("CONTAINS");
 
                             operation.Date = ops[0].Date;
                             operation.endTime = operation.Date.AddMinutes(operation.DurationInMins);
                             operation.doctor = ops[0].doctor;
                             operation.RoomRecord = ops[0].RoomRecord;
-
                             operations.RemoveAt(k);
                             operations.Add(operation);
                             operationsFileStorage.saveToFile(operations, "operations.json");
@@ -453,9 +441,15 @@ namespace IS_Bolnica.Secretary
 
                 if (ops.Count > 1)
                 {
-
-                    if(!isOpLongEnough(ops, operation))
+                    int duration = 0;
+                    foreach(Operation o in ops)
                     {
+                        duration += o.DurationInMins;
+                    }
+
+                    if(duration < operation.DurationInMins)
+                    {
+                        MessageBox.Show("Operacije koje ste izabrali nisu dovoljno dugačke, izaberite još!");
                         return;
                     }
 
@@ -470,7 +464,6 @@ namespace IS_Bolnica.Secretary
                             operations.RemoveAt(k);
                         }
                     }
-                    //removeSelectedOperation(ops[0]);
                     operations.Add(operation);
                     operationsFileStorage.saveToFile(operations, "operations.json");
                     postponeOperation(ops[0], operations);
@@ -482,48 +475,20 @@ namespace IS_Bolnica.Secretary
                             if (operations[j].Date.Equals(ops[k].Date) && operations[j].doctor.Id.Equals(ops[k].doctor.Id))
                             {
                                 operations.RemoveAt(j);
+                                MessageBox.Show("OKKKKKKKKKK");
                             }
                         }
-                        //removeSelectedOperation(ops[k]);
                         postponeOperation(ops[k], operations);
                     }
                     return;
                 }
 
+
                 operations.Add(ops[0]);
+                MessageBox.Show("Okay");
                 operationsFileStorage.saveToFile(operations, "operations.json");
             }
 
-        }
-
-        private void removeSelectedOperation(Operation operation)
-        {
-            List<Operation> operations = operationsFileStorage.loadFromFile("operations.json");
-            for (int k = 0; k < operations.Count; k++)
-            {
-                if (operations[k].Date.Equals(operation.Date) && operations[k].doctor.Id.Equals(operation.doctor.Id))
-                {
-                    operations.RemoveAt(k);
-                }
-            }
-        }
-
-        private bool isOpLongEnough(List<Operation> selectedOperations, Operation urgentOperation)
-        {
-            int duration = 0;
-            foreach (Operation o in selectedOperations)
-            {
-                duration += o.DurationInMins;
-            }
-
-            if (duration < urgentOperation.DurationInMins)
-            {
-                MessageBox.Show("Operacije koje ste izabrali nisu dovoljno dugačke, izaberite još!");
-                return false;
-            } else
-            {
-                return true;
-            }
         }
 
         private void postponeOperation(Operation operation1, List<Operation> operations)
@@ -531,6 +496,8 @@ namespace IS_Bolnica.Secretary
             DateTime dateNew = new DateTime();
             dateNew = operation1.Date;
             DateTime temp = new DateTime();
+
+            MessageBox.Show("Pre for petlje");
 
             for(int i = 0; i<1000000; i++)
             {
@@ -546,6 +513,7 @@ namespace IS_Bolnica.Secretary
                 examination.RoomRecord = operation1.RoomRecord;
                 if (isAvailable(operations, operation1) && isAvailableEx(examinations, examination))
                 {
+                    MessageBox.Show("AVAILABLE");
                     operations.Add(operation1);
                     operationsFileStorage.saveToFile(operations, "operations.json");
                     break;

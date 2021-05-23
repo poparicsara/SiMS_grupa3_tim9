@@ -34,30 +34,24 @@ namespace IS_Bolnica
 
             Notifications = new List<Notification>();
 
-            List<Notification> notifications = storage.LoadFromFile("NotificationsFileStorage.json");
+            List<Notification> temp = storage.LoadFromFile("NotificationsFileStorage.json");
 
-            foreach (Notification notification in notifications)
+            foreach (Notification notification in temp)
             {
-                if (notification.notificationType == NotificationType.patient)
+                if (notification.notificationType == NotificationType.patient && notification.PersonId == null)
                 {
                     Notifications.Add(notification);
                 }
 
-                if(notification.notificationType == NotificationType.all)
+                if(notification.notificationType == NotificationType.all && notification.PersonId == null)
                 {
                     Notifications.Add(notification);
 
                 }
 
-                if (notification.PersonId != null && notification.notificationType == NotificationType.specific)
+                if (notification.PersonId != null && notification.PersonId == patient.Id)
                 {
-                    foreach (string id in notification.PersonId)
-                    {
-                        if (id.Equals(patient.Id))
-                        {
-                            Notifications.Add(notification);
-                        }
-                    }
+                    Notifications.Add(notification);
                 }
             }
 

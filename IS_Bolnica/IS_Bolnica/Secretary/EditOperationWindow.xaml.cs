@@ -17,6 +17,9 @@ using System.Windows.Shapes;
 
 namespace IS_Bolnica.Secretary
 {
+    /// <summary>
+    /// Interaction logic for EditOperationWindow.xaml
+    /// </summary>
     public partial class EditOperationWindow : Window
     {
         public List<RoomRecord> Rooms
@@ -42,13 +45,6 @@ namespace IS_Bolnica.Secretary
 
             this.oldOperation = oldOperation;
 
-            setRoomBox();
-
-            setDoctorBox();
-        }
-
-        private void setRoomBox()
-        {
             Rooms = roomStorage.loadFromFile("Sobe.json");
             for (int i = 0; i < Rooms.Count; i++)
             {
@@ -58,10 +54,7 @@ namespace IS_Bolnica.Secretary
                 }
             }
             room.ItemsSource = RoomNums;
-        }
 
-        private void setDoctorBox()
-        {
             doctors = doctorFileStorage.loadFromFile("Doctors.json");
             for (int i = 0; i < doctors.Count; i++)
             {
@@ -77,12 +70,11 @@ namespace IS_Bolnica.Secretary
             this.Close();
         }
 
-        private bool idExists(string id)
+        private bool idExists(List<Patient> patients, string id)
         {
-            Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
-            for (int i = 0; i < Patients.Count; i++)
+            for (int i = 0; i < patients.Count; i++)
             {
-                if (Patients[i].Id.Equals(id))
+                if (patients[i].Id.Equals(id))
                 {
                     return true;
                 }
@@ -187,48 +179,11 @@ namespace IS_Bolnica.Secretary
             }
             else
             {
+                //MessageBox.Show("Ovaj pregled je vec zauzet!");
+
                 return false;
             }
 
-        }
-
-        private Patient findPatient(string id)
-        {
-            Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
-            for (int i = 0; i < Patients.Count; i++)
-            {
-                if (Patients[i].Id.Equals(id))
-                {
-                    return Patients[i];
-                }
-            }
-            return null;
-        }
-
-        private RoomRecord findRoom(int id) 
-        {
-            Rooms = roomStorage.loadFromFile("Sobe.json");
-            for (int i = 0; i<Rooms.Count; i++)
-                {
-                    if (Rooms[i].Id == Convert.ToInt32(room.SelectedItem))
-                    {
-                        return Rooms[i];
-                    }
-            }
-            return null;
-        }
-
-        private Doctor findDoctor(string name, string surname)
-        {
-            doctors = doctorFileStorage.loadFromFile("Doctors.json");
-            for(int i = 0; i < doctors.Count; i++)
-            {
-                if(doctors[i].Name.Equals(name) && doctors[i].Surname.Equals(surname))
-                {
-                    return doctors[i];
-                }
-            }
-            return null;
         }
 
         private void editOperation(object sender, RoutedEventArgs e)
@@ -236,14 +191,21 @@ namespace IS_Bolnica.Secretary
             Operations = operationStorage.loadFromFile("operations.json");
             Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
 
-            if (idExists(patientId.Text))
+            if (idExists(Patients, patientId.Text))
             {
                 string[] doctorNameAndSurname = doctorBox.Text.Split(' ');
-                string name = doctorNameAndSurname[0];
-                string surname = doctorNameAndSurname[1];
-                operation.doctor = findDoctor(name, surname);
+                Doctor doctor = new Doctor();
+                doctor.Name = doctorNameAndSurname[0];
+                doctor.Surname = doctorNameAndSurname[1];
+                operation.doctor = doctor;
 
-                operation.Patient = findPatient(patientId.Text);
+                for (int i = 0; i < Patients.Count; i++)
+                {
+                    if (Patients[i].Id.Equals(patientId.Text))
+                    {
+                        operation.Patient = Patients[i];
+                    }
+                }
 
                 DateTime datumStart = new DateTime();
                 datumStart = (DateTime)date.SelectedDate;
@@ -267,7 +229,15 @@ namespace IS_Bolnica.Secretary
                 }
                 operation.endTime = new DateTime(datumEnd.Year, datumEnd.Month, datumEnd.Day, satEnd, minutEnd, 0);
 
-                operation.RoomRecord = findRoom(Convert.ToInt32(room.SelectedItem));
+                operation.RoomRecord = new RoomRecord();
+                for (int i = 0; i < Rooms.Count; i++)
+                {
+                    if (Rooms[i].Id == Convert.ToInt32(room.SelectedItem))
+                    {
+                        operation.RoomRecord = Rooms[i];
+                    }
+                }
+                
 
                 if (isAvailable(Operations, operation.Patient, operation.RoomRecord, operation.doctor, operation.Date, operation.endTime))
                 {
