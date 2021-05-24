@@ -26,7 +26,7 @@ namespace IS_Bolnica
 
             selectedNotification = notification;
 
-            contentBox.Text = notification.content;
+            contentBox.Text = notification.Content;
         }
 
         private void ClosingWindow(object sender, System.ComponentModel.CancelEventArgs e)
@@ -37,7 +37,7 @@ namespace IS_Bolnica
             int i = 0;
             foreach (Notification n in notifications)
             {
-                if (n.title.Equals(selectedNotification.title) && n.content.Equals(selectedNotification.content))
+                if (n.Title.Equals(selectedNotification.Title) && n.Content.Equals(selectedNotification.Content))
                 {
                     break;
                 }

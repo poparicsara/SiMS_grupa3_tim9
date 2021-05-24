@@ -5,7 +5,6 @@ namespace Model
 {
     public class Examination
     {
-        public Boolean IsPayed  { get; set; }
         public int DurationInMinutes { get; set; }
         public DateTime Date { get; set; }
         public Patient Patient { get; set; }
