@@ -17,14 +17,14 @@ using System.Windows.Shapes;
 
 namespace IS_Bolnica.Secretary
 {
-    /// <summary>
-    /// Interaction logic for EditNotificationWindow.xaml
-    /// </summary>
     public partial class EditNotificationWindow : Window
     {
         private Notification notification1 = new Notification();
         private NotificationsFileStorage storage = new NotificationsFileStorage();
         public List<Notification> Notifications { get; set; } = new List<Notification>();
+        private List<string> userList = new List<string>();
+        private UsersFileStorage usersFileStorage = new UsersFileStorage();
+        private List<User> users = new List<User>();
 
         public EditNotificationWindow(Notification notification)
         {
@@ -46,12 +46,12 @@ namespace IS_Bolnica.Secretary
             Notifications = storage.LoadFromFile("NotificationsFileStorage.json");
             for (int i = 0; i < Notifications.Count; i++)
             {
-                if (notification1.content.Equals(Notifications[i].content)
-                    && notification1.title.Equals(Notifications[i].title)
+                if (notification1.Content.Equals(Notifications[i].Content)
+                    && notification1.Title.Equals(Notifications[i].Title)
                     && notification1.notificationType.Equals(Notifications[i].notificationType))
                 {
-                    Notifications[i].content = content.Text;
-                    Notifications[i].title = title.Text;
+                    Notifications[i].Content = content.Text;
+                    Notifications[i].Title = title.Text;
                     if (comboBox.SelectedIndex == 0)
                     {
                         Notifications[i].notificationType = NotificationType.doctor;
@@ -66,8 +66,9 @@ namespace IS_Bolnica.Secretary
                     }
                     else
                     {
+                        Notifications[i].PersonId = idListBox.Items.Cast<string>().ToList();
                         Notifications[i].notificationType = NotificationType.specific;
-                        Notifications[i].PersonId = idBox.Text;
+
                     }
                 }
             }
@@ -104,6 +105,108 @@ namespace IS_Bolnica.Secretary
             {
                 idBox.IsEnabled = true;
 
+            }
+        }
+
+        private void Button_Add_Clicked(object sender, RoutedEventArgs e)
+        {
+            addExistingIdsInList();
+            string userId = idBox.Text;
+
+            if (!isBoxEmpty(userId) && isUserValid(userId) && !existsInList(userList, userId))
+            {
+                userList.Add(userId);
+                refreshListBox(userList);
+            }
+            else
+            {
+                return;
+            }
+
+        }
+
+        private void addExistingIdsInList()
+        {
+            userList = idListBox.Items.Cast<string>().ToList();
+        }
+
+        private void refreshListBox(List<string> idList)
+        {
+            idListBox.Items.Clear();
+            foreach (string id in idList)
+            {
+                idListBox.Items.Add(id);
+            }
+        }
+
+        private bool existsInList(List<string> idList, string id)
+        {
+            foreach (string i in idList)
+            {
+                if (i.Equals(id))
+                {
+                    MessageBox.Show("Korisnik već postoji u listi!");
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool isBoxEmpty(string id)
+        {
+            if (id.Equals(""))
+            {
+                MessageBox.Show("Niste uneli id korisnika");
+                return true;
+            }
+            return false;
+        }
+
+        private bool isUserValid(string id)
+        {
+            users = usersFileStorage.loadFromFile("UsersFileStorage.json");
+            foreach (User u in users)
+            {
+                if (u.Id.Equals(id))
+                {
+                    return true;
+                }
+            }
+            MessageBox.Show("Niste uneli postojeći id");
+            return false;
+        }
+
+        private void Button_Remove_Clicked(object sender, RoutedEventArgs e)
+        {
+            if (isSelected())
+            {
+                string id = (string)idListBox.SelectedItem;
+                idListBox.Items.Remove(idListBox.SelectedItem);
+                for (int i = 0; i < userList.Count; i++)
+                {
+                    if (id.Equals(userList[i]))
+                    {
+                        userList.RemoveAt(i);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Niste označili id koji želite da uklonite!");
+                return;
+            }
+        }
+
+        private bool isSelected()
+        {
+            int i = idListBox.SelectedIndex;
+            if (i == -1)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
     }

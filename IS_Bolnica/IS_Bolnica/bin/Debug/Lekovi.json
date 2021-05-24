@@ -205,7 +205,20 @@
   {
     "Id": 4,
     "Name": "AJDE",
-    "Ingredients": null,
+    "Ingredients": [
+      {
+        "Name": "proba1"
+      },
+      {
+        "Name": "proba2"
+      },
+      {
+        "Name": "c"
+      },
+      {
+        "Name": "d"
+      }
+    ],
     "Replacement": null,
     "Producer": "oni",
     "Status": 0
@@ -216,24 +229,6 @@
     "Ingredients": null,
     "Replacement": null,
     "Producer": "neko",
-    "Status": 0
-  },
-  {
-    "Id": 5,
-    "Name": "bla",
-    "Ingredients": [
-      {
-        "Name": "a"
-      },
-      {
-        "Name": "a"
-      },
-      {
-        "Name": "a"
-      }
-    ],
-    "Replacement": null,
-    "Producer": "bla",
     "Status": 0
   }
 ]

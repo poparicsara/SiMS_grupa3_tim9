@@ -38,17 +38,24 @@ namespace IS_Bolnica.Secretary
             lista.Add(guest);
             storage.saveToFile(lista, "GuestUsersFile.json");
 
-            if(sender1.ToString().Equals("System.Windows.Controls.Button: Kreiraj guest nalog"))
+            openAppropriateWindow();
+        }
+
+        private void openAppropriateWindow()
+        {
+            if (sender1.ToString().Equals("System.Windows.Controls.Button: Kreiraj guest nalog"))
             {
                 GuestUserListWindow gulw = new GuestUserListWindow();
                 gulw.Show();
                 this.Close();
-            } else if (sender1.ToString().Equals("System.Windows.Controls.Button: Prikaži opcije za pregled"))
+            }
+            else if (sender1.ToString().Equals("System.Windows.Controls.Button: Prikaži opcije za pregled"))
             {
                 AddUrgentExamination aue = new AddUrgentExamination();
                 aue.Show();
                 this.Close();
-            } else
+            }
+            else
             {
                 AddUrgentOperationWindow auow = new AddUrgentOperationWindow();
                 auow.Show();

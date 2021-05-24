@@ -58,8 +58,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddCompositionWindow.xaml.cs">
-      <DependentUpon>AddCompositionWindow.xaml</DependentUpon>
+    <Compile Include="AddIngredientByDirectorWindow.xaml.cs">
+      <DependentUpon>AddIngredientByDirectorWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="AddExaminationWindow.xaml.cs">
       <DependentUpon>AddExaminationWindow.xaml</DependentUpon>
@@ -95,30 +95,28 @@
     <Compile Include="DoctorWindow.xaml.cs">
       <DependentUpon>DoctorWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EditCompositionWindow.xaml.cs">
-      <DependentUpon>EditCompositionWindow.xaml</DependentUpon>
+    <Compile Include="EditIngredientWindow.xaml.cs">
+      <DependentUpon>EditIngredientWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="EditInventoryWindow.xaml.cs" />
-    <Compile Include="EditProfileWindow.xaml.cs">
-      <DependentUpon>EditProfileWindow.xaml</DependentUpon>
+    <Compile Include="EditDirectorProfileWindow.xaml.cs">
+      <DependentUpon>EditDirectorProfileWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EditWindow.xaml.cs">
-      <DependentUpon>EditWindow.xaml</DependentUpon>
+    <Compile Include="EditRoomWindow.xaml.cs">
+      <DependentUpon>EditRoomWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EvaluationFileStorage.cs" />
     <Compile Include="ExaminationInfo.xaml.cs">
       <DependentUpon>ExaminationInfo.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ingredient.cs" />
     <Compile Include="IngredientFileStorage.cs" />
-    <Compile Include="IngredientWindow.xaml.cs">
-      <DependentUpon>IngredientWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="InventarWindow.xaml.cs">
-      <DependentUpon>InventarWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="InventoryInRoom.cs" />
     <Compile Include="InventoryWindow.xaml.cs">
       <DependentUpon>InventoryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryInRoom.cs" />
+    <Compile Include="RoomInventory.xaml.cs">
+      <DependentUpon>RoomInventory.xaml</DependentUpon>
     </Compile>
     <Compile Include="Izmena pregleda.xaml.cs">
       <DependentUpon>Izmena pregleda.xaml</DependentUpon>
@@ -126,20 +124,18 @@
     <Compile Include="ListOfMedications.xaml.cs">
       <DependentUpon>ListOfMedications.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MedicamentCompositionWindow.xaml.cs">
-      <DependentUpon>MedicamentCompositionWindow.xaml</DependentUpon>
+    <Compile Include="IngredientsWindow.xaml.cs">
+      <DependentUpon>IngredientsWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MedicamentInfoWindow.xaml.cs">
-      <DependentUpon>MedicamentInfoWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MedicamentReplacementWindow.xaml.cs">
-      <DependentUpon>MedicamentReplacementWindow.xaml</DependentUpon>
+    <Compile Include="EditMedicamentWindow.xaml.cs">
+      <DependentUpon>EditMedicamentWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MedicamentWindow.xaml.cs">
       <DependentUpon>MedicamentWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Anamnesis.cs" />
     <Compile Include="Model\AnamnesisFileStorage.cs" />
+    <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\DoctorFileStorage.cs" />
     <Compile Include="Model\GuestUsersFileStorage.cs" />
     <Compile Include="Model\HospitalWard.cs" />
@@ -153,17 +149,31 @@
     <Compile Include="Model\NotificationType.cs" />
     <Compile Include="Model\Prescription.cs" />
     <Compile Include="Model\PrescriptionFileStorage.cs" />
+    <Compile Include="Model\Renovation.cs" />
+    <Compile Include="Model\RenovationFileStorage.cs" />
     <Compile Include="Model\Request.cs" />
     <Compile Include="Model\RequestFileStorage.cs" />
     <Compile Include="Model\TherapiesFileStorage.cs" />
     <Compile Include="Model\Therapy.cs" />
     <Compile Include="Model\UsersFileStorage.cs" />
     <Compile Include="Model\UserType.cs" />
-    <Compile Include="NewInventory.xaml.cs">
-      <DependentUpon>NewInventory.xaml</DependentUpon>
+    <Compile Include="AddRoomWindow.xaml.cs">
+      <DependentUpon>AddRoomWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="NewRoomWindow.xaml.cs">
-      <DependentUpon>NewRoomWindow.xaml</DependentUpon>
+    <Compile Include="Ocene.xaml.cs">
+      <DependentUpon>Ocene.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OceneBolnice.xaml.cs">
+      <DependentUpon>OceneBolnice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OcenePacijenta.xaml.cs">
+      <DependentUpon>OcenePacijenta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OcenjivanjeBolnice.xaml.cs">
+      <DependentUpon>OcenjivanjeBolnice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OcenjivanjePregleda.xaml.cs">
+      <DependentUpon>OcenjivanjePregleda.xaml</DependentUpon>
     </Compile>
     <Compile Include="PatientNotificationWindow.xaml.cs">
       <DependentUpon>PatientNotificationWindow.xaml</DependentUpon>
@@ -240,8 +250,8 @@
     <Compile Include="SekretarWindow.xaml.cs">
       <DependentUpon>SekretarWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SelectedInventoryInRooms.xaml.cs">
-      <DependentUpon>SelectedInventoryInRooms.xaml</DependentUpon>
+    <Compile Include="InventoryPerRooms.xaml.cs">
+      <DependentUpon>InventoryPerRooms.xaml</DependentUpon>
     </Compile>
     <Compile Include="SelectedNotificationWindow.xaml.cs">
       <DependentUpon>SelectedNotificationWindow.xaml</DependentUpon>
@@ -258,14 +268,14 @@
     <Compile Include="UpdateOperationWindow.xaml.cs">
       <DependentUpon>UpdateOperationWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UpravnikWindow.xaml.cs">
-      <DependentUpon>UpravnikWindow.xaml</DependentUpon>
+    <Compile Include="RoomWindow.xaml.cs">
+      <DependentUpon>RoomWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Validation\Validation.cs" />
     <Compile Include="Zakazivanje pregleda.xaml.cs">
       <DependentUpon>Zakazivanje pregleda.xaml</DependentUpon>
     </Compile>
-    <Page Include="AddCompositionWindow.xaml">
+    <Page Include="AddIngredientByDirectorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -317,7 +327,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="EditCompositionWindow.xaml">
+    <Page Include="EditIngredientWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -325,11 +335,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="EditProfileWindow.xaml">
+    <Page Include="EditDirectorProfileWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EditWindow.xaml">
+    <Page Include="EditRoomWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -337,15 +347,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="IngredientWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="InventarWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="InventoryWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RoomInventory.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -369,15 +375,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MedicamentCompositionWindow.xaml">
+    <Page Include="IngredientsWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="MedicamentInfoWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="MedicamentReplacementWindow.xaml">
+    <Page Include="EditMedicamentWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -385,11 +387,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="NewInventory.xaml">
+    <Page Include="AddRoomWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="NewRoomWindow.xaml">
+    <Page Include="Ocene.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OceneBolnice.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OcenePacijenta.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OcenjivanjeBolnice.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OcenjivanjePregleda.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -493,7 +511,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="SelectedInventoryInRooms.xaml">
+    <Page Include="InventoryPerRooms.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -517,7 +535,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UpravnikWindow.xaml">
+    <Page Include="RoomWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -582,6 +600,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\notification icon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="nasLogo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="actionBarIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

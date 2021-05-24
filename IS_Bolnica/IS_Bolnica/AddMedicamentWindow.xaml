@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Bolnica"
         mc:Ignorable="d"
-        Title="AddMedicamentWindow" Height="450" Width="800">
+        Title="AddMedicamentWindow" Height="450" Width="800" Closing="ClosingWindow">
     <Grid Margin="0,0,-0.4,0">
         <TextBox x:Name="idBox" HorizontalAlignment="Left" Height="23" Margin="267,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="Šifra:" HorizontalAlignment="Left" Margin="131,58,0,0" VerticalAlignment="Top"/>
@@ -24,7 +24,7 @@
                 BorderBrush="#FF425431"/>
         <Button Content="POŠALJI ZAHTEV" HorizontalAlignment="Left" Margin="656,355,0,0" VerticalAlignment="Top"
                 Width="114" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" 
-                BorderBrush="#FF425431" Click="DoneButton"/>
+                BorderBrush="#FF425431" Click="DoneButtonClicked"/>
         <Label Content="Primalac:" HorizontalAlignment="Left" Margin="125,259,0,0" VerticalAlignment="Top"/>
         <ComboBox Name="replacementBox" HorizontalAlignment="Left" Margin="267,169,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ReplacementComboBoxSelectionChanged"/>
         <TextBox x:Name="ingredientBox" HorizontalAlignment="Left" Height="202" Margin="542,62,0,0" TextWrapping="Wrap" AcceptsReturn="True" VerticalAlignment="Top" Width="173"/>

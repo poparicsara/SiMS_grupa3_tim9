@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,8 +9,7 @@ namespace IS_Bolnica
 {
     class InventoryInRoom
     {
-        public int RoomNumber { get; set; }
-        public string HospitalWard { get; set; }
-        public int CurrentAmount { get; set; }
+        public RoomRecord Room { get; set; }
+        public Inventory Inventory { get; set; }
     }
 }

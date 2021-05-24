@@ -47,5 +47,6 @@
         <Button Content="Predlozi za vas" FontSize="18" HorizontalAlignment="Left" Margin="594,202,0,0" VerticalAlignment="Top" Width="153" Height="41" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="ButtonPredloziClicked"/>
         <Label Content="Zdravo bolnica" HorizontalAlignment="Left" Height="27" Margin="10,66,0,0" VerticalAlignment="Top" Width="93"/>
         <Label Content="Back" FontSize="16" HorizontalAlignment="Left" Height="27" Margin="719,27,0,0" VerticalAlignment="Top" Width="48"/>
+        <Image Margin="28,10,707.6,354" Source="nasLogo.jpg" Stretch="Fill"/>
     </Grid>
 </Window>

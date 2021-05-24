@@ -23,36 +23,36 @@ namespace IS_Bolnica
 
         }
 
-        private void RoomButton(object sender, RoutedEventArgs e)
+        private void RoomButtonClicked(object sender, RoutedEventArgs e)
         {
             Director d = new Director();
-            UpravnikWindow uw = new UpravnikWindow(d);
+            RoomWindow uw = new RoomWindow(d);
             uw.Show();
             this.Close();
         }
 
-        private void InventoryButton(object sender, RoutedEventArgs e)
+        private void InventoryButtonClicked(object sender, RoutedEventArgs e)
         {
-            InventarWindow uw = new InventarWindow();
+            InventoryWindow uw = new InventoryWindow();
             uw.Show();
             this.Close();
         }
 
-        private void MedicamentButton(object sender, RoutedEventArgs e)
+        private void MedicamentButtonClicked(object sender, RoutedEventArgs e)
         {
             MedicamentWindow mw = new MedicamentWindow();
             mw.Show();
             this.Close();
         }
 
-        private void LogOutButton(object sender, RoutedEventArgs e)
+        private void LogOutButtonClicked(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        private void EditButton(object sender, RoutedEventArgs e)
+        private void EditButtonClicked(object sender, RoutedEventArgs e)
         {
-            EditProfileWindow editWindow = new EditProfileWindow();
+            EditDirectorProfileWindow editWindow = new EditDirectorProfileWindow();
             editWindow.Show();
             this.Close();
         }

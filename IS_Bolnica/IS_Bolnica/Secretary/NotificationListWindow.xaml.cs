@@ -60,11 +60,21 @@ namespace IS_Bolnica.Secretary
         {
             Notification notification = new Notification();
             notification = (Notification)NotificationList.SelectedItem;
-            Notifications = storage.LoadFromFile("NotificationsFileStorage.json");
 
             Secretary.EditNotificationWindow enw = new Secretary.EditNotificationWindow(notification);
-            enw.title.Text = notification.title;
-            enw.content.Text = notification.content;
+
+            setElementsENW(enw, notification);
+
+            enw.Show();
+            this.Close();
+
+
+        }
+
+        private void setElementsENW(EditNotificationWindow enw, Notification notification)
+        {
+            enw.title.Text = notification.Title;
+            enw.content.Text = notification.Content;
             if (notification.notificationType == NotificationType.doctor)
             {
                 enw.comboBox.SelectedIndex = 0;
@@ -73,15 +83,22 @@ namespace IS_Bolnica.Secretary
             {
                 enw.comboBox.SelectedIndex = 1;
             }
-            else
+            else if (notification.notificationType == NotificationType.all)
             {
                 enw.comboBox.SelectedIndex = 2;
             }
+            else
+            {
+                enw.comboBox.SelectedIndex = 3;
+            }
 
-            enw.Show();
-            this.Close();
-
-
+            if (notification.PersonId.Count != 0)
+            {
+                foreach (string id in notification.PersonId)
+                {
+                    enw.idListBox.Items.Add(id);
+                }
+            }
         }
 
         private void deleteNotification(object sender, RoutedEventArgs e)
@@ -89,8 +106,7 @@ namespace IS_Bolnica.Secretary
             Notification notification = new Notification();
             notification = (Notification)NotificationList.SelectedItem;
 
-            int i = -1;
-            i = NotificationList.SelectedIndex;
+            int i = NotificationList.SelectedIndex;
 
             if (i == -1)
             {
@@ -102,15 +118,7 @@ namespace IS_Bolnica.Secretary
                 switch (result)
                 {
                     case MessageBoxResult.Yes:
-                        Notifications = storage.LoadFromFile("NotificationsFileStorage.json");
-                        for (int k = 0; k < Notifications.Count; k++)
-                        {
-                            if (notification.content.Equals(Notifications[k].content)
-                                && notification.title.Equals(Notifications[k].title))
-                            {
-                                Notifications.RemoveAt(k);
-                            }
-                        }
+                        Notifications = removeNotification(notification);
                         storage.SaveToFile(Notifications, "NotificationsFileStorage.json");
                         this.Close();
 
@@ -121,12 +129,22 @@ namespace IS_Bolnica.Secretary
                 }
             }
 
-
-
-
         }
 
+        private List<Notification> removeNotification(Notification notification)
+        {
+            Notifications = storage.LoadFromFile("NotificationsFileStorage.json");
+            for (int k = 0; k < Notifications.Count; k++)
+            {
+                if (notification.Content.Equals(Notifications[k].Content)
+                    && notification.Title.Equals(Notifications[k].Title))
+                {
+                    Notifications.RemoveAt(k);
+                }
+            }
 
+            return Notifications;
+        }
 
     }
 }
