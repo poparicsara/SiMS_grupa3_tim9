@@ -105,7 +105,6 @@
     <Compile Include="EditWindow.xaml.cs">
       <DependentUpon>EditWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EvaluationFileStorage.cs" />
     <Compile Include="ExaminationInfo.xaml.cs">
       <DependentUpon>ExaminationInfo.xaml</DependentUpon>
     </Compile>
