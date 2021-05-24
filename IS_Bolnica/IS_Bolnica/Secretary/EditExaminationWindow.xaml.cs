@@ -34,22 +34,27 @@ namespace IS_Bolnica.Secretary
         private List<Patient> Patients = new List<Patient>();
         private PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
         private Examination oldExamination = new Examination();
-        private DoctorFileStorage doctorFileStorage = new DoctorFileStorage();
+        private DoctorRepository doctorRepository = new DoctorRepository();
         private Doctor doctor = new Doctor();
         private List<Doctor> doctors = new List<Doctor>();
         public List<string> DocNames = new List<string>();
 
-        public EditExaminationWindow(Examination oldExamination)
+        private Appointment appointment = new Appointment();
+        private Appointment oldAppointment = new Appointment();
+        private List<Appointment> appointments = new List<Appointment>();
+        private AppointmentRepository appointmentRepository = new AppointmentRepository();
+
+        public EditExaminationWindow(Appointment oldAppointment)
         {
             InitializeComponent();
-            this.oldExamination = oldExamination;
+            this.oldAppointment = oldAppointment;
 
             setDoctorBox();
         }
 
         private void setDoctorBox()
         {
-            doctors = doctorFileStorage.loadFromFile("Doctors.json");
+            doctors = doctorRepository.loadFromFile("Doctors.json");
             for (int i = 0; i < doctors.Count; i++)
             {
                 DocNames.Add(doctors[i].Name + " " + doctors[i].Surname);
@@ -57,11 +62,12 @@ namespace IS_Bolnica.Secretary
             doctorBox.ItemsSource = DocNames;
         }
 
-        private bool idExists(List<Patient> patients, string id)
+        private bool idExists(string id)
         {
-            for (int i = 0; i < patients.Count; i++)
+            Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
+            for (int i = 0; i < Patients.Count; i++)
             {
-                if (patients[i].Id.Equals(id))
+                if (Patients[i].Id.Equals(id))
                 {
                     return true;
                 }
@@ -73,50 +79,98 @@ namespace IS_Bolnica.Secretary
 
         }
 
-        private bool isPatientFree(List<Examination> exams, Patient patient, DateTime dateAndTime)
+        private bool isPatientFree(List<Appointment> appointments, Appointment appointment)
         {
-            foreach (Examination exam in exams)
-            {
-                if (exam.Patient.Id == patient.Id && exam.Date == dateAndTime)
-                {
-                    MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
 
-                    return false;
+            foreach (Appointment app in appointments)
+            {
+                if (app.Patient.Id == appointment.Patient.Id)
+                {
+                    if (app.StartTime <= appointment.StartTime && appointment.StartTime < app.EndTime)
+                    {
+                        MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
+                        return false;
+                    }
+
+                    if (app.StartTime < appointment.EndTime && appointment.EndTime <= app.EndTime)
+                    {
+                        MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
+                        return false;
+                    }
+
+                    if (app.StartTime >= appointment.StartTime && app.EndTime < appointment.EndTime)
+                    {
+                        MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
+                        return false;
+                    }
                 }
+
             }
 
             return true;
         }
 
-        private bool isRoomFree(List<Examination> exams, RoomRecord room, DateTime dateAndTime)
+        private bool isRoomFree(List<Appointment> appointments, Appointment appointment)
         {
-            foreach (Examination exam in exams)
+            foreach (Appointment app in appointments)
             {
-                if (exam.RoomRecord.Id == room.Id && exam.Date == dateAndTime)
+                if (app.RoomRecord.Id == appointment.RoomRecord.Id)
                 {
-                    MessageBox.Show("Soba " + room.Id + "je zauzeta u izabranom terminu");
-                    return false;
+                    if (app.StartTime <= appointment.StartTime && appointment.StartTime < app.EndTime)
+                    {
+                        MessageBox.Show("Soba " + appointment.RoomRecord.Id + "je zauzeta u izabranom terminu");
+                        return false;
+                    }
+
+                    if (app.StartTime < appointment.EndTime && appointment.EndTime <= app.EndTime)
+                    {
+                        MessageBox.Show("Soba " + appointment.RoomRecord.Id + "je zauzeta u izabranom terminu");
+                        return false;
+                    }
+
+                    if (app.StartTime >= appointment.StartTime && app.EndTime < appointment.EndTime)
+                    {
+                        MessageBox.Show("Soba " + appointment.RoomRecord.Id + "je zauzeta u izabranom terminu");
+                        return false;
+                    }
                 }
             }
             return true;
         }
 
-        private bool isDoctorFree(List<Examination> exams, Doctor doc, DateTime dateAndTime)
+        private bool isDoctorFree(List<Appointment> appointments, Appointment appointment)
         {
-            foreach (Examination exam in exams)
+            foreach (Appointment app in appointments)
             {
-                if (exam.Doctor.Name == doc.Name && exam.Doctor.Surname == doc.Surname && exam.Date == dateAndTime)
+                if (app.Doctor.Id == appointment.Doctor.Id)
                 {
-                    MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
-                    return false;
+                    if (app.StartTime <= appointment.StartTime && appointment.StartTime < app.EndTime)
+                    {
+                        MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
+                        return false;
+                    }
+
+                    if (app.StartTime < appointment.EndTime && appointment.EndTime <= app.EndTime)
+                    {
+                        MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
+                        return false;
+                    }
+
+                    if (app.StartTime >= appointment.StartTime && app.EndTime <= appointment.EndTime)
+                    {
+                        MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
+                        return false;
+                    }
                 }
             }
             return true;
         }
 
-        private bool isAvailable(List<Examination> exams, Patient patient, RoomRecord room, Doctor doctor, DateTime dateAndTime)
+        private bool isAvailable(List<Appointment> appointments, Appointment appointment)
         {
-            if (isPatientFree(exams, patient, dateAndTime) && isRoomFree(exams, room, dateAndTime) && isDoctorFree(exams, doctor, dateAndTime))
+            if (isPatientFree(appointments, appointment) &&
+                isRoomFree(appointments, appointment) &&
+                isDoctorFree(appointments, appointment))
             {
                 return true;
             }
@@ -144,7 +198,7 @@ namespace IS_Bolnica.Secretary
 
         private Doctor findDoctor(string name, string surname)
         {
-            doctors = doctorFileStorage.loadFromFile("Doctors.json");
+            doctors = doctorRepository.loadFromFile("Doctors.json");
             foreach (Doctor doc in doctors)
             {
                 if (doc.Name.Equals(name) && doc.Surname.Equals(surname))
@@ -172,44 +226,54 @@ namespace IS_Bolnica.Secretary
         private void editExamination(object sender, RoutedEventArgs e)
         {
             examinations = examinationStorage.loadFromFile("Pregledi.json");
-            Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
-            if (idExists(Patients, idPatientBox.Text))
+            appointments = appointmentRepository.LoadFromFile("Appointments.json");
+
+            if (idExists(idPatientBox.Text))
             {
                 examination.Patient = findPatient(idPatientBox.Text);
+                appointment.Patient = findPatient(idPatientBox.Text);
 
                 string[] doctorNameAndSurname = doctorBox.Text.Split(' ');
                 string name = doctorNameAndSurname[0];
                 string surname = doctorNameAndSurname[1];
 
                 examination.Doctor = findDoctor(name, surname);
+                appointment.Doctor = findDoctor(name, surname);
 
                 DateTime datum = new DateTime();
                 datum = (DateTime)dateBox.SelectedDate;
                 int sat = Convert.ToInt32(hourBox.Text);
                 int minut = Convert.ToInt32(minutesBox.Text);
                 examination.Date = new DateTime(datum.Year, datum.Month, datum.Day, sat, minut, 0);
+                appointment.StartTime = new DateTime(datum.Year, datum.Month, datum.Day, sat, minut, 0);
+                appointment.EndTime = appointment.StartTime.AddMinutes(30);
 
                 examination.RoomRecord = findRoom(examination.Doctor);
+                appointment.RoomRecord = findRoom(appointment.Doctor);
 
-                for (int i = 0; i < examinations.Count; i++)
+                for (int i = 0; i < appointments.Count; i++)
                 {
-                    if (examinations[i].Date.Equals(oldExamination.Date) &&
-                                    examinations[i].Patient.Id.Equals(oldExamination.Patient.Id))
+                    if (appointments[i].StartTime.Equals(appointment.StartTime) &&
+                                    appointments[i].Patient.Id.Equals(oldAppointment.Patient.Id))
                     {
                         examinations.RemoveAt(i);
                     }
                 }
 
 
-                if (isAvailable(examinations, examination.Patient, examination.RoomRecord, examination.Doctor, examination.Date))
+                if (isAvailable(appointments, appointment))
                 {
                     examinations.Add(examination);
+                    appointments.Add(appointment);
+                    appointmentRepository.SaveToFile(appointments, "Appointments.json");
                     examinationStorage.saveToFile(examinations, "Pregledi.json");
                 } 
                 else
                 {
-                    examinations.Add(oldExamination);
-                    examinationStorage.saveToFile(examinations, "Pregledi.json");
+                    //examinations.Add(oldExamination);
+                    appointments.Add(oldAppointment);
+                    appointmentRepository.SaveToFile(appointments, "Appointments.json");
+                    //examinationStorage.saveToFile(examinations, "Pregledi.json");
                     return;
                 }
             } else

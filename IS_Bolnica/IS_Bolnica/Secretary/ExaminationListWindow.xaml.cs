@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Model;
 
 namespace IS_Bolnica.Secretary
 {
@@ -24,6 +25,10 @@ namespace IS_Bolnica.Secretary
         public List<Examination> Pregledi { get; set; }
         ExaminationsRecordFileStorage examinationFileStorage = new ExaminationsRecordFileStorage();
         private Examination examination =  new Examination();
+
+        private Appointment appointment = new Appointment();
+        private List<Appointment> appointments = new List<Appointment>();
+        private AppointmentRepository appointmentRepository = new AppointmentRepository();
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -56,19 +61,18 @@ namespace IS_Bolnica.Secretary
 
         private void editExamination(object sender, RoutedEventArgs e)
         {
-            int i = -1;
-            i = ExaminationList.SelectedIndex;
+            int i = ExaminationList.SelectedIndex;
 
-            Examination examination = (Examination)ExaminationList.SelectedItem;
+            Appointment appointment = (Appointment) ExaminationList.SelectedItem;
 
-            if(i==-1)
+            if(!isSelected(i))
             {
                 MessageBox.Show("Niste izabrali pregled koji želite da izmenite!");
             }
             else
             {
-                Secretary.EditExaminationWindow eew = new Secretary.EditExaminationWindow(examination);
-                setElementsEEW(eew, examination);
+                Secretary.EditExaminationWindow eew = new Secretary.EditExaminationWindow(appointment);
+                setElementsEEW(eew, appointment);
 
                 eew.Show();
                 this.Close();
@@ -76,13 +80,13 @@ namespace IS_Bolnica.Secretary
             }
         }
 
-        private void setElementsEEW(EditExaminationWindow eew, Examination examination)
+        private void setElementsEEW(EditExaminationWindow eew, Appointment appointment)
         {
-            eew.idPatientBox.Text = examination.Patient.Id;
-            eew.hourBox.Text = examination.Date.Hour.ToString();
-            eew.minutesBox.Text = examination.Date.Minute.ToString();
-            eew.doctorBox.Text = examination.Doctor.Name + " " + examination.Doctor.Surname;
-            eew.dateBox.SelectedDate = new DateTime(examination.Date.Year, examination.Date.Month, examination.Date.Day);
+            eew.idPatientBox.Text = appointment.Patient.Id;
+            eew.hourBox.Text = appointment.StartTime.Hour.ToString();
+            eew.minutesBox.Text = appointment.StartTime.Minute.ToString();
+            eew.doctorBox.Text = appointment.Doctor.Name + " " + appointment.Doctor.Surname;
+            eew.dateBox.SelectedDate = new DateTime(appointment.StartTime.Year, appointment.StartTime.Month, appointment.StartTime.Day);
             eew.durationInMinutesBox.Text = "30";
         }
 
@@ -99,10 +103,11 @@ namespace IS_Bolnica.Secretary
 
         private void deleteExamination(object sender, RoutedEventArgs e)
         {
-            int i = -1;
-            i = ExaminationList.SelectedIndex;
+            int i = ExaminationList.SelectedIndex;
 
             examination = (Examination)ExaminationList.SelectedItem;
+            appointment = (Appointment) ExaminationList.SelectedItem;
+            
 
             if(!isSelected(i))
             {
@@ -114,8 +119,9 @@ namespace IS_Bolnica.Secretary
                 switch(result)
                 {
                     case MessageBoxResult.Yes:
-                        Pregledi = removeExamination(examination);
-                        examinationFileStorage.saveToFile(Pregledi, "Pregledi.json");
+                        appointments = removeExamination(appointment);
+                        appointmentRepository.SaveToFile(appointments, "Appointments.json");
+                        //examinationFileStorage.saveToFile(Pregledi, "Pregledi.json");
                         this.Close();
                         Secretary.ExaminationListWindow elw = new Secretary.ExaminationListWindow();
                         elw.Show();
@@ -127,19 +133,19 @@ namespace IS_Bolnica.Secretary
             }
         }
 
-        private List<Examination> removeExamination(Examination examination)
+        private List<Appointment> removeExamination(Appointment appointment)
         {
-            Pregledi = examinationFileStorage.loadFromFile("Pregledi.json");
-            for (int k = 0; k < Pregledi.Count; k++)
+            appointments = appointmentRepository.LoadFromFile("Appointments.json");
+            for (int k = 0; k < appointments.Count; k++)
             {
-                if (Pregledi[k].Date.Equals(examination.Date) &&
-                    Pregledi[k].Patient.Id.Equals(examination.Patient.Id))
+                if (appointments[k].StartTime.Equals(appointment.StartTime) &&
+                    appointments[k].Patient.Id.Equals(appointment.Patient.Id))
                 {
-                    Pregledi.RemoveAt(k);
+                    appointments.RemoveAt(k);
                 }
             }
 
-            return Pregledi;
+            return appointments;
         }
 
 

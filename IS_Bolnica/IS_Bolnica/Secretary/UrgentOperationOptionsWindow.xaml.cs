@@ -26,7 +26,7 @@ namespace IS_Bolnica.Secretary
         private DateTime currentDate = new DateTime();
         private Operation operOption = new Operation();
         private List<Doctor> doctors = new List<Doctor>();
-        private DoctorFileStorage doctorFileStorage = new DoctorFileStorage();
+        private DoctorRepository doctorRepository = new DoctorRepository();
         private List<RoomRecord> rooms = new List<RoomRecord>();
         private RoomRecordFileStorage roomFileStorage = new RoomRecordFileStorage();
         private Examination examination = new Examination();
@@ -62,7 +62,7 @@ namespace IS_Bolnica.Secretary
         private List<Operation> getOperationOptions(Operation operation, Specialization specialization1)
         {
             List<Operation> options = new List<Operation>();
-            doctors = doctorFileStorage.loadFromFile("Doctors.json");
+            doctors = doctorRepository.loadFromFile("Doctors.json");
             rooms = roomFileStorage.loadFromFile("Sobe.json");
             scheduledOperations = operationsFileStorage.loadFromFile("operations.json");
 

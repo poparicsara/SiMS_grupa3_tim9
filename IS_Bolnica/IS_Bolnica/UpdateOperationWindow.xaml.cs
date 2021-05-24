@@ -30,7 +30,7 @@ namespace IS_Bolnica.DoctorsWindows
         private RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
         public List<int> Hours { get; set; } = new List<int>();
         public List<Doctor> Doctors { get; set; }
-        private DoctorFileStorage doctorStorage = new DoctorFileStorage();
+        private DoctorRepository doctorStorage = new DoctorRepository();
         private List<string> doctorNameAndSurname = new List<string>();
         private List<Operation> operations = new List<Operation>();
         private OperationsFileStorage operationStorage = new OperationsFileStorage();

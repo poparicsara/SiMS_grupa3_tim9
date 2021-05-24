@@ -34,7 +34,7 @@ namespace IS_Bolnica.DoctorsWindows
         public List<int> Hours { get; set; } = new List<int>();
         private List<string> doctorNameAndSurname = new List<string>();
         public List<Doctor> Doctors { get; set; }
-        private DoctorFileStorage doctorStorage = new DoctorFileStorage();
+        private DoctorRepository doctorStorage = new DoctorRepository();
         private DateTime dateTime;
 
         public List<Operation> NonUrgentOperations { get; set; }

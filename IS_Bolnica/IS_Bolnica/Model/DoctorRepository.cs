@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace IS_Bolnica.Model
 {
-    class DoctorFileStorage
+    class DoctorRepository
     {
         public List<Doctor> GetAll()
         {

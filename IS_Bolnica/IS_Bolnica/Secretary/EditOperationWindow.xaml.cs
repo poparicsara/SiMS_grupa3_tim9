@@ -33,8 +33,12 @@ namespace IS_Bolnica.Secretary
         private List<Patient> Patients = new List<Patient>();
         private PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
         private List<Doctor> doctors = new List<Doctor>();
-        private DoctorFileStorage doctorFileStorage = new DoctorFileStorage();
+        private DoctorRepository doctorRepository = new DoctorRepository();
         private List<string> DocNames = new List<string>();
+
+        private Appointment appointment = new Appointment();
+        private List<Appointment> appointments = new List<Appointment>();
+        private AppointmentRepository appointmentRepository = new AppointmentRepository();
 
         public EditOperationWindow(Operation oldOperation)
         {
@@ -62,7 +66,7 @@ namespace IS_Bolnica.Secretary
 
         private void setDoctorBox()
         {
-            doctors = doctorFileStorage.loadFromFile("Doctors.json");
+            doctors = doctorRepository.loadFromFile("Doctors.json");
             for (int i = 0; i < doctors.Count; i++)
             {
                 DocNames.Add(doctors[i].Name + " " + doctors[i].Surname);
@@ -220,7 +224,7 @@ namespace IS_Bolnica.Secretary
 
         private Doctor findDoctor(string name, string surname)
         {
-            doctors = doctorFileStorage.loadFromFile("Doctors.json");
+            doctors = doctorRepository.loadFromFile("Doctors.json");
             for(int i = 0; i < doctors.Count; i++)
             {
                 if(doctors[i].Name.Equals(name) && doctors[i].Surname.Equals(surname))

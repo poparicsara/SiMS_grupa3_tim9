@@ -19,7 +19,7 @@ namespace IS_Bolnica.Secretary
         private DateTime currentDate = new DateTime();
         private Examination examOption1 = new Examination();
         private List<Doctor> doctors = new List<Doctor>();
-        private DoctorFileStorage doctorFileStorage = new DoctorFileStorage();
+        private DoctorRepository doctorRepository = new DoctorRepository();
         private List<RoomRecord> rooms = new List<RoomRecord>();
         private RoomRecordFileStorage roomFileStorage = new RoomRecordFileStorage();
 
@@ -299,7 +299,7 @@ namespace IS_Bolnica.Secretary
             List<Examination> options = new List<Examination>();
             List<Examination> optionOrder = new List<Examination>();
             Examination exam = new Examination();
-            doctors = doctorFileStorage.loadFromFile("Doctors.json");
+            doctors = doctorRepository.loadFromFile("Doctors.json");
             rooms = roomFileStorage.loadFromFile("Sobe.json");
             scheduledExaminations = examinationsFileStorage.loadFromFile("Pregledi.json");
 
