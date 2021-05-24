@@ -601,5 +601,14 @@
   <ItemGroup>
     <Resource Include="Images\notification icon.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="nasLogo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="actionBarIcon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
