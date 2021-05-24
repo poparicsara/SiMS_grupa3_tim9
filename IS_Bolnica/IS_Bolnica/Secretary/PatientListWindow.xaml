@@ -7,9 +7,6 @@
         mc:Ignorable="d"
         Title="PatientListWindow" Height="750" Width="430" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Grid.ColumnDefinitions>
-
-        </Grid.ColumnDefinitions>
         <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="48" Margin="10,10,0,0" Height="48" Click="Button_Click">
             <StackPanel>
                 <Image Source="C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\Images\actionBarIcon.png" Width="46" Height="41" RenderTransformOrigin="0.543,0.5"/>
