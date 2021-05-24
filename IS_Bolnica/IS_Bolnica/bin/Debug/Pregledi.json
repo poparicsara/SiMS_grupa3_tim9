@@ -1351,7 +1351,7 @@
     "Patient": {
       "Allergens": null,
       "examinations": null,
-      "Akcije": 1,
+      "Akcije": 0,
       "brojOcenjenihPregleda": 0,
       "Debit": 0.0,
       "HealthCardNumber": null,
@@ -1392,7 +1392,7 @@
     "Patient": {
       "Allergens": null,
       "examinations": null,
-      "Akcije": 1,
+      "Akcije": 0,
       "brojOcenjenihPregleda": 0,
       "Debit": 0.0,
       "HealthCardNumber": null,
@@ -1428,13 +1428,12 @@
     "PostponedDate": "0001-01-01T00:00:00"
   },
   {
-    "IsPayed": false,
     "DurationInMinutes": 28,
     "Date": "2021-06-05T10:30:00",
     "Patient": {
       "Allergens": null,
       "examinations": null,
-      "Akcije": 2,
+      "Akcije": 0,
       "brojOcenjenihPregleda": 0,
       "Debit": 0.0,
       "HealthCardNumber": null,
