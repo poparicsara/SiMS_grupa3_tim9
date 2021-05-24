@@ -142,6 +142,7 @@
     <Compile Include="Model\Anamnesis.cs" />
     <Compile Include="Model\AnamnesisFileStorage.cs" />
     <Compile Include="Model\DoctorFileStorage.cs" />
+    <Compile Include="Model\EvaluationFileStorage.cs" />
     <Compile Include="Model\GuestUsersFileStorage.cs" />
     <Compile Include="Model\HospitalWard.cs" />
     <Compile Include="Model\HospitalWardFileStorage.cs" />
