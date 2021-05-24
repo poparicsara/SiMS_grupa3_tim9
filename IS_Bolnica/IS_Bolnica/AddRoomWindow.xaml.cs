@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica
 {
@@ -25,6 +26,7 @@ namespace IS_Bolnica
         private List<RoomRecord> rooms = new List<RoomRecord>();
         private List<string> hospitalWards = new List<string>();
         private Specialization specialization = new Specialization();
+        private RoomService service = new RoomService();
 
         public AddRoomWindow()
         {
@@ -57,7 +59,8 @@ namespace IS_Bolnica
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
             SetRoomInfo();
-            Save();
+            //Save();
+            service.AddRoom(newRoom);
             this.Close();
         }
 
@@ -73,6 +76,7 @@ namespace IS_Bolnica
         {
             RoomRecordFileStorage storage = new RoomRecordFileStorage();
             storage.AddRoom(newRoom);
+            
         }
 
         private void CancelButtonClicked(object sender, RoutedEventArgs e)

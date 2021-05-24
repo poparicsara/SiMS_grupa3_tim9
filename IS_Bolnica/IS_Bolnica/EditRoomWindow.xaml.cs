@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows;
+using IS_Bolnica.Services;
 
 
 namespace IS_Bolnica
@@ -16,6 +17,7 @@ namespace IS_Bolnica
         private List<string> hospitalWards = new List<string>();
         private Specialization specialization = new Specialization();
         private List<string> purposes = new List<string>();
+        private RoomService service = new RoomService();
 
         public EditRoomWindow(RoomRecord room)
         {
@@ -76,7 +78,8 @@ namespace IS_Bolnica
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
             SetNewRoom();
-            Save();
+            //Save();
+            service.EditRoom(oldRoom, newRoom);
             this.Close();
         }
 

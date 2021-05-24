@@ -259,6 +259,7 @@
     <Compile Include="SelectedRequest.xaml.cs">
       <DependentUpon>SelectedRequest.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Services\RoomService.cs" />
     <Compile Include="UpdateExaminationWindow.xaml.cs">
       <DependentUpon>UpdateExaminationWindow.xaml</DependentUpon>
     </Compile>
@@ -610,5 +611,6 @@
   <ItemGroup>
     <Resource Include="actionBarIcon.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

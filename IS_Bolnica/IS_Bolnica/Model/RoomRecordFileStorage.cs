@@ -57,26 +57,6 @@ namespace Model
             rooms.RemoveAt(index);
             rooms.Insert(index, newRoom);
             saveToFile(rooms, "Sobe.json");
-
-
-            /*int index = 0;
-
-            rooms = loadFromFile("Sobe.json");
-
-            //find right index
-            foreach (RoomRecord room in rooms)
-            {
-                if (room.Id == oldRoom.Id)
-                {
-                    break;
-                }
-                index++;
-            }
-
-            rooms.RemoveAt(index);
-            rooms.Insert(index, newRoom);
-            saveToFile(rooms, "Sobe.json");*/
-
         }
 
         public void saveToFile(List<RoomRecord> rooms, string fileName)

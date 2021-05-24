@@ -16,6 +16,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica
 {
@@ -24,6 +25,7 @@ namespace IS_Bolnica
         private List<RoomRecord> rooms = new List<RoomRecord>();
         private RoomRecord selectedRoom;
         private RoomRecordFileStorage storage = new RoomRecordFileStorage();
+        private RoomService service = new RoomService();
 
         public RoomWindow(Director director)
         {
@@ -45,7 +47,8 @@ namespace IS_Bolnica
         {
             if (IsAnyRoomSelected())
             {
-                storage.DeleteRoom(selectedRoom);
+                //storage.DeleteRoom(selectedRoom);
+                service.DeleteRoom(selectedRoom);
                 RefreshRoomDataGrid();
             }
         }
@@ -81,7 +84,8 @@ namespace IS_Bolnica
 
         public void RefreshRoomDataGrid()
         {
-            roomDataGrid.ItemsSource = storage.loadFromFile("Sobe.json");
+            //roomDataGrid.ItemsSource = storage.loadFromFile("Sobe.json");
+            roomDataGrid.ItemsSource = service.GetRooms();
         }
 
         private void searchKeyUp(object sender, KeyEventArgs e)
