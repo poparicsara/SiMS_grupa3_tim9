@@ -105,7 +105,6 @@
     <Compile Include="EditRoomWindow.xaml.cs">
       <DependentUpon>EditRoomWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EvaluationFileStorage.cs" />
     <Compile Include="ExaminationInfo.xaml.cs">
       <DependentUpon>ExaminationInfo.xaml</DependentUpon>
     </Compile>
@@ -168,21 +167,6 @@
     </Compile>
     <Compile Include="AddRoomWindow.xaml.cs">
       <DependentUpon>AddRoomWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Ocene.xaml.cs">
-      <DependentUpon>Ocene.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="OceneBolnice.xaml.cs">
-      <DependentUpon>OceneBolnice.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="OcenePacijenta.xaml.cs">
-      <DependentUpon>OcenePacijenta.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="OcenjivanjeBolnice.xaml.cs">
-      <DependentUpon>OcenjivanjeBolnice.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="OcenjivanjePregleda.xaml.cs">
-      <DependentUpon>OcenjivanjePregleda.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ocene.xaml.cs">
       <DependentUpon>Ocene.xaml</DependentUpon>
@@ -424,26 +408,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="AddRoomWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Ocene.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="OceneBolnice.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="OcenePacijenta.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="OcenjivanjeBolnice.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="OcenjivanjePregleda.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
