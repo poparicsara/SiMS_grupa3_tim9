@@ -48,7 +48,7 @@ namespace IS_Bolnica
 
             //does something already exist in this period
             examinations = examinationStorage.loadFromFile("examinations.json");
-            NotificationsFileStorage notificationStorage = new NotificationsFileStorage();
+            NotificationRepository notificationStorage = new NotificationRepository();
             notifications = notificationStorage.LoadFromFile("NotificationsFileStorage.json");
 
             if (room.roomPurpose.Name.Equals("Ordinacija"))

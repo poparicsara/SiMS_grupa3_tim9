@@ -1351,7 +1351,7 @@
     "Patient": {
       "Allergens": null,
       "examinations": null,
-      "Akcije": 1,
+      "Akcije": 0,
       "brojOcenjenihPregleda": 0,
       "Debit": 0.0,
       "HealthCardNumber": null,
@@ -1392,7 +1392,7 @@
     "Patient": {
       "Allergens": null,
       "examinations": null,
-      "Akcije": 1,
+      "Akcije": 0,
       "brojOcenjenihPregleda": 0,
       "Debit": 0.0,
       "HealthCardNumber": null,

@@ -22,7 +22,7 @@ namespace IS_Bolnica.Secretary
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public List<Notification> Notifications { get; set; }
-        private NotificationsFileStorage storage = new NotificationsFileStorage();
+        private NotificationRepository storage = new NotificationRepository();
 
         public NotificationListWindow()
         {

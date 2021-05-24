@@ -21,13 +21,13 @@ namespace IS_Bolnica
     {
         private Notification selectedNotification = new Notification();
         private List<Notification> notifications = new List<Notification>();
-        private NotificationsFileStorage storage = new NotificationsFileStorage();
+        private NotificationRepository storage = new NotificationRepository();
         public SelectedNotificationWindow(Notification notification)
         {
             InitializeComponent();
 
             selectedNotification = notification;
-            storage = new NotificationsFileStorage();
+            storage = new NotificationRepository();
             notifications = storage.LoadFromFile("NotificationsFileStorage.json");
 
             contentBox.Text = notification.Content;

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace IS_Bolnica.Model
 {
-    public class NotificationsFileStorage
+    public class NotificationRepository
     {
         public List<Notification> GetAll()
         {

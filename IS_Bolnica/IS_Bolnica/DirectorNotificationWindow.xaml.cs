@@ -21,7 +21,7 @@ namespace IS_Bolnica
     public partial class DirectorNotificationWindow : Window
     {
         public List<Notification> notifications = new List<Notification>();
-        private Model.NotificationsFileStorage storage = new NotificationsFileStorage();
+        private Model.NotificationRepository storage = new NotificationRepository();
 
         public DirectorNotificationWindow()
         {

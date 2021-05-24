@@ -20,7 +20,7 @@ namespace IS_Bolnica.Secretary
     public partial class AddNotificationWindow : Window
     {
         private Notification notification = new Notification();
-        private NotificationsFileStorage storage = new NotificationsFileStorage();
+        private NotificationRepository storage = new NotificationRepository();
         private List<Notification> notifications = new List<Notification>();
         private List<User> users = new List<User>();
         private UsersFileStorage usersFileStorage = new UsersFileStorage();

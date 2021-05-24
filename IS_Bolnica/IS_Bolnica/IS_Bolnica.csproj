@@ -145,7 +145,7 @@
     <Compile Include="Model\MedicamentFileStorage.cs" />
     <Compile Include="Model\MedicamentStatus.cs" />
     <Compile Include="Model\Notification.cs" />
-    <Compile Include="Model\NotificationsFileStorage.cs" />
+    <Compile Include="Model\NotificationRepository.cs" />
     <Compile Include="Model\NotificationType.cs" />
     <Compile Include="Model\Prescription.cs" />
     <Compile Include="Model\PrescriptionFileStorage.cs" />
