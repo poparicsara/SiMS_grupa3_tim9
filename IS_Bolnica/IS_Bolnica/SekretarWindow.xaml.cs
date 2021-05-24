@@ -48,14 +48,14 @@ namespace IS_Bolnica
             GuestKorisnici = storage1.loadFromFile("GuestUsersFile.json");
         }
 
-        private void generateColumns(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        /*private void generateColumns(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             colNum++;
             if (colNum == 3)
             {
                 e.Column.Width = new DataGridLength(1, DataGridLengthUnitType.Star);
             }
-        }
+        }*/
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -69,6 +69,8 @@ namespace IS_Bolnica
             Secretary.ActionBarWindow abw = new Secretary.ActionBarWindow();
             abw.Show();
             this.Close();
+            //Secretary.ActionBar ab = new Secretary.ActionBar();
+            //this.Content = ab;
         }
 
         public void setProfileInfo(User user)
