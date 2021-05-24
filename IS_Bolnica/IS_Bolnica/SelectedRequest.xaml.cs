@@ -75,10 +75,11 @@ namespace IS_Bolnica
         private void SentToEditButton(object sender, RoutedEventArgs e)
         {
             Notification notification = new Notification();
-            notification.title = "Izmena zahteva za novi lek";
+
+            notification.Title = "Izmena zahteva za novi lek";
             string temp = selectedRequest.Content.Replace('|', '\n');
             temp += "\n";
-            notification.content = temp + "\n" + responceBox.Text.ToUpper();
+            notification.Content = temp + "\n" + responceBox.Text.ToUpper();
             notification.notificationType = NotificationType.director;
             notification.Sender = UserType.doctor;
 
