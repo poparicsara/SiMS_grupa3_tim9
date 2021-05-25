@@ -20,7 +20,7 @@ namespace IS_Bolnica
 {
     public partial class Diagnosis : Window
     {
-        private Examination examination;
+        private Appointment examination;
         private Anamnesis anamnesis = new Anamnesis();
         private AnamnesisRepository anamnesisStorage = new AnamnesisRepository();
         public List<Anamnesis> Anamneses { get; set; } = new List<Anamnesis>();
@@ -28,7 +28,7 @@ namespace IS_Bolnica
         public List<Patient> Patients { get; set; } = new List<Patient>();
         public List<Doctor> Doctors { get; set; }
         private DoctorRepository doctorStorage = new DoctorRepository();
-        public Diagnosis(Examination examination, List<Examination> loggedExaminations)
+        public Diagnosis(Appointment examination, List<Appointment> loggedExaminations)
         {
             InitializeComponent();
             this.examination = examination;
@@ -37,7 +37,7 @@ namespace IS_Bolnica
             jmbgTxt.Text = examination.Patient.Id;
             dateOfBirthTxt.Text = examination.Patient.DateOfBirth.ToString();
             healthCardNumberTxt.Text = examination.Patient.HealthCardNumber;
-            dateOfExaminationTxt.Text = examination.Date.ToString();
+            dateOfExaminationTxt.Text = examination.StartTime.ToString();
             addressTxt.Text = examination.Patient.Address.Street + ", " + examination.Patient.Address.City.name;
             doctorTxt.Text = examination.Doctor.Name + ' ' + examination.Doctor.Surname;
         }
@@ -73,9 +73,6 @@ namespace IS_Bolnica
 
             Anamneses.Add(anamnesis);
             anamnesisStorage.saveToFile(Anamneses, "anamneses.json");
-
-            ExaminationsRecordFileStorage examinationsRecordFileStorage = new ExaminationsRecordFileStorage();
-            List<Examination> examinations = examinationsRecordFileStorage.loadFromFile("examinations.json");
 
             CreatePrescription createPrescription = new CreatePrescription(anamnesis);
 

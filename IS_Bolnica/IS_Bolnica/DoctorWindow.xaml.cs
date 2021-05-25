@@ -25,54 +25,54 @@ namespace IS_Bolnica
         private UsersFileStorage storage = new UsersFileStorage();
         private List<User> loggedUsers = new List<User>();
         private User loggedUser;
-        private List<Examination> loggedDoctorExaminations = new List<Examination>();
-        private List<Operation> loggedDoctorOperations = new List<Operation>();
-        private Examination examination = new Examination();
-        public List<Examination> Examinations { get; set; }
-        private ExaminationsRecordFileStorage examinationStorage = new ExaminationsRecordFileStorage();
-        private Operation operation = new Operation();
-        public List<Operation> Operations { get; set; }
-        private OperationsFileStorage operationStorage = new OperationsFileStorage();
+        private List<Appointment> loggedExaminations = new List<Appointment>();
+        private List<Appointment> loggedOperations = new List<Appointment>();
+        private AppointmentRepository appointmentRepository = new AppointmentRepository();
+        private Appointment appointment = new Appointment();
+        public List<Appointment> Appointments { get; set; }
 
         public DoctorWindow()
         {
             InitializeComponent();
             this.DataContext = this;
 
-            List<Examination> examinations = examinationStorage.loadFromFile("examinations.json");
-            loggedDoctorExaminations = new List<Examination>();
-            loggedDoctorOperations = new List<Operation>();
             loggedUsers = storage.loadFromFile("loggedUsers.json");
+            List<Appointment> appointments = appointmentRepository.LoadFromFile("Appointments.json");
+            loggedExaminations = new List<Appointment>();
 
-            foreach (Examination examination in examinations)
+            foreach (Appointment appointment in appointments)
             {
-                foreach (User user in loggedUsers)
+                foreach (User user in loggedUsers) 
                 {
-                    if (examination.Doctor.Username.Equals(user.Username))
+                    if (appointment.Doctor.Username.Equals(user.Username) &&
+                        appointment.AppointmentType == AppointmentType.examination)
                     {
-                        this.loggedUser = user;
-                        loggedDoctorExaminations.Add(examination);
+                        loggedExaminations.Add(appointment);
                     }
+
+                    this.loggedUser = user;
                 }
             }
 
-            dataGridExaminations.ItemsSource = loggedDoctorExaminations;
+            dataGridExaminations.ItemsSource = loggedExaminations;
 
-            List<Operation> operations = operationStorage.loadFromFile("operations.json");
+            loggedOperations = new List<Appointment>();
 
-            foreach (Operation operation in operations)
+            foreach (Appointment appointment in appointments)
             {
                 foreach (User user in loggedUsers)
                 {
-                    if (operation.doctor.Username.Equals(user.Username))
+                    if (appointment.Doctor.Username.Equals(user.Username) &&
+                        appointment.AppointmentType == AppointmentType.operation)
                     {
-                        this.loggedUser = user;
-                        loggedDoctorOperations.Add(operation);
+                        loggedOperations.Add(appointment);
                     }
+
+                    this.loggedUser = user;
                 }
             }
 
-            dataGridOperations.ItemsSource = loggedDoctorOperations;
+            dataGridOperations.ItemsSource = loggedOperations;
         }
 
         private void addExaminationButton(object sender, RoutedEventArgs e)
@@ -93,7 +93,7 @@ namespace IS_Bolnica
         private void cancelExaminationButton(object sender, RoutedEventArgs e)
         {
             int index = dataGridExaminations.SelectedIndex;
-            examination = (Examination)dataGridExaminations.SelectedItem;
+            appointment = (Appointment) dataGridExaminations.SelectedItem;
 
             if (index == -1)
             {
@@ -101,17 +101,17 @@ namespace IS_Bolnica
             }
             else
             {
-                Examinations = examinationStorage.loadFromFile("examinations.json");
-                for (int i = 0; i < Examinations.Count; i++)
+                Appointments = appointmentRepository.LoadFromFile("Appointments.json");
+                for (int i = 0; i < Appointments.Count; i++)
                 {
-                    if (Examinations[i].Date.Equals(examination.Date) &&
-                        Examinations[i].Patient.Id.Equals(examination.Patient.Id))
+                    if (Appointments[i].StartTime.Equals(appointment.StartTime) && Appointments[i].Patient.Id.Equals(appointment.Patient.Id) &&
+                        Appointments[i].AppointmentType == AppointmentType.examination)
                     {
-                        Examinations.RemoveAt(i);
+                        Appointments.RemoveAt(i);
                     }
                 }
 
-                examinationStorage.saveToFile(Examinations, "examinations.json");
+                appointmentRepository.SaveToFile(Appointments, "Appointments.json");
             }
 
             DoctorWindow doctorWindow = new DoctorWindow();
@@ -122,7 +122,7 @@ namespace IS_Bolnica
         private void cancelOperationButton(object sender, RoutedEventArgs e)
         {
             int index = dataGridOperations.SelectedIndex;
-            operation = (Operation)dataGridOperations.SelectedItem;
+            appointment = (Appointment)dataGridOperations.SelectedItem;
 
             if (index == -1)
             {
@@ -130,17 +130,18 @@ namespace IS_Bolnica
             }
             else
             {
-                Operations = operationStorage.loadFromFile("operations.json");
-
-                for (int i = 0; i < Operations.Count; i++)
+                Appointments = appointmentRepository.LoadFromFile("Appointments.json");
+                for (int i = 0; i < Appointments.Count; i++)
                 {
-                    if (Operations[i].Date.Equals(operation.Date) && Operations[i].Patient.Id.Equals(operation.Patient.Id))
+                    if (Appointments[i].StartTime.Equals(appointment.StartTime) &&
+                        Appointments[i].Patient.Id.Equals(appointment.Patient.Id) &&
+                        Appointments[i].AppointmentType == AppointmentType.operation)
                     {
-                        Operations.RemoveAt(i);
+                        Appointments.RemoveAt(i);
                     }
                 }
 
-                operationStorage.saveToFile(Operations, "operations.json");
+                appointmentRepository.SaveToFile(Appointments, "Appointments.json");
             }
 
             DoctorWindow doctorWindow = new DoctorWindow();
@@ -152,7 +153,7 @@ namespace IS_Bolnica
         private void updateExaminationButton(object sender, RoutedEventArgs e)
         {
             int selectedIndex = dataGridExaminations.SelectedIndex;
-            UpdateExaminationWindow updateExaminationWindow = new UpdateExaminationWindow(selectedIndex, loggedDoctorExaminations);
+            UpdateExaminationWindow updateExaminationWindow = new UpdateExaminationWindow(selectedIndex, loggedExaminations);
             updateExaminationWindow.Show();
             this.Close();
         }
@@ -160,7 +161,7 @@ namespace IS_Bolnica
         private void updateOperationButton(object sender, RoutedEventArgs e)
         {
             int selectedIndex = dataGridOperations.SelectedIndex;
-            UpdateOperationWindow updateOperationWindow = new UpdateOperationWindow(selectedIndex, loggedDoctorOperations);
+            UpdateOperationWindow updateOperationWindow = new UpdateOperationWindow(selectedIndex, loggedOperations);
             updateOperationWindow.Show();
             this.Close();
         }
@@ -168,7 +169,7 @@ namespace IS_Bolnica
         private void startExamination(object sender, RoutedEventArgs e)
         {
             int selectedIndex = dataGridExaminations.SelectedIndex;
-            ExaminationInfo examinationInfo = new ExaminationInfo(selectedIndex, loggedDoctorExaminations);
+            ExaminationInfo examinationInfo = new ExaminationInfo(selectedIndex, loggedExaminations);
             examinationInfo.Show();
         }
 
@@ -202,21 +203,6 @@ namespace IS_Bolnica
             RequestWindow rw = new RequestWindow();
             rw.Show();
         }
-
-        //private void ClosingWindow(object sender, CancelEventArgs e)
-        //{
-        //    List<User> users = new List<User>();
-        //    users = storage.loadFromFile("loggedUsers.json");
-
-        //    for (int i = 0; i < users.Count; i++)
-        //    {
-        //        if (users[i].Username == loggedUser.Username)
-        //        {
-        //            users.RemoveAt(i);
-        //        }
-        //    }
-        //    storage.saveToFile(users, "loggedUsers.json");
-        //}
 
         private void medicationButtonClicked(object sender, RoutedEventArgs e)
         {

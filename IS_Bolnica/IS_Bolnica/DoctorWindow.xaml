@@ -18,8 +18,8 @@
                               CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True" AutoGenerateColumns="False" Background="White" 
                               HorizontalScrollBarVisibility="Disabled" CanUserResizeRows="False" Canvas.Top="-46">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="DATE AND TIME" Width="160" Binding="{Binding Date}"/>
-                            <DataGridTextColumn Header="ROOM" Width="110" Binding="{Binding RoomRecord.Id}"/>
+                            <DataGridTextColumn Header="DATE AND TIME" Width="160" Binding="{Binding StartTime}"/>
+                            <DataGridTextColumn Header="ROOM" Width="110" Binding="{Binding Doctor.Ordination}"/>
                             <DataGridTextColumn Header="NAME" Width="110" Binding="{Binding Patient.Name}"/>
                             <DataGridTextColumn Header="SURNAME" Width="110" Binding="{Binding Patient.Surname}" />
                         </DataGrid.Columns>
@@ -42,7 +42,7 @@
                               ColumnWidth="SizeToHeader" Foreground="#FF15285D" BorderBrush="#FF15285D" Canvas.Left="31" FontSize="12"
                               IsReadOnly="True" AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserResizeColumns="False" Background="White" HorizontalScrollBarVisibility="Disabled" Canvas.Top="-45">
                         <DataGrid.Columns>
-                            <DataGridTextColumn x:Name="dateColumn" Header="DATE AND TIME" Width="130" Binding="{Binding Date}"/>
+                            <DataGridTextColumn x:Name="dateColumn" Header="DATE AND TIME" Width="130" Binding="{Binding StartTime}"/>
                             <DataGridTextColumn Header="ROOM" Width="90" Binding="{Binding RoomRecord.Id}"/>
                             <DataGridTextColumn Header="NAME" Width="110" Binding="{Binding Patient.Name}"/>
                             <DataGridTextColumn Header="SURNAME" Width="110" Binding="{Binding Patient.Surname}" />

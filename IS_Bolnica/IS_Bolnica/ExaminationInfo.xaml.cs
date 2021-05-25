@@ -19,13 +19,14 @@ namespace IS_Bolnica
     public partial class ExaminationInfo : Window
     {
         private int selectedPatient;
-        private Examination examination;
-        private List<Examination> loggedExaminations;
-        public ExaminationInfo(int selectedIndex, List<Examination> loggedDoctorExaminations)
+        private Appointment examination;
+        private List<Appointment> loggedExaminations;
+        public ExaminationInfo(int selectedIndex, List<Appointment> loggedDoctorExaminations)
         {
             InitializeComponent();
 
             ExaminationsRecordFileStorage examinationsRecordFileStorage = new ExaminationsRecordFileStorage();
+
             this.loggedExaminations = loggedDoctorExaminations;
             PrescriptionFileStorage prescriptionFileStorage = new PrescriptionFileStorage();
             List<Prescription> prescriptions = prescriptionFileStorage.loadFromFile("prescriptions.json");
