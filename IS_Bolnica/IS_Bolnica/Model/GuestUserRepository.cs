@@ -9,15 +9,15 @@ using System.Collections.ObjectModel;
 
 namespace Model
 {
-    public class GuestUsersFileStorage
+    public class GuestUserRepository
     {
-        public void saveToFile(List<GuestUser> guestUsers, string fileName)
+        public void SaveToFile(List<GuestUser> guestUsers, string fileName)
         {
             string jsonString = JsonConvert.SerializeObject(guestUsers, Formatting.Indented);
             File.WriteAllText(fileName, jsonString);
         }
 
-        public List<GuestUser> loadFromFile(string fileName) 
+        public List<GuestUser> LoadFromFile(string fileName) 
         {
             var guestUsersList = new List<GuestUser>();
 

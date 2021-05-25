@@ -52,6 +52,20 @@ namespace IS_Bolnica.Services
             storage.saveToFile(rooms, "Sobe.json");
         }
 
+        public List<int> GetOperationRoomNums()
+        {
+            List<int> roomNums = new List<int>();
+            for (int i = 0; i <rooms.Count; i++)
+            {
+                if (rooms[i].roomPurpose.Name == "Operaciona sala")
+                {
+                    roomNums.Add(rooms[i].Id);
+                }
+            }
+
+            return roomNums;
+        }
+
         public List<RoomRecord> GetRooms()
         {
             return storage.loadFromFile("Sobe.json");

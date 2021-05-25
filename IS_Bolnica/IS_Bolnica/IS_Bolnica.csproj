@@ -139,7 +139,7 @@
     <Compile Include="Model\AnamnesisRepository.cs" />
     <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\DoctorRepository.cs" />
-    <Compile Include="Model\GuestUsersFileStorage.cs" />
+    <Compile Include="Model\GuestUserRepository.cs" />
     <Compile Include="Model\HospitalWard.cs" />
     <Compile Include="Model\HospitalWardFileStorage.cs" />
     <Compile Include="Model\InventoryType.cs" />
@@ -321,8 +321,11 @@
     <Compile Include="Services\AppointmentService.cs" />
     <Compile Include="Services\FindAttributesService.cs" />
     <Compile Include="Services\DoctorService.cs" />
+    <Compile Include="Services\GuestUserService.cs" />
+    <Compile Include="Services\NotificationService.cs" />
     <Compile Include="Services\PatientService.cs" />
     <Compile Include="Services\RoomService.cs" />
+    <Compile Include="Services\UrgentAppointmentService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="UpdateExaminationWindow.xaml.cs">
       <DependentUpon>UpdateExaminationWindow.xaml</DependentUpon>

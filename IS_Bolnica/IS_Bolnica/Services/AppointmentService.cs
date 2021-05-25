@@ -78,7 +78,7 @@ namespace IS_Bolnica.Services
         {
             foreach (var appointment in appointments)
             {
-                if (appointment.AppointmentType == 0)
+                if (appointment.AppointmentType == AppointmentType.operation)
                 {
                     operations.Add(appointment);
                 }

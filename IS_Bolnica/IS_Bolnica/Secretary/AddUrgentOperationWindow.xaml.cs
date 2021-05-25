@@ -17,7 +17,7 @@ namespace IS_Bolnica.Secretary
         private PatientRepository patientStorage = new PatientRepository();
         private List<Patient> patients = new List<Patient>();
         private Patient patient = new Patient();
-        private GuestUsersFileStorage guestStorage = new GuestUsersFileStorage();
+        private GuestUserRepository guestStorage = new GuestUserRepository();
         private List<GuestUser> guestUsers = new List<GuestUser>();
         private GuestUser guestUser = new GuestUser();
         private List<RoomRecord> Rooms = new List<RoomRecord>();
@@ -100,7 +100,7 @@ namespace IS_Bolnica.Secretary
         private GuestUser findGuest(string systemName)
         {
             GuestUser guest = new GuestUser();
-            guestUsers = guestStorage.loadFromFile("GuestUsersFile.json");
+            guestUsers = guestStorage.LoadFromFile("GuestUsersFile.json");
 
             foreach(GuestUser gUser in guestUsers)
             {

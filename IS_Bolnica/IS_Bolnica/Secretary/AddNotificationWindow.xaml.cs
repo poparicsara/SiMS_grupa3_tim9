@@ -14,17 +14,18 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica.Secretary
 {
     public partial class AddNotificationWindow : Window
     {
         private Notification notification = new Notification();
-        private NotificationRepository storage = new NotificationRepository();
-        private List<Notification> notifications = new List<Notification>();
         private List<User> users = new List<User>();
         private UserRepository userRepository = new UserRepository();
         private List<string> userList = new List<string>();
+
+        private NotificationService notificationService = new NotificationService();
 
         public AddNotificationWindow()
         {
@@ -61,9 +62,8 @@ namespace IS_Bolnica.Secretary
 
             notification.Sender = UserType.patient;
 
-            notifications = storage.LoadFromFile("NotificationsFileStorage.json");
-            notifications.Add(notification);
-            storage.SaveToFile(notifications, "NotificationsFileStorage.json");
+            notificationService.AddNotification(notification);
+
             this.Close();
             Secretary.NotificationListWindow nlw = new Secretary.NotificationListWindow();
             nlw.Show();

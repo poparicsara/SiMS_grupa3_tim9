@@ -51,7 +51,7 @@ namespace IS_Bolnica.Services
             return null;
         }
 
-        public RoomRecord findRoom(Doctor doc)
+        public RoomRecord findRoomByDoctor(Doctor doc)
         {
             rooms = roomRepository.loadFromFile("Sobe.json");
             for (int i = 0; i < rooms.Count; i++)
@@ -65,5 +65,21 @@ namespace IS_Bolnica.Services
             MessageBox.Show("Soba ne postoji!");
             return null;
         }
+
+        public RoomRecord findRoomById(int id)
+        {
+            for (int i = 0; i < rooms.Count; i++)
+            {
+                if (rooms[i].Id == id)
+                {
+                    return rooms[i];
+                }
+            }
+
+            MessageBox.Show("Soba ne postoji!");
+            return null;
+        }
+
+        //public 
     }
 }

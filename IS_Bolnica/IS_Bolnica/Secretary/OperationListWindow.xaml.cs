@@ -15,12 +15,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using IS_Bolnica.Model;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica.Secretary
 {
-    /// <summary>
-    /// Interaction logic for OperationListWindow.xaml
-    /// </summary>
     public partial class OperationListWindow : Window, INotifyPropertyChanged
     {
         private OperationsFileStorage operationsFileStorage = new OperationsFileStorage();
@@ -30,6 +28,7 @@ namespace IS_Bolnica.Secretary
         private List<Appointment> appointments = new List<Appointment>();
         private List<Appointment> operations = new List<Appointment>();
         private AppointmentRepository appointmentRepository = new AppointmentRepository();
+        private AppointmentService appointmentService = new AppointmentService();
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -43,23 +42,7 @@ namespace IS_Bolnica.Secretary
             InitializeComponent();
             this.DataContext = this;
 
-            OperationList.ItemsSource = getOperations();
-
-        }
-
-        private List<Appointment> getOperations()
-        {
-            appointments = appointmentRepository.LoadFromFile("Appointments.json");
-            foreach (var appointment in appointments)
-            {
-                if (appointment.AppointmentType == AppointmentType.operation)
-                {
-                    operations.Add(appointment);
-                }
-            }
-
-            return operations;
-
+            OperationList.ItemsSource = appointmentService.getOperations();
 
         }
 
@@ -86,7 +69,6 @@ namespace IS_Bolnica.Secretary
         {
             int i = OperationList.SelectedIndex;
 
-            //operation = (Operation)OperationList.SelectedItem;
             appointment = (Appointment) OperationList.SelectedItem;
             
 
@@ -123,7 +105,6 @@ namespace IS_Bolnica.Secretary
         {
             int i = OperationList.SelectedIndex;
 
-            //operation = (Operation)OperationList.SelectedItem;
             appointment = (Appointment) OperationList.SelectedItem;
 
             if(!isSelected(i))
@@ -136,8 +117,7 @@ namespace IS_Bolnica.Secretary
                 switch(result)
                 {
                     case MessageBoxResult.Yes:
-                        appointments = removeOperation(appointment);
-                        appointmentRepository.SaveToFile(appointments, "Appointments.json");
+                        appointmentService.DeleteAppointment(appointment);
                         this.Close();
                         Secretary.OperationListWindow olw = new Secretary.OperationListWindow();
                         olw.Show();
@@ -146,20 +126,6 @@ namespace IS_Bolnica.Secretary
                         break;
                 }
             }
-        }
-
-        private List<Appointment> removeOperation(Appointment appointment)
-        {
-            appointments = appointmentRepository.LoadFromFile("Appointments");
-            for (int k = 0; k < appointments.Count; k++)
-            {
-                if (appointments[k].StartTime.Equals(appointment.StartTime) &&
-                    appointments[k].Patient.Id.Equals(appointment.Patient.Id))
-                {
-                    appointments.RemoveAt(k);
-                }
-            }
-            return appointments;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
