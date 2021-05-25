@@ -17,62 +17,23 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica
 {
     public partial class DoctorWindow : Window
     {
-        private UsersFileStorage storage = new UsersFileStorage();
-        private List<User> loggedUsers = new List<User>();
         private User loggedUser;
-        private List<Appointment> loggedExaminations = new List<Appointment>();
-        private List<Appointment> loggedOperations = new List<Appointment>();
-        private AppointmentRepository appointmentRepository = new AppointmentRepository();
         private Appointment appointment = new Appointment();
-        public List<Appointment> Appointments { get; set; }
-
+        private AppointmentService appointmentService = new AppointmentService();
+        private UserService userService = new UserService();
         public DoctorWindow()
         {
             InitializeComponent();
             this.DataContext = this;
 
-            loggedUsers = storage.loadFromFile("loggedUsers.json");
-            List<Appointment> appointments = appointmentRepository.LoadFromFile("Appointments.json");
-            loggedExaminations = new List<Appointment>();
-
-            foreach (Appointment appointment in appointments)
-            {
-                foreach (User user in loggedUsers) 
-                {
-                    if (appointment.Doctor.Username.Equals(user.Username) &&
-                        appointment.AppointmentType == AppointmentType.examination)
-                    {
-                        loggedExaminations.Add(appointment);
-                    }
-
-                    this.loggedUser = user;
-                }
-            }
-
-            dataGridExaminations.ItemsSource = loggedExaminations;
-
-            loggedOperations = new List<Appointment>();
-
-            foreach (Appointment appointment in appointments)
-            {
-                foreach (User user in loggedUsers)
-                {
-                    if (appointment.Doctor.Username.Equals(user.Username) &&
-                        appointment.AppointmentType == AppointmentType.operation)
-                    {
-                        loggedOperations.Add(appointment);
-                    }
-
-                    this.loggedUser = user;
-                }
-            }
-
-            dataGridOperations.ItemsSource = loggedOperations;
+            dataGridExaminations.ItemsSource = appointmentService.getDoctorsExaminations();
+            dataGridOperations.ItemsSource = appointmentService.getDoctorsOperations();
         }
 
         private void addExaminationButton(object sender, RoutedEventArgs e)
@@ -101,17 +62,7 @@ namespace IS_Bolnica
             }
             else
             {
-                Appointments = appointmentRepository.LoadFromFile("Appointments.json");
-                for (int i = 0; i < Appointments.Count; i++)
-                {
-                    if (Appointments[i].StartTime.Equals(appointment.StartTime) && Appointments[i].Patient.Id.Equals(appointment.Patient.Id) &&
-                        Appointments[i].AppointmentType == AppointmentType.examination)
-                    {
-                        Appointments.RemoveAt(i);
-                    }
-                }
-
-                appointmentRepository.SaveToFile(Appointments, "Appointments.json");
+                appointmentService.DeleteAppointment(appointment);
             }
 
             DoctorWindow doctorWindow = new DoctorWindow();
@@ -130,18 +81,7 @@ namespace IS_Bolnica
             }
             else
             {
-                Appointments = appointmentRepository.LoadFromFile("Appointments.json");
-                for (int i = 0; i < Appointments.Count; i++)
-                {
-                    if (Appointments[i].StartTime.Equals(appointment.StartTime) &&
-                        Appointments[i].Patient.Id.Equals(appointment.Patient.Id) &&
-                        Appointments[i].AppointmentType == AppointmentType.operation)
-                    {
-                        Appointments.RemoveAt(i);
-                    }
-                }
-
-                appointmentRepository.SaveToFile(Appointments, "Appointments.json");
+                appointmentService.DeleteAppointment(appointment);
             }
 
             DoctorWindow doctorWindow = new DoctorWindow();
@@ -153,7 +93,7 @@ namespace IS_Bolnica
         private void updateExaminationButton(object sender, RoutedEventArgs e)
         {
             int selectedIndex = dataGridExaminations.SelectedIndex;
-            UpdateExaminationWindow updateExaminationWindow = new UpdateExaminationWindow(selectedIndex, loggedExaminations);
+            UpdateExaminationWindow updateExaminationWindow = new UpdateExaminationWindow(selectedIndex, appointmentService.getDoctorsExaminations());
             updateExaminationWindow.Show();
             this.Close();
         }
@@ -161,7 +101,7 @@ namespace IS_Bolnica
         private void updateOperationButton(object sender, RoutedEventArgs e)
         {
             int selectedIndex = dataGridOperations.SelectedIndex;
-            UpdateOperationWindow updateOperationWindow = new UpdateOperationWindow(selectedIndex, loggedOperations);
+            UpdateOperationWindow updateOperationWindow = new UpdateOperationWindow(selectedIndex, appointmentService.getDoctorsOperations());
             updateOperationWindow.Show();
             this.Close();
         }
@@ -169,7 +109,7 @@ namespace IS_Bolnica
         private void startExamination(object sender, RoutedEventArgs e)
         {
             int selectedIndex = dataGridExaminations.SelectedIndex;
-            ExaminationInfo examinationInfo = new ExaminationInfo(selectedIndex, loggedExaminations);
+            ExaminationInfo examinationInfo = new ExaminationInfo(selectedIndex, appointmentService.getDoctorsExaminations());
             examinationInfo.Show();
         }
 
@@ -181,18 +121,7 @@ namespace IS_Bolnica
 
         private void logOutButtonClicked(object sender, RoutedEventArgs e)
         {
-            List<User> users = new List<User>();
-            users = storage.loadFromFile("loggedUsers.json");
-
-            for (int i = 0; i < users.Count; i++)
-            {
-                if (users[i].Username == loggedUser.Username)
-                {
-                    users.RemoveAt(i);
-                }
-            }
-            storage.saveToFile(users, "loggedUsers.json");
-
+            userService.logOut();
             MainWindow mainWindow = new MainWindow();
             this.Close();
             mainWindow.Show();

@@ -57,5 +57,32 @@ namespace IS_Bolnica.Services
             return storage.loadFromFile("Sobe.json");
         }
 
+        public RoomRecord findOrdinationById(int id)
+        {
+            RoomRecord foundRoom = new RoomRecord();
+            foreach (RoomRecord room in rooms)
+            {
+                if (room.Id.Equals(id))
+                {
+                    foundRoom = room;
+                }
+            }
+
+            return foundRoom;
+        }
+
+        public List<int> getOperationRoomsId()
+        {
+            List<int> operationRooms = new List<int>();
+            foreach (RoomRecord room in rooms)
+            {
+                if (room.roomPurpose.Name.Equals("Operaciona sala"))
+                {
+                    operationRooms.Add(room.Id);
+                }
+            }
+            return operationRooms;
+        }
+
     }
 }

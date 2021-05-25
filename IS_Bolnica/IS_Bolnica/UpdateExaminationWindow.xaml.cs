@@ -1,44 +1,28 @@
 ﻿using IS_Bolnica.Model;
+using IS_Bolnica.Services;
 using Model;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace IS_Bolnica.DoctorsWindows
 {
     public partial class UpdateExaminationWindow : Window
     {
-        private int selectedExamination;
         private Appointment examination;
-        public List<RoomRecord> Rooms { get; set; }
-        public List<int> RoomId { get; set; } = new List<int>();
-        private RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
         public List<int> Hours { get; set; } = new List<int>();
-        public List<Doctor> Doctors { get; set; }
-        private DoctorRepository doctorStorage = new DoctorRepository();
-        private List<string> doctorNameAndSurname = new List<string>();
-        private List<string> specialistNameAndSurname = new List<string>();
-        private List<Specialization> specializations = new List<Specialization>();
-        private AppointmentRepository appointmentRepository = new AppointmentRepository();
-        private List<Appointment> examinations = new List<Appointment>();
+        private DoctorService doctorService = new DoctorService();
+        private AppointmentService appointmentService = new AppointmentService();
+        private PatientService patientService = new PatientService();
+        private RoomService roomService = new RoomService();
         public UpdateExaminationWindow(int selectedIndex, List<Appointment> loggedDoctorExaminations)
 
         {
             InitializeComponent();
 
             List<Appointment> examinations = loggedDoctorExaminations;
-
             this.examination = examinations.ElementAt(selectedIndex);
 
             datePicker.SelectedDate = examination.StartTime;
@@ -47,17 +31,6 @@ namespace IS_Bolnica.DoctorsWindows
             patientTxt.Text = examination.Patient.Name + ' ' + examination.Patient.Surname;
             jmbgTxt.Text = examination.Patient.Id;
             healthCardNumberTxt.Text = examination.Patient.HealthCardNumber;
-
-            Rooms = roomStorage.loadFromFile("Sobe.json");
-
-            foreach (RoomRecord room in Rooms)
-            {
-                if (room.roomPurpose.Name.Equals("Ordinacija"))
-                {
-                    RoomId.Add(room.Id);
-                }
-            }
-
             roomTxt.Text = examination.Doctor.Ordination.ToString();
 
             if (examination.Doctor.Specialization.Name == " ")
@@ -85,98 +58,27 @@ namespace IS_Bolnica.DoctorsWindows
             Minutes.Add(00);
             Minutes.Add(30);
             minuteBox.ItemsSource = Minutes;
-
-            selectedExamination = selectedIndex;
         }
 
         private void saveButtonClicked(object sender, RoutedEventArgs e)
         {
-            examinations = appointmentRepository.LoadFromFile("Appointments.json");
+            appointmentService.DeleteAppointment(examination);
 
-            List<Patient> Patients = new List<Patient>();
-            PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
+            examination.Doctor = doctorService.findDoctorByName(doctorsComboBox.SelectedItem.ToString());
+            examination.Patient = patientService.findPatientById(jmbgTxt.Text);
+            DateTime date = new DateTime();
+            date = (DateTime) datePicker.SelectedDate;
+            int hour = Convert.ToInt32(hourBox.Text);
+            int minute = Convert.ToInt32(minuteBox.Text);
+            examination.StartTime = new DateTime(date.Year, date.Month, date.Day, hour, minute, 0);
+            examination.RoomRecord = new RoomRecord();
+            examination.RoomRecord = roomService.findOrdinationById(examination.Doctor.Ordination);
+            appointmentService.scheduleAppointment(examination);
 
-            for (int i = 0; i < examinations.Count; i++)
-            {
-                if (examinations[i].StartTime.Equals(examination.StartTime) 
-                    && examinations[i].Patient.Id.Equals(examination.Patient.Id) 
-                    && examinations[i].AppointmentType == AppointmentType.examination)
-                {
-                    examinations.RemoveAt(i);
-                }
-            }
-
-            appointmentRepository.SaveToFile(examinations, "Appointments.json");
-
-            Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
-            Doctors = doctorStorage.loadFromFile("Doctors.json");
-            int cnt = 0;
-            string[] patientNameAndSurname = patientTxt.Text.Split(' ');
-
-            foreach (Doctor doctor in Doctors)
-            {
-                string drNameSurname = doctor.Name + ' ' + doctor.Surname;
-
-                if (drNameSurname.Equals(doctorsComboBox.SelectedItem.ToString()))
-                {
-                    examination.Doctor = doctor;
-                }
-            }
-
-            foreach (Patient patient in Patients)
-            {
-                if (patient.Id.Equals(jmbgTxt.Text))
-                {
-                    examination.Patient = patient;
-                    cnt++;
-                }
-            }
-
-
-            if ((patientNameAndSurname[0] != examination.Patient.Name) || (patientNameAndSurname[1] != examination.Patient.Surname))
-            {
-                MessageBox.Show("Pogresno ime ili prezime!");
-            }
-            else if (cnt == 0)
-            {
-                MessageBox.Show("Pacijent sa unetim JMBG-om ne postoji!");
-            }
-            else
-            {
-                DateTime date = new DateTime();
-                date = (DateTime)datePicker.SelectedDate;
-                int hour = Convert.ToInt32(hourBox.Text);
-                int minute = Convert.ToInt32(minuteBox.Text);
-                examination.StartTime = new DateTime(date.Year, date.Month, date.Day, hour, minute, 0);
-                examination.RoomRecord = new RoomRecord();
-
-                foreach (RoomRecord room in Rooms)
-                {
-                    if (room.Id == examination.Doctor.Ordination)
-                    {
-                        examination.RoomRecord = room;
-                    }
-                }
-
-                if (isPatientAvailable(examination.Patient, examination.StartTime) && isDoctorAvailable(examination.StartTime))
-                {
-                    examinations.Add(examination);
-                    appointmentRepository.SaveToFile(examinations, "Appointments.json");
-                }
-                else if (!isDoctorAvailable(examination.StartTime))
-                {
-                    MessageBox.Show("Nije moguce zakazati pregled u zadatom terminu - lekar je zauzet!");
-                }
-                else if (!isPatientAvailable(examination.Patient, examination.StartTime))
-                {
-                    MessageBox.Show("Nije moguce zakazati pregled u zadatom terminu - pacijent je zauzet!");
-                }
-
-                DoctorWindow doctorWindow = new DoctorWindow();
-                doctorWindow.dataGridExaminations.Items.Refresh();
-                doctorWindow.Show();
-                this.Close();
-            }
+            DoctorWindow doctorWindow = new DoctorWindow();
+            doctorWindow.dataGridExaminations.Items.Refresh();
+            doctorWindow.Show();
+            this.Close();
 
         }
 
@@ -199,137 +101,34 @@ namespace IS_Bolnica.DoctorsWindows
             }
         }
 
-        private bool isPatientAvailable(Patient patient, DateTime dateAndTime)
-        {
-            examinations = appointmentRepository.LoadFromFile("Appointments.json");
-
-            foreach (Appointment examination in examinations)
-            {
-                if (examination.Patient.Id == patient.Id && examination.StartTime == dateAndTime)
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
-        private bool isDoctorAvailable(DateTime dateAndTime)
-        {
-            examinations = appointmentRepository.LoadFromFile("Appointments.json");
-
-            foreach (Appointment examination in examinations)
-            {
-                string drNameSurname = examination.Doctor.Name + ' ' + examination.Doctor.Surname;
-
-                if (drNameSurname.Equals(doctorsComboBox.SelectedItem.ToString()) && examination.StartTime.Equals(dateAndTime))
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
         private void specijalistiRadioBtn_Checked(object sender, RoutedEventArgs e)
         {
-            Specialization specialization = new Specialization();
-            List<string> specializatonNames = new List<string>();
-            specializations = specialization.getSpecializations();
-
-            foreach (Specialization spec in specializations)
-            {
-                specializatonNames.Add(spec.Name);
-            }
-
-            chooseSpecComboBox.ItemsSource = specializatonNames;
+            chooseSpecComboBox.ItemsSource = doctorService.getSpecializationNames();
         }
 
         private void opstaPraksaRadioBtn_Checked(object sender, RoutedEventArgs e)
         {
-            Doctors = doctorStorage.loadFromFile("Doctors.json");
-            string dr;
-
-            foreach (Doctor doctor in Doctors)
-            {
-                if (doctor.Specialization == null)
-                {
-                    dr = doctor.Name + ' ' + doctor.Surname;
-                    doctorNameAndSurname.Add(dr);
-                }
-            }
-
-            doctorsComboBox.ItemsSource = doctorNameAndSurname;
+            doctorsComboBox.ItemsSource = doctorService.getDoctorsNameSurname();
         }
 
         private void opstaPraksaRadioBtn_Unchecked(object sender, RoutedEventArgs e)
         {
-            Doctors = doctorStorage.loadFromFile("Doctors.json");
-            string dr;
-
-            foreach (Doctor doctor in Doctors)
-            {
-                if (doctor.Specialization == null)
-                {
-                    dr = doctor.Name + ' ' + doctor.Surname;
-                    doctorNameAndSurname.Remove(dr);
-                }
-            }
-
-            doctorsComboBox.ItemsSource = doctorNameAndSurname;
+            doctorsComboBox.ItemsSource = doctorService.removeDoctorsFromComboBox();
         }
 
         private void specijalistiRadioBtn_Unchecked(object sender, RoutedEventArgs e)
         {
-            Doctors = doctorStorage.loadFromFile("Doctors.json");
-            string dr;
-
-            foreach (Doctor doctor in Doctors)
-            {
-                if (doctor.Specialization != null)
-                {
-                    dr = doctor.Name + ' ' + doctor.Surname;
-                    specialistNameAndSurname.Remove(dr);
-                }
-            }
-
-            doctorsComboBox.ItemsSource = specialistNameAndSurname;
+            doctorsComboBox.ItemsSource = doctorService.removeSpecialistsFromComboBox();
         }
 
         private void showDoctorOrdination()
         {
-            Doctors = doctorStorage.loadFromFile("Doctors.json");
-            foreach (Doctor doctor in Doctors)
-            {
-                string drNameSurname = doctor.Name + ' ' + doctor.Surname;
-
-                if (drNameSurname.Equals(doctorsComboBox.SelectedItem.ToString()))
-                {
-                    roomTxt.Text = doctor.Ordination.ToString();
-                }
-            }
+            roomTxt.Text = doctorService.showDoctorsOrdination(doctorsComboBox.SelectedItem.ToString()).ToString();
         }
 
         private void showDoctors(string specializationName)
         {
-            Doctors = doctorStorage.loadFromFile("Doctors.json");
-            string dr;
-
-            foreach (Doctor doctor in Doctors)
-            {
-                if (doctor.Specialization.Name.Equals(specializationName))
-                {
-                    dr = doctor.Name + ' ' + doctor.Surname;
-                    specialistNameAndSurname.Add(dr);
-                }
-                else
-                {
-                    dr = doctor.Name + ' ' + doctor.Surname;
-                    specialistNameAndSurname.Remove(dr);
-                }
-            }
-
-            doctorsComboBox.ItemsSource = specialistNameAndSurname;
+            doctorsComboBox.ItemsSource = doctorService.setSpecialistsInComboBox(specializationName);
         }
 
         private void doctorsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -15,43 +15,25 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica.DoctorsWindows
 {
     public partial class AddOperationWindow : Window
     {
-        public List<RoomRecord> Rooms
-        {
-            get;
-            set;
-        }
-        public List<int> RoomId { get; set; } = new List<int>();
-        private RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
-        public List<Patient> Patients { get; set; } = new List<Patient>();
-        private PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
         public List<int> Hours { get; set; } = new List<int>();
-        private List<string> doctorNameAndSurname = new List<string>();
-        public List<Doctor> Doctors { get; set; }
-        private DoctorRepository doctorStorage = new DoctorRepository();
         private DateTime dateTime;
-        private AppointmentRepository appointmentRepository = new AppointmentRepository();
         private Appointment appointment = new Appointment();
         public List<Appointment> Appointments { get; set; }
+        private AppointmentService appointmentService = new AppointmentService();
+        private DoctorService doctorService = new DoctorService();
+        private RoomService roomService = new RoomService();
+        private PatientService patientService = new PatientService();
         public AddOperationWindow()
         {
             InitializeComponent();
 
-            Rooms = roomStorage.loadFromFile("Sobe.json");
-
-            foreach (RoomRecord room in Rooms)
-            {
-                if (room.roomPurpose.Name.Equals("Operaciona sala"))
-                {
-                    RoomId.Add(room.Id);
-                }
-            }
-
-            roomComboBox.ItemsSource = RoomId;
+            roomComboBox.ItemsSource = roomService.getOperationRoomsId();
 
             for (int i = 7; i < 20; i++)
             {
@@ -65,19 +47,7 @@ namespace IS_Bolnica.DoctorsWindows
             Minutes.Add(30);
             minuteBox.ItemsSource = Minutes;
 
-            Doctors = doctorStorage.loadFromFile("Doctors.json");
-            string dr;
-
-            foreach (Doctor doctor in Doctors)
-            {
-                if (doctor.Specialization != null)
-                {
-                    dr = doctor.Name + ' ' + doctor.Surname;
-                    doctorNameAndSurname.Add(dr);
-                }
-            }
-
-            doctorsComboBox.ItemsSource = doctorNameAndSurname;
+            doctorsComboBox.ItemsSource = doctorService.getSpecialistsNameSurname();
         }
 
         private void cancelButtonClicked(object sender, RoutedEventArgs e)
@@ -100,164 +70,65 @@ namespace IS_Bolnica.DoctorsWindows
 
         private void saveButtonClicked(object sender, RoutedEventArgs e)
         {
-            Appointments = appointmentRepository.LoadFromFile("Appointments.json");
-            Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
-            Doctors = doctorStorage.loadFromFile("Doctors.json");
-
-            string[] patientNameAndSurname = patientTxt.Text.Split(' ');
-            int cnt = 0;
-
-            foreach (Doctor doctor in Doctors)
+            appointment.Doctor = doctorService.findDoctorByName(doctorsComboBox.SelectedItem.ToString());
+            appointment.Patient = patientService.findPatientById(jmbgTxt.Text);
+            appointment.RoomRecord = new RoomRecord();
+            foreach (RoomRecord room in roomService.GetRooms())
             {
-                string drNameSurname = doctor.Name + ' ' + doctor.Surname;
-
-                if (drNameSurname.Equals(doctorsComboBox.SelectedItem.ToString()))
+                if (room.Id == Convert.ToInt32(roomComboBox.SelectedItem))
                 {
-                    appointment.Doctor = doctor;
+                    appointment.RoomRecord = room;
                 }
             }
 
-            foreach (Patient patient in Patients)
+            if (urgentRadioBtn.IsChecked == true)
             {
-                if (patient.Id.Equals(jmbgTxt.Text))
-                {
-                    appointment.Patient = patient;
-                    cnt++;
-                }
-            }
-
-            if ((patientNameAndSurname[0] != appointment.Patient.Name) || (patientNameAndSurname[1] != appointment.Patient.Surname))
-            {
-                MessageBox.Show("Pogresno ime ili prezime!");
-            }
-            else if (cnt == 0)
-            {
-                MessageBox.Show("Pacijent sa unetim JMBG-om ne postoji!");
+                appointment.IsUrgent = true;
             }
             else
             {
-                appointment.RoomRecord = new RoomRecord();
+                appointment.IsUrgent = false;
+            }
 
-                foreach (RoomRecord room in Rooms)
+            DateTime date = new DateTime();
+            date = (DateTime) datePicker.SelectedDate;
+            int hour = Convert.ToInt32(hourBox.Text);
+            int minute = Convert.ToInt32(minuteBox.Text);
+            dateTime = new DateTime(date.Year, date.Month, date.Day, hour, minute, 0);
+            appointment.AppointmentType = AppointmentType.operation;
+
+            if (urgentRadioBtn.IsChecked == true)
+            {
+                foreach (Appointment a in Appointments)
                 {
-                    if (room.Id == Convert.ToInt32(roomComboBox.SelectedItem))
+                    if (dateTime == a.StartTime && a.AppointmentType == AppointmentType.operation)
                     {
-                        appointment.RoomRecord = room;
+                        a.StartTime = a.StartTime.AddDays(1);
+                        break;
                     }
                 }
 
-                if (urgentRadioBtn.IsChecked == true)
-                {
-                    appointment.IsUrgent = true;
-                }
-                else
-                {
-                    appointment.IsUrgent = false;
-                }
-
-                DateTime date = new DateTime();
-                date = (DateTime)datePicker.SelectedDate;
-                int hour = Convert.ToInt32(hourBox.Text);
-                int minute = Convert.ToInt32(minuteBox.Text);
-                dateTime = new DateTime(date.Year, date.Month, date.Day, hour, minute, 0);
-                appointment.AppointmentType = AppointmentType.operation;
-
-                if (urgentRadioBtn.IsChecked == true)
-                {
-                    foreach (Appointment a in Appointments)
-                    {
-                        if (dateTime == a.StartTime && a.AppointmentType == AppointmentType.operation)
-                        {
-                            a.StartTime = a.StartTime.AddDays(1);
-                            break;
-                        }
-                    }
-                    appointment.StartTime = dateTime;
-
-                }
-                else
-                {
-                    appointment.StartTime = dateTime;
-                }
-
-                if (isRoomAvailable(appointment.RoomRecord, appointment.StartTime) && isDoctorAvailable(appointment.Doctor, appointment.StartTime)                  
-                    && isPatientAvailable(appointment.Patient, appointment.StartTime))
-                {
-                    Appointments.Add(appointment);
-                    appointmentRepository.SaveToFile(Appointments, "Appointments.json");
-                }
-                else
-                {
-                    MessageBox.Show("Nije moguce zakazati operaciju u zadatom terminu!");
-                }
-
-                DoctorWindow doctorWindow = new DoctorWindow();
-                doctorWindow.tabs.SelectedItem = doctorWindow.operationsTab;
-                doctorWindow.dataGridOperations.Items.Refresh();
-                doctorWindow.Show();
-
-                this.Close();
+                appointment.StartTime = dateTime;
             }
-
-        }
-
-        private bool isRoomAvailable(RoomRecord room, DateTime dateAndTime)
-        {
-            Appointments = appointmentRepository.LoadFromFile("Appointments.json");
-
-            foreach (Appointment appointment in Appointments)
+            else
             {
-                if (appointment.StartTime == dateAndTime && appointment.RoomRecord.Id == room.Id && urgentRadioBtn.IsChecked == false)
-                {
-                    return false;
-                }
+                appointment.StartTime = dateTime;
             }
 
-            return true;
-        }
+            appointmentService.scheduleAppointment(appointment);
 
-        private bool isDoctorAvailable(Doctor doctor, DateTime dateAndTime)
-        {
-            Appointments = appointmentRepository.LoadFromFile("Appointments.json");
+            DoctorWindow doctorWindow = new DoctorWindow();
+            doctorWindow.tabs.SelectedItem = doctorWindow.operationsTab;
+            doctorWindow.dataGridOperations.Items.Refresh();
+            doctorWindow.Show();
 
-            foreach (Appointment appointment in Appointments)
-            {
-                string drNameSurname = doctor.Name + ' ' + doctor.Surname;
-                if (drNameSurname.Equals(doctorsComboBox.SelectedItem.ToString()) &&
-                    appointment.StartTime.Equals(dateAndTime) && urgentRadioBtn.IsChecked == false)
-                {
-                    return false;
-                }
-            }
+            this.Close();
 
-            return true;
-        }
-
-        private bool isPatientAvailable(Patient patient, DateTime dateAndTime)
-        {
-            Appointments = appointmentRepository.LoadFromFile("Appointments.json");
-            foreach (Appointment appointment in Appointments)
-            {
-                if (appointment.Patient.Id == patient.Id && appointment.StartTime == dateAndTime && urgentRadioBtn.IsChecked == false)
-                {
-                    return false;
-                }
-            }
-
-            return true;
         }
 
         private void jmbgTxt_LostFocus(object sender, RoutedEventArgs e)
         {
-            Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
-
-            foreach (Patient patient in Patients)
-            {
-                if (jmbgTxt.Text.Equals(patient.Id))
-                {
-                    healthCardNumberTxt.Text = patient.HealthCardNumber;
-                }
-            }
+            healthCardNumberTxt.Text = patientService.findPatientById(jmbgTxt.Text).HealthCardNumber;
         }
     }
 }
