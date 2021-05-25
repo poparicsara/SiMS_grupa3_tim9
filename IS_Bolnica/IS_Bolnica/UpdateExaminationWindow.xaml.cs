@@ -27,7 +27,7 @@ namespace IS_Bolnica.DoctorsWindows
             set;
         }
         public List<int> RoomId { get; set; } = new List<int>();
-        private RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+        private RoomRepository roomStorage = new RoomRepository();
         public List<int> Hours { get; set; } = new List<int>();
         public List<Doctor> Doctors { get; set; }
         private DoctorRepository doctorStorage = new DoctorRepository();
@@ -99,7 +99,7 @@ namespace IS_Bolnica.DoctorsWindows
             examinations = examinationStorage.loadFromFile("examinations.json");
 
             List<Patient> Patients = new List<Patient>();
-            PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
+            PatientRepository patientStorage = new PatientRepository();
 
             for (int i = 0; i < examinations.Count; i++)
             {
@@ -109,7 +109,7 @@ namespace IS_Bolnica.DoctorsWindows
                 }
             }
 
-            Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
+            Patients = patientStorage.LoadFromFile("PatientRecordFileStorage.json");
             Doctors = doctorStorage.loadFromFile("Doctors.json");
             int cnt = 0;
             string[] patientNameAndSurname = patientTxt.Text.Split(' ');

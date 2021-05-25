@@ -22,7 +22,7 @@ namespace IS_Bolnica
 {
     public partial class DoctorWindow : Window
     {
-        private UsersFileStorage storage = new UsersFileStorage();
+        private UserRepository storage = new UserRepository();
         private List<User> loggedUsers = new List<User>();
         private User loggedUser;
         private List<Examination> loggedDoctorExaminations = new List<Examination>();
@@ -42,7 +42,7 @@ namespace IS_Bolnica
             List<Examination> examinations = examinationStorage.loadFromFile("examinations.json");
             loggedDoctorExaminations = new List<Examination>();
             loggedDoctorOperations = new List<Operation>();
-            loggedUsers = storage.loadFromFile("loggedUsers.json");
+            loggedUsers = storage.LoadFromFile("loggedUsers.json");
 
             foreach (Examination examination in examinations)
             {
@@ -181,7 +181,7 @@ namespace IS_Bolnica
         private void logOutButtonClicked(object sender, RoutedEventArgs e)
         {
             List<User> users = new List<User>();
-            users = storage.loadFromFile("loggedUsers.json");
+            users = storage.LoadFromFile("loggedUsers.json");
 
             for (int i = 0; i < users.Count; i++)
             {
@@ -190,7 +190,7 @@ namespace IS_Bolnica
                     users.RemoveAt(i);
                 }
             }
-            storage.saveToFile(users, "loggedUsers.json");
+            storage.SaveToFile(users, "loggedUsers.json");
 
             MainWindow mainWindow = new MainWindow();
             this.Close();
@@ -206,7 +206,7 @@ namespace IS_Bolnica
         //private void ClosingWindow(object sender, CancelEventArgs e)
         //{
         //    List<User> users = new List<User>();
-        //    users = storage.loadFromFile("loggedUsers.json");
+        //    users = storage.LoadFromFile("loggedUsers.json");
 
         //    for (int i = 0; i < users.Count; i++)
         //    {
@@ -215,7 +215,7 @@ namespace IS_Bolnica
         //            users.RemoveAt(i);
         //        }
         //    }
-        //    storage.saveToFile(users, "loggedUsers.json");
+        //    storage.SaveToFile(users, "loggedUsers.json");
         //}
 
         private void medicationButtonClicked(object sender, RoutedEventArgs e)

@@ -11,7 +11,7 @@ namespace Model
             if (room < 0)
                 return;
 
-            RoomRecordFileStorage storage = new RoomRecordFileStorage();
+            RoomRepository storage = new RoomRepository();
             List<RoomRecord> rooms = storage.loadFromFile("Sobe.json");
             rooms.RemoveAt(room);
             storage.saveToFile(rooms, "Sobe.json");

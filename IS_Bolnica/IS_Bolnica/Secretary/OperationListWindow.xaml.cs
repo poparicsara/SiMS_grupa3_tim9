@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Model;
 
 namespace IS_Bolnica.Secretary
 {
@@ -22,10 +23,14 @@ namespace IS_Bolnica.Secretary
     /// </summary>
     public partial class OperationListWindow : Window, INotifyPropertyChanged
     {
-        private List<Operation> Operations { get; set; } = new List<Operation>();
         private OperationsFileStorage operationsFileStorage = new OperationsFileStorage();
         private Operation operation = new Operation();
-     
+
+        private Appointment appointment = new Appointment();
+        private List<Appointment> appointments = new List<Appointment>();
+        private List<Appointment> operations = new List<Appointment>();
+        private AppointmentRepository appointmentRepository = new AppointmentRepository();
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -38,8 +43,23 @@ namespace IS_Bolnica.Secretary
             InitializeComponent();
             this.DataContext = this;
 
-            Operations = operationsFileStorage.loadFromFile("operations.json");
-            OperationList.ItemsSource = Operations;
+            OperationList.ItemsSource = getOperations();
+
+        }
+
+        private List<Appointment> getOperations()
+        {
+            appointments = appointmentRepository.LoadFromFile("Appointments.json");
+            foreach (var appointment in appointments)
+            {
+                if (appointment.AppointmentType == AppointmentType.operation)
+                {
+                    operations.Add(appointment);
+                }
+            }
+
+            return operations;
+
 
         }
 
@@ -50,20 +70,34 @@ namespace IS_Bolnica.Secretary
             this.Close();
         }
 
+        private bool isSelected(int i)
+        {
+            if (i == -1)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         private void editOperation(object sender, RoutedEventArgs e)
         {
             int i = OperationList.SelectedIndex;
 
-            operation = (Operation)OperationList.SelectedItem;
+            //operation = (Operation)OperationList.SelectedItem;
+            appointment = (Appointment) OperationList.SelectedItem;
+            
 
-            if(i == -1)
+            if(!isSelected(i))
             {
                 MessageBox.Show("Niste izabrali operaciju koju želite da izmenite!");
             }
             else
             {
-                Secretary.EditOperationWindow eow = new Secretary.EditOperationWindow(operation);
-                setElementsEOW(eow, operation);
+                Secretary.EditOperationWindow eow = new Secretary.EditOperationWindow(appointment);
+                setElementsEOW(eow, appointment);
 
                 eow.Show();
                 this.Close();
@@ -71,16 +105,16 @@ namespace IS_Bolnica.Secretary
       
         }
 
-        private void setElementsEOW(EditOperationWindow eow, Operation operation)
+        private void setElementsEOW(EditOperationWindow eow, Appointment appointment)
         {
-            eow.patientId.Text = operation.Patient.Id;
-            eow.hourBoxStart.Text = operation.Date.Hour.ToString();
-            eow.minutesBoxStart.Text = operation.Date.Minute.ToString();
-            eow.doctorBox.Text = operation.doctor.Name + " " + operation.doctor.Surname;
-            eow.date.SelectedDate = new DateTime(operation.Date.Year, operation.Date.Month, operation.Date.Day);
-            eow.room.Text = operation.RoomRecord.Id.ToString();
-            int hours = operation.DurationInMins / 60;
-            int mins = operation.DurationInMins % 60;
+            eow.patientId.Text = appointment.Patient.Id;
+            eow.hourBoxStart.Text = appointment.StartTime.Hour.ToString();
+            eow.minutesBoxStart.Text = appointment.StartTime.Minute.ToString();
+            eow.doctorBox.Text = appointment.Doctor.Name + " " + appointment.Doctor.Surname;
+            eow.date.SelectedDate = new DateTime(appointment.StartTime.Year, appointment.StartTime.Month, appointment.StartTime.Day);
+            eow.room.Text = appointment.RoomRecord.Id.ToString();
+            int hours = appointment.DurationInMins / 60;
+            int mins = appointment.DurationInMins % 60;
             eow.hourBoxEnd.Text = hours.ToString();
             eow.minuteBoxEnd.Text = mins.ToString();
         }
@@ -89,9 +123,10 @@ namespace IS_Bolnica.Secretary
         {
             int i = OperationList.SelectedIndex;
 
-            operation = (Operation)OperationList.SelectedItem;
+            //operation = (Operation)OperationList.SelectedItem;
+            appointment = (Appointment) OperationList.SelectedItem;
 
-            if(i == -1)
+            if(!isSelected(i))
             {
                 MessageBox.Show("Niste izabrali operaciju koju želita da obrišete!");
             }
@@ -101,8 +136,8 @@ namespace IS_Bolnica.Secretary
                 switch(result)
                 {
                     case MessageBoxResult.Yes:
-                        Operations = removeOperation(operation);
-                        operationsFileStorage.saveToFile(Operations, "operations.json");
+                        appointments = removeOperation(appointment);
+                        appointmentRepository.SaveToFile(appointments, "Appointments.json");
                         this.Close();
                         Secretary.OperationListWindow olw = new Secretary.OperationListWindow();
                         olw.Show();
@@ -113,18 +148,18 @@ namespace IS_Bolnica.Secretary
             }
         }
 
-        private List<Operation> removeOperation(Operation operation)
+        private List<Appointment> removeOperation(Appointment appointment)
         {
-            Operations = operationsFileStorage.loadFromFile("operations.json");
-            for (int k = 0; k < Operations.Count; k++)
+            appointments = appointmentRepository.LoadFromFile("Appointments");
+            for (int k = 0; k < appointments.Count; k++)
             {
-                if (Operations[k].Date.Equals(operation.Date) &&
-                    Operations[k].Patient.Id.Equals(operation.Patient.Id))
+                if (appointments[k].StartTime.Equals(appointment.StartTime) &&
+                    appointments[k].Patient.Id.Equals(appointment.Patient.Id))
                 {
-                    Operations.RemoveAt(k);
+                    appointments.RemoveAt(k);
                 }
             }
-            return Operations;
+            return appointments;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

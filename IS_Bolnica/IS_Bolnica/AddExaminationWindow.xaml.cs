@@ -25,12 +25,12 @@ namespace IS_Bolnica.DoctorsWindows
             set;
         }
         public List<int> RoomId { get; set; } = new List<int>();
-        private RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+        private RoomRepository roomStorage = new RoomRepository();
         private Examination examination = new Examination();
         private ExaminationsRecordFileStorage examinationStorage = new ExaminationsRecordFileStorage();
         public List<Examination> Examinations { get; set; } = new List<Examination>();
         public List<Patient> Patients { get; set; } = new List<Patient>();
-        private PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
+        private PatientRepository patientStorage = new PatientRepository();
         public List<int> Hours { get; set; } = new List<int>();
         public List<Doctor> Doctors { get; set; }
         private DoctorRepository doctorStorage = new DoctorRepository();
@@ -86,7 +86,7 @@ namespace IS_Bolnica.DoctorsWindows
         private void saveButtonClicked(object sender, RoutedEventArgs e)
         {
             Examinations = examinationStorage.loadFromFile("examinations.json");
-            Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
+            Patients = patientStorage.LoadFromFile("PatientRecordFileStorage.json");
             Doctors = doctorStorage.loadFromFile("Doctors.json");
 
             int cnt = 0;
@@ -261,7 +261,7 @@ namespace IS_Bolnica.DoctorsWindows
 
         private void jmbgTxt_LostFocus(object sender, RoutedEventArgs e)
         {
-            Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
+            Patients = patientStorage.LoadFromFile("PatientRecordFileStorage.json");
 
             foreach (Patient patient in Patients)
             {

@@ -14,14 +14,14 @@ namespace IS_Bolnica.Secretary
         public List<String> Specializations { get; set; } = new List<String>();
         private List<Specialization> specializations;
         private Operation operation;
-        private PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
+        private PatientRepository patientStorage = new PatientRepository();
         private List<Patient> patients = new List<Patient>();
         private Patient patient = new Patient();
         private GuestUsersFileStorage guestStorage = new GuestUsersFileStorage();
         private List<GuestUser> guestUsers = new List<GuestUser>();
         private GuestUser guestUser = new GuestUser();
         private List<RoomRecord> Rooms = new List<RoomRecord>();
-        private RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+        private RoomRepository roomStorage = new RoomRepository();
         private List<int> RoomNums = new List<int>();
 
         public AddUrgentOperationWindow()
@@ -36,7 +36,7 @@ namespace IS_Bolnica.Secretary
 
             setSpecializationsBox();
 
-            //Rooms = roomStorage.loadFromFile("Sobe.json");
+            //Rooms = roomStorage.LoadFromFile("Sobe.json");
             //for (int i = 0; i < Rooms.Count; i++)
             //{
             //    if (Rooms[i].roomPurpose.Name == "Operaciona sala")
@@ -83,7 +83,7 @@ namespace IS_Bolnica.Secretary
         private Patient findPatient(string id)
         {
             Patient patien = new Patient();
-            patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
+            patients = patientStorage.LoadFromFile("PatientRecordFileStorage.json");
 
             foreach (Patient pat in patients)
             {

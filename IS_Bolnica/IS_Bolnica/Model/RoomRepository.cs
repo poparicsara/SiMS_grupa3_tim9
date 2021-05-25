@@ -7,11 +7,11 @@ using System.IO;
 
 namespace Model
 {
-    public class RoomRecordFileStorage
+    public class RoomRepository
     {
         private List<RoomRecord> rooms;
 
-        public RoomRecordFileStorage()
+        public RoomRepository()
         {
 
         }

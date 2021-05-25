@@ -10,20 +10,20 @@ using System.Threading.Tasks;
 
 namespace IS_Bolnica.Model
 {
-    class UsersFileStorage
+    class UserRepository
     {
         public List<User> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public void saveToFile(List<User> users, string fileName)
+        public void SaveToFile(List<User> users, string fileName)
         {
             string jsonString = JsonConvert.SerializeObject(users, Formatting.Indented);
             File.WriteAllText(fileName, jsonString);
         }
 
-        public List<User> loadFromFile(string fileName)
+        public List<User> LoadFromFile(string fileName)
         {
             var usersList = new List<User>();
 

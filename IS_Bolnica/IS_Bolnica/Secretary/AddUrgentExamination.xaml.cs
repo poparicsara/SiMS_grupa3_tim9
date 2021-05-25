@@ -23,7 +23,7 @@ namespace IS_Bolnica.Secretary
         private Specialization specialization = new Specialization();
         public List<String> Specializations { get; set; } = new List<String>();
         private Examination examination;
-        private PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
+        private PatientRepository patientStorage = new PatientRepository();
         private List<Patient> patients = new List<Patient>();
         private Patient patient = new Patient();
         private GuestUsersFileStorage guestStorage = new GuestUsersFileStorage();
@@ -71,7 +71,7 @@ namespace IS_Bolnica.Secretary
         private Patient findPatient(string id)
         {
             Patient patien = new Patient();
-            patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
+            patients = patientStorage.LoadFromFile("PatientRecordFileStorage.json");
 
             foreach (Patient pat in patients)
             {

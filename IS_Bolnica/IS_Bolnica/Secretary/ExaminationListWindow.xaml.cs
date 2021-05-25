@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using IS_Bolnica.Model;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica.Secretary
 {
@@ -22,14 +23,8 @@ namespace IS_Bolnica.Secretary
     /// </summary>
     public partial class ExaminationListWindow : Window, INotifyPropertyChanged
     {
-        public List<Examination> Pregledi { get; set; }
-        ExaminationsRecordFileStorage examinationFileStorage = new ExaminationsRecordFileStorage();
-        private Examination examination =  new Examination();
-
         private Appointment appointment = new Appointment();
-        private List<Appointment> appointments = new List<Appointment>();
-        private AppointmentRepository appointmentRepository = new AppointmentRepository();
-
+        private AppointmentService appointmentService = new AppointmentService();
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -42,7 +37,8 @@ namespace IS_Bolnica.Secretary
             InitializeComponent();
             this.DataContext = this;
 
-            Pregledi = examinationFileStorage.loadFromFile("Pregledi.json");
+            
+            ExaminationList.ItemsSource = appointmentService.getExaminations();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -104,8 +100,6 @@ namespace IS_Bolnica.Secretary
         private void deleteExamination(object sender, RoutedEventArgs e)
         {
             int i = ExaminationList.SelectedIndex;
-
-            examination = (Examination)ExaminationList.SelectedItem;
             appointment = (Appointment) ExaminationList.SelectedItem;
             
 
@@ -119,9 +113,7 @@ namespace IS_Bolnica.Secretary
                 switch(result)
                 {
                     case MessageBoxResult.Yes:
-                        appointments = removeExamination(appointment);
-                        appointmentRepository.SaveToFile(appointments, "Appointments.json");
-                        //examinationFileStorage.saveToFile(Pregledi, "Pregledi.json");
+                        appointmentService.DeleteAppointment(appointment);
                         this.Close();
                         Secretary.ExaminationListWindow elw = new Secretary.ExaminationListWindow();
                         elw.Show();
@@ -133,21 +125,6 @@ namespace IS_Bolnica.Secretary
             }
         }
 
-        private List<Appointment> removeExamination(Appointment appointment)
-        {
-            appointments = appointmentRepository.LoadFromFile("Appointments.json");
-            for (int k = 0; k < appointments.Count; k++)
-            {
-                if (appointments[k].StartTime.Equals(appointment.StartTime) &&
-                    appointments[k].Patient.Id.Equals(appointment.Patient.Id))
-                {
-                    appointments.RemoveAt(k);
-                }
-            }
-
-            return appointments;
-        }
-
-
+        
     }
 }

@@ -32,7 +32,7 @@ namespace IS_Bolnica
 
             selectedInventory = selected;
 
-            RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+            RoomRepository roomStorage = new RoomRepository();
             rooms = roomStorage.loadFromFile("Sobe.json");
 
             SearchAllRooms();

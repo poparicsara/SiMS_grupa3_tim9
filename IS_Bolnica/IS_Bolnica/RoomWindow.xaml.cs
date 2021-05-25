@@ -24,7 +24,7 @@ namespace IS_Bolnica
     {
         private List<RoomRecord> rooms = new List<RoomRecord>();
         private RoomRecord selectedRoom;
-        private RoomRecordFileStorage storage = new RoomRecordFileStorage();
+        private RoomRepository storage = new RoomRepository();
         private RoomService service = new RoomService();
 
         public RoomWindow(Director director)
@@ -84,7 +84,7 @@ namespace IS_Bolnica
 
         public void RefreshRoomDataGrid()
         {
-            //roomDataGrid.ItemsSource = storage.loadFromFile("Sobe.json");
+            //roomDataGrid.ItemsSource = storage.LoadFromFile("Sobe.json");
             roomDataGrid.ItemsSource = service.GetRooms();
         }
 

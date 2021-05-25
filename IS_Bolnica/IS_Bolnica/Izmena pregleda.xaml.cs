@@ -56,8 +56,8 @@ namespace IS_Bolnica
 
         private void nabaviDoktore()
         {
-            UsersFileStorage userStorage = new UsersFileStorage();
-            List<User> users = userStorage.loadFromFile("UsersFileStorage.json");
+            UserRepository userStorage = new UserRepository();
+            List<User> users = userStorage.LoadFromFile("UserRepository.json");
             doktori = new List<String>();
 
             foreach (User user in users)

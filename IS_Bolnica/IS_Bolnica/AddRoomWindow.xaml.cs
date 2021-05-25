@@ -74,7 +74,7 @@ namespace IS_Bolnica
 
         private void Save()
         {
-            RoomRecordFileStorage storage = new RoomRecordFileStorage();
+            RoomRepository storage = new RoomRepository();
             storage.AddRoom(newRoom);
             
         }

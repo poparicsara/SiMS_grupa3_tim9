@@ -12,9 +12,9 @@ namespace IS_Bolnica
 {
     public partial class SekretarWindow : Window, INotifyPropertyChanged
     {
-        private PatientRecordFileStorage storage = new PatientRecordFileStorage();
+        private PatientRepository storage = new PatientRepository();
         private GuestUsersFileStorage storage1 = new GuestUsersFileStorage();
-        private UsersFileStorage usersStorage = new UsersFileStorage();
+        private UserRepository usersStorage = new UserRepository();
         private Patient pacijent;
         private GuestUser guestKorisnik;
 
@@ -36,7 +36,7 @@ namespace IS_Bolnica
             this.DataContext = this;
 
             Pacijenti = new List<Patient>();
-            Pacijenti = storage.loadFromFile("PatientRecordFileStorage.json");
+            Pacijenti = storage.LoadFromFile("PatientRecordFileStorage.json");
 
             guestKorisnik = new GuestUser
             {
