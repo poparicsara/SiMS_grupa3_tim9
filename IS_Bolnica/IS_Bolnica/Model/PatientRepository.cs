@@ -6,7 +6,7 @@ using System.Collections.ObjectModel;
 
 namespace Model
 {
-    public class PatientRecordFileStorage
+    public class PatientRepository
     {
 
         public List<Patient> GetAll()
@@ -14,7 +14,7 @@ namespace Model
             throw new NotImplementedException();
         }
 
-        public void saveToFile(List<Patient> patients, string fileName)
+        public void SaveToFile(List<Patient> patients, string fileName)
         {
             string jsonString = JsonConvert.SerializeObject(patients, Formatting.Indented);
             File.WriteAllText(fileName, jsonString);
@@ -26,7 +26,7 @@ namespace Model
             File.WriteAllText(fileName, jsonString);
         }
 
-        public List<Patient> loadFromFile(string fileName)
+        public List<Patient> LoadFromFile(string fileName)
         {
             var patientsList = new List<Patient>();
 

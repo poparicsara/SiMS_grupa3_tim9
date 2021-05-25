@@ -28,7 +28,7 @@ namespace IS_Bolnica.Secretary
         private List<Doctor> doctors = new List<Doctor>();
         private DoctorRepository doctorRepository = new DoctorRepository();
         private List<RoomRecord> rooms = new List<RoomRecord>();
-        private RoomRecordFileStorage roomFileStorage = new RoomRecordFileStorage();
+        private RoomRepository roomFileStorage = new RoomRepository();
         private Examination examination = new Examination();
         private List<Examination> examinations = new List<Examination>();
         private ExaminationsRecordFileStorage examinationsFileStorage = new ExaminationsRecordFileStorage();

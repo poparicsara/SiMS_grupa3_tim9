@@ -23,7 +23,7 @@ namespace IS_Bolnica.Secretary
         private NotificationRepository storage = new NotificationRepository();
         private List<Notification> notifications = new List<Notification>();
         private List<User> users = new List<User>();
-        private UsersFileStorage usersFileStorage = new UsersFileStorage();
+        private UserRepository userRepository = new UserRepository();
         private List<string> userList = new List<string>();
 
         public AddNotificationWindow()
@@ -151,7 +151,7 @@ namespace IS_Bolnica.Secretary
 
         private bool isUserValid(string id)
         {
-            users = usersFileStorage.loadFromFile("UsersFileStorage.json");
+            users = userRepository.LoadFromFile("UserRepository.json");
             foreach(User u in users)
             {
                 if(u.Id.Equals(id))

@@ -10,7 +10,7 @@ namespace IS_Bolnica.Services
     class RoomService
     {
         private List<RoomRecord> rooms = new List<RoomRecord>();
-        private RoomRecordFileStorage storage = new RoomRecordFileStorage();
+        private RoomRepository storage = new RoomRepository();
 
         public RoomService()
         {

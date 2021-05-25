@@ -33,7 +33,7 @@ namespace IS_Bolnica
         private string selectedDate;
         private int selectedHour;
         private int selectedMinute;
-        private RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+        private RoomRepository roomStorage = new RoomRepository();
         private Inventory inventoryFrom = new Inventory();
         private Inventory inventoryTo = new Inventory();
         private Thread thread;

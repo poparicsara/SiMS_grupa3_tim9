@@ -23,7 +23,7 @@ namespace Model
 
         public void AddInventory(Inventory newInventory)
         {
-            RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+            RoomRepository roomStorage = new RoomRepository();
             List<RoomRecord> rooms = roomStorage.loadFromFile("Sobe.json");
             AddInMagacin(newInventory, rooms);
             roomStorage.saveToFile(rooms, "Sobe.json");
@@ -42,14 +42,14 @@ namespace Model
 
         public void DeleteInventory(Inventory selected)
         {
-            RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+            RoomRepository roomStorage = new RoomRepository();
             List<RoomRecord> rooms = GetRooms(roomStorage);
             RoomRecord magacin = GetMagacin(rooms);
             magacin.inventory.RemoveAt(GetIndexOfInventory(selected, magacin));
             roomStorage.saveToFile(rooms, "Sobe.json");
         }
 
-        private List<RoomRecord> GetRooms(RoomRecordFileStorage storage)
+        private List<RoomRecord> GetRooms(RoomRepository storage)
         {
             List<RoomRecord> rooms = storage.loadFromFile("Sobe.json");
             return rooms;
@@ -83,7 +83,7 @@ namespace Model
 
         public void EditInventory(Inventory oldInventory, Inventory newInventory)
         {
-            RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+            RoomRepository roomStorage = new RoomRepository();
             List<RoomRecord> rooms = GetRooms(roomStorage);
             RoomRecord magacin = GetMagacin(rooms);
             int index = GetIndexOfInventory(oldInventory, magacin);
@@ -94,7 +94,7 @@ namespace Model
 
         public void AddInventoryInRoom(RoomRecord room, Inventory newInventory)
         {
-            RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+            RoomRepository roomStorage = new RoomRepository();
             List<RoomRecord> rooms = roomStorage.loadFromFile("Sobe.json");
             newInventory.CurrentAmount = 0;
             room.inventory.Add(newInventory);

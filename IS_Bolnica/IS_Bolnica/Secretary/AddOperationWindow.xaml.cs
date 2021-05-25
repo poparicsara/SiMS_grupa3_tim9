@@ -25,12 +25,12 @@ namespace IS_Bolnica.Secretary
             set;
         }
         public List<int> RoomNums { get; set; } = new List<int>();
-        private RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+        private RoomRepository roomStorage = new RoomRepository();
         private Operation operation = new Operation();
         private List<Operation> Operations = new List<Operation>();
         private OperationsFileStorage operationStorage = new OperationsFileStorage();
         private List<Patient> Patients = new List<Patient>();
-        private PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
+        private PatientRepository patientStorage = new PatientRepository();
         private DoctorRepository doctorRepository = new DoctorRepository();
         private List<Doctor> doctors = new List<Doctor>();
         private List<string> DocNames = new List<string>();
@@ -218,7 +218,7 @@ namespace IS_Bolnica.Secretary
 
         private Patient findPatient(string patientsId)
         {
-            Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
+            Patients = patientStorage.LoadFromFile("PatientRecordFileStorage.json");
             for (int i = 0; i < Patients.Count; i++)
             {
                 if (Patients[i].Id.Equals(idPatientBox.Text))
@@ -246,7 +246,7 @@ namespace IS_Bolnica.Secretary
         private void addOperation(object sender, RoutedEventArgs e)
         {
             Operations = operationStorage.loadFromFile("operations.json");
-            Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
+            Patients = patientStorage.LoadFromFile("PatientRecordFileStorage.json");
 
             appointments = appointmentRepository.LoadFromFile("Appointments.json");
 
@@ -297,7 +297,7 @@ namespace IS_Bolnica.Secretary
                 appointment.EndTime = appointment.StartTime.AddMinutes(appointment.DurationInMins);
                 appointment.AppointmentType = AppointmentType.operation;
 
-                /*examinations = examinationsFileStorage.loadFromFile("Pregledi.json");
+                /*examinations = examinationsFileStorage.LoadFromFile("Pregledi.json");
                 examination.Date = operation.Date;
                 examination.DurationInMinutes = operation.DurationInMins;
                 examination.Patient = operation.Patient;

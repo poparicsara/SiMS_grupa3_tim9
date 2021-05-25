@@ -157,7 +157,7 @@
     <Compile Include="Model\RequestFileStorage.cs" />
     <Compile Include="Model\TherapiesFileStorage.cs" />
     <Compile Include="Model\Therapy.cs" />
-    <Compile Include="Model\UsersFileStorage.cs" />
+    <Compile Include="Model\UserRepository.cs" />
     <Compile Include="Model\UserType.cs" />
     <Compile Include="AddRoomWindow.xaml.cs">
       <DependentUpon>AddRoomWindow.xaml</DependentUpon>
@@ -318,7 +318,12 @@
     <Compile Include="SelectedRequest.xaml.cs">
       <DependentUpon>SelectedRequest.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Services\AppointmentService.cs" />
+    <Compile Include="Services\FindAttributesService.cs" />
+    <Compile Include="Services\DoctorService.cs" />
+    <Compile Include="Services\PatientService.cs" />
     <Compile Include="Services\RoomService.cs" />
+    <Compile Include="Services\UserService.cs" />
     <Compile Include="UpdateExaminationWindow.xaml.cs">
       <DependentUpon>UpdateExaminationWindow.xaml</DependentUpon>
     </Compile>
@@ -697,10 +702,10 @@
     <Compile Include="Model\Operation.cs" />
     <Compile Include="Model\OperationsFileStorage.cs" />
     <Compile Include="Model\Patient.cs" />
-    <Compile Include="Model\PatientRecordFileStorage.cs" />
+    <Compile Include="Model\PatientRepository.cs" />
     <Compile Include="Model\RoomPurpose.cs" />
     <Compile Include="Model\RoomRecord.cs" />
-    <Compile Include="Model\RoomRecordFileStorage.cs" />
+    <Compile Include="Model\RoomRepository.cs" />
     <Compile Include="Model\Secretary.cs" />
     <Compile Include="Model\Specialization.cs" />
     <Compile Include="Model\Status.cs" />
