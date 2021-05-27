@@ -31,8 +31,8 @@ namespace IS_Bolnica
         public int ocenePacijenta { get; set; }
         public Zakazivanje_pregleda(int brojAkcija, int brojOcenjivanja)
         {
-            UsersFileStorage exStorage = new UsersFileStorage();
-            List<User> users = exStorage.loadFromFile("UsersFileStorage.json");
+            UserRepository exStorage = new UserRepository();
+            List<User> users = exStorage.LoadFromFile("UserRepository.json");
 
             doktori = new List<String>();
 

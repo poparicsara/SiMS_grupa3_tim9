@@ -19,8 +19,8 @@ namespace IS_Bolnica.Secretary
         private DateTime currentDate = new DateTime();
         private Examination examOption1 = new Examination();
         private List<Doctor> doctors = new List<Doctor>();
-        private DoctorFileStorage doctorFileStorage = new DoctorFileStorage();
-        private List<Room> rooms = new List<Room>();
+        private DoctorRepository doctorRepository = new DoctorRepository();
+        private List<RoomRecord> rooms = new List<RoomRecord>();
         private RoomRepository roomFileStorage = new RoomRepository();
 
         public UrgentExaminationOptionsWindow(Examination examination, Specialization specialization)
@@ -88,7 +88,7 @@ namespace IS_Bolnica.Secretary
             {
                 DateTime endTime = new DateTime();
                 endTime = exam.Date.AddMinutes(30);
-                if (exam.Room.Id == ex.Room.Id)
+                if (exam.RoomRecord.Id == ex.RoomRecord.Id)
                 {
                     if (exam.Date <= ex.Date && ex.Date < endTime ) 
                     {
@@ -204,7 +204,7 @@ namespace IS_Bolnica.Secretary
             {
                 DateTime endTime = new DateTime();
                 endTime = exam.Date.AddMinutes(30);
-                if (exam.Room.Id == ex.Room.Id)
+                if (exam.RoomRecord.Id == ex.RoomRecord.Id)
                 {
                     if (exam.Date <= ex.PostponedDate && ex.PostponedDate < endTime)
                     {
@@ -281,9 +281,9 @@ namespace IS_Bolnica.Secretary
             }
         }
 
-        private Room findRoom(int id)
+        private RoomRecord findRoom(int id)
         {
-            foreach (Room room in rooms)
+            foreach (RoomRecord room in rooms)
             {
                 if (room.Id.Equals(id))
                 {
@@ -299,8 +299,8 @@ namespace IS_Bolnica.Secretary
             List<Examination> options = new List<Examination>();
             List<Examination> optionOrder = new List<Examination>();
             Examination exam = new Examination();
-            doctors = doctorFileStorage.loadFromFile("Doctors.json");
-            rooms = roomFileStorage.GetRooms();
+            doctors = doctorRepository.loadFromFile("Doctors.json");
+            rooms = roomFileStorage.loadFromFile("Sobe.json");
             scheduledExaminations = examinationsFileStorage.loadFromFile("Pregledi.json");
 
             currentDate = DateTime.Now;
@@ -324,7 +324,7 @@ namespace IS_Bolnica.Secretary
                     //    }
 
                     //}
-                    examOption1.Room = findRoom(doc.Ordination);
+                    examOption1.RoomRecord = findRoom(doc.Ordination);
                     for (int i = 1; i <= 90; i++)
                     {
                         temp1 = currentDate.AddMinutes(i);
@@ -459,7 +459,7 @@ namespace IS_Bolnica.Secretary
 
                         examination.Date = ex.Date;
                         examination.Doctor = ex.Doctor;
-                        examination.Room = ex.Room;
+                        examination.RoomRecord = ex.RoomRecord;
                         examination.DurationInMinutes = 30;
                         examinations.Remove(exami);
                         examinations.Add(examination);

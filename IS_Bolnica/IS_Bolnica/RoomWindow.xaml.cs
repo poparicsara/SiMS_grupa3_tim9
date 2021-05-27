@@ -22,8 +22,10 @@ namespace IS_Bolnica
 {
     public partial class RoomWindow : Window
     {
+
         private List<Room> rooms = new List<Room>();
         private Room selectedRoom;
+
         private RoomRepository storage = new RoomRepository();
         private RoomService service = new RoomService();
 

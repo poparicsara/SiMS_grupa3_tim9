@@ -24,7 +24,9 @@ namespace Model
         public void AddInventory(Inventory newInventory)
         {
             RoomRepository roomStorage = new RoomRepository();
+
             List<Room> rooms = roomStorage.GetRooms();
+
             AddInMagacin(newInventory, rooms);
             roomStorage.saveToFile(rooms);
         }
@@ -43,13 +45,17 @@ namespace Model
         public void DeleteInventory(Inventory selected)
         {
             RoomRepository roomStorage = new RoomRepository();
+
             List<Room> rooms = GetRooms(roomStorage);
             Room magacin = GetMagacin(rooms);
+
             magacin.inventory.RemoveAt(GetIndexOfInventory(selected, magacin));
             roomStorage.saveToFile(rooms);
         }
 
+
         private List<Room> GetRooms(RoomRepository storage)
+
         {
             List<Room> rooms = storage.GetRooms();
             return rooms;
@@ -84,8 +90,10 @@ namespace Model
         public void EditInventory(Inventory oldInventory, Inventory newInventory)
         {
             RoomRepository roomStorage = new RoomRepository();
+
             List<Room> rooms = GetRooms(roomStorage);
             Room magacin = GetMagacin(rooms);
+
             int index = GetIndexOfInventory(oldInventory, magacin);
             magacin.inventory.RemoveAt(index);
             magacin.inventory.Insert(index, newInventory);
@@ -95,7 +103,9 @@ namespace Model
         public void AddInventoryInRoom(Room room, Inventory newInventory)
         {
             RoomRepository roomStorage = new RoomRepository();
+
             List<Room> rooms = roomStorage.GetRooms();
+
             newInventory.CurrentAmount = 0;
             room.inventory.Add(newInventory);
             roomStorage.saveToFile(rooms);

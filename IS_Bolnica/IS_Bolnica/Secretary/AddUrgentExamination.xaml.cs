@@ -15,18 +15,15 @@ using System.Windows.Shapes;
 
 namespace IS_Bolnica.Secretary
 {
-    /// <summary>
-    /// Interaction logic for AddUrgentExamination.xaml
-    /// </summary>
     public partial class AddUrgentExamination : Window
     {
         private Specialization specialization = new Specialization();
         public List<String> Specializations { get; set; } = new List<String>();
         private Examination examination;
-        private PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
+        private PatientRepository patientStorage = new PatientRepository();
         private List<Patient> patients = new List<Patient>();
         private Patient patient = new Patient();
-        private GuestUsersFileStorage guestStorage = new GuestUsersFileStorage();
+        private GuestUserRepository guestStorage = new GuestUserRepository();
         private List<GuestUser> guestUsers = new List<GuestUser>();
         private GuestUser guestUser = new GuestUser();
         private List<Specialization> specializations = new List<Specialization>();
@@ -34,12 +31,6 @@ namespace IS_Bolnica.Secretary
         public AddUrgentExamination()
         {
             InitializeComponent();
-            //specializations = specialization.getSpecializations();
-            //foreach (Specialization spec in specializations)
-            //{
-            //    Specializations.Add(spec.Name);
-            //}
-            //specializationBox.ItemsSource = Specializations;
             setSpecializationsBox();
 
         }
@@ -71,7 +62,7 @@ namespace IS_Bolnica.Secretary
         private Patient findPatient(string id)
         {
             Patient patien = new Patient();
-            patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
+            patients = patientStorage.LoadFromFile("PatientRecordFileStorage.json");
 
             foreach (Patient pat in patients)
             {
@@ -88,7 +79,7 @@ namespace IS_Bolnica.Secretary
         private GuestUser findGuest(string systemName)
         {
             GuestUser guest = new GuestUser();
-            guestUsers = guestStorage.loadFromFile("GuestUsersFile.json");
+            guestUsers = guestStorage.LoadFromFile("GuestUsersFile.json");
 
             foreach (GuestUser gUser in guestUsers)
             {

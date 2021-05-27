@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using IS_Bolnica.Model;
 using System.Collections.Generic;
 using System.ComponentModel;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica.Secretary
 {
@@ -12,8 +13,11 @@ namespace IS_Bolnica.Secretary
     {
         private Patient patient = new Patient();
         private User user = new User();
-        private PatientRecordFileStorage storage = new PatientRecordFileStorage();
-        private UsersFileStorage storage1 = new UsersFileStorage();
+        private PatientRepository storage = new PatientRepository();
+        private UserRepository storage1 = new UserRepository();
+
+        private PatientService patientService = new PatientService();
+        private UserService userService = new UserService();
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -37,6 +41,24 @@ namespace IS_Bolnica.Secretary
         }
 
         private void addPatient(object sender, RoutedEventArgs e)
+        {
+
+            patient = setPatientAtributes();
+
+            patientService.AddPatient(patient);
+
+            user = setUserAtributes(patient);
+
+            userService.AddUser(user);
+
+            Secretary.PatientListWindow plw = new Secretary.PatientListWindow();
+            plw.Show();
+            this.Close();
+
+
+        }
+
+        private Patient setPatientAtributes()
         {
             patient.Email = email.Text;
             patient.DateOfBirth = dateOfBirth.DisplayDate;
@@ -79,37 +101,23 @@ namespace IS_Bolnica.Secretary
             patient.Address.City.Country = new Country();
             patient.Address.City.Country.name = county.Text;
 
-            List<Patient> pacijenti = new List<Patient>();
-            pacijenti = storage.loadFromFile("PatientRecordFileStorage.json");
-            pacijenti.Add(patient);
-            storage.saveToFile(pacijenti, "PatientRecordFileStorage.json");
-
-            addUser(patient);
-
-            Secretary.PatientListWindow plw = new Secretary.PatientListWindow();
-            plw.Show();
-            this.Close();
-
-
+            return patient;
         }
 
-        private void addUser(Patient patient)
+        private User setUserAtributes(Patient patient)
         {
-            user.Email = email.Text;
-            user.DateOfBirth = dateOfBirth.DisplayDate;
-            user.Name = name.Text;
-            user.Id = id.Text;
-            user.Password = iniciallyPassword.Text;
-            user.Phone = phone.Text;
-            user.Surname = surname.Text;
-            user.Username = username.Text;
+            user.Email = patient.Email;
+            user.DateOfBirth = patient.DateOfBirth;
+            user.Name = patient.Name;
+            user.Id = patient.Id;
+            user.Password = patient.Password;
+            user.Phone = patient.Phone;
+            user.Surname = patient.Surname;
+            user.Username = patient.Username;
             user.UserType = UserType.patient;
             user.Address = patient.Address;
 
-            List<User> users = new List<User>();
-            users = storage1.loadFromFile("UsersFileStorage.json");
-            users.Add(user);
-            storage1.saveToFile(users, "UsersFileStorage.json");
+            return user;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -33,7 +33,9 @@ namespace IS_Bolnica
             selectedInventory = selected;
 
             RoomRepository roomStorage = new RoomRepository();
+
             rooms = roomStorage.GetRooms();
+
 
             SearchAllRooms();
             SetItemsSource();

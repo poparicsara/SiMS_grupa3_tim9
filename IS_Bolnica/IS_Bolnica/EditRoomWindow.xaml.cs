@@ -89,6 +89,7 @@ namespace IS_Bolnica
             newRoom.roomPurpose = purpose;
         }
 
+
         private void InventoryButtonClicked(object sender, RoutedEventArgs e)
         {
             RoomInventory iw = new RoomInventory(oldRoom);

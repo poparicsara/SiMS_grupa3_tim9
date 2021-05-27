@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace IS_Bolnica.Model
 {
-    class AnamnesisFileStorage
+    class AnamnesisRepository
     {
         public List<Anamnesis> GetAll()
         {

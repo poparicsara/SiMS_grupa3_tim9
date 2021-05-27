@@ -15,22 +15,27 @@ using System.Collections.ObjectModel;
 using Model;
 using IS_Bolnica.Model;
 using System.Globalization;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica.Secretary
 {
     public partial class EditPatient : Window
     {
-        private Patient patient;
+        private Patient oldPatient = new Patient();
+        private Patient patient = new Patient();
         private List<Patient> patients = new List<Patient>();
-        private PatientRecordFileStorage storage = new PatientRecordFileStorage();
+        private PatientRepository storage = new PatientRepository();
         private List<User> users = new List<User>();
         private User user = new User();
-        private UsersFileStorage storage1 = new UsersFileStorage();
+        private UserRepository storage1 = new UserRepository();
 
-        public EditPatient(Patient patient)
+        private PatientService patientService = new PatientService();
+        private UserService userService = new UserService();
+
+        public EditPatient(Patient oldPatient)
         {
             InitializeComponent();
-            this.patient = patient;
+            this.oldPatient = oldPatient;
         }
 
         private void cancelEditing(object sender, RoutedEventArgs e)
@@ -42,7 +47,7 @@ namespace IS_Bolnica.Secretary
 
         private void removePatient(string id)
         {
-            patients = storage.loadFromFile("PatientRecordFileStorage.json");
+            patients = storage.LoadFromFile("PatientRecordFileStorage.json");
             for (int i = 0; i < patients.Count; i++)
             {
                 if (patients[i].Id.Equals(id))
@@ -54,7 +59,7 @@ namespace IS_Bolnica.Secretary
 
         private void removeUser(string id)
         {
-            users = storage1.loadFromFile("UsersFileStorage.json");
+            users = storage1.LoadFromFile("UsersFileStorage.json");
             for (int i = 0; i < users.Count; i++)
             {
                 if (users[i].Id.Equals(id))
@@ -87,6 +92,7 @@ namespace IS_Bolnica.Secretary
                 pat.Allergens.Add(alergeni[k]);
             }
             //formiranje adrese
+            pat.Address = new Address();
             pat.Address.Street = "";
             String[] adresa = (adress.Text).Split(' ');
             for (int i = 0; i < adresa.Length - 1; i++)
@@ -104,6 +110,7 @@ namespace IS_Bolnica.Secretary
             pat.Address.Floor = Convert.ToInt32(brojSpratStan[1]);
             pat.Address.Apartment = Convert.ToInt32(brojSpratStan[2]);
 
+            pat.Address.City = new City();
             pat.Address.City.name = "";
             String[] grad = (city.Text).Split(' ');
             for (int brojac = 0; brojac < grad.Length - 1; brojac++)
@@ -116,6 +123,7 @@ namespace IS_Bolnica.Secretary
                 }
             }
             pat.Address.City.postalCode = grad[grad.Length - 1];
+            pat.Address.City.Country = new Country();
             pat.Address.City.Country.name = country.Text;
 
             return pat;
@@ -142,7 +150,10 @@ namespace IS_Bolnica.Secretary
 
         private void editPatient(object sender, RoutedEventArgs e)
         {
-            removePatient(patient.Id);
+            patientService.EditPatient(oldPatient, setPatient());
+            userService.EditUser(setUser(oldPatient), setPatient());
+
+            /*removePatient(patient.Id);
             removeUser(patient.Id);
 
             patient = setPatient();
@@ -151,8 +162,8 @@ namespace IS_Bolnica.Secretary
             user = setUser(patient);
             users.Add(user);
 
-            storage.saveToFile(patients, "PatientRecordFileStorage.json");
-            storage1.saveToFile(users, "UsersFileStorage.json");
+            storage.SaveToFile(patients, "PatientRecordFileStorage.json");
+            storage1.SaveToFile(users, "UsersFileStorage.json");*/
 
             Secretary.PatientListWindow plw = new Secretary.PatientListWindow();
             plw.Show();

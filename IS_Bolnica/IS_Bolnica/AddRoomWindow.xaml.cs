@@ -71,6 +71,7 @@ namespace IS_Bolnica
             newRoom.roomPurpose = purpose;
         }
 
+
         private void CancelButtonClicked(object sender, RoutedEventArgs e)
         {
             this.Close();

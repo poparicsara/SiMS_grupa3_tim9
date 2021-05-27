@@ -30,11 +30,11 @@ namespace IS_Bolnica.DoctorsWindows
         private OperationsFileStorage operationStorage = new OperationsFileStorage();
         public List<Operation> Operations { get; set; } = new List<Operation>();
         public List<Patient> Patients { get; set; } = new List<Patient>();
-        private PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
+        private PatientRepository patientStorage = new PatientRepository();
         public List<int> Hours { get; set; } = new List<int>();
         private List<string> doctorNameAndSurname = new List<string>();
         public List<Doctor> Doctors { get; set; }
-        private DoctorFileStorage doctorStorage = new DoctorFileStorage();
+        private DoctorRepository doctorStorage = new DoctorRepository();
         private DateTime dateTime;
 
         public List<Operation> NonUrgentOperations { get; set; }
@@ -102,7 +102,7 @@ namespace IS_Bolnica.DoctorsWindows
         private void saveButtonClicked(object sender, RoutedEventArgs e)
         {
             Operations = operationStorage.loadFromFile("operations.json");
-            Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
+            Patients = patientStorage.LoadFromFile("PatientRecordFileStorage.json");
             Doctors = doctorStorage.loadFromFile("Doctors.json");
             NonUrgentOperations = operationStorage.loadFromFile("operations.json");
 
@@ -181,7 +181,7 @@ namespace IS_Bolnica.DoctorsWindows
                 }
 
                 //Operations.Add(operation); 
-                //operationStorage.saveToFile(Operations, "operations.json");
+                //operationStorage.SaveToFile(Operations, "operations.json");
 
                 if (isRoomAvailable(Operations, operation.Room, operation.Date) && isDoctorAvailable(Operations, operation.doctor, operation.Date)
                     && isPatientAvailable(Operations, operation.Patient, operation.Date))
@@ -247,7 +247,7 @@ namespace IS_Bolnica.DoctorsWindows
 
         private void jmbgTxt_LostFocus(object sender, RoutedEventArgs e)
         {
-            Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
+            Patients = patientStorage.LoadFromFile("PatientRecordFileStorage.json");
 
             foreach (Patient patient in Patients)
             {

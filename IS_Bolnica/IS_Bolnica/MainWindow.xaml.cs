@@ -8,8 +8,8 @@ namespace IS_Bolnica
 {
     public partial class MainWindow : Window
     {
-        private UsersFileStorage storage = new UsersFileStorage();
-        private PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
+        private UserRepository storage = new UserRepository();
+        private PatientRepository patientStorage = new PatientRepository();
         private List<User> users = new List<User>();
         private List<Patient> patients = new List<Patient>();
         private User user = new User();
@@ -50,8 +50,8 @@ namespace IS_Bolnica
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            users = storage.loadFromFile("UsersFileStorage.json");
-            patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
+            users = storage.LoadFromFile("UserRepository.json");
+            patients = patientStorage.LoadFromFile("PatientRecordFileStorage.json");
             
             string username = usernameBox.Text;
             string password = passwordBox.Password.ToString();
@@ -76,7 +76,7 @@ namespace IS_Bolnica
                         case UserType.doctor:
 
                             loggedUsers.Add(user);
-                            storage.saveToFile(loggedUsers, "loggedUsers.json");
+                            storage.SaveToFile(loggedUsers, "loggedUsers.json");
                             DoctorWindow doctorWindow = new DoctorWindow();
                             doctorWindow.Show();
                             this.Close();

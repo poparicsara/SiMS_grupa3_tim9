@@ -12,7 +12,9 @@ namespace Model
                 return;
 
             RoomRepository storage = new RoomRepository();
+
             List<Room> rooms = storage.GetRooms();
+
             rooms.RemoveAt(room);
             storage.saveToFile(rooms);
         }

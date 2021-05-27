@@ -1,3 +1,4 @@
+using IS_Bolnica;
 using IS_Bolnica.Model;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,12 @@ namespace Model
         public List<Anamnesis> Anamneses
         {
             get;
+            set;
+        }
+
+        public List<Ingredient> Ingredients 
+        { 
+            get; 
             set;
         }
     }
