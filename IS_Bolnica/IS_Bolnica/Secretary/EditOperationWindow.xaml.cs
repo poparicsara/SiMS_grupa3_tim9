@@ -59,7 +59,7 @@ namespace IS_Bolnica.Secretary
             appointment.StartTime = new DateTime(datumStart.Year, datumStart.Month, datumStart.Day, satStart, minutStart, 0);
             appointment.DurationInMins = Convert.ToInt32(hourBoxEnd.Text) * 60 + Convert.ToInt32(minuteBoxEnd.Text);
             appointment.EndTime = appointment.StartTime.AddMinutes(appointment.DurationInMins);
-            appointment.RoomRecord = findAttributesService.findRoomById(Convert.ToInt32(room.SelectedItem));
+            appointment.Room = findAttributesService.findRoomById(Convert.ToInt32(room.SelectedItem));
             appointment.AppointmentType = AppointmentType.operation;
 
             appointmentService.EditAppointment(oldAppointment, appointment);

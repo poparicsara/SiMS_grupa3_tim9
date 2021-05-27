@@ -13,7 +13,7 @@ namespace IS_Bolnica.Model
         public Doctor Doctor { get; set; }
         public int DurationInMins { get; set; }
         public GuestUser GuestUser { get; set; }
-        public RoomRecord RoomRecord { get; set; }
+        public Room Room { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public DateTime PostponedDate { get; set; }

@@ -15,7 +15,7 @@ namespace IS_Bolnica.Services
         private PatientRepository patientRepository = new PatientRepository();
         private List<Doctor> doctors = new List<Doctor>();
         private DoctorRepository doctorRepository = new DoctorRepository();
-        private List<RoomRecord> rooms = new List<RoomRecord>();
+        private List<Room> rooms = new List<Room>();
         private RoomRepository roomRepository = new RoomRepository();
 
         public FindAttributesService()
@@ -51,9 +51,9 @@ namespace IS_Bolnica.Services
             return null;
         }
 
-        public RoomRecord findRoomByDoctor(Doctor doc)
+        public Room findRoomByDoctor(Doctor doc)
         {
-            rooms = roomRepository.loadFromFile("Sobe.json");
+            rooms = roomRepository.GetRooms();
             for (int i = 0; i < rooms.Count; i++)
             {
                 if (rooms[i].Id == doc.Ordination)
@@ -66,7 +66,7 @@ namespace IS_Bolnica.Services
             return null;
         }
 
-        public RoomRecord findRoomById(int id)
+        public Room findRoomById(int id)
         {
             for (int i = 0; i < rooms.Count; i++)
             {

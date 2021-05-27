@@ -27,7 +27,7 @@ namespace IS_Bolnica.DoctorsWindows
             set;
         }
         public List<int> RoomId { get; set; } = new List<int>();
-        private RoomRepository roomStorage = new RoomRepository();
+        private RoomRepository roomRepository = new RoomRepository();
         public List<int> Hours { get; set; } = new List<int>();
         public List<Doctor> Doctors { get; set; }
         private DoctorRepository doctorStorage = new DoctorRepository();
@@ -53,7 +53,7 @@ namespace IS_Bolnica.DoctorsWindows
             jmbgTxt.Text = examination.Patient.Id;
             healthCardNumberTxt.Text = examination.Patient.HealthCardNumber;
 
-            Rooms = roomStorage.GetRooms();
+            Rooms = roomRepository.GetRooms();
 
             foreach (Room room in Rooms)
             {

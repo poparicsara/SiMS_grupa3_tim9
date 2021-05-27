@@ -94,7 +94,7 @@ namespace IS_Bolnica.Secretary
             eow.minutesBoxStart.Text = appointment.StartTime.Minute.ToString();
             eow.doctorBox.Text = appointment.Doctor.Name + " " + appointment.Doctor.Surname;
             eow.date.SelectedDate = new DateTime(appointment.StartTime.Year, appointment.StartTime.Month, appointment.StartTime.Day);
-            eow.room.Text = appointment.RoomRecord.Id.ToString();
+            eow.room.Text = appointment.Room.Id.ToString();
             int hours = appointment.DurationInMins / 60;
             int mins = appointment.DurationInMins % 60;
             eow.hourBoxEnd.Text = hours.ToString();

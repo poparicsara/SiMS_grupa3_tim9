@@ -20,8 +20,8 @@ namespace IS_Bolnica.Secretary
         private GuestUserRepository guestStorage = new GuestUserRepository();
         private List<GuestUser> guestUsers = new List<GuestUser>();
         private GuestUser guestUser = new GuestUser();
-        private List<RoomRecord> Rooms = new List<RoomRecord>();
-        private RoomRepository roomStorage = new RoomRepository();
+        private List<Room> Rooms = new List<Room>();
+        private RoomRepository roomRepository = new RoomRepository();
         private List<int> RoomNums = new List<int>();
 
         public AddUrgentOperationWindow()
@@ -61,7 +61,7 @@ namespace IS_Bolnica.Secretary
 
         private void setRoomBox()
         {
-            Rooms = roomStorage.loadFromFile("Sobe.json");
+            Rooms = roomRepository.GetRooms();
             for (int i = 0; i < Rooms.Count; i++)
             {
                 if (Rooms[i].roomPurpose.Name == "Operaciona sala")

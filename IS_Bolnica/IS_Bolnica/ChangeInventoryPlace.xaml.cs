@@ -33,7 +33,7 @@ namespace IS_Bolnica
         private string selectedDate;
         private int selectedHour;
         private int selectedMinute;
-        private RoomRepository roomStorage = new RoomRepository();
+        private RoomRepository roomRepository = new RoomRepository();
         private Inventory inventoryFrom = new Inventory();
         private Inventory inventoryTo = new Inventory();
         private Thread thread;
@@ -47,7 +47,7 @@ namespace IS_Bolnica
         {
             InitializeComponent();
 
-            rooms = roomStorage.GetRooms();
+            rooms = roomRepository.GetRooms();
 
             wardFromBox.ItemsSource = GetHospitalWards(FROM);
             wardFromBox.SelectedItem = GetHospitalWards(FROM).ElementAt(0);
@@ -310,7 +310,7 @@ namespace IS_Bolnica
         {
             ReduceAmount();
             IncreaseAmount();
-            roomStorage.saveToFile(rooms);
+            roomRepository.saveToFile(rooms);
         }
 
         private string[] GetFullCurrentDate()

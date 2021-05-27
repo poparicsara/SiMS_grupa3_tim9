@@ -22,10 +22,8 @@ namespace IS_Bolnica
 {
     public partial class RoomWindow : Window
     {
-
         private List<Room> rooms = new List<Room>();
         private Room selectedRoom;
-
         private RoomRepository storage = new RoomRepository();
         private RoomService service = new RoomService();
 
@@ -61,7 +59,7 @@ namespace IS_Bolnica
 
         private bool IsAnyRoomSelected()
         {
-            if(roomDataGrid.SelectedIndex < 0)
+            if (roomDataGrid.SelectedIndex < 0)
             {
                 MessageBox.Show("Niste izabrali nijednu prostoriju!");
                 return false;

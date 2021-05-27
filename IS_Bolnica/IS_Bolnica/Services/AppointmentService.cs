@@ -105,7 +105,7 @@ namespace IS_Bolnica.Services
 
         private bool isAppointmentValid(Appointment appointment)
         {
-            if (appointment.RoomRecord != null && appointment.Doctor != null && appointment.Patient != null)
+            if (appointment.Room != null && appointment.Doctor != null && appointment.Patient != null)
             {
                 return true;
             }
@@ -173,21 +173,21 @@ namespace IS_Bolnica.Services
         {
             foreach (Appointment app in appointments)
             {
-                if (app.RoomRecord.Id == appointment.RoomRecord.Id)
+                if (app.Room.Id == appointment.Room.Id)
                 {
                     if (app.StartTime <= appointment.StartTime && appointment.StartTime < app.EndTime)
                     {
-                        MessageBox.Show("Soba " + appointment.RoomRecord.Id + "je zauzeta u izabranom terminu");
+                        MessageBox.Show("Soba " + appointment.Room.Id + "je zauzeta u izabranom terminu");
                         return false;
                     }
                     else if (app.StartTime < appointment.EndTime && appointment.EndTime <= app.EndTime)
                     {
-                        MessageBox.Show("Soba " + appointment.RoomRecord.Id + "je zauzeta u izabranom terminu");
+                        MessageBox.Show("Soba " + appointment.Room.Id + "je zauzeta u izabranom terminu");
                         return false;
                     }
                     else if (app.StartTime >= appointment.StartTime && app.EndTime < appointment.EndTime)
                     {
-                        MessageBox.Show("Soba " + appointment.RoomRecord.Id + "je zauzeta u izabranom terminu");
+                        MessageBox.Show("Soba " + appointment.Room.Id + "je zauzeta u izabranom terminu");
                         return false;
                     }
                 }

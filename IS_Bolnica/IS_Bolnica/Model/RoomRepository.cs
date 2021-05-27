@@ -1,4 +1,3 @@
-
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -37,9 +36,9 @@ namespace Model
         private int FindIndex(Room room)
         {
             int index = 0;
-            foreach(Room r in rooms)
+            foreach (Room r in rooms)
             {
-                if(r.Id == room.Id)
+                if (r.Id == room.Id)
                 {
                     break;
                 }

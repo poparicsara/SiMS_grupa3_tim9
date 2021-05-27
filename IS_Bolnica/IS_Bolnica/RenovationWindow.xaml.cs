@@ -43,13 +43,13 @@ namespace IS_Bolnica
 
             DateTime start = (DateTime)startDate.SelectedDate;
             operation.Date = new DateTime(start.Year, start.Month, start.Day, 0, 0, 0);
-                
+
             DateTime end = (DateTime)endDate.SelectedDate;
             operation.endTime = new DateTime(end.Year, end.Month, end.Day, 0, 0, 0);
 
             //does something already exist in this period
             examinations = examinationStorage.loadFromFile("examinations.json");
-            
+
             notifications = notificationStorage.LoadFromFile("NotificationsFileStorage.json");
 
             CheckAppointments(notificationStorage);
@@ -90,8 +90,10 @@ namespace IS_Bolnica
                                                        "Potrebno je pomeranje zakazanog termina";
                         Notification notification = new Notification
                         {
-                            Title = "Potrebno pomeranje termina", Content = contentOfNotification,
-                            notificationType = NotificationType.secretory, Sender = UserType.director
+                            Title = "Potrebno pomeranje termina",
+                            Content = contentOfNotification,
+                            notificationType = NotificationType.secretory,
+                            Sender = UserType.director
                         };
                         notifications.Add(notification);
                         notificationStorage.SaveToFile(notifications, "NotificationsFileStorage.json");
@@ -114,8 +116,10 @@ namespace IS_Bolnica
                                                        "Potrebno je pomeranje zakazanog termina" + "\n" + exInfo;
                         Notification notification = new Notification
                         {
-                            Title = "Potrebno pomeranje termina", Content = contentOfNotification,
-                            notificationType = NotificationType.secretory, Sender = UserType.director
+                            Title = "Potrebno pomeranje termina",
+                            Content = contentOfNotification,
+                            notificationType = NotificationType.secretory,
+                            Sender = UserType.director
                         };
                         notifications.Add(notification);
                         notificationStorage.SaveToFile(notifications, "NotificationsFileStorage.json");

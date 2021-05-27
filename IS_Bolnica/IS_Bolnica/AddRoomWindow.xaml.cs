@@ -58,19 +58,18 @@ namespace IS_Bolnica
 
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
-            SetRoomAttributes();
+            SetRoomInfo();
             service.AddRoom(newRoom);
             this.Close();
         }
 
-        private void SetRoomAttributes()
+        private void SetRoomInfo()
         {
             newRoom.Id = (int)Int64.Parse(roomBox.Text);
             newRoom.HospitalWard = selectedWard;
             RoomPurpose purpose = new RoomPurpose { Name = selectedPurpose };
             newRoom.roomPurpose = purpose;
         }
-
 
         private void CancelButtonClicked(object sender, RoutedEventArgs e)
         {

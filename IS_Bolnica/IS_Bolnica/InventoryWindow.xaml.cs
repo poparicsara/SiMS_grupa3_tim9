@@ -26,7 +26,7 @@ namespace IS_Bolnica
         private List<Inventory> magacinInventory = new List<Inventory>();
         private List<Room> rooms = new List<Room>();
         private Room magacin = new Room();
-        private RoomRepository roomStorage = new RoomRepository();
+        private RoomRepository roomRepository = new RoomRepository();
         private Inventory selectedInventory = new Inventory();
         private InventoryFileStorage storage = new InventoryFileStorage();
 
@@ -43,7 +43,7 @@ namespace IS_Bolnica
 
         private void SetMagacin()
         {
-            rooms = roomStorage.GetRooms();
+            rooms = roomRepository.GetRooms();
             foreach (Room r in rooms)
             {
                 if (r.HospitalWard.Equals("Magacin"))

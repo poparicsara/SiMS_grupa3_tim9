@@ -25,7 +25,7 @@ namespace IS_Bolnica.DoctorsWindows
             set;
         }
         public List<int> RoomId { get; set; } = new List<int>();
-        private RoomRepository roomStorage = new RoomRepository();
+        private RoomRepository roomRepository = new RoomRepository();
         private Operation operation = new Operation();
         private OperationsFileStorage operationStorage = new OperationsFileStorage();
         public List<Operation> Operations { get; set; } = new List<Operation>();
@@ -42,7 +42,7 @@ namespace IS_Bolnica.DoctorsWindows
         {
             InitializeComponent();
 
-            Rooms = roomStorage.GetRooms();
+            Rooms = roomRepository.GetRooms();
 
             foreach (Room room in Rooms)
             {

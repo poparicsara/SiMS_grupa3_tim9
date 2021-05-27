@@ -15,17 +15,17 @@ namespace IS_Bolnica.Model
             throw new NotImplementedException();
         }
 
-        public void saveToFile(List<Renovation> renovations)
+        public void saveToFile(List<Renovation> renovations, string fileName)
         {
             string jsonString = JsonConvert.SerializeObject(renovations, Formatting.Indented);
-            File.WriteAllText("Renovations.json", jsonString);
+            File.WriteAllText(fileName, jsonString);
         }
 
-        public List<Renovation> GetRenovations()
+        public List<Renovation> loadFromFile(string fileName)
         {
             var renovations = new List<Renovation>();
 
-            using (StreamReader file = File.OpenText("Renovations.json"))
+            using (StreamReader file = File.OpenText(fileName))
             {
                 var serializer = new JsonSerializer();
                 renovations = (List<Renovation>)serializer.Deserialize(file, typeof(List<Renovation>));

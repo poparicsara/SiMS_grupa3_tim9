@@ -19,13 +19,13 @@ namespace IS_Bolnica.Secretary
 {
     public partial class AddOperationWindow : Window
     {
-        public List<RoomRecord> Rooms
+        public List<Room> Rooms
         {
             get;
             set;
         }
         public List<int> RoomNums { get; set; } = new List<int>();
-        private RoomRepository roomStorage = new RoomRepository();
+        private RoomRepository roomRepository = new RoomRepository();
         private Operation operation = new Operation();
         private List<Operation> Operations = new List<Operation>();
         private OperationsFileStorage operationStorage = new OperationsFileStorage();
@@ -55,7 +55,7 @@ namespace IS_Bolnica.Secretary
 
         private void setRoomBox()
         {
-            Rooms = roomStorage.loadFromFile("Sobe.json");
+            Rooms = roomRepository.GetRooms();
             for (int i = 0; i < Rooms.Count; i++)
             {
                 if (Rooms[i].roomPurpose.Name == "Operaciona sala")
@@ -134,23 +134,23 @@ namespace IS_Bolnica.Secretary
         {
             foreach (Appointment app in appointments)
             {
-                if (app.RoomRecord.Id == appointment.RoomRecord.Id)
+                if (app.Room.Id == appointment.Room.Id)
                 {
                     if (app.StartTime <= appointment.StartTime && appointment.StartTime < app.EndTime)
                     {
-                        MessageBox.Show("Soba " + appointment.RoomRecord.Id + " je zauzeta u izabranom terminu");
+                        MessageBox.Show("Soba " + appointment.Room.Id + " je zauzeta u izabranom terminu");
                         return false;
                     }
 
                     if (app.StartTime >= appointment.StartTime && app.EndTime <= appointment.EndTime)
                     {
-                        MessageBox.Show("Soba " + appointment.RoomRecord.Id + " je zauzeta u izabranom terminu");
+                        MessageBox.Show("Soba " + appointment.Room.Id + " je zauzeta u izabranom terminu");
                         return false;
                     }
 
                     if (app.StartTime < appointment.EndTime && appointment.EndTime <= app.EndTime)
                     {
-                        MessageBox.Show("Soba " + appointment.RoomRecord.Id + " je zauzeta u izabranom terminu");
+                        MessageBox.Show("Soba " + appointment.Room.Id + " je zauzeta u izabranom terminu");
                         return false;
                     }
                 }
@@ -229,9 +229,9 @@ namespace IS_Bolnica.Secretary
             return patient;
         }
 
-        private RoomRecord findRoom(int id)
+        private Room findRoom(int id)
         {
-            Rooms = roomStorage.loadFromFile("Sobe.json");
+            Rooms = roomRepository.GetRooms();
             for (int i = 0; i < Rooms.Count; i++)
             {
                 if (Rooms[i].Id == id)
@@ -285,8 +285,8 @@ namespace IS_Bolnica.Secretary
                 }
                 operation.endTime = new DateTime(datumEnd.Year, datumEnd.Month, datumEnd.Day, satEnd, minutEnd, 0);*/
 
-                operation.RoomRecord = findRoom(Convert.ToInt32(roomBox.Text));
-                appointment.RoomRecord = findRoom(Convert.ToInt32(roomBox.Text));
+                operation.Room = findRoom(Convert.ToInt32(roomBox.Text));
+                appointment.Room = findRoom(Convert.ToInt32(roomBox.Text));
 
                 int hours = Convert.ToInt32(hourBoxEnd.Text);
                 int minutes = Convert.ToInt32(minuteBoxEnd.Text);
