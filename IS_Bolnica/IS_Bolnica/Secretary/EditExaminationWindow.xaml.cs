@@ -23,12 +23,12 @@ namespace IS_Bolnica.Secretary
     public partial class EditExaminationWindow : Window
     {
         private Examination examination = new Examination();
-        public List<RoomRecord> Rooms
+        public List<Room> Rooms
         {
             get;
             set;
         }
-        private RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+        private RoomRepository roomStorage = new RoomRepository();
         private List<Examination> examinations = new List<Examination>();
         private ExaminationsRecordFileStorage examinationStorage = new ExaminationsRecordFileStorage();
         private List<Patient> Patients = new List<Patient>();
@@ -88,11 +88,11 @@ namespace IS_Bolnica.Secretary
             return true;
         }
 
-        private bool isRoomFree(List<Examination> exams, RoomRecord room, DateTime dateAndTime)
+        private bool isRoomFree(List<Examination> exams, Room room, DateTime dateAndTime)
         {
             foreach (Examination exam in exams)
             {
-                if (exam.RoomRecord.Id == room.Id && exam.Date == dateAndTime)
+                if (exam.Room.Id == room.Id && exam.Date == dateAndTime)
                 {
                     MessageBox.Show("Soba " + room.Id + "je zauzeta u izabranom terminu");
                     return false;
@@ -114,7 +114,7 @@ namespace IS_Bolnica.Secretary
             return true;
         }
 
-        private bool isAvailable(List<Examination> exams, Patient patient, RoomRecord room, Doctor doctor, DateTime dateAndTime)
+        private bool isAvailable(List<Examination> exams, Patient patient, Room room, Doctor doctor, DateTime dateAndTime)
         {
             if (isPatientFree(exams, patient, dateAndTime) && isRoomFree(exams, room, dateAndTime) && isDoctorFree(exams, doctor, dateAndTime))
             {
@@ -156,9 +156,9 @@ namespace IS_Bolnica.Secretary
             return null;
         }
 
-        private RoomRecord findRoom(Doctor doc)
+        private Room findRoom(Doctor doc)
         {
-            Rooms = roomStorage.loadFromFile("Sobe.json");
+            Rooms = roomStorage.GetRooms();
             for (int i = 0; i < Rooms.Count; i++)
             {
                 if (Rooms[i].Id == doc.Ordination)
@@ -189,7 +189,7 @@ namespace IS_Bolnica.Secretary
                 int minut = Convert.ToInt32(minutesBox.Text);
                 examination.Date = new DateTime(datum.Year, datum.Month, datum.Day, sat, minut, 0);
 
-                examination.RoomRecord = findRoom(examination.Doctor);
+                examination.Room = findRoom(examination.Doctor);
 
                 for (int i = 0; i < examinations.Count; i++)
                 {
@@ -201,7 +201,7 @@ namespace IS_Bolnica.Secretary
                 }
 
 
-                if (isAvailable(examinations, examination.Patient, examination.RoomRecord, examination.Doctor, examination.Date))
+                if (isAvailable(examinations, examination.Patient, examination.Room, examination.Doctor, examination.Date))
                 {
                     examinations.Add(examination);
                     examinationStorage.saveToFile(examinations, "Pregledi.json");

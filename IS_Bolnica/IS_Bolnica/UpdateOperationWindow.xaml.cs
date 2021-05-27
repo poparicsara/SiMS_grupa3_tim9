@@ -21,13 +21,13 @@ namespace IS_Bolnica.DoctorsWindows
     {
         private int selectedOperation;
         private Operation operation;
-        public List<RoomRecord> Rooms
+        public List<Room> Rooms
         {
             get;
             set;
         }
         public List<int> RoomId { get; set; } = new List<int>();
-        private RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+        private RoomRepository roomStorage = new RoomRepository();
         public List<int> Hours { get; set; } = new List<int>();
         public List<Doctor> Doctors { get; set; }
         private DoctorFileStorage doctorStorage = new DoctorFileStorage();
@@ -40,7 +40,7 @@ namespace IS_Bolnica.DoctorsWindows
             InitializeComponent();
 
             OperationsFileStorage operationsFileStorage = new OperationsFileStorage();
-            Rooms = roomStorage.loadFromFile("Sobe.json");
+            Rooms = roomStorage.GetRooms();
             List<Operation> operations = loggedDoctorOperations;
 
             this.operation = operations.ElementAt(selectedIndex);
@@ -53,7 +53,7 @@ namespace IS_Bolnica.DoctorsWindows
             healthCardNumberTxt.Text = operation.Patient.HealthCardNumber;
             doctorsComboBox.SelectedItem = operation.doctor.Name + ' ' + operation.doctor.Surname;
 
-            foreach (RoomRecord room in Rooms)
+            foreach (Room room in Rooms)
             {
                 if (room.roomPurpose.Name.Equals("Operaciona sala"))
                 {
@@ -62,7 +62,7 @@ namespace IS_Bolnica.DoctorsWindows
             }
 
             roomsComboBox.ItemsSource = RoomId;
-            roomsComboBox.SelectedItem = operation.RoomRecord.Id;
+            roomsComboBox.SelectedItem = operation.Room.Id;
 
             for (int i = 7; i < 20; i++)
             {
@@ -146,17 +146,17 @@ namespace IS_Bolnica.DoctorsWindows
                 int hour = Convert.ToInt32(hourBox.Text);
                 int minute = Convert.ToInt32(minuteBox.Text);
                 operation.Date = new DateTime(date.Year, date.Month, date.Day, hour, minute, 0);
-                operation.RoomRecord = new RoomRecord();
+                operation.Room = new Room();
 
-                foreach (RoomRecord room in Rooms)
+                foreach (Room room in Rooms)
                 {
                     if (room.Id == Convert.ToInt32(roomsComboBox.SelectedItem))
                     {
-                        operation.RoomRecord = room;
+                        operation.Room = room;
                     }
                 }
 
-                if (isRoomAvailable(operation.RoomRecord, operation.Date) && isDoctorAvailable(operation.Date)
+                if (isRoomAvailable(operation.Room, operation.Date) && isDoctorAvailable(operation.Date)
                          && isPatientAvailable(operation.Patient, operation.Date))
                 {
                     operations.Add(operation);
@@ -174,13 +174,13 @@ namespace IS_Bolnica.DoctorsWindows
                 this.Close();
             }
         }
-        private bool isRoomAvailable(RoomRecord room, DateTime dateAndTime)
+        private bool isRoomAvailable(Room room, DateTime dateAndTime)
         {
             operations = operationStorage.loadFromFile("operations.json");
 
             foreach (Operation operation in operations)
             {
-                if (operation.RoomRecord.Id == room.Id && operation.Date == dateAndTime)
+                if (operation.Room.Id == room.Id && operation.Date == dateAndTime)
                 {
                     return false;
                 }

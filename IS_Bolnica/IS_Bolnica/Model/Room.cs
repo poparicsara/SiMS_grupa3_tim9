@@ -4,7 +4,7 @@ using System;
 
 namespace Model
 {
-    public class RoomRecord
+    public class Room
     {
         public int Id { get; set; }
         public String HospitalWard { get; set; }

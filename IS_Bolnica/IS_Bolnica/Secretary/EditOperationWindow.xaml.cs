@@ -19,13 +19,13 @@ namespace IS_Bolnica.Secretary
 {
     public partial class EditOperationWindow : Window
     {
-        public List<RoomRecord> Rooms
+        public List<Room> Rooms
         {
             get;
             set;
         }
         public List<int> RoomNums { get; set; } = new List<int>();
-        private RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+        private RoomRepository roomStorage = new RoomRepository();
         private Operation operation = new Operation();
         private Operation oldOperation = new Operation();
         private List<Operation> Operations = new List<Operation>();
@@ -49,7 +49,7 @@ namespace IS_Bolnica.Secretary
 
         private void setRoomBox()
         {
-            Rooms = roomStorage.loadFromFile("Sobe.json");
+            Rooms = roomStorage.GetRooms();
             for (int i = 0; i < Rooms.Count; i++)
             {
                 if (Rooms[i].roomPurpose.Name == "Operaciona sala")
@@ -123,11 +123,11 @@ namespace IS_Bolnica.Secretary
             return true;
         }
 
-        private bool isRoomFree(List<Operation> operations, RoomRecord room, DateTime dateAndTimeStart, DateTime dateAndTimeEnd)
+        private bool isRoomFree(List<Operation> operations, Room room, DateTime dateAndTimeStart, DateTime dateAndTimeEnd)
         {
             foreach (Operation operation in operations)
             {
-                if (operation.RoomRecord.Id == room.Id)
+                if (operation.Room.Id == room.Id)
                 {
                     if (operation.Date <= dateAndTimeStart && dateAndTimeStart <= operation.endTime)
                     {
@@ -177,7 +177,7 @@ namespace IS_Bolnica.Secretary
             return true;
         }
 
-        private bool isAvailable(List<Operation> operations, Patient patient, RoomRecord room, Doctor doctor, DateTime dateAndTimeStart, DateTime dateAndTimeEnd)
+        private bool isAvailable(List<Operation> operations, Patient patient, Room room, Doctor doctor, DateTime dateAndTimeStart, DateTime dateAndTimeEnd)
         {
             if (isPatientFree(operations, patient, dateAndTimeStart, dateAndTimeEnd)
                 && isRoomFree(operations, room, dateAndTimeStart, dateAndTimeEnd)
@@ -205,9 +205,9 @@ namespace IS_Bolnica.Secretary
             return null;
         }
 
-        private RoomRecord findRoom(int id) 
+        private Room findRoom(int id) 
         {
-            Rooms = roomStorage.loadFromFile("Sobe.json");
+            Rooms = roomStorage.GetRooms();
             for (int i = 0; i<Rooms.Count; i++)
                 {
                     if (Rooms[i].Id == Convert.ToInt32(room.SelectedItem))
@@ -267,9 +267,9 @@ namespace IS_Bolnica.Secretary
                 }
                 operation.endTime = new DateTime(datumEnd.Year, datumEnd.Month, datumEnd.Day, satEnd, minutEnd, 0);
 
-                operation.RoomRecord = findRoom(Convert.ToInt32(room.SelectedItem));
+                operation.Room = findRoom(Convert.ToInt32(room.SelectedItem));
 
-                if (isAvailable(Operations, operation.Patient, operation.RoomRecord, operation.doctor, operation.Date, operation.endTime))
+                if (isAvailable(Operations, operation.Patient, operation.Room, operation.doctor, operation.Date, operation.endTime))
                 {
                     Operations.Add(operation);
                     for (int i = 0; i < Operations.Count; i++)
@@ -277,7 +277,7 @@ namespace IS_Bolnica.Secretary
                         if (Operations[i].Date.Equals(oldOperation.Date)
                             && Operations[i].Patient.Id.Equals(oldOperation.Patient.Id)
                             && Operations[i].endTime.Equals(oldOperation.endTime)
-                            && Operations[i].RoomRecord.Id.Equals(oldOperation.RoomRecord.Id))
+                            && Operations[i].Room.Id.Equals(oldOperation.Room.Id))
                         {
                             Operations.RemoveAt(i);
                         }

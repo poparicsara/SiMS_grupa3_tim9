@@ -78,7 +78,7 @@ namespace IS_Bolnica.Secretary
             eow.minutesBoxStart.Text = operation.Date.Minute.ToString();
             eow.doctorBox.Text = operation.doctor.Name + " " + operation.doctor.Surname;
             eow.date.SelectedDate = new DateTime(operation.Date.Year, operation.Date.Month, operation.Date.Day);
-            eow.room.Text = operation.RoomRecord.Id.ToString();
+            eow.room.Text = operation.Room.Id.ToString();
             int hours = operation.DurationInMins / 60;
             int mins = operation.DurationInMins % 60;
             eow.hourBoxEnd.Text = hours.ToString();

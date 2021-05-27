@@ -8,24 +8,24 @@ using System.Threading.Tasks;
 
 namespace IS_Bolnica.Model
 {
-    class RenovationFileStorage
+    class RenovationRepository
     {
         public List<Renovation> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public void saveToFile(List<Renovation> renovations, string fileName)
+        public void saveToFile(List<Renovation> renovations)
         {
             string jsonString = JsonConvert.SerializeObject(renovations, Formatting.Indented);
-            File.WriteAllText(fileName, jsonString);
+            File.WriteAllText("Renovations.json", jsonString);
         }
 
-        public List<Renovation> loadFromFile(string fileName)
+        public List<Renovation> GetRenovations()
         {
             var renovations = new List<Renovation>();
 
-            using (StreamReader file = File.OpenText(fileName))
+            using (StreamReader file = File.OpenText("Renovations.json"))
             {
                 var serializer = new JsonSerializer();
                 renovations = (List<Renovation>)serializer.Deserialize(file, typeof(List<Renovation>));

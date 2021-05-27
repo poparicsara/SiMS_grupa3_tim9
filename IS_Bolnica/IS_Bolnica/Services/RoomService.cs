@@ -9,52 +9,32 @@ namespace IS_Bolnica.Services
 {
     class RoomService
     {
-        private List<RoomRecord> rooms = new List<RoomRecord>();
-        private RoomRecordFileStorage storage = new RoomRecordFileStorage();
+        private List<Room> rooms = new List<Room>();
+        private RoomRepository repository = new RoomRepository();
 
         public RoomService()
         {
-            rooms = GetRooms();
+            rooms = repository.GetRooms();
         }
 
-        public void AddRoom(RoomRecord newRoom)
+        public void AddRoom(Room newRoom)
         {
-            rooms.Add(newRoom);
-            storage.saveToFile(rooms, "Sobe.json");
+            repository.AddRoom(newRoom);
         }
 
-        public void DeleteRoom(RoomRecord selectedRoom)
+        public void DeleteRoom(Room selectedRoom)
         {
-            int index = FindRoomIndex(selectedRoom);
-            rooms.RemoveAt(index);
-            storage.saveToFile(rooms, "Sobe.json");
+            repository.DeleteRoom(selectedRoom);
         }
 
-        private int FindRoomIndex(RoomRecord room)
+        public void EditRoom(Room oldRoom, Room newRoom)
         {
-            int index = 0;
-            foreach (RoomRecord r in rooms)
-            {
-                if (r.Id == room.Id)
-                {
-                    break;
-                }
-                index++;
-            }
-            return index;
+            repository.EditRoom(oldRoom, newRoom);
         }
 
-        public void EditRoom(RoomRecord oldRoom, RoomRecord newRoom)
+        public List<Room> GetRooms()
         {
-            int index = FindRoomIndex(oldRoom);
-            rooms.RemoveAt(index);
-            rooms.Insert(index, newRoom);
-            storage.saveToFile(rooms, "Sobe.json");
-        }
-
-        public List<RoomRecord> GetRooms()
-        {
-            return storage.loadFromFile("Sobe.json");
+            return repository.GetRooms();
         }
 
     }

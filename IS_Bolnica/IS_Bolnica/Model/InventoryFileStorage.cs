@@ -23,15 +23,15 @@ namespace Model
 
         public void AddInventory(Inventory newInventory)
         {
-            RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
-            List<RoomRecord> rooms = roomStorage.loadFromFile("Sobe.json");
+            RoomRepository roomStorage = new RoomRepository();
+            List<Room> rooms = roomStorage.GetRooms();
             AddInMagacin(newInventory, rooms);
-            roomStorage.saveToFile(rooms, "Sobe.json");
+            roomStorage.saveToFile(rooms);
         }
 
-        private static void AddInMagacin(Inventory newInventory, List<RoomRecord> rooms)
+        private static void AddInMagacin(Inventory newInventory, List<Room> rooms)
         {
-            foreach (RoomRecord room in rooms)
+            foreach (Room room in rooms)
             {
                 if (room.HospitalWard == "Magacin")
                 {
@@ -42,22 +42,22 @@ namespace Model
 
         public void DeleteInventory(Inventory selected)
         {
-            RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
-            List<RoomRecord> rooms = GetRooms(roomStorage);
-            RoomRecord magacin = GetMagacin(rooms);
+            RoomRepository roomStorage = new RoomRepository();
+            List<Room> rooms = GetRooms(roomStorage);
+            Room magacin = GetMagacin(rooms);
             magacin.inventory.RemoveAt(GetIndexOfInventory(selected, magacin));
-            roomStorage.saveToFile(rooms, "Sobe.json");
+            roomStorage.saveToFile(rooms);
         }
 
-        private List<RoomRecord> GetRooms(RoomRecordFileStorage storage)
+        private List<Room> GetRooms(RoomRepository storage)
         {
-            List<RoomRecord> rooms = storage.loadFromFile("Sobe.json");
+            List<Room> rooms = storage.GetRooms();
             return rooms;
         }
 
-        private RoomRecord GetMagacin(List<RoomRecord> rooms)
+        private Room GetMagacin(List<Room> rooms)
         {                        
-            foreach (RoomRecord r in rooms)
+            foreach (Room r in rooms)
             {
                 if (r.HospitalWard.Equals("Magacin"))
                 {
@@ -67,7 +67,7 @@ namespace Model
             return null;
         }
 
-        private int GetIndexOfInventory(Inventory selected, RoomRecord room)
+        private int GetIndexOfInventory(Inventory selected, Room room)
         {
             int index = 0;
             foreach (Inventory i in room.inventory)
@@ -83,22 +83,22 @@ namespace Model
 
         public void EditInventory(Inventory oldInventory, Inventory newInventory)
         {
-            RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
-            List<RoomRecord> rooms = GetRooms(roomStorage);
-            RoomRecord magacin = GetMagacin(rooms);
+            RoomRepository roomStorage = new RoomRepository();
+            List<Room> rooms = GetRooms(roomStorage);
+            Room magacin = GetMagacin(rooms);
             int index = GetIndexOfInventory(oldInventory, magacin);
             magacin.inventory.RemoveAt(index);
             magacin.inventory.Insert(index, newInventory);
-            roomStorage.saveToFile(rooms, "Sobe.json");
+            roomStorage.saveToFile(rooms);
         }
 
-        public void AddInventoryInRoom(RoomRecord room, Inventory newInventory)
+        public void AddInventoryInRoom(Room room, Inventory newInventory)
         {
-            RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
-            List<RoomRecord> rooms = roomStorage.loadFromFile("Sobe.json");
+            RoomRepository roomStorage = new RoomRepository();
+            List<Room> rooms = roomStorage.GetRooms();
             newInventory.CurrentAmount = 0;
             room.inventory.Add(newInventory);
-            roomStorage.saveToFile(rooms, "Sobe.json");
+            roomStorage.saveToFile(rooms);
         }
 
         public void saveToFile(List<Inventory> inventories, string fileName)

@@ -9,7 +9,7 @@ namespace IS_Bolnica
 {
     class InventoryInRoom
     {
-        public RoomRecord Room { get; set; }
+        public Room Room { get; set; }
         public Inventory Inventory { get; set; }
     }
 }

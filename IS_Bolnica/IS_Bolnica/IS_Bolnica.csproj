@@ -150,7 +150,7 @@
     <Compile Include="Model\Prescription.cs" />
     <Compile Include="Model\PrescriptionFileStorage.cs" />
     <Compile Include="Model\Renovation.cs" />
-    <Compile Include="Model\RenovationFileStorage.cs" />
+    <Compile Include="Model\RenovationRepository.cs" />
     <Compile Include="Model\Request.cs" />
     <Compile Include="Model\RequestFileStorage.cs" />
     <Compile Include="Model\TherapiesFileStorage.cs" />
@@ -564,8 +564,8 @@
     <Compile Include="Model\Patient.cs" />
     <Compile Include="Model\PatientRecordFileStorage.cs" />
     <Compile Include="Model\RoomPurpose.cs" />
-    <Compile Include="Model\RoomRecord.cs" />
-    <Compile Include="Model\RoomRecordFileStorage.cs" />
+    <Compile Include="Model\Room.cs" />
+    <Compile Include="Model\RoomRepository.cs" />
     <Compile Include="Model\Secretary.cs" />
     <Compile Include="Model\Specialization.cs" />
     <Compile Include="Model\Status.cs" />

@@ -19,7 +19,7 @@ namespace IS_Bolnica
     public partial class RoomInventory : Window
     {
 
-        public RoomInventory(RoomRecord selectedRoom)
+        public RoomInventory(Room selectedRoom)
         {
             InitializeComponent();
 

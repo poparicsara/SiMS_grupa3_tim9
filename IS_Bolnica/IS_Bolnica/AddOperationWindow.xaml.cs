@@ -19,13 +19,13 @@ namespace IS_Bolnica.DoctorsWindows
 {
     public partial class AddOperationWindow : Window
     {
-        public List<RoomRecord> Rooms
+        public List<Room> Rooms
         {
             get;
             set;
         }
         public List<int> RoomId { get; set; } = new List<int>();
-        private RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+        private RoomRepository roomStorage = new RoomRepository();
         private Operation operation = new Operation();
         private OperationsFileStorage operationStorage = new OperationsFileStorage();
         public List<Operation> Operations { get; set; } = new List<Operation>();
@@ -42,9 +42,9 @@ namespace IS_Bolnica.DoctorsWindows
         {
             InitializeComponent();
 
-            Rooms = roomStorage.loadFromFile("Sobe.json");
+            Rooms = roomStorage.GetRooms();
 
-            foreach (RoomRecord room in Rooms)
+            foreach (Room room in Rooms)
             {
                 if (room.roomPurpose.Name.Equals("Operaciona sala"))
                 {
@@ -138,13 +138,13 @@ namespace IS_Bolnica.DoctorsWindows
             }
             else
             {
-                operation.RoomRecord = new RoomRecord();
+                operation.Room = new Room();
 
-                foreach (RoomRecord room in Rooms)
+                foreach (Room room in Rooms)
                 {
                     if (room.Id == Convert.ToInt32(roomComboBox.SelectedItem))
                     {
-                        operation.RoomRecord = room;
+                        operation.Room = room;
                     }
                 }
 
@@ -183,7 +183,7 @@ namespace IS_Bolnica.DoctorsWindows
                 //Operations.Add(operation); 
                 //operationStorage.saveToFile(Operations, "operations.json");
 
-                if (isRoomAvailable(Operations, operation.RoomRecord, operation.Date) && isDoctorAvailable(Operations, operation.doctor, operation.Date)
+                if (isRoomAvailable(Operations, operation.Room, operation.Date) && isDoctorAvailable(Operations, operation.doctor, operation.Date)
                     && isPatientAvailable(Operations, operation.Patient, operation.Date))
                 {
                     Operations.Add(operation);
@@ -204,11 +204,11 @@ namespace IS_Bolnica.DoctorsWindows
 
         }
 
-        private bool isRoomAvailable(List<Operation> operations, RoomRecord room, DateTime dateAndTime)
+        private bool isRoomAvailable(List<Operation> operations, Room room, DateTime dateAndTime)
         {
             foreach (Operation operation in operations)
             {
-                if (operation.RoomRecord.Id == room.Id && operation.Date == dateAndTime && operation.IsUrgent == false)
+                if (operation.Room.Id == room.Id && operation.Date == dateAndTime && operation.IsUrgent == false)
                 {
                     return false;
                 }

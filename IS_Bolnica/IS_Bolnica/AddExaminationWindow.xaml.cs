@@ -19,13 +19,13 @@ namespace IS_Bolnica.DoctorsWindows
 {
     public partial class AddExaminationWindow : Window
     {
-        public List<RoomRecord> Rooms
+        public List<Room> Rooms
         {
             get;
             set;
         }
         public List<int> RoomId { get; set; } = new List<int>();
-        private RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+        private RoomRepository roomStorage = new RoomRepository();
         private Examination examination = new Examination();
         private ExaminationsRecordFileStorage examinationStorage = new ExaminationsRecordFileStorage();
         public List<Examination> Examinations { get; set; } = new List<Examination>();
@@ -41,9 +41,9 @@ namespace IS_Bolnica.DoctorsWindows
         {
             InitializeComponent();
 
-            Rooms = roomStorage.loadFromFile("Sobe.json");
+            Rooms = roomStorage.GetRooms();
 
-            foreach (RoomRecord room in Rooms)
+            foreach (Room room in Rooms)
             {
                 if (room.roomPurpose.Name == "Ordinacija")
                 {
@@ -125,13 +125,13 @@ namespace IS_Bolnica.DoctorsWindows
                 int hour = Convert.ToInt32(hourBox.Text);
                 int minute = Convert.ToInt32(minuteBox.Text);
                 examination.Date = new DateTime(date.Year, date.Month, date.Day, hour, minute, 0);
-                examination.RoomRecord = new RoomRecord();
+                examination.Room = new Room();
 
-                foreach (RoomRecord room in Rooms)
+                foreach (Room room in Rooms)
                 {
                     if (room.Id == examination.Doctor.Ordination)
                     {
-                        examination.RoomRecord = room;
+                        examination.Room = room;
                     }
                 }
 

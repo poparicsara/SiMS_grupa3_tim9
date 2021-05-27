@@ -9,14 +9,14 @@ namespace IS_Bolnica.Secretary
     public partial class AddExaminationWindow : Window
     {
 
-        public List<RoomRecord> Rooms
+        public List<Room> Rooms
         {
             get;
             set;
-        } = new List<RoomRecord>();
-        private RoomRecord room = new RoomRecord();
+        } = new List<Room>();
+        private Room room = new Room();
         public List<int> RoomNums { get; set; } = new List<int>();
-        private RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+        private RoomRepository roomStorage = new RoomRepository();
         private ExaminationsRecordFileStorage examinationStorage = new ExaminationsRecordFileStorage();
         public List<Examination> Examinations { get; set; } = new List<Examination>();
         private Examination examination = new Examination();
@@ -34,7 +34,7 @@ namespace IS_Bolnica.Secretary
         public AddExaminationWindow()
         {
             InitializeComponent();
-            Rooms = roomStorage.loadFromFile("Sobe.json");
+            Rooms = roomStorage.GetRooms();
 
             //doctors = doctorFileStorage.loadFromFile("Doctors.json");
             //for(int i = 0; i < doctors.Count; i++)
@@ -125,23 +125,23 @@ namespace IS_Bolnica.Secretary
             {
                 DateTime endTime = new DateTime();
                 endTime = exam.Date.AddMinutes(30);
-                if (exam.RoomRecord.Id == ex.RoomRecord.Id)
+                if (exam.Room.Id == ex.Room.Id)
                 {
                     if (exam.Date <= ex.Date && ex.Date < endTime)
                     {
-                        MessageBox.Show("Soba " + ex.RoomRecord.Id + "je zauzeta u izabranom terminu");
+                        MessageBox.Show("Soba " + ex.Room.Id + "je zauzeta u izabranom terminu");
                         return false;
                     }
 
                     if (exam.Date < endTimeNew && endTimeNew <= endTime)
                     {
-                        MessageBox.Show("Soba " + ex.RoomRecord.Id + "je zauzeta u izabranom terminu");
+                        MessageBox.Show("Soba " + ex.Room.Id + "je zauzeta u izabranom terminu");
                         return false;
                     }
 
                     if (exam.Date >= ex.Date && endTime < endTimeNew)
                     {
-                        MessageBox.Show("Soba " + ex.RoomRecord.Id + "je zauzeta u izabranom terminu");
+                        MessageBox.Show("Soba " + ex.Room.Id + "je zauzeta u izabranom terminu");
                         return false;
                     }
                 }
@@ -220,9 +220,9 @@ namespace IS_Bolnica.Secretary
             return doctor;
         }
 
-        private RoomRecord findRoom(Doctor doctor)
+        private Room findRoom(Doctor doctor)
         {
-            Rooms = roomStorage.loadFromFile("Sobe.json");
+            Rooms = roomStorage.GetRooms();
             for (int i = 0; i < Rooms.Count; i++)
             {
                 if (Rooms[i].Id == doctor.Ordination)
@@ -256,14 +256,14 @@ namespace IS_Bolnica.Secretary
                 int minut = Convert.ToInt32(minutesBox.Text);
                 examination.Date = new DateTime(datum.Year, datum.Month, datum.Day, sat, minut, 0);
 
-                examination.RoomRecord = findRoom(examination.Doctor);
+                examination.Room = findRoom(examination.Doctor);
 
                 operations = operationsFileStorage.loadFromFile("operations.json");
                 operation.Date = examination.Date;
                 operation.endTime = operation.Date.AddMinutes(30);
                 operation.Patient = examination.Patient;
                 operation.doctor = examination.Doctor;
-                operation.RoomRecord = examination.RoomRecord;
+                operation.Room = examination.Room;
                 if (isAvailable(Examinations, examination) && isAvailableOp(operations, operation))
                 {
                     Examinations.Add(examination);
@@ -318,23 +318,23 @@ namespace IS_Bolnica.Secretary
         {
             foreach (Operation operation in operations)
             {
-                if (operation.RoomRecord.Id == op.RoomRecord.Id)
+                if (operation.Room.Id == op.Room.Id)
                 {
                     if (operation.Date <= op.Date && op.Date < operation.endTime)
                     {
-                        MessageBox.Show("Soba " + op.RoomRecord.Id + " je zauzeta u izabranom terminu");
+                        MessageBox.Show("Soba " + op.Room.Id + " je zauzeta u izabranom terminu");
                         return false;
                     }
 
                     if (operation.Date >= op.Date && operation.endTime <= op.endTime)
                     {
-                        MessageBox.Show("Soba " + op.RoomRecord.Id + " je zauzeta u izabranom terminu");
+                        MessageBox.Show("Soba " + op.Room.Id + " je zauzeta u izabranom terminu");
                         return false;
                     }
 
                     if (operation.Date < op.endTime && op.endTime <= operation.endTime)
                     {
-                        MessageBox.Show("Soba " + op.RoomRecord.Id + " je zauzeta u izabranom terminu");
+                        MessageBox.Show("Soba " + op.Room.Id + " je zauzeta u izabranom terminu");
                         return false;
                     }
                 }

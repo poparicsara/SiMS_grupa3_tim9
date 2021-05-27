@@ -19,11 +19,11 @@ namespace IS_Bolnica
 {
     public partial class AddRoomWindow : Window
     {
-        RoomRecord newRoom = new RoomRecord();
+        Room newRoom = new Room();
         Director director = new Director();
         string selectedWard;
         string selectedPurpose;
-        private List<RoomRecord> rooms = new List<RoomRecord>();
+        private List<Room> rooms = new List<Room>();
         private List<string> hospitalWards = new List<string>();
         private Specialization specialization = new Specialization();
         private RoomService service = new RoomService();
@@ -58,25 +58,17 @@ namespace IS_Bolnica
 
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
-            SetRoomInfo();
-            //Save();
+            SetRoomAttributes();
             service.AddRoom(newRoom);
             this.Close();
         }
 
-        private void SetRoomInfo()
+        private void SetRoomAttributes()
         {
             newRoom.Id = (int)Int64.Parse(roomBox.Text);
             newRoom.HospitalWard = selectedWard;
             RoomPurpose purpose = new RoomPurpose { Name = selectedPurpose };
             newRoom.roomPurpose = purpose;
-        }
-
-        private void Save()
-        {
-            RoomRecordFileStorage storage = new RoomRecordFileStorage();
-            storage.AddRoom(newRoom);
-            
         }
 
         private void CancelButtonClicked(object sender, RoutedEventArgs e)

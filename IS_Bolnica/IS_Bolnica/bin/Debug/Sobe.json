@@ -769,5 +769,13 @@
     "roomPurpose": {
       "Name": "Ordinacija"
     }
+  },
+  {
+    "Id": 999,
+    "HospitalWard": "Alergologija i imunologija",
+    "inventory": null,
+    "roomPurpose": {
+      "Name": "Ordinacija"
+    }
   }
 ]

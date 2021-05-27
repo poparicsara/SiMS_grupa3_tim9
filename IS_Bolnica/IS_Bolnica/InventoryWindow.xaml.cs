@@ -24,9 +24,9 @@ namespace IS_Bolnica
         private List<Inventory> staticInventories = new List<Inventory>();
         private Director director = new Director();
         private List<Inventory> magacinInventory = new List<Inventory>();
-        private List<RoomRecord> rooms = new List<RoomRecord>();
-        private RoomRecord magacin = new RoomRecord();
-        private RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+        private List<Room> rooms = new List<Room>();
+        private Room magacin = new Room();
+        private RoomRepository roomStorage = new RoomRepository();
         private Inventory selectedInventory = new Inventory();
         private InventoryFileStorage storage = new InventoryFileStorage();
 
@@ -43,8 +43,8 @@ namespace IS_Bolnica
 
         private void SetMagacin()
         {
-            rooms = roomStorage.loadFromFile("Sobe.json");
-            foreach (RoomRecord r in rooms)
+            rooms = roomStorage.GetRooms();
+            foreach (Room r in rooms)
             {
                 if (r.HospitalWard.Equals("Magacin"))
                 {

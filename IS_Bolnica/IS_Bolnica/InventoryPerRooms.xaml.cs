@@ -18,7 +18,7 @@ namespace IS_Bolnica
 {
     public partial class InventoryPerRooms : Window
     {
-        private List<RoomRecord> rooms = new List<RoomRecord>();
+        private List<Room> rooms = new List<Room>();
         private List<InventoryInRoom> ordinationList = new List<InventoryInRoom>();
         private List<InventoryInRoom> operationRoomList = new List<InventoryInRoom>();
         private List<InventoryInRoom> roomList = new List<InventoryInRoom>();
@@ -32,8 +32,8 @@ namespace IS_Bolnica
 
             selectedInventory = selected;
 
-            RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
-            rooms = roomStorage.loadFromFile("Sobe.json");
+            RoomRepository roomStorage = new RoomRepository();
+            rooms = roomStorage.GetRooms();
 
             SearchAllRooms();
             SetItemsSource();
@@ -41,7 +41,7 @@ namespace IS_Bolnica
 
         private void SearchAllRooms()
         {
-            foreach (RoomRecord room in rooms)
+            foreach (Room room in rooms)
             {
                 SetInventoryAttributes(room);
             }
@@ -54,7 +54,7 @@ namespace IS_Bolnica
             roomDataGrid.ItemsSource = roomList;
         }
 
-        private void SetInventoryAttributes(RoomRecord room)
+        private void SetInventoryAttributes(Room room)
         {
             inventory = new InventoryInRoom();
             inventory.Room = room;
