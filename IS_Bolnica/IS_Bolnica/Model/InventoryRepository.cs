@@ -5,15 +5,21 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using IS_Bolnica.Model;
+using IS_Bolnica.Services;
 
 namespace Model
 {
-    public class InventoryFileStorage
+    public class InventoryRepository
     {
-        private List<Inventory> inventories;
-        public InventoryFileStorage()
-        {
+        private List<Inventory> inventories = new List<Inventory>();
+        private Room magacin = new Room();
 
+        public InventoryRepository()
+        {
+            RoomService service = new RoomService();
+            magacin = service.GetMagacin();
+            inventories = magacin.inventory;
         }
 
         public List<Inventory> GetAll()
@@ -99,6 +105,38 @@ namespace Model
             newInventory.CurrentAmount = 0;
             room.inventory.Add(newInventory);
             roomRepository.saveToFile(rooms);
+        }
+
+        public List<Inventory> GetRoomInventory(Room room)
+        {
+            inventories = room.inventory;
+            return inventories;
+        }
+
+        public List<Inventory> GetDynamicInventory()
+        {
+            List<Inventory> dynamicInventory = new List<Inventory>();
+            foreach (var i in inventories)
+            {
+                if (i.InventoryType == InventoryType.dinamicki)
+                {
+                    dynamicInventory.Add(i);
+                }
+            }
+            return dynamicInventory;
+        }
+
+        public List<Inventory> GetStaticInventory()
+        {
+            List<Inventory> staticInventory = new List<Inventory>();
+            foreach (var i in inventories)
+            {
+                if (i.InventoryType == InventoryType.staticki)
+                {
+                    staticInventory.Add(i);
+                }
+            }
+            return staticInventory;
         }
 
         public void saveToFile(List<Inventory> inventories, string fileName)

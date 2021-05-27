@@ -24,12 +24,28 @@ namespace IS_Bolnica.Services
 
         public void DeleteRoom(Room selectedRoom)
         {
-            repository.DeleteRoom(selectedRoom);
+            int index = FindIndex(selectedRoom);
+            repository.DeleteRoom(index);
         }
 
         public void EditRoom(Room oldRoom, Room newRoom)
         {
-            repository.EditRoom(oldRoom, newRoom);
+            int index = FindIndex(oldRoom);
+            repository.EditRoom(index, newRoom);
+        }
+
+        private int FindIndex(Room room)
+        {
+            int index = 0;
+            foreach (Room r in rooms)
+            {
+                if (r.Id == room.Id)
+                {
+                    break;
+                }
+                index++;
+            }
+            return index;
         }
 
         public List<int> GetOperationRoomNums()
@@ -49,6 +65,11 @@ namespace IS_Bolnica.Services
         public List<Room> GetRooms()
         {
             return repository.GetRooms();
+        }
+
+        public Room GetMagacin()
+        {
+            return repository.GetMagacin();
         }
 
     }

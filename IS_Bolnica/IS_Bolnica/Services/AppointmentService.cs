@@ -236,7 +236,7 @@ namespace IS_Bolnica.Services
 
         }
 
-        private List<Appointment> GetAppointments()
+        public List<Appointment> GetAppointments()
         {
             return appointmentRepository.LoadFromFile("Appointments.json");
         }

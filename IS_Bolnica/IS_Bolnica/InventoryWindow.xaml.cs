@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica
 {
@@ -28,17 +29,18 @@ namespace IS_Bolnica
         private Room magacin = new Room();
         private RoomRepository roomRepository = new RoomRepository();
         private Inventory selectedInventory = new Inventory();
-        private InventoryFileStorage storage = new InventoryFileStorage();
+        private InventoryRepository storage = new InventoryRepository();
+        private InventoryService service = new InventoryService();
 
         public InventoryWindow()
         {
             InitializeComponent();
 
-            SetMagacin();
-            SetDynamicAndStaticInventory();
+            //SetMagacin();
+            //SetDynamicAndStaticInventory();
 
-            dynamicDataGrid.ItemsSource = dynamicInventories;
-            staticDataGrid.ItemsSource = staticInventories;
+            dynamicDataGrid.ItemsSource = service.GetDynamicInventory();
+            staticDataGrid.ItemsSource = service.GetStaticInventory();
         }
 
         private void SetMagacin()

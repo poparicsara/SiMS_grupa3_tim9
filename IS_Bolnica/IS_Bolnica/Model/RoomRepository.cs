@@ -15,9 +15,23 @@ namespace Model
             rooms = GetRooms();
         }
 
-        public List<Room> GetAll()
+        public Room GetMagacin()
         {
-            return rooms;
+            int id = 1;  // magacin id = 1
+            Room magacin = GetRoom(id);
+            return magacin;
+        }
+
+        public Room GetRoom(int id)
+        {
+            foreach (var r in rooms)
+            {
+                if (r.Id == id)
+                {
+                    return r;
+                }
+            }
+            return null;
         }
 
         public void AddRoom(Room newRoom)
@@ -26,9 +40,8 @@ namespace Model
             saveToFile(rooms);
         }
 
-        public void DeleteRoom(Room selectedRoom)
+        public void DeleteRoom(int index)
         {
-            int index = FindIndex(selectedRoom);
             rooms.RemoveAt(index);
             saveToFile(rooms);
         }
@@ -47,9 +60,8 @@ namespace Model
             return index;
         }
 
-        public void EditRoom(Room oldRoom, Room newRoom)
+        public void EditRoom(int index, Room newRoom)
         {
-            int index = FindIndex(oldRoom);
             rooms.RemoveAt(index);
             rooms.Insert(index, newRoom);
             saveToFile(rooms);

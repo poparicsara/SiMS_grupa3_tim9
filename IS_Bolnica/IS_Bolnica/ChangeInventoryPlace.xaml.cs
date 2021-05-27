@@ -244,7 +244,7 @@ namespace IS_Bolnica
 
         private void AddInventory()
         {
-            InventoryFileStorage inventoryStorage = new InventoryFileStorage();
+            InventoryRepository inventoryStorage = new InventoryRepository();
             inventoryStorage.AddInventoryInRoom(roomTo, selectedInventory);
         }
 

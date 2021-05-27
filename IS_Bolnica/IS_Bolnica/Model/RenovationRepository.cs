@@ -10,22 +10,30 @@ namespace IS_Bolnica.Model
 {
     class RenovationRepository
     {
-        public List<Renovation> GetAll()
+        private List<Renovation> renovations = new List<Renovation>();
+
+        public RenovationRepository()
         {
-            throw new NotImplementedException();
+            renovations = GetRenovations();
         }
 
-        public void saveToFile(List<Renovation> renovations, string fileName)
+        public void AddRenovation(Renovation renovation)
+        {
+            renovations.Add(renovation);
+            saveToFile(renovations);
+        }
+
+        public void saveToFile(List<Renovation> renovations)
         {
             string jsonString = JsonConvert.SerializeObject(renovations, Formatting.Indented);
-            File.WriteAllText(fileName, jsonString);
+            File.WriteAllText("Renovations.json", jsonString);
         }
 
-        public List<Renovation> loadFromFile(string fileName)
+        public List<Renovation> GetRenovations()
         {
             var renovations = new List<Renovation>();
 
-            using (StreamReader file = File.OpenText(fileName))
+            using (StreamReader file = File.OpenText("Renovations.json"))
             {
                 var serializer = new JsonSerializer();
                 renovations = (List<Renovation>)serializer.Deserialize(file, typeof(List<Renovation>));

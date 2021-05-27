@@ -20,7 +20,7 @@ namespace IS_Bolnica
     {
         private Inventory inventory = new Inventory();
         private String type;
-        private InventoryFileStorage storage = new InventoryFileStorage();
+        private InventoryRepository storage = new InventoryRepository();
 
         public AddInventoryWindow(String inventoryType)
         {

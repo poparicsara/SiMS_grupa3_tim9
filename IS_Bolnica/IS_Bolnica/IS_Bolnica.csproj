@@ -322,8 +322,10 @@
     <Compile Include="Services\FindAttributesService.cs" />
     <Compile Include="Services\DoctorService.cs" />
     <Compile Include="Services\GuestUserService.cs" />
+    <Compile Include="Services\InventoryService.cs" />
     <Compile Include="Services\NotificationService.cs" />
     <Compile Include="Services\PatientService.cs" />
+    <Compile Include="Services\RenovationService.cs" />
     <Compile Include="Services\RoomService.cs" />
     <Compile Include="Services\UrgentAppointmentService.cs" />
     <Compile Include="Services\UserService.cs" />
@@ -701,7 +703,7 @@
     <Compile Include="Model\ExaminationsRecordFileStorage.cs" />
     <Compile Include="Model\GuestUser.cs" />
     <Compile Include="Model\Inventory.cs" />
-    <Compile Include="Model\InventoryFileStorage.cs" />
+    <Compile Include="Model\InventoryRepository.cs" />
     <Compile Include="Model\Operation.cs" />
     <Compile Include="Model\OperationsFileStorage.cs" />
     <Compile Include="Model\Patient.cs" />
