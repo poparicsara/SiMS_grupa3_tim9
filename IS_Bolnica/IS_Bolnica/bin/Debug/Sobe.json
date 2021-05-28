@@ -1,7 +1,7 @@
 [
   {
     "Id": 101,
-    "HospitalWard": "Ginekologija",
+    "HospitalWard": "Akušerstvo i ginekologija",
     "inventory": [
       {
         "Name": "Špric",
@@ -12,7 +12,7 @@
       },
       {
         "Name": "Krevet",
-        "CurrentAmount": 20,
+        "CurrentAmount": 17,
         "Minimum": 2,
         "Id": 666,
         "InventoryType": 1
@@ -49,7 +49,7 @@
       },
       {
         "Name": "Krevet",
-        "CurrentAmount": 20,
+        "CurrentAmount": 23,
         "Minimum": 2,
         "Id": 666,
         "InventoryType": 1
@@ -66,6 +66,13 @@
         "CurrentAmount": 20,
         "Minimum": 2,
         "Id": 303,
+        "InventoryType": 0
+      },
+      {
+        "Name": "nesto",
+        "CurrentAmount": 3,
+        "Minimum": 0,
+        "Id": 555,
         "InventoryType": 0
       }
     ],
@@ -130,7 +137,7 @@
       },
       {
         "Name": "nesto",
-        "CurrentAmount": 3,
+        "CurrentAmount": 0,
         "Minimum": 0,
         "Id": 555,
         "InventoryType": 0
@@ -153,7 +160,7 @@
       },
       {
         "Name": "Injekcija",
-        "CurrentAmount": 20,
+        "CurrentAmount": 23,
         "Minimum": 2,
         "Id": 202,
         "InventoryType": 0
@@ -183,7 +190,7 @@
       },
       {
         "Name": "Injekcija",
-        "CurrentAmount": 27,
+        "CurrentAmount": 24,
         "Minimum": 2,
         "Id": 202,
         "InventoryType": 0
@@ -193,6 +200,13 @@
         "CurrentAmount": 20,
         "Minimum": 2,
         "Id": 303,
+        "InventoryType": 0
+      },
+      {
+        "Name": "nesto",
+        "CurrentAmount": 0,
+        "Minimum": 0,
+        "Id": 555,
         "InventoryType": 0
       }
     ],
@@ -234,7 +248,7 @@
       },
       {
         "Name": "nesto",
-        "CurrentAmount": 1,
+        "CurrentAmount": 20,
         "Minimum": 0,
         "Id": 555,
         "InventoryType": 0

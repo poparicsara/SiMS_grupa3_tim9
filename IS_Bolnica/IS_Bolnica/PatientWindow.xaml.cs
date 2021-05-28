@@ -91,12 +91,15 @@ namespace IS_Bolnica
 
         private void AddButtonClicked(object sender, RoutedEventArgs e)
         {
-            Zakazivanje_pregleda zp = new Zakazivanje_pregleda(akcije, ocenePacijentove);
-            zp.Show();
-            this.Close();
+            if (!obradiAkcije())
+            {
+                Zakazivanje_pregleda zp = new Zakazivanje_pregleda(akcije, ocenePacijentove);
+                zp.Show();
+                this.Close();
+            }
         }
 
-        public Boolean obradiAkcije()
+        private Boolean obradiAkcije()
         {
             povecajAkcije();
             return proveriAkcije();
@@ -206,16 +209,19 @@ namespace IS_Bolnica
         {
             if (!proveriOznaceniIndex(lvDataBinding.SelectedIndex, true))
             {
-                Examination oznacen_pregled = pronadjiOznaceniPregled();
-                Izmena_pregleda ip = new Izmena_pregleda(lvDataBinding.SelectedIndex);
-
-                if (!proveriDatum(oznacen_pregled))
+                if (!obradiAkcije())
                 {
-                    ip.Show();
-                    this.Close();
+                    Examination oznacen_pregled = pronadjiOznaceniPregled();
+                    Izmena_pregleda ip = new Izmena_pregleda(lvDataBinding.SelectedIndex);
+
+                    if (!proveriDatum(oznacen_pregled))
+                    {
+                        ip.Show();
+                        this.Close();
+                    }
+                    else
+                        MessageBox.Show("Ne mozete da izmenite pregled jer je zakazan u periodu od naredna dva dana!");
                 }
-                else
-                    MessageBox.Show("Ne mozete da izmenite pregled jer je zakazan u periodu od naredna dva dana!");  
             }
         }
 

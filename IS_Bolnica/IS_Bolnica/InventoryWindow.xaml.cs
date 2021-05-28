@@ -36,45 +36,8 @@ namespace IS_Bolnica
         {
             InitializeComponent();
 
-            //SetMagacin();
-            //SetDynamicAndStaticInventory();
-
             dynamicDataGrid.ItemsSource = service.GetDynamicInventory();
             staticDataGrid.ItemsSource = service.GetStaticInventory();
-        }
-
-        private void SetMagacin()
-        {
-            rooms = roomRepository.GetRooms();
-            foreach (Room r in rooms)
-            {
-                if (r.HospitalWard.Equals("Magacin"))
-                {
-                    magacin = r;
-                }
-            }
-        }
-
-        private void SetDynamicAndStaticInventory()
-        {
-            dynamicInventories = new List<Inventory>();
-            staticInventories = new List<Inventory>();
-            foreach(Inventory i in magacin.inventory)
-            {
-                SetInventoryType(i);
-            }
-        }
-
-        private void SetInventoryType(Inventory i)
-        {
-            if (i.InventoryType == InventoryType.dinamicki)
-            {
-                dynamicInventories.Add(i);
-            }
-            else
-            {
-                staticInventories.Add(i);
-            }
         }
 
         private void AddDynamicButtonClicked(object sender, RoutedEventArgs e)
@@ -88,7 +51,7 @@ namespace IS_Bolnica
         {
             if (IsAnyDynamicInventorySelected())
             {
-                storage.DeleteInventory(selectedInventory);
+                service.DeleteInventory(selectedInventory);
                 RefreshDataGrid();
             }
         }
@@ -109,10 +72,8 @@ namespace IS_Bolnica
 
         private void RefreshDataGrid()
         {
-            SetMagacin();
-            SetDynamicAndStaticInventory();
-            dynamicDataGrid.ItemsSource = dynamicInventories;
-            staticDataGrid.ItemsSource = staticInventories;
+            dynamicDataGrid.ItemsSource = service.GetDynamicInventory();
+            staticDataGrid.ItemsSource = service.GetStaticInventory();
         }
 
         private void EditDynamicButtonClicked(object sender, RoutedEventArgs e)
@@ -136,7 +97,7 @@ namespace IS_Bolnica
         {
             if (IsAnyStaticInventorySelected())
             {
-                storage.DeleteInventory(selectedInventory);
+                service.DeleteInventory(selectedInventory);
                 RefreshDataGrid();
             }
         }
