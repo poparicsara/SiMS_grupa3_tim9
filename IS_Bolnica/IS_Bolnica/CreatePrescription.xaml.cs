@@ -21,7 +21,7 @@ namespace IS_Bolnica
         private Anamnesis anamnesis;
         private Prescription prescription = new Prescription();
         private Therapy therapy = new Therapy();
-        private PrescriptionFileStorage prescriptionStorage = new PrescriptionFileStorage();
+        private PrescriptionRepository prescriptionStorage = new PrescriptionRepository();
         private List<Prescription> Prescriptions { get; set; } = new List<Prescription>();
         public List<Anamnesis> Anamneses { get; set; } = new List<Anamnesis>();
         private AnamnesisRepository anamnesisStorage = new AnamnesisRepository();

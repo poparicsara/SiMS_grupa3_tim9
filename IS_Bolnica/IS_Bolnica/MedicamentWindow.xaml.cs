@@ -21,7 +21,7 @@ namespace IS_Bolnica
         private Request request = new Request();
         private RequestFileStorage requestStorage = new RequestFileStorage();
         private Medicament selectedMedicament = new Medicament();
-        private MedicamentFileStorage medStorage = new MedicamentFileStorage();
+        private MedicamentRepository medStorage = new MedicamentRepository();
         private List<Request> requests = new List<Request>();
 
         public MedicamentWindow()

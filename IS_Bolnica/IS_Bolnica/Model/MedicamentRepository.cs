@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace IS_Bolnica.Model
 {
-    class MedicamentFileStorage
+    class MedicamentRepository
     {
         public List<Medicament> GetAll()
         {

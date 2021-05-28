@@ -12,14 +12,14 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica
 {
     public partial class AddIngredientWindow : Window
     {
-        private MedicamentFileStorage medStorage = new MedicamentFileStorage();
         private Medicament med;
-        private List<Medicament> medicaments = new List<Medicament>();
+        private MedicamentService medicamentService = new MedicamentService();
         public AddIngredientWindow(Medicament medicament)
         {
             InitializeComponent();
@@ -29,20 +29,9 @@ namespace IS_Bolnica
 
         private void confirmButtonClicked(object sender, RoutedEventArgs e)
         {
-            medicaments = medStorage.loadFromFile("Lekovi.json");
-
             Ingredient ingredient = new Ingredient();
             ingredient.Name = ingredientNameTxt.Text;
-
-            foreach (Medicament medicament in medicaments)
-            {
-                if (medicament.Id.Equals(med.Id))
-                {
-                    medicament.Ingredients.Add(ingredient);
-                }
-            }
-
-            medStorage.saveToFile(medicaments, "Lekovi.json");
+            medicamentService.addIngredientInMedicament(ingredient, med.Id);
 
             ListOfMedications listOfMedications = new ListOfMedications();
             listOfMedications.Show();

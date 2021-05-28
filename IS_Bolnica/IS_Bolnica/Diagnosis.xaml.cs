@@ -15,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica
 {
@@ -22,12 +23,9 @@ namespace IS_Bolnica
     {
         private Appointment examination;
         private Anamnesis anamnesis = new Anamnesis();
-        private AnamnesisRepository anamnesisStorage = new AnamnesisRepository();
-        public List<Anamnesis> Anamneses { get; set; } = new List<Anamnesis>();
-        private PatientRepository patientStorage = new PatientRepository();
-        public List<Patient> Patients { get; set; } = new List<Patient>();
-        public List<Doctor> Doctors { get; set; }
-        private DoctorRepository doctorStorage = new DoctorRepository();
+        private DoctorService doctorService = new DoctorService();
+        private PatientService patientService = new PatientService();
+        private AnamnesisService anamnesisService = new AnamnesisService();
         public Diagnosis(Appointment examination, List<Appointment> loggedExaminations)
         {
             InitializeComponent();
@@ -44,40 +42,16 @@ namespace IS_Bolnica
 
         private void izdajRecept(object sender, RoutedEventArgs e)
         {
-            Anamneses = anamnesisStorage.loadFromFile("anamneses.json");
-            Patients = patientStorage.LoadFromFile("PatientRecordFileStorage.json");
-            Doctors = doctorStorage.loadFromFile("Doctors.json");
-
-            foreach (Doctor doctor in Doctors)
-            {
-
-                string drNameSurname = doctor.Name + ' ' + doctor.Surname;
-
-                if (drNameSurname.Equals(doctorTxt.Text))
-                {
-                    anamnesis.Doctor = doctor;
-                }
-            }
-
-            foreach (Patient patient in Patients)
-            {
-                if (patient.Id.Equals(jmbgTxt.Text))
-                {
-                    anamnesis.Patient = patient;
-                }
-            }
-
+            anamnesis.Doctor = doctorService.findDoctorByName(doctorTxt.Text);
+            anamnesis.Patient = patientService.findPatientById(jmbgTxt.Text);
             anamnesis.Symptoms = symptomsTxt.Text;
             anamnesis.Diagnosis = diagnosisTxt.Text;
             anamnesis.Date = DateTime.Parse(dateOfExaminationTxt.Text);
 
-            Anamneses.Add(anamnesis);
-            anamnesisStorage.saveToFile(Anamneses, "anamneses.json");
+            anamnesisService.createAnamnesis(anamnesis);
 
             CreatePrescription createPrescription = new CreatePrescription(anamnesis);
-
             createPrescription.Show();
-
             this.Close();
         }
 

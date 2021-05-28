@@ -52,7 +52,7 @@ namespace IS_Bolnica
 
         private void AcceptMedicamentButton(object sender, RoutedEventArgs e)
         {
-            MedicamentFileStorage medStorage = new MedicamentFileStorage();
+            MedicamentRepository medStorage = new MedicamentRepository();
             List<Medicament> meds = medStorage.loadFromFile("Lekovi.json");
 
             foreach (Medicament med in meds)
@@ -104,7 +104,7 @@ namespace IS_Bolnica
             switch (messageBox)
             {
                 case MessageBoxResult.Yes:
-                    MedicamentFileStorage medStorage = new MedicamentFileStorage();
+                    MedicamentRepository medStorage = new MedicamentRepository();
                     List<Medicament> meds = medStorage.loadFromFile("Lekovi.json");
                     int index = 0;
                     foreach(Medicament med in meds)

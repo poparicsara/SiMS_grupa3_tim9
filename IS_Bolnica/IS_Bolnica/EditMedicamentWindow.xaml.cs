@@ -23,7 +23,7 @@ namespace IS_Bolnica
         private Medicament oldMedicament = new Medicament();
         private Medicament newMedicament = new Medicament();
         private List<Medicament> meds = new List<Medicament>();
-        private MedicamentFileStorage medStorage = new MedicamentFileStorage();
+        private MedicamentRepository medStorage = new MedicamentRepository();
         private string replacement;
         private List<Request> requests = new List<Request>();
         private RequestFileStorage storage = new RequestFileStorage();

@@ -5,7 +5,7 @@ using System.IO;
 
 namespace IS_Bolnica
 {
-    internal class IngredientFileStorage
+    internal class IngredientRepository
     {
         public List<Ingredient> GetAll()
         {

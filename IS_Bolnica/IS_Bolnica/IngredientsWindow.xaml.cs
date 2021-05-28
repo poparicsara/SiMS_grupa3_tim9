@@ -19,12 +19,12 @@ namespace IS_Bolnica
     {
         private Medicament selectedMedicament;
         private List<Medicament> meds;
-        private MedicamentFileStorage storage = new MedicamentFileStorage();
+        private MedicamentRepository storage = new MedicamentRepository();
         public IngredientsWindow(Medicament selected)
         {
             InitializeComponent();
             
-            storage = new MedicamentFileStorage();
+            storage = new MedicamentRepository();
             meds = storage.loadFromFile("Lekovi.json");
             SetSelectedMedicament(selected.Id);
             ingredientDataGrid.ItemsSource = GetSelectedMedicamentIngredients();

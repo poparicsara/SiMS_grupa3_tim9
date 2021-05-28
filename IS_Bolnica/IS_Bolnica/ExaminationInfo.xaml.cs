@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica
 {
@@ -21,6 +22,8 @@ namespace IS_Bolnica
         private int selectedPatient;
         private Appointment examination;
         private List<Appointment> loggedExaminations;
+        private PrescriptionService prescriptionService = new PrescriptionService();
+        private AnamnesisService anamnesisService = new AnamnesisService();
         public ExaminationInfo(int selectedIndex, List<Appointment> loggedDoctorExaminations)
         {
             InitializeComponent();
@@ -28,33 +31,16 @@ namespace IS_Bolnica
             ExaminationsRecordFileStorage examinationsRecordFileStorage = new ExaminationsRecordFileStorage();
 
             this.loggedExaminations = loggedDoctorExaminations;
-            PrescriptionFileStorage prescriptionFileStorage = new PrescriptionFileStorage();
-            List<Prescription> prescriptions = prescriptionFileStorage.loadFromFile("prescriptions.json");
-            AnamnesisRepository anamnesisRepository = new AnamnesisRepository();
-            List<Anamnesis> anamneses = anamnesisRepository.loadFromFile("anamneses.json");
-
             this.examination = loggedExaminations.ElementAt(selectedIndex);
+
             patientTxt.Text = examination.Patient.Name + ' ' + examination.Patient.Surname;
             dateOfBirthTxt.Text = examination.Patient.DateOfBirth.ToString();
             jmbgTxt.Text = examination.Patient.Id;
             healthCardNumberTxt.Text = examination.Patient.HealthCardNumber;
             addressTxt.Text = examination.Patient.Address.Street + ", " + examination.Patient.Address.City.name;
 
-            foreach (Prescription prescription in prescriptions)
-            {
-                if (prescription.Patient.Id.Equals(jmbgTxt.Text))
-                {
-                    medicationsList.Items.Add(prescription.Therapy.MedicationName);
-                }
-            } 
-
-            foreach (Anamnesis anamnesis in anamneses)
-            {
-                if (anamnesis.Patient.Id.Equals(jmbgTxt.Text))
-                {
-                    historyList.Items.Add(anamnesis.Diagnosis);
-                }
-            }
+            medicationsList.ItemsSource = prescriptionService.getMedicationFromPrescription(jmbgTxt.Text);
+            historyList.ItemsSource = anamnesisService.getPatientsDiagnosesFromAnamneses(jmbgTxt.Text);
 
             if (examination.Patient.Id.Equals(jmbgTxt.Text))
             {

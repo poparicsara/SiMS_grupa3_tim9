@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace IS_Bolnica.Model
 {
-    class PrescriptionFileStorage
+    class PrescriptionRepository
     {
         public void saveToFile(List<Prescription> prescriptions, string fileName)
         {

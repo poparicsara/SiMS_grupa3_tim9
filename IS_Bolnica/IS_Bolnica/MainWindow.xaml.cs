@@ -30,8 +30,10 @@ namespace IS_Bolnica
 
         private void doctorButtonClicked(object sender, RoutedEventArgs e)
         {
-            DoctorWindow doctorWindow = new DoctorWindow();
-            doctorWindow.Show();
+            //DoctorWindow doctorWindow = new DoctorWindow();
+            //doctorWindow.Show();
+            DoctorStartWindow doctorStartWindow = new DoctorStartWindow();
+            doctorStartWindow.Show();
         }
 
         //private void PatientButtonClicked(object sender, RoutedEventArgs e)

@@ -1,0 +1,64 @@
+﻿<Window x:Class="IS_Bolnica.DoctorStartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IS_Bolnica"
+        mc:Ignorable="d"
+        Topmost="True"
+        WindowStyle="None"
+        Title="Zdravo korporacija" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        Height="768" Width="1024">
+    <Grid>
+        <Grid HorizontalAlignment="Left" Height="768" VerticalAlignment="Top" Width="100" Background="#FFF1F0F0">
+            <Button Content="" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" Width="100" Height="61" BorderBrush="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="Images/greenstethoscope.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <Button Content="" HorizontalAlignment="Left" Margin="0,190,0,0" VerticalAlignment="Top" Width="100" Height="61" BorderBrush="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="Images/greenscissors.png" Stretch="Uniform"/>
+                </Button.Background>
+
+            </Button>
+            <Button Content="" HorizontalAlignment="Left" Margin="0,274,0,0" VerticalAlignment="Top" Width="100" Height="61" BorderBrush="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="Images/message.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+        </Grid>
+        <Button Content="" HorizontalAlignment="Left" Margin="0,357,0,0" VerticalAlignment="Top" Width="100" Height="61" BorderBrush="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="Images/chartgreen.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button Content="" HorizontalAlignment="Left" Margin="0,697,0,0" VerticalAlignment="Top" Width="100" Height="61" BorderBrush="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="Images/singout.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button Content="" HorizontalAlignment="Left" Margin="0,615,0,0" VerticalAlignment="Top" Width="100" Height="61" BorderBrush="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="Images/settings.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Grid HorizontalAlignment="Left" Height="91" VerticalAlignment="Top" Width="1014" Background="#FFF1F0F0" Margin="10,0,0,0">
+            <Button Content="" HorizontalAlignment="Left" Margin="909,38,0,0" VerticalAlignment="Top" Width="70" Height="43" BorderBrush="{x:Null}">
+                <Button.Background>
+                    <ImageBrush ImageSource="Images/remove2.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+        </Grid>
+        <Button Content="" HorizontalAlignment="Left" Margin="849,37,0,0" VerticalAlignment="Top" Width="64" Height="43" BorderBrush="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="Images/editt.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button Content="" HorizontalAlignment="Left" Margin="775,37,0,0" VerticalAlignment="Top" Width="69" Height="45" BorderBrush="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="Images/plus.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+    </Grid>
+</Window>

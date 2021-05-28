@@ -26,14 +26,14 @@ namespace IS_Bolnica
         private string replacement;
         private Medicament selectedReplacement = new Medicament();
         private List<Medicament> meds = new List<Medicament>();
-        private MedicamentFileStorage medStorage = new MedicamentFileStorage();
+        private MedicamentRepository medStorage = new MedicamentRepository();
         private Medicament newMedicament = new Medicament();
 
         public AddMedicamentWindow()
         {
             InitializeComponent();
 
-            MedicamentFileStorage medStorage = new MedicamentFileStorage();
+            MedicamentRepository medStorage = new MedicamentRepository();
             meds = medStorage.loadFromFile("Lekovi.json");
 
             requests = requestStorage.LoadFromFile("Zahtevi.json");

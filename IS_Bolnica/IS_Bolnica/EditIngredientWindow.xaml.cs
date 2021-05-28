@@ -20,7 +20,7 @@ namespace IS_Bolnica
         private Ingredient oldIngredient;
         private Ingredient newIngredient = new Ingredient();
         private Medicament selectedMedicament = new Medicament();
-        private MedicamentFileStorage storage = new MedicamentFileStorage();
+        private MedicamentRepository storage = new MedicamentRepository();
         private List<Medicament> meds = new List<Medicament>();
 
         public EditIngredientWindow(Medicament med, Ingredient ingredient)
