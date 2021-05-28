@@ -22,8 +22,8 @@ namespace IS_Bolnica
         {
             InitializeComponent();
 
-            MedicamentFileStorage medStorage = new MedicamentFileStorage();
-            List<Medicament> medicaments = medStorage.loadFromFile("Lekovi.json");
+            MedicamentRepository medStorage = new MedicamentRepository();
+            List<Medicament> medicaments = medStorage.GetMedicaments();
 
             foreach (Medicament medicament in medicaments)
             {

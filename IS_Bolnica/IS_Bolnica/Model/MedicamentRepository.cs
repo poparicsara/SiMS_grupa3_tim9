@@ -8,24 +8,32 @@ using System.Threading.Tasks;
 
 namespace IS_Bolnica.Model
 {
-    class MedicamentFileStorage
+    class MedicamentRepository
     {
-        public List<Medicament> GetAll()
+        private List<Medicament> meds;
+
+        public MedicamentRepository()
         {
-            throw new NotImplementedException();
+            meds = GetMedicaments();
         }
 
-        public void saveToFile(List<Medicament> medicaments, string fileName)
+        public void AddMedicament(Medicament newMedicament)
+        {
+            meds.Add(newMedicament);
+            saveToFile(meds);
+        }
+
+        public void saveToFile(List<Medicament> medicaments)
         {
             string jsonString = JsonConvert.SerializeObject(medicaments, Formatting.Indented);
-            File.WriteAllText(fileName, jsonString);
+            File.WriteAllText("Lekovi.json", jsonString);
         }
 
-        public List<Medicament> loadFromFile(string fileName)
+        public List<Medicament> GetMedicaments()
         {
             var medicaments = new List<Medicament>();
 
-            using (StreamReader file = File.OpenText(fileName))
+            using (StreamReader file = File.OpenText("Lekovi.json"))
             {
                 var serializer = new JsonSerializer();
                 medicaments = (List<Medicament>)serializer.Deserialize(file, typeof(List<Medicament>));

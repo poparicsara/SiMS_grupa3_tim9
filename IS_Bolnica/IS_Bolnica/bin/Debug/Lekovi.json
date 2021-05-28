@@ -278,5 +278,158 @@
     },
     "Producer": "a",
     "Status": 0
+  },
+  {
+    "Id": 5,
+    "Name": "a",
+    "Ingredients": [
+      {
+        "Name": "a"
+      },
+      {
+        "Name": "a"
+      },
+      {
+        "Name": "a"
+      }
+    ],
+    "Replacement": {
+      "Id": 101,
+      "Name": "Alopurinol",
+      "Ingredients": [
+        {
+          "Name": "Alopurinol"
+        },
+        {
+          "Name": "Kukuruzni skrob"
+        },
+        {
+          "Name": "Celuloza"
+        },
+        {
+          "Name": "Natrijum-skrobglikolat"
+        },
+        {
+          "Name": "Talk"
+        },
+        {
+          "Name": "Magnezijum-stearat"
+        }
+      ],
+      "Replacement": {
+        "Id": 102,
+        "Name": "ESBESUL",
+        "Ingredients": null,
+        "Replacement": null,
+        "Producer": "Bayer",
+        "Status": 0
+      },
+      "Producer": "Bayer",
+      "Status": 0
+    },
+    "Producer": "b",
+    "Status": 0
+  },
+  {
+    "Id": 6,
+    "Name": "a",
+    "Ingredients": [
+      {
+        "Name": "a"
+      },
+      {
+        "Name": "a"
+      },
+      {
+        "Name": "a"
+      }
+    ],
+    "Replacement": {
+      "Id": 101,
+      "Name": "Alopurinol",
+      "Ingredients": [
+        {
+          "Name": "Alopurinol"
+        },
+        {
+          "Name": "Kukuruzni skrob"
+        },
+        {
+          "Name": "Celuloza"
+        },
+        {
+          "Name": "Natrijum-skrobglikolat"
+        },
+        {
+          "Name": "Talk"
+        },
+        {
+          "Name": "Magnezijum-stearat"
+        }
+      ],
+      "Replacement": {
+        "Id": 102,
+        "Name": "ESBESUL",
+        "Ingredients": null,
+        "Replacement": null,
+        "Producer": "Bayer",
+        "Status": 0
+      },
+      "Producer": "Bayer",
+      "Status": 0
+    },
+    "Producer": "a",
+    "Status": 0
+  },
+  {
+    "Id": 7,
+    "Name": "j",
+    "Ingredients": [
+      {
+        "Name": "a"
+      },
+      {
+        "Name": "a"
+      },
+      {
+        "Name": "a"
+      }
+    ],
+    "Replacement": {
+      "Id": 101,
+      "Name": "Alopurinol",
+      "Ingredients": [
+        {
+          "Name": "Alopurinol"
+        },
+        {
+          "Name": "Kukuruzni skrob"
+        },
+        {
+          "Name": "Celuloza"
+        },
+        {
+          "Name": "Natrijum-skrobglikolat"
+        },
+        {
+          "Name": "Talk"
+        },
+        {
+          "Name": "Magnezijum-stearat"
+        }
+      ],
+      "Replacement": {
+        "Id": 102,
+        "Name": "ESBESUL",
+        "Ingredients": null,
+        "Replacement": null,
+        "Producer": "Bayer",
+        "Status": 0
+      },
+      "Producer": "Bayer",
+      "Status": 0
+    },
+    "Producer": "j",
+    "Status": 0
   }
 ]

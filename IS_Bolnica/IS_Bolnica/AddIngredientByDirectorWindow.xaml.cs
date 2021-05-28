@@ -19,7 +19,7 @@ namespace IS_Bolnica
     {
         private Medicament selectedMedicament;
         private Ingredient ingredient = new Ingredient();
-        private MedicamentFileStorage medStorage = new MedicamentFileStorage();
+        private MedicamentRepository medStorage = new MedicamentRepository();
         private List<Medicament> meds = new List<Medicament>();
 
         public AddIngredientByDirectorWindow(Medicament selected)
@@ -28,7 +28,7 @@ namespace IS_Bolnica
 
             selectedMedicament = selected;
 
-            meds = medStorage.loadFromFile("Lekovi.json");
+            meds = medStorage.GetMedicaments();
         }
 
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
@@ -64,7 +64,7 @@ namespace IS_Bolnica
                     m.Ingredients.Add(ingredient);
                 }
             }
-            medStorage.saveToFile(meds, "Lekovi.json");
+            medStorage.saveToFile(meds);
         }
 
         private void IsException(Medicament med)
