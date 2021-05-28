@@ -319,9 +319,11 @@
       <DependentUpon>SelectedRequest.xaml</DependentUpon>
     </Compile>
     <Compile Include="Services\AppointmentService.cs" />
+    <Compile Include="Services\ChangeInventoryPlaceService.cs" />
     <Compile Include="Services\FindAttributesService.cs" />
     <Compile Include="Services\DoctorService.cs" />
     <Compile Include="Services\GuestUserService.cs" />
+    <Compile Include="Services\InventoryPerRoomService.cs" />
     <Compile Include="Services\InventoryService.cs" />
     <Compile Include="Services\NotificationService.cs" />
     <Compile Include="Services\PatientService.cs" />

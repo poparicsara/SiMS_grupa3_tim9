@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -70,6 +71,16 @@ namespace IS_Bolnica.Services
         public Room GetMagacin()
         {
             return repository.GetMagacin();
+        }
+
+        public void Save(List<Room> rooms)
+        {
+            repository.saveToFile(rooms);
+        }
+
+        public Room GetRoom(int roomId)
+        {
+            return repository.GetRoom(roomId);
         }
 
     }
