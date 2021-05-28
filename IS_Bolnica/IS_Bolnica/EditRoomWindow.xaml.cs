@@ -4,20 +4,21 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows;
+using IS_Bolnica.Services;
 
 
 namespace IS_Bolnica
 {
     public partial class EditRoomWindow : Window
     {
-        private RoomRecord newRoom = new RoomRecord();
-        private RoomRecord oldRoom = new RoomRecord();
-        private Director director = new Director();
+        private Room newRoom = new Room();
+        private Room oldRoom = new Room();
         private List<string> hospitalWards = new List<string>();
         private Specialization specialization = new Specialization();
         private List<string> purposes = new List<string>();
+        private RoomService service = new RoomService();
 
-        public EditRoomWindow(RoomRecord room)
+        public EditRoomWindow(Room room)
         {
             InitializeComponent();
 
@@ -76,7 +77,7 @@ namespace IS_Bolnica
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
             SetNewRoom();
-            Save();
+            service.EditRoom(oldRoom, newRoom);
             this.Close();
         }
 
@@ -86,12 +87,6 @@ namespace IS_Bolnica
             newRoom.HospitalWard = wardBox.Text;
             RoomPurpose purpose = new RoomPurpose { Name = purposeBox.Text };
             newRoom.roomPurpose = purpose;
-        }
-
-        private void Save()
-        {
-            RoomRecordFileStorage storage = new RoomRecordFileStorage();
-            storage.EditRoom(oldRoom, newRoom);
         }
 
         private void InventoryButtonClicked(object sender, RoutedEventArgs e)
@@ -107,6 +102,7 @@ namespace IS_Bolnica
 
         private void ClosingWindow(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            Director director = new Director();
             RoomWindow rw = new RoomWindow(director);
             rw.Show();
         }

@@ -22,7 +22,7 @@ namespace IS_Bolnica
     public partial class DoctorNotificationWindow : Window, INotifyPropertyChanged
     {
         public List<Notification> Notifications { get; set; }
-        private Model.NotificationsFileStorage storage = new NotificationsFileStorage();
+        private Model.NotificationRepository storage = new NotificationRepository();
         private User doctor = new User();
 
 

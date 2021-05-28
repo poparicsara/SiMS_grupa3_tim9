@@ -23,7 +23,7 @@ namespace IS_Bolnica
     {
 
         public List<Notification> Notifications { get; set; }
-        private Model.NotificationsFileStorage storage = new NotificationsFileStorage();
+        private Model.NotificationRepository storage = new NotificationRepository();
         private Patient patient = new Patient();
 
         public PatientNotificationWindow(Patient patient)

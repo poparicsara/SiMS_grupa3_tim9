@@ -1,29 +1,18 @@
 ﻿using Model;
-using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica
 {
     public partial class RoomWindow : Window
     {
-        private List<RoomRecord> rooms = new List<RoomRecord>();
-        private RoomRecord selectedRoom;
-        private RoomRecordFileStorage storage = new RoomRecordFileStorage();
+        private List<Room> rooms = new List<Room>();
+        private Room selectedRoom;
+        private RoomRepository storage = new RoomRepository();
+        private RoomService service = new RoomService();
 
         public RoomWindow(Director director)
         {
@@ -31,7 +20,7 @@ namespace IS_Bolnica
 
             DataContext = director;
 
-            roomDataGrid.ItemsSource = storage.loadFromFile("Sobe.json");
+            roomDataGrid.ItemsSource = storage.GetRooms();
         }
 
         private void AddButtonClicked(object sender, RoutedEventArgs e)
@@ -45,19 +34,19 @@ namespace IS_Bolnica
         {
             if (IsAnyRoomSelected())
             {
-                storage.DeleteRoom(selectedRoom);
+                service.DeleteRoom(selectedRoom);
                 RefreshRoomDataGrid();
             }
         }
 
         private void SetSelectedRoom()
         {
-            selectedRoom = (RoomRecord)roomDataGrid.SelectedItem;
+            selectedRoom = (Room)roomDataGrid.SelectedItem;
         }
 
         private bool IsAnyRoomSelected()
         {
-            if(roomDataGrid.SelectedIndex < 0)
+            if (roomDataGrid.SelectedIndex < 0)
             {
                 MessageBox.Show("Niste izabrali nijednu prostoriju!");
                 return false;
@@ -81,7 +70,7 @@ namespace IS_Bolnica
 
         public void RefreshRoomDataGrid()
         {
-            roomDataGrid.ItemsSource = storage.loadFromFile("Sobe.json");
+            roomDataGrid.ItemsSource = service.GetRooms();
         }
 
         private void searchKeyUp(object sender, KeyEventArgs e)

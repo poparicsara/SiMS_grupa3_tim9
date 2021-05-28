@@ -22,12 +22,12 @@ namespace IS_Bolnica
     {
         private Examination examination;
         private Anamnesis anamnesis = new Anamnesis();
-        private AnamnesisFileStorage anamnesisStorage = new AnamnesisFileStorage();
+        private AnamnesisRepository anamnesisStorage = new AnamnesisRepository();
         public List<Anamnesis> Anamneses { get; set; } = new List<Anamnesis>();
-        private PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
+        private PatientRepository patientStorage = new PatientRepository();
         public List<Patient> Patients { get; set; } = new List<Patient>();
         public List<Doctor> Doctors { get; set; }
-        private DoctorFileStorage doctorStorage = new DoctorFileStorage();
+        private DoctorRepository doctorStorage = new DoctorRepository();
         public Diagnosis(Examination examination, List<Examination> loggedExaminations)
         {
             InitializeComponent();
@@ -45,7 +45,7 @@ namespace IS_Bolnica
         private void izdajRecept(object sender, RoutedEventArgs e)
         {
             Anamneses = anamnesisStorage.loadFromFile("anamneses.json");
-            Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
+            Patients = patientStorage.LoadFromFile("PatientRecordFileStorage.json");
             Doctors = doctorStorage.loadFromFile("Doctors.json");
 
             foreach (Doctor doctor in Doctors)

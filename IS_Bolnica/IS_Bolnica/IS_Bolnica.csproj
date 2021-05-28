@@ -105,6 +105,7 @@
     <Compile Include="EditRoomWindow.xaml.cs">
       <DependentUpon>EditRoomWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EvaluationFileStorage.cs" />
     <Compile Include="ExaminationInfo.xaml.cs">
       <DependentUpon>ExaminationInfo.xaml</DependentUpon>
     </Compile>
@@ -114,6 +115,8 @@
       <DependentUpon>InventoryWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="InventoryInRoom.cs" />
+    <Compile Include="Model\AppointmentRepository.cs" />
+    <Compile Include="Model\AppointmentType.cs" />
     <Compile Include="RoomInventory.xaml.cs">
       <DependentUpon>RoomInventory.xaml</DependentUpon>
     </Compile>
@@ -133,11 +136,10 @@
       <DependentUpon>MedicamentWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Anamnesis.cs" />
-    <Compile Include="Model\AnamnesisFileStorage.cs" />
+    <Compile Include="Model\AnamnesisRepository.cs" />
     <Compile Include="Model\Appointment.cs" />
-    <Compile Include="Model\DoctorFileStorage.cs" />
-    <Compile Include="Model\EvaluationFileStorage.cs" />
-    <Compile Include="Model\GuestUsersFileStorage.cs" />
+    <Compile Include="Model\DoctorRepository.cs" />
+    <Compile Include="Model\GuestUserRepository.cs" />
     <Compile Include="Model\HospitalWard.cs" />
     <Compile Include="Model\HospitalWardFileStorage.cs" />
     <Compile Include="Model\InventoryType.cs" />
@@ -145,17 +147,17 @@
     <Compile Include="Model\MedicamentFileStorage.cs" />
     <Compile Include="Model\MedicamentStatus.cs" />
     <Compile Include="Model\Notification.cs" />
-    <Compile Include="Model\NotificationsFileStorage.cs" />
+    <Compile Include="Model\NotificationRepository.cs" />
     <Compile Include="Model\NotificationType.cs" />
     <Compile Include="Model\Prescription.cs" />
     <Compile Include="Model\PrescriptionFileStorage.cs" />
     <Compile Include="Model\Renovation.cs" />
-    <Compile Include="Model\RenovationFileStorage.cs" />
+    <Compile Include="Model\RenovationRepository.cs" />
     <Compile Include="Model\Request.cs" />
     <Compile Include="Model\RequestFileStorage.cs" />
     <Compile Include="Model\TherapiesFileStorage.cs" />
     <Compile Include="Model\Therapy.cs" />
-    <Compile Include="Model\UsersFileStorage.cs" />
+    <Compile Include="Model\UserRepository.cs" />
     <Compile Include="Model\UserType.cs" />
     <Compile Include="AddRoomWindow.xaml.cs">
       <DependentUpon>AddRoomWindow.xaml</DependentUpon>
@@ -190,14 +192,29 @@
     <Compile Include="RequestWindow.xaml.cs">
       <DependentUpon>RequestWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Secretary\ActionBar.xaml.cs">
+      <DependentUpon>ActionBar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Secretary\ActionBarWindow.xaml.cs">
       <DependentUpon>ActionBarWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\AddExamination.xaml.cs">
+      <DependentUpon>AddExamination.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\AddExaminationWindow.xaml.cs">
       <DependentUpon>AddExaminationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Secretary\AddGuestUser.xaml.cs">
+      <DependentUpon>AddGuestUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\AddNotification.xaml.cs">
+      <DependentUpon>AddNotification.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Secretary\AddNotificationWindow.xaml.cs">
       <DependentUpon>AddNotificationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\AddOperation.xaml.cs">
+      <DependentUpon>AddOperation.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\AddOperationWindow.xaml.cs">
       <DependentUpon>AddOperationWindow.xaml</DependentUpon>
@@ -205,17 +222,35 @@
     <Compile Include="Secretary\AddPatient.xaml.cs">
       <DependentUpon>AddPatient.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Secretary\AddPatientPage.xaml.cs">
+      <DependentUpon>AddPatientPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Secretary\AddUrgentExamination.xaml.cs">
       <DependentUpon>AddUrgentExamination.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\AddUrgentExaminationPage.xaml.cs">
+      <DependentUpon>AddUrgentExaminationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\AddUrgentOperation.xaml.cs">
+      <DependentUpon>AddUrgentOperation.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\AddUrgentOperationWindow.xaml.cs">
       <DependentUpon>AddUrgentOperationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Secretary\EditExamination.xaml.cs">
+      <DependentUpon>EditExamination.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Secretary\EditExaminationWindow.xaml.cs">
       <DependentUpon>EditExaminationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Secretary\EditNotification.xaml.cs">
+      <DependentUpon>EditNotification.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Secretary\EditNotificationWindow.xaml.cs">
       <DependentUpon>EditNotificationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\EditOperation.xaml.cs">
+      <DependentUpon>EditOperation.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\EditOperationWindow.xaml.cs">
       <DependentUpon>EditOperationWindow.xaml</DependentUpon>
@@ -223,26 +258,50 @@
     <Compile Include="Secretary\EditPatient.xaml.cs">
       <DependentUpon>EditPatient.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Secretary\EditPatientPage.xaml.cs">
+      <DependentUpon>EditPatientPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\ExaminationList.xaml.cs">
+      <DependentUpon>ExaminationList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Secretary\ExaminationListWindow.xaml.cs">
       <DependentUpon>ExaminationListWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\GuestUserAccount.xaml.cs">
       <DependentUpon>GuestUserAccount.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Secretary\GuestUserList.xaml.cs">
+      <DependentUpon>GuestUserList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Secretary\GuestUserListWindow.xaml.cs">
       <DependentUpon>GuestUserListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\NotificationList.xaml.cs">
+      <DependentUpon>NotificationList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\NotificationListWindow.xaml.cs">
       <DependentUpon>NotificationListWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Secretary\OperationList.xaml.cs">
+      <DependentUpon>OperationList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Secretary\OperationListWindow.xaml.cs">
       <DependentUpon>OperationListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\PatientList.xaml.cs">
+      <DependentUpon>PatientList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\PatientListWindow.xaml.cs">
       <DependentUpon>PatientListWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Secretary\UrgentExaminationOptions.xaml.cs">
+      <DependentUpon>UrgentExaminationOptions.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Secretary\UrgentExaminationOptionsWindow.xaml.cs">
       <DependentUpon>UrgentExaminationOptionsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\UrgentOperationOptions.xaml.cs">
+      <DependentUpon>UrgentOperationOptions.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\UrgentOperationOptionsWindow.xaml.cs">
       <DependentUpon>UrgentOperationOptionsWindow.xaml</DependentUpon>
@@ -259,6 +318,17 @@
     <Compile Include="SelectedRequest.xaml.cs">
       <DependentUpon>SelectedRequest.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Services\AppointmentService.cs" />
+    <Compile Include="Services\FindAttributesService.cs" />
+    <Compile Include="Services\DoctorService.cs" />
+    <Compile Include="Services\GuestUserService.cs" />
+    <Compile Include="Services\InventoryService.cs" />
+    <Compile Include="Services\NotificationService.cs" />
+    <Compile Include="Services\PatientService.cs" />
+    <Compile Include="Services\RenovationService.cs" />
+    <Compile Include="Services\RoomService.cs" />
+    <Compile Include="Services\UrgentAppointmentService.cs" />
+    <Compile Include="Services\UserService.cs" />
     <Compile Include="UpdateExaminationWindow.xaml.cs">
       <DependentUpon>UpdateExaminationWindow.xaml</DependentUpon>
     </Compile>
@@ -431,7 +501,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Secretary\ActionBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Secretary\ActionBarWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Secretary\AddExamination.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -439,7 +517,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Secretary\AddGuestUser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Secretary\AddNotification.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Secretary\AddNotificationWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Secretary\AddOperation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -451,19 +541,43 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Secretary\AddPatientPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Secretary\AddUrgentExamination.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary\AddUrgentExaminationPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Secretary\AddUrgentOperation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Secretary\AddUrgentOperationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Secretary\EditExamination.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Secretary\EditExaminationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Secretary\EditNotification.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Secretary\EditNotificationWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Secretary\EditOperation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -475,6 +589,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Secretary\EditPatientPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Secretary\ExaminationList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Secretary\ExaminationListWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -483,7 +605,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Secretary\GuestUserList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Secretary\GuestUserListWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Secretary\NotificationList.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -491,17 +621,33 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Secretary\OperationList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Secretary\OperationListWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Secretary\PatientList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Secretary\PatientListWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Secretary\UrgentExaminationOptions.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Secretary\UrgentExaminationOptionsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary\UrgentOperationOptions.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Secretary\UrgentOperationOptionsWindow.xaml">
       <SubType>Designer</SubType>
@@ -557,14 +703,14 @@
     <Compile Include="Model\ExaminationsRecordFileStorage.cs" />
     <Compile Include="Model\GuestUser.cs" />
     <Compile Include="Model\Inventory.cs" />
-    <Compile Include="Model\InventoryFileStorage.cs" />
+    <Compile Include="Model\InventoryRepository.cs" />
     <Compile Include="Model\Operation.cs" />
     <Compile Include="Model\OperationsFileStorage.cs" />
     <Compile Include="Model\Patient.cs" />
-    <Compile Include="Model\PatientRecordFileStorage.cs" />
+    <Compile Include="Model\PatientRepository.cs" />
     <Compile Include="Model\RoomPurpose.cs" />
-    <Compile Include="Model\RoomRecord.cs" />
-    <Compile Include="Model\RoomRecordFileStorage.cs" />
+    <Compile Include="Model\Room.cs" />
+    <Compile Include="Model\RoomRepository.cs" />
     <Compile Include="Model\Secretary.cs" />
     <Compile Include="Model\Specialization.cs" />
     <Compile Include="Model\Status.cs" />
@@ -610,5 +756,6 @@
   <ItemGroup>
     <Resource Include="actionBarIcon.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

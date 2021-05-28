@@ -29,8 +29,8 @@ namespace IS_Bolnica
             this.loggedExaminations = loggedDoctorExaminations;
             PrescriptionFileStorage prescriptionFileStorage = new PrescriptionFileStorage();
             List<Prescription> prescriptions = prescriptionFileStorage.loadFromFile("prescriptions.json");
-            AnamnesisFileStorage anamnesisFileStorage = new AnamnesisFileStorage();
-            List<Anamnesis> anamneses = anamnesisFileStorage.loadFromFile("anamneses.json");
+            AnamnesisRepository anamnesisRepository = new AnamnesisRepository();
+            List<Anamnesis> anamneses = anamnesisRepository.loadFromFile("anamneses.json");
 
             this.examination = loggedExaminations.ElementAt(selectedIndex);
             patientTxt.Text = examination.Patient.Name + ' ' + examination.Patient.Surname;

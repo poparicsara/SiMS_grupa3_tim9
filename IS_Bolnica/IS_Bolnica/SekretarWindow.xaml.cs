@@ -12,9 +12,9 @@ namespace IS_Bolnica
 {
     public partial class SekretarWindow : Window, INotifyPropertyChanged
     {
-        private PatientRecordFileStorage storage = new PatientRecordFileStorage();
-        private GuestUsersFileStorage storage1 = new GuestUsersFileStorage();
-        private UsersFileStorage usersStorage = new UsersFileStorage();
+        private PatientRepository storage = new PatientRepository();
+        private GuestUserRepository storage1 = new GuestUserRepository();
+        private UserRepository usersStorage = new UserRepository();
         private Patient pacijent;
         private GuestUser guestKorisnik;
 
@@ -36,7 +36,7 @@ namespace IS_Bolnica
             this.DataContext = this;
 
             Pacijenti = new List<Patient>();
-            Pacijenti = storage.loadFromFile("PatientRecordFileStorage.json");
+            Pacijenti = storage.LoadFromFile("PatientRecordFileStorage.json");
 
             guestKorisnik = new GuestUser
             {
@@ -45,17 +45,17 @@ namespace IS_Bolnica
             };
 
             GuestKorisnici = new List<GuestUser>();
-            GuestKorisnici = storage1.loadFromFile("GuestUsersFile.json");
+            GuestKorisnici = storage1.LoadFromFile("GuestUsersFile.json");
         }
 
-        private void generateColumns(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        /*private void generateColumns(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             colNum++;
             if (colNum == 3)
             {
                 e.Column.Width = new DataGridLength(1, DataGridLengthUnitType.Star);
             }
-        }
+        }*/
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -69,6 +69,8 @@ namespace IS_Bolnica
             Secretary.ActionBarWindow abw = new Secretary.ActionBarWindow();
             abw.Show();
             this.Close();
+            //Secretary.ActionBar ab = new Secretary.ActionBar();
+            //this.Content = ab;
         }
 
         public void setProfileInfo(User user)

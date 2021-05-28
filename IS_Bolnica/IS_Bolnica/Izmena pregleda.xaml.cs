@@ -56,8 +56,10 @@ namespace IS_Bolnica
 
         private void nabaviDoktore()
         {
+
             DoctorFileStorage exStorage = new DoctorFileStorage();
             List<Doctor> doktoriIzFajla = exStorage.loadFromFile("Doctors.json");
+
             doktori = new List<String>();
 
             foreach (Doctor doktor in doktoriIzFajla)

@@ -9,7 +9,7 @@ namespace IS_Bolnica.Model
 {
     class Renovation
     {
-        public RoomRecord Room { get; set; }
+        public Room Room { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
 

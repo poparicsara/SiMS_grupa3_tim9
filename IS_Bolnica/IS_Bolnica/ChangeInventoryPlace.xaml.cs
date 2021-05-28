@@ -29,16 +29,16 @@ namespace IS_Bolnica
         private Inventory selectedInventory;
         private string from;
         private string to;
-        private List<RoomRecord> rooms = new List<RoomRecord>();
+        private List<Room> rooms = new List<Room>();
         private string selectedDate;
         private int selectedHour;
         private int selectedMinute;
-        private RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+        private RoomRepository roomRepository = new RoomRepository();
         private Inventory inventoryFrom = new Inventory();
         private Inventory inventoryTo = new Inventory();
         private Thread thread;
-        private RoomRecord roomFrom;
-        private RoomRecord roomTo;
+        private Room roomFrom;
+        private Room roomTo;
         private const int FROM = 1;
         private const int TO = 0;
         private Specialization spec = new Specialization();
@@ -47,7 +47,7 @@ namespace IS_Bolnica
         {
             InitializeComponent();
 
-            rooms = roomStorage.loadFromFile("Sobe.json");
+            rooms = roomRepository.GetRooms();
 
             wardFromBox.ItemsSource = GetHospitalWards(FROM);
             wardFromBox.SelectedItem = GetHospitalWards(FROM).ElementAt(0);
@@ -128,7 +128,7 @@ namespace IS_Bolnica
         private List<int> GetAppropriateRoomNumbers(string hospitalWard, string roomPurpose)
         {
             List<int> roomNumbers = new List<int>();
-            foreach (RoomRecord room in rooms)
+            foreach (Room room in rooms)
             {
                 if (room.HospitalWard.Equals(hospitalWard) && room.roomPurpose.Name.Equals(roomPurpose))
                 {
@@ -185,7 +185,7 @@ namespace IS_Bolnica
 
         private void SetRooms()
         {
-            foreach (RoomRecord r in rooms)
+            foreach (Room r in rooms)
             {
                 if (r.Id == (int)Int64.Parse(from))
                 {
@@ -217,7 +217,7 @@ namespace IS_Bolnica
             this.Close();
         }
 
-        private void SetInventoryFrom(RoomRecord room)
+        private void SetInventoryFrom(Room room)
         {
             if(FindInventory(room) != null)
             {
@@ -229,7 +229,7 @@ namespace IS_Bolnica
             }
         }
 
-        private void SetInventoryTo(RoomRecord room)
+        private void SetInventoryTo(Room room)
         {
             if (FindInventory(room) != null)
             {
@@ -244,11 +244,11 @@ namespace IS_Bolnica
 
         private void AddInventory()
         {
-            InventoryFileStorage inventoryStorage = new InventoryFileStorage();
+            InventoryRepository inventoryStorage = new InventoryRepository();
             inventoryStorage.AddInventoryInRoom(roomTo, selectedInventory);
         }
 
-        private Inventory FindInventory(RoomRecord room)
+        private Inventory FindInventory(Room room)
         {
             Inventory inventory = null;
             foreach (Inventory i in room.inventory)
@@ -310,7 +310,7 @@ namespace IS_Bolnica
         {
             ReduceAmount();
             IncreaseAmount();
-            roomStorage.saveToFile(rooms, "Sobe.json");
+            roomRepository.saveToFile(rooms);
         }
 
         private string[] GetFullCurrentDate()

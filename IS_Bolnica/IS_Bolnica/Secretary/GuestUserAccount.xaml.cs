@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Model;
 using System.Collections.ObjectModel;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica.Secretary
 {
@@ -14,9 +15,9 @@ namespace IS_Bolnica.Secretary
     /// </summary>
     public partial class GuestUserAccount : Window
     {
-        private GuestUser guest = new GuestUser();
-        private GuestUsersFileStorage storage = new GuestUsersFileStorage();
+        private GuestUser guestUser = new GuestUser();
         private object sender1 = new object();
+        private GuestUserService guestUserService = new GuestUserService();
 
         public GuestUserAccount(object sender)
         {
@@ -31,12 +32,10 @@ namespace IS_Bolnica.Secretary
 
         private void addGuestAccount(object sender, RoutedEventArgs e)
         {
-            guest.SystemName = systemName.Text;
-            guest.InjuryDescription = injury.Text;
+            guestUser.SystemName = systemName.Text;
+            guestUser.InjuryDescription = injury.Text;
 
-            List<GuestUser> lista = storage.loadFromFile("GuestUsersFile.json");
-            lista.Add(guest);
-            storage.saveToFile(lista, "GuestUsersFile.json");
+            guestUserService.AddGuestUser(guestUser);
 
             openAppropriateWindow();
         }

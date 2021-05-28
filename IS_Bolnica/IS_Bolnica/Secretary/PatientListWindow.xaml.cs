@@ -15,28 +15,25 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica.Secretary
 {
     public partial class PatientListWindow : Window, INotifyPropertyChanged
     {
-        private List<User> users = new List<User>();
-        private UsersFileStorage storage1 = new UsersFileStorage();
         private List<Patient> Pacijenti { get; set; } = new List<Patient>();
-        private PatientRecordFileStorage storage = new PatientRecordFileStorage();
-        private UsersFileStorage usersStorage = new UsersFileStorage();
-        private ExaminationsRecordFileStorage examinationStorage = new ExaminationsRecordFileStorage();
-        private List<Examination> examinations = new List<Examination>();
-        private OperationsFileStorage operationsStorage = new OperationsFileStorage();
-        private List<Operation> operations = new List<Operation>();
         public event PropertyChangedEventHandler PropertyChanged;
+
+        private PatientService patientService = new PatientService();
+        private UserService userService = new UserService();
+        private AppointmentService appointmentService = new AppointmentService();
 
         public PatientListWindow()
         {
             InitializeComponent();
             this.DataContext = this;
 
-            Pacijenti = storage.loadFromFile("PatientRecordFileStorage.json");
+            Pacijenti = patientService.GetPatients();
             PatientList.ItemsSource = Pacijenti;
         }
 
@@ -118,17 +115,23 @@ namespace IS_Bolnica.Secretary
                 switch (result)
                 {
                     case MessageBoxResult.Yes:
-                        Pacijenti = removePatient(patient);
-                        storage.saveToFile(Pacijenti, "PatientRecordFileStorage.json");
 
-                        users = removeUser(patient);
-                        usersStorage.saveToFile(users, "UsersFileStorage.json");
+                        patientService.DeletePatient(patient);
 
-                        examinations = removePatientsExaminations(patient);
-                        examinationStorage.saveToFile(examinations, "Pregledi.json");
-
-                        operations = removePatientOperations(patient);
-                        operationsStorage.saveToFile(operations, "operations.json");
+                        User user = new User
+                        {
+                            Address = patient.Address,
+                            DateOfBirth = patient.DateOfBirth,
+                            Id = patient.Id, Email = patient.Email,
+                            Name = patient.Name,
+                            Password = patient.Password,
+                            Phone = patient.Phone,
+                            Surname = patient.Surname,
+                            UserType = UserType.patient,
+                            Username = patient.Username
+                        };
+                        userService.DeleteUser(user);
+                        appointmentService.RemovePatientsAppointments(patient);
 
                         PatientListWindow plw = new PatientListWindow();
 
@@ -142,60 +145,6 @@ namespace IS_Bolnica.Secretary
             }
         }
 
-        private List<Patient> removePatient(Patient patient)
-        {
-            Pacijenti = storage.loadFromFile("PatientRecordFileStorage.json");
-            for (int k = 0; k < Pacijenti.Count; k++)
-            {
-                if (Pacijenti[k].Id.Equals(patient.Id))
-                {
-                    Pacijenti.RemoveAt(k);
-                }
-            }
-
-            return Pacijenti;
-        }
-
-        private List<User> removeUser(Patient patient)
-        {
-            users = usersStorage.loadFromFile("UsersFileStorage.json");
-            for (int k = 0; k < users.Count; k++)
-            {
-                if (users[k].Id.Equals(patient.Id))
-                {
-                    users.RemoveAt(k);
-                }
-            }
-
-            return users;
-        }
-
-        private List<Examination> removePatientsExaminations(Patient patient)
-        {
-            examinations = examinationStorage.loadFromFile("Pregledi.json");
-            for (int k = 0; k < examinations.Count; k++)
-            {
-                if (examinations[k].Patient.Id.Equals(patient.Id))
-                {
-                    examinations.RemoveAt(k);
-                }
-            }
-
-            return examinations;
-        }
-
-        private List<Operation> removePatientOperations(Patient patient)
-        {
-            operations = operationsStorage.loadFromFile("operations.json");
-            for (int k = 0; k < operations.Count; k++)
-            {
-                if (operations[k].Patient.Id.Equals(patient.Id))
-                {
-                    operations.RemoveAt(k);
-                }
-            }
-            return operations;
-        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

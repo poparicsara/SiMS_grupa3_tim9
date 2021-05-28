@@ -21,16 +21,16 @@ namespace IS_Bolnica.DoctorsWindows
     {
         private int selectedExamination;
         private Examination examination;
-        public List<RoomRecord> Rooms
+        public List<Room> Rooms
         {
             get;
             set;
         }
         public List<int> RoomId { get; set; } = new List<int>();
-        private RoomRecordFileStorage roomStorage = new RoomRecordFileStorage();
+        private RoomRepository roomRepository = new RoomRepository();
         public List<int> Hours { get; set; } = new List<int>();
         public List<Doctor> Doctors { get; set; }
-        private DoctorFileStorage doctorStorage = new DoctorFileStorage();
+        private DoctorRepository doctorStorage = new DoctorRepository();
         private List<string> doctorNameAndSurname = new List<string>();
         private List<string> specialistNameAndSurname = new List<string>();
         private List<Specialization> specializations = new List<Specialization>();
@@ -53,9 +53,9 @@ namespace IS_Bolnica.DoctorsWindows
             jmbgTxt.Text = examination.Patient.Id;
             healthCardNumberTxt.Text = examination.Patient.HealthCardNumber;
 
-            Rooms = roomStorage.loadFromFile("Sobe.json");
+            Rooms = roomRepository.GetRooms();
 
-            foreach (RoomRecord room in Rooms)
+            foreach (Room room in Rooms)
             {
                 if (room.roomPurpose.Name.Equals("Ordinacija"))
                 {
@@ -99,7 +99,7 @@ namespace IS_Bolnica.DoctorsWindows
             examinations = examinationStorage.loadFromFile("examinations.json");
 
             List<Patient> Patients = new List<Patient>();
-            PatientRecordFileStorage patientStorage = new PatientRecordFileStorage();
+            PatientRepository patientStorage = new PatientRepository();
 
             for (int i = 0; i < examinations.Count; i++)
             {
@@ -109,7 +109,7 @@ namespace IS_Bolnica.DoctorsWindows
                 }
             }
 
-            Patients = patientStorage.loadFromFile("PatientRecordFileStorage.json");
+            Patients = patientStorage.LoadFromFile("PatientRecordFileStorage.json");
             Doctors = doctorStorage.loadFromFile("Doctors.json");
             int cnt = 0;
             string[] patientNameAndSurname = patientTxt.Text.Split(' ');
@@ -149,13 +149,13 @@ namespace IS_Bolnica.DoctorsWindows
                 int hour = Convert.ToInt32(hourBox.Text);
                 int minute = Convert.ToInt32(minuteBox.Text);
                 examination.Date = new DateTime(date.Year, date.Month, date.Day, hour, minute, 0);
-                examination.RoomRecord = new RoomRecord();
+                examination.Room = new Room();
 
-                foreach (RoomRecord room in Rooms)
+                foreach (Room room in Rooms)
                 {
                     if (room.Id == examination.Doctor.Ordination)
                     {
-                        examination.RoomRecord = room;
+                        examination.Room = room;
                     }
                 }
 

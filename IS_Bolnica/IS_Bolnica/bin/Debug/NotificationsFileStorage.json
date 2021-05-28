@@ -85,7 +85,15 @@
     "Sender": 0,
     "notificationType": 5,
     "PersonId": [
-      "3333"
+      "3333",
+      "1234"
     ]
+  },
+  {
+    "Title": "Pomeranje termina zbog renoviranja",
+    "Content": "\tProstorija: 106\n\tPacijent: Nina Pavkovic\n\tDoktor: Mateja Pavkovic\n",
+    "Sender": 3,
+    "notificationType": 2,
+    "PersonId": null
   }
 ]

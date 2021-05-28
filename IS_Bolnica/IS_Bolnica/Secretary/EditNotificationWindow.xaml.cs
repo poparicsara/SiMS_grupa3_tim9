@@ -14,22 +14,26 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica.Secretary
 {
     public partial class EditNotificationWindow : Window
     {
-        private Notification notification1 = new Notification();
-        private NotificationsFileStorage storage = new NotificationsFileStorage();
+        private Notification notification = new Notification();
+        private Notification oldNotification = new Notification();
+        private NotificationRepository storage = new NotificationRepository();
         public List<Notification> Notifications { get; set; } = new List<Notification>();
         private List<string> userList = new List<string>();
-        private UsersFileStorage usersFileStorage = new UsersFileStorage();
+        private UserRepository userRepository = new UserRepository();
+        private UserService userService = new UserService();
         private List<User> users = new List<User>();
+        private NotificationService notificationService = new NotificationService();
 
-        public EditNotificationWindow(Notification notification)
+        public EditNotificationWindow(Notification oldNotification)
         {
             InitializeComponent();
-            notification1 = notification;
+            this.oldNotification = oldNotification;
         }
 
         private void cancelEditing(object sender, RoutedEventArgs e)
@@ -43,36 +47,28 @@ namespace IS_Bolnica.Secretary
         private void editNotification(object sender, RoutedEventArgs e)
         {
 
-            Notifications = storage.LoadFromFile("NotificationsFileStorage.json");
-            for (int i = 0; i < Notifications.Count; i++)
+            notification.Content = content.Text;
+            notification.Title = title.Text;
+            if (comboBox.SelectedIndex == 0)
             {
-                if (notification1.Content.Equals(Notifications[i].Content)
-                    && notification1.Title.Equals(Notifications[i].Title)
-                    && notification1.notificationType.Equals(Notifications[i].notificationType))
-                {
-                    Notifications[i].Content = content.Text;
-                    Notifications[i].Title = title.Text;
-                    if (comboBox.SelectedIndex == 0)
-                    {
-                        Notifications[i].notificationType = NotificationType.doctor;
-                    }
-                    else if (comboBox.SelectedIndex == 1)
-                    {
-                        Notifications[i].notificationType = NotificationType.patient;
-                    }
-                    else if (comboBox.SelectedIndex == 2)
-                    {
-                        Notifications[i].notificationType = NotificationType.all;
-                    }
-                    else
-                    {
-                        Notifications[i].PersonId = idListBox.Items.Cast<string>().ToList();
-                        Notifications[i].notificationType = NotificationType.specific;
-
-                    }
-                }
+                notification.notificationType = NotificationType.doctor;
             }
-            storage.SaveToFile(Notifications, "NotificationsFileStorage.json");
+            else if (comboBox.SelectedIndex == 1)
+            {
+                notification.notificationType = NotificationType.patient;
+            }
+            else if (comboBox.SelectedIndex == 2)
+            {
+                notification.notificationType = NotificationType.all;
+            }
+            else
+            {
+                notification.PersonId = idListBox.Items.Cast<string>().ToList();
+                notification.notificationType = NotificationType.specific;
+
+            }
+
+            notificationService.EditNotification(oldNotification, notification);
             this.Close();
 
             Secretary.NotificationListWindow nlw = new Secretary.NotificationListWindow();
@@ -113,7 +109,7 @@ namespace IS_Bolnica.Secretary
             addExistingIdsInList();
             string userId = idBox.Text;
 
-            if (!isBoxEmpty(userId) && isUserValid(userId) && !existsInList(userList, userId))
+            if (!isBoxEmpty(userId) && /*userService.UserExists(userId) &&**/ !existsInList(userList, userId))
             {
                 userList.Add(userId);
                 refreshListBox(userList);
@@ -159,20 +155,6 @@ namespace IS_Bolnica.Secretary
                 MessageBox.Show("Niste uneli id korisnika");
                 return true;
             }
-            return false;
-        }
-
-        private bool isUserValid(string id)
-        {
-            users = usersFileStorage.loadFromFile("UsersFileStorage.json");
-            foreach (User u in users)
-            {
-                if (u.Id.Equals(id))
-                {
-                    return true;
-                }
-            }
-            MessageBox.Show("Niste uneli postojeći id");
             return false;
         }
 

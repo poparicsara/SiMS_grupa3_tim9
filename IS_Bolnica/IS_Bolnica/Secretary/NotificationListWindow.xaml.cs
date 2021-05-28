@@ -15,25 +15,22 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica.Secretary
 {
     public partial class NotificationListWindow : Window, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public List<Notification> Notifications { get; set; }
-        private NotificationsFileStorage storage = new NotificationsFileStorage();
+        private Notification notification = new Notification();
+        private NotificationService notificationService = new NotificationService();
 
         public NotificationListWindow()
         {
             InitializeComponent();
             this.DataContext = this;
-
-            Notifications = new List<Notification>();
-            //Notification not = new Notification { content = "Nestoo", title = "Vazno", notificationType = NotificationType.all };
-            //Notifications.Add(not);
-            Notifications = storage.LoadFromFile("NotificationsFileStorage.json");
-            NotificationList.ItemsSource = Notifications;
+            
+            NotificationList.ItemsSource = notificationService.getNotifications();
 
         }
 
@@ -58,7 +55,6 @@ namespace IS_Bolnica.Secretary
 
         private void editNotification(object sender, RoutedEventArgs e)
         {
-            Notification notification = new Notification();
             notification = (Notification)NotificationList.SelectedItem;
 
             Secretary.EditNotificationWindow enw = new Secretary.EditNotificationWindow(notification);
@@ -103,7 +99,6 @@ namespace IS_Bolnica.Secretary
 
         private void deleteNotification(object sender, RoutedEventArgs e)
         {
-            Notification notification = new Notification();
             notification = (Notification)NotificationList.SelectedItem;
 
             int i = NotificationList.SelectedIndex;
@@ -118,9 +113,11 @@ namespace IS_Bolnica.Secretary
                 switch (result)
                 {
                     case MessageBoxResult.Yes:
-                        Notifications = removeNotification(notification);
-                        storage.SaveToFile(Notifications, "NotificationsFileStorage.json");
+                        notificationService.DeleteNotification(notification);
                         this.Close();
+
+                        NotificationListWindow nlw = new NotificationListWindow();
+                        nlw.Show();
 
                         break;
                     case MessageBoxResult.No:
@@ -129,21 +126,6 @@ namespace IS_Bolnica.Secretary
                 }
             }
 
-        }
-
-        private List<Notification> removeNotification(Notification notification)
-        {
-            Notifications = storage.LoadFromFile("NotificationsFileStorage.json");
-            for (int k = 0; k < Notifications.Count; k++)
-            {
-                if (notification.Content.Equals(Notifications[k].Content)
-                    && notification.Title.Equals(Notifications[k].Title))
-                {
-                    Notifications.RemoveAt(k);
-                }
-            }
-
-            return Notifications;
         }
 
     }
