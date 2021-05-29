@@ -126,6 +126,9 @@
     <Compile Include="Model\AppointmentType.cs" />
     <Compile Include="Model\Hospitalization.cs" />
     <Compile Include="Model\HospitalizationRepository.cs" />
+    <Compile Include="DoctorStartWindow.xaml.cs">
+      <DependentUpon>DoctorStartWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ProlongTreatment.xaml.cs">
       <DependentUpon>ProlongTreatment.xaml</DependentUpon>
     </Compile>
@@ -441,6 +444,10 @@
     <Page Include="InventoryWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DoctorStartWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ProlongTreatment.xaml">
       <SubType>Designer</SubType>

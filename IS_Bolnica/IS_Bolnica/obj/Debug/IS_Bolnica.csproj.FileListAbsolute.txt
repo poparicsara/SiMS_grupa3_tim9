@@ -859,3 +859,5 @@ C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Hospital
 C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\HospitalizedPatients.baml
 C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\ProlongTreatment.g.cs
 C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\ProlongTreatment.baml
+C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorStartWindow.g.cs
+C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorStartWindow.baml
