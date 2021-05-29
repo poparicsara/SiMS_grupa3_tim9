@@ -115,6 +115,20 @@ namespace IS_Bolnica
             inventarWindow.Show();
             this.Close();
         }
+
+        private void MergeButtonClicked(object sender, RoutedEventArgs e)
+        {
+            MergeRoomsWindow mw = new MergeRoomsWindow();
+            mw.Show();
+            this.Close();
+        }
+
+        private void SeparateButtonClicked(object sender, RoutedEventArgs e)
+        {
+            SeparateRoomWindow sw = new SeparateRoomWindow();
+            sw.Show();
+            this.Close();
+        }
     }
 
 }

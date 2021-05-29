@@ -115,6 +115,9 @@
       <DependentUpon>InventoryWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="InventoryInRoom.cs" />
+    <Compile Include="MergeRoomsWindow.xaml.cs">
+      <DependentUpon>MergeRoomsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\AppointmentRepository.cs" />
     <Compile Include="Model\AppointmentType.cs" />
     <Compile Include="RoomInventory.xaml.cs">
@@ -318,6 +321,9 @@
     <Compile Include="SelectedRequest.xaml.cs">
       <DependentUpon>SelectedRequest.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SeparateRoomWindow.xaml.cs">
+      <DependentUpon>SeparateRoomWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Services\AppointmentService.cs" />
     <Compile Include="Services\ChangeInventoryPlaceService.cs" />
     <Compile Include="Services\FindAttributesService.cs" />
@@ -424,6 +430,10 @@
     <Page Include="InventoryWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MergeRoomsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RoomInventory.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -670,6 +680,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SelectedRequest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SeparateRoomWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

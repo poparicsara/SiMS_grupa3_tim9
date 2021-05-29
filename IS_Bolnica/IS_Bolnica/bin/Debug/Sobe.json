@@ -769,25 +769,17 @@
     }
   },
   {
-    "Id": 3,
+    "Id": 999,
     "HospitalWard": "Alergologija i imunologija",
-    "inventory": null,
-    "roomPurpose": {
-      "Name": "Operaciona sala"
-    }
-  },
-  {
-    "Id": 7,
-    "HospitalWard": "Alergologija i imunologija",
-    "inventory": null,
+    "inventory": [],
     "roomPurpose": {
       "Name": "Ordinacija"
     }
   },
   {
-    "Id": 999,
+    "Id": 666,
     "HospitalWard": "Alergologija i imunologija",
-    "inventory": null,
+    "inventory": [],
     "roomPurpose": {
       "Name": "Ordinacija"
     }
