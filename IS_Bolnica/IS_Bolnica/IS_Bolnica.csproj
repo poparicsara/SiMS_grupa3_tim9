@@ -80,8 +80,23 @@
     <Compile Include="CreatePrescription.xaml.cs">
       <DependentUpon>CreatePrescription.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DemoMode\DemoInventoryWindow.xaml.cs">
+      <DependentUpon>DemoInventoryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DemoMode\DemoMedicamentWindow.xaml.cs">
+      <DependentUpon>DemoMedicamentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DemoMode\DemoProfileWindow.xaml.cs">
+      <DependentUpon>DemoProfileWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DemoMode\DemoRoomWindow.xaml.cs">
+      <DependentUpon>DemoRoomWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Diagnosis.xaml.cs">
       <DependentUpon>Diagnosis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DirectorLogInWindow.xaml.cs">
+      <DependentUpon>DirectorLogInWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="DirectorNotificationWindow.xaml.cs">
       <DependentUpon>DirectorNotificationWindow.xaml</DependentUpon>
@@ -387,9 +402,29 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="DemoMode\DemoInventoryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DemoMode\DemoMedicamentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DemoMode\DemoProfileWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DemoMode\DemoRoomWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Diagnosis.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DirectorLogInWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DirectorNotificationWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -760,6 +795,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="DemoMode\inventory.png" />
+    <Resource Include="DemoMode\profileIcon.png" />
     <Resource Include="Images\nasLogo.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -774,6 +811,29 @@
   <ItemGroup>
     <Resource Include="actionBarIcon.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="roomIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="menuRoomIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\roomIcon100x50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\addIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\hamerIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\medicine.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

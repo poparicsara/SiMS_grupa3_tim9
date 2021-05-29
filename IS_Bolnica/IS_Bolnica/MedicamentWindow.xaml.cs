@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica
 {
@@ -21,14 +22,14 @@ namespace IS_Bolnica
         private Request request = new Request();
         private RequestRepository requestStorage = new RequestRepository();
         private Medicament selectedMedicament = new Medicament();
-        private MedicamentRepository medRepository = new MedicamentRepository();
+        private MedicamentService medService = new MedicamentService();
         private List<Request> requests = new List<Request>();
 
         public MedicamentWindow()
         {
             InitializeComponent();
 
-            medicamentDataGrid.ItemsSource = medRepository.GetMedicaments();
+            medicamentDataGrid.ItemsSource = medService.GetMedicaments();
 
             requests = requestStorage.GetRequests();
         }

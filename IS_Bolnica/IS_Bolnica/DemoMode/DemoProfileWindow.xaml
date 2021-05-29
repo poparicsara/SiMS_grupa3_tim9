@@ -1,0 +1,50 @@
+﻿<Window x:Class="IS_Bolnica.DemoMode.DemoProfileWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IS_Bolnica.DemoMode"
+        mc:Ignorable="d"
+        Title="DemoProfileWindow" Height="655" Width="1116" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid HorizontalAlignment="Left" Width="207" Background="#FFE2F3C7">
+            <StackPanel>
+                <ListView Background="#FFE8F6D5" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="625" Margin="0,0,0.2,0">
+                    <ListViewItem HorizontalAlignment="Left" Height="84" Margin="0,100,0,0">
+                        <Button Width="187" Height="62" Background="Transparent" BorderBrush="Transparent">
+                            <StackPanel Orientation="Horizontal" Width="187" Height="62">
+                                <Image Source="profileIcon.png" Margin="0,15,0,0" Width="58" Height="47" VerticalAlignment="Top"/>
+                                <TextBlock Text="Profil" FontSize="16" Width="98" Margin="10,17,10,24.2" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Button>
+                    </ListViewItem>
+                    <ListViewItem HorizontalAlignment="Left" Height="84">
+                        <Button Width="187" Height="62" Background="Transparent" BorderBrush="Transparent">
+                            <StackPanel Orientation="Horizontal" Width="187" Height="62">
+                                <Image Source="roomIcon100x50.png" Width="58" Height="47" VerticalAlignment="Top"/>
+                                <TextBlock Text="Prostorije" FontSize="16" Width="98" Margin="10,17,10,24.2" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Button>
+                    </ListViewItem>
+                    <ListViewItem HorizontalAlignment="Left" Height="84">
+                        <Button Width="187" Height="62" Background="Transparent" BorderBrush="Transparent">
+                            <StackPanel Orientation="Horizontal" Width="187" Height="62">
+                                <Image Source="inventory.png" Margin="0,15,0,0" Width="58" Height="47" VerticalAlignment="Top"/>
+                                <TextBlock Text="Inventar" FontSize="16" Width="98" Margin="10,17,10,24.2" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Button>
+                    </ListViewItem>
+                    <ListViewItem HorizontalAlignment="Left" Height="84">
+                        <Button Width="187" Height="62" Background="Transparent" BorderBrush="Transparent">
+                            <StackPanel  Orientation="Horizontal" Width="187" Height="62">
+                                <Image Source="medicine.png" Margin="0,15,0,0" Width="58" Height="42" VerticalAlignment="Top"/>
+                                <TextBlock Text="Lekovi" FontSize="16" Width="98" Margin="1,17,10,24.2" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Button>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
+        </Grid>
+        <Label Content="PROFIL" HorizontalAlignment="Left" Margin="603,32,0,0" VerticalAlignment="Top" FontSize="26" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black"/>
+    </Grid>
+</Window>
