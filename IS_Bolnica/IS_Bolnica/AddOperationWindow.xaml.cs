@@ -23,7 +23,7 @@ namespace IS_Bolnica.DoctorsWindows
     {
         public List<int> Hours { get; set; } = new List<int>();
         private DateTime dateTime;
-        private Appointment appointment = new Appointment();
+        private Appointment appointment = new Appointment(); 
         public List<Appointment> Appointments { get; set; }
         private AppointmentService appointmentService = new AppointmentService();
         private DoctorService doctorService = new DoctorService();
@@ -32,21 +32,8 @@ namespace IS_Bolnica.DoctorsWindows
         public AddOperationWindow()
         {
             InitializeComponent();
-
-            roomComboBox.ItemsSource = roomService.getOperationRoomsId();
-
-            for (int i = 7; i < 20; i++)
-            {
-                Hours.Add(i);
-            }
-
-            hourBox.ItemsSource = Hours;
-
-            List<int> Minutes = new List<int>();
-            Minutes.Add(00);
-            Minutes.Add(30);
-            minuteBox.ItemsSource = Minutes;
-
+            roomComboBox.ItemsSource = roomService.GetOperationRoomsId();
+            SetTimePicker();
             doctorsComboBox.ItemsSource = doctorService.getSpecialistsNameSurname();
         }
 
@@ -129,6 +116,21 @@ namespace IS_Bolnica.DoctorsWindows
         private void jmbgTxt_LostFocus(object sender, RoutedEventArgs e)
         {
             healthCardNumberTxt.Text = patientService.findPatientById(jmbgTxt.Text).HealthCardNumber;
+        }
+
+        private void SetTimePicker()
+        {
+            for (int i = 7; i < 20; i++)
+            {
+                Hours.Add(i);
+            }
+
+            hourBox.ItemsSource = Hours;
+
+            List<int> Minutes = new List<int>();
+            Minutes.Add(00);
+            Minutes.Add(30);
+            minuteBox.ItemsSource = Minutes;
         }
     }
 }

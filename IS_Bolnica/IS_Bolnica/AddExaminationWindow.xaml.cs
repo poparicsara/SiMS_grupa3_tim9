@@ -29,19 +29,7 @@ namespace IS_Bolnica.DoctorsWindows
         public AddExaminationWindow()
         {
             InitializeComponent();
-
-            for (int i = 7; i < 20; i++)
-            {
-                Hours.Add(i);
-            }
-
-            hourBox.ItemsSource = Hours;
-
-            List<int> Minutes = new List<int>();
-            Minutes.Add(00);
-            Minutes.Add(30);
-            minuteBox.ItemsSource = Minutes;
-
+            SetTimePicker();
         }
 
         private void cancelButtonClicked(object sender, RoutedEventArgs e)
@@ -63,17 +51,7 @@ namespace IS_Bolnica.DoctorsWindows
         }
         private void saveButtonClicked(object sender, RoutedEventArgs e)
         {
-            appointment.Doctor = doctorService.findDoctorByName(doctorsComboBox.SelectedItem.ToString());
-            appointment.Patient = patientService.findPatientById(jmbgTxt.Text);
-            DateTime date = new DateTime(); 
-            date = (DateTime)datePicker.SelectedDate; 
-            int hour = Convert.ToInt32(hourBox.Text); 
-            int minute = Convert.ToInt32(minuteBox.Text); 
-            appointment.StartTime = new DateTime(date.Year, date.Month, date.Day, hour, minute, 0); 
-            appointment.RoomRecord = new RoomRecord(); 
-            appointment.AppointmentType = AppointmentType.examination;
-            appointment.RoomRecord = roomService.findOrdinationById(appointment.Doctor.Ordination);
-
+            SetDataInTextFields();
             appointmentService.scheduleAppointment(appointment);
 
             DoctorWindow doctorWindow = new DoctorWindow();
@@ -142,6 +120,34 @@ namespace IS_Bolnica.DoctorsWindows
 
             showDoctors(chooseSpecComboBox.SelectedItem.ToString());
 
+        }
+        private void SetTimePicker()
+        {
+            for (int i = 7; i < 20; i++)
+            {
+                Hours.Add(i);
+            }
+
+            hourBox.ItemsSource = Hours;
+
+            List<int> Minutes = new List<int>();
+            Minutes.Add(00);
+            Minutes.Add(30);
+            minuteBox.ItemsSource = Minutes;
+        }
+
+        private void SetDataInTextFields()
+        {
+            appointment.Doctor = doctorService.findDoctorByName(doctorsComboBox.SelectedItem.ToString());
+            appointment.Patient = patientService.findPatientById(jmbgTxt.Text);
+            DateTime date = new DateTime();
+            date = (DateTime)datePicker.SelectedDate;
+            int hour = Convert.ToInt32(hourBox.Text);
+            int minute = Convert.ToInt32(minuteBox.Text);
+            appointment.StartTime = new DateTime(date.Year, date.Month, date.Day, hour, minute, 0);
+            appointment.RoomRecord = new RoomRecord();
+            appointment.AppointmentType = AppointmentType.examination;
+            appointment.RoomRecord = roomService.FindOrdinationById(appointment.Doctor.Ordination);
         }
     }
 }

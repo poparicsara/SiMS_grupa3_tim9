@@ -138,5 +138,11 @@ namespace IS_Bolnica
             ListOfMedications listOfMedications = new ListOfMedications();
             listOfMedications.Show();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            HospitalizedPatients hospitalizedPatients = new HospitalizedPatients();
+            hospitalizedPatients.Show();
+        }
     }
 }

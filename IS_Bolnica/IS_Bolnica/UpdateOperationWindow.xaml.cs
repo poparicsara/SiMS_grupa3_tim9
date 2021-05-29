@@ -43,7 +43,7 @@ namespace IS_Bolnica.DoctorsWindows
             healthCardNumberTxt.Text = operation.Patient.HealthCardNumber;
             doctorsComboBox.SelectedItem = operation.Doctor.Name + ' ' + operation.Doctor.Surname;
 
-            roomsComboBox.ItemsSource = roomService.getOperationRoomsId();
+            roomsComboBox.ItemsSource = roomService.GetOperationRoomsId();
             roomsComboBox.SelectedItem = operation.RoomRecord.Id;
 
             for (int i = 7; i < 20; i++)

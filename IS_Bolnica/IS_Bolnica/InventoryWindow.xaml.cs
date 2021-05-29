@@ -28,7 +28,7 @@ namespace IS_Bolnica
         private RoomRecord magacin = new RoomRecord();
         private RoomRepository roomStorage = new RoomRepository();
         private Inventory selectedInventory = new Inventory();
-        private InventoryFileStorage storage = new InventoryFileStorage();
+        private InventoryRepository storage = new InventoryRepository();
 
         public InventoryWindow()
         {

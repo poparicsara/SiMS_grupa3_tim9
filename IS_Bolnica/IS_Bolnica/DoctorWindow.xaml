@@ -63,6 +63,7 @@
         <Button Content="Pregled lekova" HorizontalAlignment="Left" Margin="897,379,0,0" VerticalAlignment="Top" Width="94" Height="39" Click="medicationButtonClicked"/>
         <Button Content="Zahtevi" HorizontalAlignment="Left" Margin="897,314,0,0" VerticalAlignment="Top" Width="94" Height="35" Click="requestButtonClicked"/>
         <Button Content="Obaveštenja" HorizontalAlignment="Left" Margin="897,251,0,0" VerticalAlignment="Top" Width="94" Height="35" Click="notificationButtonClicked"/>
+        <Button Content="Hospitalizovani&#xA;     pacijenti" HorizontalAlignment="Left" Margin="897,438,0,0" VerticalAlignment="Top" Width="94" Height="39" Click="Button_Click" />
 
 
 

@@ -23,7 +23,6 @@ namespace IS_Bolnica
         public AddIngredientWindow(Medicament medicament)
         {
             InitializeComponent();
-
             this.med = medicament;
         }
 

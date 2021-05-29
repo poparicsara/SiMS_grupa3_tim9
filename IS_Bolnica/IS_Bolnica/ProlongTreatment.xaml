@@ -1,0 +1,18 @@
+﻿<Window x:Class="IS_Bolnica.ProlongTreatment"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IS_Bolnica"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="ProlongTreatment" Height="300" Width="342.353" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="121,218,0,0" VerticalAlignment="Top" Width="89" Height="30" FontWeight="Bold" FontFamily="Ebrima" Foreground="White" Background="#FF15285D" Click="ConfirmButtonClick"/>
+        <Label Content="Početak lečenja:" HorizontalAlignment="Left" Margin="21,63,0,0" VerticalAlignment="Top" Width="116"/>
+        <Label Content="Kraj lečenja:" HorizontalAlignment="Left" Margin="21,119,0,0" VerticalAlignment="Top" Width="116"/>
+        <DatePicker Name="startDatePicker" HorizontalAlignment="Left" Margin="142,63,0,0" VerticalAlignment="Top" Width="135" DisplayDateStart="{x:Static sys:DateTime.Today}" IsEnabled="False"/>
+        <DatePicker Name="endDatePicker" HorizontalAlignment="Left" Margin="142,119,0,0" VerticalAlignment="Top" Width="135" DisplayDateStart="{x:Static sys:DateTime.Today}"/>
+
+    </Grid>
+</Window>

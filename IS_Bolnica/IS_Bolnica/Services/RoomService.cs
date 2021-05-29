@@ -57,7 +57,7 @@ namespace IS_Bolnica.Services
             return storage.loadFromFile("Sobe.json");
         }
 
-        public RoomRecord findOrdinationById(int id)
+        public RoomRecord FindOrdinationById(int id)
         {
             RoomRecord foundRoom = new RoomRecord();
             foreach (RoomRecord room in rooms)
@@ -71,7 +71,7 @@ namespace IS_Bolnica.Services
             return foundRoom;
         }
 
-        public List<int> getOperationRoomsId()
+        public List<int> GetOperationRoomsId()
         {
             List<int> operationRooms = new List<int>();
             foreach (RoomRecord room in rooms)
@@ -84,5 +84,36 @@ namespace IS_Bolnica.Services
             return operationRooms;
         }
 
+        public List<int> GetAvailableRoomsForHospitalization()
+        {
+            List<int> availableRooms = new List<int>();
+            foreach (RoomRecord room in rooms)
+            {
+                if (room.roomPurpose.Name.Equals("Soba"))
+                {
+                    availableRooms.Add(room.Id);
+                }
+            }
+
+            return availableRooms;
+        }
+
+        public bool DoesSelectedRoomHasEmptyBed(int roomId)
+        {
+            foreach (RoomRecord room in rooms)
+            {
+                if (room.roomPurpose.Name.Equals("Soba"))
+                {
+                    foreach (Inventory inventory in room.inventory)
+                    {
+                        if (inventory.Name.Equals("Krevet") && inventory.CurrentAmount == 0)
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
+        }
     }
 }

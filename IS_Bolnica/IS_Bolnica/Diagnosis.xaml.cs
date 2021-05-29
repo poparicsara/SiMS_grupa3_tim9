@@ -66,5 +66,18 @@ namespace IS_Bolnica
             AddExaminationWindow addExaminationWindow = new AddExaminationWindow();
             addExaminationWindow.Show();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            anamnesis.Doctor = doctorService.findDoctorByName(doctorTxt.Text);
+            anamnesis.Patient = patientService.findPatientById(jmbgTxt.Text);
+            anamnesis.Symptoms = symptomsTxt.Text;
+            anamnesis.Diagnosis = diagnosisTxt.Text;
+            anamnesis.Date = DateTime.Parse(dateOfExaminationTxt.Text);
+
+            anamnesisService.createAnamnesis(anamnesis);
+            HospitalizationForm hospitalizationForm = new HospitalizationForm(anamnesis);
+            hospitalizationForm.Show();
+        }
     }
 }

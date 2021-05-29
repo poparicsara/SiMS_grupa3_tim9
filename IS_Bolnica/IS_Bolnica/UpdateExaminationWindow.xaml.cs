@@ -72,7 +72,7 @@ namespace IS_Bolnica.DoctorsWindows
             int minute = Convert.ToInt32(minuteBox.Text);
             examination.StartTime = new DateTime(date.Year, date.Month, date.Day, hour, minute, 0);
             examination.RoomRecord = new RoomRecord();
-            examination.RoomRecord = roomService.findOrdinationById(examination.Doctor.Ordination);
+            examination.RoomRecord = roomService.FindOrdinationById(examination.Doctor.Ordination);
             appointmentService.scheduleAppointment(examination);
 
             DoctorWindow doctorWindow = new DoctorWindow();

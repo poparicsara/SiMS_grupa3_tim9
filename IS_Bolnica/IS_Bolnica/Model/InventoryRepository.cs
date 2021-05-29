@@ -8,10 +8,10 @@ using System.IO;
 
 namespace Model
 {
-    public class InventoryFileStorage
+    public class InventoryRepository
     {
         private List<Inventory> inventories;
-        public InventoryFileStorage()
+        public InventoryRepository()
         {
 
         }

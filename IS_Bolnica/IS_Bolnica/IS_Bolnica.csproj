@@ -92,9 +92,6 @@
     <Compile Include="DoctorNotificationWindow.xaml.cs">
       <DependentUpon>DoctorNotificationWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DoctorStartWindow.xaml.cs">
-      <DependentUpon>DoctorStartWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="DoctorWindow.xaml.cs">
       <DependentUpon>DoctorWindow.xaml</DependentUpon>
     </Compile>
@@ -112,14 +109,26 @@
     <Compile Include="ExaminationInfo.xaml.cs">
       <DependentUpon>ExaminationInfo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HospitalizationForm.xaml.cs">
+      <DependentUpon>HospitalizationForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HospitalizedPatients.xaml.cs">
+      <DependentUpon>HospitalizedPatients.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ingredient.cs" />
     <Compile Include="IngredientRepository.cs" />
     <Compile Include="InventoryWindow.xaml.cs">
       <DependentUpon>InventoryWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="InventoryInRoom.cs" />
+    <Compile Include="Model\Alergeni.cs" />
     <Compile Include="Model\AppointmentRepository.cs" />
     <Compile Include="Model\AppointmentType.cs" />
+    <Compile Include="Model\Hospitalization.cs" />
+    <Compile Include="Model\HospitalizationRepository.cs" />
+    <Compile Include="ProlongTreatment.xaml.cs">
+      <DependentUpon>ProlongTreatment.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RoomInventory.xaml.cs">
       <DependentUpon>RoomInventory.xaml</DependentUpon>
     </Compile>
@@ -325,7 +334,9 @@
     <Compile Include="Services\AppointmentService.cs" />
     <Compile Include="Services\FindAttributesService.cs" />
     <Compile Include="Services\DoctorService.cs" />
+    <Compile Include="Services\HospitalizationService.cs" />
     <Compile Include="Services\IngredientService.cs" />
+    <Compile Include="Services\InventoryService.cs" />
     <Compile Include="Services\MedicamentService.cs" />
     <Compile Include="Services\PatientService.cs" />
     <Compile Include="Services\PrescriptionService.cs" />
@@ -395,10 +406,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="DoctorStartWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="DoctorWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -423,9 +430,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="HospitalizationForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HospitalizedPatients.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="InventoryWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ProlongTreatment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RoomInventory.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -709,7 +728,7 @@
     <Compile Include="Model\ExaminationsRecordFileStorage.cs" />
     <Compile Include="Model\GuestUser.cs" />
     <Compile Include="Model\Inventory.cs" />
-    <Compile Include="Model\InventoryFileStorage.cs" />
+    <Compile Include="Model\InventoryRepository.cs" />
     <Compile Include="Model\Operation.cs" />
     <Compile Include="Model\OperationsFileStorage.cs" />
     <Compile Include="Model\Patient.cs" />
