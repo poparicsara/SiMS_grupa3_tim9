@@ -19,13 +19,13 @@ namespace IS_Bolnica
     {
         private Medicament selectedMedicament;
         private List<Medicament> meds;
-        private MedicamentFileStorage storage = new MedicamentFileStorage();
+        private MedicamentRepository storage = new MedicamentRepository();
         public IngredientsWindow(Medicament selected)
         {
             InitializeComponent();
             
-            storage = new MedicamentFileStorage();
-            meds = storage.loadFromFile("Lekovi.json");
+            storage = new MedicamentRepository();
+            meds = storage.GetMedicaments();
             SetSelectedMedicament(selected.Id);
             ingredientDataGrid.ItemsSource = GetSelectedMedicamentIngredients();
         }
@@ -80,7 +80,7 @@ namespace IS_Bolnica
             Ingredient ing = (Ingredient)ingredientDataGrid.SelectedItem;
             int index = GetIngredientIndex(ing);
             selectedMedicament.Ingredients.RemoveAt(index);
-            storage.saveToFile(meds, "Lekovi.json");
+            storage.saveToFile(meds);
         }
 
         private int GetIngredientIndex(Ingredient selectedIngredient)

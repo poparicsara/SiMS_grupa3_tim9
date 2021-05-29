@@ -17,7 +17,7 @@ namespace IS_Bolnica
 {
     public partial class AddIngredientWindow : Window
     {
-        private MedicamentFileStorage medStorage = new MedicamentFileStorage();
+        private MedicamentRepository medStorage = new MedicamentRepository();
         private Medicament med;
         private List<Medicament> medicaments = new List<Medicament>();
         public AddIngredientWindow(Medicament medicament)
@@ -29,7 +29,7 @@ namespace IS_Bolnica
 
         private void confirmButtonClicked(object sender, RoutedEventArgs e)
         {
-            medicaments = medStorage.loadFromFile("Lekovi.json");
+            medicaments = medStorage.GetMedicaments();
 
             Ingredient ingredient = new Ingredient();
             ingredient.Name = ingredientNameTxt.Text;
@@ -42,7 +42,7 @@ namespace IS_Bolnica
                 }
             }
 
-            medStorage.saveToFile(medicaments, "Lekovi.json");
+            medStorage.saveToFile(medicaments);
 
             ListOfMedications listOfMedications = new ListOfMedications();
             listOfMedications.Show();

@@ -19,20 +19,18 @@ namespace IS_Bolnica
     public partial class MedicamentWindow : Window
     {
         private Request request = new Request();
-        private RequestFileStorage requestStorage = new RequestFileStorage();
+        private RequestRepository requestStorage = new RequestRepository();
         private Medicament selectedMedicament = new Medicament();
-        private MedicamentFileStorage medStorage = new MedicamentFileStorage();
+        private MedicamentRepository medRepository = new MedicamentRepository();
         private List<Request> requests = new List<Request>();
 
         public MedicamentWindow()
         {
             InitializeComponent();
-            
-            List<Medicament> meds = medStorage.loadFromFile("Lekovi.json");
 
-            medicamentDataGrid.ItemsSource = meds;
+            medicamentDataGrid.ItemsSource = medRepository.GetMedicaments();
 
-            requests = requestStorage.LoadFromFile("Zahtevi.json");
+            requests = requestStorage.GetRequests();
         }
 
         private void RowDoubleClick(object sender, MouseButtonEventArgs e)
@@ -71,7 +69,7 @@ namespace IS_Bolnica
         {           
             SetRequestAttributes();
             requests.Add(request);
-            requestStorage.SaveToFile(requests, "Zahtevi.json");
+            requestStorage.SaveToFile(requests);
         }
 
         private void SetRequestAttributes()

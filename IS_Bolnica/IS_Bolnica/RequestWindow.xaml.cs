@@ -18,13 +18,13 @@ namespace IS_Bolnica
 {
     public partial class RequestWindow : Window
     {
-        private RequestFileStorage requestStorage = new RequestFileStorage();
+        private RequestRepository requestStorage = new RequestRepository();
         private List<Request> requests = new List<Request>();
         public RequestWindow()
         {
             InitializeComponent();
 
-            requests = requestStorage.LoadFromFile("Zahtevi.json");
+            requests = requestStorage.GetRequests();
 
             requestData.ItemsSource = requests;
         }

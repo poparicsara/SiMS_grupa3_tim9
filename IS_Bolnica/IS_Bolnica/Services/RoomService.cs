@@ -18,6 +18,16 @@ namespace IS_Bolnica.Services
             rooms = repository.GetRooms();
         }
 
+        public List<int> GetRoomNumbers()
+        {
+            List<int> roomNumbers = new List<int>();
+            foreach (var r in rooms)
+            {
+                roomNumbers.Add(r.Id);
+            }
+            return roomNumbers;
+        }
+
         public void AddRoom(Room newRoom)
         {
             repository.AddRoom(newRoom);
@@ -37,6 +47,7 @@ namespace IS_Bolnica.Services
 
         private int FindIndex(Room room)
         {
+            rooms = GetRooms();
             int index = 0;
             foreach (Room r in rooms)
             {
@@ -59,7 +70,6 @@ namespace IS_Bolnica.Services
                     roomNums.Add(rooms[i].Id);
                 }
             }
-
             return roomNums;
         }
 

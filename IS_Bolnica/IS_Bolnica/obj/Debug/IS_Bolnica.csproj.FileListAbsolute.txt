@@ -791,3 +791,7 @@ C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\PatientList.baml
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\UrgentExaminationOptions.baml
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\UrgentOperationOptions.baml
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\MergeRoomsWindow.g.cs
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\MergeRoomsWindow.baml
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\SeparateRoomWindow.g.cs
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\SeparateRoomWindow.baml

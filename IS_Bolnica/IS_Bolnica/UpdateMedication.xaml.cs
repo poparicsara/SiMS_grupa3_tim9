@@ -18,7 +18,7 @@ namespace IS_Bolnica
     public partial class UpdateMedication : Window
     {
         private Medicament selectedMedication;
-        private MedicamentFileStorage medStorage = new MedicamentFileStorage();
+        private MedicamentRepository medStorage = new MedicamentRepository();
         private List<Medicament> meds = new List<Medicament>();
         private Ingredient ingredient;
         public UpdateMedication(Medicament medicament)
@@ -26,13 +26,13 @@ namespace IS_Bolnica
             InitializeComponent();
 
             this.selectedMedication = medicament;
-            meds = medStorage.loadFromFile("Lekovi.json");
+            meds = medStorage.GetMedicaments();
 
             medIdTxt.Text = selectedMedication.Id.ToString();
             medNameTxt.Text = selectedMedication.Name;
             producerTxt.Text = selectedMedication.Producer;
 
-            meds = medStorage.loadFromFile("Lekovi.json");
+            meds = medStorage.GetMedicaments();
             List<string> replacements = new List<string>();
 
             foreach (Medicament med in meds)
@@ -51,7 +51,7 @@ namespace IS_Bolnica
 
         private void potvrdiButtonClicked(object sender, RoutedEventArgs e)
         {
-            meds = medStorage.loadFromFile("Lekovi.json");
+            meds = medStorage.GetMedicaments();
 
             for (int i = 0; i < meds.Count; i++)
             {
@@ -77,7 +77,7 @@ namespace IS_Bolnica
             selectedMedication.Replacement = replacement;
             meds.Add(selectedMedication);
 
-            medStorage.saveToFile(meds, "Lekovi.json");
+            medStorage.saveToFile(meds);
 
             ListOfMedications listOfMedicationsWindow = new ListOfMedications();
             listOfMedicationsWindow.Show();
@@ -103,7 +103,7 @@ namespace IS_Bolnica
             }
             else
             {
-                meds = medStorage.loadFromFile("Lekovi.json");
+                meds = medStorage.GetMedicaments();
 
                 for (int i = 0; i < selectedMedication.Ingredients.Count; i++)
                 {
@@ -124,7 +124,7 @@ namespace IS_Bolnica
                 }
 
                 meds.Add(newMedicament);
-                medStorage.saveToFile(meds, "Lekovi.json");
+                medStorage.saveToFile(meds);
             }
 
             this.Close();
@@ -146,7 +146,7 @@ namespace IS_Bolnica
                     m.Replacement = null;
                 }
             }
-            medStorage.saveToFile(meds, "Lekovi.json");
+            medStorage.saveToFile(meds);
             ListOfMedications listOfMedicationsWindow = new ListOfMedications();
             listOfMedicationsWindow.Show();
             this.Close();
