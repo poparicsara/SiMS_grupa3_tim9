@@ -28,13 +28,10 @@ namespace IS_Bolnica
         private int newRoomNumber;
         private Room room1;
         private RoomService roomService = new RoomService();
-        private List<Room> rooms;
 
         public SeparateRoomWindow()
         {
             InitializeComponent();
-
-            rooms = roomService.GetRooms();
 
             room1Box.ItemsSource = roomService.GetRoomNumbers();
         }

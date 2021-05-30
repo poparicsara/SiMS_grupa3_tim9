@@ -21,15 +21,7 @@ namespace IS_Bolnica
 
     public partial class InventoryWindow : Window
     {
-        private List<Inventory> dynamicInventories = new List<Inventory>();
-        private List<Inventory> staticInventories = new List<Inventory>();
-        private Director director = new Director();
-        private List<Inventory> magacinInventory = new List<Inventory>();
-        private List<Room> rooms = new List<Room>();
-        private Room magacin = new Room();
-        private RoomRepository roomRepository = new RoomRepository();
         private Inventory selectedInventory = new Inventory();
-        private InventoryRepository storage = new InventoryRepository();
         private InventoryService service = new InventoryService();
 
         public InventoryWindow()
@@ -130,26 +122,28 @@ namespace IS_Bolnica
         {
             selectedInventory = (Inventory)dynamicDataGrid.SelectedItem;
             DataGridRow row = sender as DataGridRow;
-            InventoryPerRooms si = new InventoryPerRooms(selectedInventory);
-            si.Show();
+            InventoryPerRooms iw = new InventoryPerRooms(selectedInventory);
+            iw.Show();
         }
         
         private void StaticRowDoubelClick(object sender, MouseButtonEventArgs e)
         {
             selectedInventory = (Inventory)staticDataGrid.SelectedItem;
             DataGridRow row = sender as DataGridRow;
-            InventoryPerRooms si = new InventoryPerRooms(selectedInventory);
-            si.Show();
+            InventoryPerRooms iw = new InventoryPerRooms(selectedInventory);
+            iw.Show();
         }
 
         private void DynamicKeyUp(object sender, KeyEventArgs e)
         {
+            List<Inventory> dynamicInventories = service.GetDynamicInventory();
             var filtered = dynamicInventories.Where(inventory => inventory.Name.ToLower().Contains(searchBox.Text.ToLower()));
             dynamicDataGrid.ItemsSource = filtered;
         }
 
         private void StaticKeyUp(object sender, KeyEventArgs e)
         {
+            List<Inventory> staticInventories = service.GetStaticInventory();
             var filtered = staticInventories.Where(inventory => inventory.Name.ToLower().Contains(searchBox.Text.ToLower()));
             staticDataGrid.ItemsSource = filtered;
         }

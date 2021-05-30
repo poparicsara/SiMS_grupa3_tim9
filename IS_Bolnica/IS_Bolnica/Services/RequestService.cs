@@ -11,9 +11,14 @@ namespace IS_Bolnica.Services
     {
         private RequestRepository repository = new RequestRepository();
 
-        public void AddRequest(Request newRequest)
+        public void SendRequest(Request newRequest)
         {
             repository.AddRequest(newRequest);
+        }
+
+        public List<Request> GetRequests()
+        {
+            return repository.GetRequests();
         }
     }
 }

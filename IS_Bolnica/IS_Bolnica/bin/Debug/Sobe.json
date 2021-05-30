@@ -2,7 +2,7 @@
   {
     "Id": 101,
     "HospitalWard": "Akušerstvo i ginekologija",
-    "inventory": [
+    "Inventory": [
       {
         "Name": "Špric",
         "CurrentAmount": 20,
@@ -32,14 +32,14 @@
         "InventoryType": 0
       }
     ],
-    "roomPurpose": {
+    "RoomPurpose": {
       "Name": "Soba"
     }
   },
   {
     "Id": 102,
     "HospitalWard": "Ortopedija",
-    "inventory": [
+    "Inventory": [
       {
         "Name": "Špric",
         "CurrentAmount": 20,
@@ -76,14 +76,14 @@
         "InventoryType": 0
       }
     ],
-    "roomPurpose": {
+    "RoomPurpose": {
       "Name": "Ordinacija"
     }
   },
   {
     "Id": 103,
     "HospitalWard": "Pedijatrija",
-    "inventory": [
+    "Inventory": [
       {
         "Name": "Špric",
         "CurrentAmount": 20,
@@ -106,14 +106,14 @@
         "InventoryType": 0
       }
     ],
-    "roomPurpose": {
+    "RoomPurpose": {
       "Name": "Operaciona sala"
     }
   },
   {
     "Id": 707,
     "HospitalWard": "Pedijatrija",
-    "inventory": [
+    "Inventory": [
       {
         "Name": "Špric",
         "CurrentAmount": 20,
@@ -143,14 +143,14 @@
         "InventoryType": 0
       }
     ],
-    "roomPurpose": {
+    "RoomPurpose": {
       "Name": "Ordinacija"
     }
   },
   {
     "Id": 202,
     "HospitalWard": "Ortopedija",
-    "inventory": [
+    "Inventory": [
       {
         "Name": "Špric",
         "CurrentAmount": 20,
@@ -173,14 +173,14 @@
         "InventoryType": 0
       }
     ],
-    "roomPurpose": {
+    "RoomPurpose": {
       "Name": "Ordinacija"
     }
   },
   {
     "Id": 303,
     "HospitalWard": "Pedijatrija",
-    "inventory": [
+    "Inventory": [
       {
         "Name": "Špric",
         "CurrentAmount": 20,
@@ -210,14 +210,14 @@
         "InventoryType": 0
       }
     ],
-    "roomPurpose": {
+    "RoomPurpose": {
       "Name": "Ordinacija"
     }
   },
   {
     "Id": 1,
     "HospitalWard": "Magacin",
-    "inventory": [
+    "Inventory": [
       {
         "Name": "Špric",
         "CurrentAmount": 0,
@@ -254,14 +254,14 @@
         "InventoryType": 0
       }
     ],
-    "roomPurpose": {
+    "RoomPurpose": {
       "Name": "Magacin"
     }
   },
   {
     "Id": 107,
     "HospitalWard": "Pedijatrija",
-    "inventory": [
+    "Inventory": [
       {
         "Name": "Špric",
         "CurrentAmount": 20,
@@ -284,14 +284,14 @@
         "InventoryType": 0
       }
     ],
-    "roomPurpose": {
+    "RoomPurpose": {
       "Name": "Ordinacija"
     }
   },
   {
     "Id": 300,
     "HospitalWard": "Pedijatrija",
-    "inventory": [
+    "Inventory": [
       {
         "Name": "Špric",
         "CurrentAmount": 20,
@@ -314,14 +314,14 @@
         "InventoryType": 0
       }
     ],
-    "roomPurpose": {
+    "RoomPurpose": {
       "Name": "Ordinacija"
     }
   },
   {
     "Id": 301,
     "HospitalWard": "Pedijatrija",
-    "inventory": [
+    "Inventory": [
       {
         "Name": "Špric",
         "CurrentAmount": 20,
@@ -344,14 +344,14 @@
         "InventoryType": 0
       }
     ],
-    "roomPurpose": {
+    "RoomPurpose": {
       "Name": "Ordinacija"
     }
   },
   {
     "Id": 302,
     "HospitalWard": "Pedijatrija",
-    "inventory": [
+    "Inventory": [
       {
         "Name": "Špric",
         "CurrentAmount": 20,
@@ -374,14 +374,14 @@
         "InventoryType": 0
       }
     ],
-    "roomPurpose": {
+    "RoomPurpose": {
       "Name": "Ordinacija"
     }
   },
   {
     "Id": 106,
     "HospitalWard": "Pedijatrija",
-    "inventory": [
+    "Inventory": [
       {
         "Name": "Špric",
         "CurrentAmount": 20,
@@ -404,14 +404,14 @@
         "InventoryType": 0
       }
     ],
-    "roomPurpose": {
+    "RoomPurpose": {
       "Name": "Ordinacija"
     }
   },
   {
     "Id": 110,
     "HospitalWard": "Pedijatrija",
-    "inventory": [
+    "Inventory": [
       {
         "Name": "Špric",
         "CurrentAmount": 20,
@@ -434,14 +434,14 @@
         "InventoryType": 0
       }
     ],
-    "roomPurpose": {
+    "RoomPurpose": {
       "Name": "Ordinacija"
     }
   },
   {
     "Id": 400,
     "HospitalWard": "Pedijatrija",
-    "inventory": [
+    "Inventory": [
       {
         "Name": "Špric",
         "CurrentAmount": 20,
@@ -464,14 +464,14 @@
         "InventoryType": 0
       }
     ],
-    "roomPurpose": {
+    "RoomPurpose": {
       "Name": "Ordinacija"
     }
   },
   {
     "Id": 310,
     "HospitalWard": "Pedijatrija",
-    "inventory": [
+    "Inventory": [
       {
         "Name": "Špric",
         "CurrentAmount": 20,
@@ -494,14 +494,14 @@
         "InventoryType": 0
       }
     ],
-    "roomPurpose": {
+    "RoomPurpose": {
       "Name": "Ordinacija"
     }
   },
   {
     "Id": 304,
     "HospitalWard": "Pedijatrija",
-    "inventory": [
+    "Inventory": [
       {
         "Name": "Špric",
         "CurrentAmount": 20,
@@ -524,14 +524,14 @@
         "InventoryType": 0
       }
     ],
-    "roomPurpose": {
+    "RoomPurpose": {
       "Name": "Ordinacija"
     }
   },
   {
     "Id": 104,
     "HospitalWard": "Pedijatrija",
-    "inventory": [
+    "Inventory": [
       {
         "Name": "Špric",
         "CurrentAmount": 20,
@@ -554,14 +554,14 @@
         "InventoryType": 0
       }
     ],
-    "roomPurpose": {
+    "RoomPurpose": {
       "Name": "Ordinacija"
     }
   },
   {
     "Id": 212,
     "HospitalWard": "Pedijatrija",
-    "inventory": [
+    "Inventory": [
       {
         "Name": "Špric",
         "CurrentAmount": 20,
@@ -584,14 +584,14 @@
         "InventoryType": 0
       }
     ],
-    "roomPurpose": {
+    "RoomPurpose": {
       "Name": "Ordinacija"
     }
   },
   {
     "Id": 109,
     "HospitalWard": "Pedijatrija",
-    "inventory": [
+    "Inventory": [
       {
         "Name": "Špric",
         "CurrentAmount": 20,
@@ -614,14 +614,14 @@
         "InventoryType": 0
       }
     ],
-    "roomPurpose": {
+    "RoomPurpose": {
       "Name": "Ordinacija"
     }
   },
   {
     "Id": 405,
     "HospitalWard": "Pedijatrija",
-    "inventory": [
+    "Inventory": [
       {
         "Name": "Špric",
         "CurrentAmount": 20,
@@ -644,14 +644,14 @@
         "InventoryType": 0
       }
     ],
-    "roomPurpose": {
+    "RoomPurpose": {
       "Name": "Ordinacija"
     }
   },
   {
     "Id": 100,
     "HospitalWard": "Pedijatrija",
-    "inventory": [
+    "Inventory": [
       {
         "Name": "Špric",
         "CurrentAmount": 20,
@@ -674,14 +674,14 @@
         "InventoryType": 0
       }
     ],
-    "roomPurpose": {
+    "RoomPurpose": {
       "Name": "Ordinacija"
     }
   },
   {
     "Id": 406,
     "HospitalWard": "Pedijatrija",
-    "inventory": [
+    "Inventory": [
       {
         "Name": "Špric",
         "CurrentAmount": 20,
@@ -704,14 +704,14 @@
         "InventoryType": 0
       }
     ],
-    "roomPurpose": {
+    "RoomPurpose": {
       "Name": "Ordinacija"
     }
   },
   {
     "Id": 311,
     "HospitalWard": "Pedijatrija",
-    "inventory": [
+    "Inventory": [
       {
         "Name": "Špric",
         "CurrentAmount": 20,
@@ -734,14 +734,14 @@
         "InventoryType": 0
       }
     ],
-    "roomPurpose": {
+    "RoomPurpose": {
       "Name": "Ordinacija"
     }
   },
   {
     "Id": 208,
     "HospitalWard": "Pedijatrija",
-    "inventory": [
+    "Inventory": [
       {
         "Name": "Špric",
         "CurrentAmount": 20,
@@ -764,23 +764,23 @@
         "InventoryType": 0
       }
     ],
-    "roomPurpose": {
+    "RoomPurpose": {
       "Name": "Ordinacija"
     }
   },
   {
     "Id": 999,
     "HospitalWard": "Alergologija i imunologija",
-    "inventory": [],
-    "roomPurpose": {
+    "Inventory": [],
+    "RoomPurpose": {
       "Name": "Ordinacija"
     }
   },
   {
     "Id": 666,
     "HospitalWard": "Alergologija i imunologija",
-    "inventory": [],
-    "roomPurpose": {
+    "Inventory": [],
+    "RoomPurpose": {
       "Name": "Ordinacija"
     }
   }

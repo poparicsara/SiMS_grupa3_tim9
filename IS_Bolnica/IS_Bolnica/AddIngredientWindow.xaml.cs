@@ -42,7 +42,7 @@ namespace IS_Bolnica
                 }
             }
 
-            medStorage.saveToFile(medicaments);
+            medStorage.SaveToFile(medicaments);
 
             ListOfMedications listOfMedications = new ListOfMedications();
             listOfMedications.Show();

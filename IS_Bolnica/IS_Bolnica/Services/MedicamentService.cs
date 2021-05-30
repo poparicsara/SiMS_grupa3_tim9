@@ -11,6 +11,12 @@ namespace IS_Bolnica.Services
     {
         private MedicamentRepository repository = new MedicamentRepository();
         private Medicament newMedicament = new Medicament();
+        private List<Medicament> meds = new List<Medicament>();
+
+        public MedicamentService()
+        {
+            meds = GetMedicaments();
+        }
 
         public List<Medicament> GetMedicaments()
         {
@@ -47,5 +53,42 @@ namespace IS_Bolnica.Services
             Ingredient ingredient = new Ingredient { Name = temp };
             return ingredient;
         }
+
+        public Medicament GetMedicament(string name)
+        {
+            return repository.GetMedicament(name);
+        }
+
+        public void EditMedicament(Medicament oldMedicament, Medicament newMedicament)
+        {
+            int index = FindIndex(oldMedicament);
+            repository.EditMedicament(index, newMedicament);
+        }
+
+        private int FindIndex(Medicament medicament)
+        {
+            meds = GetMedicaments();
+            int index = 0;
+            foreach (Medicament m in meds)
+            {
+                if (m.Id == medicament.Id)
+                {
+                    break;
+                }
+                index++;
+            }
+            return index;
+        }
+
+        public List<string> GetReplacementNames()
+        {
+            List<string> replacemets = new List<string>();
+            foreach (var m in meds)
+            {
+                replacemets.Add(m.Name);
+            }
+            return replacemets;
+        }
+
     }
 }

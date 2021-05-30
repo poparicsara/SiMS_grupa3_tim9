@@ -22,36 +22,36 @@ namespace Model
 
         public void AddInventory(Inventory newInventory, Room room)
         {
-            room.inventory.Add(newInventory);
+            room.Inventory.Add(newInventory);
         }
 
         public void DeleteInventory(int index, Room room)
         {
-            room.inventory.RemoveAt(index);
+            room.Inventory.RemoveAt(index);
         }
 
         public void EditInventory(int index, Room room, Inventory newInventory)
         {
-            room.inventory.RemoveAt(index);
-            room.inventory.Insert(index, newInventory);
+            room.Inventory.RemoveAt(index);
+            room.Inventory.Insert(index, newInventory);
         }
 
         public void AddInventoryToRoom(Room room, Inventory newInventory)
         {
             newInventory.CurrentAmount = 0;
-            room.inventory.Add(newInventory);
+            room.Inventory.Add(newInventory);
         }
 
         public List<Inventory> GetRoomInventory(Room room)
         {
-            inventories = room.inventory;
+            inventories = room.Inventory;
             return inventories;
         }
 
         public List<Inventory> GetDynamicInventory(Room room)
         {
             List<Inventory> dynamicInventory = new List<Inventory>();
-            foreach (var i in room.inventory)
+            foreach (var i in room.Inventory)
             {
                 if (i.InventoryType == InventoryType.dinamicki)
                 {
@@ -63,7 +63,7 @@ namespace Model
 
         public bool HasRoomSelectedInventory(Room room, Inventory selectedInventory)
         {
-            foreach (var i in room.inventory)
+            foreach (var i in room.Inventory)
             {
                 if (i.Id == selectedInventory.Id)
                 {
@@ -77,7 +77,7 @@ namespace Model
         public List<Inventory> GetStaticInventory(Room room)
         {
             List<Inventory> staticInventory = new List<Inventory>();
-            foreach (var i in room.inventory)
+            foreach (var i in room.Inventory)
             {
                 if (i.InventoryType == InventoryType.staticki)
                 {

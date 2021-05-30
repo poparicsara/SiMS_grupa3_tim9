@@ -64,7 +64,7 @@ namespace IS_Bolnica.Secretary
             Rooms = roomRepository.GetRooms();
             for (int i = 0; i < Rooms.Count; i++)
             {
-                if (Rooms[i].roomPurpose.Name == "Operaciona sala")
+                if (Rooms[i].RoomPurpose.Name == "Operaciona sala")
                 {
                     RoomNums.Add(Rooms[i].Id);
                 }

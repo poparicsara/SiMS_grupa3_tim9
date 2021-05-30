@@ -431,5 +431,59 @@
     },
     "Producer": "j",
     "Status": 0
+  },
+  {
+    "Id": 888,
+    "Name": "b",
+    "Ingredients": [
+      {
+        "Name": "mila"
+      },
+      {
+        "Name": "sara"
+      },
+      {
+        "Name": "ogi"
+      },
+      {
+        "Name": "svi mi"
+      }
+    ],
+    "Replacement": {
+      "Id": 103,
+      "Name": "Aminosol",
+      "Ingredients": [
+        {
+          "Name": "Izoleucin"
+        },
+        {
+          "Name": "Leucin"
+        },
+        {
+          "Name": "Valin"
+        },
+        {
+          "Name": "Lizin"
+        },
+        {
+          "Name": "Metionin"
+        },
+        {
+          "Name": "Treonin"
+        }
+      ],
+      "Replacement": {
+        "Id": 102,
+        "Name": "ESBESUL",
+        "Ingredients": null,
+        "Replacement": null,
+        "Producer": "Bayer",
+        "Status": 0
+      },
+      "Producer": "Hemofarm",
+      "Status": 0
+    },
+    "Producer": "a",
+    "Status": 0
   }
 ]

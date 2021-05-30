@@ -77,7 +77,7 @@ namespace IS_Bolnica
             selectedMedication.Replacement = replacement;
             meds.Add(selectedMedication);
 
-            medStorage.saveToFile(meds);
+            medStorage.SaveToFile(meds);
 
             ListOfMedications listOfMedicationsWindow = new ListOfMedications();
             listOfMedicationsWindow.Show();
@@ -124,7 +124,7 @@ namespace IS_Bolnica
                 }
 
                 meds.Add(newMedicament);
-                medStorage.saveToFile(meds);
+                medStorage.SaveToFile(meds);
             }
 
             this.Close();
@@ -146,7 +146,7 @@ namespace IS_Bolnica
                     m.Replacement = null;
                 }
             }
-            medStorage.saveToFile(meds);
+            medStorage.SaveToFile(meds);
             ListOfMedications listOfMedicationsWindow = new ListOfMedications();
             listOfMedicationsWindow.Show();
             this.Close();

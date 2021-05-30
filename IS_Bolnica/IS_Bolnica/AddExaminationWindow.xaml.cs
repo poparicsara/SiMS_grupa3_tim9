@@ -45,7 +45,7 @@ namespace IS_Bolnica.DoctorsWindows
 
             foreach (Room room in Rooms)
             {
-                if (room.roomPurpose.Name == "Ordinacija")
+                if (room.RoomPurpose.Name == "Ordinacija")
                 {
                     RoomId.Add(room.Id);
                 }

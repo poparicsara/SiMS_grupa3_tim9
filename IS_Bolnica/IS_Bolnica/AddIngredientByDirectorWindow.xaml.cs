@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica
 {
@@ -19,60 +20,27 @@ namespace IS_Bolnica
     {
         private Medicament selectedMedicament;
         private Ingredient ingredient = new Ingredient();
-        private MedicamentRepository medStorage = new MedicamentRepository();
-        private List<Medicament> meds = new List<Medicament>();
+        private IngredientService service = new IngredientService();
 
         public AddIngredientByDirectorWindow(Medicament selected)
         {
             InitializeComponent();
 
             selectedMedicament = selected;
-
-            meds = medStorage.GetMedicaments();
         }
 
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
             ingredient = new Ingredient { Name = ingredientNameTxt.Text };
-            AddToMedicament();
+            service.AddIngredient(selectedMedicament, ingredient);
 
+            this.Close();
+        }
+
+        private void ClosingWindow(object sender, System.ComponentModel.CancelEventArgs e)
+        {
             IngredientsWindow iw = new IngredientsWindow(selectedMedicament);
             iw.Show();
-            this.Close();
-
-
-
-            /*foreach(Medicament m in meds)
-            {
-                if(m.Id == selectedMedicament.Id)
-                {
-                    cw.compositionData.ItemsSource = m.Ingredients;
-                }
-            }*/
-
-            //MedicamentWindow ew = new MedicamentWindow();
-
-        }
-
-        private void AddToMedicament()
-        {
-            foreach (Medicament m in meds)
-            {
-                if (m.Id == selectedMedicament.Id)
-                {
-                    IsException(m);
-                    m.Ingredients.Add(ingredient);
-                }
-            }
-            medStorage.saveToFile(meds);
-        }
-
-        private void IsException(Medicament med)
-        {
-            if (med.Ingredients == null)
-            {
-                med.Ingredients = new List<Ingredient>();
-            }
         }
     }
 }

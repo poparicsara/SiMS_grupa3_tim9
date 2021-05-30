@@ -23,52 +23,32 @@ namespace IS_Bolnica
         Director director = new Director();
         string selectedWard;
         string selectedPurpose;
-        private List<Room> rooms = new List<Room>();
-        private List<string> hospitalWards = new List<string>();
-        private Specialization specialization = new Specialization();
         private RoomService service = new RoomService();
 
         public AddRoomWindow()
         {
             InitializeComponent();
 
-            wardBox.ItemsSource = GetHospitalWards();
-            wardBox.SelectedItem = GetHospitalWards().ElementAt(0);
+            wardBox.ItemsSource = service.GetHospitalWards();
+            wardBox.SelectedItem = service.GetHospitalWards().ElementAt(0);
 
-            purposeBox.ItemsSource = GetRoomPurposes();
-            purposeBox.SelectedItem = GetRoomPurposes().ElementAt(0);
-        }
-
-        private List<string> GetHospitalWards()
-        {
-            List<Specialization> specializations = specialization.getSpecializations();
-            foreach (Specialization s in specializations)
-            {
-                hospitalWards.Add(s.Name);
-            }
-            return hospitalWards;
-        }
-
-        private List<string> GetRoomPurposes()
-        {
-            RoomPurpose purpose = new RoomPurpose();
-            List<string> purposes = purpose.GetPurposes();
-            return purposes;
+            purposeBox.ItemsSource = service.GetRoomPurposes();
+            purposeBox.SelectedItem = service.GetRoomPurposes().ElementAt(0);
         }
 
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
-            SetRoomInfo();
+            SetRoomAttributes();
             service.AddRoom(newRoom);
             this.Close();
         }
 
-        private void SetRoomInfo()
+        private void SetRoomAttributes()
         {
             newRoom.Id = (int)Int64.Parse(roomBox.Text);
             newRoom.HospitalWard = selectedWard;
             RoomPurpose purpose = new RoomPurpose { Name = selectedPurpose };
-            newRoom.roomPurpose = purpose;
+            newRoom.RoomPurpose = purpose;
         }
 
         private void CancelButtonClicked(object sender, RoutedEventArgs e)

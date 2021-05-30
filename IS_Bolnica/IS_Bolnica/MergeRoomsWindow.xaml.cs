@@ -26,14 +26,11 @@ namespace IS_Bolnica
         private int newRoomNumber;
         private Room room1;
         private Room room2;
-        private List<Room> rooms;
         private RenovationService renovationService = new RenovationService();
 
         public MergeRoomsWindow()
         {
             InitializeComponent();
-
-            rooms = roomService.GetRooms();
 
             room1Box.ItemsSource = roomService.GetRoomNumbers();
             room2Box.ItemsSource = roomService.GetRoomNumbers();

@@ -40,7 +40,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header ="BROJ SOBE" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header ="BOLNIČKO ODELJENJE" Binding="{Binding HospitalWard}"/>
-                <DataGridTextColumn Header ="NAMENA" Binding="{Binding Path = roomPurpose.Name}"/>
+                <DataGridTextColumn Header ="NAMENA" Binding="{Binding Path = RoomPurpose.Name}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="DODAJ" HorizontalAlignment="Left" Margin="823,476,0,0" VerticalAlignment="Top" Width="111" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" Click="AddButtonClicked" FontSize="14"/>

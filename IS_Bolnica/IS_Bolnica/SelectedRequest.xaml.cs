@@ -63,7 +63,7 @@ namespace IS_Bolnica
                 }
             }
 
-            medStorage.saveToFile(meds);
+            medStorage.SaveToFile(meds);
 
             DeleteRequest();
             RequestWindow requestWindow = new RequestWindow();
@@ -116,7 +116,7 @@ namespace IS_Bolnica
                         index++;
                     }
                     meds.RemoveAt(index);
-                    medStorage.saveToFile(meds);
+                    medStorage.SaveToFile(meds);
                     break;
                 case MessageBoxResult.No:
                     break;

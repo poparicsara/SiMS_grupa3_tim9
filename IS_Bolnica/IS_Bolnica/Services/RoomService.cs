@@ -28,6 +28,37 @@ namespace IS_Bolnica.Services
             return roomNumbers;
         }
 
+        public List<string> GetHospitalWards()
+        {
+            List<string> wards = new List<string>();
+            Specialization spec = new Specialization();
+            List<Specialization> specializations = spec.getSpecializations();
+            foreach (var s in specializations)
+            {
+                wards.Add(s.Name);
+            }
+            return wards;
+        }
+
+        public List<int> GetAppropriateRoomNumbers(string hospitalWard, string roomPurpose)
+        {
+            List<int> roomNumbers = new List<int>();
+            foreach (Room room in rooms)
+            {
+                if (room.HospitalWard.Equals(hospitalWard) && room.RoomPurpose.Name.Equals(roomPurpose))
+                {
+                    roomNumbers.Add(room.Id);
+                }
+            }
+            return roomNumbers;
+        }
+
+        public List<string> GetRoomPurposes()
+        {
+            RoomPurpose purpose = new RoomPurpose();
+            return purpose.GetPurposes();
+        }
+
         public void AddRoom(Room newRoom)
         {
             repository.AddRoom(newRoom);
@@ -65,7 +96,7 @@ namespace IS_Bolnica.Services
             List<int> roomNums = new List<int>();
             for (int i = 0; i <rooms.Count; i++)
             {
-                if (rooms[i].roomPurpose.Name == "Operaciona sala")
+                if (rooms[i].RoomPurpose.Name == "Operaciona sala")
                 {
                     roomNums.Add(rooms[i].Id);
                 }

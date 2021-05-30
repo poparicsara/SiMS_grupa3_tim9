@@ -24,17 +24,7 @@ namespace IS_Bolnica
 
             meds = medService.GetMedicaments();
 
-            replacementBox.ItemsSource = GetReplacements();
-        }
-
-        private List<string> GetReplacements()
-        {
-            List<string> replacements = new List<string>();
-            foreach (Medicament med in meds)
-            {
-                replacements.Add(med.Name);
-            }
-            return replacements;
+            replacementBox.ItemsSource = medService.GetReplacementNames();
         }
 
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
@@ -63,7 +53,7 @@ namespace IS_Bolnica
         private void SendAddingRequest()
         {
             SetRequestAttributes();
-            requestService.AddRequest(newRequest);
+            requestService.SendRequest(newRequest);
         }
 
         private void SetRequestAttributes()
@@ -83,7 +73,7 @@ namespace IS_Bolnica
         {
             var combo = sender as ComboBox;
             replacement = (string)combo.SelectedItem;
-            SetSelectedReplacemet();
+            selectedReplacement = medService.GetMedicament(replacement);
         }
 
         private void SetSelectedReplacemet()

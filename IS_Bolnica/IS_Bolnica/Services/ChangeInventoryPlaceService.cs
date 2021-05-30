@@ -47,7 +47,7 @@ namespace IS_Bolnica.Services
 
         private Inventory GetInventoryFromRoom(Inventory selecteInventory, Room room)
         {
-            foreach (var i in room.inventory)
+            foreach (var i in room.Inventory)
             {
                 if (i.Id == selecteInventory.Id)
                 {
@@ -96,7 +96,7 @@ namespace IS_Bolnica.Services
 
         private void SetInventoryFrom()
         {
-            foreach (var i in roomFrom.inventory)
+            foreach (var i in roomFrom.Inventory)
             {
                 if (i.Id == selectedInventory.Id)
                 {
@@ -117,7 +117,7 @@ namespace IS_Bolnica.Services
 
         private void SetInventoryTo()
         {
-            foreach (var i in roomTo.inventory)
+            foreach (var i in roomTo.Inventory)
             {
                 if (i.Id == selectedInventory.Id)
                 {

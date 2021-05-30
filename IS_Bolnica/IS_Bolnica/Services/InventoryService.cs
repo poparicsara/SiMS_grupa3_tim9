@@ -56,7 +56,7 @@ namespace IS_Bolnica.Services
         private int FindInventoryIndex(Inventory inventory)
         {
             int index = 0;
-            foreach (var i in magacin.inventory)
+            foreach (var i in magacin.Inventory)
             {
                 if (i.Id == inventory.Id)
                 {

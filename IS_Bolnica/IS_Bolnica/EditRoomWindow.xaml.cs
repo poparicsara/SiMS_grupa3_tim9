@@ -13,9 +13,6 @@ namespace IS_Bolnica
     {
         private Room newRoom = new Room();
         private Room oldRoom = new Room();
-        private List<string> hospitalWards = new List<string>();
-        private Specialization specialization = new Specialization();
-        private List<string> purposes = new List<string>();
         private RoomService service = new RoomService();
 
         public EditRoomWindow(Room room)
@@ -24,35 +21,18 @@ namespace IS_Bolnica
 
             oldRoom = room;
 
-            wardBox.ItemsSource = GetHospitalWards();
-            SetInitWard();
+            wardBox.ItemsSource = service.GetHospitalWards();
+            wardBox.SelectedItem = oldRoom.HospitalWard;
 
-            purposeBox.ItemsSource = GetRoomPurposes();
-            SetInitPurpose();
+            purposeBox.ItemsSource = service.GetRoomPurposes();
+            purposeBox.SelectedItem = oldRoom.RoomPurpose.Name;
 
             idBox.Text = oldRoom.Id.ToString();
         }
 
-        private List<string> GetHospitalWards()
-        {
-            List<Specialization> specializations = specialization.getSpecializations();
-            foreach (Specialization s in specializations)
-            {
-                hospitalWards.Add(s.Name);
-            }
-            return hospitalWards;
-        }
-
-        private List<string> GetRoomPurposes()
-        {
-            RoomPurpose purpose = new RoomPurpose();
-            purposes = purpose.GetPurposes();
-            return purposes;
-        }
-
         private void SetInitWard()
         {
-            foreach(string s in hospitalWards)
+            foreach(string s in service.GetHospitalWards())
             {
                 if (s.Equals(oldRoom.HospitalWard))
                 {
@@ -64,9 +44,9 @@ namespace IS_Bolnica
 
         private void SetInitPurpose()
         {
-            foreach (string s in purposes)
+            foreach (string s in service.GetRoomPurposes())
             {
-                if (s.Equals(oldRoom.roomPurpose.Name))
+                if (s.Equals(oldRoom.RoomPurpose.Name))
                 {
                     purposeBox.SelectedItem = s;
                     break;
@@ -86,7 +66,7 @@ namespace IS_Bolnica
             newRoom.Id = (int)Int64.Parse(idBox.Text);
             newRoom.HospitalWard = wardBox.Text;
             RoomPurpose purpose = new RoomPurpose { Name = purposeBox.Text };
-            newRoom.roomPurpose = purpose;
+            newRoom.RoomPurpose = purpose;
         }
 
         private void InventoryButtonClicked(object sender, RoutedEventArgs e)

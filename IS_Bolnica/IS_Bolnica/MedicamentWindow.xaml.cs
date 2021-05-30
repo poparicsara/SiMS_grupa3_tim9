@@ -20,10 +20,9 @@ namespace IS_Bolnica
     public partial class MedicamentWindow : Window
     {
         private Request request = new Request();
-        private RequestRepository requestStorage = new RequestRepository();
+        private RequestService requestService = new RequestService();
         private Medicament selectedMedicament = new Medicament();
         private MedicamentService medService = new MedicamentService();
-        private List<Request> requests = new List<Request>();
 
         public MedicamentWindow()
         {
@@ -31,7 +30,6 @@ namespace IS_Bolnica
 
             medicamentDataGrid.ItemsSource = medService.GetMedicaments();
 
-            requests = requestStorage.GetRequests();
         }
 
         private void RowDoubleClick(object sender, MouseButtonEventArgs e)
@@ -58,19 +56,13 @@ namespace IS_Bolnica
                 switch (messageBox)
                 {
                     case MessageBoxResult.Yes:
-                        SendDeletingRequest();
+                        SetRequestAttributes();
+                        requestService.SendRequest(request);
                         break;
                     case MessageBoxResult.No:
                         break;
                 }
             }
-        }
-
-        private void SendDeletingRequest()
-        {           
-            SetRequestAttributes();
-            requests.Add(request);
-            requestStorage.SaveToFile(requests);
         }
 
         private void SetRequestAttributes()
@@ -109,9 +101,8 @@ namespace IS_Bolnica
         {
             if (IsAnyMedicamentSelected())
             {
-                Medicament med = (Medicament)medicamentDataGrid.SelectedItem;
-                EditMedicamentWindow medicamentInfo = new EditMedicamentWindow(med);
-                medicamentInfo.Show();
+                EditMedicamentWindow ew = new EditMedicamentWindow(selectedMedicament);
+                ew.Show();
                 this.Close();
             }
         }

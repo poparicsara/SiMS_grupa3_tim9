@@ -1,6 +1,7 @@
 ﻿using Model;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -19,12 +20,8 @@ namespace IS_Bolnica
 {
     public partial class InventoryPerRooms : Window
     {
-        private List<InventoryInRoom> ordinationList = new List<InventoryInRoom>();
-        private List<InventoryInRoom> operationRoomList = new List<InventoryInRoom>();
-        private List<InventoryInRoom> roomList = new List<InventoryInRoom>();
         private Inventory selectedInventory = new Inventory();
         private InventoryInRoom inventory = new InventoryInRoom();
-        private RoomPurpose purpose = new RoomPurpose();
         private InventoryPerRoomService service;
 
         public InventoryPerRooms(Inventory selected)
@@ -61,18 +58,21 @@ namespace IS_Bolnica
 
         private void OrdinationKeyUp(object sender, KeyEventArgs e)
         {
+            List<InventoryInRoom> ordinationList = service.GetOrdinationsWithInventory();
             var filtered = ordinationList.Where(inventory => inventory.Room.HospitalWard.ToLower().StartsWith(ordinationSearchBox.Text.ToLower()));
             ordinationDataGrid.ItemsSource = filtered;
         }
 
         private void OperationRoomKeyUp(object sender, KeyEventArgs e)
         {
+            List<InventoryInRoom> operationRoomList = service.GetOperationRoomWithInventory();
             var filtered = operationRoomList.Where(inventory => inventory.Room.HospitalWard.ToLower().StartsWith(operationRoomSearchBox.Text.ToLower()));
             operationRoomDataGrid.ItemsSource = filtered;
         }
 
         private void RoomKeyUp(object sender, KeyEventArgs e)
         {
+            List<InventoryInRoom> roomList = service.GetRoomsWithInventory();
             var filtered = roomList.Where(inventory => inventory.Room.HospitalWard.ToLower().StartsWith(RoomSearchBox.Text.ToLower()));
             roomDataGrid.ItemsSource = filtered;
         }

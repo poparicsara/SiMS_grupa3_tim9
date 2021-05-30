@@ -30,16 +30,11 @@ namespace IS_Bolnica
         private Inventory selectedInventory;
         private string from;
         private string to;
-        private List<Room> rooms = new List<Room>();
         private string selectedDate;
         private int selectedHour;
         private int selectedMinute;
-        private RoomRepository roomRepository = new RoomRepository();
         private Room roomFrom;
         private Room roomTo;
-        private const int FROM = 1;
-        private const int TO = 0;
-        private Specialization spec = new Specialization();
         private RoomService roomService = new RoomService();
         private ChangeInventoryPlaceService changeService = new ChangeInventoryPlaceService();
 
@@ -47,17 +42,15 @@ namespace IS_Bolnica
         {
             InitializeComponent();
 
-            rooms = roomRepository.GetRooms();
+            wardFromBox.ItemsSource = GetWardsWithMagacin();
+            wardFromBox.SelectedItem = GetWardsWithMagacin().ElementAt(0);
+            wardToBox.ItemsSource = roomService.GetHospitalWards();
+            wardToBox.SelectedItem = roomService.GetHospitalWards().ElementAt(0);
 
-            wardFromBox.ItemsSource = GetHospitalWards(FROM);
-            wardFromBox.SelectedItem = GetHospitalWards(FROM).ElementAt(0);
-            wardToBox.ItemsSource = GetHospitalWards(TO);
-            wardToBox.SelectedItem = GetHospitalWards(TO).ElementAt(0);
-
-            purposeFromBox.ItemsSource = GetRoomPurposes();
-            purposeFromBox.SelectedItem = GetRoomPurposes().ElementAt(0);
-            purposeToBox.ItemsSource = GetRoomPurposes();
-            purposeToBox.SelectedItem = GetRoomPurposes().ElementAt(0);
+            purposeFromBox.ItemsSource = roomService.GetRoomPurposes();
+            purposeFromBox.SelectedItem = roomService.GetRoomPurposes().ElementAt(0);
+            purposeToBox.ItemsSource = roomService.GetRoomPurposes();
+            purposeToBox.SelectedItem = roomService.GetRoomPurposes().ElementAt(0);
 
             selectedInventory = selected;
 
@@ -67,25 +60,11 @@ namespace IS_Bolnica
             }
         }
 
-        private List<string> GetHospitalWards(int room)
+        private List<string> GetWardsWithMagacin()
         {
-            List<Specialization> specializations = spec.getSpecializations();           
-            foreach(Specialization s in specializations)
-            {
-                hospitalWards.Add(s.Name);
-            }
-            if (room == FROM)
-            {
-                hospitalWards.Add("Magacin");
-            }            
+            hospitalWards = roomService.GetHospitalWards();
+            hospitalWards.Add("Magacin");
             return hospitalWards;
-        }
-
-        public List<string> GetRoomPurposes()
-        {
-            RoomPurpose purpose = new RoomPurpose();
-            List<string> purposes = purpose.GetPurposes();
-            return purposes;
         }
 
         private void DisableTime()
@@ -122,20 +101,7 @@ namespace IS_Bolnica
             var combo = sender as ComboBox;
             selectedPurposeFrom = (string)combo.SelectedItem;
 
-            numberFromBox.ItemsSource = GetAppropriateRoomNumbers(selectedWardFrom, selectedPurposeFrom);
-        }
-
-        private List<int> GetAppropriateRoomNumbers(string hospitalWard, string roomPurpose)
-        {
-            List<int> roomNumbers = new List<int>();
-            foreach (Room room in rooms)
-            {
-                if (room.HospitalWard.Equals(hospitalWard) && room.roomPurpose.Name.Equals(roomPurpose))
-                {
-                    roomNumbers.Add(room.Id);
-                }
-            }
-            return roomNumbers;
+            numberFromBox.ItemsSource = roomService.GetAppropriateRoomNumbers(selectedWardFrom, selectedPurposeFrom);
         }
 
         private void numberFromChanged(object sender, SelectionChangedEventArgs e)
@@ -155,7 +121,7 @@ namespace IS_Bolnica
             var combo = sender as ComboBox;
             selectedPurposeTo = (string)combo.SelectedItem;
 
-            numberToBox.ItemsSource = GetAppropriateRoomNumbers(selectedWardTo, selectedPurposeTo);
+            numberToBox.ItemsSource = roomService.GetAppropriateRoomNumbers(selectedWardTo, selectedPurposeTo);
         }
 
         private void numberToChanged(object sender, SelectionChangedEventArgs e)
@@ -170,7 +136,7 @@ namespace IS_Bolnica
             e.Handled = regex.IsMatch(e.Text);
         }
 
-        private void SettingValues(object sender, RoutedEventArgs e)
+        private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
             SetRooms();
             amount = (int)Int64.Parse(amountBox.Text);
@@ -204,7 +170,6 @@ namespace IS_Bolnica
                 this.Close();
             }
         }
-
 
         private void hourChanged(object sender, SelectionChangedEventArgs e)
         {

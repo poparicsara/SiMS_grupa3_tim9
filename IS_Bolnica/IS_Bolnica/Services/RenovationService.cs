@@ -140,8 +140,8 @@ namespace IS_Bolnica.Services
         {
             newRoom.Id = id;
             newRoom.HospitalWard = room1.HospitalWard;
-            newRoom.roomPurpose = room1.roomPurpose;
-            newRoom.inventory = new List<Inventory>();  //just empty list (not null)
+            newRoom.RoomPurpose = room1.RoomPurpose;
+            newRoom.Inventory = new List<Inventory>();  //just empty list (not null)
         }
 
         private void StartThread()

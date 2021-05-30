@@ -74,7 +74,7 @@ namespace IS_Bolnica.Services
 
         private bool HasInventory()
         {
-            if (inventory.Room.inventory != null)
+            if (inventory.Room.Inventory != null)
             {
                 return true;
             }
@@ -83,7 +83,7 @@ namespace IS_Bolnica.Services
 
         private bool HasSelectedInventory(Inventory selectedInventory)
         {
-            foreach (Inventory i in inventory.Room.inventory)
+            foreach (Inventory i in inventory.Room.Inventory)
             {
                 if (i.Id == selectedInventory.Id)
                 {
@@ -96,7 +96,7 @@ namespace IS_Bolnica.Services
 
         private void AddToRightList()
         {
-            String purpose = inventory.Room.roomPurpose.Name;
+            String purpose = inventory.Room.RoomPurpose.Name;
             if (purpose.Equals("Ordinacija"))
             {
                 ordinationsWithInventory.Add(inventory);

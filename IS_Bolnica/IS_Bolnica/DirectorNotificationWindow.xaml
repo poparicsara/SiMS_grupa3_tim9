@@ -16,7 +16,7 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="NASLOV" Binding="{Binding title}" Width="400"/>
+                <DataGridTextColumn Header="NASLOV" Binding="{Binding Title}" Width="400"/>
                 <DataGridTextColumn Header="POŠILJALAC" Binding="{Binding Sender}" Width="550"/>
             </DataGrid.Columns>
         </DataGrid>

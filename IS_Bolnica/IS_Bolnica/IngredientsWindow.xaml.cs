@@ -12,46 +12,26 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica
 {
     public partial class IngredientsWindow : Window
     {
         private Medicament selectedMedicament;
-        private List<Medicament> meds;
-        private MedicamentRepository storage = new MedicamentRepository();
+        private MedicamentService medService = new MedicamentService();
+        private IngredientService ingService = new IngredientService();
+        private string medicamentName;
+        private Ingredient selectedIngredient = new Ingredient();
+
         public IngredientsWindow(Medicament selected)
         {
             InitializeComponent();
-            
-            storage = new MedicamentRepository();
-            meds = storage.GetMedicaments();
-            SetSelectedMedicament(selected.Id);
-            ingredientDataGrid.ItemsSource = GetSelectedMedicamentIngredients();
-        }
 
-        private void SetSelectedMedicament(int id)
-        {
-            foreach(Medicament m in meds)
-            {
-                if(m.Id == id)
-                {
-                    selectedMedicament = m;
-                }
-            }
-        }
+            medicamentName = selected.Name;
+            selectedMedicament = medService.GetMedicament(selected.Name);
 
-        private List<Ingredient> GetSelectedMedicamentIngredients()
-        {
-            List<Ingredient> ingredients = new List<Ingredient>();
-            if(selectedMedicament.Ingredients != null)
-            {
-                foreach (Ingredient i in selectedMedicament.Ingredients)
-                {
-                    ingredients.Add(i);
-                }
-            }            
-            return ingredients;
+            ingredientDataGrid.ItemsSource = ingService.GetIngredients(selected);
         }
 
         private void AddButtonClicked(object sender, RoutedEventArgs e)
@@ -61,40 +41,44 @@ namespace IS_Bolnica
             this.Close();
         }
 
+        private bool IsAnyMedicamentSelected()
+        {
+            if (ingredientDataGrid.SelectedIndex < 0)
+            {
+                MessageBox.Show("Niste izabrali nijedan lek!");
+                return false;
+            }
+            else
+            {
+                selectedIngredient = (Ingredient)ingredientDataGrid.SelectedItem;
+                return true;
+            }
+        }
+
         private void EditButtonClicked(object sender, RoutedEventArgs e)
         {
-            Ingredient ing = (Ingredient)ingredientDataGrid.SelectedItem;
-            EditIngredientWindow ew = new EditIngredientWindow(selectedMedicament, ing);
-            ew.Show();
-            this.Close();
+            if (IsAnyMedicamentSelected())
+            {
+                EditIngredientWindow ew = new EditIngredientWindow(selectedMedicament, selectedIngredient);
+                ew.Show();
+                this.Close();
+            }
         }
 
         private void DeleteButtonClicked(object sender, RoutedEventArgs e)
         {
-            DoChange();
-            ingredientDataGrid.ItemsSource = selectedMedicament.Ingredients;
-        }
-
-        private void DoChange()
-        {
-            Ingredient ing = (Ingredient)ingredientDataGrid.SelectedItem;
-            int index = GetIngredientIndex(ing);
-            selectedMedicament.Ingredients.RemoveAt(index);
-            storage.saveToFile(meds);
-        }
-
-        private int GetIngredientIndex(Ingredient selectedIngredient)
-        {
-            int index = 0;
-            foreach (Ingredient i in selectedMedicament.Ingredients)
+            if (IsAnyMedicamentSelected())
             {
-                if (i.Name.Equals(selectedIngredient.Name))
-                {
-                    break;
-                }
-                index++;
+                ingService.DeleteIngredient(selectedMedicament, selectedIngredient);
+                RefreshDataGrid();
             }
-            return index;
         }
+
+        private void RefreshDataGrid()
+        {
+            selectedMedicament = medService.GetMedicament(medicamentName);
+            ingredientDataGrid.ItemsSource = ingService.GetIngredients(selectedMedicament);
+        }
+
     }
 }
