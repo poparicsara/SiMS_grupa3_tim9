@@ -299,7 +299,7 @@ namespace IS_Bolnica.Secretary
             List<Examination> options = new List<Examination>();
             List<Examination> optionOrder = new List<Examination>();
             Examination exam = new Examination();
-            doctors = doctorRepository.loadFromFile("Doctors.json");
+            doctors = doctorRepository.LoadFromFile();
             rooms = roomRepository.GetRooms();
             scheduledExaminations = examinationsFileStorage.loadFromFile("Pregledi.json");
 

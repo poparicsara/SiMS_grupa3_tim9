@@ -8,25 +8,19 @@ namespace Model
 {
     public class PatientRepository
     {
-
+        private string fileName = "PatientRecordFileStorage.json";
         public List<Patient> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public void SaveToFile(List<Patient> patients, string fileName)
+        public void SaveToFile(List<Patient> patients)
         {
             string jsonString = JsonConvert.SerializeObject(patients, Formatting.Indented);
             File.WriteAllText(fileName, jsonString);
         }
 
-        public void saveToFileObject(Patient patient, string fileName)
-        {
-            string jsonString = JsonConvert.SerializeObject(patient, Formatting.Indented);
-            File.WriteAllText(fileName, jsonString);
-        }
-
-        public List<Patient> LoadFromFile(string fileName)
+        public List<Patient> LoadFromFile()
         {
             var patientsList = new List<Patient>();
 

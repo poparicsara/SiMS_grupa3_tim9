@@ -21,7 +21,7 @@ namespace IS_Bolnica.Services
         public List<string> GetDoctorNamesList()
         {
             List<string> docNames = new List<string>();
-            doctors = doctorRepository.loadFromFile("Doctors.json");
+            doctors = doctorRepository.LoadFromFile();
             for (int i = 0; i < doctors.Count; i++)
             {
                 docNames.Add(doctors[i].Name + " " + doctors[i].Surname);
@@ -32,7 +32,7 @@ namespace IS_Bolnica.Services
         public Doctor FindDoctorByName(string drNameSurname)
         {
             Doctor doctor = new Doctor();
-            List<Doctor> doctors = doctorRepository.loadFromFile("Doctors.json");
+            List<Doctor> doctors = doctorRepository.LoadFromFile();
             foreach (Doctor dr in doctors)
             {
                 string doctorsNameAndSurname = dr.Name + ' ' + dr.Surname;
@@ -61,7 +61,7 @@ namespace IS_Bolnica.Services
         public List<string> GetDoctorsNameSurname()
         {
             List<string> doctorsNameSurname = new List<string>();
-            foreach (Doctor doctor in doctorRepository.loadFromFile("Doctors.json"))
+            foreach (Doctor doctor in doctorRepository.LoadFromFile())
             {
                 if (doctor.Specialization.Name == " ")
                 {
@@ -74,7 +74,7 @@ namespace IS_Bolnica.Services
         public List<string> RemoveDoctorsFromComboBox()
         {
             List<string> doctorsNameSurname = new List<string>();
-            foreach (Doctor doctor in doctorRepository.loadFromFile("Doctors.json"))
+            foreach (Doctor doctor in doctorRepository.LoadFromFile())
             {
                 if (doctor.Specialization.Name == " ")
                 {
@@ -87,7 +87,7 @@ namespace IS_Bolnica.Services
         public List<string> RemoveSpecialistsFromComboBox()
         {
             List<string> specialistsNameSurname = new List<string>();
-            foreach (Doctor doctor in doctorRepository.loadFromFile("Doctors.json"))
+            foreach (Doctor doctor in doctorRepository.LoadFromFile())
             {
                 if (doctor.Specialization.Name != " ")
                 {
@@ -101,7 +101,7 @@ namespace IS_Bolnica.Services
         public int ShowDoctorsOrdination(string doctorsNameSurname)
         {
             int ordinationNumber = 0;
-            foreach (Doctor doctor in doctorRepository.loadFromFile("Doctors.json"))
+            foreach (Doctor doctor in doctorRepository.LoadFromFile())
             {
                 string drNameSurname = doctor.Name + ' ' + doctor.Surname;
                 if (drNameSurname.Equals(doctorsNameSurname))
@@ -116,7 +116,7 @@ namespace IS_Bolnica.Services
         public List<string> SetSpecialistsInComboBox(string specializationName)
         {
             List<String> specialistsNameAndSurname = new List<string>();
-            foreach (Doctor doctor in doctorRepository.loadFromFile("Doctors.json"))
+            foreach (Doctor doctor in doctorRepository.LoadFromFile())
             {
                 if (doctor.Specialization.Name.Equals(specializationName))
                 {
@@ -134,7 +134,7 @@ namespace IS_Bolnica.Services
         public List<string> GetSpecialistsNameSurname()
         {
             List<string> specialistsNameSurname = new List<string>();
-            foreach (Doctor doctor in doctorRepository.loadFromFile("Doctors.json"))
+            foreach (Doctor doctor in doctorRepository.LoadFromFile())
             {
                 if (doctor.Specialization != null)
                 {

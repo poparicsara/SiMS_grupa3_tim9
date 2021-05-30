@@ -22,7 +22,7 @@ namespace IS_Bolnica.Services
 
         public List<Patient> GetPatients()
         {
-            return patientRepository.LoadFromFile("PatientRecordFileStorage.json");
+            return patientRepository.LoadFromFile();
         }
 
         public Patient findPatientById(string id)
@@ -90,7 +90,7 @@ namespace IS_Bolnica.Services
         public void AddPatient(Patient patient)
         {
             patients.Add(patient);
-            patientRepository.SaveToFile(patients, "PatientRecordFileStorage.json");
+            patientRepository.SaveToFile(patients);
         }
 
         public void DeletePatient(Patient patient)
@@ -99,7 +99,7 @@ namespace IS_Bolnica.Services
             {
                 int index = FindPatientIndex(patient);
                 patients.RemoveAt(index);
-                patientRepository.SaveToFile(patients, "PatientRecordFileStorage.json");
+                patientRepository.SaveToFile(patients);
             }
         }
 
@@ -108,7 +108,7 @@ namespace IS_Bolnica.Services
             int index = FindPatientIndex(oldPatient);
             patients.RemoveAt(index);
             patients.Add(newPatient);
-            patientRepository.SaveToFile(patients, "PatientRecordFileStorage.json");
+            patientRepository.SaveToFile(patients);
         }
 
         private bool PatientExists(Patient patient)

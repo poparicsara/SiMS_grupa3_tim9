@@ -24,7 +24,7 @@ namespace IS_Bolnica.Services
 
         public List<Appointment> GetAppointments()
         {
-            return appointmentRepository.LoadFromFile("Appointments.json");
+            return appointmentRepository.LoadFromFile();
         }
 
         public List<Appointment> GetDoctorsExaminations()
@@ -63,7 +63,7 @@ namespace IS_Bolnica.Services
             if (IsDoctorAvailable(appointment) && IsPatientAvailable(appointment))
             {
                 appointments.Add(appointment);
-                appointmentRepository.SaveToFile(appointments, "Appointments.json");
+                appointmentRepository.SaveToFile(appointments);
             }
             else
             {
@@ -78,7 +78,7 @@ namespace IS_Bolnica.Services
                 if (isAvailable(appointments, appointment))
                 {
                     appointments.Add(appointment);
-                    appointmentRepository.SaveToFile(appointments, "Appointments.json");
+                    appointmentRepository.SaveToFile(appointments);
                 }
             }
         }
@@ -87,7 +87,7 @@ namespace IS_Bolnica.Services
         {
             int index = FindAppointmentIndex(appointment);
             appointments.RemoveAt(index);
-            appointmentRepository.SaveToFile(appointments, "Appointments.json");
+            appointmentRepository.SaveToFile(appointments);
         }
 
         public void EditAppointment(Appointment oldAppointment, Appointment newAppointment)
@@ -99,12 +99,12 @@ namespace IS_Bolnica.Services
                 if (isAvailable(appointments, newAppointment))
                 {
                     appointments.Add(newAppointment);
-                    appointmentRepository.SaveToFile(appointments, "Appointments.json");
+                    appointmentRepository.SaveToFile(appointments);
                 }
                 else
                 {
                     appointments.Add(oldAppointment);
-                    appointmentRepository.SaveToFile(appointments, "Appointments.json");
+                    appointmentRepository.SaveToFile(appointments);
                 }
             }
         }
@@ -148,7 +148,7 @@ namespace IS_Bolnica.Services
                     }
                 }
             }
-            appointmentRepository.SaveToFile(appointments, "Appointments.json");
+            appointmentRepository.SaveToFile(appointments);
         }
 
         private bool IsAppointmentValid(Appointment appointment)

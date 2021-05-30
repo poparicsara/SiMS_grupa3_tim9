@@ -11,18 +11,19 @@ namespace IS_Bolnica.Model
 {
     class DoctorRepository
     {
+        private string fileName = "Doctors.json";
         public List<Doctor> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public void saveToFile(List<Doctor> doctors, string fileName)
+        public void SaveToFile(List<Doctor> doctors)
         {
             string jsonString = JsonConvert.SerializeObject(doctors, Formatting.Indented);
             File.WriteAllText(fileName, jsonString);
         }
 
-        public List<Doctor> loadFromFile(string fileName)
+        public List<Doctor> LoadFromFile()
         {
             var doctors = new List<Doctor>();
 

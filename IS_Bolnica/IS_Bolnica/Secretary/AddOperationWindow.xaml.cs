@@ -68,7 +68,7 @@ namespace IS_Bolnica.Secretary
 
         private void setDoctorBox()
         {
-            doctors = doctorRepository.loadFromFile("Doctors.json");
+            doctors = doctorRepository.LoadFromFile();
             for (int i = 0; i < doctors.Count; i++)
             {
                 DocNames.Add(doctors[i].Name + " " + doctors[i].Surname);
@@ -205,7 +205,7 @@ namespace IS_Bolnica.Secretary
 
         private Doctor findDoctor(string doctorName, string doctorSurname)
         {
-            doctors = doctorRepository.loadFromFile("Doctors.json");
+            doctors = doctorRepository.LoadFromFile();
             foreach (Doctor doc in doctors)
             {
                 if (doc.Name.Equals(doctorName) && doc.Surname.Equals(doctorSurname))
@@ -218,7 +218,7 @@ namespace IS_Bolnica.Secretary
 
         private Patient findPatient(string patientsId)
         {
-            Patients = patientStorage.LoadFromFile("PatientRecordFileStorage.json");
+            Patients = patientStorage.LoadFromFile();
             for (int i = 0; i < Patients.Count; i++)
             {
                 if (Patients[i].Id.Equals(idPatientBox.Text))
@@ -246,9 +246,9 @@ namespace IS_Bolnica.Secretary
         private void addOperation(object sender, RoutedEventArgs e)
         {
             Operations = operationStorage.loadFromFile("operations.json");
-            Patients = patientStorage.LoadFromFile("PatientRecordFileStorage.json");
+            Patients = patientStorage.LoadFromFile();
 
-            appointments = appointmentRepository.LoadFromFile("Appointments.json");
+            appointments = appointmentRepository.LoadFromFile();
 
             if (idExists(Patients, idPatientBox.Text))
             {
@@ -308,7 +308,7 @@ namespace IS_Bolnica.Secretary
                 {
                     Operations.Add(operation);
                     appointments.Add(appointment);
-                    appointmentRepository.SaveToFile(appointments, "appointments.json");
+                    appointmentRepository.SaveToFile(appointments);
                     operationStorage.saveToFile(Operations, "operations.json");
                 }
                 else

@@ -21,7 +21,7 @@ namespace IS_Bolnica.Services
         public void CreatePrescription(Prescription prescription)
         {
             prescriptions.Add(prescription);
-            prescriptionRepository.saveToFile(prescriptions, "prescriptions.json");
+            prescriptionRepository.SaveToFile(prescriptions);
         }
 
         public List<string> GetMedicationFromPrescription(string patientId)
@@ -39,7 +39,7 @@ namespace IS_Bolnica.Services
 
         private List<Prescription> GetPrescriptions()
         {
-            return prescriptionRepository.loadFromFile("prescriptions.json");
+            return prescriptionRepository.LoadFromFile();
         }
     }
 }

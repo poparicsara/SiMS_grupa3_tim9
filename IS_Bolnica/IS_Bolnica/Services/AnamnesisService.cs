@@ -33,12 +33,12 @@ namespace IS_Bolnica.Services
         public void CreateAnamnesis(Anamnesis anamnesis)
         {
             anamneses.Add(anamnesis);
-            anamnesisRepository.saveToFile(anamneses, "anamneses.json");
+            anamnesisRepository.SaveToFile(anamneses);
         }
 
         private List<Anamnesis> GetAnamneses()
         {
-            return anamnesisRepository.loadFromFile("anamneses.json");
+            return anamnesisRepository.LoadFromFile();
         }
     }
 }

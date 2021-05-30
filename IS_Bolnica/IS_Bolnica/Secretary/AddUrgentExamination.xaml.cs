@@ -62,7 +62,7 @@ namespace IS_Bolnica.Secretary
         private Patient findPatient(string id)
         {
             Patient patien = new Patient();
-            patients = patientStorage.LoadFromFile("PatientRecordFileStorage.json");
+            patients = patientStorage.LoadFromFile();
 
             foreach (Patient pat in patients)
             {

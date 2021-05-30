@@ -36,7 +36,7 @@ namespace IS_Bolnica
             this.DataContext = this;
 
             Pacijenti = new List<Patient>();
-            Pacijenti = storage.LoadFromFile("PatientRecordFileStorage.json");
+            Pacijenti = storage.LoadFromFile();
 
             guestKorisnik = new GuestUser
             {

@@ -25,7 +25,7 @@ namespace IS_Bolnica.Services
 
         public Patient findPatient(string id)
         {
-            patients = patientRepository.LoadFromFile("PatientRecordFileStorage.json");
+            patients = patientRepository.LoadFromFile();
             for (int i = 0; i < patients.Count; i++)
             {
                 if (patients[i].Id.Equals(id))
@@ -40,7 +40,7 @@ namespace IS_Bolnica.Services
 
         public Doctor findDoctor(string name, string surname)
         {
-            doctors = doctorRepository.loadFromFile("Doctors.json");
+            doctors = doctorRepository.LoadFromFile();
             foreach (Doctor doc in doctors)
             {
                 if (doc.Name.Equals(name) && doc.Surname.Equals(surname))

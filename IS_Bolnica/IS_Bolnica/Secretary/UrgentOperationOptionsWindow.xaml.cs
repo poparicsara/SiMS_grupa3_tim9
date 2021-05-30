@@ -62,7 +62,7 @@ namespace IS_Bolnica.Secretary
         private List<Operation> getOperationOptions(Operation operation, Specialization specialization1)
         {
             List<Operation> options = new List<Operation>();
-            doctors = doctorRepository.loadFromFile("Doctors.json");
+            doctors = doctorRepository.LoadFromFile();
             rooms = roomRepository.GetRooms();
             scheduledOperations = operationsFileStorage.loadFromFile("operations.json");
 
