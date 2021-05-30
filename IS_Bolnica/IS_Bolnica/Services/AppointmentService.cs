@@ -16,6 +16,7 @@ namespace IS_Bolnica.Services
         private List<Appointment> examinations = new List<Appointment>();
         private List<Appointment> operations = new List<Appointment>();
         private UserService userService = new UserService();
+        private PatientRepository patientRepository = new PatientRepository();
 
         public AppointmentService()
         {
@@ -112,7 +113,7 @@ namespace IS_Bolnica.Services
 
         }
 
-        private List<Appointment> FindPatientAppointments(Patient patient)
+        public List<Appointment> FindPatientAppointments(Patient patient)
         {
             List<Appointment> patientAppointments = new List<Appointment>();
             foreach (var appointment in appointments)
@@ -313,6 +314,100 @@ namespace IS_Bolnica.Services
             }
 
             return true;
+        }
+
+        public Boolean processActions()
+        {
+            increaseActions();
+            return checkActions();
+        }
+
+        private void increaseActions()
+        {
+            List<Patient> patients = patientRepository.LoadFromFile("PatientRecordFileStorage.json");
+            foreach (Patient patient in patients)
+            {
+                if (patient.Username.Equals(PatientWindow.username_patient))
+                    patient.Akcije++;
+            }
+
+            patientRepository.SaveToFile(patients, "PatientRecordFileStorage.json");
+        }
+
+        private Boolean checkActions()
+        {
+            Patient patient = findPatientByUsername(PatientWindow.username_patient);
+            if (patient.Akcije >= 6)
+            {
+                MessageBox.Show("Najvise 6 akcija nad pregledima mozete izvrsiti prilikom logovanja!");
+                return true;
+            }
+            return false;
+        }
+
+        public Patient findPatientByUsername(string username)
+        {
+            List<Patient> patients = patientRepository.LoadFromFile("PatientRecordFileStorage.json");
+            Patient returnPatient = new Patient();
+
+            foreach (Patient patient in patients)
+            {
+                if (patient.Username.Equals(username))
+                {
+                    returnPatient = patient;
+                }
+            }
+
+            return returnPatient;
+        }
+
+        public Boolean isSelectedDateFree(DateTime selectedDate, Doctor selectedDoctor)
+        {
+            List<Appointment> appointments = GetAppointments();
+
+            foreach (Appointment appointment in appointments)
+            {
+                if (Convert.ToString(appointment.StartTime).Equals(selectedDate.ToString()) && selectedDoctor.Name.Equals(appointment.Doctor.Name) && selectedDoctor.Surname.Equals(appointment.Doctor.Surname))
+                {
+                    MessageBox.Show("Ne mozete zakazati pregled jer je ovaj termin pregleda kod oznacenog doktora vec zauzet!");
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public Appointment findSelectedPatientAppointment(int selectedIndex)
+        {
+            List<Appointment> patientAppointments = FindPatientAppointments(findPatientByUsername(PatientWindow.username_patient));
+            Appointment selectedAppointment = new Appointment();
+
+            for (int i = 0; i < patientAppointments.Count; i++)
+            {
+                if (i == selectedIndex)
+                    selectedAppointment = patientAppointments[i];
+            }
+
+            return selectedAppointment;
+        }
+
+        public Boolean checkDateOfAppointment(Appointment selectedAppointment)
+        {
+            DateTime now = DateTime.Now;
+            string[] pom = now.AddDays(2).ToString().Split(' ');
+            string[] dateNow = pom[0].Split('/');
+
+            string[] appointmentStartDateAndTime = selectedAppointment.StartTime.ToString().Split(' ');
+            string[] appointmentDate = appointmentStartDateAndTime[0].Split('/');
+
+            if (Convert.ToInt32(dateNow[0]) == Convert.ToInt32(appointmentDate[0]))
+            {
+                if (Convert.ToInt32(dateNow[1]) < Convert.ToInt32(appointmentDate[1]))
+                    return false;
+                else
+                    return true;
+            }
+            return false;
         }
 
     }
