@@ -124,31 +124,17 @@
     <Compile Include="ExaminationInfo.xaml.cs">
       <DependentUpon>ExaminationInfo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="HospitalizationForm.xaml.cs">
-      <DependentUpon>HospitalizationForm.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="HospitalizedPatients.xaml.cs">
-      <DependentUpon>HospitalizedPatients.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Ingredient.cs" />
-    <Compile Include="IngredientRepository.cs" />
+    <Compile Include="IngredientFileStorage.cs" />
     <Compile Include="InventoryWindow.xaml.cs">
       <DependentUpon>InventoryWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="InventoryInRoom.cs" />
-
     <Compile Include="MergeRoomsWindow.xaml.cs">
       <DependentUpon>MergeRoomsWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\Alergeni.cs" />
-
     <Compile Include="Model\AppointmentRepository.cs" />
     <Compile Include="Model\AppointmentType.cs" />
-    <Compile Include="Model\Hospitalization.cs" />
-    <Compile Include="Model\HospitalizationRepository.cs" />
-    <Compile Include="ProlongTreatment.xaml.cs">
-      <DependentUpon>ProlongTreatment.xaml</DependentUpon>
-    </Compile>
     <Compile Include="RoomInventory.xaml.cs">
       <DependentUpon>RoomInventory.xaml</DependentUpon>
     </Compile>
@@ -182,7 +168,7 @@
     <Compile Include="Model\NotificationRepository.cs" />
     <Compile Include="Model\NotificationType.cs" />
     <Compile Include="Model\Prescription.cs" />
-    <Compile Include="Model\PrescriptionRepository.cs" />
+    <Compile Include="Model\PrescriptionFileStorage.cs" />
     <Compile Include="Model\Renovation.cs" />
     <Compile Include="Model\RenovationRepository.cs" />
     <Compile Include="Model\Request.cs" />
@@ -353,7 +339,6 @@
     <Compile Include="SeparateRoomWindow.xaml.cs">
       <DependentUpon>SeparateRoomWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Services\AnamnesisService.cs" />
     <Compile Include="Services\AppointmentService.cs" />
     <Compile Include="Services\ChangeInventoryPlaceService.cs" />
     <Compile Include="Services\FindAttributesService.cs" />
@@ -366,13 +351,6 @@
     <Compile Include="Services\PatientService.cs" />
     <Compile Include="Services\RenovationService.cs" />
     <Compile Include="Services\RequestService.cs" />
-    <Compile Include="Services\HospitalizationService.cs" />
-    <Compile Include="Services\IngredientService.cs" />
-    <Compile Include="Services\InventoryService.cs" />
-    <Compile Include="Services\MedicamentService.cs" />
-    <Compile Include="Services\PatientService.cs" />
-    <Compile Include="Services\PrescriptionService.cs" />
-
     <Compile Include="Services\RoomService.cs" />
     <Compile Include="Services\UrgentAppointmentService.cs" />
     <Compile Include="Services\UserService.cs" />
@@ -484,22 +462,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="HospitalizationForm.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="HospitalizedPatients.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="InventoryWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-
     <Page Include="MergeRoomsWindow.xaml">
-    <Page Include="ProlongTreatment.xaml">
-
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -867,26 +834,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="DemoMode\medicine.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\greenstethoscope.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\chartgreen.png" />
-    <Resource Include="Images\greenscissors.png" />
-    <Resource Include="Images\message.png" />
-    <Resource Include="Images\settings.png" />
-    <Resource Include="Images\singout.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\add.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\editt.png" />
-    <Resource Include="Images\plus.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\remove2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -75,19 +75,5 @@ namespace IS_Bolnica.Services
         {
             return patientRepository.LoadFromFile("PatientRecordFileStorage.json");
         }
-
-        public Patient findPatientById(string id)
-        {
-            Patient foundPatient = new Patient();
-            foreach (Patient patient in patients)
-            {
-                if (patient.Id.Equals(id))
-                {
-                    foundPatient = patient;
-                }
-            }
-
-            return foundPatient;
-        }
     }
 }

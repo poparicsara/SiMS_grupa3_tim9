@@ -23,7 +23,6 @@ namespace IS_Bolnica
         private String type;
         private InventoryService service = new InventoryService();
 
-
         public AddInventoryWindow(String inventoryType)
         {
             InitializeComponent();

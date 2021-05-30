@@ -18,8 +18,8 @@
                               CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True" AutoGenerateColumns="False" Background="White" 
                               HorizontalScrollBarVisibility="Disabled" CanUserResizeRows="False" Canvas.Top="-46">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="DATE AND TIME" Width="160" Binding="{Binding StartTime}"/>
-                            <DataGridTextColumn Header="ROOM" Width="110" Binding="{Binding Doctor.Ordination}"/>
+                            <DataGridTextColumn Header="DATE AND TIME" Width="160" Binding="{Binding Date}"/>
+                            <DataGridTextColumn Header="ROOM" Width="110" Binding="{Binding RoomRecord.Id}"/>
                             <DataGridTextColumn Header="NAME" Width="110" Binding="{Binding Patient.Name}"/>
                             <DataGridTextColumn Header="SURNAME" Width="110" Binding="{Binding Patient.Surname}" />
                         </DataGrid.Columns>
@@ -42,7 +42,7 @@
                               ColumnWidth="SizeToHeader" Foreground="#FF15285D" BorderBrush="#FF15285D" Canvas.Left="31" FontSize="12"
                               IsReadOnly="True" AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserResizeColumns="False" Background="White" HorizontalScrollBarVisibility="Disabled" Canvas.Top="-45">
                         <DataGrid.Columns>
-                            <DataGridTextColumn x:Name="dateColumn" Header="DATE AND TIME" Width="130" Binding="{Binding StartTime}"/>
+                            <DataGridTextColumn x:Name="dateColumn" Header="DATE AND TIME" Width="130" Binding="{Binding Date}"/>
                             <DataGridTextColumn Header="ROOM" Width="90" Binding="{Binding RoomRecord.Id}"/>
                             <DataGridTextColumn Header="NAME" Width="110" Binding="{Binding Patient.Name}"/>
                             <DataGridTextColumn Header="SURNAME" Width="110" Binding="{Binding Patient.Surname}" />
@@ -63,7 +63,6 @@
         <Button Content="Pregled lekova" HorizontalAlignment="Left" Margin="897,379,0,0" VerticalAlignment="Top" Width="94" Height="39" Click="medicationButtonClicked"/>
         <Button Content="Zahtevi" HorizontalAlignment="Left" Margin="897,314,0,0" VerticalAlignment="Top" Width="94" Height="35" Click="requestButtonClicked"/>
         <Button Content="Obaveštenja" HorizontalAlignment="Left" Margin="897,251,0,0" VerticalAlignment="Top" Width="94" Height="35" Click="notificationButtonClicked"/>
-        <Button Content="Hospitalizovani&#xA;     pacijenti" HorizontalAlignment="Left" Margin="897,438,0,0" VerticalAlignment="Top" Width="94" Height="39" Click="Button_Click" />
 
 
 

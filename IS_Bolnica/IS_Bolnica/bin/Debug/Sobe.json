@@ -1,7 +1,7 @@
 [
   {
-    "Id": 122,
-    "HospitalWard": "Ginekologija",
+    "Id": 101,
+    "HospitalWard": "Akušerstvo i ginekologija",
     "inventory": [
       {
         "Name": "Špric",
@@ -12,7 +12,7 @@
       },
       {
         "Name": "Krevet",
-        "CurrentAmount": 2,
+        "CurrentAmount": 17,
         "Minimum": 2,
         "Id": 666,
         "InventoryType": 1
@@ -49,7 +49,7 @@
       },
       {
         "Name": "Krevet",
-        "CurrentAmount": 20,
+        "CurrentAmount": 23,
         "Minimum": 2,
         "Id": 666,
         "InventoryType": 1
@@ -66,6 +66,13 @@
         "CurrentAmount": 20,
         "Minimum": 2,
         "Id": 303,
+        "InventoryType": 0
+      },
+      {
+        "Name": "nesto",
+        "CurrentAmount": 3,
+        "Minimum": 0,
+        "Id": 555,
         "InventoryType": 0
       }
     ],
@@ -130,7 +137,7 @@
       },
       {
         "Name": "nesto",
-        "CurrentAmount": 3,
+        "CurrentAmount": 0,
         "Minimum": 0,
         "Id": 555,
         "InventoryType": 0
@@ -153,7 +160,7 @@
       },
       {
         "Name": "Injekcija",
-        "CurrentAmount": 20,
+        "CurrentAmount": 23,
         "Minimum": 2,
         "Id": 202,
         "InventoryType": 0
@@ -183,7 +190,7 @@
       },
       {
         "Name": "Injekcija",
-        "CurrentAmount": 27,
+        "CurrentAmount": 24,
         "Minimum": 2,
         "Id": 202,
         "InventoryType": 0
@@ -193,6 +200,13 @@
         "CurrentAmount": 20,
         "Minimum": 2,
         "Id": 303,
+        "InventoryType": 0
+      },
+      {
+        "Name": "nesto",
+        "CurrentAmount": 0,
+        "Minimum": 0,
+        "Id": 555,
         "InventoryType": 0
       }
     ],
@@ -234,7 +248,7 @@
       },
       {
         "Name": "nesto",
-        "CurrentAmount": 1,
+        "CurrentAmount": 20,
         "Minimum": 0,
         "Id": 555,
         "InventoryType": 0
@@ -755,167 +769,19 @@
     }
   },
   {
-    "Id": 3,
+    "Id": 999,
     "HospitalWard": "Alergologija i imunologija",
-    "inventory": null,
-    "roomPurpose": {
-      "Name": "Operaciona sala"
-    }
-  },
-  {
-    "Id": 7,
-    "HospitalWard": "Alergologija i imunologija",
-    "inventory": null,
+    "inventory": [],
     "roomPurpose": {
       "Name": "Ordinacija"
     }
   },
   {
-    "Id": 121,
-    "HospitalWard": "Ginekologija",
-    "inventory": [
-      {
-        "Name": "Špric",
-        "CurrentAmount": 20,
-        "Minimum": 2,
-        "Id": 101,
-        "InventoryType": 0
-      },
-      {
-        "Name": "Krevet",
-        "CurrentAmount": 15,
-        "Minimum": 2,
-        "Id": 666,
-        "InventoryType": 1
-      },
-      {
-        "Name": "Injekcija",
-        "CurrentAmount": 20,
-        "Minimum": 2,
-        "Id": 202,
-        "InventoryType": 0
-      },
-      {
-        "Name": "Štapić",
-        "CurrentAmount": 20,
-        "Minimum": 2,
-        "Id": 303,
-        "InventoryType": 0
-      }
-    ],
+    "Id": 666,
+    "HospitalWard": "Alergologija i imunologija",
+    "inventory": [],
     "roomPurpose": {
-      "Name": "Soba"
-    }
-  },
-  {
-    "Id": 123,
-    "HospitalWard": "Ginekologija",
-    "inventory": [
-      {
-        "Name": "Špric",
-        "CurrentAmount": 20,
-        "Minimum": 2,
-        "Id": 101,
-        "InventoryType": 0
-      },
-      {
-        "Name": "Krevet",
-        "CurrentAmount": 5,
-        "Minimum": 2,
-        "Id": 666,
-        "InventoryType": 1
-      },
-      {
-        "Name": "Injekcija",
-        "CurrentAmount": 20,
-        "Minimum": 2,
-        "Id": 202,
-        "InventoryType": 0
-      },
-      {
-        "Name": "Štapić",
-        "CurrentAmount": 20,
-        "Minimum": 2,
-        "Id": 303,
-        "InventoryType": 0
-      }
-    ],
-    "roomPurpose": {
-      "Name": "Soba"
-    }
-  },
-  {
-    "Id": 131,
-    "HospitalWard": "Ginekologija",
-    "inventory": [
-      {
-        "Name": "Špric",
-        "CurrentAmount": 20,
-        "Minimum": 2,
-        "Id": 101,
-        "InventoryType": 0
-      },
-      {
-        "Name": "Krevet",
-        "CurrentAmount": 10,
-        "Minimum": 2,
-        "Id": 666,
-        "InventoryType": 1
-      },
-      {
-        "Name": "Injekcija",
-        "CurrentAmount": 20,
-        "Minimum": 2,
-        "Id": 202,
-        "InventoryType": 0
-      },
-      {
-        "Name": "Štapić",
-        "CurrentAmount": 20,
-        "Minimum": 2,
-        "Id": 303,
-        "InventoryType": 0
-      }
-    ],
-    "roomPurpose": {
-      "Name": "Soba"
-    }
-  },
-  {
-    "Id": 132,
-    "HospitalWard": "Ginekologija",
-    "inventory": [
-      {
-        "Name": "Špric",
-        "CurrentAmount": 20,
-        "Minimum": 2,
-        "Id": 101,
-        "InventoryType": 0
-      },
-      {
-        "Name": "Krevet",
-        "CurrentAmount": 15,
-        "Minimum": 2,
-        "Id": 666,
-        "InventoryType": 1
-      },
-      {
-        "Name": "Injekcija",
-        "CurrentAmount": 20,
-        "Minimum": 2,
-        "Id": 202,
-        "InventoryType": 0
-      },
-      {
-        "Name": "Štapić",
-        "CurrentAmount": 20,
-        "Minimum": 2,
-        "Id": 303,
-        "InventoryType": 0
-      }
-    ],
-    "roomPurpose": {
-      "Name": "Soba"
+      "Name": "Ordinacija"
     }
   }
 ]

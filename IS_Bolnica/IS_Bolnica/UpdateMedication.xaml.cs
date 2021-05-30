@@ -12,43 +12,72 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using IS_Bolnica.Services;
 
 namespace IS_Bolnica
 {
     public partial class UpdateMedication : Window
     {
         private Medicament selectedMedication;
-        private Medicament updatedMedicament = new Medicament();
-        private MedicamentService medicamentService = new MedicamentService();
-        private IngredientService ingredientService = new IngredientService();
+        private MedicamentRepository medStorage = new MedicamentRepository();
+        private List<Medicament> meds = new List<Medicament>();
+        private Ingredient ingredient;
         public UpdateMedication(Medicament medicament)
         {
             InitializeComponent();
 
             this.selectedMedication = medicament;
+            meds = medStorage.GetMedicaments();
+
             medIdTxt.Text = selectedMedication.Id.ToString();
             medNameTxt.Text = selectedMedication.Name;
             producerTxt.Text = selectedMedication.Producer;
 
+            meds = medStorage.GetMedicaments();
+            List<string> replacements = new List<string>();
+
+            foreach (Medicament med in meds)
+            {
+                replacements.Add(med.Name);
+            }
+
+            replacementBox.ItemsSource = replacements;
             if (selectedMedication.Replacement != null)
             {
                 replacementBox.SelectedItem = selectedMedication.Replacement.Name;
             }
 
-            replacementBox.ItemsSource = medicamentService.showMedicamentReplacements();
             ingredientsData.ItemsSource = selectedMedication.Ingredients;
         }
 
         private void potvrdiButtonClicked(object sender, RoutedEventArgs e)
         {
-            updatedMedicament.Id = (int) Int64.Parse(medIdTxt.Text);
-            updatedMedicament.Name = medNameTxt.Text;
-            updatedMedicament.Producer = producerTxt.Text;
-            updatedMedicament.Replacement = medicamentService.setMedicamentReplacement(replacementBox.SelectedItem.ToString());
+            meds = medStorage.GetMedicaments();
 
-            int index = medicamentService.getIndexOfOldMedicament(selectedMedication);
-            medicamentService.updateMedicament(updatedMedicament, index);
+            for (int i = 0; i < meds.Count; i++)
+            {
+                if (meds[i].Id.Equals(selectedMedication.Id))
+                {
+                    meds.RemoveAt(i);
+                }
+            }
+
+            selectedMedication.Id = Convert.ToInt32(medIdTxt.Text);
+            selectedMedication.Name = medNameTxt.Text;
+            selectedMedication.Producer = producerTxt.Text;
+
+            Medicament replacement = new Medicament();
+            foreach(Medicament m in meds)
+            {
+                if(m.Name.Equals(replacementBox.SelectedItem.ToString()))
+                {
+                    replacement = m;
+                }
+            }
+
+            selectedMedication.Replacement = replacement;
+            meds.Add(selectedMedication);
+
+            medStorage.saveToFile(meds);
 
             ListOfMedications listOfMedicationsWindow = new ListOfMedications();
             listOfMedicationsWindow.Show();
@@ -65,7 +94,7 @@ namespace IS_Bolnica
         private void removeIngredientButtonClicked(object sender, RoutedEventArgs e)
         {
             int index = ingredientsData.SelectedIndex;
-            Ingredient ingredient = (Ingredient)ingredientsData.SelectedItem;
+            ingredient = (Ingredient)ingredientsData.SelectedItem;
             Medicament newMedicament = new Medicament();
 
             if (index == -1)
@@ -74,10 +103,28 @@ namespace IS_Bolnica
             }
             else
             {
-                ingredientService.removeIngredientFromMedicament(selectedMedication, ingredient);
+                meds = medStorage.GetMedicaments();
+
+                for (int i = 0; i < selectedMedication.Ingredients.Count; i++)
+                {
+                    if (selectedMedication.Ingredients[i].Name == ingredient.Name)
+                    {
+                        selectedMedication.Ingredients.RemoveAt(i);
+                    }
+                }
+
                 newMedicament = selectedMedication;
-                int idx = medicamentService.getIndexOfOldMedicament(selectedMedication);
-                medicamentService.updateMedicament(newMedicament, idx);
+
+                for (int i = 0; i < meds.Count; i++)
+                {
+                    if (meds[i].Id == selectedMedication.Id)
+                    {
+                        meds.RemoveAt(i);
+                    }
+                }
+
+                meds.Add(newMedicament);
+                medStorage.saveToFile(meds);
             }
 
             this.Close();
@@ -92,11 +139,17 @@ namespace IS_Bolnica
 
         private void DeleteReplacementButton(object sender, RoutedEventArgs e)
         {
-            medicamentService.deleteMedReplacement(selectedMedication);
+            foreach (Medicament m in meds)
+            {
+                if (m.Id == selectedMedication.Id)
+                {
+                    m.Replacement = null;
+                }
+            }
+            medStorage.saveToFile(meds);
             ListOfMedications listOfMedicationsWindow = new ListOfMedications();
             listOfMedicationsWindow.Show();
             this.Close();
         }
-
     }
 }

@@ -274,7 +274,7 @@ namespace IS_Bolnica
             while (true)
             {
 
-                PrescriptionRepository exStorage = new PrescriptionRepository();
+                PrescriptionFileStorage exStorage = new PrescriptionFileStorage();
                 List<Prescription> recepti = exStorage.loadFromFile("prescriptions.json");
 
                 List<Prescription> pacijentovi_recepti = new List<Prescription>();

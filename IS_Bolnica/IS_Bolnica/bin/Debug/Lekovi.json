@@ -48,6 +48,9 @@
       },
       {
         "Name": "Povidon K25"
+      },
+      {
+        "Name": "Magnezijum-stearat"
       }
     ],
     "Replacement": {
@@ -84,41 +87,18 @@
     "Status": 0
   },
   {
-    "Id": 9999,
-    "Name": "aa",
+    "Id": 333,
+    "Name": "aaa",
     "Ingredients": null,
     "Replacement": {
-      "Id": 102,
-      "Name": "Altravesa",
-      "Ingredients": [
-        {
-          "Name": "Anastrozol"
-        },
-        {
-          "Name": "Laktoza"
-        },
-        {
-          "Name": "Natrijum-skrobglikolat"
-        },
-        {
-          "Name": "Povidon K25"
-        },
-        {
-          "Name": "Magnezijum-stearat"
-        }
-      ],
-      "Replacement": {
-        "Id": 102,
-        "Name": "ESBESUL",
-        "Ingredients": null,
-        "Replacement": null,
-        "Producer": "Bayer",
-        "Status": 0
-      },
-      "Producer": "Hemofarm",
+      "Id": 0,
+      "Name": "aaa",
+      "Ingredients": null,
+      "Replacement": null,
+      "Producer": null,
       "Status": 0
     },
-    "Producer": "ap",
+    "Producer": "aaa",
     "Status": 0
   },
   {
@@ -191,44 +171,80 @@
     "Status": 1
   },
   {
-    "Id": 66,
-    "Name": "nesto",
-    "Ingredients": null,
+    "Id": 3,
+    "Name": "promena",
+    "Ingredients": [
+      {
+        "Name": "c"
+      },
+      {
+        "Name": "c"
+      },
+      {
+        "Name": "c"
+      }
+    ],
     "Replacement": {
-      "Id": 102,
-      "Name": "Altravesa",
-      "Ingredients": [
-        {
-          "Name": "Anastrozol"
-        },
-        {
-          "Name": "Laktoza"
-        },
-        {
-          "Name": "Natrijum-skrobglikolat"
-        },
-        {
-          "Name": "Povidon K25"
-        }
-      ],
+      "Id": 333,
+      "Name": "aaa",
+      "Ingredients": null,
       "Replacement": {
-        "Id": 102,
-        "Name": "ESBESUL",
+        "Id": 0,
+        "Name": "aaa",
         "Ingredients": null,
         "Replacement": null,
-        "Producer": "Bayer",
+        "Producer": null,
         "Status": 0
       },
-      "Producer": "Hemofarm",
+      "Producer": "aaa",
       "Status": 0
     },
+    "Producer": "promena",
+    "Status": 0
+  },
+  {
+    "Id": 4,
+    "Name": "AJDE",
+    "Ingredients": [
+      {
+        "Name": "proba1"
+      },
+      {
+        "Name": "proba2"
+      },
+      {
+        "Name": "c"
+      },
+      {
+        "Name": "d"
+      }
+    ],
+    "Replacement": null,
+    "Producer": "oni",
+    "Status": 0
+  },
+  {
+    "Id": 666,
+    "Name": "nesto",
+    "Ingredients": null,
+    "Replacement": null,
     "Producer": "neko",
     "Status": 0
   },
   {
-    "Id": 94,
+    "Id": 3,
     "Name": "a",
-    "Ingredients": null,
+    "Ingredients": [
+      {
+        "Name": "a"
+      },
+      {
+        "Name": "a"
+      },
+      {
+        "Name": "a"
+      }
+    ],
     "Replacement": {
       "Id": 102,
       "Name": "Altravesa",
@@ -264,25 +280,40 @@
     "Status": 0
   },
   {
-    "Id": 4,
-    "Name": "AJDE",
+    "Id": 5,
+    "Name": "a",
     "Ingredients": [
       {
-        "Name": "c"
+        "Name": "a"
       },
       {
-        "Name": "d"
+        "Name": "a"
+      },
+      {
+        "Name": "a"
       }
     ],
     "Replacement": {
-      "Id": 104,
-      "Name": "Bactim roche",
+      "Id": 101,
+      "Name": "Alopurinol",
       "Ingredients": [
         {
-          "Name": "Sulfametoksazol"
+          "Name": "Alopurinol"
         },
         {
-          "Name": "Trimetoprim"
+          "Name": "Kukuruzni skrob"
+        },
+        {
+          "Name": "Celuloza"
+        },
+        {
+          "Name": "Natrijum-skrobglikolat"
+        },
+        {
+          "Name": "Talk"
+        },
+        {
+          "Name": "Magnezijum-stearat"
         }
       ],
       "Replacement": {
@@ -296,7 +327,109 @@
       "Producer": "Bayer",
       "Status": 0
     },
-    "Producer": "oni",
+    "Producer": "b",
+    "Status": 0
+  },
+  {
+    "Id": 6,
+    "Name": "a",
+    "Ingredients": [
+      {
+        "Name": "a"
+      },
+      {
+        "Name": "a"
+      },
+      {
+        "Name": "a"
+      }
+    ],
+    "Replacement": {
+      "Id": 101,
+      "Name": "Alopurinol",
+      "Ingredients": [
+        {
+          "Name": "Alopurinol"
+        },
+        {
+          "Name": "Kukuruzni skrob"
+        },
+        {
+          "Name": "Celuloza"
+        },
+        {
+          "Name": "Natrijum-skrobglikolat"
+        },
+        {
+          "Name": "Talk"
+        },
+        {
+          "Name": "Magnezijum-stearat"
+        }
+      ],
+      "Replacement": {
+        "Id": 102,
+        "Name": "ESBESUL",
+        "Ingredients": null,
+        "Replacement": null,
+        "Producer": "Bayer",
+        "Status": 0
+      },
+      "Producer": "Bayer",
+      "Status": 0
+    },
+    "Producer": "a",
+    "Status": 0
+  },
+  {
+    "Id": 7,
+    "Name": "j",
+    "Ingredients": [
+      {
+        "Name": "a"
+      },
+      {
+        "Name": "a"
+      },
+      {
+        "Name": "a"
+      }
+    ],
+    "Replacement": {
+      "Id": 101,
+      "Name": "Alopurinol",
+      "Ingredients": [
+        {
+          "Name": "Alopurinol"
+        },
+        {
+          "Name": "Kukuruzni skrob"
+        },
+        {
+          "Name": "Celuloza"
+        },
+        {
+          "Name": "Natrijum-skrobglikolat"
+        },
+        {
+          "Name": "Talk"
+        },
+        {
+          "Name": "Magnezijum-stearat"
+        }
+      ],
+      "Replacement": {
+        "Id": 102,
+        "Name": "ESBESUL",
+        "Ingredients": null,
+        "Replacement": null,
+        "Producer": "Bayer",
+        "Status": 0
+      },
+      "Producer": "Bayer",
+      "Status": 0
+    },
+    "Producer": "j",
     "Status": 0
   }
 ]

@@ -110,7 +110,7 @@
     "Akcije": 0,
     "brojOcenjenihPregleda": 0,
     "Debit": 1500.0,
-    "HealthCardNumber": 13,
+    "HealthCardNumber": null,
     "Anamneses": null,
     "Ingredients": null,
     "Username": "nikola_nikolic",

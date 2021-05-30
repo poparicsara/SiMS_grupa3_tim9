@@ -4,13 +4,10 @@
     "Date": "2021-06-14T00:00:00",
     "Patient": {
       "Allergens": null,
-      "examinations": null,
-      "Akcije": 0,
-      "brojOcenjenihPregleda": 0,
       "Debit": 0.0,
+      "examinations": null,
       "HealthCardNumber": "071189",
       "Anamneses": null,
-      "Ingredients": null,
       "Username": "milos",
       "Password": "m123",
       "Name": "Milos",
@@ -44,13 +41,10 @@
     "Date": "2021-06-14T00:00:00",
     "Patient": {
       "Allergens": null,
-      "examinations": null,
-      "Akcije": 0,
-      "brojOcenjenihPregleda": 0,
       "Debit": 0.0,
+      "examinations": null,
       "HealthCardNumber": "071189",
       "Anamneses": null,
-      "Ingredients": null,
       "Username": "milos",
       "Password": "m123",
       "Name": "Milos",
@@ -99,13 +93,10 @@
       "Allergens": [
         "penicilin"
       ],
-      "examinations": null,
-      "Akcije": 0,
-      "brojOcenjenihPregleda": 0,
       "Debit": 500.0,
+      "examinations": null,
       "HealthCardNumber": "78",
       "Anamneses": null,
-      "Ingredients": null,
       "Username": "mare",
       "Password": "nesto",
       "Name": "Marko",
@@ -133,6 +124,60 @@
       "StartDate": "0001-01-01T00:00:00",
       "MedicationName": "andol",
       "Dose": 1
+    },
+    "Anamnesis": null
+  },
+  {
+    "Doctor": {
+      "Specialization": null,
+      "Ordination": 202,
+      "Username": "ana",
+      "Password": "ana",
+      "Name": "Ana",
+      "Surname": "Petrovic",
+      "DateOfBirth": "1970-10-01T00:00:00",
+      "Phone": "67890834",
+      "Email": "ana@gmail.com",
+      "Id": "4321009",
+      "UserType": 1,
+      "Address": null
+    },
+    "Date": "2021-05-15T11:00:00",
+    "Patient": {
+      "Allergens": [
+        "penicilin"
+      ],
+      "Debit": 500.0,
+      "examinations": null,
+      "HealthCardNumber": "78",
+      "Anamneses": null,
+      "Username": "mare",
+      "Password": "nesto",
+      "Name": "Marko",
+      "Surname": "Markovic",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "064789552",
+      "Email": "marko@gmai.com",
+      "Id": "1111",
+      "UserType": 0,
+      "Address": {
+        "Street": "Marko Oreskovica",
+        "NumberOfBuilding": 12,
+        "Floor": 5,
+        "Apartment": 8,
+        "City": {
+          "name": "Novi Sad",
+          "postalCode": "21000",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "Therapy": {
+      "StartDate": "0001-01-01T00:00:00",
+      "MedicationName": "rtrt",
+      "Dose": 2
     },
     "Anamnesis": null
   }

@@ -53,7 +53,7 @@ namespace IS_Bolnica
         private void AcceptMedicamentButton(object sender, RoutedEventArgs e)
         {
             MedicamentRepository medStorage = new MedicamentRepository();
-            List<Medicament> meds = medStorage.loadFromFile("Lekovi.json");
+            List<Medicament> meds = medStorage.GetMedicaments();
 
             foreach (Medicament med in meds)
             {
@@ -63,7 +63,7 @@ namespace IS_Bolnica
                 }
             }
 
-            medStorage.saveToFile(meds, "Lekovi.json");
+            medStorage.saveToFile(meds);
 
             DeleteRequest();
             RequestWindow requestWindow = new RequestWindow();
@@ -105,7 +105,7 @@ namespace IS_Bolnica
             {
                 case MessageBoxResult.Yes:
                     MedicamentRepository medStorage = new MedicamentRepository();
-                    List<Medicament> meds = medStorage.loadFromFile("Lekovi.json");
+                    List<Medicament> meds = medStorage.GetMedicaments();
                     int index = 0;
                     foreach(Medicament med in meds)
                     {
@@ -116,7 +116,7 @@ namespace IS_Bolnica
                         index++;
                     }
                     meds.RemoveAt(index);
-                    medStorage.saveToFile(meds, "Lekovi.json");
+                    medStorage.saveToFile(meds);
                     break;
                 case MessageBoxResult.No:
                     break;
@@ -128,8 +128,8 @@ namespace IS_Bolnica
 
         private void DeleteRequest()
         {
-            RequestFileStorage requestStorage = new RequestFileStorage();
-            List<Request> requests = requestStorage.LoadFromFile("Zahtevi.json");
+            RequestRepository requestStorage = new RequestRepository();
+            List<Request> requests = requestStorage.GetRequests();
             int i = 0;
             foreach (Request r in requests)
             {
@@ -140,7 +140,7 @@ namespace IS_Bolnica
                 i++;
             }
             requests.RemoveAt(i);
-            requestStorage.SaveToFile(requests, "Zahtevi.json");
+            requestStorage.SaveToFile(requests);
         }
     }
 }
