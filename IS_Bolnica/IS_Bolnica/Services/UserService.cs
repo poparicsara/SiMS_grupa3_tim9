@@ -20,6 +20,7 @@ namespace IS_Bolnica.Services
 
         public void AddUser(User user)
         {
+            users = GetUsers();
             if (IsValid(user))
             {
                 users.Add(user);
@@ -29,6 +30,7 @@ namespace IS_Bolnica.Services
 
         public void DeleteUser(User user)
         {
+            users = GetUsers();
             if (UserExists(user.Id))
             {
                 int index = FindUserIndex(user);
@@ -39,6 +41,7 @@ namespace IS_Bolnica.Services
 
         public void EditUser(User oldUser, User newUser)
         {
+            users = GetUsers();
             if (IsValid(newUser))
             {
                 int index = FindUserIndex(oldUser);
@@ -67,7 +70,8 @@ namespace IS_Bolnica.Services
 
         private int FindUserIndex(User user)
         {
-            for(int i = 0; i < users.Count; i++)
+            users = GetUsers();
+            for (int i = 0; i < users.Count; i++)
             {
                 if (user.Id.Equals(users[i].Id))
                 {
@@ -80,6 +84,7 @@ namespace IS_Bolnica.Services
 
         public bool UserExists(string id)
         {
+            users = GetUsers();
             foreach (var u in users)
             {
                 if (u.Id.Equals(id))

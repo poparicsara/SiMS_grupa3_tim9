@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace IS_Bolnica.Secretary
 {
-    /// <summary>
-    /// Interaction logic for AddUrgentExaminationPage.xaml
-    /// </summary>
     public partial class AddUrgentExaminationPage : Page
     {
         public AddUrgentExaminationPage()

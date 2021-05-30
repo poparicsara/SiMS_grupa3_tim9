@@ -1,29 +1,16 @@
-﻿using IS_Bolnica.Model;
-using Model;
+﻿using Model;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using IS_Bolnica.Services;
 
 namespace IS_Bolnica.Secretary
 {
-    public partial class PatientListWindow : Window, INotifyPropertyChanged
+    public partial class PatientListWindow : Window
     {
-        private List<Patient> Pacijenti { get; set; } = new List<Patient>();
-        public event PropertyChangedEventHandler PropertyChanged;
-
+        private List<Patient> patients { get; set; } = new List<Patient>();
         private PatientService patientService = new PatientService();
         private UserService userService = new UserService();
         private AppointmentService appointmentService = new AppointmentService();
@@ -33,13 +20,8 @@ namespace IS_Bolnica.Secretary
             InitializeComponent();
             this.DataContext = this;
 
-            Pacijenti = patientService.GetPatients();
-            PatientList.ItemsSource = Pacijenti;
-        }
-
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+            patients = patientService.GetPatients();
+            PatientList.ItemsSource = patients;
         }
 
         private void addPatient(object sender, RoutedEventArgs e)
@@ -51,8 +33,7 @@ namespace IS_Bolnica.Secretary
 
         private void editPatient(object sender, RoutedEventArgs e)
         {
-            int i = -1;
-            i = PatientList.SelectedIndex;
+            int i = PatientList.SelectedIndex;
             Patient patient = (Patient)PatientList.SelectedItem;
 
             if (i == -1)
@@ -155,7 +136,7 @@ namespace IS_Bolnica.Secretary
 
         private void pretraziBox_KeyUp(object sender, KeyEventArgs e)
         {
-            var filtered = Pacijenti.Where(patient => patient.Id.StartsWith(pretraziBox.Text));
+            var filtered = patients.Where(patient => patient.Id.StartsWith(pretraziBox.Text));
 
             PatientList.ItemsSource = filtered;
         }

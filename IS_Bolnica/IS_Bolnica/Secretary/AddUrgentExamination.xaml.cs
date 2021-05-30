@@ -12,37 +12,25 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Model;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica.Secretary
 {
     public partial class AddUrgentExamination : Window
     {
         private Specialization specialization = new Specialization();
-        public List<String> Specializations { get; set; } = new List<String>();
-        private Examination examination;
-        private PatientRepository patientStorage = new PatientRepository();
-        private List<Patient> patients = new List<Patient>();
         private Patient patient = new Patient();
-        private GuestUserRepository guestStorage = new GuestUserRepository();
-        private List<GuestUser> guestUsers = new List<GuestUser>();
         private GuestUser guestUser = new GuestUser();
-        private List<Specialization> specializations = new List<Specialization>();
+        private Appointment appointment = new Appointment();
+
+        private FindAttributesService findAttributesService = new FindAttributesService();
 
         public AddUrgentExamination()
         {
             InitializeComponent();
-            setSpecializationsBox();
+            specializationBox.ItemsSource = findAttributesService.GetSpecializationNames();
 
-        }
-
-        private void setSpecializationsBox()
-        {
-            specializations = specialization.getSpecializations();
-            foreach (Specialization spec in specializations)
-            {
-                Specializations.Add(spec.Name);
-            }
-            specializationBox.ItemsSource = Specializations;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -59,75 +47,31 @@ namespace IS_Bolnica.Secretary
             this.Close();
         }
 
-        private Patient findPatient(string id)
-        {
-            Patient patien = new Patient();
-            patients = patientStorage.LoadFromFile("PatientRecordFileStorage.json");
-
-            foreach (Patient pat in patients)
-            {
-                if (pat.Id.Equals(id))
-                {
-                    return pat;
-                }
-            }
-            MessageBox.Show("Id koji ste uneli ne postoji!");
-            return null;
-
-        }
-
-        private GuestUser findGuest(string systemName)
-        {
-            GuestUser guest = new GuestUser();
-            guestUsers = guestStorage.LoadFromFile("GuestUsersFile.json");
-
-            foreach (GuestUser gUser in guestUsers)
-            {
-                if (gUser.SystemName.Equals(systemName))
-                {
-                    guest = gUser;
-                }
-            }
-
-            return guest;
-        }
-
-        private void findSpecialization(string spec)
-        {
-            foreach (Specialization s in specializations)
-            {
-                if (s.Name.Equals(spec))
-                {
-                    specialization = s;
-                }
-            }
-        }
-
         private void getOptions(object sender, RoutedEventArgs e)
         {
-            if (patientIdBox.Text != null)
+            if (patientIdBox.Text != "")
             {
-                patient = findPatient(patientIdBox.Text);
+                patient = findAttributesService.FindPatient(patientIdBox.Text);
             }
-            else if (patientIdBox.Text == null && patientIdBox.IsEnabled)
+            else if (patientIdBox.Text == "" && patientIdBox.IsEnabled)
             {
                 MessageBox.Show("Niste uneli id pacijenta");
                 return;
             }
-            else if (systemNameBox.Text != null)
+            else if (systemNameBox.Text != "")
             {
-                guestUser = findGuest(systemNameBox.Text);
+                guestUser = findAttributesService.FindGuest(systemNameBox.Text);
             }
-            else if (systemNameBox.Text == null && systemNameBox.IsEnabled)
+            else if (systemNameBox.Text == "" && systemNameBox.IsEnabled)
             {
                 MessageBox.Show("Niste uneli sistemsko ime guest korisnika");
                 return;
             }
 
-            examination = new Examination { GuestUser = guestUser, Patient = patient };
-            findSpecialization(specializationBox.SelectedItem.ToString());
+            appointment = new Appointment {GuestUser = guestUser, Patient = patient};
+            specialization = findAttributesService.FindSpecialization(specializationBox.SelectedItem.ToString());
 
-            UrgentExaminationOptionsWindow uoow = new UrgentExaminationOptionsWindow(examination, specialization);
+            UrgentExaminationOptionsWindow uoow = new UrgentExaminationOptionsWindow(appointment, specialization);
             uoow.Show();
             this.Close();
         }

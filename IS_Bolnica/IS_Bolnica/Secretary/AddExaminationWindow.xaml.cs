@@ -38,11 +38,11 @@ namespace IS_Bolnica.Secretary
         private void addExamination(object sender, RoutedEventArgs e)
         {
             appointment.DurationInMins = 30;
-            appointment.Patient = findAttributesService.findPatient(idPatientBox.Text);
+            appointment.Patient = findAttributesService.FindPatient(idPatientBox.Text);
             string[] doctorNameAndSurname = doctorBox.Text.Split(' ');
             string name = doctorNameAndSurname[0];
             string surname = doctorNameAndSurname[1];
-            appointment.Doctor = findAttributesService.findDoctor(name, surname);
+            appointment.Doctor = findAttributesService.FindDoctor(name, surname);
             DateTime datum = new DateTime();
             datum = (DateTime)dateBox.SelectedDate;
             int sat = Convert.ToInt32(hourBox.Text);
