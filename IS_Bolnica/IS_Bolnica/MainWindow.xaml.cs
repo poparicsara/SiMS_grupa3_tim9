@@ -88,7 +88,7 @@ namespace IS_Bolnica
                             break;
                         case UserType.secretary:
                             SekretarWindow sw = new SekretarWindow();
-                            sw.setProfileInfo(user);
+                            //sw.setProfileInfo(user);
                             sw.Show();
                             break;
                         default:

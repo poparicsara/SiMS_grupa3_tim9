@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.RightsManagement;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows;
-using IS_Bolnica.Secretary;
 using Model;
 
 namespace IS_Bolnica.Services
@@ -14,6 +8,7 @@ namespace IS_Bolnica.Services
     {
         private List<Patient> patients = new List<Patient>();
         private PatientRepository patientRepository = new PatientRepository();
+        private List<Patient> blockedPatients = new List<Patient>();
         
 
         public PatientService()
@@ -46,6 +41,34 @@ namespace IS_Bolnica.Services
             patients.RemoveAt(index);
             patients.Add(newPatient);
             patientRepository.SaveToFile(patients, "PatientRecordFileStorage.json");
+        }
+
+        public void UnblockPatient(Patient patient)
+        {
+            patients = patientRepository.LoadFromFile("PatientRecordFileStorage.json");
+            for (int i =  0; i < patients.Count; i++)
+            {
+                if (patient.Id.Equals(patients[i].Id))
+                {
+                    patients[i].isBlocked = false;
+                    patients[i].Akcije = 0;
+                }
+            }
+            patientRepository.SaveToFile(patients, "PatientRecordFileStorage.json");
+        }
+
+        public List<Patient> GetBlockedPatients()
+        {
+            patients = patientRepository.LoadFromFile("PatientRecordFileStorage.json");
+            foreach (var patient in patients)
+            {
+                if (patient.isBlocked)
+                {
+                    blockedPatients.Add(patient);
+                }
+            }
+
+            return patients;
         }
 
         public bool PatientExists(Patient patient)

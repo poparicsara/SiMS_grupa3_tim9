@@ -10,8 +10,6 @@ namespace IS_Bolnica.Secretary
     public partial class AddExaminationWindow : Window
     {
         private Appointment appointment = new Appointment();
-        private List<Appointment> appointments = new List<Appointment>();
-        private AppointmentRepository appointmentRepository = new AppointmentRepository();
         private DoctorService doctorService = new DoctorService();
         private AppointmentService appointmentService = new AppointmentService();
         private FindAttributesService findAttributesService = new FindAttributesService();

@@ -42,7 +42,8 @@ namespace IS_Bolnica.Secretary
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            ActionBar ab = new ActionBar();
+            this.NavigationService.Navigate(ab);
         }
     }
 }
