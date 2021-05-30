@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IS_Bolnica.Model
+namespace IS_Bolnica
 {
-    class Alergeni
+    class SeparateRoomWindow
     {
-        public string Name { get; set; }
+
+
     }
 }

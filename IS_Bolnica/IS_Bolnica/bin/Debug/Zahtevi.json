@@ -30,14 +30,14 @@
     "Recipient": 0
   },
   {
-    "Title": "Dodavanje leka u bazu",
-    "Content": "555|novi|Alopurinol|mi|a\r\na\r\na",
+    "Title": "Brisanje leka iz baze",
+    "Content": "111111|fffff|Bactim roche|dsfs|tt\nb\nc\n",
     "Sender": 3,
     "Recipient": 0
   },
   {
-    "Title": "Dodavanje leka u bazu",
-    "Content": "66|nesto|AJDE|neko|",
+    "Title": "Brisanje leka iz baze",
+    "Content": "111111|fffff|Bactim roche|dsfs|tt\nb\nc\n",
     "Sender": 3,
     "Recipient": 0
   }

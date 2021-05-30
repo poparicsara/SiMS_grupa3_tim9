@@ -27,7 +27,7 @@ namespace IS_Bolnica
         {
             InitializeComponent();
 
-            meds = storage.loadFromFile("Lekovi.json");
+            meds = storage.GetMedicaments();
             oldIngredient = ingredient;
             SetSelectedMedicament(med.Id);
             ingredientNameTxt.Text = ingredient.Name; 
@@ -52,7 +52,7 @@ namespace IS_Bolnica
             int index = GetOldIngredientIndex(selectedMedicament);
             selectedMedicament.Ingredients.RemoveAt(index);
             selectedMedicament.Ingredients.Insert(index, newIngredient);
-            storage.saveToFile(meds, "Lekovi.json");
+            storage.saveToFile(meds);
         }
 
         private int GetOldIngredientIndex(Medicament med)

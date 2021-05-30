@@ -10,7 +10,7 @@ namespace Model
         public Patient Patient { get; set; }
         public Doctor Doctor { get; set; }
         public Secretary Secretary { get; set; }
-        public RoomRecord RoomRecord { get; set; }
+        public Room Room { get; set; }
         public GuestUser GuestUser { get; set; }
         public DateTime PostponedDate { get; set; }
 

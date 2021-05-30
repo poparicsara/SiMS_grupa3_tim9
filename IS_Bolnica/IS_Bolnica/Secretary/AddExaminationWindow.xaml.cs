@@ -49,7 +49,7 @@ namespace IS_Bolnica.Secretary
             int minut = Convert.ToInt32(minutesBox.Text);
             appointment.StartTime = new DateTime(datum.Year, datum.Month, datum.Day, sat, minut, 0);
             appointment.EndTime = appointment.StartTime.AddMinutes(appointment.DurationInMins);
-            appointment.RoomRecord = findAttributesService.findRoom(appointment.Doctor);
+            appointment.Room = findAttributesService.findRoomByDoctor(appointment.Doctor);
             appointment.AppointmentType = AppointmentType.examination;
 
             appointmentService.AddAppointment(appointment);

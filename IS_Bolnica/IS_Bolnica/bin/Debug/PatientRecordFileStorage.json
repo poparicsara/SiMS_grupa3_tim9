@@ -68,10 +68,6 @@
     }
   },
   {
-    "Allergens": [
-      "brufen",
-      "penicilin"
-    ],
     "examinations": null,
     "Akcije": 0,
     "brojOcenjenihPregleda": 0,
@@ -100,7 +96,22 @@
           "name": "srb"
         }
       }
-    }
+    },
+    "Alergeni": [
+      {
+        "Name": "polen",
+        "IngredientsAllergens": [
+          {
+            "Name": "Celuloza"
+          }
+        ], 
+        "MedicamentsAllergens": [
+          {
+            "Name": "Altravesa"
+          }
+        ]
+      }
+    ]
   },
   {
     "Allergens": [

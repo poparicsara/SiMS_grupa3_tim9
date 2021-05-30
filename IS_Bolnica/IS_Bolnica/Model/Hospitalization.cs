@@ -12,6 +12,6 @@ namespace IS_Bolnica.Model
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public Patient Patient { get; set; }
-        public RoomRecord Room { get; set; }
+        public Room Room { get; set; }
     }
 }

@@ -24,8 +24,8 @@ namespace IS_Bolnica
 
         private void ButtonUpravnikClicked(object sender, RoutedEventArgs e)
         {
-            DirectorProfileWindow profileWindow = new DirectorProfileWindow();
-            profileWindow.Show();
+            DirectorLogInWindow dw = new DirectorLogInWindow();
+            dw.Show();
         }
 
         private void doctorButtonClicked(object sender, RoutedEventArgs e)
@@ -53,7 +53,7 @@ namespace IS_Bolnica
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             users = storage.LoadFromFile("UserRepository.json");
-            patients = patientStorage.LoadFromFile("PatientRecordFileStorage.json");
+            patients = patientStorage.LoadFromFile();
             
             string username = usernameBox.Text;
             string password = passwordBox.Password.ToString();

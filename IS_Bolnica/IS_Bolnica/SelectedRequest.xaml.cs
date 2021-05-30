@@ -15,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica
 {
@@ -22,6 +23,9 @@ namespace IS_Bolnica
     {
         private Request selectedRequest;
         private int selectedId;
+        private RequestService requestService = new RequestService();
+        private MedicamentService medicamentService = new MedicamentService();
+        private NotificationService notificationService = new NotificationService();
         public SelectedRequest(Request selected)
         {
             InitializeComponent();
@@ -52,24 +56,11 @@ namespace IS_Bolnica
 
         private void AcceptMedicamentButton(object sender, RoutedEventArgs e)
         {
-            MedicamentRepository medStorage = new MedicamentRepository();
-            List<Medicament> meds = medStorage.loadFromFile("Lekovi.json");
-
-            foreach (Medicament med in meds)
-            {
-                if(med.Id == (int)Int64.Parse(idBox.Text))
-                {
-                    med.Status = MedicamentStatus.approved;
-                }
-            }
-
-            medStorage.saveToFile(meds, "Lekovi.json");
-
-            DeleteRequest();
+            medicamentService.ChangeMedicamentStatus((int)Int64.Parse(idBox.Text));
+            requestService.DeleteRequest(selectedRequest);
             RequestWindow requestWindow = new RequestWindow();
             requestWindow.Show();
             this.Close();
-            
         }
 
         private void SentToEditButton(object sender, RoutedEventArgs e)
@@ -83,14 +74,9 @@ namespace IS_Bolnica
             notification.notificationType = NotificationType.director;
             notification.Sender = UserType.doctor;
 
-            NotificationRepository notificationStorage = new NotificationRepository();
-            List<Notification> notifications = notificationStorage.LoadFromFile("NotificationsFileStorage.json");
+            notificationService.AddNotification(notification);
 
-            notifications.Add(notification);
-
-            notificationStorage.SaveToFile(notifications, "NotificationsFileStorage.json");
-
-            DeleteRequest();
+            requestService.DeleteRequest(selectedRequest);
             RequestWindow requestWindow = new RequestWindow();
             requestWindow.Show();
             this.Close();
@@ -104,43 +90,14 @@ namespace IS_Bolnica
             switch (messageBox)
             {
                 case MessageBoxResult.Yes:
-                    MedicamentRepository medStorage = new MedicamentRepository();
-                    List<Medicament> meds = medStorage.loadFromFile("Lekovi.json");
-                    int index = 0;
-                    foreach(Medicament med in meds)
-                    {
-                        if(med.Id == selectedId)
-                        {
-                        break;
-                        }
-                        index++;
-                    }
-                    meds.RemoveAt(index);
-                    medStorage.saveToFile(meds, "Lekovi.json");
+                    medicamentService.DeleteMedicament(selectedId);
                     break;
                 case MessageBoxResult.No:
                     break;
             }
-            DeleteRequest();
+            requestService.DeleteRequest(selectedRequest);
             this.Close();            
             
-        }
-
-        private void DeleteRequest()
-        {
-            RequestFileStorage requestStorage = new RequestFileStorage();
-            List<Request> requests = requestStorage.LoadFromFile("Zahtevi.json");
-            int i = 0;
-            foreach (Request r in requests)
-            {
-                if (r.Title.Equals(selectedRequest.Title) && r.Content.Equals(selectedRequest.Content))
-                {
-                    break;
-                }
-                i++;
-            }
-            requests.RemoveAt(i);
-            requestStorage.SaveToFile(requests, "Zahtevi.json");
         }
     }
 }

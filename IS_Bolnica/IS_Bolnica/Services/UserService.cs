@@ -31,7 +31,7 @@ namespace IS_Bolnica.Services
 
         public void DeleteUser(User user)
         {
-            if (UserExists(user))
+            if (UserExists(user.Id))
             {
                 int index = FindUserIndex(user);
                 users.RemoveAt(index);
@@ -80,11 +80,11 @@ namespace IS_Bolnica.Services
             return -1;
         }
 
-        private bool UserExists(User user)
+        public bool UserExists(string id)
         {
             foreach (var u in users)
             {
-                if (u.Id.Equals(user.Id))
+                if (u.Id.Equals(id))
                 {
                     return true;
                 }
@@ -103,7 +103,7 @@ namespace IS_Bolnica.Services
             return userRepository.LoadFromFile("loggedUsers.json");
         }
 
-        public void logOut()
+        public void LogOut()
         {
             for (int i = 0; i < loggedUsers.Count; i++)
             {

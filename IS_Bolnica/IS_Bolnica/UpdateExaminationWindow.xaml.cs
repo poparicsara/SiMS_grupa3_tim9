@@ -64,16 +64,16 @@ namespace IS_Bolnica.DoctorsWindows
         {
             appointmentService.DeleteAppointment(examination);
 
-            examination.Doctor = doctorService.findDoctorByName(doctorsComboBox.SelectedItem.ToString());
+            examination.Doctor = doctorService.FindDoctorByName(doctorsComboBox.SelectedItem.ToString());
             examination.Patient = patientService.findPatientById(jmbgTxt.Text);
             DateTime date = new DateTime();
             date = (DateTime) datePicker.SelectedDate;
             int hour = Convert.ToInt32(hourBox.Text);
             int minute = Convert.ToInt32(minuteBox.Text);
             examination.StartTime = new DateTime(date.Year, date.Month, date.Day, hour, minute, 0);
-            examination.RoomRecord = new RoomRecord();
-            examination.RoomRecord = roomService.FindOrdinationById(examination.Doctor.Ordination);
-            appointmentService.scheduleAppointment(examination);
+            examination.Room = new Room();
+            examination.Room = roomService.FindOrdinationById(examination.Doctor.Ordination);
+            appointmentService.ScheduleAppointment(examination);
 
             DoctorWindow doctorWindow = new DoctorWindow();
             doctorWindow.dataGridExaminations.Items.Refresh();
@@ -103,32 +103,32 @@ namespace IS_Bolnica.DoctorsWindows
 
         private void specijalistiRadioBtn_Checked(object sender, RoutedEventArgs e)
         {
-            chooseSpecComboBox.ItemsSource = doctorService.getSpecializationNames();
+            chooseSpecComboBox.ItemsSource = doctorService.GetSpecializationNames();
         }
 
         private void opstaPraksaRadioBtn_Checked(object sender, RoutedEventArgs e)
         {
-            doctorsComboBox.ItemsSource = doctorService.getDoctorsNameSurname();
+            doctorsComboBox.ItemsSource = doctorService.GetDoctorsNameSurname();
         }
 
         private void opstaPraksaRadioBtn_Unchecked(object sender, RoutedEventArgs e)
         {
-            doctorsComboBox.ItemsSource = doctorService.removeDoctorsFromComboBox();
+            doctorsComboBox.ItemsSource = doctorService.RemoveDoctorsFromComboBox();
         }
 
         private void specijalistiRadioBtn_Unchecked(object sender, RoutedEventArgs e)
         {
-            doctorsComboBox.ItemsSource = doctorService.removeSpecialistsFromComboBox();
+            doctorsComboBox.ItemsSource = doctorService.RemoveSpecialistsFromComboBox();
         }
 
         private void showDoctorOrdination()
         {
-            roomTxt.Text = doctorService.showDoctorsOrdination(doctorsComboBox.SelectedItem.ToString()).ToString();
+            roomTxt.Text = doctorService.ShowDoctorsOrdination(doctorsComboBox.SelectedItem.ToString()).ToString();
         }
 
         private void showDoctors(string specializationName)
         {
-            doctorsComboBox.ItemsSource = doctorService.setSpecialistsInComboBox(specializationName);
+            doctorsComboBox.ItemsSource = doctorService.SetSpecialistsInComboBox(specializationName);
         }
 
         private void doctorsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

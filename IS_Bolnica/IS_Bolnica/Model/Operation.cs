@@ -67,7 +67,7 @@ namespace Model
             set;
         }
 
-        public RoomRecord RoomRecord
+        public Room Room
         {
             get;
             set;

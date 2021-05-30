@@ -14,10 +14,10 @@ namespace IS_Bolnica.Services
 
         public AnamnesisService()
         {
-            anamneses = getAnamneses();
+            anamneses = GetAnamneses();
         }
 
-        public List<string> getPatientsDiagnosesFromAnamneses(string patientId)
+        public List<string> GetPatientsDiagnosesFromAnamneses(string patientId)
         {
             List<string> patientsDiagnoses = new List<string>();
             foreach (Anamnesis anamnesis in anamneses)
@@ -30,15 +30,15 @@ namespace IS_Bolnica.Services
             return patientsDiagnoses;
         }
 
-        public void createAnamnesis(Anamnesis anamnesis)
+        public void CreateAnamnesis(Anamnesis anamnesis)
         {
             anamneses.Add(anamnesis);
-            anamnesisRepository.saveToFile(anamneses, "anamneses.json");
+            anamnesisRepository.SaveToFile(anamneses);
         }
 
-        private List<Anamnesis> getAnamneses()
+        private List<Anamnesis> GetAnamneses()
         {
-            return anamnesisRepository.loadFromFile("anamneses.json");
+            return anamnesisRepository.LoadFromFile();
         }
     }
 }

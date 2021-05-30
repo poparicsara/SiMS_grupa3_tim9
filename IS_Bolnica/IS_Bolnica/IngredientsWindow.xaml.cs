@@ -25,7 +25,7 @@ namespace IS_Bolnica
             InitializeComponent();
             
             storage = new MedicamentRepository();
-            meds = storage.loadFromFile("Lekovi.json");
+            meds = storage.GetMedicaments();
             SetSelectedMedicament(selected.Id);
             ingredientDataGrid.ItemsSource = GetSelectedMedicamentIngredients();
         }
@@ -80,7 +80,7 @@ namespace IS_Bolnica
             Ingredient ing = (Ingredient)ingredientDataGrid.SelectedItem;
             int index = GetIngredientIndex(ing);
             selectedMedicament.Ingredients.RemoveAt(index);
-            storage.saveToFile(meds, "Lekovi.json");
+            storage.saveToFile(meds);
         }
 
         private int GetIngredientIndex(Ingredient selectedIngredient)

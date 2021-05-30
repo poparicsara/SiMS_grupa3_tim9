@@ -13,26 +13,25 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica
 {
     public partial class MedicamentWindow : Window
     {
         private Request request = new Request();
-        private RequestFileStorage requestStorage = new RequestFileStorage();
+        private RequestRepository requestStorage = new RequestRepository();
         private Medicament selectedMedicament = new Medicament();
-        private MedicamentRepository medStorage = new MedicamentRepository();
+        private MedicamentService medService = new MedicamentService();
         private List<Request> requests = new List<Request>();
 
         public MedicamentWindow()
         {
             InitializeComponent();
-            
-            List<Medicament> meds = medStorage.loadFromFile("Lekovi.json");
 
-            medicamentDataGrid.ItemsSource = meds;
+            medicamentDataGrid.ItemsSource = medService.GetMedicaments();
 
-            requests = requestStorage.LoadFromFile("Zahtevi.json");
+            requests = requestStorage.GetRequests();
         }
 
         private void RowDoubleClick(object sender, MouseButtonEventArgs e)
@@ -71,7 +70,7 @@ namespace IS_Bolnica
         {           
             SetRequestAttributes();
             requests.Add(request);
-            requestStorage.SaveToFile(requests, "Zahtevi.json");
+            requestStorage.SaveToFile(requests);
         }
 
         private void SetRequestAttributes()

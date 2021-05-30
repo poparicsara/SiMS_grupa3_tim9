@@ -36,7 +36,7 @@ namespace IS_Bolnica
                 replacementBox.SelectedItem = selectedMedication.Replacement.Name;
             }
 
-            replacementBox.ItemsSource = medicamentService.showMedicamentReplacements();
+            replacementBox.ItemsSource = medicamentService.ShowMedicamentReplacements();
             ingredientsData.ItemsSource = selectedMedication.Ingredients;
         }
 
@@ -45,10 +45,10 @@ namespace IS_Bolnica
             updatedMedicament.Id = (int) Int64.Parse(medIdTxt.Text);
             updatedMedicament.Name = medNameTxt.Text;
             updatedMedicament.Producer = producerTxt.Text;
-            updatedMedicament.Replacement = medicamentService.setMedicamentReplacement(replacementBox.SelectedItem.ToString());
+            updatedMedicament.Replacement = medicamentService.SetMedicamentReplacement(replacementBox.SelectedItem.ToString());
 
-            int index = medicamentService.getIndexOfOldMedicament(selectedMedication);
-            medicamentService.updateMedicament(updatedMedicament, index);
+            int index = medicamentService.GetIndexOfOldMedicament(selectedMedication);
+            medicamentService.UpdateMedicament(updatedMedicament, index);
 
             ListOfMedications listOfMedicationsWindow = new ListOfMedications();
             listOfMedicationsWindow.Show();
@@ -74,10 +74,10 @@ namespace IS_Bolnica
             }
             else
             {
-                ingredientService.removeIngredientFromMedicament(selectedMedication, ingredient);
+                ingredientService.RemoveIngredientFromMedicament(selectedMedication, ingredient);
                 newMedicament = selectedMedication;
-                int idx = medicamentService.getIndexOfOldMedicament(selectedMedication);
-                medicamentService.updateMedicament(newMedicament, idx);
+                int idx = medicamentService.GetIndexOfOldMedicament(selectedMedication);
+                medicamentService.UpdateMedicament(newMedicament, idx);
             }
 
             this.Close();
@@ -92,7 +92,7 @@ namespace IS_Bolnica
 
         private void DeleteReplacementButton(object sender, RoutedEventArgs e)
         {
-            medicamentService.deleteMedReplacement(selectedMedication);
+            medicamentService.DeleteMedReplacement(selectedMedication);
             ListOfMedications listOfMedicationsWindow = new ListOfMedications();
             listOfMedicationsWindow.Show();
             this.Close();

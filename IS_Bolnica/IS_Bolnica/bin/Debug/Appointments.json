@@ -11,6 +11,7 @@
       "HealthCardNumber": "78",
       "Anamneses": null,
       "Ingredients": null,
+      "Alergeni": null,
       "Username": "mare",
       "Password": "nesto",
       "Name": "Marko",
@@ -52,36 +53,7 @@
     },
     "DurationInMins": 30,
     "GuestUser": null,
-    "RoomRecord": {
-      "Id": 300,
-      "HospitalWard": "Pedijatrija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 27,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Ordinacija"
-      }
-    },
+    "Room": null,
     "StartTime": "2021-05-24T22:00:00",
     "EndTime": "0001-01-01T00:00:00",
     "PostponedDate": "0001-01-01T00:00:00",
@@ -100,6 +72,7 @@
       "HealthCardNumber": "6",
       "Anamneses": null,
       "Ingredients": null,
+      "Alergeni": null,
       "Username": "nikola_nikolic",
       "Password": "sasasa",
       "Name": "Nikola",
@@ -141,36 +114,7 @@
     },
     "DurationInMins": 30,
     "GuestUser": null,
-    "RoomRecord": {
-      "Id": 304,
-      "HospitalWard": "Pedijatrija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 27,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Ordinacija"
-      }
-    },
+    "Room": null,
     "StartTime": "2021-05-25T10:00:00",
     "EndTime": "2021-05-25T10:30:00",
     "PostponedDate": "0001-01-01T00:00:00",
@@ -189,6 +133,7 @@
       "HealthCardNumber": "78",
       "Anamneses": null,
       "Ingredients": null,
+      "Alergeni": null,
       "Username": "mare",
       "Password": "nesto",
       "Name": "Marko",
@@ -230,36 +175,7 @@
     },
     "DurationInMins": 0,
     "GuestUser": null,
-    "RoomRecord": {
-      "Id": 103,
-      "HospitalWard": "Pedijatrija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Operaciona sala"
-      }
-    },
+    "Room": null,
     "StartTime": "2021-05-26T15:30:00",
     "EndTime": "0001-01-01T00:00:00",
     "PostponedDate": "0001-01-01T00:00:00",
@@ -279,6 +195,7 @@
       "HealthCardNumber": "19",
       "Anamneses": null,
       "Ingredients": null,
+      "Alergeni": null,
       "Username": "nnnn",
       "Password": "ftn",
       "Name": "Nina",
@@ -320,36 +237,7 @@
     },
     "DurationInMins": 0,
     "GuestUser": null,
-    "RoomRecord": {
-      "Id": 202,
-      "HospitalWard": "Ortopedija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Ordinacija"
-      }
-    },
+    "Room": null,
     "StartTime": "2021-05-29T14:00:00",
     "EndTime": "0001-01-01T00:00:00",
     "PostponedDate": "0001-01-01T00:00:00",
@@ -368,6 +256,7 @@
       "HealthCardNumber": "13",
       "Anamneses": null,
       "Ingredients": null,
+      "Alergeni": null,
       "Username": "nikola_nikolic",
       "Password": "sasasa",
       "Name": "Nikola",
@@ -409,36 +298,7 @@
     },
     "DurationInMins": 0,
     "GuestUser": null,
-    "RoomRecord": {
-      "Id": 107,
-      "HospitalWard": "Pedijatrija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 27,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Ordinacija"
-      }
-    },
+    "Room": null,
     "StartTime": "2021-06-05T17:00:00",
     "EndTime": "0001-01-01T00:00:00",
     "PostponedDate": "0001-01-01T00:00:00",
@@ -458,6 +318,7 @@
       "HealthCardNumber": "19",
       "Anamneses": null,
       "Ingredients": null,
+      "Alergeni": null,
       "Username": "nnnn",
       "Password": "ftn",
       "Name": "Nina",
@@ -499,36 +360,7 @@
     },
     "DurationInMins": 0,
     "GuestUser": null,
-    "RoomRecord": {
-      "Id": 107,
-      "HospitalWard": "Pedijatrija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 27,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Ordinacija"
-      }
-    },
+    "Room": null,
     "StartTime": "2021-06-15T10:00:00",
     "EndTime": "0001-01-01T00:00:00",
     "PostponedDate": "0001-01-01T00:00:00",
@@ -548,6 +380,7 @@
       "HealthCardNumber": "19",
       "Anamneses": null,
       "Ingredients": null,
+      "Alergeni": null,
       "Username": "nnnn",
       "Password": "ftn",
       "Name": "Nina",
@@ -589,14 +422,7 @@
     },
     "DurationInMins": 0,
     "GuestUser": null,
-    "RoomRecord": {
-      "Id": 3,
-      "HospitalWard": "Alergologija i imunologija",
-      "inventory": null,
-      "roomPurpose": {
-        "Name": "Operaciona sala"
-      }
-    },
+    "Room": null,
     "StartTime": "2021-05-27T14:30:00",
     "EndTime": "0001-01-01T00:00:00",
     "PostponedDate": "0001-01-01T00:00:00",
@@ -615,6 +441,7 @@
       "HealthCardNumber": "13",
       "Anamneses": null,
       "Ingredients": null,
+      "Alergeni": null,
       "Username": "nikola_nikolic",
       "Password": "sasasa",
       "Name": "Nikola",
@@ -656,7 +483,85 @@
     },
     "DurationInMins": 0,
     "GuestUser": null,
-    "RoomRecord": {
+    "Room": null,
+    "StartTime": "2021-06-10T10:30:00",
+    "EndTime": "0001-01-01T00:00:00",
+    "PostponedDate": "0001-01-01T00:00:00",
+    "IsUrgent": false,
+    "AppointmentType": 0
+  },
+  {
+    "Patient": {
+      "Allergens": null,
+      "examinations": null,
+      "Akcije": 0,
+      "brojOcenjenihPregleda": 0,
+      "Debit": 1.0,
+      "HealthCardNumber": "19",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Alergeni": [
+        {
+          "Name": "",
+          "IngredientsAllergens": [
+            {
+              "Name": "Celuloza"
+            }
+          ],
+          "MedicamentsAllergens": [
+            {
+              "Id": 0,
+              "Name": "Altravesa",
+              "Ingredients": null,
+              "Replacement": null,
+              "Producer": null,
+              "Status": 0
+            }
+          ]
+        }
+      ],
+      "Username": "nnnn",
+      "Password": "ftn",
+      "Name": "Nina",
+      "Surname": "Pavkovic",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "12345",
+      "Email": "dad",
+      "Id": "1234",
+      "UserType": 0,
+      "Address": {
+        "Street": "abc ",
+        "NumberOfBuilding": 4,
+        "Floor": 3,
+        "Apartment": 2,
+        "City": {
+          "name": "ns ",
+          "postalCode": "21000",
+          "Country": {
+            "name": "srb"
+          }
+        }
+      }
+    },
+    "Doctor": {
+      "Specialization": {
+        "Name": "Anesteziologija"
+      },
+      "Ordination": 202,
+      "Username": "ana",
+      "Password": "ana",
+      "Name": "Ana",
+      "Surname": "Petrović",
+      "DateOfBirth": "1970-10-01T00:00:00",
+      "Phone": "67890834",
+      "Email": "ana@gmail.com",
+      "Id": "4321009",
+      "UserType": 1,
+      "Address": null
+    },
+    "DurationInMins": 0,
+    "GuestUser": null,
+    "Room": {
       "Id": 202,
       "HospitalWard": "Ortopedija",
       "inventory": [
@@ -686,7 +591,7 @@
         "Name": "Ordinacija"
       }
     },
-    "StartTime": "2021-06-10T10:30:00",
+    "StartTime": "2021-06-24T13:30:00",
     "EndTime": "0001-01-01T00:00:00",
     "PostponedDate": "0001-01-01T00:00:00",
     "IsUrgent": false,

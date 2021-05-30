@@ -14,22 +14,20 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica.Secretary
 {
     public partial class GuestUserListWindow : Window, INotifyPropertyChanged
     {
-        private GuestUsersFileStorage storage = new GuestUsersFileStorage();
-        public List<GuestUser> GuestUsers
-        {
-            get; set;
-        } = new List<GuestUser>();
+        private GuestUserService guestUserService = new GuestUserService();
+        private GuestUser guestUser = new GuestUser();
         public GuestUserListWindow()
         {
             InitializeComponent();
             this.DataContext = this;
 
-            GuestUsers = storage.loadFromFile("GuestUsersFile.json");
+            guestUsersGrid.ItemsSource = guestUserService.GetGuestUsers();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -43,8 +41,7 @@ namespace IS_Bolnica.Secretary
         {
             int i = -1;
             i = guestUsersGrid.SelectedIndex;
-
-            GuestUser guestUser = new GuestUser();
+            
             guestUser = (GuestUser)guestUsersGrid.SelectedItem;
 
             if (i == -1)
@@ -57,8 +54,7 @@ namespace IS_Bolnica.Secretary
                 switch (result)
                 {
                     case MessageBoxResult.Yes:
-                        GuestUsers = removeGuestUser(guestUser);
-                        storage.saveToFile(GuestUsers, "GuestUsersFile.json");
+                        guestUserService.DeleteGuestUser(guestUser);
                         this.Close();
                         GuestUserListWindow gulw = new GuestUserListWindow();
                         gulw.Show();
@@ -69,20 +65,6 @@ namespace IS_Bolnica.Secretary
                         break;
                 }
             }
-        }
-
-        private List<GuestUser> removeGuestUser(GuestUser guestUser)
-        {
-            List<GuestUser> users = storage.loadFromFile("GuestUsersFile.json");
-            for (int k = 0; k < users.Count; k++)
-            {
-                if (guestUser.SystemName.Equals(users[k].SystemName))
-                {
-                    users.RemoveAt(k);
-                }
-            }
-
-            return users;
         }
 
         private void createGuestAccount(object sender, RoutedEventArgs e)

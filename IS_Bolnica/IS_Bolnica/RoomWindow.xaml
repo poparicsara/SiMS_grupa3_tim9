@@ -50,6 +50,8 @@
         <Button Content="Obaveštenja" HorizontalAlignment="Left" Margin="224,20,0,0" VerticalAlignment="Top" Width="92" Height="32" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" Click="NotificationButtonClicked"/>
         <Button Content="RENOVIRANJE" HorizontalAlignment="Left" Margin="823,354,0,0" VerticalAlignment="Top" Width="111" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" Click="RenovationButton" FontSize="14"/>
         <Label Content="PROSTORIJE" HorizontalAlignment="Left" Margin="463,20,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black"/>
+        <Button Content="SPAJANJE" HorizontalAlignment="Left" Margin="823,316,0,0" VerticalAlignment="Top" Width="111" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" FontSize="14" Click="MergeButtonClicked"/>
+        <Button Content="RAZDVAJANJE" HorizontalAlignment="Left" Margin="823,278,0,0" VerticalAlignment="Top" Width="111" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" FontSize="14" Click="SeparateButtonClicked"/>
 
     </Grid>
 </Window>

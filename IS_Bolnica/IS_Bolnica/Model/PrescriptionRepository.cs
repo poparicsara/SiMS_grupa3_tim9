@@ -11,19 +11,14 @@ namespace IS_Bolnica.Model
 {
     class PrescriptionRepository
     {
-        public void saveToFile(List<Prescription> prescriptions, string fileName)
+        private string fileName = "prescriptions.json";
+        public void SaveToFile(List<Prescription> prescriptions)
         {
             string jsonString = JsonConvert.SerializeObject(prescriptions, Formatting.Indented);
             File.WriteAllText(fileName, jsonString);
         }
 
-        public void saveToFileObject(Prescription prescription, string fileName)
-        {
-            string jsonString = JsonConvert.SerializeObject(prescription, Formatting.Indented);
-            File.WriteAllText(fileName, jsonString);
-        }
-
-        public List<Prescription> loadFromFile(string fileName)
+        public List<Prescription> LoadFromFile()
         {
             var prescriptionssList = new List<Prescription>();
 

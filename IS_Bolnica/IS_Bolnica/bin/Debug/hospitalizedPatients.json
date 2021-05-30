@@ -76,7 +76,7 @@
   },
   {
     "StartDate": "2021-05-30T00:00:00",
-    "EndDate": "2021-06-10T00:00:00",
+    "EndDate": "2021-06-11T00:00:00",
     "Patient": {
       "Allergens": [
         "brufen",

@@ -47,7 +47,7 @@ namespace IS_Bolnica.Secretary
 
         private void removePatient(string id)
         {
-            patients = storage.LoadFromFile("PatientRecordFileStorage.json");
+            patients = storage.LoadFromFile();
             for (int i = 0; i < patients.Count; i++)
             {
                 if (patients[i].Id.Equals(id))

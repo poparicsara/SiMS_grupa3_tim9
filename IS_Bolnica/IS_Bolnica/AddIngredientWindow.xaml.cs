@@ -30,7 +30,7 @@ namespace IS_Bolnica
         {
             Ingredient ingredient = new Ingredient();
             ingredient.Name = ingredientNameTxt.Text;
-            medicamentService.addIngredientInMedicament(ingredient, med.Id);
+            medicamentService.AddIngredientInMedicament(ingredient, med.Id);
 
             ListOfMedications listOfMedications = new ListOfMedications();
             listOfMedications.Show();

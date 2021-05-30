@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica
 {
@@ -20,7 +21,7 @@ namespace IS_Bolnica
     {
         private Inventory oldInventory = new Inventory();
         private Inventory newInventory = new Inventory();
-        private InventoryRepository storage = new InventoryRepository();
+        private InventoryService service = new InventoryService();
 
         public EditInventoryWindow(Inventory selectedInventory)
         {
@@ -42,7 +43,7 @@ namespace IS_Bolnica
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
             SetNewInventory();
-            storage.EditInventory(oldInventory, newInventory);
+            service.EditInventory(oldInventory, newInventory);
             this.Close();
         }
 

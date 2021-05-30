@@ -8,7 +8,12 @@ FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\AddMedicamentWind
 FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\AddOperationWindow.xaml;;
 FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\ChangeInventoryPlace.xaml;;
 FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\CreatePrescription.xaml;;
+FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\DemoMode\DemoInventoryWindow.xaml;;
+FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\DemoMode\DemoMedicamentWindow.xaml;;
+FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\DemoMode\DemoProfileWindow.xaml;;
+FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\DemoMode\DemoRoomWindow.xaml;;
 FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\Diagnosis.xaml;;
+FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\DirectorLogInWindow.xaml;;
 FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\DirectorNotificationWindow.xaml;;
 FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\DirectorProfileWindow.xaml;;
 FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\DoctorNotificationWindow.xaml;;
@@ -22,6 +27,7 @@ FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\HospitalizationFo
 FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\HospitalizedPatients.xaml;;
 FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\InventoryWindow.xaml;;
 FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\DoctorStartWindow.xaml;;
+FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\MergeRoomsWindow.xaml;;
 FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\ProlongTreatment.xaml;;
 FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\RoomInventory.xaml;;
 FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\Izmena pregleda.xaml;;
@@ -83,6 +89,7 @@ FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\SekretarWindow.xa
 FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\InventoryPerRooms.xaml;;
 FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\SelectedNotificationWindow.xaml;;
 FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\SelectedRequest.xaml;;
+FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\SeparateRoomWindow.xaml;;
 FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\UpdateExaminationWindow.xaml;;
 FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\UpdateMedication.xaml;;
 FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\UpdateOperationWindow.xaml;;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,58 +10,50 @@ namespace IS_Bolnica.Services
 {
     class RoomService
     {
-        private List<RoomRecord> rooms = new List<RoomRecord>();
-        private RoomRepository storage = new RoomRepository();
+        private List<Room> rooms = new List<Room>();
+        private RoomRepository repository = new RoomRepository();
 
         public RoomService()
         {
-            rooms = GetRooms();
+            rooms = repository.GetRooms();
         }
-
-        public void AddRoom(RoomRecord newRoom)
+        public List<int> GetOperationRoomNums()
         {
-            rooms.Add(newRoom);
-            storage.saveToFile(rooms, "Sobe.json");
-        }
-
-        public void DeleteRoom(RoomRecord selectedRoom)
-        {
-            int index = FindRoomIndex(selectedRoom);
-            rooms.RemoveAt(index);
-            storage.saveToFile(rooms, "Sobe.json");
-        }
-
-        private int FindRoomIndex(RoomRecord room)
-        {
-            int index = 0;
-            foreach (RoomRecord r in rooms)
+            List<int> roomNums = new List<int>();
+            for (int i = 0; i < rooms.Count; i++)
             {
-                if (r.Id == room.Id)
+                if (rooms[i].roomPurpose.Name == "Operaciona sala")
                 {
-                    break;
+                    roomNums.Add(rooms[i].Id);
                 }
-                index++;
             }
-            return index;
+            return roomNums;
         }
 
-        public void EditRoom(RoomRecord oldRoom, RoomRecord newRoom)
+        public List<Room> GetRooms()
         {
-            int index = FindRoomIndex(oldRoom);
-            rooms.RemoveAt(index);
-            rooms.Insert(index, newRoom);
-            storage.saveToFile(rooms, "Sobe.json");
+            return repository.GetRooms();
         }
 
-        public List<RoomRecord> GetRooms()
+        public Room GetMagacin()
         {
-            return storage.loadFromFile("Sobe.json");
+            return repository.GetMagacin();
         }
 
-        public RoomRecord FindOrdinationById(int id)
+        public void Save(List<Room> rooms)
         {
-            RoomRecord foundRoom = new RoomRecord();
-            foreach (RoomRecord room in rooms)
+            repository.saveToFile(rooms);
+        }
+
+        public Room GetRoom(int roomId)
+        {
+            return repository.GetRoom(roomId);
+        }
+
+        public Room FindOrdinationById(int id)
+        {
+            Room foundRoom = new Room();
+            foreach (Room room in rooms)
             {
                 if (room.Id.Equals(id))
                 {
@@ -74,7 +67,7 @@ namespace IS_Bolnica.Services
         public List<int> GetOperationRoomsId()
         {
             List<int> operationRooms = new List<int>();
-            foreach (RoomRecord room in rooms)
+            foreach (Room room in rooms)
             {
                 if (room.roomPurpose.Name.Equals("Operaciona sala"))
                 {
@@ -87,7 +80,7 @@ namespace IS_Bolnica.Services
         public List<int> GetAvailableRoomsForHospitalization()
         {
             List<int> availableRooms = new List<int>();
-            foreach (RoomRecord room in rooms)
+            foreach (Room room in rooms)
             {
                 if (room.roomPurpose.Name.Equals("Soba"))
                 {
@@ -100,7 +93,7 @@ namespace IS_Bolnica.Services
 
         public bool DoesSelectedRoomHasEmptyBed(int roomId)
         {
-            foreach (RoomRecord room in rooms)
+            foreach (Room room in rooms)
             {
                 if (room.roomPurpose.Name.Equals("Soba"))
                 {
@@ -114,6 +107,48 @@ namespace IS_Bolnica.Services
                 }
             }
             return true;
+        }
+
+        public List<int> GetRoomNumbers()
+        {
+            List<int> roomNumbers = new List<int>();
+            foreach (var r in rooms)
+            {
+                roomNumbers.Add(r.Id);
+            }
+            return roomNumbers;
+        }
+
+        public void AddRoom(Room newRoom)
+        {
+            repository.AddRoom(newRoom);
+        }
+
+        public void DeleteRoom(Room selectedRoom)
+        {
+            int index = FindIndex(selectedRoom);
+            repository.DeleteRoom(index);
+        }
+
+        public void EditRoom(Room oldRoom, Room newRoom)
+        {
+            int index = FindIndex(oldRoom);
+            repository.EditRoom(index, newRoom);
+        }
+
+        private int FindIndex(Room room)
+        {
+            rooms = GetRooms();
+            int index = 0;
+            foreach (Room r in rooms)
+            {
+                if (r.Id == room.Id)
+                {
+                    break;
+                }
+                index++;
+            }
+            return index;
         }
     }
 }

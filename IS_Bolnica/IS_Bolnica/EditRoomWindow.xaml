@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Bolnica"
         mc:Ignorable="d"
-        Title="Izmena informacija o prostoriji" Height="540" Width="950" WindowStartupLocation="CenterScreen">
+        Title="Izmena informacija o prostoriji" Height="540" Width="950" WindowStartupLocation="CenterScreen" Closing="ClosingWindow">
     <Grid>
         <WrapPanel x:Name="Wrap1" Width ="207" HorizontalAlignment="Left" Margin="0,0,0,0.4">
             <Button x:Name="pacijent" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima"  Foreground="Black" BorderBrush="#FF050510" BorderThickness="1" Background="White">

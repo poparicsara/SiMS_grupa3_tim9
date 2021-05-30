@@ -2,41 +2,27 @@
 using Model;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica
 {
     public partial class AddMedicamentWindow : Window
     {
-        private Request request = new Request();
-        private RequestFileStorage requestStorage = new RequestFileStorage();
-        private List<Request> requests = new List<Request>();
+        private Request newRequest = new Request();
         private string replacement;
         private Medicament selectedReplacement = new Medicament();
-        private List<Medicament> meds = new List<Medicament>();
-        private MedicamentRepository medStorage = new MedicamentRepository();
+        private List<Medicament> meds;
         private Medicament newMedicament = new Medicament();
+        private MedicamentService medService = new MedicamentService();
+        private RequestService requestService = new RequestService();
 
         public AddMedicamentWindow()
         {
             InitializeComponent();
 
-            MedicamentRepository medStorage = new MedicamentRepository();
-            meds = medStorage.loadFromFile("Lekovi.json");
-
-            requests = requestStorage.LoadFromFile("Zahtevi.json");
+            meds = medService.GetMedicaments();
 
             replacementBox.ItemsSource = GetReplacements();
         }
@@ -62,8 +48,8 @@ namespace IS_Bolnica
         private void AddMedicament()
         {
             SetMedicamentAttributes();
-            meds.Add(newMedicament);
-            medStorage.saveToFile(meds, "Lekovi.json");
+            string ingredients = ingredientBox.Text;
+            medService.AddMedicament(newMedicament, ingredients);
         }
 
         private void SetMedicamentAttributes()
@@ -72,51 +58,25 @@ namespace IS_Bolnica
             newMedicament.Replacement = new Medicament();
             newMedicament.Replacement = selectedReplacement;
             newMedicament.Status = MedicamentStatus.dissapproved;
-            newMedicament.Ingredients = GetIngredients();
-        }
-
-        private List<Ingredient> GetIngredients()
-        {
-            List<Ingredient> ingredients = new List<Ingredient>();
-            string[] ings = ingredientBox.Text.Split('\n');
-            for (int i = 0; i < ings.Length; i++)
-            {
-                Ingredient ingredient = GetIngredient(ings, i);
-                ingredients.Add(ingredient);
-            }
-            return ingredients;
-        }
-
-        private Ingredient GetIngredient(string[] ingredients, int index)
-        {
-            string temp = ingredients[index];
-            if (ingredients[index].Contains('\r'))
-            {
-                int endIndex = ingredients[index].IndexOf('\r');
-                temp = ingredients[index].Substring(0, endIndex);
-            }
-            Ingredient ingredient = new Ingredient { Name = temp };
-            return ingredient;
         }
 
         private void SendAddingRequest()
         {
             SetRequestAttributes();
-            requests.Add(request);
-            requestStorage.SaveToFile(requests, "Zahtevi.json");
+            requestService.AddRequest(newRequest);
         }
 
         private void SetRequestAttributes()
         {
-            request.Title = "Dodavanje leka u bazu";
+            newRequest.Title = "Dodavanje leka u bazu";
             SetRequestContent();
-            request.Recipient = NotificationType.doctor;
-            request.Sender = UserType.director;
+            newRequest.Recipient = NotificationType.doctor;
+            newRequest.Sender = UserType.director;
         }
 
         private void SetRequestContent()
         {
-            request.Content = idBox.Text + "|" + nameBox.Text + "|" + replacement + "|" + producerBox.Text + "|" + ingredientBox.Text;
+            newRequest.Content = idBox.Text + "|" + nameBox.Text + "|" + replacement + "|" + producerBox.Text + "|" + ingredientBox.Text;
         }
 
         private void ReplacementComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -85,16 +85,22 @@
     "Sender": 0,
     "notificationType": 5,
     "PersonId": [
-      "3333"
+      "3333",
+      "1234"
     ]
   },
   {
-    "Title": "kkk",
-    "Content": "kkkk",
-    "Sender": 0,
-    "notificationType": 5,
-    "PersonId": [
-      "1111"
-    ]
+    "Title": "Pomeranje termina zbog renoviranja",
+    "Content": "\tProstorija: 106\n\tPacijent: Nina Pavkovic\n\tDoktor: Mateja Pavkovic\n",
+    "Sender": 3,
+    "notificationType": 2,
+    "PersonId": null
+  },
+  {
+    "Title": "Izmena zahteva za novi lek",
+    "Content": "5\nb\nAlopurinol\nb\na\r\na\r\na\n\nS",
+    "Sender": 1,
+    "notificationType": 3,
+    "PersonId": null
   }
 ]

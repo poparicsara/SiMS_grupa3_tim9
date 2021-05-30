@@ -1,4 +1,3 @@
-
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -9,69 +8,64 @@ namespace Model
 {
     public class RoomRepository
     {
-        private List<RoomRecord> rooms;
+        private List<Room> rooms;
 
         public RoomRepository()
         {
-
+            rooms = GetRooms();
         }
 
-        public List<RoomRecord> GetAll()
+        public Room GetMagacin()
         {
-            return rooms;
+            int id = 1;  // magacin id = 1
+            Room magacin = GetRoom(id);
+            return magacin;
         }
 
-        public void AddRoom(RoomRecord newRoom)
+        public Room GetRoom(int id)
         {
-            rooms = loadFromFile("Sobe.json");
-            rooms.Add(newRoom);
-            saveToFile(rooms, "Sobe.json");
-        }
-
-        public void DeleteRoom(RoomRecord selectedRoom)
-        {
-            rooms = loadFromFile("Sobe.json");
-            int index = FindIndex(selectedRoom);
-            rooms.RemoveAt(index);
-            saveToFile(rooms, "Sobe.json");
-        }
-
-        private int FindIndex(RoomRecord room)
-        {
-            int index = 0;
-            foreach(RoomRecord r in rooms)
+            foreach (var r in rooms)
             {
-                if(r.Id == room.Id)
+                if (r.Id == id)
                 {
-                    break;
+                    return r;
                 }
-                index++;
             }
-            return index;
+            return null;
         }
 
-        public void EditRoom(RoomRecord oldRoom, RoomRecord newRoom)
+        public void AddRoom(Room newRoom)
         {
-            rooms = loadFromFile("Sobe.json");
-            int index = FindIndex(oldRoom);
+            rooms.Add(newRoom);
+            saveToFile(rooms);
+        }
+
+        public void DeleteRoom(int index)
+        {
+            rooms.RemoveAt(index);
+            saveToFile(rooms);
+        }
+
+        public void EditRoom(int index, Room newRoom)
+        {
             rooms.RemoveAt(index);
             rooms.Insert(index, newRoom);
-            saveToFile(rooms, "Sobe.json");
+            saveToFile(rooms);
         }
 
-        public void saveToFile(List<RoomRecord> rooms, string fileName)
+        public void saveToFile(List<Room> rooms)
         {
             string jsonString = JsonConvert.SerializeObject(rooms, Formatting.Indented);
-            File.WriteAllText(fileName, jsonString);
+            File.WriteAllText("Sobe.json", jsonString);
         }
 
-        public List<RoomRecord> loadFromFile(string fileName)
+        public List<Room> GetRooms()
         {
-            var roomList = new List<RoomRecord>();
-            using (StreamReader file = File.OpenText(fileName))
+            var roomList = new List<Room>();
+            using (StreamReader file = File.OpenText("Sobe.json"))
             {
                 var serializer = new JsonSerializer();
-                roomList = (List<RoomRecord>)serializer.Deserialize(file, typeof(List<RoomRecord>));
+                roomList = (List<Room>)serializer.Deserialize(file, typeof(List<Room>));
             }
             return roomList;
         }

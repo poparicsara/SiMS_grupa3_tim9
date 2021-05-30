@@ -28,7 +28,7 @@ namespace IS_Bolnica
 
             selectedNotification = notification;
             storage = new NotificationRepository();
-            notifications = storage.LoadFromFile("NotificationsFileStorage.json");
+            notifications = storage.LoadFromFile();
 
             contentBox.Text = notification.Content;
         }
@@ -44,7 +44,7 @@ namespace IS_Bolnica
         {
             int index = GetNotificationIndex();
             notifications.RemoveAt(index);
-            storage.SaveToFile(notifications, "NotificationsFileStorage.json");
+            storage.SaveToFile(notifications);
         }
 
         private int GetNotificationIndex()

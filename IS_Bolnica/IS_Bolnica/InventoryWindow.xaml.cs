@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica
 {
@@ -24,55 +25,19 @@ namespace IS_Bolnica
         private List<Inventory> staticInventories = new List<Inventory>();
         private Director director = new Director();
         private List<Inventory> magacinInventory = new List<Inventory>();
-        private List<RoomRecord> rooms = new List<RoomRecord>();
-        private RoomRecord magacin = new RoomRecord();
-        private RoomRepository roomStorage = new RoomRepository();
+        private List<Room> rooms = new List<Room>();
+        private Room magacin = new Room();
+        private RoomRepository roomRepository = new RoomRepository();
         private Inventory selectedInventory = new Inventory();
         private InventoryRepository storage = new InventoryRepository();
+        private InventoryService service = new InventoryService();
 
         public InventoryWindow()
         {
             InitializeComponent();
 
-            SetMagacin();
-            SetDynamicAndStaticInventory();
-
-            dynamicDataGrid.ItemsSource = dynamicInventories;
-            staticDataGrid.ItemsSource = staticInventories;
-        }
-
-        private void SetMagacin()
-        {
-            rooms = roomStorage.loadFromFile("Sobe.json");
-            foreach (RoomRecord r in rooms)
-            {
-                if (r.HospitalWard.Equals("Magacin"))
-                {
-                    magacin = r;
-                }
-            }
-        }
-
-        private void SetDynamicAndStaticInventory()
-        {
-            dynamicInventories = new List<Inventory>();
-            staticInventories = new List<Inventory>();
-            foreach(Inventory i in magacin.inventory)
-            {
-                SetInventoryType(i);
-            }
-        }
-
-        private void SetInventoryType(Inventory i)
-        {
-            if (i.InventoryType == InventoryType.dinamicki)
-            {
-                dynamicInventories.Add(i);
-            }
-            else
-            {
-                staticInventories.Add(i);
-            }
+            dynamicDataGrid.ItemsSource = service.GetDynamicInventory();
+            staticDataGrid.ItemsSource = service.GetStaticInventory();
         }
 
         private void AddDynamicButtonClicked(object sender, RoutedEventArgs e)
@@ -86,7 +51,7 @@ namespace IS_Bolnica
         {
             if (IsAnyDynamicInventorySelected())
             {
-                storage.DeleteInventory(selectedInventory);
+                service.DeleteInventory(selectedInventory);
                 RefreshDataGrid();
             }
         }
@@ -107,10 +72,8 @@ namespace IS_Bolnica
 
         private void RefreshDataGrid()
         {
-            SetMagacin();
-            SetDynamicAndStaticInventory();
-            dynamicDataGrid.ItemsSource = dynamicInventories;
-            staticDataGrid.ItemsSource = staticInventories;
+            dynamicDataGrid.ItemsSource = service.GetDynamicInventory();
+            staticDataGrid.ItemsSource = service.GetStaticInventory();
         }
 
         private void EditDynamicButtonClicked(object sender, RoutedEventArgs e)
@@ -134,7 +97,7 @@ namespace IS_Bolnica
         {
             if (IsAnyStaticInventorySelected())
             {
-                storage.DeleteInventory(selectedInventory);
+                service.DeleteInventory(selectedInventory);
                 RefreshDataGrid();
             }
         }
