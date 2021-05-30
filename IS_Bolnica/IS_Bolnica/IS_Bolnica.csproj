@@ -359,14 +359,12 @@
     <Compile Include="Services\GuestUserService.cs" />
     <Compile Include="Services\InventoryPerRoomService.cs" />
     <Compile Include="Services\InventoryService.cs" />
-    <Compile Include="Services\MedicamentService.cs" />
     <Compile Include="Services\NotificationService.cs" />
     <Compile Include="Services\PatientService.cs" />
     <Compile Include="Services\RenovationService.cs" />
     <Compile Include="Services\RequestService.cs" />
     <Compile Include="Services\HospitalizationService.cs" />
     <Compile Include="Services\IngredientService.cs" />
-    <Compile Include="Services\InventoryService.cs" />
     <Compile Include="Services\MedicamentService.cs" />
     <Compile Include="Services\PrescriptionService.cs" />
     <Compile Include="Services\RoomService.cs" />
