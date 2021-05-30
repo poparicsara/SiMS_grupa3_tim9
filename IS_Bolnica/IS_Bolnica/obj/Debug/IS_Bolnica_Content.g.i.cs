@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/remove2.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("doctorui/back.png")]
 
 

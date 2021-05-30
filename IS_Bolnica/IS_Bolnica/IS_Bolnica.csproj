@@ -107,6 +107,18 @@
     <Compile Include="DoctorNotificationWindow.xaml.cs">
       <DependentUpon>DoctorNotificationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DoctorUI\ScheduleExaminationWindow.xaml.cs">
+      <DependentUpon>ScheduleExaminationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorUI\ScheduleOperationWindow.xaml.cs">
+      <DependentUpon>ScheduleOperationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorUI\UpdateScheduledExaminationWindow.xaml.cs">
+      <DependentUpon>UpdateScheduledExaminationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorUI\UpdateScheduledOperationWindow.xaml.cs">
+      <DependentUpon>UpdateScheduledOperationWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DoctorWindow.xaml.cs">
       <DependentUpon>DoctorWindow.xaml</DependentUpon>
     </Compile>
@@ -144,8 +156,11 @@
     <Compile Include="Model\AppointmentType.cs" />
     <Compile Include="Model\Hospitalization.cs" />
     <Compile Include="Model\HospitalizationRepository.cs" />
-    <Compile Include="DoctorStartWindow.xaml.cs">
+    <Compile Include="DoctorUI\DoctorStartWindow.xaml.cs">
       <DependentUpon>DoctorStartWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorUI\OperationsWindow.xaml.cs">
+      <DependentUpon>OperationsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ProlongTreatment.xaml.cs">
       <DependentUpon>ProlongTreatment.xaml</DependentUpon>
@@ -457,6 +472,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="DoctorUI\ScheduleExaminationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DoctorUI\ScheduleOperationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DoctorUI\UpdateScheduledExaminationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DoctorUI\UpdateScheduledOperationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DoctorWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -493,10 +524,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-
-    <Page Include="DoctorStartWindow.xaml">
-
+    <Page Include="DoctorUI\DoctorStartWindow.xaml">
+    </Page>
     <Page Include="MergeRoomsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DoctorUI\OperationsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -831,6 +865,7 @@
   <ItemGroup>
     <Resource Include="DemoMode\inventory.png" />
     <Resource Include="DemoMode\profileIcon.png" />
+    <Resource Include="Images\back.png" />
     <Resource Include="Images\nasLogo.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -886,6 +921,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\remove2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\start.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DoctorUI\back.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

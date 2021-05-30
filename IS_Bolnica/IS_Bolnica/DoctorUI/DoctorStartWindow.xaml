@@ -12,53 +12,53 @@
             <RowDefinition Height="405*"/>
         </Grid.RowDefinitions>
         <Grid HorizontalAlignment="Left" Height="739" VerticalAlignment="Top" Width="100" Background="#FFF1F0F0" Margin="0" Grid.RowSpan="2">
-            <Button HorizontalAlignment="Left" Margin="0,110,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}">
+            <Button HorizontalAlignment="Left" Margin="0,110,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="ExaminationButtonClick">
                 <StackPanel>
-                    <Image Source="../../../Images/greenstethoscope.png" Width="84" Height="48"/>
+                    <Image Source="../Images/greenstethoscope.png" Width="84" Height="48"/>
                 </StackPanel>
             </Button>
-            <Button  HorizontalAlignment="Left" Margin="0,195,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}">
+            <Button  HorizontalAlignment="Left" Margin="0,195,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="OperationButtonClick">
                 <StackPanel>
-                    <Image Source="../../../Images/greenscissors.png" Width="84" Height="48"/>
+                    <Image Source="../Images/greenscissors.png" Width="84" Height="48"/>
                 </StackPanel>
             </Button>
-            <Button  HorizontalAlignment="Left" Margin="0,270,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}">
+            <Button  HorizontalAlignment="Left" Margin="0,270,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="NotificationsButtonClick">
                 <StackPanel>
-                    <Image Source="../../../Images/message.png" Width="84" Height="48"/>
+                    <Image Source="../Images/message.png" Width="84" Height="48"/>
                 </StackPanel>
             </Button>
         </Grid>
-        <Button HorizontalAlignment="Left" Margin="0,27,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Grid.Row="1" Background="{x:Null}">
+        <Button HorizontalAlignment="Left" Margin="0,27,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Grid.Row="1" Background="{x:Null}" Click="StatisticsButtonClick">
             <StackPanel>
-                <Image Source="../../../Images/chartgreen.png" Width="84" Height="48"/>
+                <Image Source="../Images/chartgreen.png" Width="84" Height="48"/>
             </StackPanel>
         </Button>
-        <Button HorizontalAlignment="Left" Margin="0,343,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Grid.Row="1" Background="{x:Null}">
+        <Button HorizontalAlignment="Left" Margin="0,337,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Grid.Row="1" Background="{x:Null}" Click="SingOutButtonClick">
             <StackPanel>
-                <Image Source="../../../Images/singout.png" Width="84" Height="48"/>
+                <Image Source="../Images/singout.png" Width="84" Height="48"/>
             </StackPanel>
         </Button>
-        <Button HorizontalAlignment="Left" Margin="0,270,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Grid.Row="1" Background="{x:Null}">
+        <Button HorizontalAlignment="Left" Margin="0,270,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Grid.Row="1" Background="{x:Null}" Click="SettingsButtonClick">
             <StackPanel>
-                <Image Source="../../../Images/settings.png" Width="84" Height="48"/>
+                <Image Source="../Images/settings.png" Width="84" Height="48"/>
             </StackPanel>
         </Button>
         <Grid HorizontalAlignment="Left" Height="91" VerticalAlignment="Top" Width="1008" Background="#FFF1F0F0" Margin="10,0,0,0">
-            <Button HorizontalAlignment="Left" Margin="909,38,0,0" VerticalAlignment="Top" Width="70" Height="53" BorderBrush="{x:Null}" Background="{x:Null}">
+            <Button HorizontalAlignment="Left" Margin="909,38,0,0" VerticalAlignment="Top" Width="70" Height="53" BorderBrush="{x:Null}" Background="{x:Null}" Click="DeleteButtonClick">
                 <StackPanel>
-                    <Image Source="../../../Images/remove2.png" Width="30" Height="30"/>
+                    <Image Source="../Images/remove2.png" Width="30" Height="30"/>
                 </StackPanel>
             </Button>
             <Label Content="Pregledi" HorizontalAlignment="Left" Margin="110,20,0,0" VerticalAlignment="Top" Width="198" FontFamily="Malgun Gothic" FontSize="36" FontWeight="Bold" Height="71"/>
         </Grid>
-        <Button HorizontalAlignment="Left" Margin="849,37,0,0" VerticalAlignment="Top" Width="64" Height="54" BorderBrush="{x:Null}" Background="{x:Null}">
+        <Button HorizontalAlignment="Left" Margin="849,37,0,0" VerticalAlignment="Top" Width="64" Height="54" BorderBrush="{x:Null}" Background="{x:Null}" Click="EditButtonClick">
             <StackPanel>
-                <Image Source="../../../Images/editt.png" Width="30" Height="30"/>
+                <Image Source="../Images/editt.png" Width="30" Height="30"/>
             </StackPanel>
         </Button>
-        <Button HorizontalAlignment="Left" Margin="775,37,0,0" VerticalAlignment="Top" Width="69" Height="54" BorderBrush="{x:Null}" Focusable="False" Background="{x:Null}">
+        <Button HorizontalAlignment="Left" Margin="775,37,0,0" VerticalAlignment="Top" Width="69" Height="54" BorderBrush="{x:Null}" Focusable="False" Background="{x:Null}" Click="AddButtonClick">
             <StackPanel>
-                <Image Source="../../../Images/add.png" Width="30" Height="30"/>
+                <Image Source="../Images/add.png" Width="30" Height="30"/>
             </StackPanel>
         </Button>
         <DataGrid Name="examinationsDataGrid" HorizontalAlignment="Left" Height="412" Margin="164,174,0,0" VerticalAlignment="Top"
@@ -77,12 +77,14 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="DATUM I VREME" Width="160" Binding="{Binding StartTime}"/>
+                <DataGridTextColumn Header="DATUM I VREME" Width="170" Binding="{Binding StartTime}"/>
                 <DataGridTextColumn Header="ORDINACIJA" Width="110" Binding="{Binding Doctor.Ordination}"/>
                 <DataGridTextColumn Header="IME" Width="160" Binding="{Binding Patient.Name}"/>
                 <DataGridTextColumn Header="PREZIME" Width="160" Binding="{Binding Patient.Surname}"/>
-                <DataGridTextColumn Header="OPIS" Width="160"/>
+                <DataGridTextColumn Header="OPIS" Width="150"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Button Content="Započni pregled" HorizontalAlignment="Left" Margin="765,273,0,0" Grid.Row="1" VerticalAlignment="Top" Width="158" Height="48" Background="#FF3F5038" Foreground="White" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="14">
+        </Button>
     </Grid>
 </Window>

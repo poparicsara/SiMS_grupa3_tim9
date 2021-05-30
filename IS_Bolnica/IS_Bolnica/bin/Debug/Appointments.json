@@ -369,10 +369,7 @@
   },
   {
     "Patient": {
-      "Allergens": [
-        "brufen",
-        "penicilin"
-      ],
+      "Allergens": null,
       "examinations": null,
       "Akcije": 0,
       "brojOcenjenihPregleda": 0,
@@ -380,7 +377,26 @@
       "HealthCardNumber": "19",
       "Anamneses": null,
       "Ingredients": null,
-      "Alergeni": null,
+      "Alergeni": [
+        {
+          "Name": "polen",
+          "IngredientsAllergens": [
+            {
+              "Name": "Celuloza"
+            }
+          ],
+          "MedicamentsAllergens": [
+            {
+              "Id": 0,
+              "Name": "Altravesa",
+              "Ingredients": null,
+              "Replacement": null,
+              "Producer": null,
+              "Status": 0
+            }
+          ]
+        }
+      ],
       "Username": "nnnn",
       "Password": "ftn",
       "Name": "Nina",
@@ -406,28 +422,57 @@
     },
     "Doctor": {
       "Specialization": {
-        "Name": "Pedijatrija"
+        "Name": "Radiologija - dijagnostika"
       },
-      "Ordination": 107,
-      "Username": "nikola",
-      "Password": "dzoni",
-      "Name": "Nikola",
-      "Surname": "Spasojević",
-      "DateOfBirth": "1980-11-01T00:00:00",
-      "Phone": "67894234",
-      "Email": "nikolas@gmail.com",
-      "Id": "4341009",
+      "Ordination": 302,
+      "Username": "Vuk",
+      "Password": "ftn",
+      "Name": "Vuk",
+      "Surname": "Veljković",
+      "DateOfBirth": "1979-11-01T00:00:00",
+      "Phone": "67894652",
+      "Email": "maricm@hotmail.com",
+      "Id": "3",
       "UserType": 1,
       "Address": null
     },
     "DurationInMins": 0,
     "GuestUser": null,
-    "Room": null,
-    "StartTime": "2021-05-27T14:30:00",
+    "Room": {
+      "Id": 302,
+      "HospitalWard": "Pedijatrija",
+      "inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 27,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "roomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "StartTime": "2021-05-29T11:00:00",
     "EndTime": "0001-01-01T00:00:00",
     "PostponedDate": "0001-01-01T00:00:00",
-    "IsUrgent": true,
-    "AppointmentType": 1
+    "IsUrgent": false,
+    "AppointmentType": 0
   },
   {
     "Patient": {
@@ -483,8 +528,37 @@
     },
     "DurationInMins": 0,
     "GuestUser": null,
-    "Room": null,
-    "StartTime": "2021-06-10T10:30:00",
+    "Room": {
+      "Id": 202,
+      "HospitalWard": "Ortopedija",
+      "inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "roomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "StartTime": "2021-06-10T18:30:00",
     "EndTime": "0001-01-01T00:00:00",
     "PostponedDate": "0001-01-01T00:00:00",
     "IsUrgent": false,
@@ -502,7 +576,7 @@
       "Ingredients": null,
       "Alergeni": [
         {
-          "Name": "",
+          "Name": "polen",
           "IngredientsAllergens": [
             {
               "Name": "Celuloza"
@@ -562,8 +636,8 @@
     "DurationInMins": 0,
     "GuestUser": null,
     "Room": {
-      "Id": 202,
-      "HospitalWard": "Ortopedija",
+      "Id": 103,
+      "HospitalWard": "Pedijatrija",
       "inventory": [
         {
           "Name": "Špric",
@@ -588,13 +662,13 @@
         }
       ],
       "roomPurpose": {
-        "Name": "Ordinacija"
+        "Name": "Operaciona sala"
       }
     },
-    "StartTime": "2021-06-24T13:30:00",
+    "StartTime": "2021-07-10T10:30:00",
     "EndTime": "0001-01-01T00:00:00",
     "PostponedDate": "0001-01-01T00:00:00",
-    "IsUrgent": false,
-    "AppointmentType": 0
+    "IsUrgent": true,
+    "AppointmentType": 1
   }
 ]

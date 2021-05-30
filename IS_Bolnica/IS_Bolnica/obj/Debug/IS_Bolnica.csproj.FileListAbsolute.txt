@@ -911,8 +911,6 @@ C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\Hospital
 C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\HospitalizedPatients.baml
 C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\ProlongTreatment.g.cs
 C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\ProlongTreatment.baml
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorStartWindow.g.cs
-C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorStartWindow.baml
 C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DemoMode\DemoInventoryWindow.g.cs
 C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DemoMode\DemoMedicamentWindow.g.cs
 C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DemoMode\DemoProfileWindow.g.cs
@@ -947,4 +945,15 @@ C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DemoMode
 C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DirectorLogInWindow.baml
 C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\MergeRoomsWindow.baml
 C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\SeparateRoomWindow.baml
-
+C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\DoctorStartWindow.g.cs
+C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\DoctorStartWindow.baml
+C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\ScheduleExaminationWindow.g.cs
+C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\OperationsWindow.g.cs
+C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\OperationsWindow.baml
+C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\ScheduleExaminationWindow.baml
+C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\UpdateScheduledExaminationWindow.g.cs
+C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\UpdateScheduledExaminationWindow.baml
+C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\ScheduleOperationWindow.g.cs
+C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\UpdateScheduledOperationWindow.g.cs
+C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\ScheduleOperationWindow.baml
+C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\UpdateScheduledOperationWindow.baml
