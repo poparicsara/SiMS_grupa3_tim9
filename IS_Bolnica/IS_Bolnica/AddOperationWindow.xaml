@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Bolnica.DoctorsWindows"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="Schedule operation" Height="768" Width="1024" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Background="#FFA5BC90">
@@ -24,7 +25,7 @@
         <ComboBox Name="roomComboBox" ItemsSource="{Binding RoomId}" HorizontalAlignment="Left" Margin="397,154,0,0" VerticalAlignment="Top" Width="177"/>
         <TextBox Name ="patientTxt" HorizontalAlignment="Left" Height="28" Margin="397,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177"/>
         <TextBox x:Name ="jmbgTxt" HorizontalAlignment="Left" Height="28" Margin="397,278,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177" LostFocus="jmbgTxt_LostFocus"/>
-        <DatePicker Name="datePicker" HorizontalAlignment="Left" Margin="397,52,0,0" VerticalAlignment="Top" Width="177" Height="26"/>
+        <DatePicker Name="datePicker" HorizontalAlignment="Left" Margin="397,52,0,0" VerticalAlignment="Top" Width="177" Height="26" DisplayDateStart="{x:Static sys:DateTime.Today}"/>
         <ComboBox Name="hourBox" HorizontalAlignment="Left" Margin="397,95,0,0" VerticalAlignment="Top" Width="70"/>
         <ComboBox Name="minuteBox" HorizontalAlignment="Left" Margin="499,95,0,0" VerticalAlignment="Top" Width="75">
         </ComboBox>

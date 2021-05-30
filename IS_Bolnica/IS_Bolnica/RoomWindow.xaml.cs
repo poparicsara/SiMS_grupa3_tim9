@@ -20,7 +20,7 @@ namespace IS_Bolnica
 
             DataContext = director;
 
-            roomDataGrid.ItemsSource = storage.GetRooms();
+            roomDataGrid.ItemsSource = service.GetRooms();
         }
 
         private void AddButtonClicked(object sender, RoutedEventArgs e)

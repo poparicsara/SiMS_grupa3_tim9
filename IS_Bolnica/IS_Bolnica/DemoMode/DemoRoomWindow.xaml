@@ -1,0 +1,96 @@
+﻿<Window x:Class="IS_Bolnica.DemoMode.DemoRoomWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IS_Bolnica.DemoMode"
+        mc:Ignorable="d"
+        Title="DemoRoomWindow" Height="655" Width="1116" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid HorizontalAlignment="Left" Width="207" Background="#FFE2F3C7">
+            <StackPanel>
+                <ListView Background="#FFE8F6D5" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="625" Margin="0,0,0.2,0">
+                    <ListViewItem HorizontalAlignment="Left" Height="84" Margin="0,100,0,0">
+                        <Button Width="187" Height="62" Background="Transparent" BorderBrush="Transparent">
+                            <StackPanel Orientation="Horizontal" Width="187" Height="62">
+                                <Image Source="profileIcon.png" Margin="0,15,0,0" Width="58" Height="47" VerticalAlignment="Top"/>
+                                <TextBlock Text="Profil" FontSize="16" Width="98" Margin="10,17,10,24.2" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Button>
+                    </ListViewItem>
+                    <ListViewItem HorizontalAlignment="Left" Height="84">
+                        <Button Width="187" Height="62" Background="Transparent" BorderBrush="Transparent">
+                            <StackPanel Orientation="Horizontal" Width="187" Height="62">
+                                <Image Source="roomIcon100x50.png" Width="58" Height="47" VerticalAlignment="Top"/>
+                                <TextBlock Text="Prostorije" FontSize="16" Width="98" Margin="10,17,10,24.2" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Button>
+                    </ListViewItem>
+                    <ListViewItem HorizontalAlignment="Left" Height="84">
+                        <Button Width="187" Height="62" Background="Transparent" BorderBrush="Transparent" Click="InventoryButtonClicked">
+                            <StackPanel Orientation="Horizontal" Width="187" Height="62">
+                                <Image Source="inventory.png" Margin="0,15,0,0" Width="58" Height="47" VerticalAlignment="Top"/>
+                                <TextBlock Text="Inventar" FontSize="16" Width="98" Margin="10,17,10,24.2" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Button>
+                    </ListViewItem>
+                    <ListViewItem HorizontalAlignment="Left" Height="84">
+                        <Button Width="187" Height="62" Background="Transparent" BorderBrush="Transparent" Click="MedicamentButtonClicked">
+                            <StackPanel Orientation="Horizontal" Width="187" Height="62">
+                                <Image Source="medicine.png" Margin="0,15,0,0" Width="58" Height="47" VerticalAlignment="Top"/>
+                                <TextBlock Text="Lekovi" FontSize="16" Width="98" Margin="10,17,10,24.2" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Button>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
+        </Grid>
+        <DataGrid x:Name ="roomDataGrid" HorizontalAlignment="Center" Height="512" VerticalAlignment="Center" Width="805" FontSize="16"
+                  ColumnWidth="260" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserAddRows="False" AutoGenerateColumns="False"
+                  IsReadOnly="True" SelectionMode="Single" CanUserDeleteRows="True" Margin="224,104,80.6,9.6" BorderThickness="2" 
+                  BorderBrush="Black" RowHeight="30">
+            <!-- Style -->
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FFE8F6D5"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="Height" Value="35"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="FontSize" Value="18"/>
+                </Style>
+            </DataGrid.Resources>
+            <!-- Header -->
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="259.4" Header ="BROJ SOBE" Binding="{Binding Id}"/>
+                <DataGridTextColumn Width="259.4" Header ="BOLNIČKO ODELJENJE" Binding="{Binding HospitalWard}"/>
+                <DataGridTextColumn Width="259.4" Header ="NAMENA" Binding="{Binding Path = roomPurpose.Name}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox Name="searchBox" HorizontalAlignment="Left" Height="29" Margin="867,54,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="162" FontSize="16"/>
+        <Button Content="Obaveštenja" HorizontalAlignment="Left" Margin="224,33,0,0" VerticalAlignment="Top" Width="92" Height="32" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black"/>
+        <Label Content="PROSTORIJE" HorizontalAlignment="Left" Margin="555,21,0,0" VerticalAlignment="Top" FontSize="26" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black"/>
+        <Button HorizontalAlignment="Left" Margin="1045,579,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="White">
+            <StackPanel>
+                <Image Source="hamerIcon.png"/>
+            </StackPanel>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="1045,533,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="White">
+            <StackPanel>
+                <Image Source="delete.png"/>
+            </StackPanel>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="1045,485,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="White">
+            <StackPanel>
+                <Image Source="edit.png"/>
+            </StackPanel>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="1045,436,0,0" VerticalAlignment="Top" Width="35" Height="35" Background="White">
+            <StackPanel>
+                <Image Source="addIcon.png"/>
+            </StackPanel>
+        </Button>
+
+    </Grid>
+</Window>

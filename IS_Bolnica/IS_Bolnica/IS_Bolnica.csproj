@@ -80,8 +80,23 @@
     <Compile Include="CreatePrescription.xaml.cs">
       <DependentUpon>CreatePrescription.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DemoMode\DemoInventoryWindow.xaml.cs">
+      <DependentUpon>DemoInventoryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DemoMode\DemoMedicamentWindow.xaml.cs">
+      <DependentUpon>DemoMedicamentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DemoMode\DemoProfileWindow.xaml.cs">
+      <DependentUpon>DemoProfileWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DemoMode\DemoRoomWindow.xaml.cs">
+      <DependentUpon>DemoRoomWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Diagnosis.xaml.cs">
       <DependentUpon>Diagnosis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DirectorLogInWindow.xaml.cs">
+      <DependentUpon>DirectorLogInWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="DirectorNotificationWindow.xaml.cs">
       <DependentUpon>DirectorNotificationWindow.xaml</DependentUpon>
@@ -109,8 +124,14 @@
     <Compile Include="ExaminationInfo.xaml.cs">
       <DependentUpon>ExaminationInfo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HospitalizationForm.xaml.cs">
+      <DependentUpon>HospitalizationForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HospitalizedPatients.xaml.cs">
+      <DependentUpon>HospitalizedPatients.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ingredient.cs" />
-    <Compile Include="IngredientFileStorage.cs" />
+    <Compile Include="IngredientRepository.cs" />
     <Compile Include="InventoryWindow.xaml.cs">
       <DependentUpon>InventoryWindow.xaml</DependentUpon>
     </Compile>
@@ -118,8 +139,14 @@
     <Compile Include="MergeRoomsWindow.xaml.cs">
       <DependentUpon>MergeRoomsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Alergeni.cs" />
     <Compile Include="Model\AppointmentRepository.cs" />
     <Compile Include="Model\AppointmentType.cs" />
+    <Compile Include="Model\Hospitalization.cs" />
+    <Compile Include="Model\HospitalizationRepository.cs" />
+    <Compile Include="ProlongTreatment.xaml.cs">
+      <DependentUpon>ProlongTreatment.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RoomInventory.xaml.cs">
       <DependentUpon>RoomInventory.xaml</DependentUpon>
     </Compile>
@@ -153,7 +180,7 @@
     <Compile Include="Model\NotificationRepository.cs" />
     <Compile Include="Model\NotificationType.cs" />
     <Compile Include="Model\Prescription.cs" />
-    <Compile Include="Model\PrescriptionFileStorage.cs" />
+    <Compile Include="Model\PrescriptionRepository.cs" />
     <Compile Include="Model\Renovation.cs" />
     <Compile Include="Model\RenovationRepository.cs" />
     <Compile Include="Model\Request.cs" />
@@ -324,6 +351,7 @@
     <Compile Include="SeparateRoomWindow.xaml.cs">
       <DependentUpon>SeparateRoomWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Services\AnamnesisService.cs" />
     <Compile Include="Services\AppointmentService.cs" />
     <Compile Include="Services\ChangeInventoryPlaceService.cs" />
     <Compile Include="Services\FindAttributesService.cs" />
@@ -331,11 +359,14 @@
     <Compile Include="Services\GuestUserService.cs" />
     <Compile Include="Services\InventoryPerRoomService.cs" />
     <Compile Include="Services\InventoryService.cs" />
-    <Compile Include="Services\MedicamentService.cs" />
     <Compile Include="Services\NotificationService.cs" />
     <Compile Include="Services\PatientService.cs" />
     <Compile Include="Services\RenovationService.cs" />
     <Compile Include="Services\RequestService.cs" />
+    <Compile Include="Services\HospitalizationService.cs" />
+    <Compile Include="Services\IngredientService.cs" />
+    <Compile Include="Services\MedicamentService.cs" />
+    <Compile Include="Services\PrescriptionService.cs" />
     <Compile Include="Services\RoomService.cs" />
     <Compile Include="Services\UrgentAppointmentService.cs" />
     <Compile Include="Services\UserService.cs" />
@@ -387,9 +418,29 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="DemoMode\DemoInventoryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DemoMode\DemoMedicamentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DemoMode\DemoProfileWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DemoMode\DemoRoomWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Diagnosis.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DirectorLogInWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DirectorNotificationWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -427,11 +478,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="HospitalizationForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HospitalizedPatients.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="InventoryWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="MergeRoomsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProlongTreatment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -760,6 +823,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="DemoMode\inventory.png" />
+    <Resource Include="DemoMode\profileIcon.png" />
     <Resource Include="Images\nasLogo.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -774,6 +839,47 @@
   <ItemGroup>
     <Resource Include="actionBarIcon.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="roomIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="menuRoomIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\roomIcon100x50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\addIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\hamerIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\medicine.png" />
+    <Resource Include="Images\greenstethoscope.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\chartgreen.png" />
+    <Resource Include="Images\greenscissors.png" />
+    <Resource Include="Images\message.png" />
+    <Resource Include="Images\settings.png" />
+    <Resource Include="Images\singout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\editt.png" />
+    <Resource Include="Images\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\remove2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

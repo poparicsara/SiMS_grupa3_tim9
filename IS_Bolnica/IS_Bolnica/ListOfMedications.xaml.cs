@@ -12,28 +12,18 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica
 {
     public partial class ListOfMedications : Window
     {
-        private List<Medicament> meds = new List<Medicament>();
+        private MedicamentService medicamentService = new MedicamentService();
         public ListOfMedications()
         {
             InitializeComponent();
 
-            MedicamentRepository medStorage = new MedicamentRepository();
-            List<Medicament> medicaments = medStorage.GetMedicaments();
-
-            foreach (Medicament medicament in medicaments)
-            {
-                if (medicament.Status == MedicamentStatus.approved)
-                {
-                    meds.Add(medicament);
-                }
-            }
-
-            medicationsDataGrid.ItemsSource = meds;
+            medicationsDataGrid.ItemsSource = medicamentService.showApprovedMedicaments();
         }
 
         private void medicationDoubleClicked(object sender, MouseButtonEventArgs e)

@@ -12,11 +12,10 @@ namespace IS_Bolnica.Services
     public class AppointmentService
     {
         private AppointmentRepository appointmentRepository = new AppointmentRepository();
-        private PatientRepository patientRepository = new PatientRepository();
         private List<Appointment> appointments = new List<Appointment>();
         private List<Appointment> examinations = new List<Appointment>();
         private List<Appointment> operations = new List<Appointment>();
-        private List<Patient> patients = new List<Patient>();
+        private UserService userService = new UserService();
 
         public AppointmentService()
         {
@@ -113,7 +112,7 @@ namespace IS_Bolnica.Services
 
         }
 
-        public List<Appointment> FindPatientAppointments(Patient patient)
+        private List<Appointment> FindPatientAppointments(Patient patient)
         {
             List<Appointment> patientAppointments = new List<Appointment>();
             foreach (var appointment in appointments)
@@ -125,6 +124,7 @@ namespace IS_Bolnica.Services
             }
 
             return patientAppointments;
+
         }
 
         private int FindAppointmentIndex(Appointment appointment)
@@ -240,98 +240,80 @@ namespace IS_Bolnica.Services
             return appointmentRepository.LoadFromFile("Appointments.json");
         }
 
-        public Boolean processActions()
+        public List<Appointment> getDoctorsExaminations()
         {
-            increaseActions();
-            return checkActions();
-        }
-
-        private void increaseActions()
-        {
-            List<Patient> patients = patientRepository.LoadFromFile("PatientRecordFileStorage.json");
-            foreach (Patient patient in patients)
-            {
-                if (patient.Username.Equals(PatientWindow.username_patient))
-                    patient.Akcije++;      
-            }
-
-            patientRepository.SaveToFile(patients, "PatientRecordFileStorage.json");
-        }
-
-        private Boolean checkActions()
-        {
-            Patient patient = findPatientByUsername(PatientWindow.username_patient);
-            if (patient.Akcije >= 6)
-            {
-                MessageBox.Show("Najvise 6 akcija nad pregledima mozete izvrsiti prilikom logovanja!");
-                return true;
-            }
-            return false;
-        }
-
-        public Patient findPatientByUsername(string username)
-        {
-            patients = patientRepository.LoadFromFile("PatientRecordFileStorage.json");
-            Patient returnPatient = new Patient();
-
-            foreach (Patient patient in patients)
-            {
-                if (patient.Username.Equals(username))
-                {
-                    returnPatient = patient;
-                }
-            }
-
-            return returnPatient;
-        }
-
-        public Boolean isSelectedDateFree(DateTime selectedDate, Doctor selectedDoctor)
-        {
-            List<Appointment> appointments = GetAppointments();
-
+            List<Appointment> doctorsExaminations = new List<Appointment>();
             foreach (Appointment appointment in appointments)
             {
-                if (Convert.ToString(appointment.StartTime).Equals(selectedDate.ToString()) && selectedDoctor.Name.Equals(appointment.Doctor.Name) && selectedDoctor.Surname.Equals(appointment.Doctor.Surname))
+                foreach (User user in userService.GetLoggedUsers())
                 {
-                    MessageBox.Show("Ne mozete zakazati pregled jer je ovaj termin pregleda kod oznacenog doktora vec zauzet!");
-                    return true;
+                    if (appointment.Doctor.Username.Equals(user.Username) && appointment.AppointmentType == 0)
+                    {
+                        doctorsExaminations.Add(appointment);
+                    }
+                }
+            }
+            return doctorsExaminations;
+        }
+        public List<Appointment> getDoctorsOperations()
+        {
+            List<Appointment> doctorsExaminations = new List<Appointment>();
+            foreach (Appointment appointment in appointments)
+            {
+                foreach (User user in userService.GetLoggedUsers())
+                {
+                    if (appointment.Doctor.Username.Equals(user.Username) && appointment.AppointmentType == AppointmentType.operation)
+                    {
+                        doctorsExaminations.Add(appointment);
+                    }
+                }
+            }
+            return doctorsExaminations;
+        }
+
+        public void scheduleAppointment(Appointment appointment)
+        {
+            if (isDoctorAvailable(appointment) && isPatientAvailable(appointment))
+            {
+                appointments.Add(appointment);
+                appointmentRepository.SaveToFile(appointments, "Appointments.json");
+            }
+            else
+            {
+                MessageBox.Show("Nije moguce zakazati termin!");
+            }
+        }
+        private bool isDoctorAvailable(Appointment appointment)
+        {
+            foreach (Appointment scheduledAppointment in appointments)
+            {
+                if (scheduledAppointment.Doctor.Id.Equals(appointment.Doctor.Id))
+                {
+                    if (scheduledAppointment.StartTime.Equals(appointment.StartTime))
+                    {
+                        return false;
+                    }
                 }
             }
 
-            return false;
+            return true;
         }
 
-        public Appointment findSelectedPatientAppointment(int selectedIndex)
+        private bool isPatientAvailable(Appointment appointment)
         {
-            List<Appointment> patientAppointments = FindPatientAppointments(findPatientByUsername(PatientWindow.username_patient));
-            Appointment selectedAppointment = new Appointment();
-
-            for (int i = 0; i < patientAppointments.Count; i++)
+            foreach (Appointment scheduledAppointment in appointments)
             {
-                if (i == selectedIndex)
-                    selectedAppointment = patientAppointments[i];
+                if (scheduledAppointment.Patient.Id.Equals(appointment.Patient.Id))
+                {
+                    if (scheduledAppointment.StartTime.Equals(appointment.StartTime))
+                    {
+                        return false;
+                    }
+                }
             }
 
-            return selectedAppointment;
+            return true;
         }
 
-        public Boolean checkDateOfAppointment(Appointment selectedAppointment)
-        {
-            DateTime now = DateTime.Now;
-            string[] pom = now.AddDays(2).ToString().Split(' ');
-            string[] dateNow = pom[0].Split('/');
-
-            string[] appointmentStartDateAndTime = selectedAppointment.StartTime.ToString().Split(' ');
-            string[] appointmentDate = appointmentStartDateAndTime[0].Split('/');
-
-            if (Convert.ToInt32(dateNow[0]) == Convert.ToInt32(appointmentDate[0]))
-            {
-                if (Convert.ToInt32(dateNow[1]) < Convert.ToInt32(appointmentDate[1]))
-                    return false;
-                else
-                    return true;
-            }
-            return false;
-        }
     }
 }
