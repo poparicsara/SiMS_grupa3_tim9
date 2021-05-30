@@ -52,36 +52,7 @@
     },
     "DurationInMins": 30,
     "GuestUser": null,
-    "RoomRecord": {
-      "Id": 300,
-      "HospitalWard": "Pedijatrija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 27,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Ordinacija"
-      }
-    },
+    "Room": null,
     "StartTime": "2021-05-24T22:00:00",
     "EndTime": "0001-01-01T00:00:00",
     "PostponedDate": "0001-01-01T00:00:00",
@@ -141,36 +112,7 @@
     },
     "DurationInMins": 30,
     "GuestUser": null,
-    "RoomRecord": {
-      "Id": 304,
-      "HospitalWard": "Pedijatrija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 27,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Ordinacija"
-      }
-    },
+    "Room": null,
     "StartTime": "2021-05-25T10:00:00",
     "EndTime": "2021-05-25T10:30:00",
     "PostponedDate": "0001-01-01T00:00:00",
@@ -230,36 +172,7 @@
     },
     "DurationInMins": 0,
     "GuestUser": null,
-    "RoomRecord": {
-      "Id": 103,
-      "HospitalWard": "Pedijatrija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Operaciona sala"
-      }
-    },
+    "Room": null,
     "StartTime": "2021-05-26T15:30:00",
     "EndTime": "0001-01-01T00:00:00",
     "PostponedDate": "0001-01-01T00:00:00",
@@ -320,36 +233,7 @@
     },
     "DurationInMins": 0,
     "GuestUser": null,
-    "RoomRecord": {
-      "Id": 202,
-      "HospitalWard": "Ortopedija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Ordinacija"
-      }
-    },
+    "Room": null,
     "StartTime": "2021-05-29T14:00:00",
     "EndTime": "0001-01-01T00:00:00",
     "PostponedDate": "0001-01-01T00:00:00",
@@ -409,36 +293,7 @@
     },
     "DurationInMins": 0,
     "GuestUser": null,
-    "RoomRecord": {
-      "Id": 107,
-      "HospitalWard": "Pedijatrija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 27,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Ordinacija"
-      }
-    },
+    "Room": null,
     "StartTime": "2021-06-05T17:00:00",
     "EndTime": "0001-01-01T00:00:00",
     "PostponedDate": "0001-01-01T00:00:00",
@@ -499,36 +354,7 @@
     },
     "DurationInMins": 0,
     "GuestUser": null,
-    "RoomRecord": {
-      "Id": 107,
-      "HospitalWard": "Pedijatrija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 27,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Ordinacija"
-      }
-    },
+    "Room": null,
     "StartTime": "2021-06-15T10:00:00",
     "EndTime": "0001-01-01T00:00:00",
     "PostponedDate": "0001-01-01T00:00:00",
@@ -589,14 +415,7 @@
     },
     "DurationInMins": 0,
     "GuestUser": null,
-    "RoomRecord": {
-      "Id": 3,
-      "HospitalWard": "Alergologija i imunologija",
-      "inventory": null,
-      "roomPurpose": {
-        "Name": "Operaciona sala"
-      }
-    },
+    "Room": null,
     "StartTime": "2021-05-27T14:30:00",
     "EndTime": "0001-01-01T00:00:00",
     "PostponedDate": "0001-01-01T00:00:00",
@@ -656,36 +475,7 @@
     },
     "DurationInMins": 0,
     "GuestUser": null,
-    "RoomRecord": {
-      "Id": 202,
-      "HospitalWard": "Ortopedija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Ordinacija"
-      }
-    },
+    "Room": null,
     "StartTime": "2021-06-10T10:30:00",
     "EndTime": "0001-01-01T00:00:00",
     "PostponedDate": "0001-01-01T00:00:00",

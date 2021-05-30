@@ -93,10 +93,10 @@ namespace IS_Bolnica.Services
             return repository.GetRoom(roomId);
         }
 
-        public RoomRecord FindOrdinationById(int id)
+        public Room FindOrdinationById(int id)
         {
-            RoomRecord foundRoom = new RoomRecord();
-            foreach (RoomRecord room in rooms)
+            Room foundRoom = new Room();
+            foreach (Room room in rooms)
             {
                 if (room.Id.Equals(id))
                 {
@@ -110,7 +110,7 @@ namespace IS_Bolnica.Services
         public List<int> GetOperationRoomsId()
         {
             List<int> operationRooms = new List<int>();
-            foreach (RoomRecord room in rooms)
+            foreach (Room room in rooms)
             {
                 if (room.roomPurpose.Name.Equals("Operaciona sala"))
                 {
@@ -123,7 +123,7 @@ namespace IS_Bolnica.Services
         public List<int> GetAvailableRoomsForHospitalization()
         {
             List<int> availableRooms = new List<int>();
-            foreach (RoomRecord room in rooms)
+            foreach (Room room in rooms)
             {
                 if (room.roomPurpose.Name.Equals("Soba"))
                 {
@@ -136,7 +136,7 @@ namespace IS_Bolnica.Services
 
         public bool DoesSelectedRoomHasEmptyBed(int roomId)
         {
-            foreach (RoomRecord room in rooms)
+            foreach (Room room in rooms)
             {
                 if (room.roomPurpose.Name.Equals("Soba"))
                 {

@@ -44,7 +44,7 @@ namespace IS_Bolnica.DoctorsWindows
             doctorsComboBox.SelectedItem = operation.Doctor.Name + ' ' + operation.Doctor.Surname;
 
             roomsComboBox.ItemsSource = roomService.GetOperationRoomsId();
-            roomsComboBox.SelectedItem = operation.RoomRecord.Id;
+            roomsComboBox.SelectedItem = operation.Room.Id;
 
             for (int i = 7; i < 20; i++)
             {
@@ -72,13 +72,13 @@ namespace IS_Bolnica.DoctorsWindows
             int hour = Convert.ToInt32(hourBox.Text);
             int minute = Convert.ToInt32(minuteBox.Text);
             operation.StartTime = new DateTime(date.Year, date.Month, date.Day, hour, minute, 0);
-            operation.RoomRecord = new RoomRecord();
+            operation.Room = new Room();
 
-            foreach (RoomRecord room in roomService.GetRooms())
+            foreach (Room room in roomService.GetRooms())
             {
                 if (room.Id == Convert.ToInt32(roomsComboBox.SelectedItem))
                 {
-                    operation.RoomRecord = room;
+                    operation.Room = room;
                 }
             }
 

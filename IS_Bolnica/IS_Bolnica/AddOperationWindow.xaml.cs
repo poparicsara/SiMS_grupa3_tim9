@@ -59,12 +59,12 @@ namespace IS_Bolnica.DoctorsWindows
         {
             appointment.Doctor = doctorService.findDoctorByName(doctorsComboBox.SelectedItem.ToString());
             appointment.Patient = patientService.findPatientById(jmbgTxt.Text);
-            appointment.RoomRecord = new RoomRecord();
-            foreach (RoomRecord room in roomService.GetRooms())
+            appointment.Room = new Room();
+            foreach (Room room in roomService.GetRooms())
             {
                 if (room.Id == Convert.ToInt32(roomComboBox.SelectedItem))
                 {
-                    appointment.RoomRecord = room;
+                    appointment.Room = room;
                 }
             }
 

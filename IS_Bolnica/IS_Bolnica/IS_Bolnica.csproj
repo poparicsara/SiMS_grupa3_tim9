@@ -136,12 +136,10 @@
       <DependentUpon>InventoryWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="InventoryInRoom.cs" />
-
     <Compile Include="MergeRoomsWindow.xaml.cs">
       <DependentUpon>MergeRoomsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Alergeni.cs" />
-
     <Compile Include="Model\AppointmentRepository.cs" />
     <Compile Include="Model\AppointmentType.cs" />
     <Compile Include="Model\Hospitalization.cs" />
@@ -370,9 +368,7 @@
     <Compile Include="Services\IngredientService.cs" />
     <Compile Include="Services\InventoryService.cs" />
     <Compile Include="Services\MedicamentService.cs" />
-    <Compile Include="Services\PatientService.cs" />
     <Compile Include="Services\PrescriptionService.cs" />
-
     <Compile Include="Services\RoomService.cs" />
     <Compile Include="Services\UrgentAppointmentService.cs" />
     <Compile Include="Services\UserService.cs" />
@@ -496,10 +492,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-
     <Page Include="MergeRoomsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ProlongTreatment.xaml">
-
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -867,8 +864,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="DemoMode\medicine.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\greenstethoscope.png" />
   </ItemGroup>
   <ItemGroup>

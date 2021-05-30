@@ -9,7 +9,7 @@ namespace IS_Bolnica.Services
 {
     class MedicamentService
     {
-        private MedicamentRepository repository = new MedicamentRepository();
+        private MedicamentRepository medicamentRepository = new MedicamentRepository();
         private Medicament newMedicament = new Medicament();
         private List<Medicament> medicaments = new List<Medicament>();
 
@@ -20,14 +20,14 @@ namespace IS_Bolnica.Services
 
         public List<Medicament> GetMedicaments()
         {
-            return repository.GetMedicaments();
+            return medicamentRepository.GetMedicaments();
         }
 
         public void AddMedicament(Medicament newMedicament, string ingredients)
         {
             this.newMedicament = newMedicament;
             this.newMedicament.Ingredients = GetIngredients(ingredients);
-            repository.AddMedicament(newMedicament);
+            medicamentRepository.AddMedicament(newMedicament);
         }
 
         private List<Ingredient> GetIngredients(string ingredients)
@@ -63,12 +63,12 @@ namespace IS_Bolnica.Services
                     medicament.Replacement = null;
                 }
             }
-            medicamentRepository.saveToFile(medicaments, "Lekovi.json");
+            medicamentRepository.saveToFile(medicaments);
         }
 
         public void saveMedicament(Medicament medicament)
         {
-            medicamentRepository.saveToFile(medicaments, "Lekovi.json");
+            medicamentRepository.saveToFile(medicaments);
         }
 
         public void addIngredientInMedicament(Ingredient ingredient, int medicamentId)
@@ -139,12 +139,12 @@ namespace IS_Bolnica.Services
         {
             medicaments.RemoveAt(index);
             medicaments.Insert(index, updatedMedicament);
-            medicamentRepository.saveToFile(medicaments, "Lekovi.json");
+            medicamentRepository.saveToFile(medicaments);
         }
 
         private List<Medicament> getMedicaments()
         {
-            return medicamentRepository.loadFromFile("Lekovi.json");
+            return medicamentRepository.GetMedicaments();
         }
     }
 }

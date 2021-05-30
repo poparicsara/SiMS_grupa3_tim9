@@ -24,7 +24,7 @@ namespace IS_Bolnica.Services
         {
             rooms = roomService.GetRooms();
             magacin = roomService.GetMagacin();
-            inventoryItems = GetInventory();
+            //inventoryItems = GetInventory();
         }
 
         public List<Inventory> GetDynamicInventory()
@@ -71,20 +71,20 @@ namespace IS_Bolnica.Services
             return index;
         }
 
-        public int GetNumberOfBeds()
-        {
-            int numberOfBeds = 0;
-            foreach (Inventory inventory in inventoryItems)
-            {
-                if (inventory.Name.Equals("Krevet"))
-                {
-                    numberOfBeds = inventory.CurrentAmount;
-                }
-            }
-            return numberOfBeds;
-        }
+        //public int GetNumberOfBeds()
+        //{
+        //    int numberOfBeds = 0;
+        //    foreach (Inventory inventory in inventoryItems)
+        //    {
+        //        if (inventory.Name.Equals("Krevet"))
+        //        {
+        //            numberOfBeds = inventory.CurrentAmount;
+        //        }
+        //    }
+        //    return numberOfBeds;
+        //}
 
-        public int GetNumberOfBedsInRoom(RoomRecord room)
+        public int GetNumberOfBedsInRoom(Room room)
         {
             int numberOfBeds = 0;
             foreach (Inventory inventory in room.inventory)
@@ -96,9 +96,9 @@ namespace IS_Bolnica.Services
             }
             return numberOfBeds;
         }
-        public List<Inventory> GetInventory()
-        {
-            return inventoryRepository.loadFromFile("Inventar.json");
-        }
+        //public List<Inventory> GetInventory()
+        //{
+        //    return inventoryRepository.loadFromFile("Inventar.json");
+        //}
     }
 }

@@ -145,9 +145,9 @@ namespace IS_Bolnica.DoctorsWindows
             int hour = Convert.ToInt32(hourBox.Text);
             int minute = Convert.ToInt32(minuteBox.Text);
             appointment.StartTime = new DateTime(date.Year, date.Month, date.Day, hour, minute, 0);
-            appointment.RoomRecord = new RoomRecord();
+            appointment.Room = new Room();
             appointment.AppointmentType = AppointmentType.examination;
-            appointment.RoomRecord = roomService.FindOrdinationById(appointment.Doctor.Ordination);
+            appointment.Room = roomService.FindOrdinationById(appointment.Doctor.Ordination);
         }
     }
 }
