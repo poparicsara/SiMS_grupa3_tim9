@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace IS_Bolnica.Model
 {
-    class Prescription
+    public class Prescription
     {
         public Doctor Doctor
         {

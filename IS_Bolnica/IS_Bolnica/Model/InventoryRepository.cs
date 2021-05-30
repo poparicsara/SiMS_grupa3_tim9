@@ -4,87 +4,120 @@ using IS_Bolnica;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using IS_Bolnica.Model;
-using IS_Bolnica.Services;
 
 namespace Model
 {
     public class InventoryRepository
     {
-        private List<Inventory> inventories = new List<Inventory>();
-
+        private List<Inventory> inventories;
         public InventoryRepository()
         {
 
         }
 
-        public void AddInventory(Inventory newInventory, Room room)
+        public List<Inventory> GetAll()
         {
-            room.inventory.Add(newInventory);
+            throw new NotImplementedException();
         }
 
-        public void DeleteInventory(int index, Room room)
+        public void AddInventory(Inventory newInventory)
         {
-            room.inventory.RemoveAt(index);
+            RoomRepository roomStorage = new RoomRepository();
+            List<RoomRecord> rooms = roomStorage.loadFromFile("Sobe.json");
+            AddInMagacin(newInventory, rooms);
+            roomStorage.saveToFile(rooms, "Sobe.json");
         }
 
-        public void EditInventory(int index, Room room, Inventory newInventory)
+        private static void AddInMagacin(Inventory newInventory, List<RoomRecord> rooms)
         {
-            room.inventory.RemoveAt(index);
-            room.inventory.Insert(index, newInventory);
+            foreach (RoomRecord room in rooms)
+            {
+                if (room.HospitalWard == "Magacin")
+                {
+                    room.inventory.Add(newInventory);
+                }
+            }
         }
 
-        public void AddInventoryToRoom(Room room, Inventory newInventory)
+        public void DeleteInventory(Inventory selected)
         {
+            RoomRepository roomStorage = new RoomRepository();
+            List<RoomRecord> rooms = GetRooms(roomStorage);
+            RoomRecord magacin = GetMagacin(rooms);
+            magacin.inventory.RemoveAt(GetIndexOfInventory(selected, magacin));
+            roomStorage.saveToFile(rooms, "Sobe.json");
+        }
+
+        private List<RoomRecord> GetRooms(RoomRepository storage)
+        {
+            List<RoomRecord> rooms = storage.loadFromFile("Sobe.json");
+            return rooms;
+        }
+
+        private RoomRecord GetMagacin(List<RoomRecord> rooms)
+        {                        
+            foreach (RoomRecord r in rooms)
+            {
+                if (r.HospitalWard.Equals("Magacin"))
+                {
+                    return r;
+                }
+            }
+            return null;
+        }
+
+        private int GetIndexOfInventory(Inventory selected, RoomRecord room)
+        {
+            int index = 0;
+            foreach (Inventory i in room.inventory)
+            {
+                if (i.Id == selected.Id)
+                {
+                    break;
+                }
+                index++;
+            }
+            return index;
+        }
+
+        public void EditInventory(Inventory oldInventory, Inventory newInventory)
+        {
+            RoomRepository roomStorage = new RoomRepository();
+            List<RoomRecord> rooms = GetRooms(roomStorage);
+            RoomRecord magacin = GetMagacin(rooms);
+            int index = GetIndexOfInventory(oldInventory, magacin);
+            magacin.inventory.RemoveAt(index);
+            magacin.inventory.Insert(index, newInventory);
+            roomStorage.saveToFile(rooms, "Sobe.json");
+        }
+
+        public void AddInventoryInRoom(RoomRecord room, Inventory newInventory)
+        {
+            RoomRepository roomStorage = new RoomRepository();
+            List<RoomRecord> rooms = roomStorage.loadFromFile("Sobe.json");
             newInventory.CurrentAmount = 0;
             room.inventory.Add(newInventory);
+            roomStorage.saveToFile(rooms, "Sobe.json");
         }
 
-        public List<Inventory> GetRoomInventory(Room room)
+        public void saveToFile(List<Inventory> inventories, string fileName)
         {
-            inventories = room.inventory;
-            return inventories;
+            string jsonString = JsonConvert.SerializeObject(inventories, Formatting.Indented);
+            File.WriteAllText(fileName, jsonString);
         }
 
-        public List<Inventory> GetDynamicInventory(Room room)
+        public List<Inventory> loadFromFile(string fileName)
         {
-            List<Inventory> dynamicInventory = new List<Inventory>();
-            foreach (var i in room.inventory)
+            var inventoryList = new List<Inventory>();
+
+            using (StreamReader file = File.OpenText(fileName))
             {
-                if (i.InventoryType == InventoryType.dinamicki)
-                {
-                    dynamicInventory.Add(i);
-                }
-            }
-            return dynamicInventory;
-        }
-
-        public bool HasRoomSelectedInventory(Room room, Inventory selectedInventory)
-        {
-            foreach (var i in room.inventory)
-            {
-                if (i.Id == selectedInventory.Id)
-                {
-                    return true;
-                }
+                var serializer = new JsonSerializer();
+                inventoryList = (List<Inventory>)serializer.Deserialize(file, typeof(List<Inventory>));
             }
 
-            return false;
-        }
-
-        public List<Inventory> GetStaticInventory(Room room)
-        {
-            List<Inventory> staticInventory = new List<Inventory>();
-            foreach (var i in room.inventory)
-            {
-                if (i.InventoryType == InventoryType.staticki)
-                {
-                    staticInventory.Add(i);
-                }
-            }
-            return staticInventory;
+            return inventoryList;
         }
 
     }
