@@ -207,5 +207,11 @@ namespace IS_Bolnica
         {
             this.Close();
         }
+
+        private void AnamnezeButtonClicked(object sender, RoutedEventArgs e)
+        {
+            PregledAnamneza patientAnamnesis = new PregledAnamneza();
+            patientAnamnesis.Show();
+        }
     }
 }

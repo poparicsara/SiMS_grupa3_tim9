@@ -40,5 +40,16 @@ namespace IS_Bolnica.Services
         {
             return anamnesisRepository.loadFromFile("anamneses.json");
         }
+
+        public List<Anamnesis> getPatientAnamneses(String username) {
+            List<Anamnesis> patientAnamneses = new List<Anamnesis>();
+
+            foreach (Anamnesis anamnesis in anamneses) {
+                if (anamnesis.Patient.Username.Equals(username))
+                    patientAnamneses.Add(anamnesis);
+            }
+
+            return patientAnamneses;
+        }
     }
 }

@@ -47,6 +47,7 @@
         <Button Content="Ocenjivanje" HorizontalAlignment="Left" Margin="692,185,0,0" VerticalAlignment="Top" Width="97" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="OcenjivanjeButtonClicked" Height="19"/>
         <Label Content="Vasi pregledi" FontSize="30" HorizontalAlignment="Left" Height="51" Margin="273,47,0,0" VerticalAlignment="Top" Width="180"/>
         <Button Content="Odjavite se" HorizontalAlignment="Left" Margin="692,83,0,0" VerticalAlignment="Top" Width="97" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="OdjavljivanjeButtonClicked" Height="19"/>
+        <Button Content="Anamneze" HorizontalAlignment="Left" Margin="692,377,0,0" VerticalAlignment="Top" Width="97" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="AnamnezeButtonClicked" Height="19"/>
         <Image Margin="28,10,707.6,354" Source="nasLogo.jpg" Stretch="Fill"/>
         <Label Content="Zdravo bolnica" HorizontalAlignment="Left" Height="27" Margin="10,66,0,0" VerticalAlignment="Top" Width="93"/>
     </Grid>

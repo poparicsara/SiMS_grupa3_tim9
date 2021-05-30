@@ -74,6 +74,9 @@
     <Compile Include="AddOperationWindow.xaml.cs">
       <DependentUpon>AddOperationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Beleske.xaml.cs">
+      <DependentUpon>Beleske.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ChangeInventoryPlace.xaml.cs">
       <DependentUpon>ChangeInventoryPlace.xaml</DependentUpon>
     </Compile>
@@ -144,6 +147,9 @@
     <Compile Include="Model\AppointmentType.cs" />
     <Compile Include="Model\Hospitalization.cs" />
     <Compile Include="Model\HospitalizationRepository.cs" />
+    <Compile Include="PregledAnamneza.xaml.cs">
+      <DependentUpon>PregledAnamneza.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ProlongTreatment.xaml.cs">
       <DependentUpon>ProlongTreatment.xaml</DependentUpon>
     </Compile>
@@ -410,6 +416,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Beleske.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ChangeInventoryPlace.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -493,6 +503,10 @@
     <Page Include="MergeRoomsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PregledAnamneza.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="ProlongTreatment.xaml">
       <SubType>Designer</SubType>
