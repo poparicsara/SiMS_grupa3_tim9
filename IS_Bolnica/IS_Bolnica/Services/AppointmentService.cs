@@ -22,9 +22,58 @@ namespace IS_Bolnica.Services
             appointments = GetAppointments();
         }
 
+        public List<Appointment> GetAppointments()
+        {
+            return appointmentRepository.LoadFromFile("Appointments.json");
+        }
+
+        public List<Appointment> GetDoctorsExaminations()
+        {
+            List<Appointment> doctorsExaminations = new List<Appointment>();
+            foreach (Appointment appointment in appointments)
+            {
+                foreach (User user in userService.GetLoggedUsers())
+                {
+                    if (appointment.Doctor.Username.Equals(user.Username) && appointment.AppointmentType == 0)
+                    {
+                        doctorsExaminations.Add(appointment);
+                    }
+                }
+            }
+            return doctorsExaminations;
+        }
+        public List<Appointment> GetDoctorsOperations()
+        {
+            List<Appointment> doctorsExaminations = new List<Appointment>();
+            foreach (Appointment appointment in appointments)
+            {
+                foreach (User user in userService.GetLoggedUsers())
+                {
+                    if (appointment.Doctor.Username.Equals(user.Username) && appointment.AppointmentType == AppointmentType.operation)
+                    {
+                        doctorsExaminations.Add(appointment);
+                    }
+                }
+            }
+            return doctorsExaminations;
+        }
+
+        public void ScheduleAppointment(Appointment appointment)
+        {
+            if (IsDoctorAvailable(appointment) && IsPatientAvailable(appointment))
+            {
+                appointments.Add(appointment);
+                appointmentRepository.SaveToFile(appointments, "Appointments.json");
+            }
+            else
+            {
+                MessageBox.Show("Nije moguce zakazati termin!");
+            }
+        }
+
         public void AddAppointment(Appointment appointment)
         {
-            if (isAppointmentValid(appointment))
+            if (IsAppointmentValid(appointment))
             {
                 if (isAvailable(appointments, appointment))
                 {
@@ -43,7 +92,7 @@ namespace IS_Bolnica.Services
 
         public void EditAppointment(Appointment oldAppointment, Appointment newAppointment)
         {
-            if (isAppointmentValid(newAppointment))
+            if (IsAppointmentValid(newAppointment))
             {
                 int indexOld = FindAppointmentIndex(oldAppointment);
                 appointments.RemoveAt(indexOld);
@@ -73,7 +122,7 @@ namespace IS_Bolnica.Services
             return examinations;
         }
 
-        public List<Appointment> getOperations()
+        public List<Appointment> GetOperations()
         {
             foreach (var appointment in appointments)
             {
@@ -102,7 +151,7 @@ namespace IS_Bolnica.Services
             appointmentRepository.SaveToFile(appointments, "Appointments.json");
         }
 
-        private bool isAppointmentValid(Appointment appointment)
+        private bool IsAppointmentValid(Appointment appointment)
         {
             if (appointment.Room != null && appointment.Doctor != null && appointment.Patient != null)
             {
@@ -235,55 +284,7 @@ namespace IS_Bolnica.Services
 
         }
 
-        public List<Appointment> GetAppointments()
-        {
-            return appointmentRepository.LoadFromFile("Appointments.json");
-        }
-
-        public List<Appointment> getDoctorsExaminations()
-        {
-            List<Appointment> doctorsExaminations = new List<Appointment>();
-            foreach (Appointment appointment in appointments)
-            {
-                foreach (User user in userService.GetLoggedUsers())
-                {
-                    if (appointment.Doctor.Username.Equals(user.Username) && appointment.AppointmentType == 0)
-                    {
-                        doctorsExaminations.Add(appointment);
-                    }
-                }
-            }
-            return doctorsExaminations;
-        }
-        public List<Appointment> getDoctorsOperations()
-        {
-            List<Appointment> doctorsExaminations = new List<Appointment>();
-            foreach (Appointment appointment in appointments)
-            {
-                foreach (User user in userService.GetLoggedUsers())
-                {
-                    if (appointment.Doctor.Username.Equals(user.Username) && appointment.AppointmentType == AppointmentType.operation)
-                    {
-                        doctorsExaminations.Add(appointment);
-                    }
-                }
-            }
-            return doctorsExaminations;
-        }
-
-        public void scheduleAppointment(Appointment appointment)
-        {
-            if (isDoctorAvailable(appointment) && isPatientAvailable(appointment))
-            {
-                appointments.Add(appointment);
-                appointmentRepository.SaveToFile(appointments, "Appointments.json");
-            }
-            else
-            {
-                MessageBox.Show("Nije moguce zakazati termin!");
-            }
-        }
-        private bool isDoctorAvailable(Appointment appointment)
+        private bool IsDoctorAvailable(Appointment appointment)
         {
             foreach (Appointment scheduledAppointment in appointments)
             {
@@ -299,7 +300,7 @@ namespace IS_Bolnica.Services
             return true;
         }
 
-        private bool isPatientAvailable(Appointment appointment)
+        private bool IsPatientAvailable(Appointment appointment)
         {
             foreach (Appointment scheduledAppointment in appointments)
             {

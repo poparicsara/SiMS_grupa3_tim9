@@ -29,7 +29,7 @@ namespace IS_Bolnica.Services
             return docNames;
         }
 
-        public Doctor findDoctorByName(string drNameSurname)
+        public Doctor FindDoctorByName(string drNameSurname)
         {
             Doctor doctor = new Doctor();
             List<Doctor> doctors = doctorRepository.loadFromFile("Doctors.json");
@@ -45,7 +45,7 @@ namespace IS_Bolnica.Services
             return doctor;
         }
 
-        public List<string> getSpecializationNames()
+        public List<string> GetSpecializationNames()
         {
             List<string> specializationNames = new List<string>();
             Specialization specialization = new Specialization();
@@ -58,7 +58,7 @@ namespace IS_Bolnica.Services
             return specializationNames;
         }
 
-        public List<string> getDoctorsNameSurname()
+        public List<string> GetDoctorsNameSurname()
         {
             List<string> doctorsNameSurname = new List<string>();
             foreach (Doctor doctor in doctorRepository.loadFromFile("Doctors.json"))
@@ -71,7 +71,7 @@ namespace IS_Bolnica.Services
             return doctorsNameSurname;
         }
 
-        public List<string> removeDoctorsFromComboBox()
+        public List<string> RemoveDoctorsFromComboBox()
         {
             List<string> doctorsNameSurname = new List<string>();
             foreach (Doctor doctor in doctorRepository.loadFromFile("Doctors.json"))
@@ -84,7 +84,7 @@ namespace IS_Bolnica.Services
             return doctorsNameSurname;
         }
 
-        public List<string> removeSpecialistsFromComboBox()
+        public List<string> RemoveSpecialistsFromComboBox()
         {
             List<string> specialistsNameSurname = new List<string>();
             foreach (Doctor doctor in doctorRepository.loadFromFile("Doctors.json"))
@@ -98,7 +98,7 @@ namespace IS_Bolnica.Services
             return specialistsNameSurname;
         }
 
-        public int showDoctorsOrdination(string doctorsNameSurname)
+        public int ShowDoctorsOrdination(string doctorsNameSurname)
         {
             int ordinationNumber = 0;
             foreach (Doctor doctor in doctorRepository.loadFromFile("Doctors.json"))
@@ -113,7 +113,7 @@ namespace IS_Bolnica.Services
             return ordinationNumber;
         }
 
-        public List<string> setSpecialistsInComboBox(string specializationName)
+        public List<string> SetSpecialistsInComboBox(string specializationName)
         {
             List<String> specialistsNameAndSurname = new List<string>();
             foreach (Doctor doctor in doctorRepository.loadFromFile("Doctors.json"))
@@ -131,7 +131,7 @@ namespace IS_Bolnica.Services
             return specialistsNameAndSurname;
         }
 
-        public List<string> getSpecialistsNameSurname()
+        public List<string> GetSpecialistsNameSurname()
         {
             List<string> specialistsNameSurname = new List<string>();
             foreach (Doctor doctor in doctorRepository.loadFromFile("Doctors.json"))

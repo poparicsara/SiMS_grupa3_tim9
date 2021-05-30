@@ -139,7 +139,7 @@
     <Compile Include="MergeRoomsWindow.xaml.cs">
       <DependentUpon>MergeRoomsWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\Alergeni.cs" />
+    <Compile Include="Model\Allergen.cs" />
     <Compile Include="Model\AppointmentRepository.cs" />
     <Compile Include="Model\AppointmentType.cs" />
     <Compile Include="Model\Hospitalization.cs" />

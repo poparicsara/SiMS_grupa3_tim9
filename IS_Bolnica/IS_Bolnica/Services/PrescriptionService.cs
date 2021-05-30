@@ -15,13 +15,19 @@ namespace IS_Bolnica.Services
 
         public PrescriptionService()
         {
-
+            prescriptions = GetPrescriptions();
         }
 
-        public List<string> getMedicationFromPrescription(string patientId)
+        public void CreatePrescription(Prescription prescription)
+        {
+            prescriptions.Add(prescription);
+            prescriptionRepository.saveToFile(prescriptions, "prescriptions.json");
+        }
+
+        public List<string> GetMedicationFromPrescription(string patientId)
         {
             List<string> patientsMedications = new List<string>();
-            foreach (Prescription prescription in getPrescriptions())
+            foreach (Prescription prescription in GetPrescriptions())
             {
                 if (prescription.Patient.Id.Equals(patientId))
                 {
@@ -31,7 +37,7 @@ namespace IS_Bolnica.Services
             return patientsMedications;
         }
 
-        private List<Prescription> getPrescriptions()
+        private List<Prescription> GetPrescriptions()
         {
             return prescriptionRepository.loadFromFile("prescriptions.json");
         }

@@ -156,41 +156,6 @@
     "Status": 0
   },
   {
-    "Id": 1,
-    "Name": "eto",
-    "Ingredients": [
-      {
-        "Name": "b"
-      },
-      {
-        "Name": "b"
-      },
-      {
-        "Name": "b"
-      },
-      {
-        "Name": "ccc"
-      }
-    ],
-    "Replacement": {
-      "Id": 333,
-      "Name": "aaa",
-      "Ingredients": null,
-      "Replacement": {
-        "Id": 0,
-        "Name": "aaa",
-        "Ingredients": null,
-        "Replacement": null,
-        "Producer": null,
-        "Status": 0
-      },
-      "Producer": "aaa",
-      "Status": 0
-    },
-    "Producer": "eto",
-    "Status": 1
-  },
-  {
     "Id": 66,
     "Name": "nesto",
     "Ingredients": null,
@@ -261,42 +226,6 @@
       "Status": 0
     },
     "Producer": "a",
-    "Status": 0
-  },
-  {
-    "Id": 4,
-    "Name": "AJDE",
-    "Ingredients": [
-      {
-        "Name": "c"
-      },
-      {
-        "Name": "d"
-      }
-    ],
-    "Replacement": {
-      "Id": 104,
-      "Name": "Bactim roche",
-      "Ingredients": [
-        {
-          "Name": "Sulfametoksazol"
-        },
-        {
-          "Name": "Trimetoprim"
-        }
-      ],
-      "Replacement": {
-        "Id": 102,
-        "Name": "ESBESUL",
-        "Ingredients": null,
-        "Replacement": null,
-        "Producer": "Bayer",
-        "Status": 0
-      },
-      "Producer": "Bayer",
-      "Status": 0
-    },
-    "Producer": "oni",
     "Status": 0
   }
 ]

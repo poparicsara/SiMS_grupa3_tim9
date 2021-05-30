@@ -95,5 +95,12 @@
     "Sender": 3,
     "notificationType": 2,
     "PersonId": null
+  },
+  {
+    "Title": "Izmena zahteva za novi lek",
+    "Content": "5\nb\nAlopurinol\nb\na\r\na\r\na\n\nS",
+    "Sender": 1,
+    "notificationType": 3,
+    "PersonId": null
   }
 ]

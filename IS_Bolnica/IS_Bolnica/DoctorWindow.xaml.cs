@@ -32,8 +32,8 @@ namespace IS_Bolnica
             InitializeComponent();
             this.DataContext = this;
 
-            dataGridExaminations.ItemsSource = appointmentService.getDoctorsExaminations();
-            dataGridOperations.ItemsSource = appointmentService.getDoctorsOperations();
+            dataGridExaminations.ItemsSource = appointmentService.GetDoctorsExaminations();
+            dataGridOperations.ItemsSource = appointmentService.GetDoctorsOperations();
         }
 
         private void addExaminationButton(object sender, RoutedEventArgs e)
@@ -93,7 +93,7 @@ namespace IS_Bolnica
         private void updateExaminationButton(object sender, RoutedEventArgs e)
         {
             int selectedIndex = dataGridExaminations.SelectedIndex;
-            UpdateExaminationWindow updateExaminationWindow = new UpdateExaminationWindow(selectedIndex, appointmentService.getDoctorsExaminations());
+            UpdateExaminationWindow updateExaminationWindow = new UpdateExaminationWindow(selectedIndex, appointmentService.GetDoctorsExaminations());
             updateExaminationWindow.Show();
             this.Close();
         }
@@ -101,7 +101,7 @@ namespace IS_Bolnica
         private void updateOperationButton(object sender, RoutedEventArgs e)
         {
             int selectedIndex = dataGridOperations.SelectedIndex;
-            UpdateOperationWindow updateOperationWindow = new UpdateOperationWindow(selectedIndex, appointmentService.getDoctorsOperations());
+            UpdateOperationWindow updateOperationWindow = new UpdateOperationWindow(selectedIndex, appointmentService.GetDoctorsOperations());
             updateOperationWindow.Show();
             this.Close();
         }
@@ -109,7 +109,7 @@ namespace IS_Bolnica
         private void startExamination(object sender, RoutedEventArgs e)
         {
             int selectedIndex = dataGridExaminations.SelectedIndex;
-            ExaminationInfo examinationInfo = new ExaminationInfo(selectedIndex, appointmentService.getDoctorsExaminations());
+            ExaminationInfo examinationInfo = new ExaminationInfo(selectedIndex, appointmentService.GetDoctorsExaminations());
             examinationInfo.Show();
         }
 
@@ -121,7 +121,7 @@ namespace IS_Bolnica
 
         private void logOutButtonClicked(object sender, RoutedEventArgs e)
         {
-            userService.logOut();
+            userService.LogOut();
             MainWindow mainWindow = new MainWindow();
             this.Close();
             mainWindow.Show();

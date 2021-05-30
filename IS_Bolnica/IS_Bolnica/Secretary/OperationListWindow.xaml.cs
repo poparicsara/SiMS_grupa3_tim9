@@ -42,7 +42,7 @@ namespace IS_Bolnica.Secretary
             InitializeComponent();
             this.DataContext = this;
 
-            OperationList.ItemsSource = appointmentService.getOperations();
+            OperationList.ItemsSource = appointmentService.GetOperations();
 
         }
 

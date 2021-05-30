@@ -23,7 +23,7 @@ namespace IS_Bolnica
         {
             InitializeComponent();
 
-            medicationsDataGrid.ItemsSource = medicamentService.showApprovedMedicaments();
+            medicationsDataGrid.ItemsSource = medicamentService.ShowApprovedMedicaments();
         }
 
         private void medicationDoubleClicked(object sender, MouseButtonEventArgs e)

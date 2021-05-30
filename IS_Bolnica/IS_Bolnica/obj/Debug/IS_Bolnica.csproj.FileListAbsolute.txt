@@ -931,3 +931,17 @@ C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Hospita
 C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\MergeRoomsWindow.baml
 C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\ProlongTreatment.baml
 C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\SeparateRoomWindow.baml
+C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DemoMode\DemoInventoryWindow.g.cs
+C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DemoMode\DemoMedicamentWindow.g.cs
+C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DemoMode\DemoProfileWindow.g.cs
+C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DemoMode\DemoRoomWindow.g.cs
+C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DirectorLogInWindow.g.cs
+C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\MergeRoomsWindow.g.cs
+C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\SeparateRoomWindow.g.cs
+C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DemoMode\DemoInventoryWindow.baml
+C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DemoMode\DemoMedicamentWindow.baml
+C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DemoMode\DemoProfileWindow.baml
+C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DemoMode\DemoRoomWindow.baml
+C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\DirectorLogInWindow.baml
+C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\MergeRoomsWindow.baml
+C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\SeparateRoomWindow.baml

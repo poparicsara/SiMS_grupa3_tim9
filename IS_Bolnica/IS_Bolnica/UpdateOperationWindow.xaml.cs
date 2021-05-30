@@ -58,14 +58,14 @@ namespace IS_Bolnica.DoctorsWindows
             Minutes.Add(30);
             minuteBox.ItemsSource = Minutes;
 
-            doctorsComboBox.ItemsSource = doctorService.getSpecialistsNameSurname();
+            doctorsComboBox.ItemsSource = doctorService.GetSpecialistsNameSurname();
         }
 
         private void saveButtonClicked(object sender, RoutedEventArgs e)
         {
             appointmentService.DeleteAppointment(operation);
 
-            operation.Doctor = doctorService.findDoctorByName(doctorsComboBox.SelectedItem.ToString());
+            operation.Doctor = doctorService.FindDoctorByName(doctorsComboBox.SelectedItem.ToString());
             operation.Patient = patientService.findPatientById(jmbgTxt.Text);
             DateTime date = new DateTime();
             date = (DateTime) datePicker.SelectedDate;
@@ -82,7 +82,7 @@ namespace IS_Bolnica.DoctorsWindows
                 }
             }
 
-            appointmentService.scheduleAppointment(operation);
+            appointmentService.ScheduleAppointment(operation);
 
             DoctorWindow doctorWindow = new DoctorWindow();
             doctorWindow.tabs.SelectedItem = doctorWindow.operationsTab;

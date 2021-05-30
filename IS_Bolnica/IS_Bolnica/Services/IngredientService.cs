@@ -16,7 +16,7 @@ namespace IS_Bolnica.Services
 
         }
 
-        public void removeIngredientFromMedicament(Medicament medicament, Ingredient ingredient)
+        public void RemoveIngredientFromMedicament(Medicament medicament, Ingredient ingredient)
         {
             for (int i = 0; i < medicament.Ingredients.Count; i++)
             {
@@ -26,11 +26,5 @@ namespace IS_Bolnica.Services
                 }
             }
         }
-
-        private List<Ingredient> getIngredients()
-        {
-            return ingredientRepository.loadFromFile("Sastojci.json");
-        }
-
     }
 }

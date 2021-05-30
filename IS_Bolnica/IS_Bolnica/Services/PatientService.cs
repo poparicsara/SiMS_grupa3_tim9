@@ -20,6 +20,73 @@ namespace IS_Bolnica.Services
             patients = GetPatients();
         }
 
+        public List<Patient> GetPatients()
+        {
+            return patientRepository.LoadFromFile("PatientRecordFileStorage.json");
+        }
+
+        public Patient findPatientById(string id)
+        {
+            Patient foundPatient = new Patient();
+            foreach (Patient patient in patients)
+            {
+                if (patient.Id.Equals(id))
+                {
+                    foundPatient = patient;
+                }
+            }
+
+            return foundPatient;
+        }
+
+        public List<string> GetPatientsAllergies(string patientId)
+        {
+            List<string> allergies = new List<string>();
+            for (int i = 0; i < patients.Count; i++)
+            {
+                if (patients[i].Id.Equals(patientId))
+                {
+                    for (int j = 0; j < patients[i].Alergeni.Count; j++)
+                    {
+                        allergies.Add(patients[i].Alergeni[j].Name);
+                        for (int k = 0; k < patients[i].Alergeni[j].IngredientsAllergens.Count; k++)
+                        {
+                            allergies.Add(patients[i].Alergeni[j].IngredientsAllergens[k].Name);
+                            allergies.Add(patients[i].Alergeni[j].MedicamentsAllergens[k].Name);
+                        }
+                    }
+                }
+            }
+
+            return allergies;
+        }
+
+        public bool IsPatientAllergic(string patientId, string allergen)
+        {
+            for (int i = 0; i < patients.Count; i++)
+            {
+                if (patients[i].Id.Equals(patientId))
+                {
+                    for (int j = 0; j < patients[i].Alergeni.Count; j++)
+                    {
+                        if (patients[i].Alergeni[j].Name == allergen)
+                        {
+                            return true;
+                        }
+                        for (int k = 0; k < patients[i].Alergeni[j].IngredientsAllergens.Count; k++)
+                        {
+                            if (patients[i].Alergeni[j].IngredientsAllergens[k].Name == allergen
+                                || patients[i].Alergeni[j].MedicamentsAllergens[k].Name == allergen)
+                            {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
         public void AddPatient(Patient patient)
         {
             patients.Add(patient);
@@ -69,25 +136,6 @@ namespace IS_Bolnica.Services
 
             return -1;
 
-        }
-
-        public List<Patient> GetPatients()
-        {
-            return patientRepository.LoadFromFile("PatientRecordFileStorage.json");
-        }
-
-        public Patient findPatientById(string id)
-        {
-            Patient foundPatient = new Patient();
-            foreach (Patient patient in patients)
-            {
-                if (patient.Id.Equals(id))
-                {
-                    foundPatient = patient;
-                }
-            }
-
-            return foundPatient;
         }
     }
 }

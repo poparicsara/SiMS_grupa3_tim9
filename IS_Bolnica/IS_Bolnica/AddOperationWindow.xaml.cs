@@ -34,7 +34,7 @@ namespace IS_Bolnica.DoctorsWindows
             InitializeComponent();
             roomComboBox.ItemsSource = roomService.GetOperationRoomsId();
             SetTimePicker();
-            doctorsComboBox.ItemsSource = doctorService.getSpecialistsNameSurname();
+            doctorsComboBox.ItemsSource = doctorService.GetSpecialistsNameSurname();
         }
 
         private void cancelButtonClicked(object sender, RoutedEventArgs e)
@@ -57,7 +57,7 @@ namespace IS_Bolnica.DoctorsWindows
 
         private void saveButtonClicked(object sender, RoutedEventArgs e)
         {
-            appointment.Doctor = doctorService.findDoctorByName(doctorsComboBox.SelectedItem.ToString());
+            appointment.Doctor = doctorService.FindDoctorByName(doctorsComboBox.SelectedItem.ToString());
             appointment.Patient = patientService.findPatientById(jmbgTxt.Text);
             appointment.Room = new Room();
             foreach (Room room in roomService.GetRooms())
@@ -102,7 +102,7 @@ namespace IS_Bolnica.DoctorsWindows
                 appointment.StartTime = dateTime;
             }
 
-            appointmentService.scheduleAppointment(appointment);
+            appointmentService.ScheduleAppointment(appointment);
 
             DoctorWindow doctorWindow = new DoctorWindow();
             doctorWindow.tabs.SelectedItem = doctorWindow.operationsTab;

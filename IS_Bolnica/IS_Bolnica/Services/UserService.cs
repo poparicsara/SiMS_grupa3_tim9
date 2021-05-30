@@ -103,7 +103,7 @@ namespace IS_Bolnica.Services
             return userRepository.LoadFromFile("loggedUsers.json");
         }
 
-        public void logOut()
+        public void LogOut()
         {
             for (int i = 0; i < loggedUsers.Count; i++)
             {

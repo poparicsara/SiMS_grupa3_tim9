@@ -52,7 +52,7 @@ namespace IS_Bolnica.DoctorsWindows
         private void saveButtonClicked(object sender, RoutedEventArgs e)
         {
             SetDataInTextFields();
-            appointmentService.scheduleAppointment(appointment);
+            appointmentService.ScheduleAppointment(appointment);
 
             DoctorWindow doctorWindow = new DoctorWindow();
             doctorWindow.dataGridExaminations.Items.Refresh();
@@ -64,26 +64,26 @@ namespace IS_Bolnica.DoctorsWindows
 
         private void specijalistiRadioBtn_Checked(object sender, RoutedEventArgs e)
         {
-            chooseSpecComboBox.ItemsSource = doctorService.getSpecializationNames();
+            chooseSpecComboBox.ItemsSource = doctorService.GetSpecializationNames();
         }
 
         private void opstaPraksaRadioBtn_Checked(object sender, RoutedEventArgs e)
         {
-            doctorsComboBox.ItemsSource = doctorService.getDoctorsNameSurname();
+            doctorsComboBox.ItemsSource = doctorService.GetDoctorsNameSurname();
             chooseSpecComboBox.IsEnabled = false;
             chooseSpecComboBox.IsEditable = false;
         }
 
         private void opstaPraksaRadioBtn_Unchecked(object sender, RoutedEventArgs e)
         {
-            doctorsComboBox.ItemsSource = doctorService.removeDoctorsFromComboBox();
+            doctorsComboBox.ItemsSource = doctorService.RemoveDoctorsFromComboBox();
             chooseSpecComboBox.IsEnabled = true;
             chooseSpecComboBox.IsEditable = true;
         }
 
         private void specijalistiRadioBtn_Unchecked(object sender, RoutedEventArgs e)
         {
-            doctorsComboBox.ItemsSource = doctorService.removeSpecialistsFromComboBox();
+            doctorsComboBox.ItemsSource = doctorService.RemoveSpecialistsFromComboBox();
         }
 
         private void jmbgTxt_LostFocus(object sender, RoutedEventArgs e)
@@ -93,12 +93,12 @@ namespace IS_Bolnica.DoctorsWindows
         }
         private void showDoctorOrdination()
         {
-            roomTxt.Text = doctorService.showDoctorsOrdination(doctorsComboBox.SelectedItem.ToString()).ToString();
+            roomTxt.Text = doctorService.ShowDoctorsOrdination(doctorsComboBox.SelectedItem.ToString()).ToString();
         }
 
         private void showDoctors(string specializationName)
         {
-            doctorsComboBox.ItemsSource = doctorService.setSpecialistsInComboBox(specializationName);
+            doctorsComboBox.ItemsSource = doctorService.SetSpecialistsInComboBox(specializationName);
         }
 
         private void doctorsComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -138,7 +138,7 @@ namespace IS_Bolnica.DoctorsWindows
 
         private void SetDataInTextFields()
         {
-            appointment.Doctor = doctorService.findDoctorByName(doctorsComboBox.SelectedItem.ToString());
+            appointment.Doctor = doctorService.FindDoctorByName(doctorsComboBox.SelectedItem.ToString());
             appointment.Patient = patientService.findPatientById(jmbgTxt.Text);
             DateTime date = new DateTime();
             date = (DateTime)datePicker.SelectedDate;

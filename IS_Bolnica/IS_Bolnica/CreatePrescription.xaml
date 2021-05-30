@@ -22,7 +22,7 @@
         <TextBox x:Name="hospitalTxt" HorizontalAlignment="Left" Height="23" Margin="316,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" Text="&quot;Zdravo&quot; korporacija" IsReadOnly="True"/>
         <TextBox x:Name="patientTxt" HorizontalAlignment="Left" Height="24" Margin="316,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" IsReadOnly="True"/>
         <TextBox x:Name ="healthCardIdTxt"  HorizontalAlignment="Left" Height="23" Margin="316,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90" IsReadOnly="True"/>
-        <TextBox x:Name="medTxt" HorizontalAlignment="Left" Height="22" Margin="316,485,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" />
+        <TextBox x:Name="medTxt" HorizontalAlignment="Left" Height="22" Margin="316,485,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" TextChanged="medTxt_TextChanged" />
         <TextBox x:Name="prescriptionDateTxt" HorizontalAlignment="Left" Height="23" Margin="727,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" IsReadOnly="True"/>
         <TextBox x:Name ="doctorTxt"  HorizontalAlignment="Left" Height="22" Margin="316,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" IsReadOnly="True" Grid.Row="1"/>
         <Button Name="potvrdiBtn" Content="Potvrdi" HorizontalAlignment="Left" Margin="764,16,0,0" VerticalAlignment="Top" Width="103" Height="34" Click="potvrdiClicked" Grid.Row="1" Background="#FF15285D" Foreground="White" FontWeight="Bold" FontSize="14" FontFamily="Ebrima"/>

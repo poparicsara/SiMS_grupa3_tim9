@@ -24,6 +24,7 @@ namespace IS_Bolnica
         private List<Appointment> loggedExaminations;
         private PrescriptionService prescriptionService = new PrescriptionService();
         private AnamnesisService anamnesisService = new AnamnesisService();
+        private PatientService patientService = new PatientService();
         public ExaminationInfo(int selectedIndex, List<Appointment> loggedDoctorExaminations)
         {
             InitializeComponent();
@@ -39,16 +40,9 @@ namespace IS_Bolnica
             healthCardNumberTxt.Text = examination.Patient.HealthCardNumber;
             addressTxt.Text = examination.Patient.Address.Street + ", " + examination.Patient.Address.City.name;
 
-            medicationsList.ItemsSource = prescriptionService.getMedicationFromPrescription(jmbgTxt.Text);
-            historyList.ItemsSource = anamnesisService.getPatientsDiagnosesFromAnamneses(jmbgTxt.Text);
-
-            if (examination.Patient.Id.Equals(jmbgTxt.Text))
-            {
-                for (int i = 0; i < examination.Patient.Allergens.Count; i++)
-                {
-                    allergiesList.Items.Add(examination.Patient.Allergens[i]);
-                }
-            }
+            medicationsList.ItemsSource = prescriptionService.GetMedicationFromPrescription(jmbgTxt.Text);
+            historyList.ItemsSource = anamnesisService.GetPatientsDiagnosesFromAnamneses(jmbgTxt.Text);
+            allergiesList.ItemsSource = patientService.GetPatientsAllergies(jmbgTxt.Text);
 
             selectedPatient = selectedIndex;
         }

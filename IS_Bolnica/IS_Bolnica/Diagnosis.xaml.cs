@@ -42,13 +42,13 @@ namespace IS_Bolnica
 
         private void izdajRecept(object sender, RoutedEventArgs e)
         {
-            anamnesis.Doctor = doctorService.findDoctorByName(doctorTxt.Text);
+            anamnesis.Doctor = doctorService.FindDoctorByName(doctorTxt.Text);
             anamnesis.Patient = patientService.findPatientById(jmbgTxt.Text);
             anamnesis.Symptoms = symptomsTxt.Text;
             anamnesis.Diagnosis = diagnosisTxt.Text;
             anamnesis.Date = DateTime.Parse(dateOfExaminationTxt.Text);
 
-            anamnesisService.createAnamnesis(anamnesis);
+            anamnesisService.CreateAnamnesis(anamnesis);
 
             CreatePrescription createPrescription = new CreatePrescription(anamnesis);
             createPrescription.Show();
@@ -69,13 +69,13 @@ namespace IS_Bolnica
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            anamnesis.Doctor = doctorService.findDoctorByName(doctorTxt.Text);
+            anamnesis.Doctor = doctorService.FindDoctorByName(doctorTxt.Text);
             anamnesis.Patient = patientService.findPatientById(jmbgTxt.Text);
             anamnesis.Symptoms = symptomsTxt.Text;
             anamnesis.Diagnosis = diagnosisTxt.Text;
             anamnesis.Date = DateTime.Parse(dateOfExaminationTxt.Text);
 
-            anamnesisService.createAnamnesis(anamnesis);
+            anamnesisService.CreateAnamnesis(anamnesis);
             HospitalizationForm hospitalizationForm = new HospitalizationForm(anamnesis);
             hospitalizationForm.Show();
         }
