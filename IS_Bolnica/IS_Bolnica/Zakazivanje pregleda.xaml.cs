@@ -1,4 +1,5 @@
 ﻿using IS_Bolnica.Model;
+using IS_Bolnica.Services;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -26,30 +27,17 @@ namespace IS_Bolnica
         public String doktor_ime = "";
         public String doktor_prezime = "";
         public String datum_predlozi = "";
-        public List<String> doktori { get; set; }
-        public int akcije { get; set; }
-        public int ocenePacijenta { get; set; }
+        private DoctorService doctorService = new DoctorService();
+        private FindAttributesService findAttributesService = new FindAttributesService();
+        private AppointmentService appointmentService = new AppointmentService();
+        public List<String> doctors { get; set; }
         public Zakazivanje_pregleda(int brojAkcija, int brojOcenjivanja)
         {
-            UserRepository exStorage = new UserRepository();
-            List<User> users = exStorage.LoadFromFile("UserRepository.json");
-
-            doktori = new List<String>();
-
-            foreach (User user in users)
-            {
-                if (Convert.ToInt32(user.UserType) == 1)
-                {
-                    doktori.Add(user.Name + " " + user.Surname);
-                }
-            }
-            akcije = brojAkcija;
-            ocenePacijenta = brojOcenjivanja;
+            doctors = doctorService.GetDoctorNamesList();
 
             DataContext = this;
 
             InitializeComponent();
-
         }
 
         private void ButtonOdustaniClicked(object sender, RoutedEventArgs e)
@@ -61,49 +49,27 @@ namespace IS_Bolnica
 
         private void ButtonZakaziClicked(object sender, RoutedEventArgs e)
         {
-            ExaminationsRecordFileStorage exStorage = new ExaminationsRecordFileStorage();
-            List<Examination> pregledi = exStorage.loadFromFile("Pregledi.json");
-
-            Doctor d1 = new Doctor();
-            String nameAndSurname = DoctorCombo.Text;
-            d1.Name = Regex.Replace(nameAndSurname.Split()[0], @"[^0-9a-zA-Z\ ]+", "");
-            d1.Surname = Regex.Replace(nameAndSurname.Split()[1], @"[^0-9a-zA-Z\ ]+", "");
-
-            DateTime datum = (DateTime)Datum.SelectedDate;
-            int dan = datum.Day;
-            int mesec = datum.Month;
-            int godina = datum.Year;
-            int sati = Convert.ToInt32(hourBox.Text);
-            int minuti = Convert.ToInt32(minutesBox.Text);
-            DateTime datumPregleda = new DateTime(godina, mesec, dan, sati, minuti, 0);
-            bool dodavanje = false;
-
-            foreach (Examination pregled in pregledi)
+            if (!appointmentService.processActions())
             {
-                if (Convert.ToString(pregled.Date).Equals(datumPregleda.ToString()) && d1.Name.Equals(pregled.Doctor.Name) && d1.Surname.Equals(pregled.Doctor.Surname))
+                String nameAndSurname = DoctorCombo.Text;
+                Doctor doctor = findAttributesService.findDoctor(Regex.Replace(nameAndSurname.Split()[0], @"[^0-9a-zA-Z\ ]+", ""),
+                    Regex.Replace(nameAndSurname.Split()[1], @"[^0-9a-zA-Z\ ]+", ""));
+                DateTime dateOfAppointment = findAttributesService.returnSelectedDate((DateTime)Datum.SelectedDate, hourBox.Text, minutesBox.Text);
+
+                if (!appointmentService.isSelectedDateFree(dateOfAppointment, doctor))
                 {
-                    MessageBox.Show("Ne mozete zakazati pregled jer je ovaj termin pregleda kod oznacenog doktora vec zauzet!");
-                    dodavanje = true;
-                    break;
+                    Random rnd = new Random();
+                    int duration = rnd.Next(23, 29);
+                    Patient patient = findAttributesService.findPatientByUsername(PatientWindow.username_patient);
+                    Room room = findAttributesService.findRoomByDoctor(doctor);
+                    Appointment appointment = new Appointment { DurationInMins = duration, Doctor = doctor, StartTime = dateOfAppointment, EndTime = dateOfAppointment.AddMinutes(30), Patient = patient, Room = room };
+                    appointmentService.AddAppointment(appointment);
                 }
 
+                PatientWindow pw = new PatientWindow(PatientWindow.username_patient, false);
+                pw.Show();
+                this.Close();
             }
-            if (!dodavanje)
-            {
-                Random rnd = new Random();
-                int trajanje = rnd.Next(23, 29);
-                Patient pacijent = new Patient();
-                pacijent.Username = PatientWindow.username_patient;
-                pacijent.Akcije = akcije;
-                pacijent.brojOcenjenihPregleda = ocenePacijenta;
-                Examination e1 = new Examination { DurationInMinutes = trajanje, Doctor = d1, Date = datumPregleda, Patient = pacijent };
-                pregledi.Add(e1);
-            }
-
-            exStorage.saveToFile(pregledi, "Pregledi.json");
-            PatientWindow pw = new PatientWindow(PatientWindow.username_patient, false);
-            pw.Show();
-            this.Close();
         }
 
         private void ButtonPredloziClicked(object sender, RoutedEventArgs e)

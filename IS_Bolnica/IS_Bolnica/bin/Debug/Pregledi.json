@@ -53,43 +53,7 @@
       "Address": null
     },
     "Secretary": null,
-    "RoomRecord": {
-      "Id": 102,
-      "HospitalWard": "Ortopedija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Krevet",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 666,
-          "InventoryType": 1
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Ordinacija"
-      }
-    },
+    "Room": null,
     "GuestUser": null,
     "PostponedDate": "0001-01-01T00:00:00"
   },
@@ -147,43 +111,7 @@
       "Address": null
     },
     "Secretary": null,
-    "RoomRecord": {
-      "Id": 102,
-      "HospitalWard": "Ortopedija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Krevet",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 666,
-          "InventoryType": 1
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Ordinacija"
-      }
-    },
+    "Room": null,
     "GuestUser": null,
     "PostponedDate": "0001-01-01T00:00:00"
   },
@@ -241,43 +169,7 @@
       "Address": null
     },
     "Secretary": null,
-    "RoomRecord": {
-      "Id": 102,
-      "HospitalWard": "Ortopedija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Krevet",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 666,
-          "InventoryType": 1
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Ordinacija"
-      }
-    },
+    "Room": null,
     "GuestUser": {
       "SystemName": null,
       "InjuryDescription": null
@@ -338,43 +230,7 @@
       "Address": null
     },
     "Secretary": null,
-    "RoomRecord": {
-      "Id": 102,
-      "HospitalWard": "Ortopedija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Krevet",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 666,
-          "InventoryType": 1
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Ordinacija"
-      }
-    },
+    "Room": null,
     "GuestUser": {
       "SystemName": null,
       "InjuryDescription": null
@@ -435,43 +291,7 @@
       "Address": null
     },
     "Secretary": null,
-    "RoomRecord": {
-      "Id": 102,
-      "HospitalWard": "Ortopedija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Krevet",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 666,
-          "InventoryType": 1
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Ordinacija"
-      }
-    },
+    "Room": null,
     "GuestUser": {
       "SystemName": null,
       "InjuryDescription": null
@@ -532,43 +352,7 @@
       "Address": null
     },
     "Secretary": null,
-    "RoomRecord": {
-      "Id": 102,
-      "HospitalWard": "Ortopedija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Krevet",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 666,
-          "InventoryType": 1
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Ordinacija"
-      }
-    },
+    "Room": null,
     "GuestUser": null,
     "PostponedDate": "0001-01-01T00:00:00"
   },
@@ -626,43 +410,7 @@
       "Address": null
     },
     "Secretary": null,
-    "RoomRecord": {
-      "Id": 102,
-      "HospitalWard": "Ortopedija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Krevet",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 666,
-          "InventoryType": 1
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Ordinacija"
-      }
-    },
+    "Room": null,
     "GuestUser": {
       "SystemName": null,
       "InjuryDescription": null
@@ -723,43 +471,7 @@
       "Address": null
     },
     "Secretary": null,
-    "RoomRecord": {
-      "Id": 102,
-      "HospitalWard": "Ortopedija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Krevet",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 666,
-          "InventoryType": 1
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Ordinacija"
-      }
-    },
+    "Room": null,
     "GuestUser": null,
     "PostponedDate": "0001-01-01T00:00:00"
   },
@@ -817,36 +529,7 @@
       "Address": null
     },
     "Secretary": null,
-    "RoomRecord": {
-      "Id": 300,
-      "HospitalWard": "Pedijatrija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 27,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Ordinacija"
-      }
-    },
+    "Room": null,
     "GuestUser": {
       "SystemName": null,
       "InjuryDescription": null
@@ -907,36 +590,7 @@
       "Address": null
     },
     "Secretary": null,
-    "RoomRecord": {
-      "Id": 300,
-      "HospitalWard": "Pedijatrija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 27,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Ordinacija"
-      }
-    },
+    "Room": null,
     "GuestUser": null,
     "PostponedDate": "0001-01-01T00:00:00"
   },
@@ -994,36 +648,7 @@
       "Address": null
     },
     "Secretary": null,
-    "RoomRecord": {
-      "Id": 300,
-      "HospitalWard": "Pedijatrija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 27,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Ordinacija"
-      }
-    },
+    "Room": null,
     "GuestUser": {
       "SystemName": null,
       "InjuryDescription": null
@@ -1084,36 +709,7 @@
       "Address": null
     },
     "Secretary": null,
-    "RoomRecord": {
-      "Id": 300,
-      "HospitalWard": "Pedijatrija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 27,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Ordinacija"
-      }
-    },
+    "Room": null,
     "GuestUser": {
       "SystemName": null,
       "InjuryDescription": null
@@ -1174,36 +770,7 @@
       "Address": null
     },
     "Secretary": null,
-    "RoomRecord": {
-      "Id": 300,
-      "HospitalWard": "Pedijatrija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 27,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Ordinacija"
-      }
-    },
+    "Room": null,
     "GuestUser": {
       "SystemName": null,
       "InjuryDescription": null
@@ -1264,12 +831,7 @@
       "Address": null
     },
     "Secretary": null,
-    "RoomRecord": {
-      "Id": 0,
-      "HospitalWard": null,
-      "inventory": null,
-      "roomPurpose": null
-    },
+    "Room": null,
     "GuestUser": null,
     "PostponedDate": "0001-01-01T00:00:00"
   },
@@ -1327,36 +889,7 @@
       "Address": null
     },
     "Secretary": null,
-    "RoomRecord": {
-      "Id": 301,
-      "HospitalWard": "Pedijatrija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 27,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Ordinacija"
-      }
-    },
+    "Room": null,
     "GuestUser": null,
     "PostponedDate": "0001-01-01T00:00:00"
   },
@@ -1414,36 +947,49 @@
       "Address": null
     },
     "Secretary": null,
-    "RoomRecord": {
-      "Id": 300,
-      "HospitalWard": "Pedijatrija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 27,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Ordinacija"
-      }
+    "Room": null,
+    "GuestUser": null,
+    "PostponedDate": "0001-01-01T00:00:00"
+  },
+  {
+    "DurationInMinutes": 28,
+    "Date": "2021-06-03T14:30:00",
+    "Patient": {
+      "Allergens": null,
+      "examinations": null,
+      "Akcije": 0,
+      "brojOcenjenihPregleda": 0,
+      "Debit": 0.0,
+      "HealthCardNumber": null,
+      "Anamneses": null,
+      "Ingredients": null,
+      "Username": "Vladimir",
+      "Password": null,
+      "Name": null,
+      "Surname": null,
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": null,
+      "Email": null,
+      "Id": null,
+      "UserType": 0,
+      "Address": null
     },
+    "Doctor": {
+      "Specialization": null,
+      "Ordination": 0,
+      "Username": null,
+      "Password": null,
+      "Name": "Ana",
+      "Surname": "Petrovic",
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": null,
+      "Email": null,
+      "Id": null,
+      "UserType": 0,
+      "Address": null
+    },
+    "Secretary": null,
+    "Room": null,
     "GuestUser": null,
     "PostponedDate": "0001-01-01T00:00:00"
   }

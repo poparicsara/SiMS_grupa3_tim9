@@ -33,10 +33,10 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Datum i vreme" Binding="{ Binding Date }" />
+                <DataGridTextColumn Header="Datum i vreme" Binding="{ Binding StartTime }" />
                 <DataGridTextColumn Header="Ime" Binding="{ Binding Doctor.Name}" />
                 <DataGridTextColumn Header="Prezime" Binding="{ Binding Doctor.Surname}" />
-                <DataGridTextColumn Header="Trajanje(min)" Binding="{ Binding DurationInMinutes}" />
+                <DataGridTextColumn Header="Trajanje(min)" Binding="{ Binding DurationInMins}" />
             </DataGrid.Columns>
 
         </DataGrid>

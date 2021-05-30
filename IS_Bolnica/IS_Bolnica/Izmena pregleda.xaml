@@ -18,7 +18,7 @@
         <Label Content="Vreme pregleda" FontSize="20" HorizontalAlignment="Left" Margin="95,267,0,0" VerticalAlignment="Top"/>
         <Button Content="Izmeni" FontSize="20" HorizontalAlignment="Left" Margin="208,350,0,0" VerticalAlignment="Top" Width="97" Height="38" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="IzmeniButtonClicked"/>
         <Button Content="Odustani" FontSize="20" HorizontalAlignment="Left" Margin="386,350,0,0" VerticalAlignment="Top" Width="106" Height="38" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="OdustaniButtonClicked" />
-        <ComboBox ItemsSource="{Binding Path=doktori}" HorizontalAlignment="Left" FontSize="18" Height="37" Margin="296,139,0,0" VerticalAlignment="Top" Width="151" Name="DoktorBox" />
+        <ComboBox ItemsSource="{Binding Path=doctors}" HorizontalAlignment="Left" FontSize="18" Height="37" Margin="296,139,0,0" VerticalAlignment="Top" Width="151" Name="DoktorBox" />
         <DatePicker HorizontalAlignment="Left" FontSize="18" Margin="296,210,0,0" VerticalAlignment="Top" Height="32" Width="151" Name="DateBox"/>
         <ComboBox HorizontalAlignment="Left" FontSize="18" Margin="296,273,0,0" VerticalAlignment="Top" Width="60" Name="SatiBox">
             <ComboBoxItem Content="07"/>

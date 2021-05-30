@@ -22,7 +22,7 @@
         <DatePicker Name="Datum"  HorizontalAlignment="Left" FontSize="15" Margin="232,199,0,0" VerticalAlignment="Top" Height="25" Width="134" DisplayDateStart="{Binding DisplayDate, ElementName=Datum}"/>
         <Button Content="Zakazi" FontSize="18" HorizontalAlignment="Left" Margin="232,356,0,0" VerticalAlignment="Top" Width="94" Height="36" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="ButtonZakaziClicked"/>
         <Button Content="Odustani" FontSize="18" HorizontalAlignment="Left" Margin="408,356,0,0" VerticalAlignment="Top" Width="94" Height="36" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="ButtonOdustaniClicked"/>
-        <ComboBox ItemsSource="{Binding Path=doktori}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="232,133,0,0" Width="134" Name="DoctorCombo" Height="22" />
+        <ComboBox ItemsSource="{Binding Path=doctors}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="232,133,0,0" Width="134" Name="DoctorCombo" Height="22" />
 
         <Label Content="Vreme" FontSize="20" HorizontalAlignment="Left" Margin="96,261,0,0" VerticalAlignment="Top" Height="37" Width="67"/>
 

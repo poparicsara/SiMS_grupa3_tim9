@@ -11,6 +11,7 @@ namespace IS_Bolnica.Services
 {
     class FindAttributesService
     {
+        private AppointmentRepository appointmentRepository = new AppointmentRepository();
         private List<Patient> patients = new List<Patient>();
         private PatientRepository patientRepository = new PatientRepository();
         private List<Doctor> doctors = new List<Doctor>();
@@ -80,6 +81,123 @@ namespace IS_Bolnica.Services
             return null;
         }
 
-        //public 
+        public Patient findPatientByUsername(string username)
+        {
+            patients = patientRepository.LoadFromFile("PatientRecordFileStorage.json");
+            Patient returnPatient = new Patient();
+
+            foreach (Patient patient in patients)
+            {
+                if (patient.Username.Equals(username))
+                {
+                    returnPatient = patient;
+                }
+            }
+
+            return returnPatient;
+        }
+
+        public DateTime returnSelectedDate(DateTime date, String selectedHour, String selectedMin)
+        {
+            int days = date.Day;
+            int month = date.Month;
+            int year = date.Year;
+            int hours = Convert.ToInt32(selectedHour);
+            int minutes = Convert.ToInt32(selectedMin);
+
+            DateTime selectedDate = new DateTime(year, month, days, hours, minutes, 0);
+            return selectedDate;
+        }
+
+        public Boolean checkSelectedIndex(int index, Boolean value)
+        {
+            if (index == -1 && value)
+            {
+                MessageBox.Show("Oznacite pregled koji zelite da izmenite!");
+                return true;
+            }
+            else if (index == -1 && !value)
+            {
+                MessageBox.Show("Oznacite pregled koji zelite da otkazete!");
+                return true;
+            }
+            return false;
+        }
+
+        public DateTime returnSelectedDateByIndex(int index)
+        {
+            List<Appointment> patientAppointments = FindPatientAppointments(findPatientByUsername(PatientWindow.username_patient));
+            //2.3.2020. 09:15:00 
+            DateTime selectedDate = patientAppointments.ElementAt(index).StartTime;
+            string[] pom = selectedDate.ToString().Split(' ');
+            string[] date = pom[0].Split('/');
+            DateTime returnDate = new DateTime(Int32.Parse(date[2]), Int32.Parse(date[0]), Int32.Parse(date[1]));
+
+            return returnDate;
+        }
+
+        public String returnDoctorsNameAndSurnameByIndex(int index)
+        {
+            List<Appointment> patientAppointments = FindPatientAppointments(findPatientByUsername(PatientWindow.username_patient));
+            return patientAppointments.ElementAt(index).Doctor.Name + " " + patientAppointments.ElementAt(index).Doctor.Surname;
+        }
+
+        public String returnSelectedHourByIndex(int index)
+        {
+            List<Appointment> patientAppointments = FindPatientAppointments(findPatientByUsername(PatientWindow.username_patient));
+
+            DateTime selectedDate = patientAppointments.ElementAt(index).StartTime;
+            string[] pom = selectedDate.ToString().Split(' ');
+            string[] time = pom[1].Split(':');
+            String hour = "";
+            if (pom[2].Equals("PM") && Convert.ToInt32(time[0]) < 12)
+            {
+                hour = (Convert.ToInt32(time[0]) + 12).ToString();
+            }
+            else
+            {
+                hour = time[0];
+            }
+
+            return hour;
+        }
+
+        public String returnSelectedMinutesByIndex(int index)
+        {
+            List<Appointment> patientAppointments = FindPatientAppointments(findPatientByUsername(PatientWindow.username_patient));
+
+            DateTime selectedDate = patientAppointments.ElementAt(index).StartTime;
+            string[] pom = selectedDate.ToString().Split(' ');
+            string[] time = pom[1].Split(':');
+
+            return time[1];
+        }
+
+        public int findActions(String username)
+        {
+            Patient patient = findPatientByUsername(username);
+            return patient.Akcije;
+        }
+
+        public int findNumOfEvaluations(String username)
+        {
+            Patient patient = findPatientByUsername(username);
+            return patient.brojOcenjenihPregleda;
+        }
+
+        public List<Appointment> FindPatientAppointments(Patient patient)
+        {
+            List<Appointment> appointments = appointmentRepository.LoadFromFile("Appointments.json");
+            List<Appointment> patientAppointments = new List<Appointment>();
+            foreach (var appointment in appointments)
+            {
+                if (appointment.Patient.Id.Equals(patient.Id))
+                {
+                    patientAppointments.Add(appointment);
+                }
+            }
+
+            return patientAppointments;
+        }
     }
 }
