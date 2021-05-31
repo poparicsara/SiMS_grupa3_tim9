@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,9 +112,255 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="adresa" xml:space="preserve">
+    <value>Adresa</value>
+  </data>
+  <data name="alergeni" xml:space="preserve">
+    <value>Alergeni</value>
+  </data>
+  <data name="blokirani_pacijenti" xml:space="preserve">
+    <value>BLOKIRANI PACIJENTI</value>
+  </data>
+  <data name="broj_tel" xml:space="preserve">
+    <value>Broj telefona</value>
+  </data>
+  <data name="datum" xml:space="preserve">
+    <value>Datum</value>
+  </data>
+  <data name="datum_rodjenja" xml:space="preserve">
+    <value>Datum rođenja</value>
+  </data>
+  <data name="datum_vreme" xml:space="preserve">
+    <value>Datum i vreme</value>
+  </data>
+  <data name="dodaj" xml:space="preserve">
+    <value>Dodaj</value>
+  </data>
+  <data name="dodaj_slobodan_dan" xml:space="preserve">
+    <value>Dodaj slobodan dan/odmor</value>
+  </data>
+  <data name="dodaj_slobodne_dane" xml:space="preserve">
+    <value>Dodaj slobodne dane</value>
+  </data>
+  <data name="dodaj_smenu" xml:space="preserve">
+    <value>Dodaj smenu</value>
+  </data>
+  <data name="doktor" xml:space="preserve">
+    <value>Doktor</value>
+  </data>
+  <data name="doktori" xml:space="preserve">
+    <value>DOKTORI</value>
+  </data>
+  <data name="drzava" xml:space="preserve">
+    <value>Država</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="en" xml:space="preserve">
+    <value>Engleski</value>
+  </data>
+  <data name="grad" xml:space="preserve">
+    <value>Grad</value>
+  </data>
+  <data name="guest" xml:space="preserve">
+    <value>GUEST</value>
+  </data>
+  <data name="guest_nalozi" xml:space="preserve">
+    <value>GUEST NALOZI</value>
+  </data>
+  <data name="ime" xml:space="preserve">
+    <value>Ime</value>
+  </data>
+  <data name="izaberite_datum" xml:space="preserve">
+    <value>Izaberite datum</value>
+  </data>
+  <data name="izaberite_doktora" xml:space="preserve">
+    <value>Izaberite doktora</value>
+  </data>
+  <data name="izaberite_operaciju" xml:space="preserve">
+    <value>Zakaži operaciju</value>
+  </data>
+  <data name="izaberite_pregled" xml:space="preserve">
+    <value>Izaberite pregled</value>
+  </data>
+  <data name="izaberite_smenu" xml:space="preserve">
+    <value>Izaberite smenu</value>
+  </data>
+  <data name="izaberite_trajanje" xml:space="preserve">
+    <value>Izaberite trajanje</value>
+  </data>
+  <data name="izaberite_vreme" xml:space="preserve">
+    <value>Izaberite vreme</value>
+  </data>
+  <data name="izbaci" xml:space="preserve">
+    <value>Izbaci</value>
+  </data>
+  <data name="izmena_operacije" xml:space="preserve">
+    <value>Izmena operacije</value>
+  </data>
+  <data name="izmena_pregleda" xml:space="preserve">
+    <value>Izmena pregleda</value>
+  </data>
+  <data name="izmeni" xml:space="preserve">
+    <value>Izmeni</value>
+  </data>
+  <data name="izvestaj" xml:space="preserve">
+    <value>IZVEŠTAJ</value>
+  </data>
+  <data name="jmbg_doktora" xml:space="preserve">
+    <value>JMBG doktora</value>
+  </data>
+  <data name="jmbg_pacijenta" xml:space="preserve">
+    <value>JMBG pacijenta</value>
+  </data>
+  <data name="korisnicko_ime" xml:space="preserve">
+    <value>Korisničko ime</value>
+  </data>
+  <data name="korisnik" xml:space="preserve">
+    <value>JMBG korisnika</value>
+  </data>
+  <data name="kraj_vazenja_godisnjeg" xml:space="preserve">
+    <value>Kraj važenja godišnjeg</value>
+  </data>
+  <data name="kraj_vazenja_smene" xml:space="preserve">
+    <value>Kraj važenja smene</value>
+  </data>
+  <data name="kreiraj_nalog" xml:space="preserve">
+    <value>Kreiraj nalog</value>
+  </data>
+  <data name="kreiranje_guest_naloga" xml:space="preserve">
+    <value>Kreiranje guest naloga</value>
+  </data>
+  <data name="kreiranje_obavestenja" xml:space="preserve">
+    <value>Kreiranje obaveštenja</value>
+  </data>
+  <data name="lozinka" xml:space="preserve">
+    <value>Lozinka</value>
+  </data>
+  <data name="min" xml:space="preserve">
+    <value>Minuti</value>
+  </data>
+  <data name="napravi_guest_nalog" xml:space="preserve">
+    <value>Napravi guest nalog</value>
+  </data>
+  <data name="naslov" xml:space="preserve">
+    <value>Naslov</value>
+  </data>
+  <data name="obavestenja" xml:space="preserve">
+    <value>OBAVEŠTENJA</value>
+  </data>
+  <data name="obrisi" xml:space="preserve">
+    <value>Obriši</value>
+  </data>
+  <data name="obrisi_nalog" xml:space="preserve">
+    <value>Obriši nalog</value>
+  </data>
+  <data name="odaberite_jezik" xml:space="preserve">
+    <value>Odaberite jezik</value>
+  </data>
+  <data name="odaberite_rezim" xml:space="preserve">
+    <value>Odaberite režim</value>
+  </data>
+  <data name="odblokiraj" xml:space="preserve">
+    <value>Odblokiraj pacijenta</value>
+  </data>
+  <data name="odustani" xml:space="preserve">
+    <value>Odustani</value>
+  </data>
+  <data name="opcije" xml:space="preserve">
+    <value>OPCIJE</value>
+  </data>
+  <data name="operacije" xml:space="preserve">
+    <value>OPERACIJE</value>
+  </data>
+  <data name="opis_povrede" xml:space="preserve">
+    <value>Opis povrede</value>
+  </data>
+  <data name="pacijenti" xml:space="preserve">
+    <value>PACIJENTI</value>
+  </data>
+  <data name="pitanje" xml:space="preserve">
+    <value>Da li želite da napravite guest nalog?</value>
+  </data>
+  <data name="pocetak_vazenja_godisnjeg" xml:space="preserve">
+    <value>Početak važenja godišnjeg</value>
+  </data>
+  <data name="pocetak_vazenja_smene" xml:space="preserve">
+    <value>Početak važenja smene</value>
+  </data>
+  <data name="pol" xml:space="preserve">
+    <value>Pol</value>
+  </data>
+  <data name="postojeci" xml:space="preserve">
+    <value>POSTOJEĆI</value>
+  </data>
+  <data name="postpone" xml:space="preserve">
+    <value>Postpone</value>
+  </data>
+  <data name="potvrdi" xml:space="preserve">
+    <value>Potvrdi</value>
+  </data>
+  <data name="pregledi" xml:space="preserve">
+    <value>PREGLEDI</value>
+  </data>
+  <data name="prezime" xml:space="preserve">
+    <value>Prezime</value>
+  </data>
+  <data name="prikazi_opcije" xml:space="preserve">
+    <value>Prikaži opcije</value>
+  </data>
+  <data name="profil" xml:space="preserve">
+    <value>PROFIL</value>
+  </data>
+  <data name="registrovanje-pacijenta" xml:space="preserve">
+    <value>Registrovanje pacijenta</value>
+  </data>
+  <data name="rs" xml:space="preserve">
+    <value>Srpski</value>
+  </data>
+  <data name="sadrzaj" xml:space="preserve">
+    <value>Sadržaj</value>
+  </data>
+  <data name="sala" xml:space="preserve">
+    <value>Sala</value>
+  </data>
+  <data name="sistemsko_ime" xml:space="preserve">
+    <value>Sistemsko ime</value>
+  </data>
+  <data name="soba" xml:space="preserve">
+    <value>Soba</value>
+  </data>
+  <data name="specijalizacija" xml:space="preserve">
+    <value>Specijalizacija doktora</value>
+  </data>
+  <data name="tip_korisnika" xml:space="preserve">
+    <value>Tip korisnika</value>
+  </data>
+  <data name="trajanje" xml:space="preserve">
+    <value>Trajanje</value>
+  </data>
+  <data name="vreme" xml:space="preserve">
+    <value>Vreme</value>
+  </data>
+  <data name="zakazivanje_hitnog_pregleda" xml:space="preserve">
+    <value>Zakazivanje hitnog pregleda</value>
+  </data>
+  <data name="zakazivanje_operacije" xml:space="preserve">
+    <value>Zakazivanje operacije</value>
+  </data>
+  <data name="zakazi_hitan_pregled" xml:space="preserve">
+    <value>ZAKAŽI HITAN PREGLED</value>
+  </data>
+  <data name="zakazi_hitnu_operaciju" xml:space="preserve">
+    <value>ZAKAŽI HITNU OPERACIJU</value>
+  </data>
+  <data name="zakazi_pregled" xml:space="preserve">
+    <value>Zakaži pregled</value>
+  </data>
 </root>

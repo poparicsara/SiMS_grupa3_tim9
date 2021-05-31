@@ -35,15 +35,19 @@
         <TextBox x:Name="email" HorizontalAlignment="Left" Height="23" Margin="200,308,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
         <Button Content="Potvrdi" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="40,630,0,0" VerticalAlignment="Top" Width="342" Click="editPatient" Height="35" />
         <Button Content="Odustani" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="40,580,0,0" VerticalAlignment="Top" Width="342" Click="cancelEditing" Height="35" />
-        <Label Content="Zaduženje:" HorizontalAlignment="Left" Margin="40,364,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="28"/>
         <Label Content="Adresa:" HorizontalAlignment="Left" Margin="40,392,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="28"/>
         <Label Content="Grad:" HorizontalAlignment="Left" Margin="40,420,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="28"/>
         <Label Content="Država:" HorizontalAlignment="Left" Margin="40,448,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="28"/>
         <Label Content="Alergeni:" HorizontalAlignment="Left" Margin="40,476,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="28"/>
-        <TextBox x:Name="debit" HorizontalAlignment="Left" Height="23" Margin="200,364,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
         <TextBox x:Name="adress" HorizontalAlignment="Left" Height="23" Margin="200,392,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
         <TextBox x:Name="city" HorizontalAlignment="Left" Height="23" Margin="200,420,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
         <TextBox x:Name="country" HorizontalAlignment="Left" Height="23" Margin="200,448,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
-        <TextBox x:Name="allergens" HorizontalAlignment="Left" Height="23" Margin="200,476,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
+        <Label Content="Pol:" HorizontalAlignment="Left" Margin="40,364,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="28"/>
+        <ComboBox x:Name="GenderBox" HorizontalAlignment="Left" Margin="200,365,0,0" VerticalAlignment="Top" Width="182">
+            <ComboBoxItem Content="Muško"/>
+            <ComboBoxItem Content="Žensko"/>
+        </ComboBox>
+        <ListBox x:Name="allergens" HorizontalAlignment="Left" Height="69" Margin="200,478,0,0" VerticalAlignment="Top" Width="135"/>
+        <Button Content="Izmeni" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="339,478,0,0" VerticalAlignment="Top" Width="43"/>
     </Grid>
 </Page>

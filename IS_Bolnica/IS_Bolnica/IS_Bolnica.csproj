@@ -115,15 +115,21 @@
       <DependentUpon>InventoryWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="InventoryInRoom.cs" />
+    <Compile Include="Language.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Language.resx</DependentUpon>
+    </Compile>
     <Compile Include="Model\AppointmentRepository.cs" />
     <Compile Include="Model\AppointmentType.cs" />
+    <Compile Include="Model\Gender.cs" />
     <Compile Include="Model\Shift.cs" />
     <Compile Include="Model\ShiftType.cs" />
     <Compile Include="Model\Vacation.cs" />
-    <Compile Include="Resources\temp.Designer.cs">
+    <Compile Include="Properties\Resources .en-US.Designer.cs">
+      <DependentUpon>Resources .en-US.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>temp.resx</DependentUpon>
     </Compile>
     <Compile Include="RoomInventory.xaml.cs">
       <DependentUpon>RoomInventory.xaml</DependentUpon>
@@ -785,13 +791,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Properties\Resources.resx">
+    <EmbeddedResource Include="Language.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <LastGenOutput>Language.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\temp.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>temp.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="Properties\Resources .en-US.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources .en-US.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

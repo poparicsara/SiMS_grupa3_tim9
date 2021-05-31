@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using IS_Bolnica.Model;
 using IS_Bolnica.Services;
 using Model;
 
@@ -53,13 +54,20 @@ namespace IS_Bolnica.Secretary
             patient.Surname = surname.Text;
             patient.Username = username.Text;
             patient.UserType = UserType.patient;
-            patient.Debit = Convert.ToDouble(debit.Text);
-            String[] alergeni = (allergens.Text).Split(',');
+            if (GenderBox.SelectedIndex == 0)
+            {
+                patient.Gender = Gender.male;
+            }
+            else
+            {
+                patient.Gender = Gender.female;
+            }
+            /*String[] alergeni = (allergens.Text).Split(',');
             patient.Allergens = new List<string>();
             for (int i = 0; i < alergeni.Length; i++)
             {
                 patient.Allergens.Add(alergeni[i]);
-            }
+            }*/
             //formiranje adrese
             patient.Address = new Address();
             String[] adresa = (adress.Text).Split(' ');

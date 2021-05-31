@@ -39,7 +39,7 @@ namespace IS_Bolnica.Secretary
             patient.Surname = surname.Text;
             patient.Username = username.Text;
             patient.UserType = UserType.patient;
-            patient.Debit = Convert.ToDouble(debit.Text);
+            //patient.Debit = Convert.ToDouble(debit.Text);
             //formiranje alergena
             patient.Allergens = new List<string>();
             String[] alergeni = (allergens.Text).Split(',');

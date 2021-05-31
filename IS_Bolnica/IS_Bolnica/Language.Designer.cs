@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IS_Bolnica.Resources {
+namespace IS_Bolnica {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace IS_Bolnica.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class temp {
+    internal class Language {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal temp() {
+        internal Language() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace IS_Bolnica.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("IS_Bolnica.Resources.temp", typeof(temp).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("IS_Bolnica.Language", typeof(Language).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

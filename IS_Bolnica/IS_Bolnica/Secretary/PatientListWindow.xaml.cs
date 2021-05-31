@@ -67,7 +67,7 @@ namespace IS_Bolnica.Secretary
             ep.city.Text = patient.Address.City.name + " "
                 + Convert.ToString(patient.Address.City.postalCode);
             ep.country.Text = patient.Address.City.Country.name;
-            ep.debit.Text = Convert.ToString(patient.Debit);
+            //ep.debit.Text = Convert.ToString(patient.Debit);
             List<string> alergeni = patient.Allergens;
             foreach (var alergen in alergeni)
             {

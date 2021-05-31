@@ -45,7 +45,7 @@ namespace IS_Bolnica.Secretary
 
         private Patient setPatientAtributes()
         {
-            patient.isBlocked = false;
+            /*patient.isBlocked = false;
             patient.Email = email.Text;
             patient.DateOfBirth = dateOfBirth.DisplayDate;
             patient.Name = name.Text;
@@ -86,7 +86,7 @@ namespace IS_Bolnica.Secretary
 
             patient.Address.City.Country = new Country();
             patient.Address.City.Country.name = county.Text;
-
+            */
             return patient;
         }
 

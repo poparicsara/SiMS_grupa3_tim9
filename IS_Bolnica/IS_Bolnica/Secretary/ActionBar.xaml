@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:p = "clr-namespace:IS_Bolnica.Properties"
       xmlns:local="clr-namespace:IS_Bolnica.Secretary"
       mc:Ignorable="d" 
       d:DesignHeight="750" d:DesignWidth="430"
@@ -16,17 +17,17 @@
         </Button>
         <Label Content="ZDRAVO KORPORACIJA" FontSize="20" Foreground="Green" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,14,0,0" Height="35" Width="235" Grid.ColumnSpan="2"/>
         <Image x:Name="nasLogo" HorizontalAlignment="Left" Height="48" Margin="366,10,0,0" VerticalAlignment="Top" Width="48" Source="C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\Images\nasLogo.jpg"/>
-        <Button Content="PROFIL" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="Profil_Selected" HorizontalAlignment="Left" Margin="56,95,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
-        <Button Content="PACIJENTI" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="SpisakPacijenata_Selected" HorizontalAlignment="Left" Margin="56,145,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
-        <Button Content="DOKTORI" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="SpisakLekara_Selected" HorizontalAlignment="Left" Margin="56,195,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
-        <Button Content="BLOKIRANI PACIJENTI" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="BlokiraniPacijenti_Selected" HorizontalAlignment="Left" Margin="56,245,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
-        <Button Content="GUEST NALOZI" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="SpisakGuestNaloga_Selected" HorizontalAlignment="Left" Margin="56,295,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
-        <Button Content="OBAVEŠTENJA" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="SpisakObavestenja_Selected" HorizontalAlignment="Left" Margin="56,345,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
-        <Button Content="PREGLEDI" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="SpisakPregleda_Selected" HorizontalAlignment="Left" Margin="56,395,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
-        <Button Content="OPERACIJE" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="SpisakOperacija_Selected" HorizontalAlignment="Left" Margin="56,445,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
-        <Button Content="ZAKAŽI HITAN PREGLED" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="ZakaziHitanPregled_Selected" HorizontalAlignment="Left" Margin="56,495,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
-        <Button Content="ZAKAŽI HITNU OPERACIJU" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="ZakaziHitnuOperaciju_Selected" HorizontalAlignment="Left" Margin="56,545,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
-        <Button Content="OPCIJE" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="Opcije_Selected" HorizontalAlignment="Left" Margin="56,595,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
-        <Button Content="IZVEŠTAJ" Foreground="White" Background="#FF15285D" FontWeight="Bold" HorizontalAlignment="Left" Margin="56,645,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="{x:Static p:Resources.profil}" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="Profil_Selected" HorizontalAlignment="Left" Margin="56,95,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="{x:Static p:Resources.pacijenti}" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="SpisakPacijenata_Selected" HorizontalAlignment="Left" Margin="56,145,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="{x:Static p:Resources.doktori}" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="SpisakLekara_Selected" HorizontalAlignment="Left" Margin="56,195,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="{x:Static p:Resources.blokirani_pacijenti}" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="BlokiraniPacijenti_Selected" HorizontalAlignment="Left" Margin="56,245,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="{x:Static p:Resources.guest_nalozi}" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="SpisakGuestNaloga_Selected" HorizontalAlignment="Left" Margin="56,295,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="{x:Static p:Resources.obavestenja}" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="SpisakObavestenja_Selected" HorizontalAlignment="Left" Margin="56,345,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="{x:Static p:Resources.pregledi}" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="SpisakPregleda_Selected" HorizontalAlignment="Left" Margin="56,395,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="{x:Static p:Resources.operacije}" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="SpisakOperacija_Selected" HorizontalAlignment="Left" Margin="56,445,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="{x:Static p:Resources.zakazi_hitan_pregled}" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="ZakaziHitanPregled_Selected" HorizontalAlignment="Left" Margin="56,495,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="{x:Static p:Resources.zakazi_hitnu_operaciju}" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="ZakaziHitnuOperaciju_Selected" HorizontalAlignment="Left" Margin="56,545,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="{x:Static p:Resources.opcije}" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="Opcije_Selected" HorizontalAlignment="Left" Margin="56,595,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="{x:Static p:Resources.izvestaj}" Foreground="White" Background="#FF15285D" FontWeight="Bold" HorizontalAlignment="Left" Margin="56,645,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
     </Grid>
 </Page>
