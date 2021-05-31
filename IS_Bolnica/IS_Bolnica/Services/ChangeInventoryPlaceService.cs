@@ -28,6 +28,7 @@ namespace IS_Bolnica.Services
         private InventoryRepository inventoryRepository = new InventoryRepository();
         private List<Shifting> shiftings = new List<Shifting>();
         private Shifting newShifting = new Shifting();
+        private int[] shiftingsForDeleting = new int[] { };
 
         public ChangeInventoryPlaceService()
         {
@@ -63,7 +64,6 @@ namespace IS_Bolnica.Services
 
         public void ChangePlaceOfInventory(Room roomFrom, Room roomTo, Inventory selectedInventory, int amount, string date, int hour, int minute)
         {
-            //CheckUnexecutedShiftings();
             SetAttributes(roomFrom, roomTo, selectedInventory, amount, date, hour, minute);
             CheckInventoryType();
         }
@@ -152,7 +152,7 @@ namespace IS_Bolnica.Services
 
         private void AddShifting()
         {
-            newShifting = new Shifting { RoomFrom = roomFrom, RoomTo = roomTo, Amount = amount, Date = dateOfChange, Hour = hourOfChange, Inventory = selectedInventory, Minute = minuteOfChange };
+            newShifting = new Shifting { RoomFrom = roomFrom, RoomTo = roomTo, Amount = amount, Date = dateOfChange, Hour = hourOfChange, Inventory = selectedInventory, Minute = minuteOfChange, Executed = false};
             inventoryRepository.AddShifting(newShifting);
         }
 
@@ -166,9 +166,10 @@ namespace IS_Bolnica.Services
         {
             while (true)
             {
-                if (IsSelectedTime())
+                if (IsSelectedTime() || HasTimeOfChangePassed())
                 {
                     DoChange();
+                    EditShifting();
                     thread.Abort();
                 }
                 Thread.Sleep(TimeSpan.FromSeconds(59));
@@ -178,6 +179,21 @@ namespace IS_Bolnica.Services
         private bool IsSelectedTime()
         {
             return GetCurrentDate().Equals(dateOfChange) && GetCurrentHour() == hourOfChange && GetCurrentMinute() == minuteOfChange;
+        }
+
+        private bool HasTimeOfChangePassed()
+        {
+            string fullDate = dateOfChange + " " + hourOfChange + ":" + minuteOfChange;
+            DateTime fullDateOfChange = Convert.ToDateTime(fullDate);
+            DateTime currentDate = DateTime.Now;
+            if (fullDateOfChange < currentDate)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private void DoChange()
@@ -234,20 +250,53 @@ namespace IS_Bolnica.Services
         public void CheckUnexecutedShiftings()
         {
             shiftings = GetShiftings();
-            if (shiftings != null)
+            /*if (shiftings != null)
             {
+                int index = 0;
                 foreach (var s in shiftings)
                 {
                     if (IsForDeleting(s))
                     {
-                        DeleteShifting();
+                        CheckInventoryType();
+                        //shiftingsForDeleting.Append(index);
                     }
                     else
                     {
                         ChangePlaceOfInventory(s.RoomFrom, s.RoomTo, s.Inventory, s.Amount, s.Date, s.Hour, s.Minute);
                     }
+                    index++;
+                }
+                //DeleteShiftings();
+            }*/
+            foreach (var s in shiftings)
+            {
+                if (!s.Executed)
+                {
+                    SetAttributes(s.RoomFrom, s.RoomTo, s.Inventory, s.Amount, s.Date, s.Hour, s.Minute);
+                    StartThread();
                 }
             }
+        }
+
+        private int GetShiftingIndex()
+        {
+            var index = 0;
+            shiftings = GetShiftings();
+            foreach (var s in shiftings)
+            {
+                if (roomFrom.Id == s.RoomFrom.Id && roomTo.Id == s.RoomTo.Id && selectedInventory.Id == s.Inventory.Id)
+                {
+                    break;
+                }
+                index++;
+            }
+            return index;
+        }
+
+        private void EditShifting()
+        {
+            int index = GetShiftingIndex();
+            inventoryRepository.EditShifting(index);
         }
 
         private bool IsForDeleting(Shifting shifting)
@@ -266,12 +315,19 @@ namespace IS_Bolnica.Services
             return inventoryRepository.GetShiftings();
         }
 
-        private void DeleteShifting()
+        private void DeleteShiftings()
         {
-            int index = 0;
+            /*int index = 0;
             if (index >= 0)
             {
                 inventoryRepository.DeleteShifting(index);
+            }*/
+            if (shiftingsForDeleting != null)
+            {
+                foreach (var s in shiftingsForDeleting)
+                {
+                    inventoryRepository.DeleteShifting(s);
+                }
             }
         }
 

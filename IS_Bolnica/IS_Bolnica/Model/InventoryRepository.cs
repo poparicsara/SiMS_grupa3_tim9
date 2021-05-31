@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using IS_Bolnica.Model;
 using IS_Bolnica.Services;
 
@@ -96,6 +97,15 @@ namespace Model
         public void DeleteShifting(int index)
         {
             shiftings.RemoveAt(index);
+            SaveShiftings(shiftings);
+        }
+
+        public void EditShifting(int index)
+        {
+            Shifting s = shiftings.ElementAt(index);
+            s.Executed = true;
+            shiftings.RemoveAt(index);
+            shiftings.Insert(index, s);
             SaveShiftings(shiftings);
         }
 

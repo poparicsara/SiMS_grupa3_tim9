@@ -181,7 +181,7 @@
       },
       {
         "Name": "Krevet",
-        "CurrentAmount": 3,
+        "CurrentAmount": 0,
         "Minimum": 0,
         "Id": 666,
         "InventoryType": 1
@@ -222,6 +222,13 @@
         "Minimum": 0,
         "Id": 555,
         "InventoryType": 0
+      },
+      {
+        "Name": "Krevet",
+        "CurrentAmount": 3,
+        "Minimum": 0,
+        "Id": 666,
+        "InventoryType": 1
       }
     ],
     "RoomPurpose": {

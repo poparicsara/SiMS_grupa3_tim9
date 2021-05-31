@@ -16,5 +16,6 @@ namespace IS_Bolnica.Model
         public string Date { get; set; }
         public int Hour { get; set; }
         public int Minute { get; set; }
+        public bool Executed { get; set; } = false;
     }
 }

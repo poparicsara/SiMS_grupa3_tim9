@@ -1,1 +1,192 @@
-[]
+[
+  {
+    "RoomFrom": {
+      "Id": 202,
+      "HospitalWard": "Ortopedija",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 21,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Krevet",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 666,
+          "InventoryType": 1
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "RoomTo": {
+      "Id": 303,
+      "HospitalWard": "Pedijatrija",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 24,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        },
+        {
+          "Name": "nesto",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 555,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Krevet",
+          "CurrentAmount": 3,
+          "Minimum": 0,
+          "Id": 666,
+          "InventoryType": 1
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "Inventory": {
+      "Name": "Krevet",
+      "CurrentAmount": 0,
+      "Minimum": 0,
+      "Id": 666,
+      "InventoryType": 1
+    },
+    "Amount": 3,
+    "Date": "5/31/2021",
+    "Hour": 11,
+    "Minute": 30,
+    "Executed": true
+  },
+  {
+    "RoomFrom": {
+      "Id": 303,
+      "HospitalWard": "Pedijatrija",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 24,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        },
+        {
+          "Name": "nesto",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 555,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Krevet",
+          "CurrentAmount": 3,
+          "Minimum": 0,
+          "Id": 666,
+          "InventoryType": 1
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "RoomTo": {
+      "Id": 202,
+      "HospitalWard": "Ortopedija",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 21,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Krevet",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 666,
+          "InventoryType": 1
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "Inventory": {
+      "Name": "Krevet",
+      "CurrentAmount": 0,
+      "Minimum": 0,
+      "Id": 666,
+      "InventoryType": 1
+    },
+    "Amount": 3,
+    "Date": "5/31/2021",
+    "Hour": 11,
+    "Minute": 15,
+    "Executed": true
+  }
+]
