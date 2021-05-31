@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Bolnica"
         mc:Ignorable="d"
-        Title="Sekretar" Height="750" Width="430" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Sekretar" Height="750" Width="430" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Style="{StaticResource WindowStyle}">
 
     <Grid>
         <!--<Grid.RowDefinitions>
