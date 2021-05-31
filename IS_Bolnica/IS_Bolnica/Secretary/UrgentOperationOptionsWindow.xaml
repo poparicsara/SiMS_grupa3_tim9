@@ -17,12 +17,13 @@
         <Label Content="Izaberite operaciju: " FontWeight="Bold"  Foreground="Green" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,69,0,0" Width="246" Height="46"/>
         <DataGrid x:Name="OperationOptions" AutoGenerateColumns="False" SelectionMode="Extended" IsReadOnly="True" HorizontalAlignment="Stretch" Margin="12,120,8,133.8" VerticalAlignment="Stretch" GridLinesVisibility="Vertical">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Doktor" Binding="{Binding doctor.Surname}" Width="70"/>
-                <DataGridTextColumn Header="Datum i vreme" Binding="{Binding Date}" Width="100"/>
+                <DataGridTextColumn Header="Doktor" Binding="{Binding Doctor.Surname}" Width="70"/>
+                <DataGridTextColumn Header="Sala" Binding="{Binding Room.Id}" Width="70"/>
+                <DataGridTextColumn Header="Datum i vreme" Binding="{Binding StartTime}" Width="100"/>
                 <DataGridTextColumn Header="Pacijent" Binding="{Binding Patient.Id}" Width="50"/>
                 <DataGridTextColumn Header="Guest" Binding="{Binding GuestUser.SystemName}" Width="50"/>
                 <DataGridTextColumn Header="Min" Binding="{Binding DurationInMins}" Width="40"/>
-                <DataGridTextColumn Header="Postpone" Binding="{Binding PosponedDate}" Width="100"/>
+                <DataGridTextColumn Header="Postpone" Binding="{Binding PostonedDate}" Width="100"/>
             
             </DataGrid.Columns>
         </DataGrid>

@@ -36,6 +36,13 @@
                     </TextBlock>
                 </StackPanel>
             </ListBoxItem>
+            <ListBoxItem FontSize="20" FontWeight="Bold" Foreground="#FF15285D" Selected="BlokiraniPacijenti_Selected">
+                <StackPanel>
+                    <TextBlock>
+                        Blokirani pacijenti
+                    </TextBlock>
+                </StackPanel>
+            </ListBoxItem>
             <ListBoxItem FontSize="20" FontWeight="Bold" Foreground="#FF15285D" Selected="DodajPacijenta_Selected">
                 <StackPanel>
                     <TextBlock>

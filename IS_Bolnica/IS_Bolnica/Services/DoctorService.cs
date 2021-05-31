@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using IS_Bolnica.Model;
 using Model;
 
@@ -16,6 +18,39 @@ namespace IS_Bolnica.Services
         public DoctorService()
         {
 
+        }
+
+        public void AddShift(Shift shift)
+        {
+            doctors = doctorRepository.loadFromFile("Doctors.json");
+            for (int i = 0; i < doctors.Count; i++)
+            {
+                if (doctors[i].Id.Equals(shift.DoctorsId))
+                {
+                    //if (doctors[i].Shifts == null)
+                    //{
+                        //List<Shift> shifts = new List<Shift>();
+                        //shifts.Add(shift);
+                    doctors[i].Shifts.Add(shift);
+                    //}
+                }
+            }
+            doctorRepository.saveToFile(doctors, "Doctors.json");
+        }
+
+        public void AddVacation(Vacation vacation)
+        {
+            doctors = doctorRepository.loadFromFile("Doctors.json");
+            for (int i = 0; i < doctors.Count; i++)
+            {
+                if (doctors[i].Id.Equals(vacation.DoctorsId))
+                {
+                    doctors[i].Vacations.Add(vacation);
+
+                }
+            }
+
+            doctorRepository.saveToFile(doctors, "Doctors.json");
         }
 
         public List<string> GetDoctorNamesList()
@@ -144,5 +179,16 @@ namespace IS_Bolnica.Services
             return specialistsNameSurname;
         }
 
+        public List<Doctor> GetDoctors()
+        {
+            List<Doctor> doctorList = new List<Doctor>();
+            doctors = doctorRepository.loadFromFile("Doctors.json");
+            foreach (var doctor in doctors)
+            {
+                doctorList.Add(doctor);
+            }
+
+            return doctorList;
+        }
     }
 }

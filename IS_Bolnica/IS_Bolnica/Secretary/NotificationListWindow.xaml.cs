@@ -1,27 +1,13 @@
-﻿using IS_Bolnica.Model;
-using Model;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using Model;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using IS_Bolnica.Services;
 
 namespace IS_Bolnica.Secretary
 {
-    public partial class NotificationListWindow : Window, INotifyPropertyChanged
+    public partial class NotificationListWindow : Window
     {
-        public event PropertyChangedEventHandler PropertyChanged;
         private Notification notification = new Notification();
         private NotificationService notificationService = new NotificationService();
 
@@ -39,11 +25,6 @@ namespace IS_Bolnica.Secretary
             Secretary.ActionBarWindow abw = new Secretary.ActionBarWindow();
             abw.Show();
             this.Close();
-        }
-
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
 
         private void addNotification(object sender, RoutedEventArgs e)

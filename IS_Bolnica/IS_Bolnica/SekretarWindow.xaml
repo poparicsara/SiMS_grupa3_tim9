@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Bolnica"
         mc:Ignorable="d"
-        Title="Sekretar" Height="750" Width="430" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Sekretar" Height="750" Width="430" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Style="{StaticResource WindowStyle}">
 
     <Grid>
-        <Grid.RowDefinitions>
+        <!--<Grid.RowDefinitions>
             <RowDefinition Height="435*"/>
             <RowDefinition Height="286*"/>
         </Grid.RowDefinitions>
@@ -58,6 +58,7 @@
         <Label Content="Adresa:" HorizontalAlignment="Left" Margin="40,144.8,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30" Grid.Row="1"/>
         <Label Content="Grad:" HorizontalAlignment="Left" Margin="40,174.8,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30" Grid.Row="1"/>
         <Label Content="Država:" HorizontalAlignment="Left" Margin="40,204.8,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="30" Grid.Row="1"/>
-        <Label Content="PROFIL SEKRETARA" Foreground="Green" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" Width="274" Height="45" FontSize="28" Grid.ColumnSpan="2"/>
+        <Label Content="PROFIL SEKRETARA" Foreground="Green" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" Width="274" Height="45" FontSize="28" Grid.ColumnSpan="2"/>-->
+        <Frame x:Name="MainFrame" Source="Secretary\SecretaryProfile.xaml" NavigationUIVisibility="Hidden" Grid.ColumnSpan="2" Margin="0,0,0,-0.2" Grid.RowSpan="2"/>
     </Grid>
 </Window>

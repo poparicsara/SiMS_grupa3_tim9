@@ -1,25 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using IS_Bolnica.Services;
+using Model;
 
 namespace IS_Bolnica.Secretary
 {
-    /// <summary>
-    /// Interaction logic for AddGuestUser.xaml
-    /// </summary>
     public partial class AddGuestUser : Page
     {
+        private GuestUser guestUser = new GuestUser();
+        private object sender1 = new object();
+        private GuestUserService guestUserService = new GuestUserService();
+
         public AddGuestUser()
         {
             InitializeComponent();
@@ -27,17 +20,25 @@ namespace IS_Bolnica.Secretary
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            ActionBar ab = new ActionBar();
+            this.NavigationService.Navigate(ab);
         }
 
         private void cancelGuest(object sender, RoutedEventArgs e)
         {
-
+            GuestUserList gul = new GuestUserList();
+            this.NavigationService.Navigate(gul);
         }
 
         private void addGuestAccount(object sender, RoutedEventArgs e)
         {
+            guestUser.SystemName = systemName.Text;
+            guestUser.InjuryDescription = injury.Text;
 
+            guestUserService.AddGuestUser(guestUser);
+
+            GuestUserList gul = new GuestUserList();
+            this.NavigationService.Navigate(gul);
         }
     }
 }

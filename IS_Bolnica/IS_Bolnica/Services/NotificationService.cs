@@ -156,6 +156,29 @@ namespace IS_Bolnica.Services
 
             return patientEvaluations[patientEvaluations.Count - 1];
         }
+
+        public bool ExistsInList(List<string> idList, string id)
+        {
+            foreach (string i in idList)
+            {
+                if (i.Equals(id))
+                {
+                    MessageBox.Show("Korisnik već postoji u listi!");
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool IsBoxEmpty(string id)
+        {
+            if (id.Equals(""))
+            {
+                MessageBox.Show("Niste uneli id korisnika");
+                return true;
+            }
+            return false;
+        }
     }
 
 }
