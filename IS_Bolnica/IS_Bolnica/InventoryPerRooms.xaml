@@ -12,7 +12,7 @@
 
                 <Canvas RenderTransformOrigin="0.069,0.186" Margin="0,0,-6,-0.6" >
 
-                    <DataGrid x:Name ="ordinationDataGrid" HorizontalAlignment="Center" Height="396" VerticalAlignment="Center" Width="512" FontSize="13"
+                    <DataGrid x:Name ="ordinationDataGrid" AllowDrop="True" Drop="OrdinationDataGrid_OnDrop" MouseMove="OrdinationDataGrid_OnMouseMove"  PreviewMouseLeftButtonDown="OrdinationDataGrid_OnPreviewMouseLeftButtonDown" HorizontalAlignment="Center" Height="396" VerticalAlignment="Center" Width="512" FontSize="13"
                   ColumnWidth="300" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserAddRows="False" AutoGenerateColumns="False"
                   IsReadOnly="True" SelectionMode="Single" CanUserDeleteRows="True" CanUserReorderColumns="False">
                         <!-- Style -->

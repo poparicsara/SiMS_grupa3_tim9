@@ -14,10 +14,10 @@ namespace Model
     public class InventoryRepository
     {
         private List<Inventory> inventories = new List<Inventory>();
-
+        private List<Shifting> shiftings = new List<Shifting>();
         public InventoryRepository()
         {
-
+            shiftings = GetShiftings();
         }
 
         public void AddInventory(Inventory newInventory, Room room)
@@ -85,6 +85,35 @@ namespace Model
                 }
             }
             return staticInventory;
+        }
+
+        public void AddShifting(Shifting newShifting)
+        {
+            shiftings.Add(newShifting);
+            SaveShiftings(shiftings);
+        }
+
+        public void DeleteShifting(int index)
+        {
+            shiftings.RemoveAt(index);
+            SaveShiftings(shiftings);
+        }
+
+        public void SaveShiftings(List<Shifting> shiftings)
+        {
+            string jsonString = JsonConvert.SerializeObject(shiftings, Formatting.Indented);
+            File.WriteAllText("Shiftings.json", jsonString);
+        }
+
+        public List<Shifting> GetShiftings()
+        {
+            var shiftings = new List<Shifting>();
+            using (StreamReader file = File.OpenText("Shiftings.json"))
+            {
+                var serializer = new JsonSerializer();
+                shiftings = (List<Shifting>)serializer.Deserialize(file, typeof(List<Shifting>));
+            }
+            return shiftings;
         }
 
     }

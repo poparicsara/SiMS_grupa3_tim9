@@ -12,14 +12,19 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica
 {
     public partial class DirectorProfileWindow : Window
     {
+        private ChangeInventoryPlaceService service = new ChangeInventoryPlaceService();
+
         public DirectorProfileWindow()
         {
             InitializeComponent();
+
+            service.CheckUnexecutedShiftings();
 
         }
 
