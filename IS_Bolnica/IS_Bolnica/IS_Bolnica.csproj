@@ -71,6 +71,9 @@
     <Compile Include="AddMedicamentWindow.xaml.cs">
       <DependentUpon>AddMedicamentWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Shift.cs" />
+    <Compile Include="Model\ShiftType.cs" />
+    <Compile Include="Model\Vacation.cs" />
     <Compile Include="Patient\AddNote.xaml.cs">
       <DependentUpon>AddNote.xaml</DependentUpon>
     </Compile>
@@ -275,6 +278,9 @@
     </Compile>
     <Compile Include="Secretary\AddUrgentOperationWindow.xaml.cs">
       <DependentUpon>AddUrgentOperationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\DoctorList.xaml.cs">
+      <DependentUpon>DoctorList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\EditExamination.xaml.cs">
       <DependentUpon>EditExamination.xaml</DependentUpon>
@@ -659,6 +665,10 @@
     <Page Include="Secretary\AddUrgentOperationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary\DoctorList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Secretary\EditExamination.xaml">
       <Generator>MSBuild:Compile</Generator>

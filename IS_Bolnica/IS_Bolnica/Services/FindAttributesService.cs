@@ -88,6 +88,19 @@ namespace IS_Bolnica.Services
             return null;
         }
 
+        public Doctor findDoctor(string name, string surname)
+        {
+            doctors = doctorRepository.loadFromFile("Doctors.json");
+            foreach (Doctor doc in doctors)
+            {
+                if (doc.Name.Equals(name) && doc.Surname.Equals(surname))
+                {
+                    return doc;
+                }
+            }
+            return null;
+        }
+
         public Room FindRoomById(int id)
         {
             rooms = roomRepository.GetRooms();
@@ -209,7 +222,7 @@ namespace IS_Bolnica.Services
 
         public List<Appointment> FindPatientAppointments(Patient patient)
         {
-            List<Appointment> appointments = appointmentRepository.LoadFromFile("Appointments.json");
+            List<Appointment> appointments = appointmentRepository.LoadFromFile();
             List<Appointment> patientAppointments = new List<Appointment>();
             foreach (var appointment in appointments)
             {
