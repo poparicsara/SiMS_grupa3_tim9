@@ -29,6 +29,7 @@
         <Button Content="Izdaj uput" HorizontalAlignment="Left" Margin="772,484,0,0" VerticalAlignment="Top" Width="127" Height="37" Click="Button_Click" FontWeight="Bold" Background="#FF15285D" Foreground="White" FontFamily="Ebrima" FontSize="13"/>
         <Label Content="Lekar:" HorizontalAlignment="Left" Margin="84,610,0,0" VerticalAlignment="Top" Width="118" FontWeight="Bold"/>
         <TextBox Name="doctorTxt" HorizontalAlignment="Left" Height="23" Margin="234,610,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="169"/>
+        <Button Content="Uput za hospitalizaciju" HorizontalAlignment="Left" Margin="772,411,0,0" VerticalAlignment="Top" Width="127" Height="37" FontWeight="Bold" FontFamily="Ebrima" Foreground="White" Background="#FF15285D" FontSize="11" Click="Button_Click_1"/>
 
     </Grid>
 </Window>

@@ -21,24 +21,15 @@ namespace IS_Bolnica
         private Anamnesis anamnesis;
         private Prescription prescription = new Prescription();
         private Therapy therapy = new Therapy();
-        private PrescriptionFileStorage prescriptionStorage = new PrescriptionFileStorage();
+        private PrescriptionRepository prescriptionStorage = new PrescriptionRepository();
         private List<Prescription> Prescriptions { get; set; } = new List<Prescription>();
         public List<Anamnesis> Anamneses { get; set; } = new List<Anamnesis>();
         private AnamnesisRepository anamnesisStorage = new AnamnesisRepository();
         public CreatePrescription(Anamnesis anamnesis)
         {
             InitializeComponent();
-
             this.anamnesis = anamnesis;
-
-            patientTxt.Text = anamnesis.Patient.Name + ' ' + anamnesis.Patient.Surname;
-            dateOfBirthTxt.Text = anamnesis.Patient.DateOfBirth.ToString();
-            jmbgTxt.Text = anamnesis.Patient.Id;
-            healthCardIdTxt.Text = anamnesis.Patient.HealthCardNumber;
-            prescriptionDateTxt.Text = anamnesis.Date.ToString();
-            diagnosisTxt.Text = anamnesis.Diagnosis;
-            doctorTxt.Text = anamnesis.Doctor.Name + ' ' + anamnesis.Doctor.Surname;
-
+            SetDataInTextFields();
         }
 
         private void potvrdiClicked(object sender, RoutedEventArgs e)
@@ -96,6 +87,17 @@ namespace IS_Bolnica
         {
             Prescriptions.Add(prescription);
             prescriptionStorage.saveToFile(Prescriptions, "prescriptions.json");
+        }
+
+        private void SetDataInTextFields()
+        {
+            patientTxt.Text = anamnesis.Patient.Name + ' ' + anamnesis.Patient.Surname;
+            dateOfBirthTxt.Text = anamnesis.Patient.DateOfBirth.ToString();
+            jmbgTxt.Text = anamnesis.Patient.Id;
+            healthCardIdTxt.Text = anamnesis.Patient.HealthCardNumber;
+            prescriptionDateTxt.Text = anamnesis.Date.ToString();
+            diagnosisTxt.Text = anamnesis.Diagnosis;
+            doctorTxt.Text = anamnesis.Doctor.Name + ' ' + anamnesis.Doctor.Surname;
         }
     }
 }

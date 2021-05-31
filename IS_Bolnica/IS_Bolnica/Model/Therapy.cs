@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace IS_Bolnica.Model
 {
-    class Therapy
+    public class Therapy
     {
         public DateTime StartDate
         {

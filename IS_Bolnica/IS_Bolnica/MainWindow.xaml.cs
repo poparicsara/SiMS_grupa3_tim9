@@ -24,8 +24,8 @@ namespace IS_Bolnica
 
         private void ButtonUpravnikClicked(object sender, RoutedEventArgs e)
         {
-            DirectorProfileWindow profileWindow = new DirectorProfileWindow();
-            profileWindow.Show();
+            DirectorLogInWindow dw = new DirectorLogInWindow();
+            dw.Show();
         }
 
         private void doctorButtonClicked(object sender, RoutedEventArgs e)

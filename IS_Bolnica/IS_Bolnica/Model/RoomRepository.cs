@@ -46,20 +46,6 @@ namespace Model
             saveToFile(rooms);
         }
 
-        private int FindIndex(Room room)
-        {
-            int index = 0;
-            foreach (Room r in rooms)
-            {
-                if (r.Id == room.Id)
-                {
-                    break;
-                }
-                index++;
-            }
-            return index;
-        }
-
         public void EditRoom(int index, Room newRoom)
         {
             rooms.RemoveAt(index);

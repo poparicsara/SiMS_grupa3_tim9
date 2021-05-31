@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,16 @@ namespace IS_Bolnica.Services
         public RoomService()
         {
             rooms = repository.GetRooms();
+        }
+
+        public List<int> GetRoomNumbers()
+        {
+            List<int> roomNumbers = new List<int>();
+            foreach (var r in rooms)
+            {
+                roomNumbers.Add(r.Id);
+            }
+            return roomNumbers;
         }
 
         public void AddRoom(Room newRoom)
@@ -36,6 +47,7 @@ namespace IS_Bolnica.Services
 
         private int FindIndex(Room room)
         {
+            rooms = GetRooms();
             int index = 0;
             foreach (Room r in rooms)
             {
@@ -58,7 +70,6 @@ namespace IS_Bolnica.Services
                     roomNums.Add(rooms[i].Id);
                 }
             }
-
             return roomNums;
         }
 
@@ -72,5 +83,73 @@ namespace IS_Bolnica.Services
             return repository.GetMagacin();
         }
 
+        public void Save(List<Room> rooms)
+        {
+            repository.saveToFile(rooms);
+        }
+
+        public Room GetRoom(int roomId)
+        {
+            return repository.GetRoom(roomId);
+        }
+
+        public Room FindOrdinationById(int id)
+        {
+            Room foundRoom = new Room();
+            foreach (Room room in rooms)
+            {
+                if (room.Id.Equals(id))
+                {
+                    foundRoom = room;
+                }
+            }
+
+            return foundRoom;
+        }
+
+        public List<int> GetOperationRoomsId()
+        {
+            List<int> operationRooms = new List<int>();
+            foreach (Room room in rooms)
+            {
+                if (room.roomPurpose.Name.Equals("Operaciona sala"))
+                {
+                    operationRooms.Add(room.Id);
+                }
+            }
+            return operationRooms;
+        }
+
+        public List<int> GetAvailableRoomsForHospitalization()
+        {
+            List<int> availableRooms = new List<int>();
+            foreach (Room room in rooms)
+            {
+                if (room.roomPurpose.Name.Equals("Soba"))
+                {
+                    availableRooms.Add(room.Id);
+                }
+            }
+
+            return availableRooms;
+        }
+
+        public bool DoesSelectedRoomHasEmptyBed(int roomId)
+        {
+            foreach (Room room in rooms)
+            {
+                if (room.roomPurpose.Name.Equals("Soba"))
+                {
+                    foreach (Inventory inventory in room.inventory)
+                    {
+                        if (inventory.Name.Equals("Krevet") && inventory.CurrentAmount == 0)
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
+        }
     }
 }

@@ -48,9 +48,6 @@
       },
       {
         "Name": "Povidon K25"
-      },
-      {
-        "Name": "Magnezijum-stearat"
       }
     ],
     "Replacement": {
@@ -87,18 +84,41 @@
     "Status": 0
   },
   {
-    "Id": 333,
-    "Name": "aaa",
+    "Id": 9999,
+    "Name": "aa",
     "Ingredients": null,
     "Replacement": {
-      "Id": 0,
-      "Name": "aaa",
-      "Ingredients": null,
-      "Replacement": null,
-      "Producer": null,
+      "Id": 102,
+      "Name": "Altravesa",
+      "Ingredients": [
+        {
+          "Name": "Anastrozol"
+        },
+        {
+          "Name": "Laktoza"
+        },
+        {
+          "Name": "Natrijum-skrobglikolat"
+        },
+        {
+          "Name": "Povidon K25"
+        },
+        {
+          "Name": "Magnezijum-stearat"
+        }
+      ],
+      "Replacement": {
+        "Id": 102,
+        "Name": "ESBESUL",
+        "Ingredients": null,
+        "Replacement": null,
+        "Producer": "Bayer",
+        "Status": 0
+      },
+      "Producer": "Hemofarm",
       "Status": 0
     },
-    "Producer": "aaa",
+    "Producer": "ap",
     "Status": 0
   },
   {
@@ -171,80 +191,44 @@
     "Status": 1
   },
   {
-    "Id": 3,
-    "Name": "promena",
-    "Ingredients": [
-      {
-        "Name": "c"
-      },
-      {
-        "Name": "c"
-      },
-      {
-        "Name": "c"
-      }
-    ],
-    "Replacement": {
-      "Id": 333,
-      "Name": "aaa",
-      "Ingredients": null,
-      "Replacement": {
-        "Id": 0,
-        "Name": "aaa",
-        "Ingredients": null,
-        "Replacement": null,
-        "Producer": null,
-        "Status": 0
-      },
-      "Producer": "aaa",
-      "Status": 0
-    },
-    "Producer": "promena",
-    "Status": 0
-  },
-  {
-    "Id": 4,
-    "Name": "AJDE",
-    "Ingredients": [
-      {
-        "Name": "proba1"
-      },
-      {
-        "Name": "proba2"
-      },
-      {
-        "Name": "c"
-      },
-      {
-        "Name": "d"
-      }
-    ],
-    "Replacement": null,
-    "Producer": "oni",
-    "Status": 0
-  },
-  {
-    "Id": 666,
+    "Id": 66,
     "Name": "nesto",
     "Ingredients": null,
-    "Replacement": null,
+    "Replacement": {
+      "Id": 102,
+      "Name": "Altravesa",
+      "Ingredients": [
+        {
+          "Name": "Anastrozol"
+        },
+        {
+          "Name": "Laktoza"
+        },
+        {
+          "Name": "Natrijum-skrobglikolat"
+        },
+        {
+          "Name": "Povidon K25"
+        }
+      ],
+      "Replacement": {
+        "Id": 102,
+        "Name": "ESBESUL",
+        "Ingredients": null,
+        "Replacement": null,
+        "Producer": "Bayer",
+        "Status": 0
+      },
+      "Producer": "Hemofarm",
+      "Status": 0
+    },
     "Producer": "neko",
     "Status": 0
   },
   {
-    "Id": 3,
+    "Id": 94,
     "Name": "a",
-    "Ingredients": [
-      {
-        "Name": "a"
-      },
-      {
-        "Name": "a"
-      },
-      {
-        "Name": "a"
-      }
-    ],
+    "Ingredients": null,
     "Replacement": {
       "Id": 102,
       "Name": "Altravesa",
@@ -277,6 +261,42 @@
       "Status": 0
     },
     "Producer": "a",
+    "Status": 0
+  },
+  {
+    "Id": 4,
+    "Name": "AJDE",
+    "Ingredients": [
+      {
+        "Name": "c"
+      },
+      {
+        "Name": "d"
+      }
+    ],
+    "Replacement": {
+      "Id": 104,
+      "Name": "Bactim roche",
+      "Ingredients": [
+        {
+          "Name": "Sulfametoksazol"
+        },
+        {
+          "Name": "Trimetoprim"
+        }
+      ],
+      "Replacement": {
+        "Id": 102,
+        "Name": "ESBESUL",
+        "Ingredients": null,
+        "Replacement": null,
+        "Producer": "Bayer",
+        "Status": 0
+      },
+      "Producer": "Bayer",
+      "Status": 0
+    },
+    "Producer": "oni",
     "Status": 0
   }
 ]

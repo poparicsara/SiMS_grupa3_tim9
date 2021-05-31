@@ -23,10 +23,10 @@ namespace IS_Bolnica
         private Medicament oldMedicament = new Medicament();
         private Medicament newMedicament = new Medicament();
         private List<Medicament> meds = new List<Medicament>();
-        private MedicamentFileStorage medStorage = new MedicamentFileStorage();
+        private MedicamentRepository medStorage = new MedicamentRepository();
         private string replacement;
         private List<Request> requests = new List<Request>();
-        private RequestFileStorage storage = new RequestFileStorage();
+        private RequestRepository storage = new RequestRepository();
 
         public EditMedicamentWindow(Medicament selected)
         {
@@ -36,12 +36,12 @@ namespace IS_Bolnica
 
             FillTextBoxes();
             
-            meds = medStorage.loadFromFile("Lekovi.json");           
+            meds = medStorage.GetMedicaments();           
 
             replacementBox.ItemsSource = GetReplacements();
             SetOldReplacement();
 
-            requests = storage.LoadFromFile("Zahtevi.json");
+            requests = storage.GetRequests();
         }
 
         private void FillTextBoxes()
@@ -82,7 +82,7 @@ namespace IS_Bolnica
             int index = GetIndexOfOldMedicament();
             meds.RemoveAt(index);
             meds.Insert(index, newMedicament);
-            medStorage.saveToFile(meds, "Lekovi.json");
+            medStorage.saveToFile(meds);
 
             SendEditRequest();
 
@@ -93,7 +93,7 @@ namespace IS_Bolnica
         {
             SetRequestAttributtes();
             requests.Add(request);
-            storage.SaveToFile(requests, "Zahtevi.json");
+            storage.SaveToFile(requests);
         }
 
         private void SetRequestAttributtes()
@@ -162,7 +162,7 @@ namespace IS_Bolnica
         private void DeleteReplacementButtonClicked(object sender, RoutedEventArgs e)
         {
             DeleteReplacement();
-            medStorage.saveToFile(meds, "Lekovi.json");
+            medStorage.saveToFile(meds);
             MedicamentWindow mw = new MedicamentWindow();
             mw.Show();
             this.Close();

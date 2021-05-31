@@ -20,7 +20,7 @@ namespace IS_Bolnica
 
             DataContext = director;
 
-            roomDataGrid.ItemsSource = storage.GetRooms();
+            roomDataGrid.ItemsSource = service.GetRooms();
         }
 
         private void AddButtonClicked(object sender, RoutedEventArgs e)
@@ -113,6 +113,20 @@ namespace IS_Bolnica
         {
             InventoryWindow inventarWindow = new InventoryWindow();
             inventarWindow.Show();
+            this.Close();
+        }
+
+        private void MergeButtonClicked(object sender, RoutedEventArgs e)
+        {
+            MergeRoomsWindow mw = new MergeRoomsWindow();
+            mw.Show();
+            this.Close();
+        }
+
+        private void SeparateButtonClicked(object sender, RoutedEventArgs e)
+        {
+            SeparateRoomWindow sw = new SeparateRoomWindow();
+            sw.Show();
             this.Close();
         }
     }
