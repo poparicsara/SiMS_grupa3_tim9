@@ -17,35 +17,33 @@ using System.Windows.Shapes;
 namespace IS_Bolnica
 {
     /// <summary>
-    /// Interaction logic for AddNote.xaml
+    /// Interaction logic for OcenjivanjeBolnice.xaml
     /// </summary>
-    public partial class AddNote : Window
+    public partial class NewEvaluationForHospital : Window
     {
-        private EvaluationService evaluationService = new EvaluationService();
         private FindAttributesService findAttributesService = new FindAttributesService();
-        public AddNote()
+        private EvaluationService evaluationService = new EvaluationService();
+        public NewEvaluationForHospital()
         {
             InitializeComponent();
+            BolnicaTextBox.Text = "Zdravo bolnica, Novi Sad";
         }
 
-        private void AddButtonClicked(object sender, RoutedEventArgs e)
+        private void ButtonZabeleziClicked(object sender, RoutedEventArgs e)
         {
             Evaluation evaluation = new Evaluation();
+            evaluation.Bolnica = "Zdravo bolnica, Novi Sad";
             evaluation.Patient = findAttributesService.findPatientByUsername(PatientWindow.username_patient);
-            evaluation.Comment = NoteTextBox.Text;
-            evaluation.commentType = 2;
-            if (!minBox.Text.Equals(""))
-                evaluation.numOfMinutes = Convert.ToInt32(minBox.Text);
-            else
-                evaluation.numOfMinutes = 5;
+            evaluation.Assessment = Convert.ToInt32(OcenaComboBox.Text);
+            evaluation.Comment = CommentTextBox.Text;
+            evaluation.numOfMinutes = 5;
+            evaluation.commentType = 1;
             evaluationService.addNote(evaluation);
             this.Close();
         }
 
         private void BackButtonClicked(object sender, RoutedEventArgs e)
         {
-            Notes notes = new Notes();
-            notes.Show();
             this.Close();
         }
     }

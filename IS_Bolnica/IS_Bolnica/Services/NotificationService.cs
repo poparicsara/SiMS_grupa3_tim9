@@ -14,7 +14,7 @@ namespace IS_Bolnica.Services
     {
         private NotificationRepository notificationRepository = new NotificationRepository();
         private List<Notification> notifications = new List<Notification>();
-        EvaluationFileStorage evaluationRepository = new EvaluationFileStorage();
+        EvaluationRepository evaluationRepository = new EvaluationRepository();
 
         public NotificationService()
         {
@@ -153,8 +153,9 @@ namespace IS_Bolnica.Services
                 if (evaluation.Patient.Username.Equals(PatientWindow.username_patient))
                     patientEvaluations.Add(evaluation);
             }
-
-            return patientEvaluations[patientEvaluations.Count - 1];
+            if(patientEvaluations.Count != 0)
+                return patientEvaluations[patientEvaluations.Count - 1];
+            return null;
         }
     }
 

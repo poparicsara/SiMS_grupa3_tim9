@@ -38,7 +38,7 @@ namespace IS_Bolnica {
     /// <summary>
     /// OcenjivanjePregleda
     /// </summary>
-    public partial class OcenjivanjePregleda : System.Windows.Window, System.Windows.Markup.IComponentConnector {
+    public partial class NewEvaluationForAppointment : System.Windows.Window, System.Windows.Markup.IComponentConnector {
         
         
         #line 18 "..\..\..\Patient\OcenjivanjePregleda.xaml"

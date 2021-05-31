@@ -11,7 +11,7 @@ namespace IS_Bolnica.Services
 {
     class EvaluationService
     {
-        EvaluationFileStorage evaluationRepository = new EvaluationFileStorage();
+        EvaluationRepository evaluationRepository = new EvaluationRepository();
         PrescriptionRepository prescriptionRepository = new PrescriptionRepository();
 
         public EvaluationService() 

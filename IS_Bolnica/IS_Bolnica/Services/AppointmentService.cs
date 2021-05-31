@@ -171,7 +171,7 @@ namespace IS_Bolnica.Services
 
         public void sendEvaluationOfAppointment(Appointment appointment)
         {
-            OcenjivanjePregleda op = new OcenjivanjePregleda(appointment);
+            NewEvaluationForAppointment op = new NewEvaluationForAppointment(appointment);
             op.Show();
             sendEvaluationOfHospital();
         }
@@ -181,7 +181,7 @@ namespace IS_Bolnica.Services
             Patient loggedPatient = findPatientByUsername(PatientWindow.username_patient);
             if (loggedPatient.brojOcenjenihPregleda % 7 == 0)
             {
-                OcenjivanjeBolnice ob = new OcenjivanjeBolnice();
+                NewEvaluationForHospital ob = new NewEvaluationForHospital();
                 ob.Show();
             }
         }

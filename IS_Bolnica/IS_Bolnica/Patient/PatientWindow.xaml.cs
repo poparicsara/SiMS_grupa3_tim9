@@ -50,7 +50,7 @@ namespace IS_Bolnica
 
         private void AddButtonClicked(object sender, RoutedEventArgs e)
         {
-            Zakazivanje_pregleda zp = new Zakazivanje_pregleda(akcije, ocenePacijentove);
+            AddAppointment zp = new AddAppointment(akcije, ocenePacijentove);
             zp.Show();
             this.Close();
         }
@@ -81,7 +81,7 @@ namespace IS_Bolnica
             if (!findAttributesService.checkSelectedIndex(lvDataBinding.SelectedIndex, true))
             {
                 Appointment selectedAppointment = appointmentService.findSelectedPatientAppointment(lvDataBinding.SelectedIndex);
-                Izmena_pregleda ip = new Izmena_pregleda(lvDataBinding.SelectedIndex);
+                EditAppointment ip = new EditAppointment(lvDataBinding.SelectedIndex);
 
                 if (!appointmentService.checkDateOfAppointment(selectedAppointment))
                 {
@@ -99,17 +99,17 @@ namespace IS_Bolnica
             //pnw.Show();
         }
 
-        static void threadForNotificationsAboutTherapy()
+        private void threadForNotificationsAboutTherapy()
         {
             Thread t = new Thread(new ThreadStart(methodForNotificationsAboutTherapy));
             t.Start();
         }
-        static void methodForNotificationsAboutTherapy()
+        private void methodForNotificationsAboutTherapy()
         {
             while (true)
             {
-                //List<Prescription> patientPrescriptions = prescriptionService.getPatientPrescriptions(username_patient);
-                //notificationService.sendNotifications(patientPrescriptions);
+                List<Prescription> patientPrescriptions = prescriptionService.getPatientPrescriptions(username_patient);
+                notificationService.sendNotifications(patientPrescriptions);
 
                 Thread.Sleep(TimeSpan.FromSeconds(300));
             }
@@ -139,7 +139,7 @@ namespace IS_Bolnica
 
         private void OcenjivanjeButtonClicked(object sender, RoutedEventArgs e)
         {
-            OcenePacijenta pacijentoveOcene = new OcenePacijenta();
+            PatientEvaluations pacijentoveOcene = new PatientEvaluations();
             pacijentoveOcene.Show();
         }
 
@@ -150,7 +150,7 @@ namespace IS_Bolnica
 
         private void AnamnezeButtonClicked(object sender, RoutedEventArgs e)
         {
-            PregledAnamneza patientAnamnesis = new PregledAnamneza();
+            ShowAnamneses patientAnamnesis = new ShowAnamneses();
             patientAnamnesis.Show();
         }
     }

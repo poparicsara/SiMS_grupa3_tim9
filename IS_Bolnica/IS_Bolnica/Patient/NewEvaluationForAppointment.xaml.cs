@@ -1,4 +1,5 @@
-﻿using IS_Bolnica.Services;
+﻿using IS_Bolnica.Model;
+using IS_Bolnica.Services;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -17,35 +18,36 @@ using System.Windows.Shapes;
 namespace IS_Bolnica
 {
     /// <summary>
-    /// Interaction logic for AddNote.xaml
+    /// Interaction logic for OcenjivanjePregleda.xaml
     /// </summary>
-    public partial class AddNote : Window
+    public partial class NewEvaluationForAppointment : Window
     {
-        private EvaluationService evaluationService = new EvaluationService();
         private FindAttributesService findAttributesService = new FindAttributesService();
-        public AddNote()
+        private EvaluationService evaluationService = new EvaluationService();
+        public NewEvaluationForAppointment(Appointment appointment)
         {
             InitializeComponent();
+
+            DoktorTextBox.Text = appointment.Doctor.Name + " " + appointment.Doctor.Surname;
         }
 
-        private void AddButtonClicked(object sender, RoutedEventArgs e)
+        private void ButtonZabeleziClicked(object sender, RoutedEventArgs e)
         {
             Evaluation evaluation = new Evaluation();
+            evaluation.Doctor = findAttributesService.findDoctor(DoktorTextBox.Text.Split(' ')[0], DoktorTextBox.Text.Split(' ')[1]);
             evaluation.Patient = findAttributesService.findPatientByUsername(PatientWindow.username_patient);
-            evaluation.Comment = NoteTextBox.Text;
-            evaluation.commentType = 2;
-            if (!minBox.Text.Equals(""))
-                evaluation.numOfMinutes = Convert.ToInt32(minBox.Text);
-            else
-                evaluation.numOfMinutes = 5;
+            evaluation.Assessment = Convert.ToInt32(OcenaComboBox.Text);
+            evaluation.Comment = CommentTextBox.Text;
+            evaluation.Bolnica = "";
+            evaluation.numOfMinutes = 5;
+            evaluation.commentType = 0;
             evaluationService.addNote(evaluation);
+
             this.Close();
         }
 
         private void BackButtonClicked(object sender, RoutedEventArgs e)
         {
-            Notes notes = new Notes();
-            notes.Show();
             this.Close();
         }
     }
