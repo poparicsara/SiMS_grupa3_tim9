@@ -159,15 +159,12 @@ namespace IS_Bolnica.Services
                 {
                     if (app.StartTime <= appointment.StartTime && appointment.StartTime < app.EndTime)
                     {
-                        //MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
                         return false;
                     } else if (app.StartTime < appointment.EndTime && appointment.EndTime <= app.EndTime)
                     {
-                       // MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
                         return false;
                     } else if (app.StartTime >= appointment.StartTime && app.EndTime < appointment.EndTime)
                     {
-                       // MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
                         return false;
                     }
                 }
@@ -186,17 +183,14 @@ namespace IS_Bolnica.Services
                 {
                     if (app.StartTime <= appointment.StartTime && appointment.StartTime < app.EndTime)
                     {
-                        MessageBox.Show("Soba " + appointment.Room.Id + "je zauzeta u izabranom terminu");
                         return false;
                     }
                     else if (app.StartTime < appointment.EndTime && appointment.EndTime <= app.EndTime)
                     {
-                        MessageBox.Show("Soba " + appointment.Room.Id + "je zauzeta u izabranom terminu");
                         return false;
                     }
                     else if (app.StartTime >= appointment.StartTime && app.EndTime < appointment.EndTime)
                     {
-                        MessageBox.Show("Soba " + appointment.Room.Id + "je zauzeta u izabranom terminu");
                         return false;
                     }
                 }
@@ -213,17 +207,14 @@ namespace IS_Bolnica.Services
                 {
                     if (app.StartTime <= appointment.StartTime && appointment.StartTime < app.EndTime)
                     {
-                        MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
                         return false;
                     }
                     else if (app.StartTime < appointment.EndTime && appointment.EndTime <= app.EndTime)
                     {
-                        MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
                         return false;
                     }
                     else if (app.StartTime >= appointment.StartTime && app.EndTime <= appointment.EndTime)
                     {
-                        MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
                         return false;
                     }
                 }

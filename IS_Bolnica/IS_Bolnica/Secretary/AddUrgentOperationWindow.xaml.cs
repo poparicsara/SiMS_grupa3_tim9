@@ -1,6 +1,5 @@
 ﻿using Model;
 using System;
-using System.Collections.Generic;
 using System.Windows;
 using IS_Bolnica.Model;
 using IS_Bolnica.Services;

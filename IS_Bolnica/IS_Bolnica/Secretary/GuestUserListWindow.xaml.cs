@@ -19,8 +19,7 @@ namespace IS_Bolnica.Secretary
 
         private void deleteGuestAccount(object sender, RoutedEventArgs e)
         {
-            int i = -1;
-            i = guestUsersGrid.SelectedIndex;
+            int i = guestUsersGrid.SelectedIndex;
             
             guestUser = (GuestUser)guestUsersGrid.SelectedItem;
 

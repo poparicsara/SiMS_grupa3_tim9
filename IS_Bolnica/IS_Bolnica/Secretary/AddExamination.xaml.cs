@@ -18,6 +18,7 @@ namespace IS_Bolnica.Secretary
         {
             InitializeComponent();
             doctorBox.ItemsSource = doctorService.GetDoctorNamesList();
+
         }
 
         private void addExamination(object sender, RoutedEventArgs e)
