@@ -1,4 +1,5 @@
 ﻿
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using IS_Bolnica.Services;
@@ -10,12 +11,16 @@ namespace IS_Bolnica.Secretary
     {
         private GuestUserService guestUserService = new GuestUserService();
         private GuestUser guestUser = new GuestUser();
+        public List<GuestUser> GuestUsers { get; set; }
+        public List<GuestUser> DeletedUsers { get; set; }
 
         public GuestUserList()
         {
             InitializeComponent();
             this.DataContext = this;
+            GuestUsers = guestUserService.GetGuestUsers();
             guestUsersGrid.ItemsSource = guestUserService.GetGuestUsers();
+            DeletedUsers = new List<GuestUser>();
 
         }
 
@@ -57,6 +62,21 @@ namespace IS_Bolnica.Secretary
                         break;
                 }
             }
+        }
+
+        private void DataGrid_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            
+        }
+
+        private void Button_DragOver(object sender, DragEventArgs e)
+        {
+
+        }
+
+        private void Button_Drop(object sender, DragEventArgs e)
+        {
+
         }
     }
 }

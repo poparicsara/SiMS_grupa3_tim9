@@ -21,7 +21,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="JMBG pacijenta" Binding="{Binding Patient.Id}" Width="120"/>
                 <DataGridTextColumn Header="Doktor" Binding="{Binding Doctor.Surname}" Width="120"/>
-                <DataGridTextColumn Header="Datum i vreme" Binding="{Binding Date}" Width="150"/>
+                <DataGridTextColumn Header="Datum i vreme" Binding="{Binding StartTime}" Width="150"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Dodaj pregled" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" HorizontalAlignment="Left" Margin="10,592,0,0" VerticalAlignment="Top" Width="401" Click="addExamination" Height="30"  />

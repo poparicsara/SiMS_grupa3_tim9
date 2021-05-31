@@ -16,91 +16,17 @@
         </Button>
         <Label Content="ZDRAVO KORPORACIJA" FontSize="20" Foreground="Green" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,14,0,0" Height="35" Width="235" Grid.ColumnSpan="2"/>
         <Image x:Name="nasLogo" HorizontalAlignment="Left" Height="48" Margin="366,10,0,0" VerticalAlignment="Top" Width="48" Source="C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\Images\nasLogo.jpg"/>
-        <ListBox HorizontalAlignment="Left" Height="648" Margin="10,63,0,0" VerticalAlignment="Top" Width="404">
-            <ListBoxItem FontSize="30" FontWeight="Bold" Foreground="#FF15285D" Selected="Profil_Selected" >
-                <StackPanel>
-                    <TextBlock>
-                        PROFIL
-                    </TextBlock>
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem FontSize="20" FontWeight="Bold" Foreground="#FF15285D" >
-                <StackPanel>
-                    <TextBlock>
-                        Izmeni lične podatke
-                    </TextBlock>
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem FontSize="20" FontWeight="Bold" Foreground="#FF15285D" Selected="SpisakPacijenata_Selected">
-                <StackPanel>
-                    <TextBlock>
-                        Spisak pacijenata
-                    </TextBlock>
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem FontSize="20" FontWeight="Bold" Foreground="#FF15285D" Selected="BlokiraniPacijenti_Selected">
-                <StackPanel>
-                    <TextBlock>
-                        Blokirani pacijenti
-                    </TextBlock>
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem FontSize="20" FontWeight="Bold" Foreground="#FF15285D" Selected="SpisakGuestNaloga_Selected">
-                <StackPanel>
-                    <TextBlock>
-                        Spisak guest naloga
-                    </TextBlock>
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem FontSize="20" FontWeight="Bold" Foreground="#FF15285D" Selected="SpisakObavestenja_Selected">
-                <StackPanel>
-                    <TextBlock>
-                        Spisak obaveštenja
-                    </TextBlock>
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem FontSize="20" FontWeight="Bold" Foreground="#FF15285D" Selected="SpisakLekara_Selected">
-                <StackPanel>
-                    <TextBlock>
-                        Spisak lekara
-                    </TextBlock>
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem FontSize="20" FontWeight="Bold" Foreground="#FF15285D" Selected="SpisakPregleda_Selected">
-                <StackPanel>
-                    <TextBlock>
-                        Spisak pregleda
-                    </TextBlock>
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem FontSize="20" FontWeight="Bold" Foreground="#FF15285D" Selected="SpisakOperacija_Selected">
-                <StackPanel>
-                    <TextBlock>
-                        Spisak operacija
-                    </TextBlock>
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem FontSize="20" FontWeight="Bold" Foreground="#FF15285D" Selected="ZakaziHitanPregled_Selected">
-                <StackPanel>
-                    <TextBlock>
-                        Zakaži hitan pregled
-                    </TextBlock>
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem FontSize="20" FontWeight="Bold" Foreground="#FF15285D" Selected="ZakaziHitnuOperaciju_Selected">
-                <StackPanel>
-                    <TextBlock>
-                        Zakaži hitnu operaciju
-                    </TextBlock>
-                </StackPanel>
-            </ListBoxItem>
-            <ListBoxItem FontSize="20" FontWeight="Bold" Foreground="#FF15285D" Selected="Opcije_Selected">
-                <StackPanel>
-                    <TextBlock>
-                        Opcije
-                    </TextBlock>
-                </StackPanel>
-            </ListBoxItem>
-        </ListBox>
+        <Button Content="PROFIL" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="Profil_Selected" HorizontalAlignment="Left" Margin="56,95,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="PACIJENTI" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="SpisakPacijenata_Selected" HorizontalAlignment="Left" Margin="56,145,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="DOKTORI" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="SpisakLekara_Selected" HorizontalAlignment="Left" Margin="56,195,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="BLOKIRANI PACIJENTI" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="BlokiraniPacijenti_Selected" HorizontalAlignment="Left" Margin="56,245,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="GUEST NALOZI" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="SpisakGuestNaloga_Selected" HorizontalAlignment="Left" Margin="56,295,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="OBAVEŠTENJA" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="SpisakObavestenja_Selected" HorizontalAlignment="Left" Margin="56,345,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="PREGLEDI" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="SpisakPregleda_Selected" HorizontalAlignment="Left" Margin="56,395,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="OPERACIJE" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="SpisakOperacija_Selected" HorizontalAlignment="Left" Margin="56,445,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="ZAKAŽI HITAN PREGLED" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="ZakaziHitanPregled_Selected" HorizontalAlignment="Left" Margin="56,495,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="ZAKAŽI HITNU OPERACIJU" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="ZakaziHitnuOperaciju_Selected" HorizontalAlignment="Left" Margin="56,545,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="OPCIJE" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="Opcije_Selected" HorizontalAlignment="Left" Margin="56,595,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="IZVEŠTAJ" Foreground="White" Background="#FF15285D" FontWeight="Bold" HorizontalAlignment="Left" Margin="56,645,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
     </Grid>
 </Page>

@@ -132,6 +132,7 @@ namespace IS_Bolnica.Secretary
         private void pretraziBox_KeyUp(object sender, KeyEventArgs e)
         {
             var filtered = patients.Where(patient => patient.Id.StartsWith(pretraziBox.Text));
+            filtered = patients.Where(patient => patient.Name.StartsWith(pretraziBox.Text));
 
             PatientListGrid.ItemsSource = filtered;
         }

@@ -22,6 +22,11 @@
                      GroupName="modesSelection" Checked="Black_mode_checked"/>
         <RadioButton Content="LIGHT MODE" FontSize="15" HorizontalAlignment="Left" Margin="228,170,0,0" VerticalAlignment="Top"
                      GroupName="modesSelection" Checked="Light_mode_checked"/>
+        <Label Content="Odaberite jezik: " HorizontalAlignment="Left" Margin="40,218,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="LanguageBox" HorizontalAlignment="Left" Margin="204,218,0,0" VerticalAlignment="Top" Width="178">
+            <ComboBoxItem> Engleski </ComboBoxItem>
+            <ComboBoxItem> Srpski </ComboBoxItem>
+        </ComboBox>
 
     </Grid>
 </Page>

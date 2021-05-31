@@ -27,7 +27,7 @@
         <TextBox x:Name="usernameBox" HorizontalAlignment="Left" FontSize="17" Height="32" Margin="510,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219"/>
         <Label Content="Password:" FontSize="17" HorizontalAlignment="Left" Margin="350,200,0,0" VerticalAlignment="Top"/>
         <Button Content="Prijavi se" FontSize="17" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="432,300,0,0" VerticalAlignment="Top" Width="219" Height="37" Click="Button_Click"/>
-        <Label Content="ZDRAVO KORPORACIJA" FontSize="25" FontWeight="Bold" Foreground="#FFA5BC90" HorizontalAlignment="Left" Margin="386,29,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.906,0.31" Width="296" Height="45"/>
+        <Label Content="ZDRAVO KORPORACIJA" FontSize="25" FontWeight="Bold" Foreground="#FFA5BC90" HorizontalAlignment="Left" Margin="390,29,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.906,0.31" Width="296" Height="45"/>
         <PasswordBox Name="passwordBox" FontSize="17" MaxLength="16" PasswordChar="*" HorizontalAlignment="Left" Margin="510,200,0,0" VerticalAlignment="Top" Width="219" Height="32"/>
     </Grid>
 </Window>
