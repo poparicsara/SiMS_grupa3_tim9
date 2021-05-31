@@ -25,48 +25,44 @@ namespace IS_Bolnica.Services
 
         public void AddAppointment(Appointment appointment)
         {
-            appointments = GetAppointments();
             if (isAppointmentValid(appointment))
             {
-                if (IsAvailable(appointment))
+                if (isAvailable(appointments, appointment))
                 {
                     appointments.Add(appointment);
-                    appointmentRepository.SaveToFile(appointments);
+                    appointmentRepository.SaveToFile(appointments, "Appointments.json");
                 }
             }
         }
 
         public void DeleteAppointment(Appointment appointment)
         {
-            appointments = GetAppointments();
             int index = FindAppointmentIndex(appointment);
             appointments.RemoveAt(index);
-            appointmentRepository.SaveToFile(appointments);
+            appointmentRepository.SaveToFile(appointments, "Appointments.json");
         }
 
         public void EditAppointment(Appointment oldAppointment, Appointment newAppointment)
         {
-            appointments = GetAppointments();
             if (isAppointmentValid(newAppointment))
             {
                 int indexOld = FindAppointmentIndex(oldAppointment);
                 appointments.RemoveAt(indexOld);
-                if (IsAvailable(newAppointment))
+                if (isAvailable(appointments, newAppointment))
                 {
                     appointments.Add(newAppointment);
-                    appointmentRepository.SaveToFile(appointments);
+                    appointmentRepository.SaveToFile(appointments, "Appointments.json");
                 }
                 else
                 {
                     appointments.Add(oldAppointment);
-                    appointmentRepository.SaveToFile(appointments);
+                    appointmentRepository.SaveToFile(appointments, "Appointments.json");
                 }
             }
         }
 
         public List<Appointment> getExaminations()
         {
-            appointments = GetAppointments();
             foreach (var appointment in appointments)
             {
                 if (appointment.AppointmentType == 0)
@@ -80,7 +76,6 @@ namespace IS_Bolnica.Services
 
         public List<Appointment> getOperations()
         {
-            appointments = GetAppointments();
             foreach (var appointment in appointments)
             {
                 if (appointment.AppointmentType == AppointmentType.operation)
@@ -94,7 +89,6 @@ namespace IS_Bolnica.Services
 
         public void RemovePatientsAppointments(Patient patient)
         {
-            appointments = GetAppointments();
             List<Appointment> patientAppointments = FindPatientAppointments(patient);
             for (int i = 0; i < appointments.Count; i++)
             {
@@ -106,7 +100,7 @@ namespace IS_Bolnica.Services
                     }
                 }
             }
-            appointmentRepository.SaveToFile(appointments);
+            appointmentRepository.SaveToFile(appointments, "Appointments.json");
         }
 
         private bool isAppointmentValid(Appointment appointment)
@@ -121,7 +115,6 @@ namespace IS_Bolnica.Services
 
         public List<Appointment> FindPatientAppointments(Patient patient)
         {
-            appointments = GetAppointments();
             List<Appointment> patientAppointments = new List<Appointment>();
             foreach (var appointment in appointments)
             {
@@ -137,7 +130,6 @@ namespace IS_Bolnica.Services
 
         private int FindAppointmentIndex(Appointment appointment)
         {
-            appointments = GetAppointments();
             for (int i = 0; i < appointments.Count; i++)
             {
                 if (appointment.StartTime.Equals(appointments[i].StartTime) &&
@@ -150,21 +142,24 @@ namespace IS_Bolnica.Services
             return -1;
         }
 
-        private bool isPatientFree(Appointment appointment)
+        private bool isPatientFree(List<Appointment> appointments, Appointment appointment)
         {
-            appointments = GetAppointments();
+
             foreach (Appointment app in appointments)
             {
                 if (app.Patient.Id == appointment.Patient.Id)
                 {
                     if (app.StartTime <= appointment.StartTime && appointment.StartTime < app.EndTime)
                     {
+                        MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
                         return false;
                     } else if (app.StartTime < appointment.EndTime && appointment.EndTime <= app.EndTime)
                     {
+                        MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
                         return false;
                     } else if (app.StartTime >= appointment.StartTime && app.EndTime < appointment.EndTime)
                     {
+                        MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
                         return false;
                     }
                 }
@@ -174,23 +169,25 @@ namespace IS_Bolnica.Services
             return true;
         }
 
-        private bool isRoomFree(Appointment appointment)
+        private bool isRoomFree(List<Appointment> appointments, Appointment appointment)
         {
-            appointments = GetAppointments();
             foreach (Appointment app in appointments)
             {
                 if (app.Room.Id == appointment.Room.Id)
                 {
                     if (app.StartTime <= appointment.StartTime && appointment.StartTime < app.EndTime)
                     {
+                        MessageBox.Show("Soba " + appointment.Room.Id + "je zauzeta u izabranom terminu");
                         return false;
                     }
                     else if (app.StartTime < appointment.EndTime && appointment.EndTime <= app.EndTime)
                     {
+                        MessageBox.Show("Soba " + appointment.Room.Id + "je zauzeta u izabranom terminu");
                         return false;
                     }
                     else if (app.StartTime >= appointment.StartTime && app.EndTime < appointment.EndTime)
                     {
+                        MessageBox.Show("Soba " + appointment.Room.Id + "je zauzeta u izabranom terminu");
                         return false;
                     }
                 }
@@ -198,23 +195,25 @@ namespace IS_Bolnica.Services
             return true;
         }
 
-        private bool isDoctorFree(Appointment appointment)
+        private bool isDoctorFree(List<Appointment> appointments, Appointment appointment)
         {
-            appointments = GetAppointments();
             foreach (Appointment app in appointments)
             {
                 if (app.Doctor.Id == appointment.Doctor.Id)
                 {
                     if (app.StartTime <= appointment.StartTime && appointment.StartTime < app.EndTime)
                     {
+                        MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
                         return false;
                     }
                     else if (app.StartTime < appointment.EndTime && appointment.EndTime <= app.EndTime)
                     {
+                        MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
                         return false;
                     }
                     else if (app.StartTime >= appointment.StartTime && app.EndTime <= appointment.EndTime)
                     {
+                        MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
                         return false;
                     }
                 }
@@ -222,11 +221,11 @@ namespace IS_Bolnica.Services
             return true;
         }
 
-        public bool IsAvailable(Appointment appointment)
+        private bool isAvailable(List<Appointment> appointments, Appointment appointment)
         {
-            if (isPatientFree(appointment) &&
-                isRoomFree(appointment) &&
-                isDoctorFree(appointment))
+            if (isPatientFree(appointments, appointment) &&
+                isRoomFree(appointments, appointment) &&
+                isDoctorFree(appointments, appointment))
             {
                 return true;
             }
@@ -239,7 +238,7 @@ namespace IS_Bolnica.Services
 
         public List<Appointment> GetAppointments()
         {
-            return appointmentRepository.LoadFromFile();
+            return appointmentRepository.LoadFromFile("Appointments.json");
         }
 
         public List<Appointment> getDoctorsExaminations()

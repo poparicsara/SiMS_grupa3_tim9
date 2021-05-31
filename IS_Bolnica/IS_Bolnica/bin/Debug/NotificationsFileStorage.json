@@ -95,15 +95,5 @@
     "Sender": 3,
     "notificationType": 2,
     "PersonId": null
-  },
-  {
-    "Title": "mam",
-    "Content": "mmm",
-    "Sender": 0,
-    "notificationType": 5,
-    "PersonId": [
-      "1234",
-      "2222"
-    ]
   }
 ]

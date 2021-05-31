@@ -1,6 +1,19 @@
 ﻿using IS_Bolnica.Model;
+using Model;
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 using IS_Bolnica.Services;
 
 namespace IS_Bolnica.Secretary
@@ -24,11 +37,11 @@ namespace IS_Bolnica.Secretary
 
         private void editExamination(object sender, RoutedEventArgs e)
         {
-            appointment.Patient = findAttributesService.FindPatient(idPatientBox.Text);
+            appointment.Patient = findAttributesService.findPatient(idPatientBox.Text);
             string[] doctorNameAndSurname = doctorBox.Text.Split(' ');
             string name = doctorNameAndSurname[0];
             string surname = doctorNameAndSurname[1];
-            appointment.Doctor = findAttributesService.FindDoctor(name, surname);
+            appointment.Doctor = findAttributesService.findDoctor(name, surname);
             DateTime datum = new DateTime();
             datum = (DateTime)dateBox.SelectedDate;
             int sat = Convert.ToInt32(hourBox.Text);

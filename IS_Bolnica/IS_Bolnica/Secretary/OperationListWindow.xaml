@@ -15,10 +15,10 @@
         <Label Content="ZDRAVO KORPORACIJA" FontSize="20" Foreground="Green" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,14,0,0" Height="35" Width="235" Grid.ColumnSpan="2"/>
         <Image x:Name="nasLogo" HorizontalAlignment="Left" Height="48" Margin="366,10,0,0" VerticalAlignment="Top" Width="48" Source="C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\Images\nasLogo.jpg"/>
         <Label Content="SPISAK OPERACIJA" FontWeight="Bold"  Foreground="Green" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,69,0,0" Width="246" Height="37"/>
-        <DataGrid x:Name="OperationList" ItemsSource="{Binding Path=appointments}" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" HorizontalAlignment="Stretch" Margin="10,111,10,142.8" VerticalAlignment="Stretch" GridLinesVisibility="Vertical">
+        <DataGrid x:Name="OperationList" ItemsSource="{Binding Path=appointments}" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" HorizontalAlignment="Stretch" Margin="10,111,10,142.8" VerticalAlignment="Stretch"  SelectionChanged="DataGrid_SelectionChanged" GridLinesVisibility="Vertical">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Datum i vreme" Binding="{Binding StartTime}" Width="100"/>
-                <DataGridTextColumn Header="Soba" Binding="{Binding Room.Id}" Width="100"/>
+                <DataGridTextColumn Header="Soba" Binding="{Binding RoomRecord.Id}" Width="100"/>
                 <DataGridTextColumn Header="JMBG pacijenta" Binding="{Binding Patient.Id}" Width="100"/>
                 <DataGridTextColumn Header="Doktor" Binding="{Binding Doctor.Surname}" Width="100"/>
             </DataGrid.Columns>

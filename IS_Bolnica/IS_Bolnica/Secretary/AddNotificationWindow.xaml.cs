@@ -1,9 +1,19 @@
-﻿using Model;
+﻿using IS_Bolnica.Model;
+using Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 using IS_Bolnica.Services;
 
 namespace IS_Bolnica.Secretary
@@ -11,10 +21,11 @@ namespace IS_Bolnica.Secretary
     public partial class AddNotificationWindow : Window
     {
         private Notification notification = new Notification();
+        private List<User> users = new List<User>();
+        private UserRepository userRepository = new UserRepository();
         private List<string> userList = new List<string>();
 
         private NotificationService notificationService = new NotificationService();
-        private UserService userService = new UserService();
 
         public AddNotificationWindow()
         {
@@ -95,7 +106,7 @@ namespace IS_Bolnica.Secretary
         {
             string userId = idBox.Text;
             
-            if(!notificationService.IsBoxEmpty(userId) && userService.UserExists(userId) && !notificationService.ExistsInList(userList, userId))
+            if(!isBoxEmpty(userId) && isUserValid(userId) && !existsInList(userList, userId))
             {
                 userList.Add(userId);
                 refreshListBox(userList);
@@ -113,6 +124,43 @@ namespace IS_Bolnica.Secretary
             {
                 idListBox.Items.Add(id);
             }
+        }
+
+        private bool existsInList(List<string> idList, string id)
+        {
+            foreach(string i in idList)
+            {
+                if(i.Equals(id))
+                {
+                    MessageBox.Show("Korisnik već postoji u listi!");
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool isBoxEmpty(string id)
+        {
+            if(id.Equals(""))
+            {
+                MessageBox.Show("Niste uneli id korisnika");
+                return true;
+            }
+            return false;
+        }
+
+        private bool isUserValid(string id)
+        {
+            users = userRepository.LoadFromFile("UserRepository.json");
+            foreach(User u in users)
+            {
+                if(u.Id.Equals(id))
+                {
+                    return true;
+                }
+            }
+            MessageBox.Show("Niste uneli postojeći id");
+            return false;
         }
 
         private void Button_Remove_Clicked(object sender, RoutedEventArgs e)

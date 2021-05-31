@@ -10,6 +10,8 @@ namespace IS_Bolnica.Secretary
     public partial class AddExaminationWindow : Window
     {
         private Appointment appointment = new Appointment();
+        private List<Appointment> appointments = new List<Appointment>();
+        private AppointmentRepository appointmentRepository = new AppointmentRepository();
         private DoctorService doctorService = new DoctorService();
         private AppointmentService appointmentService = new AppointmentService();
         private FindAttributesService findAttributesService = new FindAttributesService();
@@ -36,11 +38,11 @@ namespace IS_Bolnica.Secretary
         private void addExamination(object sender, RoutedEventArgs e)
         {
             appointment.DurationInMins = 30;
-            appointment.Patient = findAttributesService.FindPatient(idPatientBox.Text);
+            appointment.Patient = findAttributesService.findPatient(idPatientBox.Text);
             string[] doctorNameAndSurname = doctorBox.Text.Split(' ');
             string name = doctorNameAndSurname[0];
             string surname = doctorNameAndSurname[1];
-            appointment.Doctor = findAttributesService.FindDoctor(name, surname);
+            appointment.Doctor = findAttributesService.findDoctor(name, surname);
             DateTime datum = new DateTime();
             datum = (DateTime)dateBox.SelectedDate;
             int sat = Convert.ToInt32(hourBox.Text);

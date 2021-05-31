@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using IS_Bolnica.Model;
 using Model;
 
@@ -67,35 +66,6 @@ namespace IS_Bolnica.Services
 
             return -1;
         }
-
-        public bool ExistsInList(List<string> idList, string id)
-        {
-            foreach (string i in idList)
-            {
-                if (i.Equals(id))
-                {
-                    MessageBox.Show("Korisnik već postoji u listi!");
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        public bool IsBoxEmpty(string id)
-        {
-            if (id.Equals(""))
-            {
-                MessageBox.Show("Niste uneli id korisnika");
-                return true;
-            }
-            return false;
-        }
-
-
-
-
-
-
 
     }
 

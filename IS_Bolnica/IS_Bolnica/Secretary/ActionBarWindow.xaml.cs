@@ -14,6 +14,9 @@ using System.Windows.Shapes;
 
 namespace IS_Bolnica.Secretary
 {
+    /// <summary>
+    /// Interaction logic for ActionBarWindow.xaml
+    /// </summary>
     public partial class ActionBarWindow : Window
     {
         public ActionBarWindow()
@@ -109,13 +112,6 @@ namespace IS_Bolnica.Secretary
         {
             AddUrgentOperationWindow auow = new AddUrgentOperationWindow();
             auow.Show();
-            this.Close();
-        }
-
-        private void BlokiraniPacijenti_Selected(object sender, RoutedEventArgs e)
-        {
-            BlockedPatientsListWindow bplw = new BlockedPatientsListWindow();
-            bplw.Show();
             this.Close();
         }
     }

@@ -13,7 +13,6 @@ namespace Model
         public int Akcije { get; set; }
         public int brojOcenjenihPregleda { get; set; }
         public double Debit { get; set; }
-        public bool isBlocked { get; set; }
 
         public Patient()
         {

@@ -1,24 +1,9 @@
-[
+﻿[
   {
     "Specialization": {
       "Name": "Ortopedija"
     },
     "Ordination": 102,
-    "Shifts": [
-      {
-        "DoctorsId": "457896",
-        "ShiftStartDate": "2021-05-31T00:00:00",
-        "ShiftEndDate": "2021-06-04T00:00:00",
-        "ShiftType": 0
-      }
-    ],
-    "Vacations": [
-      {
-        "DoctorsId": "457896",
-        "VacationStartDate": "2021-07-01T00:00:00",
-        "VacationEndDate": "2021-07-08T00:00:00"
-      }
-    ],
     "Username": "Marija",
     "Password": "ftn",
     "Name": "Marija",
@@ -35,21 +20,6 @@
       "Name": "Pedijatrija"
     },
     "Ordination": 107,
-    "Shifts": [
-      {
-        "DoctorsId": "67894234",
-        "ShiftStartDate": "2021-05-31T00:00:00",
-        "ShiftEndDate": "2021-06-04T00:00:00",
-        "ShiftType": 0
-      }
-    ],
-    "Vacations": [
-      {
-        "DoctorsId": "67894234",
-        "VacationStartDate": "2021-07-01T00:00:00",
-        "VacationEndDate": "2021-07-08T00:00:00"
-      }
-    ],
     "Username": "nikola",
     "Password": "dzoni",
     "Name": "Nikola",
@@ -66,21 +36,6 @@
       "Name": "Anesteziologija"
     },
     "Ordination": 202,
-    "Shifts": [
-      {
-        "DoctorsId": "4321009",
-        "ShiftStartDate": "2021-05-31T00:00:00",
-        "ShiftEndDate": "2021-06-04T00:00:00",
-        "ShiftType": 0
-      }
-    ],
-    "Vacations": [
-      {
-        "DoctorsId": "4321009",
-        "VacationStartDate": "2021-07-01T00:00:00",
-        "VacationEndDate": "2021-07-08T00:00:00"
-      }
-    ],
     "Username": "ana",
     "Password": "ana",
     "Name": "Ana",
@@ -97,27 +52,6 @@
       "Name": "Alergologija i imunologija"
     },
     "Ordination": 300,
-    "Shifts": [
-      {
-        "DoctorsId": "1",
-        "ShiftStartDate": "2021-05-31T00:00:00",
-        "ShiftEndDate": "2021-06-04T00:00:00",
-        "ShiftType": 0
-      },
-      {
-        "DoctorsId": "1",
-        "ShiftStartDate": "2021-06-14T00:00:00",
-        "ShiftEndDate": "2021-06-21T00:00:00",
-        "ShiftType": 1
-      }
-    ],
-    "Vacations": [
-      {
-        "DoctorsId": "1",
-        "VacationStartDate": "2021-07-01T00:00:00",
-        "VacationEndDate": "2021-07-08T00:00:00"
-      }
-    ],
     "Username": "Ognjen",
     "Password": "ognjen",
     "Name": "Ognjen",
@@ -134,21 +68,6 @@
       "Name": "Dermatologija"
     },
     "Ordination": 301,
-    "Shifts": [
-      {
-        "DoctorsId": "2",
-        "ShiftStartDate": "2021-05-31T00:00:00",
-        "ShiftEndDate": "2021-06-04T00:00:00",
-        "ShiftType": 0
-      }
-    ],
-    "Vacations": [
-      {
-        "DoctorsId": "2",
-        "VacationStartDate": "2021-07-01T00:00:00",
-        "VacationEndDate": "2021-07-08T00:00:00"
-      }
-    ],
     "Username": "Vladan",
     "Password": "vladan",
     "Name": "Vladan",
@@ -165,21 +84,6 @@
       "Name": "Radiologija - dijagnostika"
     },
     "Ordination": 302,
-    "Shifts": [
-      {
-        "DoctorsId": "3",
-        "ShiftStartDate": "2021-05-31T00:00:00",
-        "ShiftEndDate": "2021-06-04T00:00:00",
-        "ShiftType": 0
-      }
-    ],
-    "Vacations": [
-      {
-        "DoctorsId": "3",
-        "VacationStartDate": "2021-07-01T00:00:00",
-        "VacationEndDate": "2021-07-08T00:00:00"
-      }
-    ],
     "Username": "Vuk",
     "Password": "ftn",
     "Name": "Vuk",
@@ -196,21 +100,6 @@
       "Name": "Porodična medicina"
     },
     "Ordination": 106,
-    "Shifts": [
-      {
-        "DoctorsId": "4",
-        "ShiftStartDate": "2021-05-31T00:00:00",
-        "ShiftEndDate": "2021-06-04T00:00:00",
-        "ShiftType": 0
-      }
-    ],
-    "Vacations": [
-      {
-        "DoctorsId": "4",
-        "VacationStartDate": "2021-07-01T00:00:00",
-        "VacationEndDate": "2021-07-08T00:00:00"
-      }
-    ],
     "Username": "Mateja",
     "Password": "ftn",
     "Name": "Mateja",
@@ -227,21 +116,6 @@
       "Name": "Interna medicina"
     },
     "Ordination": 110,
-    "Shifts": [
-      {
-        "DoctorsId": "5",
-        "ShiftStartDate": "2021-05-31T00:00:00",
-        "ShiftEndDate": "2021-06-04T00:00:00",
-        "ShiftType": 0
-      }
-    ],
-    "Vacations": [
-      {
-        "DoctorsId": "5",
-        "VacationStartDate": "2021-07-01T00:00:00",
-        "VacationEndDate": "2021-07-08T00:00:00"
-      }
-    ],
     "Username": "Brankica",
     "Password": "ftn",
     "Name": "Brankica",
@@ -258,21 +132,6 @@
       "Name": "Medicinska genetika"
     },
     "Ordination": 400,
-    "Shifts": [
-      {
-        "DoctorsId": "6",
-        "ShiftStartDate": "2021-05-31T00:00:00",
-        "ShiftEndDate": "2021-06-04T00:00:00",
-        "ShiftType": 0
-      }
-    ],
-    "Vacations": [
-      {
-        "DoctorsId": "6",
-        "VacationStartDate": "2021-07-01T00:00:00",
-        "VacationEndDate": "2021-07-08T00:00:00"
-      }
-    ],
     "Username": "Igor",
     "Password": "ftn",
     "Name": "Igor",
@@ -289,22 +148,6 @@
       "Name": "Neurologija"
     },
     "Ordination": 310,
-    "Shifts": [
-      {
-        "DoctorsId": "7",
-        "ShiftStartDate": "2021-05-31T00:00:00",
-        "ShiftEndDate": "2021-06-04T00:00:00",
-        "ShiftType": 0
-      }
-    ],
-    "Vacations": [
-      {
-        "DoctorsId": "7",
-        "VacationStartDate": "2021-07-01T00:00:00",
-        "VacationEndDate": "2021-07-08T00:00:00"
-      }
-    ],
-    "Vacations": null,
     "Username": "Milena",
     "Password": "ftn",
     "Name": "Milena",
@@ -321,21 +164,6 @@
       "Name": "Neurologija"
     },
     "Ordination": 304,
-    "Shifts": [
-      {
-        "DoctorsId": "8",
-        "ShiftStartDate": "2021-06-07T00:00:00",
-        "ShiftEndDate": "2021-06-11T00:00:00",
-        "ShiftType": 1
-      }
-    ],
-    "Vacations": [
-      {
-        "DoctorsId": "8",
-        "VacationStartDate": "2021-07-01T00:00:00",
-        "VacationEndDate": "2021-07-08T00:00:00"
-      }
-    ],
     "Username": "Maja",
     "Password": "ftn",
     "Name": "Maja",
@@ -352,21 +180,6 @@
       "Name": "Nuklearna medicina"
     },
     "Ordination": 404,
-    "Shifts": [
-      {
-        "DoctorsId": "9",
-        "ShiftStartDate": "2021-05-31T00:00:00",
-        "ShiftEndDate": "2021-06-04T00:00:00",
-        "ShiftType": 0
-      }
-    ],
-    "Vacations": [
-      {
-        "DoctorsId": "9",
-        "VacationStartDate": "2021-07-01T00:00:00",
-        "VacationEndDate": "2021-07-08T00:00:00"
-      }
-    ],
     "Username": "Goran",
     "Password": "ftn",
     "Name": "Goran",
@@ -383,21 +196,6 @@
       "Name": "Akušerstvo i ginekologija"
     },
     "Ordination": 212,
-    "Shifts": [
-      {
-        "DoctorsId": "10",
-        "ShiftStartDate": "2021-05-31T00:00:00",
-        "ShiftEndDate": "2021-06-04T00:00:00",
-        "ShiftType": 0
-      }
-    ],
-    "Vacations": [
-      {
-        "DoctorsId": "10",
-        "VacationStartDate": "2021-07-01T00:00:00",
-        "VacationEndDate": "2021-07-08T00:00:00"
-      }
-    ],
     "Username": "Aleksandar",
     "Password": "ftn",
     "Name": "Aleksandar",
@@ -414,21 +212,6 @@
       "Name": "Oftalmologija"
     },
     "Ordination": 109,
-    "Shifts": [
-      {
-        "DoctorsId": "11",
-        "ShiftStartDate": "2021-05-31T00:00:00",
-        "ShiftEndDate": "2021-06-04T00:00:00",
-        "ShiftType": 0
-      }
-    ],
-    "Vacations": [
-      {
-        "DoctorsId": "11",
-        "VacationStartDate": "2021-07-01T00:00:00",
-        "VacationEndDate": "2021-07-08T00:00:00"
-      }
-    ],
     "Username": "Dusan",
     "Password": "ftn",
     "Name": "Dusan",
@@ -445,21 +228,6 @@
       "Name": "Patologija"
     },
     "Ordination": 405,
-    "Shifts": [
-      {
-        "DoctorsId": "12",
-        "ShiftStartDate": "2021-05-31T00:00:00",
-        "ShiftEndDate": "2021-06-04T00:00:00",
-        "ShiftType": 0
-      }
-    ],
-    "Vacations": [
-      {
-        "DoctorsId": "12",
-        "VacationStartDate": "2021-07-01T00:00:00",
-        "VacationEndDate": "2021-07-08T00:00:00"
-      }
-    ],
     "Username": "Katarina",
     "Password": "ftn",
     "Name": "Katarina",
@@ -476,21 +244,6 @@
       "Name": "Fizikalna medicina i rehabilitacija"
     },
     "Ordination": 100,
-    "Shifts": [
-      {
-        "DoctorsId": "13",
-        "ShiftStartDate": "2021-05-31T00:00:00",
-        "ShiftEndDate": "2021-06-04T00:00:00",
-        "ShiftType": 0
-      }
-    ],
-    "Vacations": [
-      {
-        "DoctorsId": "13",
-        "VacationStartDate": "2021-07-01T00:00:00",
-        "VacationEndDate": "2021-07-08T00:00:00"
-      }
-    ],
     "Username": "Silvana",
     "Password": "ftn",
     "Name": "Silvana",
@@ -507,21 +260,6 @@
       "Name": "Psihijatrija"
     },
     "Ordination": 406,
-    "Shifts": [
-      {
-        "DoctorsId": "14",
-        "ShiftStartDate": "2021-05-31T00:00:00",
-        "ShiftEndDate": "2021-06-04T00:00:00",
-        "ShiftType": 0
-      }
-    ],
-    "Vacations": [
-      {
-        "DoctorsId": "14",
-        "VacationStartDate": "2021-07-01T00:00:00",
-        "VacationEndDate": "2021-07-08T00:00:00"
-      }
-    ],
     "Username": "Jelena",
     "Password": "ftn",
     "Name": "Jelena",
@@ -538,21 +276,6 @@
       "Name": "Hirurgija"
     },
     "Ordination": 311,
-    "Shifts": [
-      {
-        "DoctorsId": "15",
-        "ShiftStartDate": "2021-05-31T00:00:00",
-        "ShiftEndDate": "2021-06-04T00:00:00",
-        "ShiftType": 0
-      }
-    ],
-    "Vacations": [
-      {
-        "DoctorsId": "15",
-        "VacationStartDate": "2021-07-01T00:00:00",
-        "VacationEndDate": "2021-07-08T00:00:00"
-      }
-    ],
     "Username": "Srdjan",
     "Password": "ftn",
     "Name": "Srdjan",
@@ -569,21 +292,6 @@
       "Name": "Urologija"
     },
     "Ordination": 208,
-    "Shifts": [
-      {
-        "DoctorsId": "16",
-        "ShiftStartDate": "2021-05-31T00:00:00",
-        "ShiftEndDate": "2021-06-04T00:00:00",
-        "ShiftType": 0
-      }
-    ],
-    "Vacations": [
-      {
-        "DoctorsId": "16",
-        "VacationStartDate": "2021-07-01T00:00:00",
-        "VacationEndDate": "2021-07-08T00:00:00"
-      }
-    ],
     "Username": "Marko",
     "Password": "ftn",
     "Name": "Marko",

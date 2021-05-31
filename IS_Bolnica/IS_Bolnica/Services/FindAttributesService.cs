@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Input;
 using IS_Bolnica.Model;
 using Model;
 
@@ -19,20 +18,13 @@ namespace IS_Bolnica.Services
         private DoctorRepository doctorRepository = new DoctorRepository();
         private List<Room> rooms = new List<Room>();
         private RoomRepository roomRepository = new RoomRepository();
-        private Specialization specialization = new Specialization();
-        private List<Specialization> specializations = new List<Specialization>();
-        private List<string> specializationNamesList = new List<string>();
-        private GuestUser guestUser = new GuestUser();
-        private GuestUserRepository guestUserRepository = new GuestUserRepository();
-        private List<GuestUser> guestUsers = new List<GuestUser>();
-        private List<int> roomNums = new List<int>();
 
         public FindAttributesService()
         {
 
         }
 
-        public Patient FindPatient(string id)
+        public Patient findPatient(string id)
         {
             patients = patientRepository.LoadFromFile("PatientRecordFileStorage.json");
             for (int i = 0; i < patients.Count; i++)
@@ -47,7 +39,7 @@ namespace IS_Bolnica.Services
             return null;
         }
 
-        public Doctor FindDoctor(string name, string surname)
+        public Doctor findDoctor(string name, string surname)
         {
             doctors = doctorRepository.loadFromFile("Doctors.json");
             foreach (Doctor doc in doctors)
@@ -55,19 +47,6 @@ namespace IS_Bolnica.Services
                 if (doc.Name.Equals(name) && doc.Surname.Equals(surname))
                 {
                     return doc;
-                }
-            }
-            return null;
-        }
-
-        public GuestUser FindGuest(string systemName)
-        {
-            guestUsers = guestUserRepository.LoadFromFile("GuestUsersFile.json");
-            foreach (GuestUser guest in guestUsers)
-            {
-                if (guest.SystemName.Equals(systemName))
-                {
-                    return guest;
                 }
             }
             return null;
@@ -88,9 +67,8 @@ namespace IS_Bolnica.Services
             return null;
         }
 
-        public Room FindRoomById(int id)
+        public Room findRoomById(int id)
         {
-            rooms = roomRepository.GetRooms();
             for (int i = 0; i < rooms.Count; i++)
             {
                 if (rooms[i].Id == id)
@@ -221,50 +199,5 @@ namespace IS_Bolnica.Services
 
             return patientAppointments;
         }
-
-        public List<string> GetSpecializationNames()
-        {
-            specializations = specialization.getSpecializations();
-
-            foreach (Specialization spec in specializations)
-            {
-                specializationNamesList.Add(spec.Name);
-            }
-
-            return specializationNamesList;
-        }
-
-        public Specialization FindSpecialization(string spec)
-        {
-            foreach (Specialization s in specializations)
-            {
-                if (s.Name.Equals(spec))
-                {
-                    return s;
-                }
-            }
-
-            return null;
-        }
-
-        public List<int> GetRoomIds()
-        {
-            rooms = roomRepository.GetRooms();
-            for (int i = 0; i < rooms.Count; i++)
-            {
-                if (rooms[i].roomPurpose.Name == "Operaciona sala")
-                {
-                    roomNums.Add(rooms[i].Id);
-                }
-            }
-            return roomNums;
-        }
-
-        public int GetDurationInMinutes(int hours, int minutes)
-        {
-            return hours * 60 + minutes;
-        }
-
-
     }
 }

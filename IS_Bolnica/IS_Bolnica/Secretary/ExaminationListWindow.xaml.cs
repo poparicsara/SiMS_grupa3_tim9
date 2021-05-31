@@ -1,12 +1,26 @@
-﻿using System;
+﻿using Model;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 using IS_Bolnica.Model;
 using IS_Bolnica.Services;
 
 namespace IS_Bolnica.Secretary
 {
+    /// <summary>
+    /// Interaction logic for ExaminationListWindow.xaml
+    /// </summary>
     public partial class ExaminationListWindow : Window, INotifyPropertyChanged
     {
         private Appointment appointment = new Appointment();

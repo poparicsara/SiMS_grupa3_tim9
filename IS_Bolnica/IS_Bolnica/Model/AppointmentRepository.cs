@@ -16,17 +16,17 @@ namespace IS_Bolnica.Model
             throw new NotImplementedException();
         }
 
-        public void SaveToFile(List<Appointment> appointments)
+        public void SaveToFile(List<Appointment> appointments, string fileName)
         {
             string jsonString = JsonConvert.SerializeObject(appointments, Formatting.Indented);
-            File.WriteAllText("Appointments.json", jsonString);
+            File.WriteAllText(fileName, jsonString);
         }
 
-        public List<Appointment> LoadFromFile()
+        public List<Appointment> LoadFromFile(string fileName)
         {
             var appointment = new List<Appointment>();
 
-            using (StreamReader file = File.OpenText("Appointments.json"))
+            using (StreamReader file = File.OpenText(fileName))
             {
                 var serializer = new JsonSerializer();
                 appointment = (List<Appointment>)serializer.Deserialize(file, typeof(List<Appointment>));

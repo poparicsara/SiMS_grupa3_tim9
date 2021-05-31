@@ -1,8 +1,23 @@
-﻿using System.Windows;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
 namespace IS_Bolnica.Secretary
 {
+    /// <summary>
+    /// Interaction logic for ActionBar.xaml
+    /// </summary>
     public partial class ActionBar : Page
     {
         public ActionBar()
@@ -12,61 +27,67 @@ namespace IS_Bolnica.Secretary
 
         private void SpisakPacijenata_Selected(object sender, RoutedEventArgs e)
         {
-            PatientList pl = new PatientList();
-            this.NavigationService.Navigate(pl);
+
         }
 
-        private void BlokiraniPacijenti_Selected(object sender, RoutedEventArgs e)
+        private void DodajPacijenta_Selected(object sender, RoutedEventArgs e)
         {
-            BlockedPatientsList bpl = new BlockedPatientsList();
-            this.NavigationService.Navigate(bpl);
+
         }
 
         private void SpisakGuestNaloga_Selected(object sender, RoutedEventArgs e)
         {
-            GuestUserList gul = new GuestUserList();
-            this.NavigationService.Navigate(gul);
+
+        }
+
+        private void DodajGuestNalog_Selected(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void SpisakObavestenja_Selected(object sender, RoutedEventArgs e)
         {
-            NotificationList nl = new NotificationList();
-            this.NavigationService.Navigate(nl);
+
+        }
+
+        private void DodajObavestenje_Selected(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void SpisakPregleda_Selected(object sender, RoutedEventArgs e)
         {
-            ExaminationList el = new ExaminationList();
-            this.NavigationService.Navigate(el);
+
+        }
+
+        private void ZakaziPregled_Selected(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void SpisakOperacija_Selected(object sender, RoutedEventArgs e)
         {
-            OperationList ol = new OperationList();
-            this.NavigationService.Navigate(ol);
+
+        }
+
+        private void ZakaziOperaciju_Selected(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void ZakaziHitanPregled_Selected(object sender, RoutedEventArgs e)
         {
-            AddUrgentExaminationPage auep = new AddUrgentExaminationPage();
-            this.NavigationService.Navigate(auep);
+
         }
 
         private void ZakaziHitnuOperaciju_Selected(object sender, RoutedEventArgs e)
         {
-            AddUrgentOperation auo = new AddUrgentOperation();
-            this.NavigationService.Navigate(auo);
+
         }
 
         private void Profil_Selected(object sender, RoutedEventArgs e)
         {
 
-        }
-
-        private void SpisakLekara_Selected(object sender, RoutedEventArgs e)
-        {
-            DoctorList dl = new DoctorList();
-            this.NavigationService.Navigate(dl);
         }
     }
 }

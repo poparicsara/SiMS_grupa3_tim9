@@ -1,9 +1,18 @@
-﻿using System.Windows;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
 using Model;
+using System.Collections.ObjectModel;
 using IS_Bolnica.Services;
 
 namespace IS_Bolnica.Secretary
 {
+    /// <summary>
+    /// Interaction logic for GuestUserAccount.xaml
+    /// </summary>
     public partial class GuestUserAccount : Window
     {
         private GuestUser guestUser = new GuestUser();

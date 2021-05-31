@@ -1,16 +1,41 @@
 ﻿using Model;
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 using IS_Bolnica.Model;
 using IS_Bolnica.Services;
 
 namespace IS_Bolnica.Secretary
 {
-    public partial class OperationListWindow : Window
+    public partial class OperationListWindow : Window, INotifyPropertyChanged
     {
+        private OperationsFileStorage operationsFileStorage = new OperationsFileStorage();
+        private Operation operation = new Operation();
 
         private Appointment appointment = new Appointment();
+        private List<Appointment> appointments = new List<Appointment>();
+        private List<Appointment> operations = new List<Appointment>();
+        private AppointmentRepository appointmentRepository = new AppointmentRepository();
         private AppointmentService appointmentService = new AppointmentService();
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
 
         public OperationListWindow()
         {

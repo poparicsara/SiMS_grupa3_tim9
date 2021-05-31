@@ -38,10 +38,10 @@
                     </TextBlock>
                 </StackPanel>
             </ListBoxItem>
-            <ListBoxItem FontSize="20" FontWeight="Bold" Foreground="#FF15285D" Selected="BlokiraniPacijenti_Selected">
+            <ListBoxItem FontSize="20" FontWeight="Bold" Foreground="#FF15285D" Selected="DodajPacijenta_Selected">
                 <StackPanel>
                     <TextBlock>
-                        Blokirani pacijenti
+                        Dodaj pacijenta
                     </TextBlock>
                 </StackPanel>
             </ListBoxItem>
@@ -52,6 +52,13 @@
                     </TextBlock>
                 </StackPanel>
             </ListBoxItem>
+            <ListBoxItem FontSize="20" FontWeight="Bold" Foreground="#FF15285D" Selected="DodajGuestNalog_Selected">
+                <StackPanel>
+                    <TextBlock>
+                        Dodaj guest nalog
+                    </TextBlock>
+                </StackPanel>
+            </ListBoxItem>
             <ListBoxItem FontSize="20" FontWeight="Bold" Foreground="#FF15285D" Selected="SpisakObavestenja_Selected">
                 <StackPanel>
                     <TextBlock>
@@ -59,10 +66,10 @@
                     </TextBlock>
                 </StackPanel>
             </ListBoxItem>
-            <ListBoxItem FontSize="20" FontWeight="Bold" Foreground="#FF15285D" Selected="SpisakLekara_Selected">
+            <ListBoxItem FontSize="20" FontWeight="Bold" Foreground="#FF15285D" Selected="DodajObavestenje_Selected">
                 <StackPanel>
-                    <TextBlock>
-                        Spisak lekara
+                    <TextBlock >
+                        Dodaj obaveštenje
                     </TextBlock>
                 </StackPanel>
             </ListBoxItem>
@@ -73,10 +80,24 @@
                     </TextBlock>
                 </StackPanel>
             </ListBoxItem>
+            <ListBoxItem FontSize="20" FontWeight="Bold" Foreground="#FF15285D" Selected="ZakaziPregled_Selected">
+                <StackPanel>
+                    <TextBlock>
+                        Zakaži pregled
+                    </TextBlock>
+                </StackPanel>
+            </ListBoxItem>
             <ListBoxItem FontSize="20" FontWeight="Bold" Foreground="#FF15285D" Selected="SpisakOperacija_Selected">
                 <StackPanel>
                     <TextBlock>
                         Spisak operacija
+                    </TextBlock>
+                </StackPanel>
+            </ListBoxItem>
+            <ListBoxItem FontSize="20" FontWeight="Bold" Foreground="#FF15285D" Selected="ZakaziOperaciju_Selected">
+                <StackPanel>
+                    <TextBlock>
+                        Zakaži operaciju
                     </TextBlock>
                 </StackPanel>
             </ListBoxItem>
