@@ -1,38 +1,51 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using IS_Bolnica.Model;
+using IS_Bolnica.Services;
+using Model;
 
 namespace IS_Bolnica.Secretary
 {
-    /// <summary>
-    /// Interaction logic for UrgentExaminationOptions.xaml
-    /// </summary>
     public partial class UrgentExaminationOptions : Page
     {
-        public UrgentExaminationOptions()
+        private Specialization specialization = new Specialization();
+        private Appointment appointment = new Appointment();
+        private AppointmentService appointmentService = new AppointmentService();
+        private List<Appointment> appointments = new List<Appointment>();
+        private UrgentAppointmentService urgentAppointmentService = new UrgentAppointmentService();
+
+
+        public UrgentExaminationOptions(Appointment appointment, Specialization specialization)
         {
             InitializeComponent();
+            this.appointment = appointment;
+            this.specialization = specialization;
+            ExaminationOptions.ItemsSource = urgentAppointmentService.GetUrgentExaminationOptions(appointment, specialization);
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            ActionBar ab = new ActionBar();
+            this.NavigationService.Navigate(ab);
         }
 
         private void addUrgentOperation(object sender, RoutedEventArgs e)
         {
+            int i = ExaminationOptions.SelectedIndex;
+            Appointment selectedAppointment = new Appointment();
+            selectedAppointment = (Appointment)ExaminationOptions.SelectedItem;
+            appointments = appointmentService.GetAppointments();
 
+            if (i == -1)
+            {
+                MessageBox.Show("Niste izabrali pregled koji želite da zakažete!");
+            }
+            else
+            {
+                urgentAppointmentService.AddUrgentExamination(appointment, selectedAppointment);
+            }
         }
     }
 }

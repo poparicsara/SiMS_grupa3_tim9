@@ -1,33 +1,18 @@
 ﻿using Model;
 using System;
 using System.Windows;
-using System.Collections.ObjectModel;
-using IS_Bolnica.Model;
 using System.Collections.Generic;
-using System.ComponentModel;
 using IS_Bolnica.Services;
 
 namespace IS_Bolnica.Secretary
 {
-    public partial class AddPatient : Window, INotifyPropertyChanged
+    public partial class AddPatient : Window
     {
         private Patient patient = new Patient();
         private User user = new User();
-        private PatientRepository storage = new PatientRepository();
-        private UserRepository storage1 = new UserRepository();
 
         private PatientService patientService = new PatientService();
         private UserService userService = new UserService();
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string name)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
-            }
-        }
 
         public AddPatient()
         {
@@ -60,6 +45,7 @@ namespace IS_Bolnica.Secretary
 
         private Patient setPatientAtributes()
         {
+            patient.isBlocked = false;
             patient.Email = email.Text;
             patient.DateOfBirth = dateOfBirth.DisplayDate;
             patient.Name = name.Text;
