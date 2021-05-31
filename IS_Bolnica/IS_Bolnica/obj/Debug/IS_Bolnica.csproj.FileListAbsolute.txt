@@ -810,3 +810,5 @@ C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolni
 C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\bin\Debug\en-US\IS_Bolnica.resources.dll
 C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\IS_Bolnica.Properties.Resources .en-US.resources
 C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\en-US\IS_Bolnica.resources.dll
+C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\AllergenManipulation.g.cs
+C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\AllergenManipulation.baml

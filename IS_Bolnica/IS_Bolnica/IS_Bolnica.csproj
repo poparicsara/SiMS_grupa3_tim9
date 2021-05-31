@@ -120,6 +120,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Language.resx</DependentUpon>
     </Compile>
+    <Compile Include="Model\Allergen.cs" />
     <Compile Include="Model\AppointmentRepository.cs" />
     <Compile Include="Model\AppointmentType.cs" />
     <Compile Include="Model\Gender.cs" />
@@ -253,6 +254,9 @@
     </Compile>
     <Compile Include="Secretary\AddVacation.xaml.cs">
       <DependentUpon>AddVacation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\AllergenManipulation.xaml.cs">
+      <DependentUpon>AllergenManipulation.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\BlockedPatientsList.xaml.cs">
       <DependentUpon>BlockedPatientsList.xaml</DependentUpon>
@@ -597,6 +601,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Secretary\AddVacation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary\AllergenManipulation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

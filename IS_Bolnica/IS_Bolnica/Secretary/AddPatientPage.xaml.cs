@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using IS_Bolnica.Model;
@@ -116,6 +115,12 @@ namespace IS_Bolnica.Secretary
         {
             PatientList pl = new PatientList();
             this.NavigationService.Navigate(pl);
+        }
+
+        private void Edit_Button_Clicked(object sender, RoutedEventArgs e)
+        {
+            AllergenManipulation am = new AllergenManipulation(this);
+            this.NavigationService.Navigate(am);
         }
     }
 }

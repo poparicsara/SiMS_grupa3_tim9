@@ -49,7 +49,7 @@
             <ComboBoxItem>Žensko</ComboBoxItem>
         </ComboBox>
         <ListBox x:Name="allergens" HorizontalAlignment="Left" Height="69" Margin="200,478,0,0" VerticalAlignment="Top" Width="135"/>
-        <Button Content="Izmeni" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="339,478,0,0" VerticalAlignment="Top" Width="43"/>
+        <Button Content="Izmeni" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="339,478,0,0" VerticalAlignment="Top" Width="43" Click="Edit_Button_Clicked"/>
 
     </Grid>
 </Page>
