@@ -13,22 +13,24 @@ namespace IS_Bolnica.Services
     class RenovationService
     {
         private RenovationRepository repository = new RenovationRepository();
-        private List<Renovation> renovations = new List<Renovation>();
-        private RoomRepository roomRepository = new RoomRepository();
         private RoomService roomService = new RoomService();
         private Room newRoom = new Room();
         private Thread thread;
         private int hourOfChange;
         private int minuteOfChange;
         private string dateOfChange;
+        private string startDate;
         private Room room1;
         private Room room2;
         private bool merge = false;
         private bool separate = false;
+        private List<Merging> mergings = new List<Merging>();
+        private List<Separation> separations = new List<Separation>();
 
         public RenovationService()
         {
-            renovations = repository.GetRenovations();
+            mergings = repository.GetMergings();
+            separations = repository.GetSeparations();
         }
 
         public void AddRenovation(Renovation renovation)
@@ -37,7 +39,7 @@ namespace IS_Bolnica.Services
             CheckScheduledAppointments(renovation);
         }
 
-        public void CheckScheduledAppointments(Renovation renovation)
+        private void CheckScheduledAppointments(Renovation renovation)
         {
             AppointmentService appointmentService = new AppointmentService();
             List<Appointment> appointments = appointmentService.GetAppointments();
@@ -97,12 +99,14 @@ namespace IS_Bolnica.Services
         public void MergeRooms(Room room1, Room room2, string startDate, string endDate, int hour, int minute, int roomNumber)
         {
             SetMergeAttributes(room1, room2, startDate, endDate, hour, minute, roomNumber);
+            AddMerging();
             StartThread();
         }
 
         public void SeparateRoom(Room room1, string startDate, string endDate, int hour, int minute, int roomNumber)
         {
             SetSeparationAttributes(room1, startDate, endDate, hour, minute, roomNumber);
+            AddSeparation();
             StartThread();
         }
 
@@ -112,18 +116,19 @@ namespace IS_Bolnica.Services
             this.room1 = room1;
             SetNewRoom(roomNumber);
             room2 = newRoom;
-            SetDateAttributes(endDate, hour, minute);
+            SetDateAttributes(startDate, endDate, hour, minute);
         }
 
         private void SetMergeAttributes(Room room1, Room room2, string startDate, string endDate, int hour, int minute, int roomNumber)
         {
             merge = true;
-            SetDateAttributes(endDate, hour, minute);
+            SetDateAttributes(startDate, endDate, hour, minute);
             SetRooms(room1, room2, roomNumber);
         }
 
-        private void SetDateAttributes(string endDate, int hour, int minute)
+        private void SetDateAttributes(string startDate, string endDate, int hour, int minute)
         {
+            this.startDate = startDate;
             dateOfChange = endDate;
             hourOfChange = hour;
             minuteOfChange = minute;
@@ -154,7 +159,7 @@ namespace IS_Bolnica.Services
         {
             while (true)
             {
-                if (IsSelectedTime())
+                if (IsSelectedTime() || HasTimeOfChangePassed())
                 {
                     DoChange();
                     thread.Abort();
@@ -168,16 +173,33 @@ namespace IS_Bolnica.Services
             if (merge)
             {
                 DoMerge();
+                EditMerging();
             }
             else if (separate)
             {
                 DoSeparation();
+                EditSeparation();
             }
         }
 
         private bool IsSelectedTime()
         {
             return GetCurrentDate().Equals(dateOfChange) && GetCurrentHour() == hourOfChange && GetCurrentMinute() == minuteOfChange;
+        }
+
+        private bool HasTimeOfChangePassed()
+        {
+            string fullDate = dateOfChange + " " + hourOfChange + ":" + minuteOfChange;
+            DateTime fullDateOfChange = Convert.ToDateTime(fullDate);
+            DateTime currentDate = DateTime.Now;
+            if (fullDateOfChange < currentDate)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private void DoMerge()
@@ -189,8 +211,6 @@ namespace IS_Bolnica.Services
 
         private void DoSeparation()
         {
-            roomService.DeleteRoom(room1);
-            roomService.AddRoom(room1);
             roomService.AddRoom(room2);
         }
 
@@ -255,5 +275,101 @@ namespace IS_Bolnica.Services
         {
             return repository.GetRenovations();
         }
+
+        public void CheckUnexecutedMergings()
+        {
+            mergings = repository.GetMergings();
+            if (mergings != null)
+            {
+                foreach (var m in mergings)
+                {
+                    if (!m.Executed)
+                    {
+                        SetMergeAttributes(m.Room1, m.Room2, m.StartDate, m.EndDate, m.Hour, m.Minute, m.NewRoomNumber);
+                        StartThread();
+                    }
+                }
+            }
+        }
+
+        private void AddMerging()
+        {
+            Merging newMerging = new Merging
+            {
+                Room1 = room1, Room2 = room2, StartDate = startDate, EndDate = dateOfChange, Hour = hourOfChange,
+                Minute = minuteOfChange, NewRoomNumber = newRoom.Id
+            };
+            repository.AddMerging(newMerging);
+        }
+
+        private void EditMerging()
+        {
+            int index = GetMergingIndex();
+            repository.EditMerging(index);
+        }
+
+        private int GetMergingIndex()
+        {
+            var index = 0;
+            mergings = repository.GetMergings();
+            foreach (var s in mergings)
+            {
+                if (room1.Id == s.Room1.Id && room2.Id == s.Room2.Id)
+                {
+                    break;
+                }
+                index++;
+            }
+            return index;
+        }
+
+        private void AddSeparation()
+        {
+            Separation newSeparation = new Separation
+            {
+                Room = room1,
+                StartDate = startDate,
+                EndDate = dateOfChange,
+                Hour = hourOfChange,
+                Minute = minuteOfChange,
+                NewRoomNumber = newRoom.Id
+            };
+            repository.AddSeparation(newSeparation);
+        }
+
+        private void EditSeparation()
+        {
+            int index = GetSeparationIndex();
+            repository.EditSeparation(index);
+        }
+
+        private int GetSeparationIndex()
+        {
+            var index = 0;
+            separations = repository.GetSeparations();
+            foreach (var s in separations)
+            {
+                if (room1.Id == s.Room.Id)
+                {
+                    break;
+                }
+                index++;
+            }
+            return index;
+        }
+
+        public void CheckUnexecutedSeparations()
+        {
+            separations = repository.GetSeparations();
+            foreach (var separation in separations)
+            {
+                if (!separation.Executed)
+                {
+                    SetSeparationAttributes(separation.Room, separation.StartDate, separation.EndDate, separation.Hour, separation.Minute, separation.NewRoomNumber);
+                    StartThread();
+                }
+            }
+        }
+
     }
 }

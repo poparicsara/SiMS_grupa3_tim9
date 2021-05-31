@@ -30,28 +30,14 @@ namespace IS_Bolnica.Services
             repository.AddMedicament(newMedicament);
         }
 
-        private List<Ingredient> GetIngredients(string ingredients)
+        public List<string> GetReplacementNames()
         {
-            List<Ingredient> ings = new List<Ingredient>();
-            string[] parts = ingredients.Split('\n');
-            for (int i = 0; i < parts.Length; i++)
+            List<string> replacemets = new List<string>();
+            foreach (var m in meds)
             {
-                Ingredient ing = GetIngredient(parts, i);
-                ings.Add(ing);
+                replacemets.Add(m.Name);
             }
-            return ings;
-        }
-
-        private Ingredient GetIngredient(string[] ingredients, int index)
-        {
-            string temp = ingredients[index];
-            if (ingredients[index].Contains('\r'))
-            {
-                int endIndex = ingredients[index].IndexOf('\r');
-                temp = ingredients[index].Substring(0, endIndex);
-            }
-            Ingredient ingredient = new Ingredient { Name = temp };
-            return ingredient;
+            return replacemets;
         }
 
         public Medicament GetMedicament(string name)
@@ -80,14 +66,28 @@ namespace IS_Bolnica.Services
             return index;
         }
 
-        public List<string> GetReplacementNames()
+        private List<Ingredient> GetIngredients(string ingredients)
         {
-            List<string> replacemets = new List<string>();
-            foreach (var m in meds)
+            List<Ingredient> ings = new List<Ingredient>();
+            string[] parts = ingredients.Split('\n');
+            for (int i = 0; i < parts.Length; i++)
             {
-                replacemets.Add(m.Name);
+                Ingredient ing = GetIngredient(parts, i);
+                ings.Add(ing);
             }
-            return replacemets;
+            return ings;
+        }
+
+        private Ingredient GetIngredient(string[] ingredients, int index)
+        {
+            string temp = ingredients[index];
+            if (ingredients[index].Contains('\r'))
+            {
+                int endIndex = ingredients[index].IndexOf('\r');
+                temp = ingredients[index].Substring(0, endIndex);
+            }
+            Ingredient ingredient = new Ingredient { Name = temp };
+            return ingredient;
         }
 
     }

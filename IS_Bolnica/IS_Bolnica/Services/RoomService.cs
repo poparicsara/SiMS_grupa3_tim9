@@ -66,6 +66,7 @@ namespace IS_Bolnica.Services
 
         public void DeleteRoom(Room selectedRoom)
         {
+            rooms = GetRooms();
             int index = FindIndex(selectedRoom);
             repository.DeleteRoom(index);
         }

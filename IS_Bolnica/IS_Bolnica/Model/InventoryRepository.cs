@@ -94,12 +94,6 @@ namespace Model
             SaveShiftings(shiftings);
         }
 
-        public void DeleteShifting(int index)
-        {
-            shiftings.RemoveAt(index);
-            SaveShiftings(shiftings);
-        }
-
         public void EditShifting(int index)
         {
             Shifting s = shiftings.ElementAt(index);

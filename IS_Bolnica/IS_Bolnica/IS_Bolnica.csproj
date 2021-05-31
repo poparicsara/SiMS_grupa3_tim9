@@ -135,6 +135,8 @@
     </Compile>
     <Compile Include="Model\AppointmentRepository.cs" />
     <Compile Include="Model\AppointmentType.cs" />
+    <Compile Include="Model\Merging.cs" />
+    <Compile Include="Model\Separation.cs" />
     <Compile Include="Model\Shifting.cs" />
     <Compile Include="RoomInventory.xaml.cs">
       <DependentUpon>RoomInventory.xaml</DependentUpon>

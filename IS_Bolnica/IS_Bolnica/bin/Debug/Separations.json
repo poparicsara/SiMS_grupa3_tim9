@@ -1,0 +1,34 @@
+[
+  {
+    "Room": {
+      "Id": 999,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "NewRoomNumber": 3,
+    "StartDate": "5/31/2021",
+    "EndDate": "5/31/2021",
+    "Hour": 14,
+    "Minute": 35,
+    "Executed": true
+  },
+  {
+    "Room": {
+      "Id": 3,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "NewRoomNumber": 7,
+    "StartDate": "5/31/2021",
+    "EndDate": "5/31/2021",
+    "Hour": 14,
+    "Minute": 45,
+    "Executed": true
+  }
+]

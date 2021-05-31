@@ -10,8 +10,7 @@ namespace IS_Bolnica.Services
 {
     class InventoryPerRoomService
     {
-        private Room magacin = new Room();
-        private RoomService roomService = new RoomService();
+        private RoomRepository roomRepository = new RoomRepository();
         private List<Room> rooms = new List<Room>();
         private List<InventoryInRoom> ordinationsWithInventory = new List<InventoryInRoom>();
         private List<InventoryInRoom> operationRoomsWithInventory = new List<InventoryInRoom>();
@@ -22,7 +21,7 @@ namespace IS_Bolnica.Services
 
         public InventoryPerRoomService(Inventory selected)
         {
-            rooms = roomService.GetRooms();
+            rooms = roomRepository.GetRooms();
             CheckAllRooms(selected);
         }
 

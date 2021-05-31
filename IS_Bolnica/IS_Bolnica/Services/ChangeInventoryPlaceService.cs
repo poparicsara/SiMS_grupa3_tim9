@@ -28,7 +28,6 @@ namespace IS_Bolnica.Services
         private InventoryRepository inventoryRepository = new InventoryRepository();
         private List<Shifting> shiftings = new List<Shifting>();
         private Shifting newShifting = new Shifting();
-        private int[] shiftingsForDeleting = new int[] { };
 
         public ChangeInventoryPlaceService()
         {
@@ -50,17 +49,6 @@ namespace IS_Bolnica.Services
             return false;
         }
 
-        private Inventory GetInventoryFromRoom(Inventory selecteInventory, Room room)
-        {
-            foreach (var i in room.Inventory)
-            {
-                if (i.Id == selecteInventory.Id)
-                {
-                    return i;
-                }
-            }
-            return null;
-        }
 
         public void ChangePlaceOfInventory(Room roomFrom, Room roomTo, Inventory selectedInventory, int amount, string date, int hour, int minute)
         {
@@ -107,6 +95,18 @@ namespace IS_Bolnica.Services
                     inventoryFrom = i;
                 }
             }
+        }
+
+        private Inventory GetInventoryFromRoom(Inventory selecteInventory, Room room)
+        {
+            foreach (var i in room.Inventory)
+            {
+                if (i.Id == selecteInventory.Id)
+                {
+                    return i;
+                }
+            }
+            return null;
         }
 
         private void CheckInventoryTo()
@@ -250,24 +250,6 @@ namespace IS_Bolnica.Services
         public void CheckUnexecutedShiftings()
         {
             shiftings = GetShiftings();
-            /*if (shiftings != null)
-            {
-                int index = 0;
-                foreach (var s in shiftings)
-                {
-                    if (IsForDeleting(s))
-                    {
-                        CheckInventoryType();
-                        //shiftingsForDeleting.Append(index);
-                    }
-                    else
-                    {
-                        ChangePlaceOfInventory(s.RoomFrom, s.RoomTo, s.Inventory, s.Amount, s.Date, s.Hour, s.Minute);
-                    }
-                    index++;
-                }
-                //DeleteShiftings();
-            }*/
             foreach (var s in shiftings)
             {
                 if (!s.Executed)
@@ -299,59 +281,9 @@ namespace IS_Bolnica.Services
             inventoryRepository.EditShifting(index);
         }
 
-        private bool IsForDeleting(Shifting shifting)
-        {
-            DateTime dateOfChange = Convert.ToDateTime(shifting.Date);
-            DateTime currentDate = DateTime.Now;
-            if (dateOfChange < currentDate)
-            {
-                return true;
-            }
-            return false;
-        }
-
         private List<Shifting> GetShiftings()
         {
             return inventoryRepository.GetShiftings();
         }
-
-        private void DeleteShiftings()
-        {
-            /*int index = 0;
-            if (index >= 0)
-            {
-                inventoryRepository.DeleteShifting(index);
-            }*/
-            if (shiftingsForDeleting != null)
-            {
-                foreach (var s in shiftingsForDeleting)
-                {
-                    inventoryRepository.DeleteShifting(s);
-                }
-            }
-        }
-
-        /*private int GetShiftingIndex()
-        {
-            int index = 0;
-            shiftings = GetShiftings();
-            if (shiftings != null)
-            {
-                foreach (var s in shiftings)
-                {
-                    shiftings = GetShiftings();
-                    if (shiftings != null)
-                    {
-
-                    }
-                    if (s.Inventory.Id == selectedInventory.Id)
-                    {
-                        break;
-                    }
-                    index++;
-                }
-            }
-            return index;
-        }*/
     }
 }

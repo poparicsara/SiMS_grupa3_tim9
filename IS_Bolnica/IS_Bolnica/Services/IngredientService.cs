@@ -27,6 +27,12 @@ namespace IS_Bolnica.Services
             repository.DeleteIngredient(medicament, index);
         }
 
+        public void EditIngredient(Medicament medicament, Ingredient oldIngredient, Ingredient newIngredient)
+        {
+            int index = GetIndex(medicament, oldIngredient);
+            repository.EditIngredient(medicament, index, newIngredient);
+        }
+
         private int GetIndex(Medicament medicament, Ingredient ingredient)
         {
             int index = 0;
@@ -41,11 +47,7 @@ namespace IS_Bolnica.Services
             return index;
         }
 
-        public void EditIngredient(Medicament medicament, Ingredient oldIngredient, Ingredient newIngredient)
-        {
-            int index = GetIndex(medicament, oldIngredient);
-            repository.EditIngredient(medicament, index, newIngredient);
-        }
+        
 
     }
 }

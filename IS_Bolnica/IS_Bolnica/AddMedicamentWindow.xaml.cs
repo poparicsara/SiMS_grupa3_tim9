@@ -76,17 +76,6 @@ namespace IS_Bolnica
             selectedReplacement = medService.GetMedicament(replacement);
         }
 
-        private void SetSelectedReplacemet()
-        {
-            foreach (Medicament med in meds)
-            {
-                if (med.Name.Equals(replacement))
-                {
-                    selectedReplacement = med;
-                }
-            }
-        }
-
         private void ClosingWindow(object sender, System.ComponentModel.CancelEventArgs e)
         {
             MedicamentWindow mw = new MedicamentWindow();

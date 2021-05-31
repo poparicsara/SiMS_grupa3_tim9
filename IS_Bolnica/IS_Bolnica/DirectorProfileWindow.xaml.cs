@@ -25,6 +25,9 @@ namespace IS_Bolnica
             InitializeComponent();
 
             service.CheckUnexecutedShiftings();
+            RenovationService renovationService = new RenovationService();
+            renovationService.CheckUnexecutedMergings();
+            renovationService.CheckUnexecutedSeparations();
 
         }
 

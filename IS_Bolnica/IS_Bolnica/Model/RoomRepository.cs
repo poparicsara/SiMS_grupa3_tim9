@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
+using IS_Bolnica.Model;
 
 namespace Model
 {
@@ -42,6 +44,7 @@ namespace Model
 
         public void DeleteRoom(int index)
         {
+            rooms = GetRooms();
             rooms.RemoveAt(index);
             saveToFile(rooms);
         }
@@ -69,6 +72,8 @@ namespace Model
             }
             return roomList;
         }
+
+        
 
     }
 }
