@@ -318,6 +318,9 @@
     <Compile Include="Secretary\OperationListWindow.xaml.cs">
       <DependentUpon>OperationListWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Secretary\Options.xaml.cs">
+      <DependentUpon>Options.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Secretary\PatientList.xaml.cs">
       <DependentUpon>PatientList.xaml</DependentUpon>
     </Compile>
@@ -703,6 +706,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Secretary\OperationListWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary\Options.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
