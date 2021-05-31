@@ -49,17 +49,17 @@
         <Grid HorizontalAlignment="Left" Height="551" Margin="178,120,0,0" VerticalAlignment="Top" Width="770" Background="#FFF1F0F0">
             <Label Content="JMBG:" HorizontalAlignment="Left" Margin="266,69,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" Width="192"/>
             <Label Content="Broj zdravstvene knjižice:" HorizontalAlignment="Left" Margin="266,38,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" Width="192"/>
-            <Label Content="Lekovi i terapije:" HorizontalAlignment="Left" Margin="47,204,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="169"/>
+            <Label Content="Lekovi i terapije:" HorizontalAlignment="Left" Margin="47,188,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="190" Foreground="White" Background="#FF3F5038"/>
             <TextBox Name="patientTxt" HorizontalAlignment="Left" Height="23" Margin="47,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}" IsReadOnly="True" Background="{x:Null}" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="14"/>
             <TextBox Name="patinetIdTxt" HorizontalAlignment="Left" Height="23" Margin="458,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}" IsReadOnly="True" Background="{x:Null}" FontFamily="Malgun Gothic" FontWeight="Bold"/>
             <TextBox Name="healthCardNumTxt" HorizontalAlignment="Left" Height="23" Margin="458,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}" IsReadOnly="True" Background="{x:Null}" FontFamily="Malgun Gothic" FontWeight="Bold"/>
             <TextBox x:Name="dateOfBirthTxt" HorizontalAlignment="Left" Height="23" Margin="47,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}" IsReadOnly="True" Background="{x:Null}" FontFamily="Malgun Gothic" FontWeight="Bold"/>
             <TextBox x:Name="addressTxt" HorizontalAlignment="Left" Height="23" Margin="47,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}" IsReadOnly="True" Background="{x:Null}" FontFamily="Malgun Gothic" FontWeight="Bold"/>
-            <Label Content="Alergije:" HorizontalAlignment="Left" Margin="383,204,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="169"/>
-            <Label Content="Istorijat pregleda:" HorizontalAlignment="Left" Margin="47,358,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="228"/>
-            <ListBox Name="allergiesLB" HorizontalAlignment="Left" Height="84" Margin="383,262,0,0" VerticalAlignment="Top" Width="190" RenderTransformOrigin="2.193,0.309"/>
-            <ListBox Name="medsLB" HorizontalAlignment="Left" Height="84" Margin="47,262,0,0" VerticalAlignment="Top" Width="190" RenderTransformOrigin="2.193,0.309"/>
-            <ListBox Name="historyLB" HorizontalAlignment="Left" Height="108" Margin="47,411,0,0" VerticalAlignment="Top" Width="526" RenderTransformOrigin="2.193,0.309"/>
+            <Label Content="Alergije:" HorizontalAlignment="Left" Margin="383,188,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="190" Height="32" Background="#FF3F5038" Foreground="White"/>
+            <Label Content="Istorijat pregleda:" HorizontalAlignment="Left" Margin="47,348,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="526" Background="#FF3F5038" Foreground="White" Height="33"/>
+            <ListBox Name="allergiesLB" HorizontalAlignment="Left" Height="84" Margin="383,220,0,0" VerticalAlignment="Top" Width="190" RenderTransformOrigin="2.193,0.309" BorderBrush="#FF3F5038"/>
+            <ListBox Name="medsLB" HorizontalAlignment="Left" Height="84" Margin="47,218,0,0" VerticalAlignment="Top" Width="190" RenderTransformOrigin="2.193,0.309" BorderBrush="#FF3F5038"/>
+            <ListBox Name="historyLB" HorizontalAlignment="Left" Height="121" Margin="47,381,0,0" VerticalAlignment="Top" Width="526" RenderTransformOrigin="2.193,0.309" BorderBrush="#FF3F5038"/>
         </Grid>
         <Button Content="ANAMNEZA" HorizontalAlignment="Left" Margin="812,581,0,0" VerticalAlignment="Top" Width="109" Height="34" Background="#FF3F5038" Foreground="White" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="14" Click="AnamnezaButtonClick" />
     </Grid>
