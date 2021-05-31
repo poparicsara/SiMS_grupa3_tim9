@@ -20,6 +20,7 @@ namespace IS_Bolnica
     public partial class OperationsWindow : Window
     {
         private AppointmentService appointmentService = new AppointmentService();
+        private UserService userService = new UserService();
         private Appointment appointment = new Appointment();
         public OperationsWindow()
         {
@@ -52,7 +53,8 @@ namespace IS_Bolnica
 
         private void SingOutButtonClick(object sender, RoutedEventArgs e)
         {
-
+            userService.LogOut();
+            this.Close();
         }
 
         private void SettingsButtonClick(object sender, RoutedEventArgs e)

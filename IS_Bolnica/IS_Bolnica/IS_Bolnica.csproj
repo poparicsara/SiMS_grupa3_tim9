@@ -107,6 +107,12 @@
     <Compile Include="DoctorNotificationWindow.xaml.cs">
       <DependentUpon>DoctorNotificationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DoctorUI\AnamnesisWindow.xaml.cs">
+      <DependentUpon>AnamnesisWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorUI\MedicalRecordWindow.xaml.cs">
+      <DependentUpon>MedicalRecordWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DoctorUI\ScheduleExaminationWindow.xaml.cs">
       <DependentUpon>ScheduleExaminationWindow.xaml</DependentUpon>
     </Compile>
@@ -471,6 +477,14 @@
     <Page Include="DoctorNotificationWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DoctorUI\AnamnesisWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DoctorUI\MedicalRecordWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DoctorUI\ScheduleExaminationWindow.xaml">
       <SubType>Designer</SubType>

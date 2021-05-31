@@ -95,5 +95,13 @@ namespace IS_Bolnica
             scheduleExaminationWindow.Show();
             this.Close();
         }
+
+        private void ZapocniPregledButtonClick(object sender, RoutedEventArgs e)
+        {
+            int selectedIndex = examinationsDataGrid.SelectedIndex;
+            MedicalRecordWindow medicalRecordWindow = new MedicalRecordWindow(selectedIndex, appointmentService.GetDoctorsExaminations());
+            medicalRecordWindow.Show();
+            this.Close();
+        }
     }
 }

@@ -1,0 +1,66 @@
+﻿<Window x:Class="IS_Bolnica.DoctorUI.MedicalRecordWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IS_Bolnica.DoctorUI"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="MedicalRecordWindow" Height="768" Width="1024" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid HorizontalAlignment="Left" Height="739" VerticalAlignment="Top" Width="100" Background="#FFF1F0F0" Margin="0" Grid.RowSpan="1">
+            <Button HorizontalAlignment="Left" Margin="0,110,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="ExaminationsButtonClick">
+                <StackPanel>
+                    <Image Source="../Images/greenstethoscope.png" Width="84" Height="48"/>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Margin="0,195,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="OperationButtonClick">
+                <StackPanel>
+                    <Image Source="../Images/greenscissors.png" Width="84" Height="48"/>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Margin="0,270,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="NotificationsButtonClick">
+                <StackPanel>
+                    <Image Source="../Images/message.png" Width="84" Height="48"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+        <Button HorizontalAlignment="Left" Margin="0,361,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Grid.Row="0" Background="{x:Null}" Click="StatisticsButtonClick">
+            <StackPanel>
+                <Image Source="../Images/chartgreen.png" Width="84" Height="48"/>
+            </StackPanel>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="0,672,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Grid.Row="0" Background="{x:Null}" Click="SingOutButtonClick">
+            <StackPanel>
+                <Image Source="../Images/singout.png" Width="84" Height="48"/>
+            </StackPanel>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="0,604,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Grid.Row="0" Background="{x:Null}" Click="SettingsButtonClick">
+            <StackPanel>
+                <Image Source="../Images/settings.png" Width="84" Height="48"/>
+            </StackPanel>
+        </Button>
+        <Label Content="Zdravstveni karton" HorizontalAlignment="Left" Margin="178,23,0,0" VerticalAlignment="Top" Width="405" FontFamily="Malgun Gothic" FontSize="30" FontWeight="Bold" Height="71"/>
+        <Button HorizontalAlignment="Left" Margin="105,23,0,0" VerticalAlignment="Top" Width="68" Height="53" BorderBrush="{x:Null}" Background="{x:Null}" Click="BackButtonClick">
+            <StackPanel Background="Transparent">
+                <Image Source="../Images/back.png" Width="30" Height="30"/>
+            </StackPanel>
+        </Button>
+        <Grid HorizontalAlignment="Left" Height="551" Margin="178,120,0,0" VerticalAlignment="Top" Width="770" Background="#FFF1F0F0">
+            <Label Content="JMBG:" HorizontalAlignment="Left" Margin="266,69,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" Width="192"/>
+            <Label Content="Broj zdravstvene knjižice:" HorizontalAlignment="Left" Margin="266,38,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" Width="192"/>
+            <Label Content="Lekovi i terapije:" HorizontalAlignment="Left" Margin="47,204,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="169"/>
+            <TextBox Name="patientTxt" HorizontalAlignment="Left" Height="23" Margin="47,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}" IsReadOnly="True" Background="{x:Null}" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="14"/>
+            <TextBox Name="patinetIdTxt" HorizontalAlignment="Left" Height="23" Margin="458,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}" IsReadOnly="True" Background="{x:Null}" FontFamily="Malgun Gothic" FontWeight="Bold"/>
+            <TextBox Name="healthCardNumTxt" HorizontalAlignment="Left" Height="23" Margin="458,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}" IsReadOnly="True" Background="{x:Null}" FontFamily="Malgun Gothic" FontWeight="Bold"/>
+            <TextBox x:Name="dateOfBirthTxt" HorizontalAlignment="Left" Height="23" Margin="47,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}" IsReadOnly="True" Background="{x:Null}" FontFamily="Malgun Gothic" FontWeight="Bold"/>
+            <TextBox x:Name="addressTxt" HorizontalAlignment="Left" Height="23" Margin="47,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}" IsReadOnly="True" Background="{x:Null}" FontFamily="Malgun Gothic" FontWeight="Bold"/>
+            <Label Content="Alergije:" HorizontalAlignment="Left" Margin="383,204,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="169"/>
+            <Label Content="Istorijat pregleda:" HorizontalAlignment="Left" Margin="47,358,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="228"/>
+            <ListBox Name="allergiesLB" HorizontalAlignment="Left" Height="84" Margin="383,262,0,0" VerticalAlignment="Top" Width="190" RenderTransformOrigin="2.193,0.309"/>
+            <ListBox Name="medsLB" HorizontalAlignment="Left" Height="84" Margin="47,262,0,0" VerticalAlignment="Top" Width="190" RenderTransformOrigin="2.193,0.309"/>
+            <ListBox Name="historyLB" HorizontalAlignment="Left" Height="108" Margin="47,411,0,0" VerticalAlignment="Top" Width="526" RenderTransformOrigin="2.193,0.309"/>
+        </Grid>
+        <Button Content="ANAMNEZA" HorizontalAlignment="Left" Margin="812,581,0,0" VerticalAlignment="Top" Width="109" Height="34" Background="#FF3F5038" Foreground="White" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="14" Click="AnamnezaButtonClick" />
+    </Grid>
+</Window>

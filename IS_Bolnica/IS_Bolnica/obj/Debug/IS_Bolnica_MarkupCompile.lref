@@ -1,4 +1,4 @@
-﻿
+﻿C:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\obj\Debug\GeneratedInternalTypeHelper.g.cs
 
 FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\AddIngredientByDirectorWindow.xaml;;
 FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\AddExaminationWindow.xaml;;
@@ -17,6 +17,12 @@ FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\DirectorLogInWind
 FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\DirectorNotificationWindow.xaml;;
 FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\DirectorProfileWindow.xaml;;
 FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\DoctorNotificationWindow.xaml;;
+FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\DoctorUI\AnamnesisWindow.xaml;;
+FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\DoctorUI\MedicalRecordWindow.xaml;;
+FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\DoctorUI\ScheduleExaminationWindow.xaml;;
+FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\DoctorUI\ScheduleOperationWindow.xaml;;
+FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\DoctorUI\UpdateScheduledExaminationWindow.xaml;;
+FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\DoctorUI\UpdateScheduledOperationWindow.xaml;;
 FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\DoctorWindow.xaml;;
 FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\EditIngredientWindow.xaml;;
 FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\EditInventoryWindow.xaml;;
@@ -96,8 +102,4 @@ FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\UpdateMedication.
 FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\UpdateOperationWindow.xaml;;
 FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\RoomWindow.xaml;;
 FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\Zakazivanje pregleda.xaml;;
-FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\DoctorUI\ScheduleExaminationWindow.xaml;;
-FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\DoctorUI\UpdateScheduledExaminationWindow.xaml;;
-FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\DoctorUI\ScheduleOperationWindow.xaml;;
-FC:\Users\PC\OneDrive\Desktop\IS Bolnica\IS_Bolnica\IS_Bolnica\DoctorUI\UpdateScheduledOperationWindow.xaml;;
 

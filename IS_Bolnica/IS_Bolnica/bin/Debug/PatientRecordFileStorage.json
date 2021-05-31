@@ -78,19 +78,19 @@
     "Username": "nnnn",
     "Password": "ftn",
     "Name": "Nina",
-    "Surname": "Pavkovic",
+    "Surname": "Pavković",
     "DateOfBirth": "2021-04-19T00:00:00+02:00",
     "Phone": "12345",
     "Email": "dad",
-    "Id": "1234",
+    "Id": "1203984805082",
     "UserType": 0,
     "Address": {
-      "Street": "abc ",
+      "Street": "Laze Kostića",
       "NumberOfBuilding": 4,
       "Floor": 3,
       "Apartment": 2,
       "City": {
-        "name": "ns ",
+        "name": "Novi Sad",
         "postalCode": "21000",
         "Country": {
           "name": "srb"

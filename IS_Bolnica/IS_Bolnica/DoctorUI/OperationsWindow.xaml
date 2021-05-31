@@ -77,8 +77,9 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="DATUM I VREME" Width="160" Binding="{Binding StartTime}"/>
-                <DataGridTextColumn Header="SALA" Width="90" Binding="{Binding Room.Id}"/>
+                <DataGridTextColumn Header="DATUM" Width="100" Binding="{Binding StartTime, StringFormat= dd/MM/yyyy}"/>
+                <DataGridTextColumn Header="VREME" Width="75" Binding="{Binding StartTime, StringFormat=HH:mm}"/>
+                <DataGridTextColumn Header="SALA" Width="75" Binding="{Binding Room.Id}"/>
                 <DataGridTextColumn Header="IME" Width="140" Binding="{Binding Patient.Name}"/>
                 <DataGridTextColumn Header="PREZIME" Width="140" Binding="{Binding Patient.Surname}"/>
                 <DataGridTextColumn Header="OPIS" Width="160"/>
