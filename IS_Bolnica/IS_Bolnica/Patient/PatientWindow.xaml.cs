@@ -25,9 +25,11 @@ namespace IS_Bolnica
     public partial class PatientWindow : Window
     {
         public static String username_patient { get; set; }
-        Patient loggedPatient = new Patient();
+        public static Patient loggedPatient = new Patient();
         private AppointmentService appointmentService = new AppointmentService();
         private FindAttributesService findAttributesService = new FindAttributesService();
+        private PrescriptionService prescriptionService = new PrescriptionService();
+        private NotificationService notificationService = new NotificationService();
         public int akcije { get; set; }
         public int ocenePacijentove { get; set; }
         public PatientWindow(String username, Boolean pocetak)
@@ -37,11 +39,11 @@ namespace IS_Bolnica
             loggedPatient = findAttributesService.findPatientByUsername(username);
             username_patient = username;
 
-            lvDataBinding.ItemsSource = appointmentService.FindPatientAppointments(loggedPatient);
+            lvDataBinding.ItemsSource = appointmentService.returnPatientAppointmentsAfterCheck();
             
             if (pocetak)
             {
-                nitZaObavestenjaOTerapiji();
+                threadForNotificationsAboutTherapy();
             }
         }
 
@@ -97,85 +99,23 @@ namespace IS_Bolnica
             //pnw.Show();
         }
 
-        static void nitZaObavestenjaOTerapiji()
+        static void threadForNotificationsAboutTherapy()
         {
-            Thread t = new Thread(new ThreadStart(MyThreadMethod));
+            Thread t = new Thread(new ThreadStart(methodForNotificationsAboutTherapy));
             t.Start();
         }
-        static void MyThreadMethod()
+        static void methodForNotificationsAboutTherapy()
         {
             while (true)
             {
-
-                PrescriptionRepository exStorage = new PrescriptionRepository();
-                List<Prescription> recepti = exStorage.loadFromFile("prescriptions.json");
-
-                List<Prescription> pacijentovi_recepti = new List<Prescription>();
-
-                foreach (Prescription ter in recepti)
-                {
-                    if (ter.Patient.Username.Equals(username_patient))
-                    {
-                        pacijentovi_recepti.Add(ter);
-                    }
-                }
-
-                DateTime trenutno_vreme = DateTime.Now;
-                string[] pom = trenutno_vreme.ToString().Split(' ');
-                string[] vreme = pom[1].Split(':');
-                int sati = 0;
-
-                if (pom[2].Equals("PM"))
-                {
-                    sati = Convert.ToInt32(vreme[0]) + 12;
-                }
-                else
-                {
-                    sati = Convert.ToInt32(vreme[0]);
-                }
-
-                foreach (Prescription recept in pacijentovi_recepti)
-                {
-                    if (recept.Therapy.Dose == 1)
-                    {
-                        if (sati == 14 && Convert.ToInt32(vreme[1]) >= 54 && Convert.ToInt32(vreme[1]) <= 59)
-                        {
-                            MessageBox.Show("U 15:00 treba da popijete lek: " + recept.Therapy.MedicationName, "Podsetnik");
-                        }
-                    }
-                    else if (recept.Therapy.Dose == 2)
-                    {
-                        if (sati == 7 && Convert.ToInt32(vreme[1]) >= 54 && Convert.ToInt32(vreme[1]) <= 59)
-                        {
-                            MessageBox.Show("U 08:00 treba da popijete lek: " + recept.Therapy.MedicationName, "Podsetnik");
-                        }
-                        else if (sati == 14 && Convert.ToInt32(vreme[1]) >= 54 && Convert.ToInt32(vreme[1]) <= 59)
-                        {
-                            MessageBox.Show("U 20:00 treba da popijete lek: " + recept.Therapy.MedicationName, "Podsetnik");
-                        }
-                    }
-                    else if (recept.Therapy.Dose == 3)
-                    {
-                        if (sati == 6 && Convert.ToInt32(vreme[1]) >= 54 && Convert.ToInt32(vreme[1]) <= 59)
-                        {
-                            MessageBox.Show("U 07:00 treba da popijete lek: " + recept.Therapy.MedicationName, "Podsetnik");
-                        }
-                        else if (sati == 14 && Convert.ToInt32(vreme[1]) >= 54 && Convert.ToInt32(vreme[1]) <= 59)
-                        {
-                            MessageBox.Show("U 15:00 treba da popijete lek: " + recept.Therapy.MedicationName, "Podsetnik");
-                        }
-                        else if (sati == 22 && Convert.ToInt32(vreme[1]) >= 54 && Convert.ToInt32(vreme[1]) <= 59)
-                        {
-                            MessageBox.Show("U 23:00 treba da popijete lek: " + recept.Therapy.MedicationName, "Podsetnik");
-                        }
-                    }
-
-                }
+                //List<Prescription> patientPrescriptions = prescriptionService.getPatientPrescriptions(username_patient);
+                //notificationService.sendNotifications(patientPrescriptions);
 
                 Thread.Sleep(TimeSpan.FromSeconds(300));
             }
         }
 
+        /*
         static void nitZaInicijalizovanjeAkcije()
         {
             Thread refreshingThread = new Thread(new ThreadStart(inicijalizovanjeAkcija));
@@ -195,7 +135,7 @@ namespace IS_Bolnica
                 exStorage.saveToFile(pregledi, "Pregledi.json");
                 Thread.Sleep(TimeSpan.FromMinutes(10));
             }
-        }
+        }*/
 
         private void OcenjivanjeButtonClicked(object sender, RoutedEventArgs e)
         {

@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Bolnica"
         mc:Ignorable="d"
-        Title="Beleske" Height="450" Width="800">
+        Title="Beleske" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -17,14 +18,14 @@
         </Button>
         <DataGrid AutoGenerateColumns="False" 
           Height="281" 
-          Width="724"
+          Width="578"
           ColumnHeaderHeight="30"
-          ColumnWidth="181"
+          ColumnWidth="578"
           FontSize="15"
           HorizontalAlignment="Center" 
-          Name="OceneDataBinding" 
+          Name="NotesDataBinding" 
           IsReadOnly="True"
-          VerticalAlignment="Center" Margin="41,104,28.6,35" >
+          VerticalAlignment="Center" Margin="41,104,174.6,35" >
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FF4E8E73"/>
@@ -36,10 +37,7 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Ime(lekara)" Binding="{ Binding Doctor.Name}" />
-                <DataGridTextColumn Header="Prezime(lekara)" Binding="{ Binding Doctor.Surname}" />
-                <DataGridTextColumn Header="Ocena" Binding="{ Binding Assessment}" />
-                <DataGridTextColumn Header="Komentar" Binding="{ Binding Comment }" />
+                <DataGridTextColumn Header="Beleska" Binding="{ Binding Comment}" />
             </DataGrid.Columns>
 
         </DataGrid>
@@ -47,5 +45,7 @@
         <Image Margin="28,10,711.6,354" Source="nasLogo.jpg" Stretch="Fill"/>
         <Label Content="Zdravo bolnica" HorizontalAlignment="Left" Height="27" Margin="10,66,0,0" VerticalAlignment="Top" Width="93"/>
         <Label Content="Back" FontSize="16" HorizontalAlignment="Left" Height="27" Margin="715,27,0,0" VerticalAlignment="Top" Width="48"/>
+        <Button Content="Dodaj belesku" FontSize="18" HorizontalAlignment="Left" Margin="645,245,0,0" VerticalAlignment="Top" Width="139" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="AddButtonClicked" Height="38"/>
+
     </Grid>
 </Window>

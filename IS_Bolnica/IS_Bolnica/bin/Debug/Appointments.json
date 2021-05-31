@@ -170,7 +170,7 @@
       "UserType": 1,
       "Address": null
     },
-    "DurationInMins": 0,
+    "DurationInMins": 25,
     "GuestUser": null,
     "Room": null,
     "StartTime": "2021-05-26T15:30:00",
@@ -231,7 +231,7 @@
       "UserType": 1,
       "Address": null
     },
-    "DurationInMins": 0,
+    "DurationInMins": 27,
     "GuestUser": null,
     "Room": null,
     "StartTime": "2021-05-29T14:00:00",
@@ -291,7 +291,7 @@
       "UserType": 1,
       "Address": null
     },
-    "DurationInMins": 0,
+    "DurationInMins": 24,
     "GuestUser": null,
     "Room": null,
     "StartTime": "2021-06-05T17:00:00",
@@ -352,7 +352,7 @@
       "UserType": 1,
       "Address": null
     },
-    "DurationInMins": 0,
+    "DurationInMins": 28,
     "GuestUser": null,
     "Room": null,
     "StartTime": "2021-06-15T10:00:00",
@@ -413,7 +413,7 @@
       "UserType": 1,
       "Address": null
     },
-    "DurationInMins": 0,
+    "DurationInMins": 23,
     "GuestUser": null,
     "Room": null,
     "StartTime": "2021-05-27T14:30:00",
@@ -473,7 +473,7 @@
       "UserType": 1,
       "Address": null
     },
-    "DurationInMins": 0,
+    "DurationInMins": 24,
     "GuestUser": null,
     "Room": null,
     "StartTime": "2021-06-10T10:30:00",

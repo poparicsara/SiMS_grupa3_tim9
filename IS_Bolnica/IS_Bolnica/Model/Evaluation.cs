@@ -7,5 +7,7 @@ namespace Model
         public string Comment { get; set; }
         public int Assessment { get; set; }
         public string Bolnica { get; set; }
+        public int commentType { get; set; } //0 za pregled, 1 za bolnicu, 2 beleska
+        public int numOfMinutes { get; set; }
     }
 }

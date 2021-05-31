@@ -36,7 +36,8 @@ namespace IS_Bolnica
 
         private void BeleskeButtonClicked(object sender, RoutedEventArgs e)
         {
-
+            Beleske notes = new Beleske();
+            notes.Show();
         }
     }
 }

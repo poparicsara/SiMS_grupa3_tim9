@@ -1,4 +1,5 @@
 ﻿using IS_Bolnica.Model;
+using IS_Bolnica.Services;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -22,22 +23,12 @@ namespace IS_Bolnica
     /// </summary>
     public partial class Ocene : Window
     {
+        private EvaluationService evaluationService = new EvaluationService();
         public Ocene()
         {
             InitializeComponent();
 
-            EvaluationFileStorage exStorage = new EvaluationFileStorage();
-            List<Evaluation> ocene = exStorage.loadFromFile("Ocene.json");
-            ObservableCollection<Evaluation> oceneUlogovanogPacijenta = new ObservableCollection<Evaluation>();
-
-            foreach (Evaluation ocena in ocene)
-            {
-
-                if (ocena.Patient.Username.Equals(PatientWindow.username_patient) && ocena.Bolnica.Equals(""))
-                    oceneUlogovanogPacijenta.Add(ocena);
-            }
-
-            OceneDataBinding.ItemsSource = oceneUlogovanogPacijenta;
+            OceneDataBinding.ItemsSource = evaluationService.getPatientEvaluationsOfAppointment();
         }
 
         private void BackButtonClicked(object sender, RoutedEventArgs e)

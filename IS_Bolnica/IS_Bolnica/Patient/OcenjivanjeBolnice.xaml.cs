@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using IS_Bolnica.Services;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,8 @@ namespace IS_Bolnica
     /// </summary>
     public partial class OcenjivanjeBolnice : Window
     {
+        private FindAttributesService findAttributesService = new FindAttributesService();
+        private EvaluationService evaluationService = new EvaluationService();
         public OcenjivanjeBolnice()
         {
             InitializeComponent();
@@ -28,20 +31,15 @@ namespace IS_Bolnica
 
         private void ButtonZabeleziClicked(object sender, RoutedEventArgs e)
         {
-            EvaluationFileStorage exStorage = new EvaluationFileStorage();
-            List<Evaluation> ocene = exStorage.loadFromFile("Ocene.json");
-            Evaluation ocena = new Evaluation();
-            ocena.Bolnica = "Zdravo bolnica, Novi Sad";
-            Patient patient = new Patient();
-            patient.Username = PatientWindow.username_patient;
-
-            ocena.Patient = patient;
-            ocena.Assessment = Convert.ToInt32(OcenaComboBox.Text);
-            ocena.Comment = CommentTextBox.Text;
-
-            ocene.Add(ocena);
+            Evaluation evaluation = new Evaluation();
+            evaluation.Bolnica = "Zdravo bolnica, Novi Sad";
+            evaluation.Patient = findAttributesService.findPatientByUsername(PatientWindow.username_patient);
+            evaluation.Assessment = Convert.ToInt32(OcenaComboBox.Text);
+            evaluation.Comment = CommentTextBox.Text;
+            evaluation.numOfMinutes = 5;
+            evaluation.commentType = 1;
+            evaluationService.addNote(evaluation);
             this.Close();
-            exStorage.saveToFile(ocene, "Ocene.json");
         }
 
         private void BackButtonClicked(object sender, RoutedEventArgs e)

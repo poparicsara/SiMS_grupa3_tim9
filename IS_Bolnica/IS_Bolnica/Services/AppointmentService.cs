@@ -128,6 +128,64 @@ namespace IS_Bolnica.Services
 
         }
 
+        public List<Appointment> returnPatientAppointmentsAfterCheck()
+        {
+            List<Appointment> patientAppointments = FindPatientAppointments(findPatientByUsername(PatientWindow.username_patient));
+
+            foreach (Appointment appointment in patientAppointments) { 
+                
+            }
+
+            return patientAppointments;
+        }
+
+        private Boolean checkAppointment(Appointment appointment)
+        {
+            DateTime now = DateTime.Now;
+            string[] pom = now.ToString().Split(' ');
+            string[] dateNow = pom[0].Split('/');
+
+            string[] appointmentStartDateAndTime = appointment.StartTime.ToString().Split(' ');
+            string[] appointmentDate = appointmentStartDateAndTime[0].Split('/');
+            List<Patient> patients = patientRepository.LoadFromFile("PatientRecordFileStorage.json");
+            Patient loggedPatient = findPatientByUsername(PatientWindow.username_patient);
+
+            if (Convert.ToInt32(dateNow[0]) > Convert.ToInt32(appointmentDate[0]))
+            {
+                loggedPatient.brojOcenjenihPregleda++;
+                patientRepository.SaveToFile(patients, "PatientRecordFileStorage.json");
+                DeleteAppointment(appointment);
+                sendEvaluationOfAppointment(appointment);
+                return true;
+            }
+            else if (Convert.ToInt32(dateNow[0]) == Convert.ToInt32(appointmentDate[0]) && Convert.ToInt32(dateNow[1]) > Convert.ToInt32(appointmentDate[1]))
+            {
+                loggedPatient.brojOcenjenihPregleda++;
+                patientRepository.SaveToFile(patients, "PatientRecordFileStorage.json");
+                DeleteAppointment(appointment);
+                sendEvaluationOfAppointment(appointment);
+                return true;
+            }
+            return false;
+        }
+
+        public void sendEvaluationOfAppointment(Appointment appointment)
+        {
+            OcenjivanjePregleda op = new OcenjivanjePregleda(appointment);
+            op.Show();
+            sendEvaluationOfHospital();
+        }
+
+        private void sendEvaluationOfHospital()
+        {
+            Patient loggedPatient = findPatientByUsername(PatientWindow.username_patient);
+            if (loggedPatient.brojOcenjenihPregleda % 7 == 0)
+            {
+                OcenjivanjeBolnice ob = new OcenjivanjeBolnice();
+                ob.Show();
+            }
+        }
+
         private int FindAppointmentIndex(Appointment appointment)
         {
             for (int i = 0; i < appointments.Count; i++)

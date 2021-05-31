@@ -43,7 +43,7 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <Button Content="Beleske" FontSize="18" HorizontalAlignment="Left" Margin="681,290,0,0" VerticalAlignment="Top" Width="103" Height="38" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="BeleskeButtonClicked" RenderTransformOrigin="0.529,-0.707"/>
+        <Button Content="Beleske" FontSize="18" HorizontalAlignment="Left" Margin="681,246,0,0" VerticalAlignment="Top" Width="103" Height="38" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="BeleskeButtonClicked" RenderTransformOrigin="0.529,-0.707"/>
         <Label Content="Pregled anamneza" FontSize="26" HorizontalAlignment="Left" Height="54" Margin="289,45,0,0" VerticalAlignment="Top" Width="303"/>
         <Image Margin="28,10,711.6,354" Source="nasLogo.jpg" Stretch="Fill"/>
         <Label Content="Zdravo bolnica" HorizontalAlignment="Left" Height="27" Margin="10,66,0,0" VerticalAlignment="Top" Width="93"/>
