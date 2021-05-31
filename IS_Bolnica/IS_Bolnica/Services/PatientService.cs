@@ -8,8 +8,6 @@ namespace IS_Bolnica.Services
     {
         private List<Patient> patients = new List<Patient>();
         private PatientRepository patientRepository = new PatientRepository();
-        private List<Patient> blockedPatients = new List<Patient>();
-        
 
         public PatientService()
         {
@@ -59,6 +57,7 @@ namespace IS_Bolnica.Services
 
         public List<Patient> GetBlockedPatients()
         {
+            List<Patient> blockedPatients = new List<Patient>();
             patients = patientRepository.LoadFromFile("PatientRecordFileStorage.json");
             foreach (var patient in patients)
             {
@@ -68,7 +67,7 @@ namespace IS_Bolnica.Services
                 }
             }
 
-            return patients;
+            return blockedPatients;
         }
 
         public bool PatientExists(Patient patient)

@@ -279,6 +279,15 @@
     <Compile Include="Secretary\AddUrgentOperationWindow.xaml.cs">
       <DependentUpon>AddUrgentOperationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Secretary\AddVacation.xaml.cs">
+      <DependentUpon>AddVacation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\BlockedPatientsList.xaml.cs">
+      <DependentUpon>BlockedPatientsList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\BlockedPatientsListWindow.xaml.cs">
+      <DependentUpon>BlockedPatientsListWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Secretary\DoctorList.xaml.cs">
       <DependentUpon>DoctorList.xaml</DependentUpon>
     </Compile>
@@ -305,6 +314,9 @@
     </Compile>
     <Compile Include="Secretary\EditPatientPage.xaml.cs">
       <DependentUpon>EditPatientPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\EditShift.xaml.cs">
+      <DependentUpon>EditShift.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\ExaminationList.xaml.cs">
       <DependentUpon>ExaminationList.xaml</DependentUpon>
@@ -333,11 +345,17 @@
     <Compile Include="Secretary\OperationListWindow.xaml.cs">
       <DependentUpon>OperationListWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Secretary\Options.xaml.cs">
+      <DependentUpon>Options.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Secretary\PatientList.xaml.cs">
       <DependentUpon>PatientList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\PatientListWindow.xaml.cs">
       <DependentUpon>PatientListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\SecretaryProfile.xaml.cs">
+      <DependentUpon>SecretaryProfile.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\UrgentExaminationOptions.xaml.cs">
       <DependentUpon>UrgentExaminationOptions.xaml</DependentUpon>
@@ -666,6 +684,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Secretary\AddVacation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Secretary\BlockedPatientsList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Secretary\BlockedPatientsListWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Secretary\DoctorList.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -699,6 +729,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Secretary\EditPatientPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Secretary\EditShift.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -738,11 +772,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Secretary\Options.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Secretary\PatientList.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Secretary\PatientListWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Secretary\SecretaryProfile.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -9,6 +9,7 @@
       "Akcije": 0,
       "brojOcenjenihPregleda": 0,
       "Debit": 1.0,
+      "isBlocked": false,
       "HealthCardNumber": "19",
       "Anamneses": null,
       "Ingredients": null,
@@ -40,6 +41,8 @@
         "Name": "Anesteziologija"
       },
       "Ordination": 202,
+      "Shifts": null,
+      "Vacations": null,
       "Username": "ana",
       "Password": "ana",
       "Name": "Ana",
@@ -99,6 +102,7 @@
       "Akcije": 0,
       "brojOcenjenihPregleda": 0,
       "Debit": 1.0,
+      "isBlocked": false,
       "HealthCardNumber": "19",
       "Anamneses": null,
       "Ingredients": null,
@@ -130,6 +134,8 @@
         "Name": "Anesteziologija"
       },
       "Ordination": 202,
+      "Shifts": null,
+      "Vacations": null,
       "Username": "ana",
       "Password": "ana",
       "Name": "Ana",
@@ -188,6 +194,7 @@
       "Akcije": 0,
       "brojOcenjenihPregleda": 0,
       "Debit": 1500.0,
+      "isBlocked": false,
       "HealthCardNumber": "6",
       "Anamneses": null,
       "Ingredients": null,
@@ -219,6 +226,8 @@
         "Name": "Anesteziologija"
       },
       "Ordination": 202,
+      "Shifts": null,
+      "Vacations": null,
       "Username": "ana",
       "Password": "ana",
       "Name": "Ana",
@@ -278,6 +287,7 @@
       "Akcije": 0,
       "brojOcenjenihPregleda": 0,
       "Debit": 1.0,
+      "isBlocked": false,
       "HealthCardNumber": "19",
       "Anamneses": null,
       "Ingredients": null,
@@ -309,6 +319,8 @@
         "Name": "Alergologija i imunologija"
       },
       "Ordination": 300,
+      "Shifts": null,
+      "Vacations": null,
       "Username": "Ognjen",
       "Password": "ognjen",
       "Name": "Ognjen",
@@ -371,6 +383,7 @@
       "Akcije": 0,
       "brojOcenjenihPregleda": 0,
       "Debit": 1.0,
+      "isBlocked": false,
       "HealthCardNumber": "19",
       "Anamneses": null,
       "Ingredients": null,
@@ -402,6 +415,8 @@
         "Name": "Anesteziologija"
       },
       "Ordination": 202,
+      "Shifts": null,
+      "Vacations": null,
       "Username": "ana",
       "Password": "ana",
       "Name": "Ana",
@@ -464,6 +479,7 @@
       "Akcije": 0,
       "brojOcenjenihPregleda": 0,
       "Debit": 1.0,
+      "isBlocked": false,
       "HealthCardNumber": "19",
       "Anamneses": null,
       "Ingredients": null,
@@ -495,6 +511,8 @@
         "Name": "Radiologija - dijagnostika"
       },
       "Ordination": 302,
+      "Shifts": null,
+      "Vacations": null,
       "Username": "Vuk",
       "Password": "ftn",
       "Name": "Vuk",
@@ -557,6 +575,7 @@
       "Akcije": 0,
       "brojOcenjenihPregleda": 0,
       "Debit": 1.0,
+      "isBlocked": false,
       "HealthCardNumber": "19",
       "Anamneses": null,
       "Ingredients": null,
@@ -588,6 +607,8 @@
         "Name": "Alergologija i imunologija"
       },
       "Ordination": 300,
+      "Shifts": null,
+      "Vacations": null,
       "Username": "Ognjen",
       "Password": "ognjen",
       "Name": "Ognjen",
@@ -650,6 +671,7 @@
       "Akcije": 0,
       "brojOcenjenihPregleda": 0,
       "Debit": 1.0,
+      "isBlocked": false,
       "HealthCardNumber": "19",
       "Anamneses": null,
       "Ingredients": null,
@@ -681,6 +703,8 @@
         "Name": "Alergologija i imunologija"
       },
       "Ordination": 300,
+      "Shifts": null,
+      "Vacations": null,
       "Username": "Ognjen",
       "Password": "ognjen",
       "Name": "Ognjen",
@@ -743,6 +767,7 @@
       "Akcije": 0,
       "brojOcenjenihPregleda": 0,
       "Debit": 1.0,
+      "isBlocked": false,
       "HealthCardNumber": "19",
       "Anamneses": null,
       "Ingredients": null,
@@ -774,6 +799,8 @@
         "Name": "Alergologija i imunologija"
       },
       "Ordination": 300,
+      "Shifts": null,
+      "Vacations": null,
       "Username": "Ognjen",
       "Password": "ognjen",
       "Name": "Ognjen",
@@ -836,6 +863,7 @@
       "Akcije": 0,
       "brojOcenjenihPregleda": 0,
       "Debit": 1.0,
+      "isBlocked": false,
       "HealthCardNumber": "19",
       "Anamneses": null,
       "Ingredients": null,
@@ -867,6 +895,8 @@
         "Name": "Alergologija i imunologija"
       },
       "Ordination": 300,
+      "Shifts": null,
+      "Vacations": null,
       "Username": "Ognjen",
       "Password": "ognjen",
       "Name": "Ognjen",
@@ -929,6 +959,7 @@
       "Akcije": 0,
       "brojOcenjenihPregleda": 0,
       "Debit": 1.0,
+      "isBlocked": false,
       "HealthCardNumber": "19",
       "Anamneses": null,
       "Ingredients": null,
@@ -960,6 +991,8 @@
         "Name": "Alergologija i imunologija"
       },
       "Ordination": 300,
+      "Shifts": null,
+      "Vacations": null,
       "Username": "Ognjen",
       "Password": "ognjen",
       "Name": "Ognjen",
@@ -1022,6 +1055,7 @@
       "Akcije": 0,
       "brojOcenjenihPregleda": 0,
       "Debit": 1.0,
+      "isBlocked": false,
       "HealthCardNumber": "19",
       "Anamneses": null,
       "Ingredients": null,
@@ -1053,6 +1087,8 @@
         "Name": "Alergologija i imunologija"
       },
       "Ordination": 300,
+      "Shifts": null,
+      "Vacations": null,
       "Username": "Ognjen",
       "Password": "ognjen",
       "Name": "Ognjen",
@@ -1115,6 +1151,7 @@
       "Akcije": 0,
       "brojOcenjenihPregleda": 0,
       "Debit": 1.0,
+      "isBlocked": false,
       "HealthCardNumber": "19",
       "Anamneses": null,
       "Ingredients": null,
@@ -1146,6 +1183,8 @@
         "Name": "Alergologija i imunologija"
       },
       "Ordination": 300,
+      "Shifts": null,
+      "Vacations": null,
       "Username": "Ognjen",
       "Password": "ognjen",
       "Name": "Ognjen",
@@ -1197,5 +1236,110 @@
     "PostponedDate": "2021-05-30T07:45:00",
     "IsUrgent": false,
     "AppointmentType": 1
+  },
+  {
+    "Patient": {
+      "Allergens": [
+        "brufen"
+      ],
+      "examinations": null,
+      "Akcije": 1,
+      "brojOcenjenihPregleda": 0,
+      "Debit": 3000.0,
+      "isBlocked": false,
+      "HealthCardNumber": "80",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Username": "p__nina",
+      "Password": "hehe",
+      "Name": "Nikolina",
+      "Surname": "Pavkovic",
+      "DateOfBirth": "2000-02-01T00:00:00",
+      "Phone": "0658886407",
+      "Email": "pavkovicn@hotmail.com",
+      "Id": "1502000815038",
+      "UserType": 0,
+      "Address": {
+        "Street": "Nova",
+        "NumberOfBuilding": 130,
+        "Floor": 0,
+        "Apartment": 0,
+        "City": {
+          "name": "Apatin",
+          "postalCode": "25260",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "Doctor": {
+      "Specialization": {
+        "Name": "Pedijatrija"
+      },
+      "Ordination": 107,
+      "Shifts": [
+        {
+          "DoctorsId": "67894234",
+          "ShiftStartDate": "2021-05-31T00:00:00",
+          "ShiftEndDate": "2021-06-04T00:00:00",
+          "ShiftType": 0
+        }
+      ],
+      "Vacations": [
+        {
+          "DoctorsId": "67894234",
+          "VacationStartDate": "2021-07-01T00:00:00",
+          "VacationEndDate": "2021-07-08T00:00:00"
+        }
+      ],
+      "Username": "nikola",
+      "Password": "dzoni",
+      "Name": "Nikola",
+      "Surname": "Spasojevic",
+      "DateOfBirth": "1980-11-01T00:00:00",
+      "Phone": "67894234",
+      "Email": "nikolas@gmail.com",
+      "Id": "4341009",
+      "UserType": 1,
+      "Address": null
+    },
+    "DurationInMins": 23,
+    "GuestUser": null,
+    "Room": {
+      "Id": 107,
+      "HospitalWard": "Pedijatrija",
+      "inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 27,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "roomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "StartTime": "2021-06-02T10:00:00",
+    "EndTime": "2021-06-02T10:30:00",
+    "PostponedDate": "0001-01-01T00:00:00",
+    "IsUrgent": false,
+    "AppointmentType": 0
   }
 ]

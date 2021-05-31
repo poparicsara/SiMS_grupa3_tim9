@@ -336,7 +336,7 @@ namespace IS_Bolnica.Services
             if (isDoctorAvailable(appointment) && isPatientAvailable(appointment))
             {
                 appointments.Add(appointment);
-                appointmentRepository.SaveToFile(appointments, "Appointments.json");
+                appointmentRepository.SaveToFile(appointments);
             }
             else
             {
@@ -398,6 +398,7 @@ namespace IS_Bolnica.Services
             Patient patient = findPatientByUsername(PatientWindow.username_patient);
             if (patient.Akcije >= 6)
             {
+                patient.isBlocked = true;
                 MessageBox.Show("Najvise 6 akcija nad pregledima mozete izvrsiti prilikom logovanja!");
                 return true;
             }
