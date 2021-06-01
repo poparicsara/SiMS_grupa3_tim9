@@ -58,8 +58,20 @@
         </ComboBox>
         <ComboBox x:Name="minuteBox" HorizontalAlignment="Left" Margin="499,337,0,0" VerticalAlignment="Top" Width="53" SelectionChanged="SetMinute">
             <ComboBoxItem Content="00"/>
+            <ComboBoxItem Content="01"/>
+            <ComboBoxItem Content="02"/>
+            <ComboBoxItem Content="03"/>
+            <ComboBoxItem Content="04"/>
             <ComboBoxItem Content="05"/>
+            <ComboBoxItem Content="06"/>
+            <ComboBoxItem Content="07"/>
+            <ComboBoxItem Content="08"/>
+            <ComboBoxItem Content="09"/>
             <ComboBoxItem Content="10"/>
+            <ComboBoxItem Content="11"/>
+            <ComboBoxItem Content="12"/>
+            <ComboBoxItem Content="13"/>
+            <ComboBoxItem Content="14"/>
             <ComboBoxItem Content="15"/>
             <ComboBoxItem Content="20"/>
             <ComboBoxItem Content="25"/>

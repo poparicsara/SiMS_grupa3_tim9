@@ -117,11 +117,11 @@ namespace IS_Bolnica
             if (e.Data.GetDataPresent("myFormat"))
             {
                 InventoryInRoom inventory = e.Data.GetData("myFormat") as InventoryInRoom;
-                //InventoryInRoom inventory1 = (InventoryInRoom) e.Source;
+                //InventoryInRoom inventory1 = (InventoryInRoom) e.Source;x
                 //Debug.WriteLine(inventory.Room.Id + " prva");
-                inventory2 = (InventoryInRoom)ordinationDataGrid.Items.GetItemAt(index);
+                //inventory2 = (InventoryInRoom)ordinationDataGrid.Items.GetItemAt(index);
                 
-                Debug.WriteLine(inventory2.Room.Id + " druga");
+                //Debug.WriteLine(inventory2.Room.Id + " druga");
                 ChangeInventoryPlace inventoryPlace = new ChangeInventoryPlace(selectedInventory); 
                 inventoryPlace.Show();
                 this.Close();

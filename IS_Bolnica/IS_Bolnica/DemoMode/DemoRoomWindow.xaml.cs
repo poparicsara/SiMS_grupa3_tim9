@@ -22,6 +22,7 @@ namespace IS_Bolnica.DemoMode
         private RoomService service = new RoomService();
         public DemoRoomWindow()
         {
+
             InitializeComponent();
 
             roomDataGrid.ItemsSource = service.GetRooms();

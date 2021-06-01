@@ -16,6 +16,7 @@ namespace IS_Bolnica.Services
         private RoomService roomService = new RoomService();
         private Room newRoom = new Room();
         private Thread thread;
+        private Thread separationThreat;
         private int hourOfChange;
         private int minuteOfChange;
         private string dateOfChange;
@@ -147,6 +148,12 @@ namespace IS_Bolnica.Services
             newRoom.HospitalWard = room1.HospitalWard;
             newRoom.RoomPurpose = room1.RoomPurpose;
             newRoom.Inventory = new List<Inventory>();  //just empty list (not null)
+        }
+
+        private void StartSeparationThread()
+        {
+            separationThreat = new Thread(new ThreadStart(CheckingTime));
+            separationThreat.Start();
         }
 
         private void StartThread()

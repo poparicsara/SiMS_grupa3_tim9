@@ -6,12 +6,25 @@
         xmlns:local="clr-namespace:IS_Bolnica.DemoMode"
         mc:Ignorable="d"
         Title="DemoInventoryWindow" Height="655" Width="1116" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <RoutedUICommand x:Key="roomCommand"></RoutedUICommand>
+        <RoutedCommand x:Key="medicamentCommand"></RoutedCommand>
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource roomCommand}" Executed="RoomButtonClicked">
+        </CommandBinding>
+        <CommandBinding Command="{StaticResource medicamentCommand}" Executed="MedicamentButtonClicked"></CommandBinding>
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Command="{StaticResource roomCommand}" Key="R" />
+        <KeyBinding Command="{StaticResource medicamentCommand}" Key="M" />
+    </Window.InputBindings>
     <Grid>
-        <Grid HorizontalAlignment="Left" Width="207" Background="#FFE2F3C7">
+        <Grid HorizontalAlignment="Left" Width="207" Background="White">
             <StackPanel>
-                <ListView Background="#FFE8F6D5" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="625" Margin="0,0,0.2,0">
+                <ListView BorderThickness="0,0,2,0"  Background="White" BorderBrush="Black" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="625" Margin="0,0,0.2,0">
                     <ListViewItem HorizontalAlignment="Left" Height="84" Margin="0,100,0,0">
-                        <Button Width="187" Height="62" Background="Transparent" BorderBrush="Transparent">
+                        <Button IsTabStop="True" IsDefault="True"  Width="187" Height="62" Background="Transparent" BorderBrush="Transparent">
                             <StackPanel Orientation="Horizontal" Width="187" Height="62">
                                 <Image Source="profileIcon.png" Margin="0,15,0,0" Width="58" Height="47" VerticalAlignment="Top"/>
                                 <TextBlock Text="Profil" FontSize="16" Width="98" Margin="10,17,10,24.2" FontWeight="Bold"/>
@@ -19,7 +32,7 @@
                         </Button>
                     </ListViewItem>
                     <ListViewItem HorizontalAlignment="Left" Height="84">
-                        <Button Width="187" Height="62" Background="Transparent" BorderBrush="Transparent" Click="RoomButtonClicked">
+                        <Button IsTabStop="True" IsDefault="True" Width="187" Height="62" Background="Transparent" BorderBrush="Transparent" Click="RoomButtonClicked">
                             <StackPanel Orientation="Horizontal" Width="187" Height="62">
                                 <Image Source="roomIcon100x50.png" Width="58" Height="47" VerticalAlignment="Top"/>
                                 <TextBlock Text="Prostorije" FontSize="16" Width="98" Margin="10,17,10,24.2" FontWeight="Bold"/>
@@ -27,7 +40,7 @@
                         </Button>
                     </ListViewItem>
                     <ListViewItem HorizontalAlignment="Left" Height="84" Width="207">
-                        <Button Width="187" Height="62" Background="Transparent" BorderBrush="Transparent" Foreground="#FF838383" OpacityMask="#FF58864B">
+                        <Button IsTabStop="True" IsDefault="True" Width="187" Height="62" Background="Transparent" BorderBrush="Transparent" Foreground="#FF838383" OpacityMask="#FF58864B">
                             <StackPanel Orientation="Horizontal" Width="187" Height="62" Background="Transparent">
                                 <Image Source="inventory.png" Margin="0,15,0,0" Width="58" Height="47" VerticalAlignment="Top"/>
                                 <TextBlock Text="Inventar" FontSize="16" Width="98" Margin="10,17,10,24.2" FontWeight="Bold" Foreground="#FF0E0E0F"/>
@@ -35,7 +48,7 @@
                         </Button>
                     </ListViewItem>
                     <ListViewItem HorizontalAlignment="Left" Height="84">
-                        <Button Width="187" Height="62" Background="Transparent" BorderBrush="Transparent" Click="MedicamentButtonClicked">
+                        <Button IsTabStop="True" IsDefault="True" Width="187" Height="62" Background="Transparent" BorderBrush="Transparent" Click="MedicamentButtonClicked">
                             <StackPanel Orientation="Horizontal" Width="187" Height="62">
                                 <Image Source="medicine.png" Margin="0,15,0,0" Width="58" Height="47" VerticalAlignment="Top"/>
                                 <TextBlock Text="Lekovi" FontSize="16" Width="98" Margin="10,17,10,24.2" FontWeight="Bold"/>
@@ -46,23 +59,17 @@
             </StackPanel>
         </Grid>
         <TabControl Name="tabs" HorizontalAlignment="Left" Margin="231,71,0,0" VerticalAlignment="Top" TabStripPlacement="Left" Height="545" Width="869" BorderBrush="White">
-            <TabItem Header="Dinamički" Height="32" Margin="0,61,-0.2,-61" HorizontalAlignment="Left" Width="105" FontSize="16" FontWeight="Bold" BorderBrush="#FFE8F6D5">
-                <TabItem.Background>
-                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                        <GradientStop Color="#FFE8F6D5" Offset="0"/>
-                        <GradientStop Color="#FFE8F6D5" Offset="1"/>
-                    </LinearGradientBrush>
-                </TabItem.Background>
+            <TabItem Header="Dinamički" Height="32" Margin="0,61,-0.2,-61" HorizontalAlignment="Left" Width="105" FontSize="16" FontWeight="Bold" BorderBrush="#FFE8F6D5" Background="Gray">
 
                 <Canvas  RenderTransformOrigin="0.069,0.186" Margin="0,10,-0.2,-0.8" >
                     <DataGrid x:Name ="dynamicDataGrid" HorizontalAlignment="Center" Height="482" Width="692" FontSize="16"
                   ColumnWidth="300" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserAddRows="False" AutoGenerateColumns="False"
                   IsReadOnly="True" SelectionMode="Single" CanUserDeleteRows="True" CanUserReorderColumns="False" 
-                  Canvas.Top="48" RowHeight="30" FontWeight="Normal">
+                  Canvas.Top="48" RowHeight="30" FontWeight="Normal" BorderThickness="4" BorderBrush="Black">
                         <!-- Style -->
                         <DataGrid.Resources>
                             <Style TargetType="{x:Type DataGridColumnHeader}">
-                                <Setter Property="Background" Value="#FFE8F6D5"/>
+                                <Setter Property="Background" Value="White"/>
                                 <Setter Property="HorizontalContentAlignment" Value="Center"/>
                                 <Setter Property="Height" Value="35"/>
                                 <Setter Property="BorderThickness" Value="1"/>
@@ -73,24 +80,24 @@
                         </DataGrid.Resources>
                         <!-- Header -->
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header ="ŠIFRA" Width="342" Binding="{Binding Id}"/>
-                            <DataGridTextColumn Header ="NAZIV" Width="342" Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header ="ŠIFRA" Width="339" Binding="{Binding Id}"/>
+                            <DataGridTextColumn Header ="NAZIV" Width="339" Binding="{Binding Name}"/>
                         </DataGrid.Columns>
                     </DataGrid>
 
                     <TextBox Name="searchBox" BorderThickness="1" BorderBrush="Black" Canvas.Left="550" Width="152" Height="34" Background="White"/>
 
-                    <Button   VerticalAlignment="Top" Width="35" Height="35" Background="White" Canvas.Left="712" Canvas.Top="485">
+                    <Button IsTabStop="True" IsDefault="True" VerticalAlignment="Top" Width="35" Height="35" Background="White" Canvas.Left="712" Canvas.Top="485">
                         <StackPanel>
                             <Image Source="delete.png"/>
                         </StackPanel>
                     </Button>
-                    <Button  VerticalAlignment="Top" Width="35" Height="35" Background="White" Canvas.Left="712" Canvas.Top="438">
+                    <Button IsTabStop="True" IsDefault="True"  VerticalAlignment="Top" Width="35" Height="35" Background="White" Canvas.Left="712" Canvas.Top="438">
                         <StackPanel>
                             <Image Source="edit.png"/>
                         </StackPanel>
                     </Button>
-                    <Button  VerticalAlignment="Top" Width="35" Height="35" Background="White" Canvas.Left="712" Canvas.Top="394">
+                    <Button IsTabStop="True" IsDefault="True" VerticalAlignment="Top" Width="35" Height="35" Background="White" Canvas.Left="712" Canvas.Top="394">
                         <StackPanel>
                             <Image Source="addIcon.png"/>
                         </StackPanel>
@@ -98,17 +105,17 @@
                 </Canvas>
 
             </TabItem>
-            <TabItem Header="Statički" Background="#FFE8F6D5" Margin="0,61,-0.2,-67.4" FontSize="16" FontWeight="Bold">
+            <TabItem Header="Statički" Background="Gray" Margin="0,61,-0.2,-67.4" FontSize="16" FontWeight="Bold">
 
                 <Canvas RenderTransformOrigin="0.069,0.186" Margin="0,-72,0,-0.6" >
-                    <DataGrid x:Name ="staticDataGrid" HorizontalAlignment="Center" Height="480" Width="692" FontSize="18"
+                    <DataGrid x:Name ="staticDataGrid" HorizontalAlignment="Center" Height="480" Width="692" FontSize="16"
                   ColumnWidth="342" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserAddRows="False" AutoGenerateColumns="False"
                   IsReadOnly="True" SelectionMode="Single" CanUserDeleteRows="True" CanUserReorderColumns="False" 
-                  Canvas.Top="132" RowHeight="30" FontWeight="Normal">
+                  Canvas.Top="132" RowHeight="30" FontWeight="Normal" BorderThickness="4" BorderBrush="Black">
                         <!-- Style -->
                         <DataGrid.Resources>
                             <Style TargetType="{x:Type DataGridColumnHeader}">
-                                <Setter Property="Background" Value="#FFE8F6D5"/>
+                                <Setter Property="Background" Value="White"/>
                                 <Setter Property="HorizontalContentAlignment" Value="Center"/>
                                 <Setter Property="Height" Value="35"/>
                                 <Setter Property="BorderThickness" Value="1"/>
@@ -118,12 +125,12 @@
                         </DataGrid.Resources>
                         <!-- Header -->
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header ="ŠIFRA" Width="342" Binding="{Binding Id}"/>
-                            <DataGridTextColumn Header ="NAZIV" Width="342" Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header ="ŠIFRA" Width="339" Binding="{Binding Id}"/>
+                            <DataGridTextColumn Header ="NAZIV" Width="339" Binding="{Binding Name}"/>
                         </DataGrid.Columns>
                     </DataGrid>
 
-                    <TextBox Name="statickiSearchBox" BorderBrush="Black" BorderThickness="1" Canvas.Left="541" Canvas.Top="80" Width="151" Height="35"/>
+                    <TextBox Name="statickiSearchBox" BorderBrush="Black" BorderThickness="1" Canvas.Left="541" Canvas.Top="72" Width="151" Height="35"/>
                     
                     <Button  VerticalAlignment="Top" Width="35" Height="35" Background="White" Canvas.Left="712" Canvas.Top="567">
                         <StackPanel>

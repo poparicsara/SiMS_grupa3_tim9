@@ -38,6 +38,7 @@ namespace Model
 
         public void AddRoom(Room newRoom)
         {
+            rooms = GetRooms();
             rooms.Add(newRoom);
             saveToFile(rooms);
         }

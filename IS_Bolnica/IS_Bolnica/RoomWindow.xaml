@@ -5,53 +5,99 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Bolnica"
         mc:Ignorable="d"
-        Title="RoomWindow" Height="540" Width="950"
+        Title="RoomWindow" Height="655" Width="1116"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.Resources>
+        <RoutedUICommand x:Key="medicamentCommand"></RoutedUICommand>
+        <RoutedCommand x:Key="inventoryCommand"></RoutedCommand>
+        <RoutedCommand x:Key="addCommand"></RoutedCommand>
+        <RoutedCommand x:Key="editCommand"></RoutedCommand>
+        <RoutedCommand x:Key="deleteCommand"></RoutedCommand>
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource medicamentCommand}" Executed="MedicamentButtonClicked"/>
+        <CommandBinding Command="{StaticResource inventoryCommand}" Executed="InventoryButtonClicked"/>
+        <CommandBinding Command="{StaticResource addCommand}" Executed="AddButtonClicked"/>
+        <CommandBinding Command="{StaticResource editCommand}" Executed="EditButtonClicked"/>
+        <CommandBinding Command="{StaticResource deleteCommand}" Executed="DeleteButtonClicked"/>
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Command="{StaticResource medicamentCommand}" Key="M" />
+        <KeyBinding Command="{StaticResource inventoryCommand}" Key="I" />
+        <KeyBinding Command="{StaticResource addCommand}" Key="N"/>
+        <KeyBinding Command="{StaticResource editCommand}" Key="E"/>
+        <KeyBinding Command="{StaticResource deleteCommand}" Key="D"/>
+    </Window.InputBindings>
     <Grid>
-        <WrapPanel x:Name="Wrap1" Width ="207" HorizontalAlignment="Left" Margin="0,0,0,0.4">
-            <Button x:Name="pacijent" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima"  Foreground="Black" BorderThickness="1" BorderBrush="#FF050510" Background="White" Click="ProfileButtonClicked">
-                Profil
-            </Button>
-            <Button x:Name="lekar" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black" BorderThickness="1" BorderBrush="#FF050510" Background="White">
-                Prostorije
-            </Button>
-            <Button x:Name="sekretar" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black" BorderThickness="1" BorderBrush="#FF050510" Background="White" Click="InventoryButtonClicked">
-                Inventar
-            </Button>
-            <Button x:Name="upravnik" Height="49" Width="206" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black" BorderThickness="1" BorderBrush="#FF050510" Background="White" Click="MedicamentButtonClicked">
-                Lekovi
-            </Button>
-            <Border BorderBrush="Black" BorderThickness="1" Height="317" Width="206"/>
-        </WrapPanel>
-        <DataGrid x:Name ="roomDataGrid" HorizontalAlignment="Center" Height="410" VerticalAlignment="Center" Width="588" FontSize="14"
+        <Grid HorizontalAlignment="Left" Width="207" Background="White">
+            <StackPanel>
+                <ListView BorderThickness="0, 0, 2, 0" Background="white" BorderBrush="Black" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="625" Margin="0,0,0.2,0">
+                    <ListViewItem HorizontalAlignment="Left" Height="84" Margin="0,100,0,0">
+                        <Button  Width="187" Height="62" Background="Transparent" BorderBrush="Transparent" IsTabStop="True" IsDefault="True">
+                            <StackPanel Orientation="Horizontal" Width="187" Height="62">
+                                <Image Source="DemoMode/profileIcon.png" Margin="0,15,0,0" Width="58" Height="47" VerticalAlignment="Top"/>
+                                <TextBlock Text="Profil" FontSize="16" Width="98" Margin="10,17,10,24.2" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Button>
+                    </ListViewItem>
+                    <ListViewItem HorizontalAlignment="Left" Height="84" IsTabStop="True">
+                        <Button Width="187" Height="62" Background="Transparent" BorderBrush="Transparent" IsTabStop="True" IsDefault="True">
+                            <StackPanel Orientation="Horizontal" Width="187" Height="62">
+                                <Image Source="DemoMode/roomIcon100x50.png" Width="58" Height="47" VerticalAlignment="Top"/>
+                                <TextBlock Text="Prostorije" FontSize="16" Width="98" Margin="10,17,10,24.2" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Button>
+                    </ListViewItem>
+                    <ListViewItem HorizontalAlignment="Left" Height="84">
+                        <Button Width="187" Height="62" Background="Transparent" IsDefault="True" BorderBrush="Transparent" Click="InventoryButtonClicked" IsTabStop="True">
+                            <StackPanel Orientation="Horizontal" Width="187" Height="62">
+                                <Image Source="DemoMode/inventory.png" Margin="0,15,0,0" Width="58" Height="47" VerticalAlignment="Top"/>
+                                <TextBlock Text="Inventar" FontSize="16" Width="98" Margin="10,17,10,24.2" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Button>
+                    </ListViewItem>
+                    <ListViewItem HorizontalAlignment="Left" Height="84">
+                        <Button Width="187" Height="62" Background="Transparent" IsDefault="True" BorderBrush="Transparent" Click="MedicamentButtonClicked" IsTabStop="True">
+                            <StackPanel Orientation="Horizontal" Width="187" Height="62">
+                                <Image Source="DemoMode/medicine.png" Margin="0,15,0,0" Width="58" Height="47" VerticalAlignment="Top"/>
+                                <TextBlock Text="Lekovi" FontSize="16" Width="98" Margin="10,17,10,24.2" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Button>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
+        </Grid>
+        <DataGrid x:Name ="roomDataGrid" HorizontalAlignment="Center" Height="512" VerticalAlignment="Center" Width="805" FontSize="16"
                   ColumnWidth="187.7" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserAddRows="False" AutoGenerateColumns="False"
-                  IsReadOnly="True" SelectionMode="Single" CanUserDeleteRows="True" Margin="224,90,132,10.4" BorderThickness="1" BorderBrush="Black">
+                  IsReadOnly="True" SelectionMode="Single" CanUserDeleteRows="True" Margin="224,104,80.6,9.6" BorderThickness="8" BorderBrush="Black"
+                  RowHeight="30">
             <!-- Style -->
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                    <Setter Property="Height" Value="32"/>
+                    <Setter Property="Height" Value="35"/>
                     <Setter Property="BorderThickness" Value="1"/>
                     <Setter Property="BorderBrush" Value="Black"/>
                     <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="FontSize" Value="18"/>
                 </Style>
             </DataGrid.Resources>
             <!-- Header -->
             <DataGrid.Columns>
-                <DataGridTextColumn Header ="BROJ SOBE" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header ="BOLNIČKO ODELJENJE" Binding="{Binding HospitalWard}"/>
-                <DataGridTextColumn Header ="NAMENA" Binding="{Binding Path = RoomPurpose.Name}"/>
+                <DataGridTextColumn Width="255" Header ="BROJ SOBE" Binding="{Binding Id}"/>
+                <DataGridTextColumn Width="255" Header ="BOLNIČKO ODELJENJE" Binding="{Binding HospitalWard}"/>
+                <DataGridTextColumn Width="255" Header ="NAMENA" Binding="{Binding Path = RoomPurpose.Name}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="DODAJ" HorizontalAlignment="Left" Margin="823,476,0,0" VerticalAlignment="Top" Width="111" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" Click="AddButtonClicked" FontSize="14"/>
-        <Button Content="OBRIŠI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" Margin="823,434,0,0" Click="DeleteButtonClicked" FontSize="14"/>
-        <Button Content="IZMENI" HorizontalAlignment="Left" Margin="823,391,0,0" VerticalAlignment="Top" Width="111" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" Click="EditButtonClicked" FontSize="14"/>
-        <TextBox Name="searchBox" HorizontalAlignment="Left" Height="23" Margin="774,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" KeyUp="searchKeyUp"/>
-        <Button Content="Obaveštenja" HorizontalAlignment="Left" Margin="224,20,0,0" VerticalAlignment="Top" Width="92" Height="32" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" Click="NotificationButtonClicked"/>
-        <Button Content="RENOVIRANJE" HorizontalAlignment="Left" Margin="823,354,0,0" VerticalAlignment="Top" Width="111" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" Click="RenovationButton" FontSize="14"/>
-        <Label Content="PROSTORIJE" HorizontalAlignment="Left" Margin="463,20,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black"/>
-        <Button Content="SPAJANJE" HorizontalAlignment="Left" Margin="823,316,0,0" VerticalAlignment="Top" Width="111" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" FontSize="14" Click="MergeButtonClicked"/>
-        <Button Content="RAZDVAJANJE" HorizontalAlignment="Left" Margin="823,278,0,0" VerticalAlignment="Top" Width="111" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" FontSize="14" Click="SeparateButtonClicked"/>
+        <Button Content="DODAJ" ToolTip="Dodavanje nove prostorije" IsTabStop="True" IsDefault="True" HorizontalAlignment="Left" Margin="1044,588,0,0" VerticalAlignment="Top" Width="40" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" Click="AddButtonClicked" FontSize="14"/>
+        <Button Content="OBRIŠI" IsTabStop="True" IsDefault="True" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" Margin="1044,546,0,0" Click="DeleteButtonClicked" FontSize="14"/>
+        <Button Content="IZMENI" IsTabStop="True" IsDefault="True" HorizontalAlignment="Left" Margin="1044,503,0,0" VerticalAlignment="Top" Width="40" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" Click="EditButtonClicked" FontSize="14"/>
+        <TextBox Name="searchBox" IsTabStop="False" HorizontalAlignment="Left" Height="29" Margin="867,54,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="162" KeyUp="searchKeyUp"/>
+        <Button Content="Obaveštenja" IsTabStop="True" IsDefault="True" HorizontalAlignment="Left" Margin="240,36,0,0" VerticalAlignment="Top" Width="92" Height="32" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" Click="NotificationButtonClicked"/>
+        <Button Content="RENOVIRANJE" IsTabStop="True" IsDefault="True" HorizontalAlignment="Left" Margin="1044,466,0,0" VerticalAlignment="Top" Width="40" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" Click="RenovationButton" FontSize="14"/>
+        <Label Content="PROSTORIJE"  HorizontalAlignment="Left" Margin="555,21,0,0" VerticalAlignment="Top" FontSize="26" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black"/>
+        <Button Content="SPAJANJE" IsTabStop="True" IsDefault="True" HorizontalAlignment="Left" Margin="1044,428,0,0" VerticalAlignment="Top" Width="40" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" FontSize="14" Click="MergeButtonClicked"/>
+        <Button Content="RAZDVAJANJE" IsTabStop="True" IsDefault="True" HorizontalAlignment="Left" Margin="1044,390,0,0" VerticalAlignment="Top" Width="40" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" FontSize="14" Click="SeparateButtonClicked"/>
 
     </Grid>
 </Window>
