@@ -57,7 +57,7 @@ namespace IS_Bolnica
         {
             if (patientService.IsPatientAllergic(jmbgTxt.Text, medTxt.Text))
             {
-                allergyWarning.Content = "Pacijent je alergican na unesen lek/sastojak!";
+                allergyWarning.Content = "Pacijent je alergičan na unesen lek/sastojak!";
                 potvrdiBtn.IsEnabled = false;
             }
             else

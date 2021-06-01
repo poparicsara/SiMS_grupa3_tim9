@@ -58,7 +58,7 @@
         </Button>
         <Button HorizontalAlignment="Left" Margin="775,37,0,0" VerticalAlignment="Top" Width="69" Height="54" BorderBrush="{x:Null}" Focusable="False" Background="{x:Null}" Click="AddButtonClick">
             <StackPanel>
-                <Image Source="../Images/add.png" Width="30" Height="30"/>
+                <Image Source="../Images/add2.png" Width="30" Height="30"/>
             </StackPanel>
         </Button>
         <DataGrid Name="operationsDataGrid" HorizontalAlignment="Left" Height="412" Margin="157,174,0,0" VerticalAlignment="Top"
@@ -86,5 +86,6 @@
                 <DataGridTextColumn Header="HITNA" Width="90" Binding="{Binding IsUrgent}"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Button x:Name="hospitalizedPatientsBTN" Content="Hospitalizovani pacijenti" HorizontalAlignment="Left" Margin="157,270,0,0" VerticalAlignment="Top" Width="198" Height="42" Background="#FF3F5038" Foreground="White" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="14" Click="HospitalizedPatientsButtonClick" Grid.Row="1" />
     </Grid>
 </Window>

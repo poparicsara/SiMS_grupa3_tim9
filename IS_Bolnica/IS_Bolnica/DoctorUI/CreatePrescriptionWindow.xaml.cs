@@ -16,39 +16,29 @@ using IS_Bolnica.Services;
 
 namespace IS_Bolnica.DoctorUI
 {
-    public partial class MedicalRecordWindow : Window
+    public partial class CreatePrescriptionWindow : Window
     {
-        private Appointment examination;
-        private int selectedPatient;
-        private List<Appointment> loggedExaminations;
-        private PrescriptionService prescriptionService = new PrescriptionService();
-        private PatientService patientService = new PatientService();
-        private AnamnesisService anamnesisService = new AnamnesisService();
         private UserService userService = new UserService();
-        public MedicalRecordWindow(int selectedIndex, List<Appointment> loggedDoctorExaminations)
+        private Anamnesis anamnesis;
+        private Prescription prescription = new Prescription();
+        private Therapy therapy = new Therapy();
+        private PatientService patientService = new PatientService();
+        private PrescriptionService prescriptionService = new PrescriptionService();
+        public CreatePrescriptionWindow(Anamnesis anamnesis)
         {
             InitializeComponent();
-            loggedExaminations = loggedDoctorExaminations;
-            this.examination = loggedExaminations.ElementAt(selectedIndex);
-            patientTxt.Text = examination.Patient.Name + ' ' + examination.Patient.Surname;
-            dateOfBirthTxt.Text = examination.Patient.DateOfBirth.ToString("MM/dd/yyyy");
-            patinetIdTxt.Text = examination.Patient.Id;
-            healthCardNumTxt.Text = examination.Patient.HealthCardNumber;
-            addressTxt.Text = examination.Patient.Address.Street + ", " + examination.Patient.Address.City.name;
-
-            medsLB.ItemsSource = prescriptionService.GetMedicationFromPrescription(patinetIdTxt.Text);
-            historyLB.ItemsSource = anamnesisService.GetPatientsDiagnosesFromAnamneses(patinetIdTxt.Text);
-            allergiesLB.ItemsSource = patientService.GetPatientsAllergies(patinetIdTxt.Text);
-
-            selectedPatient = selectedIndex;
+            this.anamnesis = anamnesis;
+            SetDataInTextFields();
         }
 
-        private void AnamnezaButtonClick(object sender, RoutedEventArgs e)
+        private void ConfirmButtonClick(object sender, RoutedEventArgs e)
         {
-            this.examination = loggedExaminations.ElementAt(selectedPatient);
-            AnamnesisWindow anamnesisWindow = new AnamnesisWindow(examination, loggedExaminations, selectedPatient);
-            anamnesisWindow.Show();
-            this.Close();
+            therapy.MedicationName = medTxt.Text;
+            therapy.Dose = int.Parse(doseTxt.Text);
+            prescription.Therapy = therapy;
+            prescription.Date = (DateTime)prescriptionDate.SelectedDate;
+            prescription.Patient = anamnesis.Patient;
+            prescription.Doctor = anamnesis.Doctor;
         }
 
         private void BackButtonClick(object sender, RoutedEventArgs e)
@@ -59,8 +49,7 @@ namespace IS_Bolnica.DoctorUI
             switch (messageBox)
             {
                 case MessageBoxResult.Yes:
-                    DoctorStartWindow doctorStartWindow = new DoctorStartWindow();
-                    doctorStartWindow.Show();
+
                     this.Close();
                     break;
                 case MessageBoxResult.No:
@@ -99,6 +88,30 @@ namespace IS_Bolnica.DoctorUI
         private void SettingsButtonClick(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void SetDataInTextFields()
+        {
+            patientTxt.Text = anamnesis.Patient.Name + ' ' + anamnesis.Patient.Surname;
+            patinetIdTxt.Text = anamnesis.Patient.Id;
+            healthCardNumTxt.Text = anamnesis.Patient.HealthCardNumber;
+            prescriptionDate.SelectedDate = (DateTime)anamnesis.Date;
+            diagnosisTxt.Text = anamnesis.Diagnosis;
+            doctorTxt.Text = anamnesis.Doctor.Name + ' ' + anamnesis.Doctor.Surname;
+        }
+
+        private void MedicationTextChange(object sender, TextChangedEventArgs e)
+        {
+            if (patientService.IsPatientAllergic(patinetIdTxt.Text, medTxt.Text))
+            {
+                allergyWarningTxt.Text = "Pacijent je alergican na unesen lek/sastojak!";
+                confirmBTN.IsEnabled = false;
+            }
+            else
+            {
+                allergyWarningTxt.Text = " ";
+                confirmBTN.IsEnabled = true;
+            }
         }
     }
 }

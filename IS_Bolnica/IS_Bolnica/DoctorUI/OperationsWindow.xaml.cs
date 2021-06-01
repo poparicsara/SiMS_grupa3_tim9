@@ -95,5 +95,12 @@ namespace IS_Bolnica
             scheduleOperationWindow.Show();
             this.Close();
         }
+
+        private void HospitalizedPatientsButtonClick(object sender, RoutedEventArgs e)
+        {
+            HospitalizedPatientsWindow hospitalizedPatientsWindow = new HospitalizedPatientsWindow();
+            hospitalizedPatientsWindow.Show();
+            this.Close();
+        }
     }
 }

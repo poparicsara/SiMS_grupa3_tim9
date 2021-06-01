@@ -19,9 +19,32 @@ namespace IS_Bolnica.DoctorUI
     public partial class AnamnesisWindow : Window
     {
         private UserService userService = new UserService();
-        public AnamnesisWindow(Appointment examination, List<Appointment> loggedAppointments)
+        private Appointment examination;
+        private List<Appointment> loggedAppointments;
+        private int selectedIndex;
+        private Anamnesis anamnesis = new Anamnesis();
+        private DoctorService doctorService = new DoctorService();
+        private PatientService patientService = new PatientService();
+        private AnamnesisService anamnesisService = new AnamnesisService();
+        public AnamnesisWindow(Appointment examination, List<Appointment> loggedAppointments, int selectedPatient)
         {
             InitializeComponent();
+            this.examination = examination;
+            this.selectedIndex = selectedPatient;
+            this.loggedAppointments = loggedAppointments;
+            patientTxt.Text = examination.Patient.Name + ' ' + examination.Patient.Surname;
+            patinetIdTxt.Text = examination.Patient.Id;
+            dateOfBirthTxt.Text = examination.Patient.DateOfBirth.ToString();
+            healthCardNumTxt.Text = examination.Patient.HealthCardNumber;
+            examinationDate.SelectedDate = examination.StartTime;
+            addressTxt.Text = examination.Patient.Address.Street + ", " + examination.Patient.Address.City.name;
+            doctorTxt.Text = examination.Doctor.Name + ' ' + examination.Doctor.Surname;
+        }
+
+        private void SaveButtonClick(object sender, RoutedEventArgs e)
+        {
+            SetAnamnesisFields();
+            anamnesisService.CreateAnamnesis(anamnesis);
         }
 
         private void BackButtonClick(object sender, RoutedEventArgs e)
@@ -32,8 +55,9 @@ namespace IS_Bolnica.DoctorUI
             switch (messageBox)
             {
                 case MessageBoxResult.Yes:
-                    DoctorStartWindow doctorStartWindow = new DoctorStartWindow();
-                    doctorStartWindow.Show();
+                    MedicalRecordWindow medicalRecordWindow =
+                        new MedicalRecordWindow(selectedIndex, loggedAppointments);
+                    medicalRecordWindow.Show();
                     this.Close();
                     break;
                 case MessageBoxResult.No:
@@ -72,6 +96,33 @@ namespace IS_Bolnica.DoctorUI
         private void SettingsButtonClick(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void HospitalizationButtonClick(object sender, RoutedEventArgs e)
+        {
+            SetAnamnesisFields();
+            anamnesisService.CreateAnamnesis(anamnesis);
+            HospitalizationWindow hospitalizationWindow = new HospitalizationWindow(anamnesis);
+            hospitalizationWindow.Show();
+            this.Close();
+        }
+
+        private void PrescriptionButtonClick(object sender, RoutedEventArgs e)
+        {
+            SetAnamnesisFields();
+            anamnesisService.CreateAnamnesis(anamnesis);
+            CreatePrescriptionWindow createPrescriptionWindow = new CreatePrescriptionWindow(anamnesis);
+            createPrescriptionWindow.Show();
+            this.Close();
+        }
+
+        private void SetAnamnesisFields()
+        {
+            anamnesis.Doctor = doctorService.FindDoctorByName(doctorTxt.Text);
+            anamnesis.Patient = patientService.findPatientById(patinetIdTxt.Text);
+            anamnesis.Symptoms = symptomsTxt.Text;
+            anamnesis.Diagnosis = diagnosisTxt.Text;
+            anamnesis.Date = (DateTime)examinationDate.SelectedDate;
         }
     }
 }

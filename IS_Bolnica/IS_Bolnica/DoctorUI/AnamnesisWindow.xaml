@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Bolnica.DoctorUI"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="AnamnesisWindow" Height="768" Width="1024" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
@@ -53,14 +54,30 @@
             <TextBox Name="healthCardNumTxt" HorizontalAlignment="Left" Height="23" Margin="458,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}" IsReadOnly="True" Background="{x:Null}" FontFamily="Malgun Gothic" FontWeight="Bold"/>
             <TextBox x:Name="dateOfBirthTxt" HorizontalAlignment="Left" Height="23" Margin="47,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}" IsReadOnly="True" Background="{x:Null}" FontFamily="Malgun Gothic" FontWeight="Bold"/>
             <TextBox x:Name="addressTxt" HorizontalAlignment="Left" Height="23" Margin="47,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}" IsReadOnly="True" Background="{x:Null}" FontFamily="Malgun Gothic" FontWeight="Bold"/>
-            <Label Content="Datum pregleda:" HorizontalAlignment="Left" Margin="47,192,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="192"/>
-            <Label Content="Simptomi:" HorizontalAlignment="Left" Margin="47,247,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="192"/>
-            <Label Content="Dijagnoza:" HorizontalAlignment="Left" Margin="47,392,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="192"/>
-            <DatePicker HorizontalAlignment="Left" Margin="266,198,0,0" VerticalAlignment="Top" Width="160" BorderBrush="{x:Null}"/>
-            <TextBlock HorizontalAlignment="Left" Margin="266,392,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" Height="88"/>
-            <TextBlock HorizontalAlignment="Left" Margin="266,392,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" Height="105" Background="White"/>
-            <TextBlock HorizontalAlignment="Left" Margin="266,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" Height="98" Background="White"/>
+            <Label Content="Datum pregleda:" HorizontalAlignment="Left" Margin="47,177,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="192"/>
+            <Label Content="Simptomi:" HorizontalAlignment="Left" Margin="47,232,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="192"/>
+            <Label Content="Dijagnoza:" HorizontalAlignment="Left" Margin="47,356,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="192"/>
+            <DatePicker Name="examinationDate" HorizontalAlignment="Left" Margin="266,183,0,0" VerticalAlignment="Top" Width="160" BorderBrush="{x:Null}" DisplayDateStart="{x:Static sys:DateTime.Today}"/>
+            <Button HorizontalAlignment="Left" Margin="685,392,0,0" VerticalAlignment="Top" Width="48" Height="40" Background="{x:Null}" BorderBrush="{x:Null}" Click="HospitalizationButtonClick" >
+                <StackPanel Background="Transparent">
+                    <Image Source="../Images/hospitalization.png" Width="30" Height="30"/>
+                </StackPanel>
+            </Button>
+            <Button HorizontalAlignment="Left" Margin="685,342,0,0" VerticalAlignment="Top" Width="48" Height="34" Background="{x:Null}" BorderBrush="{x:Null}" Click="PrescriptionButtonClick">
+                <StackPanel Background="Transparent">
+                    <Image Source="../Images/pills.png" Width="30" Height="30" />
+                </StackPanel>
+            </Button>
+            <TextBox Name="symptomsTxt" HorizontalAlignment="Left" Height="96" Margin="266,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="239" BorderBrush="{x:Null}"/>
+            <TextBox Name="diagnosisTxt" HorizontalAlignment="Left" Height="101" Margin="266,356,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="239" BorderBrush="{x:Null}"/>
+            <Label Content="Lekar: " HorizontalAlignment="Left" Margin="47,483,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="192"/>
+            <TextBox x:Name="doctorTxt" HorizontalAlignment="Left" Height="22" Margin="266,491,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="239" BorderBrush="{x:Null}" Background="{x:Null}" IsReadOnly="True"/>
         </Grid>
-        <Button Content="SAČUVAJ" HorizontalAlignment="Left" Margin="812,581,0,0" VerticalAlignment="Top" Width="109" Height="34" Background="#FF3F5038" Foreground="White" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="14" />
+        <Button Content="SAČUVAJ" HorizontalAlignment="Left" Margin="812,581,0,0" VerticalAlignment="Top" Width="109" Height="34" Background="#FF3F5038" Foreground="White" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="14" Click="SaveButtonClick" />
+        <Button HorizontalAlignment="Left" Margin="902,52,0,0" VerticalAlignment="Top" Width="46" Height="42" Background="{x:Null}" BorderBrush="{x:Null}">
+            <StackPanel Background="Transparent">
+                <Image Source="../Images/pdf.png" Width="30" Height="30"/>
+            </StackPanel>
+        </Button>
     </Grid>
 </Window>

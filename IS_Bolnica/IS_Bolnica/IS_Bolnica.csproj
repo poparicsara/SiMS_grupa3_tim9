@@ -110,8 +110,23 @@
     <Compile Include="DoctorUI\AnamnesisWindow.xaml.cs">
       <DependentUpon>AnamnesisWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DoctorUI\CreatePrescriptionWindow.xaml.cs">
+      <DependentUpon>CreatePrescriptionWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorUI\HospitalizationWindow.xaml.cs">
+      <DependentUpon>HospitalizationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorUI\HospitalizedPatientsWindow.xaml.cs">
+      <DependentUpon>HospitalizedPatientsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DoctorUI\MedicalRecordWindow.xaml.cs">
       <DependentUpon>MedicalRecordWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorUI\NotificationsWindow.xaml.cs">
+      <DependentUpon>NotificationsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorUI\ProlongTreatmentWindow.xaml.cs">
+      <DependentUpon>ProlongTreatmentWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="DoctorUI\ScheduleExaminationWindow.xaml.cs">
       <DependentUpon>ScheduleExaminationWindow.xaml</DependentUpon>
@@ -482,7 +497,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DoctorUI\CreatePrescriptionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DoctorUI\HospitalizationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DoctorUI\HospitalizedPatientsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DoctorUI\MedicalRecordWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DoctorUI\NotificationsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DoctorUI\ProlongTreatmentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -940,7 +975,18 @@
     <Resource Include="Images\start.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="DoctorUI\back.png" />
+    <Resource Include="Images\new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\new2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\add2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\hospitalization.png" />
+    <Resource Include="Images\pdf.png" />
+    <Resource Include="Images\pills.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Bolnica.DoctorUI"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="ScheduleExaminationWindow" Height="768" Width="1024" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
@@ -53,14 +54,44 @@
             <Label Content="Vreme pregleda:" HorizontalAlignment="Left" Margin="28,214,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="192"/>
             <Label Content="Lekar:" HorizontalAlignment="Left" Margin="28,264,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="92"/>
             <ComboBox Name="doctorsCB" HorizontalAlignment="Left" Margin="281,272,0,0" VerticalAlignment="Top" Width="150" RenderTransformOrigin="0.328,0.349" SelectionChanged="DoctorsSelectionChanged"/>
-            <Label Content="Ordinacija:" HorizontalAlignment="Left" Margin="28,323,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="114"/>
+                <Label Content="Ordinacija:" HorizontalAlignment="Left" Margin="28,323,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="114"/>
             <Label Content="Kratak opis pregleda:" HorizontalAlignment="Left" Margin="28,382,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="169"/>
-            <TextBox Name="patientTxt" HorizontalAlignment="Left" Height="23" Margin="281,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}"/>
-            <TextBox Name="patinetIdTxt" HorizontalAlignment="Left" Height="23" Margin="281,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" LostFocus="IdTextFieldLostFocus" BorderBrush="{x:Null}"/>
-            <TextBox Name="healthCardNumTxt" HorizontalAlignment="Left" Height="23" Margin="281,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}"/>
-            <TextBox Name="ordinationTxt" HorizontalAlignment="Left" Height="23" Margin="281,330,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}"/>
-            <TextBox Name="descriptionTxt" HorizontalAlignment="Left" Height="23" Margin="281,389,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}"/>
-            <DatePicker Name="examinationDate" HorizontalAlignment="Left" Margin="281,167,0,0" VerticalAlignment="Top" Width="150" Height="29" BorderBrush="{x:Null}"/>
+            <TextBox Name="patientTxt" HorizontalAlignment="Left" Height="23" Margin="281,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="7"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <TextBox Name="patinetIdTxt" HorizontalAlignment="Left" Height="23" Margin="281,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" LostFocus="IdTextFieldLostFocus" BorderBrush="{x:Null}">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="7"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <TextBox Name="healthCardNumTxt" HorizontalAlignment="Left" Height="23" Margin="281,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="7"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <TextBox Name="ordinationTxt" HorizontalAlignment="Left" Height="23" Margin="281,330,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="7"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <TextBox Name="descriptionTxt" HorizontalAlignment="Left" Height="23" Margin="281,389,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="7"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <DatePicker Name="examinationDate" HorizontalAlignment="Left" Margin="281,167,0,0" VerticalAlignment="Top" Width="150" Height="29" BorderBrush="{x:Null}" DisplayDateStart="{x:Static sys:DateTime.Today}"/>
             <ComboBox Name="hoursCB" HorizontalAlignment="Left" Margin="281,222,0,0" VerticalAlignment="Top" Width="65"/>
             <ComboBox Name="minutesCB" HorizontalAlignment="Left" Margin="366,222,0,0" VerticalAlignment="Top" Width="65"/>
         </Grid>
