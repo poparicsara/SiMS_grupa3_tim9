@@ -68,14 +68,13 @@ namespace IS_Bolnica.Secretary
                 + Convert.ToString(patient.Address.City.postalCode);
             ep.country.Text = patient.Address.City.Country.name;
             //ep.debit.Text = Convert.ToString(patient.Debit);
-            List<string> alergeni = patient.Allergens;
+            /*List<string> alergeni = patient.Allergens;
             foreach (var alergen in alergeni)
             {
                 ep.allergens.Text += alergen + ",";
 
             }
-            String pom = ep.allergens.Text;
-            ep.allergens.Text = pom.Remove(pom.Length - 1, 1);
+            String pom = ep.allergens.Text;*/
         }
 
         private void deletePatient(object sender, RoutedEventArgs e)

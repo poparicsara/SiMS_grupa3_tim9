@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using IS_Bolnica.Model;
 using Model;
 
@@ -17,6 +13,8 @@ namespace IS_Bolnica.Services
         private List<Appointment> examinations = new List<Appointment>();
         private List<Appointment> operations = new List<Appointment>();
         private List<Patient> patients = new List<Patient>();
+        private List<Doctor> doctors = new List<Doctor>();
+        private DoctorRepository doctorRepository = new DoctorRepository();
 
         public AppointmentService()
         {
@@ -221,6 +219,23 @@ namespace IS_Bolnica.Services
             }
             return true;
         }
+
+        /*private bool isDoctorsShift(Appointment appointment)
+        {
+            doctors = doctorRepository.loadFromFile("Doctors.json");
+            foreach (var doctor in doctors)
+            {
+                if (doctor.Id.Equals(appointment.Doctor.Id))
+                {
+                    foreach (var shift in doctor.Shifts)
+                    {
+                        //if(appointment.StartTime <= shift.ShiftStartDate)
+                    }
+                }
+            }
+
+            return true;
+        }*/
 
         public bool IsAvailable(Appointment appointment)
         {

@@ -114,6 +114,21 @@ namespace IS_Bolnica.Services
 
         }
 
+        public Patient FindPatietnById(string id)
+        {
+            patients = patientRepository.LoadFromFile("PatientRecordFileStorage.json");
+            foreach (var patient in patients)
+            {
+                if (patient.Id.Equals(id))
+                {
+                    return patient;
+                }
+            }
+
+            return null;
+
+        }
+
         public List<Patient> GetPatients()
         {
             return patientRepository.LoadFromFile("PatientRecordFileStorage.json");

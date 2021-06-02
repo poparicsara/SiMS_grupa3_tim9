@@ -119,7 +119,12 @@ namespace IS_Bolnica.Secretary
 
         private void Edit_Button_Clicked(object sender, RoutedEventArgs e)
         {
-            AllergenManipulation am = new AllergenManipulation(this);
+            if (id.Text.Equals(""))
+            {
+                MessageBox.Show("Niste uneli id pacijenta!");
+                return;
+            }
+            AllergenManipulation am = new AllergenManipulation(this, id.Text);
             this.NavigationService.Navigate(am);
         }
     }

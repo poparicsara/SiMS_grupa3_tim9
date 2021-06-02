@@ -28,17 +28,26 @@ namespace IS_Bolnica.Secretary
 
         private void addShift(object sender, RoutedEventArgs e)
         {
+            int startTime = 0;
+            int endTime = 0;
             if (shiftBox.SelectedIndex == 0)
             {
                 shift.ShiftType = ShiftType.day;
+                startTime = 6;
+                endTime = 18;
+
             }
             else
             {
                 shift.ShiftType = ShiftType.night;
+                startTime = 18;
+                endTime = 6;
             }
 
-            shift.ShiftStartDate = (DateTime)dateStartBox.SelectedDate;
-            shift.ShiftEndDate = (DateTime) dateEndBox.SelectedDate;
+            DateTime dateStart = (DateTime) dateStartBox.SelectedDate;
+            shift.ShiftStartDate = new DateTime ( dateStart.Year, dateStart.Month, dateStart.Day, startTime, 0, 0);
+            DateTime dateEnd = (DateTime) dateEndBox.SelectedDate;
+            shift.ShiftEndDate = new DateTime(dateEnd.Year, dateEnd.Month, dateEnd.Day, endTime, 0, 0);
             shift.DoctorsId = idDoctorBox.Text;
 
             doctorService.AddShift(shift);

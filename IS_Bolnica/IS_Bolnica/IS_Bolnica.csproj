@@ -124,11 +124,12 @@
     <Compile Include="Model\AppointmentRepository.cs" />
     <Compile Include="Model\AppointmentType.cs" />
     <Compile Include="Model\Gender.cs" />
+    <Compile Include="Model\IngredientRepository.cs" />
     <Compile Include="Model\Shift.cs" />
     <Compile Include="Model\ShiftType.cs" />
     <Compile Include="Model\Vacation.cs" />
-    <Compile Include="Properties\Resources .en-US.Designer.cs">
-      <DependentUpon>Resources .en-US.resx</DependentUpon>
+    <Compile Include="Properties\Resources.en.us.Designer.cs">
+      <DependentUpon>Resources.en.us.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -361,6 +362,7 @@
     <Compile Include="Services\FindAttributesService.cs" />
     <Compile Include="Services\DoctorService.cs" />
     <Compile Include="Services\GuestUserService.cs" />
+    <Compile Include="Services\IngredientService.cs" />
     <Compile Include="Services\InventoryService.cs" />
     <Compile Include="Services\NotificationService.cs" />
     <Compile Include="Services\PatientService.cs" />
@@ -803,9 +805,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Language.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources .en-US.resx">
+    <EmbeddedResource Include="Properties\Resources.en.us.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources .en-US.Designer.cs</LastGenOutput>
+      <LastGenOutput>Resources.en.us.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

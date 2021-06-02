@@ -15,12 +15,14 @@ namespace IS_Bolnica.Secretary
         {
             Properties.Settings.Default.ColorMode = "Black";
             Properties.Settings.Default.Save();
+            darkBtn.IsChecked = true;
         }
 
         private void Light_mode_checked(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.ColorMode = "White";
             Properties.Settings.Default.Save();
+            lightBtn.IsChecked = true;
         }
 
         private void Button_clicked(object sender, RoutedEventArgs e)

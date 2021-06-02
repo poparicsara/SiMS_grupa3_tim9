@@ -18,9 +18,9 @@
         <Image x:Name="nasLogo" HorizontalAlignment="Left" Height="48" Margin="366,10,0,0" VerticalAlignment="Top" Width="48" Source="/IS_Bolnica;component/Images/nasLogo.jpg"/>
         <Label Content="Opcije" FontWeight="Bold"  Foreground="Green" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,75,0,0" Width="299" Height="48"/>
         <Label Content="Odaberite režim: " HorizontalAlignment="Left" Margin="40,174,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="DARK MODE" FontSize="15" HorizontalAlignment="Left" Margin="228,160,0,0" VerticalAlignment="Top"
+        <RadioButton x:Name="darkBtn"  Content="DARK MODE" FontSize="15" HorizontalAlignment="Left" Margin="228,160,0,0" VerticalAlignment="Top"
                      GroupName="modesSelection" Checked="Black_mode_checked" Width="139"/>
-        <RadioButton Content="LIGHT MODE" FontSize="15" HorizontalAlignment="Left" Margin="228,188,0,0" VerticalAlignment="Top"
+        <RadioButton x:Name="lightBtn"  Content="LIGHT MODE" FontSize="15" HorizontalAlignment="Left" Margin="228,188,0,0" VerticalAlignment="Top"
                      GroupName="modesSelection" Checked="Light_mode_checked" Width="139"/>
         <Label Content="Odaberite jezik: " HorizontalAlignment="Left" Margin="40,266,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="LanguageBox" HorizontalAlignment="Left" Margin="228,266,0,0" VerticalAlignment="Top" Width="139">
