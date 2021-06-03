@@ -28,6 +28,16 @@ namespace IS_Bolnica
             InitializeComponent();
 
             room = selectedRoom;
+
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+        }
+
+        private void HandleEsc(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                this.Close();
+            }
         }
 
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
@@ -53,6 +63,11 @@ namespace IS_Bolnica
             Director director = new Director();
             RoomWindow rw = new RoomWindow(director);
             rw.Show();
+        }
+
+        private void CancelButtonClicked(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 

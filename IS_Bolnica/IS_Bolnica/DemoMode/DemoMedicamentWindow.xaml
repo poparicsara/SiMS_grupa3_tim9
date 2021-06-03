@@ -16,8 +16,8 @@
         <CommandBinding Command="{StaticResource inventoryCommand}" Executed="InventoryButtonClicked"></CommandBinding>
     </Window.CommandBindings>
     <Window.InputBindings>
-        <KeyBinding Command="{StaticResource roomCommand}" Key="R" />
-        <KeyBinding Command="{StaticResource inventoryCommand}" Key="I" />
+        <KeyBinding Command="{StaticResource roomCommand}" Key="R" Modifiers="Control"/>
+        <KeyBinding Command="{StaticResource inventoryCommand}" Key="I" Modifiers="Control"/>
     </Window.InputBindings>
     <Grid>
         <Grid HorizontalAlignment="Left" Width="207" Background="White">

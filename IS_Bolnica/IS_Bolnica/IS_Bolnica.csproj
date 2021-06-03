@@ -800,6 +800,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="DemoMode\inventory.png" />
+    <Resource Include="DemoMode\notification.png" />
     <Resource Include="DemoMode\profileIcon.png" />
     <Resource Include="Images\nasLogo.jpg" />
   </ItemGroup>
@@ -838,6 +839,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="DemoMode\medicine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\separate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\merge.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

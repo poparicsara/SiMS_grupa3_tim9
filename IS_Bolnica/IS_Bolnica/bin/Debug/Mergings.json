@@ -190,5 +190,53 @@
     "Minute": 10,
     "NewRoomNumber": 6,
     "Executed": true
+  },
+  {
+    "Room1": {
+      "Id": 8,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": null,
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "Room2": {
+      "Id": 9,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "StartDate": "6/1/2021",
+    "EndDate": "6/1/2021",
+    "Hour": 7,
+    "Minute": 50,
+    "NewRoomNumber": 10,
+    "Executed": true
+  },
+  {
+    "Room1": {
+      "Id": 6,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "Room2": {
+      "Id": 7,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "StartDate": "6/1/2021",
+    "EndDate": "6/1/2021",
+    "Hour": 8,
+    "Minute": 10,
+    "NewRoomNumber": 8,
+    "Executed": true
   }
 ]

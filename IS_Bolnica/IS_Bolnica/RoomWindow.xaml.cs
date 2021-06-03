@@ -33,8 +33,17 @@ namespace IS_Bolnica
         {
             if (IsAnyRoomSelected())
             {
-                service.DeleteRoom(selectedRoom);
-                RefreshRoomDataGrid();
+                MessageBoxResult messageBox = MessageBox.Show("Da li ste sigurni da želite da obrišete izabranu prostoriju?",
+                    "Brisanje prostorije", MessageBoxButton.YesNo);
+                switch (messageBox)
+                {
+                    case MessageBoxResult.Yes:
+                        service.DeleteRoom(selectedRoom);
+                        RefreshRoomDataGrid();
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                }
             }
         }
 
@@ -74,7 +83,8 @@ namespace IS_Bolnica
 
         private void searchKeyUp(object sender, KeyEventArgs e)
         {
-            var filtered = rooms.Where(room => room.RoomPurpose.Name.StartsWith(searchBox.Text));
+            rooms = service.GetRooms();
+            var filtered = rooms.Where(room => room.RoomPurpose.Name.ToLower().StartsWith(searchBox.Text.ToLower()));
             roomDataGrid.ItemsSource = filtered;
         }
 
@@ -91,7 +101,7 @@ namespace IS_Bolnica
             this.Close();
         }
 
-        private void RenovationButton(object sender, RoutedEventArgs e)
+        private void RenovationButtonClicked(object sender, RoutedEventArgs e)
         {
             if (IsAnyRoomSelected())
             {
@@ -103,8 +113,6 @@ namespace IS_Bolnica
 
         private void ProfileButtonClicked(object sender, RoutedEventArgs e)
         {
-            DirectorProfileWindow profileWindow = new DirectorProfileWindow();
-            profileWindow.Show();
             this.Close();
         }
 

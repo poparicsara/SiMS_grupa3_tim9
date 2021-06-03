@@ -21,11 +21,11 @@
         <CommandBinding Command="{StaticResource deleteCommand}" Executed="DeleteDynamicButtonClicked"/>
     </Window.CommandBindings>
     <Window.InputBindings>
-        <KeyBinding Command="{StaticResource medicamentCommand}" Key="M" />
-        <KeyBinding Command="{StaticResource roomCommand}" Key="R" />
-        <KeyBinding Command="{StaticResource addCommand}" Key="N"/>
-        <KeyBinding Command="{StaticResource editCommand}" Key="E"/>
-        <KeyBinding Command="{StaticResource deleteCommand}" Key="D"/>
+        <KeyBinding Command="{StaticResource medicamentCommand}" Key="M" Modifiers="Control"/>
+        <KeyBinding Command="{StaticResource roomCommand}" Key="R" Modifiers="Control"/>
+        <KeyBinding Command="{StaticResource addCommand}" Key="N" Modifiers="Control"/>
+        <KeyBinding Command="{StaticResource editCommand}" Key="E" Modifiers="Control"/>
+        <KeyBinding Command="{StaticResource deleteCommand}" Key="D" Modifiers="Control"/>
     </Window.InputBindings>
     <Grid>
         <Grid HorizontalAlignment="Left" Width="207" Background="White">

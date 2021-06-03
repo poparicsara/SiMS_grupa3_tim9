@@ -74,5 +74,19 @@
     "Sender": 3,
     "notificationType": 2,
     "PersonId": null
+  },
+  {
+    "Title": "Izmena zahteva za novi lek",
+    "Content": "123\nnovi lek\nAlopurinol\nhemofarm\na\r\na\r\na\n\nPROMENITI PROIZVODJACA",
+    "Sender": 1,
+    "notificationType": 3,
+    "PersonId": null
+  },
+  {
+    "Title": "Izmena zahteva za novi lek",
+    "Content": "123\nnovi lek\nAltravesa\nhemofarm\nsastojak\r\nsastojak\n\nPROMENITI PROIZVODJACA",
+    "Sender": 1,
+    "notificationType": 3,
+    "PersonId": null
   }
 ]

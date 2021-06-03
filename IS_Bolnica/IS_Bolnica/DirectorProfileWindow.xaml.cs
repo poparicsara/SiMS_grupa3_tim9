@@ -36,21 +36,18 @@ namespace IS_Bolnica
             Director d = new Director();
             RoomWindow uw = new RoomWindow(d);
             uw.Show();
-            this.Close();
         }
 
         private void InventoryButtonClicked(object sender, RoutedEventArgs e)
         {
             InventoryWindow uw = new InventoryWindow();
             uw.Show();
-            this.Close();
         }
 
         private void MedicamentButtonClicked(object sender, RoutedEventArgs e)
         {
             MedicamentWindow mw = new MedicamentWindow();
             mw.Show();
-            this.Close();
         }
 
         private void LogOutButtonClicked(object sender, RoutedEventArgs e)
@@ -62,7 +59,6 @@ namespace IS_Bolnica
         {
             EditDirectorProfileWindow editWindow = new EditDirectorProfileWindow();
             editWindow.Show();
-            this.Close();
         }
     }
 }

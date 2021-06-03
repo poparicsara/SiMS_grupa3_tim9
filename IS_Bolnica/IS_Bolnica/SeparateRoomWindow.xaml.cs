@@ -34,6 +34,16 @@ namespace IS_Bolnica
             InitializeComponent();
 
             room1Box.ItemsSource = roomService.GetRoomNumbers();
+
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+        }
+
+        private void HandleEsc(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                this.Close();
+            }
         }
 
         private void SetStartDate(object sender, SelectionChangedEventArgs e)
@@ -86,6 +96,14 @@ namespace IS_Bolnica
             Director director = new Director();
             RoomWindow rw = new RoomWindow(director);
             rw.Show();
+        }
+
+        private void RoomSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var combo = sender as ComboBox;
+            string roomNumber = combo.SelectedItem.ToString();
+            Room room = roomService.GetRoom((int)Int64.Parse(roomNumber));
+            roomBlock.Text = room.HospitalWard + "-" + room.RoomPurpose.Name;
         }
     }
 }

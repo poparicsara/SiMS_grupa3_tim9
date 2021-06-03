@@ -57,6 +57,18 @@ namespace Model
             saveToFile(rooms);
         }
 
+        public bool IsRoomNumberUnique(int roomNumber)
+        {
+            foreach (Room r in rooms)
+            {
+                if (r.Id == roomNumber)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         public void saveToFile(List<Room> rooms)
         {
             string jsonString = JsonConvert.SerializeObject(rooms, Formatting.Indented);

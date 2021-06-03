@@ -790,15 +790,7 @@
     }
   },
   {
-    "Id": 8,
-    "HospitalWard": "Alergologija i imunologija",
-    "Inventory": null,
-    "RoomPurpose": {
-      "Name": "Ordinacija"
-    }
-  },
-  {
-    "Id": 6,
+    "Id": 10,
     "HospitalWard": "Alergologija i imunologija",
     "Inventory": [],
     "RoomPurpose": {
@@ -806,7 +798,7 @@
     }
   },
   {
-    "Id": 9,
+    "Id": 1000,
     "HospitalWard": "Alergologija i imunologija",
     "Inventory": [],
     "RoomPurpose": {

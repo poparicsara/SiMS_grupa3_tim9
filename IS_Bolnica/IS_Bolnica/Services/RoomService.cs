@@ -125,5 +125,10 @@ namespace IS_Bolnica.Services
             return repository.GetRoom(roomId);
         }
 
+        public bool IsRoomNumberUnique(int roomNumber)
+        {
+            return repository.IsRoomNumberUnique(roomNumber);
+        }
+
     }
 }

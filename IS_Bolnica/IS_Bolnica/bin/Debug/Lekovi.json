@@ -331,145 +331,34 @@
     "Status": 0
   },
   {
-    "Id": 6,
-    "Name": "a",
+    "Id": 123,
+    "Name": "novi lek",
     "Ingredients": [
       {
-        "Name": "a"
+        "Name": "sastojak"
       },
       {
-        "Name": "a"
-      },
-      {
-        "Name": "a"
+        "Name": "sastojak"
       }
     ],
     "Replacement": {
-      "Id": 101,
-      "Name": "Alopurinol",
+      "Id": 102,
+      "Name": "Altravesa",
       "Ingredients": [
         {
-          "Name": "Alopurinol"
+          "Name": "Anastrozol"
         },
         {
-          "Name": "Kukuruzni skrob"
-        },
-        {
-          "Name": "Celuloza"
+          "Name": "Laktoza"
         },
         {
           "Name": "Natrijum-skrobglikolat"
         },
         {
-          "Name": "Talk"
+          "Name": "Povidon K25"
         },
         {
           "Name": "Magnezijum-stearat"
-        }
-      ],
-      "Replacement": {
-        "Id": 102,
-        "Name": "ESBESUL",
-        "Ingredients": null,
-        "Replacement": null,
-        "Producer": "Bayer",
-        "Status": 0
-      },
-      "Producer": "Bayer",
-      "Status": 0
-    },
-    "Producer": "a",
-    "Status": 0
-  },
-  {
-    "Id": 7,
-    "Name": "j",
-    "Ingredients": [
-      {
-        "Name": "a"
-      },
-      {
-        "Name": "a"
-      },
-      {
-        "Name": "a"
-      }
-    ],
-    "Replacement": {
-      "Id": 101,
-      "Name": "Alopurinol",
-      "Ingredients": [
-        {
-          "Name": "Alopurinol"
-        },
-        {
-          "Name": "Kukuruzni skrob"
-        },
-        {
-          "Name": "Celuloza"
-        },
-        {
-          "Name": "Natrijum-skrobglikolat"
-        },
-        {
-          "Name": "Talk"
-        },
-        {
-          "Name": "Magnezijum-stearat"
-        }
-      ],
-      "Replacement": {
-        "Id": 102,
-        "Name": "ESBESUL",
-        "Ingredients": null,
-        "Replacement": null,
-        "Producer": "Bayer",
-        "Status": 0
-      },
-      "Producer": "Bayer",
-      "Status": 0
-    },
-    "Producer": "j",
-    "Status": 0
-  },
-  {
-    "Id": 888,
-    "Name": "b",
-    "Ingredients": [
-      {
-        "Name": "mila"
-      },
-      {
-        "Name": "sara"
-      },
-      {
-        "Name": "ogi"
-      },
-      {
-        "Name": "svi mi"
-      }
-    ],
-    "Replacement": {
-      "Id": 103,
-      "Name": "Aminosol",
-      "Ingredients": [
-        {
-          "Name": "Izoleucin"
-        },
-        {
-          "Name": "Leucin"
-        },
-        {
-          "Name": "Valin"
-        },
-        {
-          "Name": "Lizin"
-        },
-        {
-          "Name": "Metionin"
-        },
-        {
-          "Name": "Treonin"
         }
       ],
       "Replacement": {
@@ -483,7 +372,7 @@
       "Producer": "Hemofarm",
       "Status": 0
     },
-    "Producer": "a",
+    "Producer": "novi  proizvodjac",
     "Status": 0
   }
 ]

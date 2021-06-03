@@ -16,8 +16,8 @@
         <CommandBinding Command="{StaticResource medicamentCommand}" Executed="MedicamentButtonClicked"></CommandBinding>
     </Window.CommandBindings>
     <Window.InputBindings>
-        <KeyBinding Command="{StaticResource roomCommand}" Key="R" />
-        <KeyBinding Command="{StaticResource medicamentCommand}" Key="M" />
+        <KeyBinding Command="{StaticResource roomCommand}" Key="R" Modifiers="Control"/>
+        <KeyBinding Command="{StaticResource medicamentCommand}" Key="M" Modifiers="Control"/>
     </Window.InputBindings>
     <Grid>
         <Grid HorizontalAlignment="Left" Width="207" Background="White">

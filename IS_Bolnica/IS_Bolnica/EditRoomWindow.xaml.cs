@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Input;
 using IS_Bolnica.Services;
 
 
@@ -28,37 +30,46 @@ namespace IS_Bolnica
             purposeBox.SelectedItem = oldRoom.RoomPurpose.Name;
 
             idBox.Text = oldRoom.Id.ToString();
+
+            idBox.Focusable = true;
+            idBox.Focus();
+
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+
         }
 
-        private void SetInitWard()
+        private void HandleEsc(object sender, KeyEventArgs e)
         {
-            foreach(string s in service.GetHospitalWards())
+            if (e.Key == Key.Escape)
             {
-                if (s.Equals(oldRoom.HospitalWard))
-                {
-                    wardBox.SelectedItem = s;
-                    break;
-                }
-            }
-        }
-
-        private void SetInitPurpose()
-        {
-            foreach (string s in service.GetRoomPurposes())
-            {
-                if (s.Equals(oldRoom.RoomPurpose.Name))
-                {
-                    purposeBox.SelectedItem = s;
-                    break;
-                }
+                this.Close();
             }
         }
 
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
-            SetNewRoom();
-            service.EditRoom(oldRoom, newRoom);
-            this.Close();
+            if (idBox.Text.Equals(""))
+            {
+                MessageBox.Show("Polje sa brojem sobe je obavezno!");
+            }
+            else
+            {
+                SetNewRoom();
+                EditRoom();
+            }
+        }
+
+        private void EditRoom()
+        {
+            if (service.IsRoomNumberUnique(newRoom.Id))
+            {
+                service.EditRoom(oldRoom, newRoom);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Već postoji postoji prostorija sa izabranim brojem");
+            }
         }
 
         private void SetNewRoom()
@@ -78,6 +89,12 @@ namespace IS_Bolnica
         private void CancelButtonClicked(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void NumberValidation(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
 
         private void ClosingWindow(object sender, System.ComponentModel.CancelEventArgs e)

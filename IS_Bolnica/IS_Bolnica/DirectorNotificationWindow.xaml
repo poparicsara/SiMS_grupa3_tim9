@@ -5,20 +5,76 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Bolnica"
         mc:Ignorable="d"
-        Title="DirectorNotificationWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="DirectorNotificationWindow" Height="655" Width="1116" WindowStartupLocation="CenterScreen">
     <Grid>
+        <Grid HorizontalAlignment="Left" Width="207" Background="White">
+            <StackPanel>
+                <ListView BorderThickness="0, 0, 2, 0" Background="white" BorderBrush="Black" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="625" Margin="0,0,0.2,0">
+                    <ListViewItem HorizontalAlignment="Left" Height="84" Margin="0,100,0,0">
+                        <Button  Width="187" Height="62" Background="Transparent" BorderBrush="Transparent" IsTabStop="True" IsDefault="True">
+                            <StackPanel Orientation="Horizontal" Width="187" Height="62">
+                                <Image Source="DemoMode/profileIcon.png" Margin="0,15,0,0" Width="58" Height="47" VerticalAlignment="Top"/>
+                                <TextBlock Text="Profil" FontSize="16" Width="98" Margin="10,17,10,24.2" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Button>
+                    </ListViewItem>
+                    <ListViewItem HorizontalAlignment="Left" Height="84" IsTabStop="True">
+                        <Button Width="187" Height="62" Background="Transparent" BorderBrush="Transparent" IsTabStop="True" IsDefault="True">
+                            <StackPanel Orientation="Horizontal" Width="187" Height="62">
+                                <Image Source="DemoMode/roomIcon100x50.png" Width="58" Height="47" VerticalAlignment="Top"/>
+                                <TextBlock Text="Prostorije" FontSize="16" Width="98" Margin="10,17,10,24.2" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Button>
+                    </ListViewItem>
+                    <ListViewItem HorizontalAlignment="Left" Height="84">
+                        <Button Width="187" Height="62" Background="Transparent" IsDefault="True" BorderBrush="Transparent" IsTabStop="True">
+                            <StackPanel Orientation="Horizontal" Width="187" Height="62">
+                                <Image Source="DemoMode/inventory.png" Margin="0,15,0,0" Width="58" Height="47" VerticalAlignment="Top"/>
+                                <TextBlock Text="Inventar" FontSize="16" Width="98" Margin="10,17,10,24.2" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Button>
+                    </ListViewItem>
+                    <ListViewItem HorizontalAlignment="Left" Height="84">
+                        <Button Width="187" Height="62" Background="Transparent" IsDefault="True" BorderBrush="Transparent" IsTabStop="True">
+                            <StackPanel Orientation="Horizontal" Width="187" Height="62">
+                                <Image Source="DemoMode/medicine.png" Margin="0,15,0,0" Width="58" Height="47" VerticalAlignment="Top"/>
+                                <TextBlock Text="Lekovi" FontSize="16" Width="98" Margin="10,17,10,24.2" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Button>
+                    </ListViewItem>
+                    <ListViewItem HorizontalAlignment="Left" Height="84">
+                        <Button Width="187" Height="62" Background="Transparent" IsDefault="True" BorderBrush="Transparent" IsTabStop="True">
+                            <StackPanel Orientation="Horizontal" Width="187" Height="62">
+                                <Image Source="DemoMode/notification.png" Margin="0,15,0,0" Width="58" Height="47" VerticalAlignment="Top"/>
+                                <TextBlock Text="Obaveštenja" FontSize="16" Width="98" Margin="10,17,10,24.2" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Button>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
+        </Grid>
         <DataGrid x:Name="NotificationList" ItemsSource="{Binding Path=Notifications}" AutoGenerateColumns="False" SelectionMode="Single" 
-                  IsReadOnly="True" HorizontalAlignment="Stretch" Margin="10,37,9.6,10" VerticalAlignment="Stretch"
-                  GridLinesVisibility="Vertical">
+                  IsReadOnly="True" HorizontalAlignment="Stretch" Margin="217,103,9.6,9.6" VerticalAlignment="Stretch" RowHeight="30" 
+                  FontSize="16" BorderThickness="4" BorderBrush="Black">
             <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="Height" Value="35"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="FontSize" Value="18"/>
+                </Style>
                 <Style TargetType="DataGridRow">
                     <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClik"/>
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="NASLOV" Binding="{Binding Title}" Width="400"/>
-                <DataGridTextColumn Header="POŠILJALAC" Binding="{Binding Sender}" Width="550"/>
+                <DataGridTextColumn Header="NASLOV" Binding="{Binding Title}" Width="430"/>
+                <DataGridTextColumn Header="POŠILJALAC" Binding="{Binding Sender}" Width="430"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Label Content="OBAVEŠTENJA"  HorizontalAlignment="Left" Margin="555,10,0,0" VerticalAlignment="Top" FontSize="26" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black"/>
+
     </Grid>
 </Window>

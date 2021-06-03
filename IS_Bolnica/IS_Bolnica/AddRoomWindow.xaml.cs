@@ -1,18 +1,10 @@
 ﻿using Model;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using IS_Bolnica.Services;
 
 namespace IS_Bolnica
@@ -34,13 +26,45 @@ namespace IS_Bolnica
 
             purposeBox.ItemsSource = service.GetRoomPurposes();
             purposeBox.SelectedItem = service.GetRoomPurposes().ElementAt(0);
+
+            roomBox.Focusable = true;
+            roomBox.Focus();
+
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+        }
+
+        private void HandleEsc(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                this.Close();
+            }
         }
 
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
-            SetRoomAttributes();
-            service.AddRoom(newRoom);
-            this.Close();
+            if (roomBox.Text.Equals(""))
+            {
+                MessageBox.Show("Polje sa brojem sobe je obavezno!");
+            }
+            else
+            {
+                SetRoomAttributes();
+                AddRoom();
+            }
+        }
+
+        private void AddRoom()
+        {
+            if (service.IsRoomNumberUnique(newRoom.Id))
+            {
+                service.AddRoom(newRoom);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Već postoji postoji prostorija sa izabranim brojem");
+            }
         }
 
         private void SetRoomAttributes()
@@ -48,7 +72,6 @@ namespace IS_Bolnica
             newRoom.Id = (int)Int64.Parse(roomBox.Text);
             newRoom.HospitalWard = selectedWard;
             RoomPurpose purpose = new RoomPurpose { Name = selectedPurpose };
-            newRoom.RoomPurpose = purpose;
         }
 
         private void CancelButtonClicked(object sender, RoutedEventArgs e)
