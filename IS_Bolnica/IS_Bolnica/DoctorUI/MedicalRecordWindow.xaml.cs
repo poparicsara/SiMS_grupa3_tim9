@@ -100,5 +100,12 @@ namespace IS_Bolnica.DoctorUI
         {
 
         }
+
+        private void MedicamentsButtonClick(object sender, RoutedEventArgs e)
+        {
+            MedicamentsWindow medicamentsWindow = new MedicamentsWindow();
+            medicamentsWindow.Show();
+            this.Close();
+        }
     }
 }

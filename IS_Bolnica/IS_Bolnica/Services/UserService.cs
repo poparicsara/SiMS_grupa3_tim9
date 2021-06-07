@@ -20,6 +20,16 @@ namespace IS_Bolnica.Services
             loggedUsers = GetLoggedUsers();
         }
 
+        public User GetLoggedUser()
+        {
+            User loggedUser = new User();
+            foreach (User user in loggedUsers)
+            {
+                loggedUser = user;
+            }
+            return loggedUser;
+        }
+
         public void AddUser(User user)
         {
             if (IsValid(user))

@@ -145,5 +145,12 @@ namespace IS_Bolnica.DoctorUI
         {
             healthCardNumTxt.Text = patientService.findPatientById(patinetIdTxt.Text).HealthCardNumber;
         }
+
+        private void MedicamentsButtonClick(object sender, RoutedEventArgs e)
+        {
+            MedicamentsWindow medicamentsWindow = new MedicamentsWindow();
+            medicamentsWindow.Show();
+            this.Close();
+        }
     }
 }

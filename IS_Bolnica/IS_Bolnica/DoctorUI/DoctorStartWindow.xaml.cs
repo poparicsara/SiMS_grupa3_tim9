@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using IS_Bolnica.DoctorUI;
 using IS_Bolnica.Model;
 using IS_Bolnica.Services;
+using Model;
 
 namespace IS_Bolnica
 {
@@ -22,10 +23,12 @@ namespace IS_Bolnica
         private AppointmentService appointmentService = new AppointmentService();
         private UserService userService = new UserService();
         private Appointment appointment = new Appointment();
+        private User loggedUser;
         public DoctorStartWindow()
         {
             InitializeComponent();
             this.DataContext = this;
+            this.loggedUser = userService.GetLoggedUser();
             examinationsDataGrid.ItemsSource = appointmentService.GetDoctorsExaminations();
         }
 
@@ -43,11 +46,17 @@ namespace IS_Bolnica
 
         private void NotificationsButtonClick(object sender, RoutedEventArgs e)
         {
+            NotificationsWindow notificationsWindow = new NotificationsWindow(this.loggedUser);
+            notificationsWindow.Show();
+            this.Close();
 
         }
 
         private void StatisticsButtonClick(object sender, RoutedEventArgs e)
         {
+            ChartWindow chartWindow = new ChartWindow();
+            chartWindow.Show();
+            this.Close();
 
         }
 
@@ -96,11 +105,18 @@ namespace IS_Bolnica
             this.Close();
         }
 
-        private void ZapocniPregledButtonClick(object sender, RoutedEventArgs e)
+        private void StartExaminationButtonClick(object sender, RoutedEventArgs e)
         {
             int selectedIndex = examinationsDataGrid.SelectedIndex;
             MedicalRecordWindow medicalRecordWindow = new MedicalRecordWindow(selectedIndex, appointmentService.GetDoctorsExaminations());
             medicalRecordWindow.Show();
+            this.Close();
+        }
+
+        private void MedicamentsButtonClick(object sender, RoutedEventArgs e)
+        {
+            MedicamentsWindow medicamentsWindow = new MedicamentsWindow();
+            medicamentsWindow.Show();
             this.Close();
         }
     }

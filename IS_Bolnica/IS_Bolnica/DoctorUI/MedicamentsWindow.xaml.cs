@@ -11,18 +11,27 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Model;
 using IS_Bolnica.Services;
 
 namespace IS_Bolnica.DoctorUI
 {
-    public partial class HospitalizedPatientsWindow : Window
+    public partial class MedicamentsWindow : Window
     {
-        private HospitalizationService hospitalizationService = new HospitalizationService();
         private UserService userService = new UserService();
-        public HospitalizedPatientsWindow()
+        private MedicamentService medicamentService = new MedicamentService();
+        public MedicamentsWindow()
         {
             InitializeComponent();
-            hospitalizedPatientsDataGrid.ItemsSource = hospitalizationService.GetAllHospitalizedPatients();
+            medsDataGrid.ItemsSource = medicamentService.ShowApprovedMedicaments();
+        }
+
+        private void MedicationDoubleClicked(object sender, MouseButtonEventArgs e)
+        {
+            Medicament selectedMedicament = (Medicament) medsDataGrid.SelectedItem;
+            UpdateMedicamentWindow updateMedicament = new UpdateMedicamentWindow(selectedMedicament);
+            updateMedicament.Show();
+            this.Close();
         }
 
         private void ExaminationsButtonClick(object sender, RoutedEventArgs e)
@@ -60,18 +69,9 @@ namespace IS_Bolnica.DoctorUI
 
         }
 
-        private void ProlongButtonClick(object sender, RoutedEventArgs e)
-        {
-            int selectedIndex = hospitalizedPatientsDataGrid.SelectedIndex;
-            ProlongTreatmentWindow prolongTreatmentWindow = new ProlongTreatmentWindow(selectedIndex, hospitalizationService.GetAllHospitalizedPatients());
-            prolongTreatmentWindow.Show();
-        }
-
         private void MedicamentsButtonClick(object sender, RoutedEventArgs e)
         {
-            MedicamentsWindow medicamentsWindow = new MedicamentsWindow();
-            medicamentsWindow.Show();
-            this.Close();
+            this.Show();
         }
     }
 }

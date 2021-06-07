@@ -111,5 +111,12 @@ namespace IS_Bolnica.DoctorUI
             doctorTxt.Text = anamnesis.Doctor.Name + ' ' + anamnesis.Doctor.Surname;
             roomsCB.ItemsSource = roomService.GetAvailableRoomsForHospitalization();
         }
+
+        private void MedicamentsButtonClick(object sender, RoutedEventArgs e)
+        {
+            MedicamentsWindow medicamentsWindow = new MedicamentsWindow();
+            medicamentsWindow.Show();
+            this.Close();
+        }
     }
 }

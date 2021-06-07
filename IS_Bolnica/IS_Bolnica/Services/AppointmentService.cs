@@ -27,6 +27,44 @@ namespace IS_Bolnica.Services
             return appointmentRepository.LoadFromFile();
         }
 
+        public int CountDoctorsOperations()
+        {
+            int cnt = 0;
+
+            foreach (Appointment appointment in appointments)
+            {
+                foreach (User user in userService.GetLoggedUsers())
+                {
+                    if (appointment.AppointmentType == AppointmentType.operation &&
+                        appointment.Doctor.Username.Equals(user.Username))
+                    {
+                        cnt++;
+                    }
+                }
+            }
+
+            return cnt;
+        }
+
+        public int CountDoctorsExaminations()
+        {
+            int cnt = 0;
+
+            foreach (Appointment appointment in appointments)
+            {
+                foreach (User user in userService.GetLoggedUsers())
+                {
+                    if (appointment.AppointmentType == AppointmentType.examination &&
+                        appointment.Doctor.Username.Equals(user.Username))
+                    {
+                        cnt++;
+                    }
+                }
+            }
+
+            return cnt;
+        }
+
         public List<Appointment> GetDoctorsExaminations()
         {
             List<Appointment> doctorsExaminations = new List<Appointment>();

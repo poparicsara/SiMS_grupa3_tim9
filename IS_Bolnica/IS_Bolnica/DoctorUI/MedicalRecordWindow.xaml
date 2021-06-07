@@ -8,38 +8,6 @@
         mc:Ignorable="d"
         Title="MedicalRecordWindow" Height="768" Width="1024" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Grid HorizontalAlignment="Left" Height="739" VerticalAlignment="Top" Width="100" Background="#FFF1F0F0" Margin="0" Grid.RowSpan="1">
-            <Button HorizontalAlignment="Left" Margin="0,110,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="ExaminationsButtonClick">
-                <StackPanel>
-                    <Image Source="../Images/greenstethoscope.png" Width="84" Height="48"/>
-                </StackPanel>
-            </Button>
-            <Button  HorizontalAlignment="Left" Margin="0,195,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="OperationButtonClick">
-                <StackPanel>
-                    <Image Source="../Images/greenscissors.png" Width="84" Height="48"/>
-                </StackPanel>
-            </Button>
-            <Button  HorizontalAlignment="Left" Margin="0,270,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="NotificationsButtonClick">
-                <StackPanel>
-                    <Image Source="../Images/message.png" Width="84" Height="48"/>
-                </StackPanel>
-            </Button>
-        </Grid>
-        <Button HorizontalAlignment="Left" Margin="0,361,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Grid.Row="0" Background="{x:Null}" Click="StatisticsButtonClick">
-            <StackPanel>
-                <Image Source="../Images/chartgreen.png" Width="84" Height="48"/>
-            </StackPanel>
-        </Button>
-        <Button HorizontalAlignment="Left" Margin="0,672,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Grid.Row="0" Background="{x:Null}" Click="SingOutButtonClick">
-            <StackPanel>
-                <Image Source="../Images/singout.png" Width="84" Height="48"/>
-            </StackPanel>
-        </Button>
-        <Button HorizontalAlignment="Left" Margin="0,604,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Grid.Row="0" Background="{x:Null}" Click="SettingsButtonClick">
-            <StackPanel>
-                <Image Source="../Images/settings.png" Width="84" Height="48"/>
-            </StackPanel>
-        </Button>
         <Label Content="Zdravstveni karton" HorizontalAlignment="Left" Margin="178,23,0,0" VerticalAlignment="Top" Width="405" FontFamily="Malgun Gothic" FontSize="30" FontWeight="Bold" Height="71"/>
         <Button HorizontalAlignment="Left" Margin="105,23,0,0" VerticalAlignment="Top" Width="68" Height="53" BorderBrush="{x:Null}" Background="{x:Null}" Click="BackButtonClick">
             <StackPanel Background="Transparent">
@@ -62,5 +30,42 @@
             <ListBox Name="historyLB" HorizontalAlignment="Left" Height="121" Margin="47,381,0,0" VerticalAlignment="Top" Width="526" RenderTransformOrigin="2.193,0.309" BorderBrush="#FF3F5038"/>
         </Grid>
         <Button Content="ANAMNEZA" HorizontalAlignment="Left" Margin="812,581,0,0" VerticalAlignment="Top" Width="109" Height="34" Background="#FF3F5038" Foreground="White" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="14" Click="AnamnezaButtonClick" />
+        <Grid HorizontalAlignment="Left" Height="739" VerticalAlignment="Top" Width="100" Background="#FFF1F0F0" Margin="0">
+            <Button HorizontalAlignment="Left" Margin="0,110,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="ExaminationsButtonClick">
+                <StackPanel>
+                    <Image Source="/IS_Bolnica;component/Images/greenstethoscope.png" Width="84" Height="48"/>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Margin="0,195,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="OperationButtonClick">
+                <StackPanel>
+                    <Image Source="/IS_Bolnica;component/Images/greenscissors.png" Width="84" Height="48"/>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Margin="0,270,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="NotificationsButtonClick">
+                <StackPanel>
+                    <Image Source="/IS_Bolnica;component/Images/message.png" Width="84" Height="48"/>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Margin="0,350,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="MedicamentsButtonClick">
+                <StackPanel>
+                    <Image Source="/IS_Bolnica;component/Images/pharmacy.png" Width="84" Height="48"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+        <Button HorizontalAlignment="Left" Margin="0,430,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="StatisticsButtonClick">
+            <StackPanel>
+                <Image Source="/IS_Bolnica;component/Images/chartgreen.png" Width="84" Height="48"/>
+            </StackPanel>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="0,671,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="SingOutButtonClick">
+            <StackPanel>
+                <Image Source="/IS_Bolnica;component/Images/singout.png" Width="84" Height="48"/>
+            </StackPanel>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="0,604,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="SettingsButtonClick">
+            <StackPanel>
+                <Image Source="/IS_Bolnica;component/Images/settings.png" Width="84" Height="48"/>
+            </StackPanel>
+        </Button>
     </Grid>
 </Window>

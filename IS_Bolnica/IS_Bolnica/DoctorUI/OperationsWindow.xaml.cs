@@ -102,5 +102,12 @@ namespace IS_Bolnica
             hospitalizedPatientsWindow.Show();
             this.Close();
         }
+
+        private void MedicamentsButtonClick(object sender, RoutedEventArgs e)
+        {
+            MedicamentsWindow medicamentsWindow = new MedicamentsWindow();
+            medicamentsWindow.Show();
+            this.Close();
+        }
     }
 }

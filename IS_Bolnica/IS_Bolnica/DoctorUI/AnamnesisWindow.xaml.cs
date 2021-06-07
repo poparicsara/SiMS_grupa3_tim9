@@ -79,7 +79,6 @@ namespace IS_Bolnica.DoctorUI
 
         private void NotificationsButtonClick(object sender, RoutedEventArgs e)
         {
-
         }
 
         private void StatisticsButtonClick(object sender, RoutedEventArgs e)
@@ -123,6 +122,13 @@ namespace IS_Bolnica.DoctorUI
             anamnesis.Symptoms = symptomsTxt.Text;
             anamnesis.Diagnosis = diagnosisTxt.Text;
             anamnesis.Date = (DateTime)examinationDate.SelectedDate;
+        }
+
+        private void MedicamentsButtonClick(object sender, RoutedEventArgs e)
+        {
+            MedicamentsWindow medicamentsWindow = new MedicamentsWindow();
+            medicamentsWindow.Show();
+            this.Close();
         }
     }
 }

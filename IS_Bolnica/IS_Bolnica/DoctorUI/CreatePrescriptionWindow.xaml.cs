@@ -113,5 +113,12 @@ namespace IS_Bolnica.DoctorUI
                 confirmBTN.IsEnabled = true;
             }
         }
+
+        private void MedicamentsButtonClick(object sender, RoutedEventArgs e)
+        {
+            MedicamentsWindow medicamentsWindow = new MedicamentsWindow();
+            medicamentsWindow.Show();
+            this.Close();
+        }
     }
 }

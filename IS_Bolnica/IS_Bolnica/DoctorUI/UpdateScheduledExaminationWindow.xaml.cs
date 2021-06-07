@@ -149,5 +149,12 @@ namespace IS_Bolnica.DoctorUI
             examination.StartTime = new DateTime(date.Year, date.Month, date.Day, hour, minute, 0);
             examination.Room = roomService.FindOrdinationById(examination.Doctor.Ordination);
         }
+
+        private void MedicamentsButtonClick(object sender, RoutedEventArgs e)
+        {
+            MedicamentsWindow medicamentsWindow = new MedicamentsWindow();
+            medicamentsWindow.Show();
+            this.Close();
+        }
     }
 }

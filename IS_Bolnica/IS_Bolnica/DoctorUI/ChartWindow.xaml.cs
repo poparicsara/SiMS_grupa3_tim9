@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.DataVisualization.Charting;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -12,20 +13,23 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using IS_Bolnica.Services;
+using Model;
 
 namespace IS_Bolnica.DoctorUI
 {
-    public partial class HospitalizedPatientsWindow : Window
+    public partial class ChartWindow : Window
     {
-        private HospitalizationService hospitalizationService = new HospitalizationService();
         private UserService userService = new UserService();
-        public HospitalizedPatientsWindow()
+        private AppointmentService appointmentService = new AppointmentService();
+        private User loggedUser;
+        public ChartWindow()
         {
             InitializeComponent();
-            hospitalizedPatientsDataGrid.ItemsSource = hospitalizationService.GetAllHospitalizedPatients();
+            this.loggedUser = userService.GetLoggedUser();
+            LoadPieChartData();
         }
 
-        private void ExaminationsButtonClick(object sender, RoutedEventArgs e)
+        private void ExaminationButtonClick(object sender, RoutedEventArgs e)
         {
             DoctorStartWindow doctorStartWindow = new DoctorStartWindow();
             doctorStartWindow.Show();
@@ -41,12 +45,22 @@ namespace IS_Bolnica.DoctorUI
 
         private void NotificationsButtonClick(object sender, RoutedEventArgs e)
         {
+            NotificationsWindow notificationsWindow = new NotificationsWindow(this.loggedUser);
+            notificationsWindow.Show();
+            this.Close();
 
         }
 
         private void StatisticsButtonClick(object sender, RoutedEventArgs e)
         {
+            this.Show();
+        }
 
+        private void MedicamentsButtonClick(object sender, RoutedEventArgs e)
+        {
+            MedicamentsWindow medicamentsWindow = new MedicamentsWindow();
+            medicamentsWindow.Show();
+            this.Close();
         }
 
         private void SingOutButtonClick(object sender, RoutedEventArgs e)
@@ -60,18 +74,13 @@ namespace IS_Bolnica.DoctorUI
 
         }
 
-        private void ProlongButtonClick(object sender, RoutedEventArgs e)
+        private void LoadPieChartData()
         {
-            int selectedIndex = hospitalizedPatientsDataGrid.SelectedIndex;
-            ProlongTreatmentWindow prolongTreatmentWindow = new ProlongTreatmentWindow(selectedIndex, hospitalizationService.GetAllHospitalizedPatients());
-            prolongTreatmentWindow.Show();
-        }
-
-        private void MedicamentsButtonClick(object sender, RoutedEventArgs e)
-        {
-            MedicamentsWindow medicamentsWindow = new MedicamentsWindow();
-            medicamentsWindow.Show();
-            this.Close();
+            ((PieSeries) mcChart.Series[0]).ItemsSource = new KeyValuePair<string, int>[]
+            {
+                new KeyValuePair<string,int>("Pregledi  ", appointmentService.CountDoctorsExaminations()),
+                new KeyValuePair<string,int>("Operacije  ", appointmentService.CountDoctorsOperations())
+            };
         }
     }
 }

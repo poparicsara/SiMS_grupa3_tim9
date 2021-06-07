@@ -27,8 +27,13 @@
                     <Image Source="../Images/message.png" Width="84" Height="48"/>
                 </StackPanel>
             </Button>
+            <Button  HorizontalAlignment="Left" Margin="0,350,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="MedicamentsButtonClick">
+                <StackPanel>
+                    <Image Source="../Images/pharmacy.png" Width="84" Height="48"/>
+                </StackPanel>
+            </Button>
         </Grid>
-        <Button HorizontalAlignment="Left" Margin="0,27,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Grid.Row="1" Background="{x:Null}" Click="StatisticsButtonClick">
+        <Button HorizontalAlignment="Left" Margin="0,96,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Grid.Row="1" Background="{x:Null}" Click="StatisticsButtonClick">
             <StackPanel>
                 <Image Source="../Images/chartgreen.png" Width="84" Height="48"/>
             </StackPanel>
@@ -62,7 +67,7 @@
             </StackPanel>
         </Button>
         <DataGrid Name="examinationsDataGrid" HorizontalAlignment="Left" Height="412" Margin="164,174,0,0" VerticalAlignment="Top"
-                  Width="759" BorderBrush="{x:Null}" Foreground="Black" FontSize="14" FontFamily="Malgun Gothic" FontWeight="Bold" 
+                  Width="765" BorderBrush="{x:Null}" Foreground="Black" FontSize="14" FontFamily="Malgun Gothic" FontWeight="Bold" 
                   Background="White" SelectionMode="Single" CanUserReorderColumns="False" CanUserResizeColumns="False" 
                   IsReadOnly="True" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Disabled" CanUserResizeRows="False" Grid.RowSpan="2">
             <DataGrid.Resources>
@@ -85,7 +90,7 @@
                 <DataGridTextColumn Header="OPIS" Width="150"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Započni pregled" HorizontalAlignment="Left" Margin="765,273,0,0" Grid.Row="1" VerticalAlignment="Top" Width="158" Height="48" Background="#FF3F5038" Foreground="White" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="14" Click="ZapocniPregledButtonClick">
+        <Button Content="Započni pregled" HorizontalAlignment="Left" Margin="765,273,0,0" Grid.Row="1" VerticalAlignment="Top" Width="158" Height="48" Background="#FF3F5038" Foreground="White" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="14" Click="StartExaminationButtonClick">
         </Button>
     </Grid>
 </Window>

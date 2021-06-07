@@ -26,5 +26,10 @@ namespace IS_Bolnica.Services
                 }
             }
         }
+
+        public List<Ingredient> GetAllIngredients()
+        {
+            return ingredientRepository.loadFromFile("Sastojci.json");
+        }
     }
 }
