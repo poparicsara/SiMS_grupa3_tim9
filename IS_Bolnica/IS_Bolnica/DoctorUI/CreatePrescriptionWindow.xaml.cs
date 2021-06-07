@@ -33,12 +33,17 @@ namespace IS_Bolnica.DoctorUI
 
         private void ConfirmButtonClick(object sender, RoutedEventArgs e)
         {
-            therapy.MedicationName = medTxt.Text;
-            therapy.Dose = int.Parse(doseTxt.Text);
-            prescription.Therapy = therapy;
-            prescription.Date = (DateTime)prescriptionDate.SelectedDate;
-            prescription.Patient = anamnesis.Patient;
-            prescription.Doctor = anamnesis.Doctor;
+            SetPrescriptionData();
+
+            if (patientService.IsPatientAllergic(prescription.Patient.Id, medTxt.Text))
+            {
+                MessageBox.Show("Pacijent je alergičan na unesen lek/sastojak!");
+            }
+            else
+            {
+                prescriptionService.CreatePrescription(prescription);
+                this.Close();
+            }
         }
 
         private void BackButtonClick(object sender, RoutedEventArgs e)
@@ -90,6 +95,17 @@ namespace IS_Bolnica.DoctorUI
 
         }
 
+        private void SetPrescriptionData()
+        {
+            therapy.MedicationName = medTxt.Text;
+            therapy.Dose = int.Parse(doseTxt.Text);
+            prescription.Therapy = therapy;
+            prescription.Date = (DateTime)prescriptionDate.SelectedDate;
+            prescription.Patient = anamnesis.Patient;
+            prescription.Doctor = anamnesis.Doctor;
+            prescription.Anamnesis = anamnesis;
+        }
+
         private void SetDataInTextFields()
         {
             patientTxt.Text = anamnesis.Patient.Name + ' ' + anamnesis.Patient.Surname;
@@ -118,6 +134,15 @@ namespace IS_Bolnica.DoctorUI
         {
             MedicamentsWindow medicamentsWindow = new MedicamentsWindow();
             medicamentsWindow.Show();
+            this.Close();
+        }
+
+        private void InvoiceButtonClick(object sender, RoutedEventArgs e)
+        {
+            SetPrescriptionData();
+            prescriptionService.CreatePrescription(prescription);
+            InvoiceWindow invoiceWindow = new InvoiceWindow(prescription);
+            invoiceWindow.Show();
             this.Close();
         }
     }

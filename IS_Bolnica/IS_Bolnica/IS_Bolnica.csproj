@@ -125,6 +125,9 @@
     <Compile Include="DoctorUI\HospitalizedPatientsWindow.xaml.cs">
       <DependentUpon>HospitalizedPatientsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DoctorUI\InvoiceWindow.xaml.cs">
+      <DependentUpon>InvoiceWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DoctorUI\MedicalRecordWindow.xaml.cs">
       <DependentUpon>MedicalRecordWindow.xaml</DependentUpon>
     </Compile>
@@ -522,6 +525,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DoctorUI\HospitalizedPatientsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DoctorUI\InvoiceWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
