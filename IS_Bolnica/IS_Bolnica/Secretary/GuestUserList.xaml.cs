@@ -59,7 +59,7 @@ namespace IS_Bolnica.Secretary
                         break;
                     case MessageBoxResult.No:
                         return;
-                        break;
+                        
                 }
             }
         }

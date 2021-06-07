@@ -1,0 +1,16 @@
+﻿<Page x:Class="IS_Bolnica.Secretary.Report"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IS_Bolnica.Secretary"
+      mc:Ignorable="d" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      d:DesignHeight="750" d:DesignWidth="430"
+      Title="Report">
+
+    <Grid>
+        <Label Content="Izveštaj zauzetosti prostorija" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="75,40,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Page>
