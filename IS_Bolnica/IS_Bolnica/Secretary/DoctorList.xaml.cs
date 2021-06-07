@@ -6,17 +6,18 @@ namespace IS_Bolnica.Secretary
 {
     public partial class DoctorList : Page
     {
+        private Page previousPage;
         private DoctorService doctorService = new DoctorService();
-        public DoctorList()
+        public DoctorList(Page previousPage)
         {
             InitializeComponent();
+            this.previousPage = previousPage;
             DoctorListGrid.ItemsSource = doctorService.GetDoctors();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ActionBar ab = new ActionBar();
-            this.NavigationService.Navigate(ab);
+            this.NavigationService.Navigate(previousPage);
         }
 
         private void pretraziBox_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
@@ -26,13 +27,13 @@ namespace IS_Bolnica.Secretary
 
         private void addVacation(object sender, RoutedEventArgs e)
         {
-            AddVacation av = new AddVacation();
+            AddVacation av = new AddVacation(this);
             this.NavigationService.Navigate(av);
         }
 
         private void addShift(object sender, RoutedEventArgs e)
         {
-            EditShift es = new EditShift();
+            EditShift es = new EditShift(this);
             this.NavigationService.Navigate(es);
         }
     }

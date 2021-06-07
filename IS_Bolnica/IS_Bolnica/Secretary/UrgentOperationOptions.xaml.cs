@@ -10,24 +10,25 @@ namespace IS_Bolnica.Secretary
 {
     public partial class UrgentOperationOptions : Page
     {
+        private Page prevoiusPage;
         private Specialization specialization = new Specialization();
         private Appointment appointment = new Appointment();
         private AppointmentRepository appointmentRepository = new AppointmentRepository();
         private UrgentAppointmentService urgentAppointmentService = new UrgentAppointmentService();
 
-        public UrgentOperationOptions(Appointment appointment, Specialization specialization)
+        public UrgentOperationOptions(Appointment appointment, Specialization specialization, Page prevoiusPage)
         {
             InitializeComponent();
             this.appointment = appointment;
             this.specialization = specialization;
+            this.prevoiusPage = prevoiusPage;
             OperationOptions.ItemsSource = urgentAppointmentService.GetUrgentOperationOptions(appointment, specialization);
 
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ActionBar ab = new ActionBar();
-            this.NavigationService.Navigate(ab);
+            this.NavigationService.Navigate(prevoiusPage);
         }
 
         private void addUrgentExamination(object sender, RoutedEventArgs e)

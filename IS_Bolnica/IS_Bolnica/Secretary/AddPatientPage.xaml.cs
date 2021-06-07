@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using IS_Bolnica.Model;
 using IS_Bolnica.Services;
 using Model;
 
@@ -9,22 +9,23 @@ namespace IS_Bolnica.Secretary
 {
     public partial class AddPatientPage : Page
     {
+        private Page previousPage;
         private Patient patient = new Patient();
         private User user = new User();
         private PatientService patientService = new PatientService();
         private UserService userService = new UserService();
 
-        public AddPatientPage()
+        public AddPatientPage(Page previousPage)
         {
             InitializeComponent();
+            this.previousPage = previousPage;
             this.DataContext = this;
 
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ActionBar ab = new ActionBar();
-            this.NavigationService.Navigate(ab);
+            this.NavigationService.Navigate(previousPage);
         }
 
         private void addPatient(object sender, RoutedEventArgs e)
@@ -37,7 +38,7 @@ namespace IS_Bolnica.Secretary
 
             userService.AddUser(user);
 
-            PatientList pl = new PatientList();
+            PatientList pl = new PatientList(this);
             this.NavigationService.Navigate(pl);
         }
 
@@ -53,13 +54,20 @@ namespace IS_Bolnica.Secretary
             patient.Surname = surname.Text;
             patient.Username = username.Text;
             patient.UserType = UserType.patient;
-            patient.Debit = Convert.ToDouble(debit.Text);
-            String[] alergeni = (allergens.Text).Split(',');
+            if (GenderBox.SelectedIndex == 0)
+            {
+                patient.Gender = Gender.male;
+            }
+            else
+            {
+                patient.Gender = Gender.female;
+            }
+            /*String[] alergeni = (allergens.Text).Split(',');
             patient.Allergens = new List<string>();
             for (int i = 0; i < alergeni.Length; i++)
             {
                 patient.Allergens.Add(alergeni[i]);
-            }
+            }*/
             //formiranje adrese
             patient.Address = new Address();
             String[] adresa = (adress.Text).Split(' ');
@@ -106,8 +114,19 @@ namespace IS_Bolnica.Secretary
 
         private void cancelAdding(object sender, RoutedEventArgs e)
         {
-            PatientList pl = new PatientList();
+            PatientList pl = new PatientList(this);
             this.NavigationService.Navigate(pl);
+        }
+
+        private void Edit_Button_Clicked(object sender, RoutedEventArgs e)
+        {
+            if (id.Text.Equals(""))
+            {
+                MessageBox.Show("Niste uneli id pacijenta!");
+                return;
+            }
+            AllergenManipulation am = new AllergenManipulation(this, id.Text);
+            this.NavigationService.Navigate(am);
         }
     }
 }

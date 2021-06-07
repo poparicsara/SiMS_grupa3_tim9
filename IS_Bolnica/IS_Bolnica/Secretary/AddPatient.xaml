@@ -32,7 +32,7 @@
         <Button Content="Potvrdi" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="40,630,0,0" VerticalAlignment="Top" Width="342" Click="addPatient" RenderTransformOrigin="0.573,2.531" Height="35"/>
         <Button Content="Odustani" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="40,580,0,0" VerticalAlignment="Top" Width="342" Click="cancelAdding" Height="35"/>
         <Label Content="Inicijalna lozinka:" HorizontalAlignment="Left" Margin="40,336,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="28"/>
-        <Label Content="Zaduženje:" HorizontalAlignment="Left" Margin="40,364,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="28"/>
+        <Label Content="Pol:" HorizontalAlignment="Left" Margin="40,364,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="28"/>
         <Label Content="Adresa:" HorizontalAlignment="Left" Margin="40,392,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="28"/>
         <Label Content="Grad:" HorizontalAlignment="Left" Margin="40,420,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="28"/>
         <Label Content="Država:" HorizontalAlignment="Left" Margin="40,448,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="28"/>

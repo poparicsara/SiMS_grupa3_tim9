@@ -12,41 +12,27 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using IS_Bolnica.Services;
-using Model;
 
 namespace IS_Bolnica.Secretary
 {
     public partial class BlockedPatientsList : Page
     {
-        private PatientService patientService = new PatientService();
-        private Patient patient = new Patient(); 
-        public BlockedPatientsList()
+        private Page previousPage;
+
+        public BlockedPatientsList(Page previousPage)
         {
             InitializeComponent();
-            BlockedPatientList.ItemsSource = patientService.GetBlockedPatients();
+            this.previousPage = previousPage;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ActionBar ab = new ActionBar();
-            this.NavigationService.Navigate(ab);
+            this.NavigationService.Navigate(previousPage);
         }
 
         private void Unblock_Patient_clicked(object sender, RoutedEventArgs e)
         {
-            int i = BlockedPatientList.SelectedIndex;
-            patient = (Patient)BlockedPatientList.SelectedItem;
 
-            if (i == -1)
-            {
-                MessageBox.Show("Niste izabrali pacijenta kojeg želite da odblokirate!");
-                return;
-            }
-            else
-            {
-                patientService.UnblockPatient(patient);
-            }
         }
     }
 }

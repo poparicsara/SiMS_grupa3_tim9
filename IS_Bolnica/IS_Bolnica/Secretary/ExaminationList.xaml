@@ -9,19 +9,19 @@
       Title="ExaminationList">
 
     <Grid>
-        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="48" Margin="10,10,0,0" Height="48" Click="Button_Click">
+        <Button Background="White" BorderBrush="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="48" Margin="10,10,0,0" Height="48" Click="Button_Click">
             <StackPanel>
-                <Image Source="C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\Images\actionBarIcon.png" Width="46" Height="41" RenderTransformOrigin="0.543,0.5"/>
+                <Image Source="C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\Images\undo.jpg" Width="46" Height="41" RenderTransformOrigin="0.543,0.5"/>
             </StackPanel>
         </Button>
         <Label Content="ZDRAVO KORPORACIJA" FontSize="20" Foreground="Green" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,14,0,0" Height="35" Width="235" Grid.ColumnSpan="2"/>
         <Image x:Name="nasLogo" HorizontalAlignment="Left" Height="48" Margin="366,10,0,0" VerticalAlignment="Top" Width="48" Source="C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\Images\nasLogo.jpg"/>
         <Label Content="SPISAK PREGLEDA" FontWeight="Bold"  Foreground="Green" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,69,0,0" Width="246" Height="37"/>
-        <DataGrid x:Name="ExaminationListGrid" ItemsSource="{Binding Path=Pregledi}" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" HorizontalAlignment="Stretch" Margin="10,111,10,142.8" VerticalAlignment="Stretch" GridLinesVisibility="Vertical">
+        <DataGrid HeadersVisibility="Column" x:Name="ExaminationListGrid" ItemsSource="{Binding Path=Pregledi}" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" HorizontalAlignment="Stretch" Margin="10,111,10,142.8" VerticalAlignment="Stretch" GridLinesVisibility="Vertical">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="JMBG pacijenta" Binding="{Binding Patient.Id}" Width="120"/>
                 <DataGridTextColumn Header="Doktor" Binding="{Binding Doctor.Surname}" Width="120"/>
-                <DataGridTextColumn Header="Datum i vreme" Binding="{Binding Date}" Width="150"/>
+                <DataGridTextColumn Header="Datum i vreme" Binding="{Binding StartTime}" Width="150"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Dodaj pregled" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" HorizontalAlignment="Left" Margin="10,592,0,0" VerticalAlignment="Top" Width="401" Click="addExamination" Height="30"  />

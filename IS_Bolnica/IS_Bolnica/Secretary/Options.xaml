@@ -9,19 +9,24 @@
       Title="Options">
 
     <Grid>
-        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Width="48" Margin="10,10,0,0" Height="48" Click="Button_clicked">
+        <Button Background="White" BorderBrush="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="48" Margin="10,10,0,0" Height="48" Click="Button_clicked">
             <StackPanel>
-                <Image Source="C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\Images\actionBarIcon.png" Width="46" Height="41" RenderTransformOrigin="0.543,0.5"/>
+                <Image Source="C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\Images\undo.jpg" Width="46" Height="41" RenderTransformOrigin="0.543,0.5"/>
             </StackPanel>
         </Button>
         <Label Content="ZDRAVO KORPORACIJA" FontSize="20" Foreground="Green" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,14,0,0" Height="35" Width="235"/>
         <Image x:Name="nasLogo" HorizontalAlignment="Left" Height="48" Margin="366,10,0,0" VerticalAlignment="Top" Width="48" Source="/IS_Bolnica;component/Images/nasLogo.jpg"/>
         <Label Content="Opcije" FontWeight="Bold"  Foreground="Green" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,75,0,0" Width="299" Height="48"/>
-        <Label Content="Odaberite režim: " HorizontalAlignment="Left" Margin="40,156,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="DARK MODE" FontSize="15" HorizontalAlignment="Left" Margin="228,142,0,0" VerticalAlignment="Top"
-                     GroupName="modesSelection" Checked="Black_mode_checked"/>
-        <RadioButton Content="LIGHT MODE" FontSize="15" HorizontalAlignment="Left" Margin="228,170,0,0" VerticalAlignment="Top"
-                     GroupName="modesSelection" Checked="Light_mode_checked"/>
+        <Label Content="Odaberite režim: " HorizontalAlignment="Left" Margin="40,174,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="darkBtn"  Content="DARK MODE" FontSize="15" HorizontalAlignment="Left" Margin="228,160,0,0" VerticalAlignment="Top"
+                     GroupName="modesSelection" Checked="Black_mode_checked" Width="139"/>
+        <RadioButton x:Name="lightBtn"  Content="LIGHT MODE" FontSize="15" HorizontalAlignment="Left" Margin="228,188,0,0" VerticalAlignment="Top"
+                     GroupName="modesSelection" Checked="Light_mode_checked" Width="139"/>
+        <Label Content="Odaberite jezik: " HorizontalAlignment="Left" Margin="40,266,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="LanguageBox" HorizontalAlignment="Left" Margin="228,266,0,0" VerticalAlignment="Top" Width="139">
+            <ComboBoxItem>Engleski</ComboBoxItem>
+            <ComboBoxItem>Srpski</ComboBoxItem>
+        </ComboBox>
 
     </Grid>
 </Page>

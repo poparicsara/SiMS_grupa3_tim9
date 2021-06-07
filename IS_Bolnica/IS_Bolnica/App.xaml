@@ -38,5 +38,12 @@
             </DataTrigger>
         </Style.Triggers>
         </Style>
+        <Style TargetType="{x:Type DataGridColumnHeader}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Source = {x:Static properties:Settings.Default}, Path=ColorMode }" Value="Black">
+                    <Setter Property="Background" Value="Black"></Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
     </Application.Resources>
 </Application>

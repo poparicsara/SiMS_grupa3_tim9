@@ -8,13 +8,15 @@ namespace IS_Bolnica.Secretary
 {
     public partial class ExaminationList : Page
     {
+        private Page prevoiusPage;
         private Appointment appointment = new Appointment();
         private AppointmentService appointmentService = new AppointmentService();
 
-        public ExaminationList()
+        public ExaminationList(Page prevoiusPage)
         {
             InitializeComponent();
             this.DataContext = this;
+            this.prevoiusPage = prevoiusPage;
 
             ExaminationListGrid.ItemsSource = appointmentService.getExaminations();
 
@@ -22,13 +24,12 @@ namespace IS_Bolnica.Secretary
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ActionBar ab = new ActionBar();
-            this.NavigationService.Navigate(ab);
+            this.NavigationService.Navigate(prevoiusPage);
         }
 
         private void addExamination(object sender, RoutedEventArgs e)
         {
-            AddExamination ae = new AddExamination();
+            AddExamination ae = new AddExamination(this);
             this.NavigationService.Navigate(ae);
         }
 
@@ -44,7 +45,7 @@ namespace IS_Bolnica.Secretary
             }
             else
             {
-                EditExamination ee = new EditExamination(appointment);
+                EditExamination ee = new EditExamination(appointment, this);
                 setElementsEE(ee, appointment);
                 
 
@@ -90,7 +91,7 @@ namespace IS_Bolnica.Secretary
                 {
                     case MessageBoxResult.Yes:
                         appointmentService.DeleteAppointment(appointment);
-                        ExaminationList el = new ExaminationList();
+                        ExaminationList el = new ExaminationList(this);
                         this.NavigationService.Navigate(el);
                         break;
 

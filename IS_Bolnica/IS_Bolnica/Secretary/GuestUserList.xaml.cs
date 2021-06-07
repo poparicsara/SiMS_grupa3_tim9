@@ -1,4 +1,5 @@
 ﻿
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using IS_Bolnica.Services;
@@ -8,26 +9,31 @@ namespace IS_Bolnica.Secretary
 {
     public partial class GuestUserList : Page
     {
+        private Page prevoiusPage;
         private GuestUserService guestUserService = new GuestUserService();
         private GuestUser guestUser = new GuestUser();
+        public List<GuestUser> GuestUsers { get; set; }
+        public List<GuestUser> DeletedUsers { get; set; }
 
-        public GuestUserList()
+        public GuestUserList(Page prevoiusPage)
         {
             InitializeComponent();
             this.DataContext = this;
+            this.prevoiusPage = prevoiusPage;
+            GuestUsers = guestUserService.GetGuestUsers();
             guestUsersGrid.ItemsSource = guestUserService.GetGuestUsers();
+            DeletedUsers = new List<GuestUser>();
 
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ActionBar ab = new ActionBar();
-            this.NavigationService.Navigate(ab);
+            this.NavigationService.Navigate(prevoiusPage);
         }
 
         private void createGuestAccount(object sender, RoutedEventArgs e)
         {
-            AddGuestUser agu = new AddGuestUser();
+            AddGuestUser agu = new AddGuestUser(this);
             this.NavigationService.Navigate(agu);
         }
 
@@ -48,15 +54,30 @@ namespace IS_Bolnica.Secretary
                 {
                     case MessageBoxResult.Yes:
                         guestUserService.DeleteGuestUser(guestUser);
-                        GuestUserList gul = new GuestUserList();
+                        GuestUserList gul = new GuestUserList(this);
                         this.NavigationService.Navigate(gul);
 
                         break;
                     case MessageBoxResult.No:
                         return;
-                        break;
+                        
                 }
             }
+        }
+
+        private void DataGrid_PreviewMouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            
+        }
+
+        private void Button_DragOver(object sender, DragEventArgs e)
+        {
+
+        }
+
+        private void Button_Drop(object sender, DragEventArgs e)
+        {
+
         }
     }
 }

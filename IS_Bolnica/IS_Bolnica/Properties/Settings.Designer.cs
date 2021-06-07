@@ -34,5 +34,17 @@ namespace IS_Bolnica.Properties {
                 this["ColorMode"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("en-US")]
+        public string languageCode {
+            get {
+                return ((string)(this["languageCode"]));
+            }
+            set {
+                this["languageCode"] = value;
+            }
+        }
     }
 }

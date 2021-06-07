@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using IS_Bolnica.Model;
 using IS_Bolnica.Services;
 using Model;
 
@@ -13,21 +14,22 @@ namespace IS_Bolnica.Secretary
     /// </summary>
     public partial class EditPatientPage : Page
     {
+        private Page prevoiusPage;
         private Patient oldPatient = new Patient();
         private PatientService patientService = new PatientService();
         private UserService userService = new UserService();
 
-        public EditPatientPage(Patient oldPatient)
+        public EditPatientPage(Patient oldPatient, Page prevoiusPage)
         {
             InitializeComponent();
             this.oldPatient = oldPatient;
+            this.prevoiusPage = prevoiusPage;
 
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ActionBar ab = new ActionBar();
-            this.NavigationService.Navigate(ab);
+            this.NavigationService.Navigate(prevoiusPage);
         }
 
         private void editPatient(object sender, RoutedEventArgs e)
@@ -35,14 +37,14 @@ namespace IS_Bolnica.Secretary
             patientService.EditPatient(oldPatient, setPatient());
             userService.EditUser(setUser(oldPatient), setPatient());
 
-            PatientList pl = new PatientList();
+            PatientList pl = new PatientList(this);
             this.NavigationService.Navigate(pl);
 
         }
 
         private void cancelEditing(object sender, RoutedEventArgs e)
         {
-            PatientList pl = new PatientList();
+            PatientList pl = new PatientList(this);
             this.NavigationService.Navigate(pl);
         }
 
@@ -59,14 +61,21 @@ namespace IS_Bolnica.Secretary
             patient.Surname = surname.Text;
             patient.Username = username.Text;
             patient.UserType = UserType.patient;
-            patient.Debit = Convert.ToDouble(debit.Text);
+            if (GenderBox.SelectedIndex == 0)
+            {
+                patient.Gender = Gender.male;
+            }
+            else
+            {
+                patient.Gender = Gender.female;
+            }
             //formiranje alergena
-            patient.Allergens = new List<string>();
+            /*patient.Allergens = new List<string>();
             String[] alergeni = (allergens.Text).Split(',');
             for (int k = 0; k < alergeni.Length; k++)
             {
                 patient.Allergens.Add(alergeni[k]);
-            }
+            }*/
             //formiranje adrese
             patient.Address = new Address();
             patient.Address.Street = "";

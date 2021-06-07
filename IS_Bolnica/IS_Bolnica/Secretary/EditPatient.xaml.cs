@@ -39,14 +39,14 @@ namespace IS_Bolnica.Secretary
             patient.Surname = surname.Text;
             patient.Username = username.Text;
             patient.UserType = UserType.patient;
-            patient.Debit = Convert.ToDouble(debit.Text);
+            //patient.Debit = Convert.ToDouble(debit.Text);
             //formiranje alergena
-            patient.Allergens = new List<string>();
+            /*patient.Allergens = new List<string>();
             String[] alergeni = (allergens.Text).Split(',');
             for (int k = 0; k < alergeni.Length; k++)
             {
                 patient.Allergens.Add(alergeni[k]);
-            }
+            }*/
             //formiranje adrese
             patient.Address = new Address();
             patient.Address.Street = "";

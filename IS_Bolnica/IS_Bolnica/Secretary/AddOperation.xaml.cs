@@ -9,15 +9,17 @@ namespace IS_Bolnica.Secretary
 {
     public partial class AddOperation : Page
     {
+        private Page previousPage;
         private Appointment appointment = new Appointment();
         private FindAttributesService findAttributesService = new FindAttributesService();
         private DoctorService doctorService = new DoctorService();
         private AppointmentService appointmentService = new AppointmentService();
         private PatientService patientService = new PatientService();
 
-        public AddOperation()
+        public AddOperation(Page previousPage)
         {
             InitializeComponent();
+            this.previousPage = previousPage;
             roomBox.ItemsSource = findAttributesService.GetRoomIds();
             doctorBox.ItemsSource = doctorService.GetDoctorNamesList();
 
@@ -25,8 +27,7 @@ namespace IS_Bolnica.Secretary
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ActionBar ab = new ActionBar();
-            this.NavigationService.Navigate(ab);
+            this.NavigationService.Navigate(previousPage);
         }
 
         private void addOperation(object sender, RoutedEventArgs e)
@@ -70,13 +71,13 @@ namespace IS_Bolnica.Secretary
                 return;
             }
 
-            OperationList ol = new OperationList();
+            OperationList ol = new OperationList(this);
             this.NavigationService.Navigate(ol);
         }
 
         private void cancelAddingOperation(object sender, RoutedEventArgs e)
         {
-            OperationList ol = new OperationList();
+            OperationList ol = new OperationList(this);
             this.NavigationService.Navigate(ol);
         }
     }

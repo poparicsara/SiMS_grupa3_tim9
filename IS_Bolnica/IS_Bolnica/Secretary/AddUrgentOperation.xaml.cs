@@ -9,15 +9,17 @@ namespace IS_Bolnica.Secretary
 {
     public partial class AddUrgentOperation : Page
     {
+        private Page previousPage;
         private Specialization specialization = new Specialization();
         private Patient patient = new Patient();
         private GuestUser guestUser = new GuestUser();
         private Appointment appointment = new Appointment();
         private FindAttributesService findAttributesService = new FindAttributesService();
 
-        public AddUrgentOperation()
+        public AddUrgentOperation(Page previousPage)
         {
             InitializeComponent();
+            this.previousPage = previousPage;
             specializationBox.ItemsSource = findAttributesService.GetSpecializationNames();
             operatiomRoomBox.ItemsSource = findAttributesService.GetRoomIds();
 
@@ -37,13 +39,12 @@ namespace IS_Bolnica.Secretary
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ActionBar ab = new ActionBar();
-            this.NavigationService.Navigate(ab);
+            this.NavigationService.Navigate(previousPage);
         }
 
         private void addGuestAccount(object sender, RoutedEventArgs e)
         {
-            AddGuestUser agu = new AddGuestUser();
+            AddGuestUser agu = new AddGuestUser(this);
             this.NavigationService.Navigate(agu);
         }
 
@@ -77,7 +78,7 @@ namespace IS_Bolnica.Secretary
             };
             specialization = findAttributesService.FindSpecialization(specializationBox.SelectedItem.ToString());
 
-            UrgentOperationOptions uoo = new UrgentOperationOptions(appointment, specialization);
+            UrgentOperationOptions uoo = new UrgentOperationOptions(appointment, specialization, this);
             this.NavigationService.Navigate(uoo);
         }
     }

@@ -19,12 +19,14 @@ namespace IS_Bolnica.Secretary
 {
     public partial class AddVacation : Page
     {
+        private Page previousPage;
         private DoctorService doctorService = new DoctorService();
         private Vacation vacation = new Vacation();
 
-        public AddVacation()
+        public AddVacation(Page previousPage)
         {
             InitializeComponent();
+            this.previousPage = previousPage;
         }
 
         private void addVacation(object sender, RoutedEventArgs e)
@@ -35,20 +37,19 @@ namespace IS_Bolnica.Secretary
 
             doctorService.AddVacation(vacation);
 
-            DoctorList dl = new DoctorList();
+            DoctorList dl = new DoctorList(this);
             this.NavigationService.Navigate(dl);
 
         }
 
         private void cancelAddingVacation(object sender, RoutedEventArgs e)
         {
-
+            this.NavigationService.Navigate(previousPage);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ActionBar ab = new ActionBar();
-            this.NavigationService.Navigate(ab);
+            this.NavigationService.Navigate(previousPage);
         }
     }
 }

@@ -9,24 +9,25 @@ namespace IS_Bolnica.Secretary
 {
     public partial class AddGuestUser : Page
     {
+        private Page prevoiusPage;
         private GuestUser guestUser = new GuestUser();
         private object sender1 = new object();
         private GuestUserService guestUserService = new GuestUserService();
 
-        public AddGuestUser()
+        public AddGuestUser(Page prevoiusPage)
         {
             InitializeComponent();
+            this.prevoiusPage = prevoiusPage;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ActionBar ab = new ActionBar();
-            this.NavigationService.Navigate(ab);
+            this.NavigationService.Navigate(prevoiusPage);
         }
 
         private void cancelGuest(object sender, RoutedEventArgs e)
         {
-            GuestUserList gul = new GuestUserList();
+            GuestUserList gul = new GuestUserList(this);
             this.NavigationService.Navigate(gul);
         }
 
@@ -37,7 +38,7 @@ namespace IS_Bolnica.Secretary
 
             guestUserService.AddGuestUser(guestUser);
 
-            GuestUserList gul = new GuestUserList();
+            GuestUserList gul = new GuestUserList(this);
             this.NavigationService.Navigate(gul);
         }
     }

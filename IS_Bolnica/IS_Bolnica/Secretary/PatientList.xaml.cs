@@ -12,22 +12,24 @@ namespace IS_Bolnica.Secretary
 {
     public partial class PatientList : Page
     {
+        private Page prevoiusPage;
         private List<Patient> patients { get; set; } = new List<Patient>();
         private PatientService patientService = new PatientService();
         private UserService userService = new UserService();
         private AppointmentService appointmentService = new AppointmentService();
 
-        public PatientList()
+        public PatientList(Page prevoiusPage)
         {
             InitializeComponent();
             this.DataContext = this;
+            this.prevoiusPage = prevoiusPage;
             patients = patientService.GetPatients();
             PatientListGrid.ItemsSource = patients;
         }
 
         private void addPatient(object sender, RoutedEventArgs e)
         {
-            AddPatientPage app = new AddPatientPage();
+            AddPatientPage app = new AddPatientPage(this);
             this.NavigationService.Navigate(app);
         }
 
@@ -42,7 +44,7 @@ namespace IS_Bolnica.Secretary
             }
             else
             {
-                EditPatientPage epp = new EditPatientPage(patient);
+                EditPatientPage epp = new EditPatientPage(patient, this);
                 setElementsEP(epp, patient);
                 this.NavigationService.Navigate(epp);
             }
@@ -65,15 +67,15 @@ namespace IS_Bolnica.Secretary
             ep.city.Text = patient.Address.City.name + " "
                                                      + Convert.ToString(patient.Address.City.postalCode);
             ep.country.Text = patient.Address.City.Country.name;
-            ep.debit.Text = Convert.ToString(patient.Debit);
-            List<string> alergeni = patient.Allergens;
+            //ep.debit.Text = Convert.ToString(patient.Debit);
+            /*List<string> alergeni = patient.Allergens;
             foreach (var alergen in alergeni)
             {
                 ep.allergens.Text += alergen + ",";
 
             }
-            String pom = ep.allergens.Text;
-            ep.allergens.Text = pom.Remove(pom.Length - 1, 1);
+            String pom = ep.allergens.Text;*/
+            //ep.allergens.Text = pom.Remove(pom.Length - 1, 1);
         }
 
         private void deletePatient(object sender, RoutedEventArgs e)
@@ -112,7 +114,7 @@ namespace IS_Bolnica.Secretary
                         userService.DeleteUser(user);
                         appointmentService.RemovePatientsAppointments(patient);
 
-                        PatientList pl = new PatientList();
+                        PatientList pl = new PatientList(this);
                         this.NavigationService.Navigate(pl);
 
                         break;
@@ -124,14 +126,14 @@ namespace IS_Bolnica.Secretary
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ActionBar ab = new ActionBar();
-            this.NavigationService.Navigate(ab);
+            this.NavigationService.Navigate(prevoiusPage);
             
         }
 
         private void pretraziBox_KeyUp(object sender, KeyEventArgs e)
         {
             var filtered = patients.Where(patient => patient.Id.StartsWith(pretraziBox.Text));
+            filtered = patients.Where(patient => patient.Name.StartsWith(pretraziBox.Text));
 
             PatientListGrid.ItemsSource = filtered;
         }

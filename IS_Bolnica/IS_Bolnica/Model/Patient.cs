@@ -12,7 +12,7 @@ namespace Model
         public List<Examination> examinations { get; set; }
         public int Akcije { get; set; }
         public int brojOcenjenihPregleda { get; set; }
-        public double Debit { get; set; }
+        public Gender Gender { get; set; }
         public bool isBlocked { get; set; }
 
         public Patient()

@@ -10,20 +10,21 @@ namespace IS_Bolnica.Secretary
 {
     public partial class AddNotification : Page
     {
+        private Page previousPage;
         private Notification notification = new Notification();
         private List<string> userList = new List<string>();
         private NotificationService notificationService = new NotificationService();
         private UserService userService = new UserService();
 
-        public AddNotification()
+        public AddNotification(Page previousPage)
         {
             InitializeComponent();
+            this.previousPage = previousPage;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ActionBar ab = new ActionBar();
-            this.NavigationService.Navigate(ab);
+            this.NavigationService.Navigate(previousPage);
         }
 
         private void Button_Add_Clicked(object sender, RoutedEventArgs e)
@@ -116,7 +117,7 @@ namespace IS_Bolnica.Secretary
 
             notificationService.AddNotification(notification);
 
-            NotificationList nl = new NotificationList();
+            NotificationList nl = new NotificationList(this);
             this.NavigationService.Navigate(nl);
         }
 
