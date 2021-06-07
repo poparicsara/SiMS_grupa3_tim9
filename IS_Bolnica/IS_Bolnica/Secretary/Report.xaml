@@ -9,8 +9,22 @@
       d:DesignHeight="750" d:DesignWidth="430"
       Title="Report">
 
+    <!--ScrollViewer-->
     <Grid>
-        <Label Content="Izveštaj zauzetosti prostorija" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="75,40,0,0" VerticalAlignment="Top"/>
-
+        <Label Content="Izveštaj zauzetosti prostorija" FontWeight="Bold" FontSize="20" HorizontalAlignment="Left" Margin="75,26,0,0" VerticalAlignment="Top"/>
+        <TextBlock TextAlignment="Right" HorizontalAlignment="Left" Margin="220,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="68" Width="192"><Run Text="Trg Dositeja Obra"/><Run Text="do"/><Run Text="v"/><Run Text="i"/><Run Text="ća 6, "/><Run Text="Novi Sad"/><LineBreak/><Run Text="PDBV broj: 164654789"/><LineBreak/><Run Text="Žiro račun: 160-87965418-125"/><LineBreak/><Run Text="tel: +381 21 489 2660"/></TextBlock>
+        <TextBlock FontWeight="Bold" TextAlignment="Right" HorizontalAlignment="Left" Margin="267,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="145" Text="KORPORACIJA ZDRAVO"/>
+        <Image x:Name="nasLogo" HorizontalAlignment="Left" Height="95" Margin="16,64,0,0" VerticalAlignment="Top" Width="91" Source="C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9/nasLogo.jpg"/>
+        <DataGrid x:Name="RoomReport" ItemsSource="{Binding Path=Termini}" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" HorizontalAlignment="Stretch" Margin="10,181,9.4,130.4" VerticalAlignment="Stretch" GridLinesVisibility="Vertical">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Soba" Binding="{Binding Room.Id}" Width="90"/>
+                <DataGridTextColumn Header="Doktor" Binding="{Binding Doctor.Name}" Width="106"/>
+                <DataGridTextColumn Header="Pocetak termina" Binding="{Binding StartTime}" Width="103"/>
+                <DataGridTextColumn Header="Kraj termina" Binding="{Binding EndTime}" Width="103"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="___________________________________________________________" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,625,0,0" Width="160"/>
+        <Label Content="(M.P.)          potpis sekretara" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,655,0,0" Width="160"/>
     </Grid>
+    <!--/ScrollViewer-->
 </Page>
