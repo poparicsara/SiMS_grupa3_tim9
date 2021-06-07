@@ -16,14 +16,20 @@ namespace Model
     {
         private List<Inventory> inventories = new List<Inventory>();
         private List<Shifting> shiftings = new List<Shifting>();
+        private List<Room> rooms = new List<Room>();
+        private RoomRepository repository = new RoomRepository();
         public InventoryRepository()
         {
             shiftings = GetShiftings();
+            rooms = repository.GetRooms();
         }
 
         public void AddInventory(Inventory newInventory, Room room)
         {
-            room.Inventory.Add(newInventory);
+            inventories = repository.GetRoomInvenotory(room);
+            //room.Inventory.Add(newInventory);
+            inventories.Add(newInventory);
+            repository.saveToFile(rooms);
         }
 
         public void DeleteInventory(int index, Room room)

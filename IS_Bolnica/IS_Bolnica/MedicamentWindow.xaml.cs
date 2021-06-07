@@ -56,6 +56,7 @@ namespace IS_Bolnica
                 switch (messageBox)
                 {
                     case MessageBoxResult.Yes:
+                        
                         SetRequestAttributes();
                         requestService.SendRequest(request);
                         break;

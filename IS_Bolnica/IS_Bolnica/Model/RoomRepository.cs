@@ -36,6 +36,66 @@ namespace Model
             return null;
         }
 
+        public void AddInventory(Inventory newInvenotory, Room room)
+        {
+            List<Inventory> inventories = GetRoomInvenotory(room);
+            inventories.Add(newInvenotory);
+            saveToFile(rooms);
+        }
+
+        public void DeleteInventory(int index, Room room)
+        {
+            List<Inventory> inventories = GetRoomInvenotory(room);
+            inventories.RemoveAt(index);
+            saveToFile(rooms);
+        }
+
+        public void EditInventory(int index, Inventory newInventory, Room room)
+        {
+            List<Inventory> inventories = GetRoomInvenotory(room);
+            inventories.RemoveAt(index);
+            inventories.Insert(index, newInventory);
+            saveToFile(rooms);
+        }
+
+        public List<Inventory> GetDynamicInventory(Room room)
+        {
+            List<Inventory> dynamicInventory = new List<Inventory>();
+            foreach (var i in GetRoomInvenotory(room))
+            {
+                if (i.InventoryType == InventoryType.dinamicki)
+                {
+                    dynamicInventory.Add(i);
+                }
+            }
+            return dynamicInventory;
+        }
+
+        public List<Inventory> GetStaticInventory(Room room)
+        {
+            List<Inventory> staticInventory = new List<Inventory>();
+            foreach (var i in GetRoomInvenotory(room))
+            {
+                if (i.InventoryType == InventoryType.staticki)
+                {
+                    staticInventory.Add(i);
+                }
+            }
+            return staticInventory;
+        }
+
+        public List<Inventory> GetRoomInvenotory(Room room)
+        {
+            foreach (var r in rooms)
+            {
+                if (r.Id == room.Id)
+                {
+                    return r.Inventory;
+                }
+            }
+            return null;
+        }
+
         public void AddRoom(Room newRoom)
         {
             rooms = GetRooms();

@@ -5,30 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Bolnica"
         mc:Ignorable="d"
-        Title="AddMedicamentWindow" Height="450" Width="800" Closing="ClosingWindow">
+        Title="AddMedicamentWindow" Height="655" Width="700" Closing="ClosingWindow" WindowStartupLocation="CenterScreen">
     <Grid Margin="0,0,-0.4,0">
-        <TextBox x:Name="idBox" HorizontalAlignment="Left" Height="23" Margin="267,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Šifra:" HorizontalAlignment="Left" Margin="131,58,0,0" VerticalAlignment="Top"/>
-        <Label Content="Naziv:" HorizontalAlignment="Left" Margin="125,113,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Height="23" Margin="267,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Zamenski lek:" HorizontalAlignment="Left" Margin="125,169,0,0" VerticalAlignment="Top"/>
-        <Label Content="Proizvođač:" HorizontalAlignment="Left" Margin="125,209,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="producerBox" HorizontalAlignment="Left" Height="23" Margin="267,214,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="toBox" HorizontalAlignment="Left" Margin="267,262,0,0" VerticalAlignment="Top" Width="120">
+        <TextBox x:Name="idBox" IsTabStop="True" HorizontalAlignment="Left" Height="32" Margin="175,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" FontSize="16" PreviewTextInput="NumberValidation"/>
+        <Label Content="Šifra:" HorizontalAlignment="Left" Margin="32,124,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Naziv:" HorizontalAlignment="Left" Margin="32,191,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="nameBox" IsTabStop="True" HorizontalAlignment="Left" Height="32" Margin="175,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" FontSize="16"/>
+        <Label Content="Zamenski lek:" HorizontalAlignment="Left" Margin="32,261,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <ComboBox Name="replacementBox" IsTabStop="True" HorizontalAlignment="Left" Height="32" Margin="174,261,0,0" VerticalAlignment="Top" Width="183" SelectionChanged="ReplacementComboBoxSelectionChanged" FontSize="16"/>
+
+        <Label Content="Proizvođač:" HorizontalAlignment="Left" Margin="32,327,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="producerBox" IsTabStop="True" HorizontalAlignment="Left" Height="32" Margin="175,332,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" FontSize="16"/>
+        <ComboBox x:Name="toBox" IsTabStop="True"  HorizontalAlignment="Left" Height="32" Margin="174,400,0,0" VerticalAlignment="Top" Width="183" FontSize="16">
             <ComboBoxItem>
                 DOKTOR
             </ComboBoxItem>
         </ComboBox>
-        <Button Content="ODUSTANI" HorizontalAlignment="Left" Margin="542,355,0,0" VerticalAlignment="Top" 
-                Width="81" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" 
-                BorderBrush="#FF425431"/>
-        <Button Content="POŠALJI ZAHTEV" HorizontalAlignment="Left" Margin="656,355,0,0" VerticalAlignment="Top"
-                Width="114" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" 
-                BorderBrush="#FF425431" Click="DoneButtonClicked"/>
-        <Label Content="Primalac:" HorizontalAlignment="Left" Margin="125,259,0,0" VerticalAlignment="Top"/>
-        <ComboBox Name="replacementBox" HorizontalAlignment="Left" Margin="267,169,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ReplacementComboBoxSelectionChanged"/>
-        <TextBox x:Name="ingredientBox" HorizontalAlignment="Left" Height="202" Margin="542,62,0,0" TextWrapping="Wrap" AcceptsReturn="True" VerticalAlignment="Top" Width="173"/>
-        <Label Content="Sastav:" HorizontalAlignment="Left" Margin="483,62,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="ingredientBox" IsTabStop="True"  HorizontalAlignment="Left" Height="308" Margin="474,124,0,0" TextWrapping="Wrap" AcceptsReturn="True" VerticalAlignment="Top" Width="196" FontSize="16"/>
+        <Button Content="POŠALJI ZAHTEV" HorizontalAlignment="Left" Margin="402,516,0,0" VerticalAlignment="Top"
+                Width="142" Height="32" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" 
+                BorderBrush="#FF425431" Click="DoneButtonClicked" FontSize="16"/>
+        <Button Content="ODUSTANI" HorizontalAlignment="Left" Margin="183,516,0,0" VerticalAlignment="Top" 
+                Width="130" Height="32" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" 
+                BorderBrush="#FF425431" FontSize="16"/>
+
+        <Label Content="Primalac:" HorizontalAlignment="Left" Margin="32,397,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Sastav:" HorizontalAlignment="Left" Margin="402,124,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="DODAVANJE NOVOG LEKA" HorizontalAlignment="Left" Margin="183,25,0,0" VerticalAlignment="Top" FontSize="26" FontWeight="Bold"/>
 
     </Grid>
 </Window>

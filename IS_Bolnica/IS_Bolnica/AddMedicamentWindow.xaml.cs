@@ -2,8 +2,10 @@
 using Model;
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using IS_Bolnica.Services;
 
 namespace IS_Bolnica
@@ -25,6 +27,16 @@ namespace IS_Bolnica
             meds = medService.GetMedicaments();
 
             replacementBox.ItemsSource = medService.GetReplacementNames();
+
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+        }
+
+        private void HandleEsc(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                this.Close();
+            }
         }
 
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
@@ -80,6 +92,12 @@ namespace IS_Bolnica
         {
             MedicamentWindow mw = new MedicamentWindow();
             mw.Show();
+        }
+
+        private void NumberValidation(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

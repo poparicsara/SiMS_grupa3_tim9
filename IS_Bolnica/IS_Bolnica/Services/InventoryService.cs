@@ -13,6 +13,7 @@ namespace IS_Bolnica.Services
     class InventoryService
     {
         private InventoryRepository repository = new InventoryRepository();
+        private RoomRepository roomRepository = new RoomRepository();
         private Room magacin = new Room();
         private RoomService roomService = new RoomService();
         private List<Room> rooms = new List<Room>();
@@ -25,32 +26,29 @@ namespace IS_Bolnica.Services
 
         public List<Inventory> GetDynamicInventory()
         {
-            return repository.GetDynamicInventory(magacin);
+            return roomRepository.GetDynamicInventory(magacin);
         }
 
         public List<Inventory> GetStaticInventory()
         {
-            return repository.GetStaticInventory(magacin);
+            return roomRepository.GetStaticInventory(magacin);
         }
 
         public void AddInventory(Inventory newInventory)
         {
-            repository.AddInventory(newInventory, magacin);
-            roomService.Save(rooms);
+            roomRepository.AddInventory(newInventory, magacin);
         }
 
         public void DeleteInventory(Inventory selectedInventory)
         {
             int index = FindInventoryIndex(selectedInventory);
-            repository.DeleteInventory(index, magacin);
-            roomService.Save(rooms);
+            roomRepository.DeleteInventory(index, magacin);
         }
 
         public void EditInventory(Inventory oldInventory, Inventory newInventory)
         {
             int index = FindInventoryIndex(oldInventory);
-            repository.EditInventory(index, magacin, newInventory);
-            roomService.Save(rooms);
+            roomRepository.EditInventory(index, newInventory, magacin);
         }
 
         private int FindInventoryIndex(Inventory inventory)

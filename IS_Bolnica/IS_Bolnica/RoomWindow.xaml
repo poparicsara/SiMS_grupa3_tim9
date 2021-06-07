@@ -134,7 +134,7 @@
                 <Image Source="DemoMode/separate.png"/>
             </StackPanel>
         </Button>
-        <TextBox Name="searchBox" IsTabStop="True" HorizontalAlignment="Left" Height="29" Margin="867,54,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="162" KeyUp="searchKeyUp" FontSize="16"/>
+        <TextBox Name="searchBox" IsTabStop="True" HorizontalAlignment="Left" Height="32" Margin="867,54,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="162" KeyUp="searchKeyUp" FontSize="16"/>
         <Label Content="CTRL+N" HorizontalAlignment="Left" Margin="1061,564,0,0" VerticalAlignment="Top" FontSize="8" FontWeight="Bold"/>
         <Label Content="CTRL+D" HorizontalAlignment="Left" Margin="1061,509,0,0" VerticalAlignment="Top" FontSize="8" FontWeight="Bold"/>
         <Label Content="CTRL+E" HorizontalAlignment="Left" Margin="1061,454,0,0" VerticalAlignment="Top" FontSize="8" FontWeight="Bold"/>

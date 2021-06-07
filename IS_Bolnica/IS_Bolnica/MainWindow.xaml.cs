@@ -3,6 +3,8 @@ using System.Windows;
 using System.Collections.ObjectModel;
 using IS_Bolnica.Model;
 using System.Collections.Generic;
+using System.IO;
+using IS_Bolnica.DemoMode;
 
 namespace IS_Bolnica
 {
@@ -24,8 +26,9 @@ namespace IS_Bolnica
 
         private void ButtonUpravnikClicked(object sender, RoutedEventArgs e)
         {
-            DirectorLogInWindow dw = new DirectorLogInWindow();
-            dw.Show();
+            Director director = new Director();
+            RoomWindow rw = new RoomWindow(director);
+            rw.Show();
         }
 
         private void doctorButtonClicked(object sender, RoutedEventArgs e)
@@ -83,8 +86,9 @@ namespace IS_Bolnica
 
                             break;
                         case UserType.director:
-                            DirectorProfileWindow profileWindow = new DirectorProfileWindow();
-                            profileWindow.Show();
+                            Director director = new Director();
+                            RoomWindow rw = new RoomWindow(director);
+                            rw.Show();
                             break;
                         case UserType.secretary:
                             SekretarWindow sw = new SekretarWindow();
@@ -97,6 +101,13 @@ namespace IS_Bolnica
                     }
                 }
             }
+        }
+
+        private void DemoButtonClicked(object sender, RoutedEventArgs e)
+        {
+            DemoRoomWindow rw = new DemoRoomWindow();
+            rw.Show();
+            this.Close();
         }
     }
 }

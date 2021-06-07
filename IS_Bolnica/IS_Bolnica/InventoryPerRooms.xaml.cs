@@ -34,9 +34,21 @@ namespace IS_Bolnica
 
             selectedInventory = selected;
 
+            Title.Content = selected.Name;
+
             service = new InventoryPerRoomService(selectedInventory);
 
             SetItemsSource();
+
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+        }
+
+        private void HandleEsc(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                this.Close();
+            }
         }
 
         private void SetItemsSource()

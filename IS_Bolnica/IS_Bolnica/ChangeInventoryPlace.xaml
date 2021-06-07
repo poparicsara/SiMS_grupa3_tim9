@@ -5,28 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Bolnica"
         mc:Ignorable="d"
-        Title="ChangeInventoryPlace" Height="450" Width="800" WindowStartupLocation="CenterScreen" Closing="ClosingWindow">
+        Title="ChangeInventoryPlace" Height="655" Width="700" WindowStartupLocation="CenterScreen" Closing="ClosingWindow">
     <Grid>
-        <Label Content="Odeljenje IZ kog se preraspoređuje:" HorizontalAlignment="Left" Margin="163,70,0,0" VerticalAlignment="Top"/>
-        <Label Content="Broj prostorije IZ koje se preraspoređuje:" HorizontalAlignment="Left" Margin="163,138,0,0" VerticalAlignment="Top"/>
-        <Label Content="Odeljenje U koje se preraspoređuje:" HorizontalAlignment="Left" Margin="163,169,0,0" VerticalAlignment="Top"/>
-        <Label Content="Broj prostorije U koju se preraspoređuje:" HorizontalAlignment="Left" Margin="163,237,0,0" VerticalAlignment="Top"/>
-        <ComboBox Name="wardFromBox" HorizontalAlignment="Left" Margin="428,73,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="wardFromChanged"/>
-        <ComboBox Name="numberFromBox" HorizontalAlignment="Left" Margin="428,141,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="numberFromChanged"/>
-        <ComboBox Name="wardToBox" HorizontalAlignment="Left" Margin="428,172,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="wardToChanged"/>
-        <ComboBox Name="numberToBox" HorizontalAlignment="Left" Margin="428,237,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="numberToChanged"/>
-        <Button Content="POTVRDI" HorizontalAlignment="Left" Margin="670,386,0,0" VerticalAlignment="Top" 
-                 Width="81" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" 
-                BorderBrush="#FF425431" Click="DoneButtonClicked"/>
-        <Label Content="Količina:" HorizontalAlignment="Left" Margin="163,277,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="amountBox" HorizontalAlignment="Left" Height="23" Margin="428,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidation"/>
-        <Label Content="Namena prostorije IZ koje se preraspoređuje:" HorizontalAlignment="Left" Margin="163,101,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="purposeFromBox" HorizontalAlignment="Left" Margin="428,104,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="purposeFromChanged"/>
-        <Label Content="Namena prostorije U koju se preraspoređuje:" HorizontalAlignment="Left" Margin="163,200,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="purposeToBox" HorizontalAlignment="Left" Margin="428,203,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="purposeToChanged"/>
-        <DatePicker Name="dateofChange" HorizontalAlignment="Left" Margin="428,319,0,0" VerticalAlignment="Top" Width="120" SelectedDateChanged="dateChanged"/>
-        <Label Content="Datum premeštanja:" HorizontalAlignment="Left" Margin="163,317,0,0" VerticalAlignment="Top"/>
-        <ComboBox Name="hourofChange" HorizontalAlignment="Left" Margin="428,364,0,0" VerticalAlignment="Top" Width="50" SelectionChanged="hourChanged">
+        <Label Content="Odeljenje IZ kog se preraspoređuje:" HorizontalAlignment="Left" Margin="71,93,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Broj prostorije IZ koje se preraspoređuje:" HorizontalAlignment="Left" Margin="71,199,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Odeljenje U koje se preraspoređuje:" HorizontalAlignment="Left" Margin="71,247,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Broj prostorije U koju se preraspoređuje:" HorizontalAlignment="Left" Margin="71,351,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <ComboBox Name="wardFromBox" HorizontalAlignment="Left" Margin="427,96,0,0" VerticalAlignment="Top" Height="32" Width="203" SelectionChanged="wardFromChanged" FontSize="16"/>
+        <ComboBox x:Name="purposeFromBox" HorizontalAlignment="Left" Height="32" Margin="427,149,0,0" VerticalAlignment="Top" Width="203" SelectionChanged="purposeFromChanged" FontSize="16"/>
+        <ComboBox Name="numberFromBox" HorizontalAlignment="Left" Margin="427,202,0,0" VerticalAlignment="Top" Height="32" Width="203" SelectionChanged="numberFromChanged" FontSize="16"/>
+        <ComboBox Name="wardToBox" HorizontalAlignment="Left" Margin="427,250,0,0" VerticalAlignment="Top" Height="32" Width="203" SelectionChanged="wardToChanged" FontSize="16"/>
+        <ComboBox x:Name="purposeToBox" HorizontalAlignment="Left" Height="32" Margin="427,301,0,0" VerticalAlignment="Top" Width="203" SelectionChanged="purposeToChanged" FontSize="16"/>
+        <ComboBox Name="numberToBox" HorizontalAlignment="Left" Margin="427,351,0,0" VerticalAlignment="Top" Height="32" Width="203" SelectionChanged="numberToChanged" FontSize="16"/>
+        <TextBox x:Name="amountBox" HorizontalAlignment="Left" Height="32" Margin="427,401,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" PreviewTextInput="NumberValidation" FontSize="16"/>
+        
+        <Label Content="Količina:" HorizontalAlignment="Left" Margin="71,402,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Namena prostorije IZ koje se preraspoređuje:" HorizontalAlignment="Left" Margin="71,146,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Namena prostorije U koju se preraspoređuje:" HorizontalAlignment="Left" Margin="71,298,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <DatePicker Name="dateofChange" HorizontalAlignment="Left" Height="32" Margin="427,454,0,0" VerticalAlignment="Top" Width="203" SelectedDateChanged="dateChanged" FontSize="16"/>
+        <Label Content="Datum premeštanja:" HorizontalAlignment="Left" Margin="71,452,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <ComboBox Name="hourofChange" Height="32" HorizontalAlignment="Left" Margin="427,507,0,0" VerticalAlignment="Top" Width="93" SelectionChanged="hourChanged" FontSize="16">
             <ComboBoxItem Content="00"/>
             <ComboBoxItem Content="01"/>
             <ComboBoxItem Content="02"/>
@@ -52,8 +50,8 @@
             <ComboBoxItem Content="22"/>
             <ComboBoxItem Content="23"/>
         </ComboBox>
-        <Label Content="Vreme premeštanja:" HorizontalAlignment="Left" Margin="163,364,0,0" VerticalAlignment="Top"/>
-        <ComboBox Name="minuteOfChange" HorizontalAlignment="Left" Margin="497,364,0,0" VerticalAlignment="Top" Width="51" SelectionChanged="minuteChanged">
+        <Label Content="Vreme premeštanja:" HorizontalAlignment="Left" Margin="71,507,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <ComboBox Name="minuteOfChange" Height="32" HorizontalAlignment="Left" Margin="535,507,0,0" VerticalAlignment="Top" Width="95" SelectionChanged="minuteChanged" FontSize="16">
             <ComboBoxItem Content="00"/>
             <ComboBoxItem Content="05"/>
             <ComboBoxItem Content="10"/>
@@ -67,5 +65,12 @@
             <ComboBoxItem Content="50"/>
             <ComboBoxItem Content="55"/>
         </ComboBox>
+        <Button Content="POTVRDI" HorizontalAlignment="Left" Margin="419,592,0,0" VerticalAlignment="Top" 
+                Width="81" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" 
+                BorderBrush="#FF425431" Click="DoneButtonClicked"/>
+        <Button Content="ODUSTANI" HorizontalAlignment="Left" Margin="296,592,0,0" VerticalAlignment="Top" 
+            Width="81" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" 
+            BorderBrush="#FF425431" Click="DoneButtonClicked"/>
+        <Label Content="PRERASPODELA INVENTARA" HorizontalAlignment="Left" Margin="185,10,0,0" VerticalAlignment="Top" FontSize="26" FontWeight="Bold"/>
     </Grid>
 </Window>

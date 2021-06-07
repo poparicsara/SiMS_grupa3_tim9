@@ -5,18 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Bolnica"
         mc:Ignorable="d"
-        Title="MedicamentInfoWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="MedicamentInfoWindow" Height="655" Width="700" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Label Content="Šifra leka:" HorizontalAlignment="Left" Margin="177,94,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="idBox" HorizontalAlignment="Left" Height="23" Margin="298,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Naziv leka:" HorizontalAlignment="Left" Margin="177,136,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Height="23" Margin="298,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Proizvođač:" HorizontalAlignment="Left" Margin="177,177,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="producerBox" HorizontalAlignment="Left" Height="23" Margin="298,177,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Sastav" HorizontalAlignment="Left" Margin="177,287,0,0" VerticalAlignment="Top" Width="104" Click="IngredientButtonClicked"/>
-        <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="670,329,0,0" VerticalAlignment="Top" Width="75" Click="DoneButtonClicked"/>
-        <Label Content="Zamenski lek:" HorizontalAlignment="Left" Margin="177,224,0,0" VerticalAlignment="Top"/>
-        <ComboBox Name="replacementBox" HorizontalAlignment="Left" Margin="298,227,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="replacementSelectionChanged"/>
-        
+        <Label Content="Šifra leka:" HorizontalAlignment="Left" Margin="160,138,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="idBox" IsTabStop="True"  HorizontalAlignment="Left" Height="32" Margin="371,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" FontSize="16" PreviewTextInput="NumberValidation"/>
+        <Label Content="Naziv leka:" HorizontalAlignment="Left" Margin="160,205,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="nameBox" IsTabStop="True" HorizontalAlignment="Left" Height="32" Margin="371,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" FontSize="16"/>
+        <Label Content="Proizvođač:" HorizontalAlignment="Left" Margin="160,275,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="producerBox" IsTabStop="True" HorizontalAlignment="Left" Height="32" Margin="371,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" FontSize="16"/>
+        <ComboBox Name="replacementBox" HorizontalAlignment="Left" Height="32"  Margin="371,347,0,0" VerticalAlignment="Top" Width="182" SelectionChanged="replacementSelectionChanged" FontSize="16"/>
+        <Button Content="Sastav" IsTabStop="True" Height="32" Background="White"  HorizontalAlignment="Left" Margin="160,423,0,0" VerticalAlignment="Top" Width="104" Click="IngredientButtonClicked" FontSize="16" FontWeight="Bold"/>
+        <Button Content="POTVRDI" IsTabStop="True" Background="White" Height="32"  HorizontalAlignment="Left" Margin="371,533,0,0" VerticalAlignment="Top" Width="92" Click="DoneButtonClicked" FontSize="16" FontWeight="Bold"/>
+        <Label Content="Zamenski lek:" HorizontalAlignment="Left" Margin="160,347,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="IZMENA INFORMACIJA O LEKU" HorizontalAlignment="Left" Margin="163,28,0,0" VerticalAlignment="Top" FontSize="26" FontWeight="Bold"/>
+        <Button Content="ODUSTANI" IsTabStop="True" Background="White" Height="32"  HorizontalAlignment="Left" Margin="185,533,0,0" VerticalAlignment="Top" Width="103" Click="DoneButtonClicked" FontSize="16" FontWeight="Bold"/>
+
     </Grid>
 </Window>

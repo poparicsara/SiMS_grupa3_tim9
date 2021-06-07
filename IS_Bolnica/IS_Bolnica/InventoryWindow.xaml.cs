@@ -43,8 +43,17 @@ namespace IS_Bolnica
         {
             if (IsAnyDynamicInventorySelected())
             {
-                service.DeleteInventory(selectedInventory);
-                RefreshDataGrid();
+                MessageBoxResult messageBox = MessageBox.Show("Da li ste sigurni da želite da obrišete izabrani inventar?",
+                    "Brisanje inventara", MessageBoxButton.YesNo);
+                switch (messageBox)
+                {
+                    case MessageBoxResult.Yes:
+                        service.DeleteInventory(selectedInventory);
+                        RefreshDataGrid();
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                }
             }
         }
 
@@ -52,7 +61,7 @@ namespace IS_Bolnica
         {
             if(dynamicDataGrid.SelectedIndex < 0)
             {
-                MessageBox.Show("Niste izabrali nijedan inventar!");
+                MessageBox.Show("Niste izabrali nijedan dinamički inventar!");
                 return false;
             }
             else
@@ -98,7 +107,7 @@ namespace IS_Bolnica
         {
             if (staticDataGrid.SelectedIndex < 0)
             {
-                MessageBox.Show("Niste izabrali nijedan inventar!");
+                MessageBox.Show("Niste izabrali nijedan statički inventar!");
                 return false;
             }
             else
@@ -125,8 +134,30 @@ namespace IS_Bolnica
             InventoryPerRooms iw = new InventoryPerRooms(selectedInventory);
             iw.Show();
         }
-        
-        private void StaticRowDoubelClick(object sender, MouseButtonEventArgs e)
+
+        private void InventoryPerRoomDynamicButton(object sender, RoutedEventArgs e)
+        {
+            if (IsAnyDynamicInventorySelected())
+            {
+                selectedInventory = (Inventory)dynamicDataGrid.SelectedItem;
+                DataGridRow row = sender as DataGridRow;
+                InventoryPerRooms iw = new InventoryPerRooms(selectedInventory);
+                iw.Show();
+            }
+        }
+
+        private void InventoryPerRoomStaticButton(object sender, RoutedEventArgs e)
+        {
+            if (IsAnyStaticInventorySelected())
+            {
+                selectedInventory = (Inventory)staticDataGrid.SelectedItem;
+                DataGridRow row = sender as DataGridRow;
+                InventoryPerRooms iw = new InventoryPerRooms(selectedInventory);
+                iw.Show();
+            }
+        }
+
+        private void StaticRowDoubleClick(object sender, MouseButtonEventArgs e)
         {
             selectedInventory = (Inventory)staticDataGrid.SelectedItem;
             DataGridRow row = sender as DataGridRow;
@@ -169,5 +200,6 @@ namespace IS_Bolnica
             profileWindow.Show();
             this.Close();
         }
+
     }
 }

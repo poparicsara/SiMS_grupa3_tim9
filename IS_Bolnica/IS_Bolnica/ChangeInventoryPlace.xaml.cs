@@ -43,20 +43,29 @@ namespace IS_Bolnica
             InitializeComponent();
 
             wardFromBox.ItemsSource = GetWardsWithMagacin();
-            wardFromBox.SelectedItem = GetWardsWithMagacin().ElementAt(0);
+            //wardFromBox.SelectedItem = GetWardsWithMagacin().ElementAt(0);
             wardToBox.ItemsSource = roomService.GetHospitalWards();
-            wardToBox.SelectedItem = roomService.GetHospitalWards().ElementAt(0);
+            //wardToBox.SelectedItem = roomService.GetHospitalWards().ElementAt(0);
 
             purposeFromBox.ItemsSource = roomService.GetRoomPurposes();
-            purposeFromBox.SelectedItem = roomService.GetRoomPurposes().ElementAt(0);
+            //purposeFromBox.SelectedItem = roomService.GetRoomPurposes().ElementAt(0);
             purposeToBox.ItemsSource = roomService.GetRoomPurposes();
-            purposeToBox.SelectedItem = roomService.GetRoomPurposes().ElementAt(0);
+            //purposeToBox.SelectedItem = roomService.GetRoomPurposes().ElementAt(0);
 
             selectedInventory = selected;
 
             if(selectedInventory.InventoryType == Model.InventoryType.dinamicki)
             {
                 DisableTime();
+            }
+
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+        }
+        private void HandleEsc(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                this.Close();
             }
         }
 

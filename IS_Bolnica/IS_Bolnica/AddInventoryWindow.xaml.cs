@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -28,6 +29,16 @@ namespace IS_Bolnica
             InitializeComponent();
 
             type = inventoryType;
+
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+        }
+
+        private void HandleEsc(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                this.Close();
+            }
         }
 
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
@@ -69,5 +80,10 @@ namespace IS_Bolnica
             iw.Show();
         }
 
+        private void NumberValidation(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
     }
 }

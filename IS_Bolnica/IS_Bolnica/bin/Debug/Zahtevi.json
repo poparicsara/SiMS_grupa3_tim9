@@ -46,5 +46,29 @@
     "Content": "888|novo|b|d|a\r\na\r\na",
     "Sender": 3,
     "Recipient": 0
+  },
+  {
+    "Title": "Brisanje leka iz baze",
+    "Content": "123|novi lek|Altravesa|novi  proizvodjac|sastojak\nsastojak\n",
+    "Sender": 3,
+    "Recipient": 0
+  },
+  {
+    "Title": "Brisanje leka iz baze",
+    "Content": "123|novi lek|Altravesa|novi  proizvodjac|sastojak\nsastojak\n",
+    "Sender": 3,
+    "Recipient": 0
+  },
+  {
+    "Title": "Brisanje leka iz baze",
+    "Content": "123|novi lek|Altravesa|novi  proizvodjac|sastojak\nsastojak\n",
+    "Sender": 3,
+    "Recipient": 0
+  },
+  {
+    "Title": "Brisanje leka iz baze",
+    "Content": "123|novi lek|Altravesa|novi  proizvodjac|sastojak\nsastojak\n",
+    "Sender": 3,
+    "Recipient": 0
   }
 ]
