@@ -15,20 +15,19 @@ using System.Windows.Shapes;
 
 namespace IS_Bolnica.Secretary
 {
-    /// <summary>
-    /// Interaction logic for BlockedPatientsList.xaml
-    /// </summary>
     public partial class BlockedPatientsList : Page
     {
-        public BlockedPatientsList()
+        private Page previousPage;
+
+        public BlockedPatientsList(Page previousPage)
         {
             InitializeComponent();
+            this.previousPage = previousPage;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ActionBar ab = new ActionBar();
-            this.NavigationService.Navigate(ab);
+            this.NavigationService.Navigate(previousPage);
         }
 
         private void Unblock_Patient_clicked(object sender, RoutedEventArgs e)

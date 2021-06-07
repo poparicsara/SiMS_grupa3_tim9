@@ -9,6 +9,7 @@ namespace IS_Bolnica.Secretary
 {
     public partial class EditOperation : Page
     {
+        private Page prevoiusPage;
         private Appointment appointment = new Appointment();
         private Appointment oldAppointment = new Appointment();
         private RoomService roomService = new RoomService();
@@ -17,10 +18,11 @@ namespace IS_Bolnica.Secretary
         private FindAttributesService findAttributesService = new FindAttributesService();
 
 
-        public EditOperation(Appointment oldAppointment)
+        public EditOperation(Appointment oldAppointment, Page prevoiusPage)
         {
             InitializeComponent();
             this.oldAppointment = oldAppointment;
+            this.prevoiusPage = prevoiusPage;
             room.ItemsSource = roomService.GetOperationRoomNums();
             doctorBox.ItemsSource = doctorService.GetDoctorNamesList();
 
@@ -28,8 +30,7 @@ namespace IS_Bolnica.Secretary
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ActionBar ab = new ActionBar();
-            this.NavigationService.Navigate(ab);
+            this.NavigationService.Navigate(prevoiusPage);
         }
 
         private void editOperation(object sender, RoutedEventArgs e)
@@ -51,14 +52,14 @@ namespace IS_Bolnica.Secretary
 
             appointmentService.EditAppointment(oldAppointment, appointment);
 
-            OperationList ol = new OperationList();
+            OperationList ol = new OperationList(this);
             this.NavigationService.Navigate(ol);
 
         }
 
         private void cancelEditingOperation(object sender, RoutedEventArgs e)
         {
-            OperationList ol = new OperationList();
+            OperationList ol = new OperationList(this);
             this.NavigationService.Navigate(ol);
         }
     }

@@ -14,21 +14,22 @@ namespace IS_Bolnica.Secretary
     /// </summary>
     public partial class EditPatientPage : Page
     {
+        private Page prevoiusPage;
         private Patient oldPatient = new Patient();
         private PatientService patientService = new PatientService();
         private UserService userService = new UserService();
 
-        public EditPatientPage(Patient oldPatient)
+        public EditPatientPage(Patient oldPatient, Page prevoiusPage)
         {
             InitializeComponent();
             this.oldPatient = oldPatient;
+            this.prevoiusPage = prevoiusPage;
 
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ActionBar ab = new ActionBar();
-            this.NavigationService.Navigate(ab);
+            this.NavigationService.Navigate(prevoiusPage);
         }
 
         private void editPatient(object sender, RoutedEventArgs e)
@@ -36,14 +37,14 @@ namespace IS_Bolnica.Secretary
             patientService.EditPatient(oldPatient, setPatient());
             userService.EditUser(setUser(oldPatient), setPatient());
 
-            PatientList pl = new PatientList();
+            PatientList pl = new PatientList(this);
             this.NavigationService.Navigate(pl);
 
         }
 
         private void cancelEditing(object sender, RoutedEventArgs e)
         {
-            PatientList pl = new PatientList();
+            PatientList pl = new PatientList(this);
             this.NavigationService.Navigate(pl);
         }
 

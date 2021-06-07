@@ -8,15 +8,17 @@ namespace IS_Bolnica.Secretary
 {
     public partial class AddExamination : Page
     {
+        private Page previousPage;
         private Appointment appointment = new Appointment();
         private DoctorService doctorService = new DoctorService();
         private AppointmentService appointmentService = new AppointmentService();
         private FindAttributesService findAttributesService = new FindAttributesService();
 
 
-        public AddExamination()
+        public AddExamination(Page previousPage)
         {
             InitializeComponent();
+            this.previousPage = previousPage;
             doctorBox.ItemsSource = doctorService.GetDoctorNamesList();
 
         }
@@ -40,21 +42,20 @@ namespace IS_Bolnica.Secretary
 
             appointmentService.AddAppointment(appointment);
 
-            ExaminationList el = new ExaminationList();
+            ExaminationList el = new ExaminationList(this);
             this.NavigationService.Navigate(el);
 
         }
 
         private void cancelAddingExamination(object sender, RoutedEventArgs e)
         {
-            ExaminationList el = new ExaminationList();
+            ExaminationList el = new ExaminationList(this);
             this.NavigationService.Navigate(el);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ActionBar ab = new ActionBar();
-            this.NavigationService.Navigate(ab);
+            this.NavigationService.Navigate(previousPage);
         }
     }
 }

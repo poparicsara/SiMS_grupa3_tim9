@@ -9,22 +9,23 @@ namespace IS_Bolnica.Secretary
 {
     public partial class AddPatientPage : Page
     {
+        private Page previousPage;
         private Patient patient = new Patient();
         private User user = new User();
         private PatientService patientService = new PatientService();
         private UserService userService = new UserService();
 
-        public AddPatientPage()
+        public AddPatientPage(Page previousPage)
         {
             InitializeComponent();
+            this.previousPage = previousPage;
             this.DataContext = this;
 
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ActionBar ab = new ActionBar();
-            this.NavigationService.Navigate(ab);
+            this.NavigationService.Navigate(previousPage);
         }
 
         private void addPatient(object sender, RoutedEventArgs e)
@@ -37,7 +38,7 @@ namespace IS_Bolnica.Secretary
 
             userService.AddUser(user);
 
-            PatientList pl = new PatientList();
+            PatientList pl = new PatientList(this);
             this.NavigationService.Navigate(pl);
         }
 
@@ -113,7 +114,7 @@ namespace IS_Bolnica.Secretary
 
         private void cancelAdding(object sender, RoutedEventArgs e)
         {
-            PatientList pl = new PatientList();
+            PatientList pl = new PatientList(this);
             this.NavigationService.Navigate(pl);
         }
 

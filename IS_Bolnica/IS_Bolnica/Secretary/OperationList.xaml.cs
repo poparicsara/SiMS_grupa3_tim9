@@ -8,13 +8,15 @@ namespace IS_Bolnica.Secretary
 {
     public partial class OperationList : Page
     {
+        private Page prevoiusPage;
         private Appointment appointment = new Appointment();
         private AppointmentService appointmentService = new AppointmentService();
 
-        public OperationList()
+        public OperationList(Page prevoiusPage)
         {
             InitializeComponent();
             this.DataContext = this;
+            this.prevoiusPage = prevoiusPage;
             OperationListGrid.ItemsSource = appointmentService.getOperations();
 
         }
@@ -32,7 +34,7 @@ namespace IS_Bolnica.Secretary
             }
             else
             {
-                EditOperation eo = new EditOperation(appointment);
+                EditOperation eo = new EditOperation(appointment, this);
                 setElementsEO(eo, appointment);
                 this.NavigationService.Navigate(eo);
             }
@@ -55,7 +57,7 @@ namespace IS_Bolnica.Secretary
 
         private void addOperation(object sender, RoutedEventArgs e)
         {
-            AddOperation ao = new AddOperation();
+            AddOperation ao = new AddOperation(this);
             this.NavigationService.Navigate(ao);
         }
 
@@ -88,7 +90,7 @@ namespace IS_Bolnica.Secretary
                 {
                     case MessageBoxResult.Yes:
                         appointmentService.DeleteAppointment(appointment);
-                        OperationList ol = new OperationList();
+                        OperationList ol = new OperationList(this);
                         this.NavigationService.Navigate(ol);
                         break;
                     case MessageBoxResult.No:
@@ -99,8 +101,7 @@ namespace IS_Bolnica.Secretary
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ActionBar ab = new ActionBar();
-            this.NavigationService.Navigate(ab);
+            this.NavigationService.Navigate(prevoiusPage);
         }
     }
 }

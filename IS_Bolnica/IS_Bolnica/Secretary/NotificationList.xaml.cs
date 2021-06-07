@@ -8,13 +8,15 @@ namespace IS_Bolnica.Secretary
 {
     public partial class NotificationList : Page
     {
+        private Page prevoiusPage;
         private Notification notification = new Notification();
         private NotificationService notificationService = new NotificationService();
 
-        public NotificationList()
+        public NotificationList(Page prevoiusPage)
         {
             InitializeComponent();
             this.DataContext = this;
+            this.prevoiusPage = prevoiusPage;
 
             NotificationListGrid.ItemsSource = notificationService.getNotifications();
 
@@ -22,20 +24,19 @@ namespace IS_Bolnica.Secretary
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ActionBar ab = new ActionBar();
-            this.NavigationService.Navigate(ab);
+            this.NavigationService.Navigate(prevoiusPage);
         }
 
         private void addNotification(object sender, RoutedEventArgs e)
         {
-            AddNotification an = new AddNotification();
+            AddNotification an = new AddNotification(this);
             this.NavigationService.Navigate(an);
         }
 
         private void editNotification(object sender, RoutedEventArgs e)
         {
             notification = (Notification)NotificationListGrid.SelectedItem;
-            EditNotification en = new EditNotification(notification);
+            EditNotification en = new EditNotification(notification, this);
             setElementsEN(en, notification);
             this.NavigationService.Navigate(en);
 
@@ -88,7 +89,7 @@ namespace IS_Bolnica.Secretary
                 {
                     case MessageBoxResult.Yes:
                         notificationService.DeleteNotification(notification);
-                        NotificationList nl = new NotificationList();
+                        NotificationList nl = new NotificationList(this);
                         this.NavigationService.Navigate(nl);
 
 

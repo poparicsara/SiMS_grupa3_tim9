@@ -6,9 +6,11 @@ namespace IS_Bolnica.Secretary
 {
     public partial class Options : Page
     {
-        public Options()
+        private Page prevoiusPage;
+        public Options(Page prevoiusPage)
         {
             InitializeComponent();
+            this.prevoiusPage = prevoiusPage;
             if (Properties.Settings.Default.ColorMode == "Black")
             {
                 darkBtn.IsChecked = true;
@@ -33,8 +35,7 @@ namespace IS_Bolnica.Secretary
 
         private void Button_clicked(object sender, RoutedEventArgs e)
         {
-            ActionBar ab = new ActionBar();
-            this.NavigationService.Navigate(ab);
+            this.NavigationService.Navigate(prevoiusPage);
         }
 
         private void LanguageBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)

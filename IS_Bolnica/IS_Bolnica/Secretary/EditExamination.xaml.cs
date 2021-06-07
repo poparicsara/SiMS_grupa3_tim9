@@ -8,24 +8,25 @@ namespace IS_Bolnica.Secretary
 {
     public partial class EditExamination : Page
     {
+        private Page previousPage;
         private Appointment appointment = new Appointment();
         private Appointment oldAppointment = new Appointment();
         private DoctorService doctorService = new DoctorService();
         private AppointmentService appointmentService = new AppointmentService();
         private FindAttributesService findAttributesService = new FindAttributesService();
 
-        public EditExamination(Appointment oldAppointment)
+        public EditExamination(Appointment oldAppointment, Page previousPage)
         {
             InitializeComponent();
             this.oldAppointment = oldAppointment;
+            this.previousPage = previousPage;
             doctorBox.ItemsSource = doctorService.GetDoctorNamesList();
 
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ActionBar ab = new ActionBar();
-            this.NavigationService.Navigate(ab);
+            this.NavigationService.Navigate(previousPage);
         }
 
         private void editExamination(object sender, RoutedEventArgs e)
@@ -46,13 +47,13 @@ namespace IS_Bolnica.Secretary
 
             appointmentService.EditAppointment(oldAppointment, appointment);
 
-            ExaminationList el = new ExaminationList();
+            ExaminationList el = new ExaminationList(this);
             this.NavigationService.Navigate(el);
         }
 
         private void cancelEditingExamination(object sender, RoutedEventArgs e)
         {
-            ExaminationList el = new ExaminationList();
+            ExaminationList el = new ExaminationList(this);
             this.NavigationService.Navigate(el);
         }
     }

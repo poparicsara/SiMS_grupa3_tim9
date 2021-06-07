@@ -9,6 +9,7 @@ namespace IS_Bolnica.Secretary
 {
     public partial class AddUrgentExaminationPage : Page
     {
+        private Page previousPage;
         private Specialization specialization = new Specialization();
         private Patient patient = new Patient();
         private GuestUser guestUser = new GuestUser();
@@ -17,16 +18,16 @@ namespace IS_Bolnica.Secretary
 
 
 
-        public AddUrgentExaminationPage()
+        public AddUrgentExaminationPage(Page previousPage)
         {
             InitializeComponent();
+            this.previousPage = previousPage;
             specializationBox.ItemsSource = findAttributesService.GetSpecializationNames();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ActionBar ab = new ActionBar();
-            this.NavigationService.Navigate(ab);
+            this.NavigationService.Navigate(previousPage);
         }
 
         private void existableRButton_Checked(object sender, RoutedEventArgs e)
@@ -43,7 +44,7 @@ namespace IS_Bolnica.Secretary
 
         private void addGuestAccount(object sender, RoutedEventArgs e)
         {
-            AddGuestUser agu = new AddGuestUser();
+            AddGuestUser agu = new AddGuestUser(this);
             this.NavigationService.Navigate(agu);
         }
 
@@ -71,7 +72,7 @@ namespace IS_Bolnica.Secretary
             appointment = new Appointment { GuestUser = guestUser, Patient = patient };
             specialization = findAttributesService.FindSpecialization(specializationBox.SelectedItem.ToString());
 
-            UrgentExaminationOptions ueo = new UrgentExaminationOptions(appointment, specialization);
+            UrgentExaminationOptions ueo = new UrgentExaminationOptions(appointment, specialization, this);
             this.NavigationService.Navigate(ueo);
 
         }

@@ -133,6 +133,7 @@
     <Compile Include="Model\AppointmentType.cs" />
     <Compile Include="Model\Gender.cs" />
     <Compile Include="Model\IngredientRepository.cs" />
+    <Compile Include="Model\ReportData.cs" />
     <Compile Include="Model\Shift.cs" />
     <Compile Include="Model\ShiftType.cs" />
     <Compile Include="Model\Vacation.cs" />
@@ -381,6 +382,7 @@
     <Compile Include="Services\NotificationService.cs" />
     <Compile Include="Services\PatientService.cs" />
     <Compile Include="Services\RenovationService.cs" />
+    <Compile Include="Services\ReportService.cs" />
     <Compile Include="Services\RoomService.cs" />
     <Compile Include="Services\UrgentAppointmentService.cs" />
     <Compile Include="Services\UserService.cs" />

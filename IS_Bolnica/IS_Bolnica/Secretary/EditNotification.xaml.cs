@@ -10,22 +10,23 @@ namespace IS_Bolnica.Secretary
 {
     public partial class EditNotification : Page
     {
+        private Page previousPage;
         private Notification notification = new Notification();
         private Notification oldNotification = new Notification();
         private List<string> userList = new List<string>();
         private UserService userService = new UserService();
         private NotificationService notificationService = new NotificationService();
 
-        public EditNotification(Notification oldNotification)
+        public EditNotification(Notification oldNotification, Page previousPage)
         {
             InitializeComponent();
             this.oldNotification = oldNotification;
+            this.previousPage = previousPage;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NotificationList nl = new NotificationList();
-            this.NavigationService.Navigate(nl);
+            this.NavigationService.Navigate(previousPage);
         }
 
         private void Button_Add_Clicked(object sender, RoutedEventArgs e)
@@ -81,7 +82,7 @@ namespace IS_Bolnica.Secretary
 
         private void cancelEditing(object sender, RoutedEventArgs e)
         {
-            NotificationList nl = new NotificationList();
+            NotificationList nl = new NotificationList(this);
             this.NavigationService.Navigate(nl);
         }
 
@@ -110,7 +111,7 @@ namespace IS_Bolnica.Secretary
 
             notificationService.EditNotification(oldNotification, notification);
 
-            NotificationList nl = new NotificationList();
+            NotificationList nl = new NotificationList(this);
             this.NavigationService.Navigate(nl);
 
         }

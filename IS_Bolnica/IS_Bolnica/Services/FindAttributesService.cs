@@ -140,6 +140,16 @@ namespace IS_Bolnica.Services
             return roomNums;
         }
 
+        public List<int> GetAllRoomIds()
+        {
+            rooms = roomRepository.GetRooms();
+            for (int i = 0; i < rooms.Count; i++)
+            { 
+                roomNums.Add(rooms[i].Id);
+            }
+            return roomNums;
+        }
+
         public int GetDurationInMinutes(int hours, int minutes)
         {
             return hours * 60 + minutes;

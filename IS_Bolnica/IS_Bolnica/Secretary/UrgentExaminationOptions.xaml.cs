@@ -9,6 +9,7 @@ namespace IS_Bolnica.Secretary
 {
     public partial class UrgentExaminationOptions : Page
     {
+        private Page prevoiusPage;
         private Specialization specialization = new Specialization();
         private Appointment appointment = new Appointment();
         private AppointmentService appointmentService = new AppointmentService();
@@ -16,19 +17,19 @@ namespace IS_Bolnica.Secretary
         private UrgentAppointmentService urgentAppointmentService = new UrgentAppointmentService();
 
 
-        public UrgentExaminationOptions(Appointment appointment, Specialization specialization)
+        public UrgentExaminationOptions(Appointment appointment, Specialization specialization, Page prevoiusPage)
         {
             InitializeComponent();
             this.appointment = appointment;
             this.specialization = specialization;
+            this.prevoiusPage = prevoiusPage;
             ExaminationOptions.ItemsSource = urgentAppointmentService.GetUrgentExaminationOptions(appointment, specialization);
 
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ActionBar ab = new ActionBar();
-            this.NavigationService.Navigate(ab);
+            this.NavigationService.Navigate(prevoiusPage);
         }
 
         private void addUrgentOperation(object sender, RoutedEventArgs e)

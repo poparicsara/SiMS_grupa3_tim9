@@ -19,11 +19,13 @@ namespace IS_Bolnica.Secretary
 {
     public partial class EditShift : Page
     {
+        private Page prevoiusPage;
         private DoctorService doctorService = new DoctorService();
         private Shift shift = new Shift();
-        public EditShift()
+        public EditShift(Page prevoiusPage)
         {
             InitializeComponent();
+            this.prevoiusPage = prevoiusPage;
         }
 
         private void addShift(object sender, RoutedEventArgs e)
@@ -52,7 +54,7 @@ namespace IS_Bolnica.Secretary
 
             doctorService.AddShift(shift);
 
-            DoctorList dl = new DoctorList();
+            DoctorList dl = new DoctorList(this);
             this.NavigationService.Navigate(dl);
 
         }
@@ -64,8 +66,7 @@ namespace IS_Bolnica.Secretary
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ActionBar ab = new ActionBar();
-            this.NavigationService.Navigate(ab);
+            this.NavigationService.Navigate(prevoiusPage);
         }
     }
 }

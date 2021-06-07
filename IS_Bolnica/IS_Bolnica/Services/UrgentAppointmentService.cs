@@ -57,6 +57,16 @@ namespace IS_Bolnica.Services
             appointmentRepository.SaveToFile(appointments);
         }
 
+        private Appointment setAppointment(Appointment appointment, Appointment selectedAppointment)
+        {
+            appointment.StartTime = selectedAppointment.StartTime;
+            appointment.EndTime = appointment.StartTime.AddMinutes(appointment.DurationInMins);
+            appointment.Doctor = selectedAppointment.Doctor;
+            appointment.Room = selectedAppointment.Room;
+            appointment.AppointmentType = AppointmentType.operation;
+            return appointment;
+        }
+
         public void AddUrgentOperation(Appointment appointment, List<Appointment> selectedAppointments)
         {
             appointments = appointmentRepository.LoadFromFile();
@@ -64,20 +74,10 @@ namespace IS_Bolnica.Services
             {
                 if (selectedAppointments.Count == 1)
                 {
-                    if (appointments[k].StartTime == selectedAppointments[0].StartTime && appointments[k].Doctor.Id.Equals(selectedAppointments[0].Doctor.Id))
+                    if (appointmentFound(appointments[k], selectedAppointments[0]))
                     {
-                        if (selectedAppointments[0].DurationInMins < appointment.DurationInMins)
-                        {
-                            MessageBox.Show("Operacije koju ste izabrali nije dovoljno duga, izaberite još!");
-                            return;
-                        }
-                        
-                        appointment.StartTime = selectedAppointments[0].StartTime;
-                        appointment.EndTime = appointment.StartTime.AddMinutes(appointment.DurationInMins);
-                        appointment.Doctor = selectedAppointments[0].Doctor;
-                        appointment.Room = selectedAppointments[0].Room;
-                        appointment.AppointmentType = AppointmentType.operation;
-
+                        if (selectedAppointments[0].DurationInMins < appointment.DurationInMins) return;
+                        appointment = setAppointment(appointment, selectedAppointments[0]);
                         appointments.RemoveAt(k);
                         appointments.Add(appointment);
                         appointmentRepository.SaveToFile(appointments);
@@ -89,48 +89,48 @@ namespace IS_Bolnica.Services
 
             if (selectedAppointments.Count > 1)
             {
+                if (!IsAppointmentLongEnough(selectedAppointments, appointment)) return;
 
-                if (IsAppointmentLongEnough(selectedAppointments, appointment))
-                {
-                    return;
-                }
-
-                appointment.StartTime = selectedAppointments[0].StartTime;
-                appointment.EndTime = selectedAppointments[0].StartTime.AddMinutes(appointment.DurationInMins);
-                appointment.Doctor = selectedAppointments[0].Doctor;
-                appointment.Room = selectedAppointments[0].Room;
-                appointment.AppointmentType = AppointmentType.operation;
-                for (int k = 0; k < appointments.Count; k++)
-                {
-                    if (appointments[k].StartTime.Equals(selectedAppointments[0].StartTime) && appointments[k].Doctor.Id.Equals(selectedAppointments[0].Doctor.Id))
-                    {
-                        appointments.RemoveAt(k);
-                    }
-                }
-                //removeSelectedOperation(ops[0]);
+                appointment = setAppointment(appointment, selectedAppointments[0]);
+                removeSelectedOperation(selectedAppointments[0], appointments);
                 appointments.Add(appointment);
                 appointmentRepository.SaveToFile(appointments);
                 PostponeAppointment(selectedAppointments[0]);
 
                 for (int k = 1; k < selectedAppointments.Count; k++)
                 {
-                    for (int j = 0; j < appointments.Count; j++)
-                    {
-                        if (appointments[j].StartTime.Equals(selectedAppointments[k].StartTime) && appointments[j].Doctor.Id.Equals(selectedAppointments[k].Doctor.Id))
-                        {
-                            appointments.RemoveAt(j);
-                        }
-                    }
-                    //removeSelectedOperation(ops[k]);
+                    removeSelectedOperation(selectedAppointments[k], appointments);
                     PostponeAppointment(selectedAppointments[k]);
                 }
                 return;
             }
-
-
             selectedAppointments[0].AppointmentType = AppointmentType.operation;
             appointments.Add(selectedAppointments[0]);
             appointmentRepository.SaveToFile(appointments);
+        }
+
+        private bool appointmentFound(Appointment appointment, Appointment oldAppointment)
+        {
+            if (appointment.StartTime.Equals(oldAppointment.StartTime) && appointment.Doctor.Id.Equals(oldAppointment.Doctor.Id))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void removeSelectedOperation(Appointment appointment, List<Appointment> appointments)
+        {
+            for (int k = 0; k < appointments.Count; k++)
+            {
+                if (appointmentFound(appointments[k], appointment))
+                {
+                    appointments.RemoveAt(k);
+                    appointmentRepository.SaveToFile(appointments);
+                }
+            }
         }
 
         public List<Appointment> GetUrgentOperationOptions(Appointment appointment, Specialization specialization1)
