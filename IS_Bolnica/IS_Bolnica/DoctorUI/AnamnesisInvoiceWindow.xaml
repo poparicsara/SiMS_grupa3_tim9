@@ -1,0 +1,33 @@
+﻿<Window x:Class="IS_Bolnica.DoctorUI.AnamnesisInvoiceWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IS_Bolnica.DoctorUI"
+        mc:Ignorable="d"
+        Title="AnamnesisInvoiceWindow" Height="768" Width="1024" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="Izveštaj o anamnezi" HorizontalAlignment="Left" Margin="385,10,0,0" VerticalAlignment="Top" Height="41" Width="296" FontSize="20" FontWeight="Bold"/>
+        <Label Content="&quot;Zdravo&quot; korporacija&#xA;" HorizontalAlignment="Left" Margin="673,89,0,0" VerticalAlignment="Top" Height="35" Width="190" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Trg Dositeja Obradovića 6, Novi Sad&#xA;" HorizontalAlignment="Left" Margin="588,104,0,0" VerticalAlignment="Top" Height="32" Width="275" FontSize="14"/>
+        <Label Content="Ime i prezime osiguranog lica:&#xA;" HorizontalAlignment="Left" Margin="135,173,0,0" VerticalAlignment="Top" Height="35" Width="242" FontSize="13" FontWeight="Bold"/>
+        <Label Content="Datum rođenja:&#xA;" HorizontalAlignment="Left" Margin="135,213,0,0" VerticalAlignment="Top" Height="35" Width="242" FontSize="13" FontWeight="Bold"/>
+        <Label Content="Adresa i mesto stanovanja:&#xA;" HorizontalAlignment="Left" Margin="135,248,0,0" VerticalAlignment="Top" Height="35" Width="242" FontSize="13" FontWeight="Bold"/>
+        <Label Content="JMBG:&#xA;" HorizontalAlignment="Left" Margin="135,288,0,0" VerticalAlignment="Top" Height="35" Width="242" FontSize="13" FontWeight="Bold"/>
+        <Label Content="Broj zdravstvene knjižice:&#xA;" HorizontalAlignment="Left" Margin="135,328,0,0" VerticalAlignment="Top" Height="35" Width="242" FontSize="13" FontWeight="Bold"/>
+        <Label Content="Datum pregleda:&#xA;" HorizontalAlignment="Left" Margin="135,368,0,0" VerticalAlignment="Top" Height="35" Width="242" FontSize="13" FontWeight="Bold"/>
+        <Label Content="Simptomi:&#xA;" HorizontalAlignment="Left" Margin="135,408,0,0" VerticalAlignment="Top" Height="35" Width="242" FontSize="13" FontWeight="Bold"/>
+        <Label Content="Dijagnoza:&#xA;" HorizontalAlignment="Left" Margin="135,448,0,0" VerticalAlignment="Top" Height="35" Width="242" FontSize="13" FontWeight="Bold"/>
+        <Label Content="______________________________________________________________________&#xA;               (potpis lekara)" HorizontalAlignment="Left" Margin="673,627,0,0" VerticalAlignment="Top" Height="66" Width="301" FontSize="11"/>
+        <TextBox x:Name="patientTxt"  HorizontalAlignment="Left" Height="23" Margin="414,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" BorderBrush="{x:Null}" IsReadOnly="True"/>
+        <TextBox x:Name="dateOfBirthTxt" HorizontalAlignment="Left" Height="23" Margin="414,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" BorderBrush="{x:Null}" IsReadOnly="True"/>
+        <TextBox x:Name="addressTxt" HorizontalAlignment="Left" Height="23" Margin="414,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" BorderBrush="{x:Null}" IsReadOnly="True"/>
+        <TextBox x:Name="idTxt" HorizontalAlignment="Left" Height="23" Margin="414,288,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" BorderBrush="{x:Null}" IsReadOnly="True"/>
+        <TextBox x:Name="healthCardTxt" HorizontalAlignment="Left" Height="23" Margin="414,328,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" BorderBrush="{x:Null}" IsReadOnly="True"/>
+        <TextBox x:Name ="examinationDateTxt" HorizontalAlignment="Left" Height="23" Margin="414,368,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" BorderBrush="{x:Null}" IsReadOnly="True"/>
+        <TextBox x:Name="sympthomsTxt" HorizontalAlignment="Left" Height="23" Margin="414,408,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="314" BorderBrush="{x:Null}" IsReadOnly="True"/>
+        <TextBox x:Name="diagnosisTxt" HorizontalAlignment="Left" Height="79" Margin="414,448,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="278" BorderBrush="{x:Null}" IsReadOnly="True"/>
+        <Label Content="(M.P)" HorizontalAlignment="Left" Margin="645,675,0,0" VerticalAlignment="Top" Height="32" Width="167"/>
+
+    </Grid>
+</Window>

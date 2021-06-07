@@ -35,5 +35,22 @@ namespace IS_Bolnica.DoctorUI
             this.diagnosisTxt.Text = prescription.Anamnesis.Diagnosis;
             this.medTxt.Text = prescription.Therapy.MedicationName;
         }
+
+        private void PrintButtonClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                this.IsEnabled = false;
+                PrintDialog printDialog = new PrintDialog();
+                if (printDialog.ShowDialog() == true)
+                {
+                    printDialog.PrintVisual(this, "Invoice");
+                }
+            }
+            finally
+            {
+                this.IsEnabled = true;
+            }
+        }
     }
 }

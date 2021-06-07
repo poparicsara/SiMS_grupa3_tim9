@@ -30,6 +30,7 @@
         <TextBox Name="diagnosisTxt" HorizontalAlignment="Left" Height="79" Margin="414,448,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="278" BorderBrush="{x:Null}" IsReadOnly="True"/>
         <TextBox Name="medTxt" HorizontalAlignment="Left" Height="23" Margin="414,549,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" BorderBrush="{x:Null}" IsReadOnly="True"/>
         <Label Content="(M.P)" HorizontalAlignment="Left" Margin="645,675,0,0" VerticalAlignment="Top" Height="32" Width="167"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="899,53,0,0" VerticalAlignment="Top" Width="75" Click="PrintButtonClick"/>
 
     </Grid>
 </Window>

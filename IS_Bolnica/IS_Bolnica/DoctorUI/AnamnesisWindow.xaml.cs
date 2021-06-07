@@ -130,5 +130,14 @@ namespace IS_Bolnica.DoctorUI
             medicamentsWindow.Show();
             this.Close();
         }
+
+        private void InvoiceButtonClick(object sender, RoutedEventArgs e)
+        {
+            SetAnamnesisFields();
+            anamnesisService.CreateAnamnesis(anamnesis);
+            AnamnesisInvoiceWindow anamnesisInvoiceWindow = new AnamnesisInvoiceWindow(anamnesis);
+            anamnesisInvoiceWindow.Show();
+            this.Close();
+        }
     }
 }

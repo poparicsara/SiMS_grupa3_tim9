@@ -42,7 +42,7 @@
             <TextBox x:Name="doctorTxt" HorizontalAlignment="Left" Height="22" Margin="266,491,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="239" BorderBrush="{x:Null}" Background="{x:Null}" IsReadOnly="True"/>
         </Grid>
         <Button Content="SAČUVAJ" HorizontalAlignment="Left" Margin="812,581,0,0" VerticalAlignment="Top" Width="109" Height="34" Background="#FF3F5038" Foreground="White" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="14" Click="SaveButtonClick" />
-        <Button HorizontalAlignment="Left" Margin="902,52,0,0" VerticalAlignment="Top" Width="46" Height="42" Background="{x:Null}" BorderBrush="{x:Null}">
+        <Button HorizontalAlignment="Left" Margin="902,52,0,0" VerticalAlignment="Top" Width="46" Height="42" Background="{x:Null}" BorderBrush="{x:Null}" Click="InvoiceButtonClick">
             <StackPanel Background="Transparent">
                 <Image Source="../Images/pdf.png" Width="30" Height="30"/>
             </StackPanel>

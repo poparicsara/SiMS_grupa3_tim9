@@ -1014,3 +1014,5 @@ C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorU
 C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\OperationsWindow.baml
 C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\InvoiceWindow.g.cs
 C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\InvoiceWindow.baml
+C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\AnamnesisInvoiceWindow.g.cs
+C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\AnamnesisInvoiceWindow.baml
