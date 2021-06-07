@@ -28,6 +28,7 @@
         <TextBox x:Name="sympthomsTxt" HorizontalAlignment="Left" Height="23" Margin="414,408,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="314" BorderBrush="{x:Null}" IsReadOnly="True"/>
         <TextBox x:Name="diagnosisTxt" HorizontalAlignment="Left" Height="79" Margin="414,448,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="278" BorderBrush="{x:Null}" IsReadOnly="True"/>
         <Label Content="(M.P)" HorizontalAlignment="Left" Margin="645,675,0,0" VerticalAlignment="Top" Height="32" Width="167"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="858,36,0,0" VerticalAlignment="Top" Width="75" Click="PrintButtonClick"/>
 
     </Grid>
 </Window>
