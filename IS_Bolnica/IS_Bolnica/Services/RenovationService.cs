@@ -211,9 +211,9 @@ namespace IS_Bolnica.Services
 
         private void DoMerge()
         {
+            roomService.AddRoom(newRoom);
             roomService.DeleteRoom(room1);
             roomService.DeleteRoom(room2);
-            roomService.AddRoom(newRoom);
         }
 
         private void DoSeparation()

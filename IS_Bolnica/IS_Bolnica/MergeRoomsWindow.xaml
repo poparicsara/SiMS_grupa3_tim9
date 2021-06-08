@@ -60,11 +60,11 @@
             <ComboBoxItem Content="55"/>
         </ComboBox>
         <Label Content="Novi broj sobe:" HorizontalAlignment="Left" Margin="24,424,0,0" VerticalAlignment="Top"  FontSize="16"/>
-        <TextBox Name="roomNumberBox" IsTabStop="True"  HorizontalAlignment="Left" Height="32" Margin="211,424,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" FontSize="16"/>
+        <TextBox Name="roomNumberBox" IsTabStop="True"  HorizontalAlignment="Left" Height="32" Margin="211,424,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" FontSize="16" PreviewTextInput="NumberValidation"/>
         <Button Content="POTVRDI" HorizontalAlignment="Left" Margin="378,510,0,0" VerticalAlignment="Top" 
-                Width="92" Height="38" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" BorderBrush="Black" Click="DoneButtonClicked" FontSize="16"/>
+                Width="92" Height="38" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" BorderBrush="Black" FontSize="16" Click="DoneButtonClicked"/>
         <Button Content="ODUSTANI" HorizontalAlignment="Left" Margin="211,510,0,0" VerticalAlignment="Top" 
-                Width="103" Height="38" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" BorderBrush="Black" Click="DoneButtonClicked" FontSize="16"/>
+                Width="103" Height="38" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" BorderBrush="Black" Click="CancelButtonClicked" FontSize="16"/>
         <TextBlock Name="room1Block" HorizontalAlignment="Left" Margin="428,242,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="49" Width="240" FontSize="16"/>
         <TextBlock Name="room2Block" HorizontalAlignment="Left" Margin="428,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="45" Width="240" FontSize="16"/>
 

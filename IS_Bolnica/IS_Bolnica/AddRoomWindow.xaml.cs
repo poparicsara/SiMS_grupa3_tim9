@@ -72,6 +72,7 @@ namespace IS_Bolnica
             newRoom.Id = (int)Int64.Parse(roomBox.Text);
             newRoom.HospitalWard = selectedWard;
             RoomPurpose purpose = new RoomPurpose { Name = selectedPurpose };
+            newRoom.RoomPurpose = purpose;
         }
 
         private void CancelButtonClicked(object sender, RoutedEventArgs e)

@@ -29,6 +29,9 @@ namespace IS_Bolnica
 
             room = selectedRoom;
 
+            startDate.Focusable = true;
+            startDate.Focus();
+
             this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
         }
 
@@ -42,20 +45,44 @@ namespace IS_Bolnica
 
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
-            SetRenovationAttributes();
-            RenovationService service = new RenovationService();
-            service.AddRenovation(renovation);
-
-            this.Close();
+            if (AreDatesChosen())
+            {
+                MessageBox.Show("Morate odabrati oba datuma!");
+            } 
+            else if (SetRenovationAttributes())
+            {
+                RenovationService service = new RenovationService();
+                service.AddRenovation(renovation);
+                this.Close();
+            }
         }
 
-        private void SetRenovationAttributes()
+        private bool AreDatesChosen()
+        {
+            return startDate.SelectedDate == null || endDate.SelectedDate == null;
+        }
+
+        private bool SetRenovationAttributes()
         {
             renovation.Room = room;
             DateTime start = (DateTime) startDate.SelectedDate;
             renovation.StartDate = new DateTime(start.Year, start.Month, start.Day, 0, 0, 0);
-            DateTime end = (DateTime) endDate.SelectedDate;
-            renovation.EndDate = new DateTime(end.Year, end.Month, end.Day, 0, 0, 0);
+            return SetEndDate();
+        }
+
+        private bool SetEndDate()
+        {
+            DateTime end = (DateTime)endDate.SelectedDate;
+            if (renovation.StartDate > end)
+            {
+                MessageBox.Show("Datum kraja renoviranja mora biti nakon datuma početka renoviranja!");
+                return false;
+            }
+            else
+            {
+                renovation.EndDate = new DateTime(end.Year, end.Month, end.Day, 0, 0, 0);
+                return true;
+            }
         }
 
         private void ClosingWindow(object sender, System.ComponentModel.CancelEventArgs e)

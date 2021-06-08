@@ -20,6 +20,25 @@ namespace IS_Bolnica
             DataContext = director;
 
             roomDataGrid.ItemsSource = service.GetRooms();
+
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+        }
+
+        private void HandleEsc(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                MessageBoxResult messageBox = MessageBox.Show("Da li ste sigurni da želite da se odjavite?",
+                    "Odjava", MessageBoxButton.YesNo);
+                switch (messageBox)
+                {
+                    case MessageBoxResult.Yes:
+                        this.Close();
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                }
+            }
         }
 
         private void AddButtonClicked(object sender, RoutedEventArgs e)
@@ -83,8 +102,7 @@ namespace IS_Bolnica
 
         private void searchKeyUp(object sender, KeyEventArgs e)
         {
-            rooms = service.GetRooms();
-            var filtered = rooms.Where(room => room.RoomPurpose.Name.ToLower().StartsWith(searchBox.Text.ToLower()));
+            var filtered = service.GetSearchedRooms(searchBox.Text.ToLower());
             roomDataGrid.ItemsSource = filtered;
         }
 
@@ -135,6 +153,20 @@ namespace IS_Bolnica
             SeparateRoomWindow sw = new SeparateRoomWindow();
             sw.Show();
             this.Close();
+        }
+
+        private void SignOutButtonClicked(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult messageBox = MessageBox.Show("Da li ste sigurni da želite da se odjavite?",
+                "Odjava", MessageBoxButton.YesNo);
+            switch (messageBox)
+            {
+                case MessageBoxResult.Yes:
+                    this.Close();
+                    break;
+                case MessageBoxResult.No:
+                    break;
+            }
         }
     }
 

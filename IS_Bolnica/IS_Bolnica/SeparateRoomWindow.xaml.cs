@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -34,6 +35,9 @@ namespace IS_Bolnica
             InitializeComponent();
 
             room1Box.ItemsSource = roomService.GetRoomNumbers();
+
+            startDate.Focusable = true;
+            startDate.Focus();
 
             this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
         }
@@ -80,15 +84,53 @@ namespace IS_Bolnica
 
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
-            SetRooms();
-            renovationService.SeparateRoom(room1, selectedStartDate, selectedEndDate, selectedHour, selectedMinute, newRoomNumber);
-            this.Close();
+            if (IsSomethingNull())
+            {
+                MessageBox.Show("Sva polja moraju biti popunjena!");
+            }
+            else if (SetRooms())
+            {
+                CheckRoomNumber();
+            }
+
         }
 
-        private void SetRooms()
+        private bool IsSomethingNull()
+        {
+            return startDate.SelectedDate == null || endDate.SelectedDate == null || room1Box.SelectedItem == null || 
+                   hourBox.SelectedItem == null || minuteBox.SelectedItem == null || roomNumberBox.Text.Equals("");
+        }
+
+        private bool CheckEndDate()
+        {
+            string fullDate = selectedEndDate + " " + selectedHour + ":" + selectedMinute;
+            DateTime fullDateOfChange = Convert.ToDateTime(fullDate);
+            if (endDate.SelectedDate < startDate.SelectedDate || fullDateOfChange <= DateTime.Now)
+            {
+                MessageBox.Show("Datum kraja renoviranja mora biti nakon datuma početka renoviranja!");
+                return false;
+            }
+            return true;
+        }
+
+        private void CheckRoomNumber()
+        {
+            if (roomService.IsRoomNumberUnique(newRoomNumber))
+            {
+                renovationService.SeparateRoom(room1, selectedStartDate, selectedEndDate, selectedHour, selectedMinute, newRoomNumber);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Vec postoji soba sa izabranim brojem!");
+            }
+        }
+
+        private bool SetRooms()
         {
             room1 = roomService.GetRoom((int)room1Box.SelectedItem);
             newRoomNumber = (int)Int64.Parse(roomNumberBox.Text);
+            return CheckEndDate();
         }
 
         private void ClosingWindow(object sender, System.ComponentModel.CancelEventArgs e)
@@ -104,6 +146,17 @@ namespace IS_Bolnica
             string roomNumber = combo.SelectedItem.ToString();
             Room room = roomService.GetRoom((int)Int64.Parse(roomNumber));
             roomBlock.Text = room.HospitalWard + "-" + room.RoomPurpose.Name;
+        }
+
+        private void CancelButtonClicked(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void NumberValidation(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

@@ -846,5 +846,11 @@
   <ItemGroup>
     <Resource Include="DemoMode\merge.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\singOut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\search.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

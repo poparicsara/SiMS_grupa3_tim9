@@ -79,9 +79,8 @@ namespace IS_Bolnica.Services
 
         private int FindIndex(Room room)
         {
-            rooms = GetRooms();
             int index = 0;
-            foreach (Room r in rooms)
+            foreach (Room r in GetRooms())
             {
                 if (r.Id == room.Id)
                 {
@@ -128,6 +127,11 @@ namespace IS_Bolnica.Services
         public bool IsRoomNumberUnique(int roomNumber)
         {
             return repository.IsRoomNumberUnique(roomNumber);
+        }
+
+        public List<Room> GetSearchedRooms(string text)
+        {
+            return repository.GetSearchedRooms(text);
         }
 
     }

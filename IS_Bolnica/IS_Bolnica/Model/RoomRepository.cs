@@ -36,6 +36,24 @@ namespace Model
             return null;
         }
 
+        public List<Room> GetSearchedRooms(string text)
+        {
+            List<Room> searchedRooms = new List<Room>();
+            foreach (var r in rooms)
+            {
+                if (ISearched(text, r))
+                {
+                    searchedRooms.Add(r);
+                }
+            }
+            return searchedRooms;
+        }
+
+        private static bool ISearched(string text, Room r)
+        {
+            return r.HospitalWard.ToLower().StartsWith(text) || r.RoomPurpose.Name.ToLower().StartsWith(text);
+        }
+
         public void AddInventory(Inventory newInvenotory, Room room)
         {
             List<Inventory> inventories = GetRoomInvenotory(room);

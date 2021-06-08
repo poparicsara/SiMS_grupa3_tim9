@@ -1,197 +1,5 @@
 [
   {
-    "Id": 101,
-    "HospitalWard": "Akušerstvo i ginekologija",
-    "Inventory": [
-      {
-        "Name": "Špric",
-        "CurrentAmount": 20,
-        "Minimum": 2,
-        "Id": 101,
-        "InventoryType": 0
-      },
-      {
-        "Name": "Krevet",
-        "CurrentAmount": 17,
-        "Minimum": 2,
-        "Id": 666,
-        "InventoryType": 1
-      },
-      {
-        "Name": "Injekcija",
-        "CurrentAmount": 20,
-        "Minimum": 2,
-        "Id": 202,
-        "InventoryType": 0
-      },
-      {
-        "Name": "Štapić",
-        "CurrentAmount": 20,
-        "Minimum": 2,
-        "Id": 303,
-        "InventoryType": 0
-      }
-    ],
-    "RoomPurpose": {
-      "Name": "Soba"
-    }
-  },
-  {
-    "Id": 102,
-    "HospitalWard": "Ortopedija",
-    "Inventory": [
-      {
-        "Name": "Špric",
-        "CurrentAmount": 20,
-        "Minimum": 2,
-        "Id": 101,
-        "InventoryType": 0
-      },
-      {
-        "Name": "Krevet",
-        "CurrentAmount": 17,
-        "Minimum": 2,
-        "Id": 666,
-        "InventoryType": 1
-      },
-      {
-        "Name": "Injekcija",
-        "CurrentAmount": 20,
-        "Minimum": 2,
-        "Id": 202,
-        "InventoryType": 0
-      },
-      {
-        "Name": "Štapić",
-        "CurrentAmount": 20,
-        "Minimum": 2,
-        "Id": 303,
-        "InventoryType": 0
-      },
-      {
-        "Name": "nesto",
-        "CurrentAmount": 3,
-        "Minimum": 0,
-        "Id": 555,
-        "InventoryType": 0
-      }
-    ],
-    "RoomPurpose": {
-      "Name": "Ordinacija"
-    }
-  },
-  {
-    "Id": 103,
-    "HospitalWard": "Pedijatrija",
-    "Inventory": [
-      {
-        "Name": "Špric",
-        "CurrentAmount": 20,
-        "Minimum": 2,
-        "Id": 101,
-        "InventoryType": 0
-      },
-      {
-        "Name": "Injekcija",
-        "CurrentAmount": 20,
-        "Minimum": 2,
-        "Id": 202,
-        "InventoryType": 0
-      },
-      {
-        "Name": "Štapić",
-        "CurrentAmount": 20,
-        "Minimum": 2,
-        "Id": 303,
-        "InventoryType": 0
-      }
-    ],
-    "RoomPurpose": {
-      "Name": "Operaciona sala"
-    }
-  },
-  {
-    "Id": 707,
-    "HospitalWard": "Pedijatrija",
-    "Inventory": [
-      {
-        "Name": "Špric",
-        "CurrentAmount": 20,
-        "Minimum": 2,
-        "Id": 101,
-        "InventoryType": 0
-      },
-      {
-        "Name": "Injekcija",
-        "CurrentAmount": 21,
-        "Minimum": 2,
-        "Id": 202,
-        "InventoryType": 0
-      },
-      {
-        "Name": "Štapić",
-        "CurrentAmount": 20,
-        "Minimum": 2,
-        "Id": 303,
-        "InventoryType": 0
-      },
-      {
-        "Name": "nesto",
-        "CurrentAmount": 0,
-        "Minimum": 0,
-        "Id": 555,
-        "InventoryType": 0
-      },
-      {
-        "Name": "Krevet",
-        "CurrentAmount": 3,
-        "Minimum": 0,
-        "Id": 666,
-        "InventoryType": 1
-      }
-    ],
-    "RoomPurpose": {
-      "Name": "Ordinacija"
-    }
-  },
-  {
-    "Id": 202,
-    "HospitalWard": "Ortopedija",
-    "Inventory": [
-      {
-        "Name": "Špric",
-        "CurrentAmount": 20,
-        "Minimum": 2,
-        "Id": 101,
-        "InventoryType": 0
-      },
-      {
-        "Name": "Injekcija",
-        "CurrentAmount": 23,
-        "Minimum": 2,
-        "Id": 202,
-        "InventoryType": 0
-      },
-      {
-        "Name": "Štapić",
-        "CurrentAmount": 20,
-        "Minimum": 2,
-        "Id": 303,
-        "InventoryType": 0
-      },
-      {
-        "Name": "Krevet",
-        "CurrentAmount": 0,
-        "Minimum": 0,
-        "Id": 666,
-        "InventoryType": 1
-      }
-    ],
-    "RoomPurpose": {
-      "Name": "Ordinacija"
-    }
-  },
-  {
     "Id": 303,
     "HospitalWard": "Pedijatrija",
     "Inventory": [
@@ -797,7 +605,7 @@
     }
   },
   {
-    "Id": 10,
+    "Id": 8,
     "HospitalWard": "Alergologija i imunologija",
     "Inventory": [],
     "RoomPurpose": {
@@ -805,11 +613,19 @@
     }
   },
   {
-    "Id": 1000,
+    "Id": 9,
     "HospitalWard": "Alergologija i imunologija",
     "Inventory": [],
     "RoomPurpose": {
       "Name": "Ordinacija"
+    }
+  },
+  {
+    "Id": 2,
+    "HospitalWard": "Alergologija i imunologija",
+    "Inventory": null,
+    "RoomPurpose": {
+      "Name": "Soba"
     }
   }
 ]

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -35,6 +36,9 @@ namespace IS_Bolnica
             room1Box.ItemsSource = roomService.GetRoomNumbers();
             room2Box.ItemsSource = roomService.GetRoomNumbers();
 
+            startDate.Focusable = true;
+            startDate.Focus();
+
             this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
         }
 
@@ -48,16 +52,56 @@ namespace IS_Bolnica
 
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
-            SetRooms();
-            renovationService.MergeRooms(room1, room2, selectedStartDate, selectedEndDate, selectedHour, selectedMinute, newRoomNumber);
-            this.Close();
+            if (IsSomethingNull())
+            {
+                MessageBox.Show("Sva polja moraju biti popunjena!");
+            }
+            else if (SetRooms())
+            {
+                if (CheckRooms())
+                {
+                    CheckRoomNumber();
+                }
+            }
         }
 
-        private void SetRooms()
+        private bool CheckRooms()
+        {
+            if (room1.Id == room2.Id)
+            {
+                MessageBox.Show("Morate izabrati dve razlicite prostorije!");
+                return false;
+            }
+            return true;
+        }
+
+        private void CheckRoomNumber()
+        {
+            if (roomService.IsRoomNumberUnique(newRoomNumber))
+            {
+                renovationService.MergeRooms(room1, room2, selectedStartDate, selectedEndDate, selectedHour, selectedMinute, newRoomNumber);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Vec postoji soba sa izabranim brojem!");
+            }
+        }
+
+        private bool IsSomethingNull()
+        {
+            return startDate.SelectedDate == null || endDate.SelectedDate == null || room1Box.SelectedItem == null ||
+                   room2Box.SelectedItem == null || hourBox.SelectedItem == null || minuteBox.SelectedItem == null || 
+                   roomNumberBox.Text.Equals("");
+        }
+
+        private bool SetRooms()
         {
             room1 = roomService.GetRoom((int) room1Box.SelectedItem);
+            room2Box.IsEnabled = true;
             room2 = roomService.GetRoom((int) room2Box.SelectedItem);
             newRoomNumber = (int) Int64.Parse(roomNumberBox.Text);
+            return CheckEndDate();
         }
 
         private void SetStartDate(object sender, SelectionChangedEventArgs e)
@@ -74,6 +118,18 @@ namespace IS_Bolnica
             string fullDate = endDate.SelectedDate.ToString();
             string[] dateParts = fullDate.Split(' ');
             selectedEndDate = dateParts[0];
+        }
+
+        private bool CheckEndDate()
+        {
+            string fullDate = selectedEndDate + " " + selectedHour + ":" + selectedMinute;
+            DateTime fullDateOfChange = Convert.ToDateTime(fullDate);
+            if (endDate.SelectedDate < startDate.SelectedDate || fullDateOfChange <= DateTime.Now)
+            {
+                MessageBox.Show("Datum kraja renoviranja mora biti nakon datuma početka renoviranja!");
+                return false;
+            }
+            return true;
         }
 
         private void SetHour(object sender, SelectionChangedEventArgs e)
@@ -113,6 +169,17 @@ namespace IS_Bolnica
             string roomNumber = combo.SelectedItem.ToString();
             Room room = roomService.GetRoom((int)Int64.Parse(roomNumber));
             room2Block.Text = room.HospitalWard + "-" + room.RoomPurpose.Name;
+        }
+
+        private void NumberValidation(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void CancelButtonClicked(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

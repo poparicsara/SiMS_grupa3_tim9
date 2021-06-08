@@ -8,21 +8,18 @@
         mc:Ignorable="d"
         Title="RenovationWindow" Height="655" Width="700" Closing="ClosingWindow" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Label Content="Datum početka:" HorizontalAlignment="Left" Margin="145,236,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="Datum kraja:" HorizontalAlignment="Left" Margin="145,331,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Datum početka:" HorizontalAlignment="Left" Margin="135,197,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Datum kraja:" HorizontalAlignment="Left" Margin="135,292,0,0" VerticalAlignment="Top" FontSize="16"/>
 
-        <Label Content="ZAKAZIVANJE RENOVIRANJA PROSTORIJE" HorizontalAlignment="Left" Margin="93,40,0,0" VerticalAlignment="Top" FontSize="26" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black"/>
-        <Button Content="SPAJANJE PROSTORIJA" HorizontalAlignment="Left" Margin="29,128,0,0" VerticalAlignment="Top" 
-            Width="191" Height="38" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" BorderBrush="Black" FontSize="16"/>
-        <Button Content="RAZDVAJANJE PROSTORIJE" HorizontalAlignment="Left" Margin="251,128,0,0" VerticalAlignment="Top" 
-            Width="236" Height="38" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" BorderBrush="Black" FontSize="16"/>
-        <DatePicker Name="startDate" IsTabStop="True" DisplayDateStart="{x:Static sys:DateTime.Today}" HorizontalAlignment="Left" Margin="384,241,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <DatePicker Name="endDate" IsTabStop="True" DisplayDateStart="{x:Static sys:DateTime.Today}" HorizontalAlignment="Left" Margin="384,334,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="ZAKAZIVANJE RENOVIRANJA PROSTORIJE" HorizontalAlignment="Left" Margin="83,39,0,0" VerticalAlignment="Top" FontSize="26" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black"/>
+        <DatePicker Name="startDate" IsTabStop="True" Width="182" Height="32" DisplayDateStart="{x:Static sys:DateTime.Today}" HorizontalAlignment="Left" Margin="374,202,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <DatePicker Name="endDate" IsTabStop="True" Width="182" Height="32" DisplayDateStart="{x:Static sys:DateTime.Today}" HorizontalAlignment="Left" Margin="374,295,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Button Content="POTVRDI" HorizontalAlignment="Left" Margin="384,475,0,0" VerticalAlignment="Top" 
                 Width="107" Height="38" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" BorderBrush="Black" 
                 Click="DoneButtonClicked" FontSize="16"/>
         <Button Content="ODUSTANI" HorizontalAlignment="Left" Margin="211,475,0,0" VerticalAlignment="Top" 
-                Width="107" Height="38" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" BorderBrush="Black" FontSize="16" Click="CancelButtonClicked"/>
-        
+                Width="107" Height="38" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" BorderBrush="Black" FontSize="16" 
+                Click="CancelButtonClicked"/>
+
     </Grid>
 </Window>
