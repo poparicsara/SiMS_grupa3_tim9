@@ -1,0 +1,10 @@
+<FileList>
+
+<File Reference="Syncfusion.SfRadialMenu.WPF.dll">
+	<ContainsControls>True</ContainsControls>
+	<ToolboxItems UIFramework="WPF" VSCategory="Syncfusion Controls for WPF" BlendCategory="Syncfusion Controls for WPF">
+		<Item Type="Syncfusion.Windows.Controls.Navigation.SfRadialMenu"/>
+		<Item Type="Syncfusion.Windows.Controls.Navigation.SfRadialSlider"/>
+	</ToolboxItems>
+</File>
+</FileList>

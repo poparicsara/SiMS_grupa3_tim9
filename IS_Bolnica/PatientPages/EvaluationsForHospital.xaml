@@ -1,0 +1,54 @@
+﻿<Page x:Class="IS_Bolnica.PatientPages.EvaluationsForHospital"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IS_Bolnica.PatientPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="470" d:DesignWidth="689"
+      Title="EvaluationsForHospital">
+
+    <Grid>
+        <Frame NavigationUIVisibility="Hidden" Height="470" VerticalAlignment="Top" Margin="1,0,-0.2,0" Name="StartFrame" HorizontalAlignment="Left" Width="689"/>
+        <Button Click="BackButtonClicked" Margin="549,33,22.8,390.4" Background="white" >
+            <StackPanel Orientation="Horizontal">
+                <Image Source="back.png" Stretch="Fill" Height="30" Width="36" />
+                <Label Content="Back" FontSize="16" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="48"/>
+            </StackPanel>
+        </Button>
+        <DataGrid AutoGenerateColumns="False" 
+          Height="258" 
+          Width="621"
+          ColumnHeaderHeight="30"
+          ColumnWidth="188.33"
+          FontSize="15"
+          HorizontalAlignment="Center" 
+          Name="OceneBolniceDataBinding"
+          IsReadOnly="True"
+          VerticalAlignment="Center" Margin="45,173,22.8,39.4" >
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FF4E8E73"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="Height" Value="30"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Ime bolnice i grad" Binding="{ Binding Bolnica}" />
+                <DataGridTextColumn Header="Ocena" Binding="{ Binding Assessment}" />
+                <DataGridTextColumn Width="244.34" Header="Komentar" Binding="{ Binding Comment }" />
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Label Content="Vase dosadasnje ocene bolnice" FontSize="26" HorizontalAlignment="Left" Height="54" Margin="131,66,0,0" VerticalAlignment="Top" Width="392"/>
+        <Image Source="nasLogo.jpg" Stretch="Fill" Margin="24,10,609.8,404.4"/>
+        <Label Content="Zdravo bolnica" HorizontalAlignment="Left" Height="27" Margin="10,66,0,0" VerticalAlignment="Top" Width="93"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" Width="197" Margin="45,140,0,0" >
+            <Image Source="search.jpg" Stretch="Fill" Height="33" Width="46"  Margin="0,0,0,-0.2"  />
+            <TextBox KeyUp="SearchKeyUp" FontSize="20" Margin="0,0,0,-0.2" Width="150" Name="SearchBox"/>
+        </StackPanel>
+    </Grid>
+</Page>

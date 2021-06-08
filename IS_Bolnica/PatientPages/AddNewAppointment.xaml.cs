@@ -1,0 +1,88 @@
+﻿using IS_Bolnica.Model;
+using IS_Bolnica.Services;
+using Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace IS_Bolnica.PatientPages
+{
+    /// <summary>
+    /// Interaction logic for AddNewAppointment.xaml
+    /// </summary>
+    public partial class AddNewAppointment : Page
+    {
+        private DoctorService doctorService = new DoctorService();
+        private FindAttributesService findAttributesService = new FindAttributesService();
+        private AppointmentService appointmentService = new AppointmentService();
+        public List<String> doctors { get; set; }
+        public AddNewAppointment()
+        {
+            doctors = doctorService.GetDoctorNamesWithSpecialization();
+
+            DataContext = this;
+
+            InitializeComponent();
+        }
+
+        private void BackButtonClicked(object sender, RoutedEventArgs e)
+        {
+            PatientWindow.MyFrame.NavigationService.Navigate(new MyAppointments());
+        }
+
+        private void ButtonZakaziClicked(object sender, RoutedEventArgs e)
+        {
+            if (findAttributesService.checkComboBoxes(DoctorCombo.Text, hourBox.Text, minutesBox.Text) && findAttributesService.checkDatePicker(Datum.Text))
+            {
+                if (!appointmentService.processActions())
+                    AddAppointment();
+                else
+                    PatientWindow.MyFrame.NavigationService.Navigate(new InformationPage("UPOZORENJE!", "Najvise 6 akcija nad pregledima mozete izvrsiti prilikom logovanja!"));
+            } 
+            else
+                PatientWindow.MyFrame.NavigationService.Navigate(new InformationPage("UPOZORENJE!", "Nisu popunjena sva neophodna polja!"));
+        }
+
+        private void AddAppointment() {
+            Doctor doctor = findAttributesService.findDoctor(Regex.Replace(DoctorCombo.Text.Split('(')[0].Split()[0], @"[^0-9a-zA-Z\ ]+", ""),
+                Regex.Replace(DoctorCombo.Text.Split('(')[0].Split()[1], @"[^0-9a-zA-Z\ ]+", ""));
+            DateTime dateOfAppointment = findAttributesService.returnSelectedDate((DateTime)Datum.SelectedDate, hourBox.Text, minutesBox.Text);
+
+            if (!appointmentService.isSelectedDateFree(dateOfAppointment, doctor))
+            {
+                Random rnd = new Random();
+                int duration = rnd.Next(23, 29);
+                Patient patient = findAttributesService.findPatientByUsername(PatientWindow.username_patient);
+                Room room = findAttributesService.findRoomByDoctor(doctor);
+                Appointment appointment = new Appointment { DurationInMins = duration, Doctor = doctor, StartTime = dateOfAppointment, EndTime = dateOfAppointment.AddMinutes(30), Patient = patient, Room = room };
+                appointmentService.AddAppointment(appointment);
+                PatientWindow.MyFrame.NavigationService.Navigate(new MyAppointments());
+            }
+            else
+                PatientWindow.MyFrame.NavigationService.Navigate(new InformationPage("UPOZORENJE!", "Termin kod označenog doktora je zauzet!"));
+        }
+
+        private void ButtonOdustaniClicked(object sender, RoutedEventArgs e)
+        { 
+            PatientWindow.MyFrame.NavigationService.Navigate(new MyAppointments());
+        }
+
+        private void ButtonPredloziClicked(object sender, RoutedEventArgs e)
+        {
+            PatientWindow.MyFrame.NavigationService.Navigate(new Suggestions(DoctorCombo.Text, Datum.Text));
+        }
+
+    }
+}
