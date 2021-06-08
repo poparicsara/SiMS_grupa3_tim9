@@ -57,12 +57,11 @@ namespace IS_Bolnica.DoctorUI
         private void BackButtonClick(object sender, RoutedEventArgs e)
         {
             MessageBoxResult messageBox = MessageBox.Show("Da li ste sigurni da želite da izađete?",
-                "Izmena operacije", MessageBoxButton.YesNo);
+                "Hospitalizacija", MessageBoxButton.YesNo);
 
             switch (messageBox)
             {
                 case MessageBoxResult.Yes:
-
                     this.Close();
                     break;
                 case MessageBoxResult.No:
@@ -79,17 +78,23 @@ namespace IS_Bolnica.DoctorUI
 
         private void OperationButtonClick(object sender, RoutedEventArgs e)
         {
-            this.Show();
+            OperationsWindow operationsWindow = new OperationsWindow();
+            operationsWindow.Show();
+            this.Close();
         }
 
         private void NotificationsButtonClick(object sender, RoutedEventArgs e)
         {
-
+            NotificationsWindow notificationsWindow = new NotificationsWindow();
+            notificationsWindow.Show();
+            this.Close();
         }
 
         private void StatisticsButtonClick(object sender, RoutedEventArgs e)
         {
-
+            ChartWindow chartWindow = new ChartWindow();
+            chartWindow.Show();
+            this.Close();
         }
 
         private void SingOutButtonClick(object sender, RoutedEventArgs e)

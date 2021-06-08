@@ -45,7 +45,7 @@ namespace IS_Bolnica.DoctorUI
 
         private void NotificationsButtonClick(object sender, RoutedEventArgs e)
         {
-            NotificationsWindow notificationsWindow = new NotificationsWindow(this.loggedUser);
+            NotificationsWindow notificationsWindow = new NotificationsWindow();
             notificationsWindow.Show();
             this.Close();
 

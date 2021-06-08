@@ -25,39 +25,19 @@
             <Label Content="Ordinacija:" HorizontalAlignment="Left" Margin="28,323,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="114"/>
             <Label Content="Kratak opis pregleda:" HorizontalAlignment="Left" Margin="28,382,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="169"/>
             <TextBox Name="patientTxt" HorizontalAlignment="Left" Height="23" Margin="281,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}">
-                <TextBox.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="7"/>
-                    </Style>
-                </TextBox.Resources>
+
             </TextBox>
             <TextBox Name="patinetIdTxt" HorizontalAlignment="Left" Height="23" Margin="281,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" LostFocus="IdTextFieldLostFocus" BorderBrush="{x:Null}">
-                <TextBox.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="7"/>
-                    </Style>
-                </TextBox.Resources>
+
             </TextBox>
             <TextBox Name="healthCardNumTxt" HorizontalAlignment="Left" Height="23" Margin="281,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}">
-                <TextBox.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="7"/>
-                    </Style>
-                </TextBox.Resources>
+
             </TextBox>
             <TextBox Name="ordinationTxt" HorizontalAlignment="Left" Height="23" Margin="281,330,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}">
-                <TextBox.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="7"/>
-                    </Style>
-                </TextBox.Resources>
+
             </TextBox>
             <TextBox Name="descriptionTxt" HorizontalAlignment="Left" Height="23" Margin="281,389,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}">
-                <TextBox.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="7"/>
-                    </Style>
-                </TextBox.Resources>
+
             </TextBox>
             <DatePicker Name="examinationDate" HorizontalAlignment="Left" Margin="281,167,0,0" VerticalAlignment="Top" Width="150" Height="29" BorderBrush="{x:Null}" DisplayDateStart="{x:Static sys:DateTime.Today}"/>
             <ComboBox Name="hoursCB" HorizontalAlignment="Left" Margin="281,222,0,0" VerticalAlignment="Top" Width="65"/>

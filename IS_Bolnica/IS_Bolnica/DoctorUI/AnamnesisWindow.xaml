@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="AnamnesisWindow" Height="768" Width="1024" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Label Content="Zdravstveni karton" HorizontalAlignment="Left" Margin="178,23,0,0" VerticalAlignment="Top" Width="405" FontFamily="Malgun Gothic" FontSize="30" FontWeight="Bold" Height="71"/>
+        <Label Content="Anamneza" HorizontalAlignment="Left" Margin="178,23,0,0" VerticalAlignment="Top" Width="405" FontFamily="Malgun Gothic" FontSize="30" FontWeight="Bold" Height="71"/>
         <Button HorizontalAlignment="Left" Margin="105,23,0,0" VerticalAlignment="Top" Width="68" Height="53" BorderBrush="{x:Null}" Background="{x:Null}" Click="BackButtonClick">
             <StackPanel Background="Transparent">
                 <Image Source="../Images/back.png" Width="30" Height="30"/>

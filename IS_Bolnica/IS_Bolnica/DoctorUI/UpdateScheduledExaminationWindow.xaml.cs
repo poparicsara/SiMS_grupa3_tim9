@@ -75,12 +75,16 @@ namespace IS_Bolnica.DoctorUI
 
         private void NotificationsButtonClick(object sender, RoutedEventArgs e)
         {
-
+            NotificationsWindow notificationsWindow = new NotificationsWindow();
+            notificationsWindow.Show();
+            this.Close();
         }
 
         private void StatisticsButtonClick(object sender, RoutedEventArgs e)
         {
-
+            ChartWindow chartWindow = new ChartWindow();
+            chartWindow.Show();
+            this.Close();
         }
 
         private void SingOutButtonClick(object sender, RoutedEventArgs e)

@@ -4,9 +4,6 @@
     "Name": "Alopurinol",
     "Ingredients": [
       {
-        "Name": "Alopurinol"
-      },
-      {
         "Name": "Kukuruzni skrob"
       },
       {
@@ -20,13 +17,46 @@
       },
       {
         "Name": "Magnezijum-stearat"
+      },
+      {
+        "Name": "Lizin"
       }
     ],
     "Replacement": {
-      "Id": 102,
-      "Name": "ESBESUL",
+      "Id": 104,
+      "Name": "Bactim roche",
       "Ingredients": null,
-      "Replacement": null,
+      "Replacement": {
+        "Id": 101,
+        "Name": "Alopurinol",
+        "Ingredients": [
+          {
+            "Name": "Kukuruzni skrob"
+          },
+          {
+            "Name": "Celuloza"
+          },
+          {
+            "Name": "Natrijum-skrobglikolat"
+          },
+          {
+            "Name": "Talk"
+          },
+          {
+            "Name": "Magnezijum-stearat"
+          }
+        ],
+        "Replacement": {
+          "Id": 102,
+          "Name": "ESBESUL",
+          "Ingredients": null,
+          "Replacement": null,
+          "Producer": "Bayer",
+          "Status": 0
+        },
+        "Producer": "Bayer",
+        "Status": 0
+      },
       "Producer": "Bayer",
       "Status": 0
     },
@@ -64,19 +94,35 @@
   {
     "Id": 104,
     "Name": "Bactim roche",
-    "Ingredients": [
-      {
-        "Name": "Sulfametoksazol"
-      },
-      {
-        "Name": "Trimetoprim"
-      }
-    ],
+    "Ingredients": null,
     "Replacement": {
-      "Id": 102,
-      "Name": "ESBESUL",
-      "Ingredients": null,
-      "Replacement": null,
+      "Id": 101,
+      "Name": "Alopurinol",
+      "Ingredients": [
+        {
+          "Name": "Kukuruzni skrob"
+        },
+        {
+          "Name": "Celuloza"
+        },
+        {
+          "Name": "Natrijum-skrobglikolat"
+        },
+        {
+          "Name": "Talk"
+        },
+        {
+          "Name": "Magnezijum-stearat"
+        }
+      ],
+      "Replacement": {
+        "Id": 102,
+        "Name": "ESBESUL",
+        "Ingredients": null,
+        "Replacement": null,
+        "Producer": "Bayer",
+        "Status": 0
+      },
       "Producer": "Bayer",
       "Status": 0
     },

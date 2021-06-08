@@ -51,7 +51,7 @@
         <DataGrid x:Name="medsDataGrid" HorizontalAlignment="Left" Height="412" Margin="192,169,0,0" VerticalAlignment="Top"
             Width="639" BorderBrush="{x:Null}" Foreground="Black" FontSize="14" FontFamily="Malgun Gothic" FontWeight="Bold" 
             Background="White" SelectionMode="Single" CanUserReorderColumns="False" CanUserResizeColumns="False" 
-            IsReadOnly="True" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Disabled" CanUserResizeRows="False">
+            IsReadOnly="True" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Disabled" CanUserResizeRows="False" HeadersVisibility="Column">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FF3F5038"/>

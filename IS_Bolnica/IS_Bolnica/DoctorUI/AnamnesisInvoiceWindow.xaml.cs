@@ -18,10 +18,17 @@ namespace IS_Bolnica.DoctorUI
     public partial class AnamnesisInvoiceWindow : Window
     {
         private Anamnesis anamnesis;
-        public AnamnesisInvoiceWindow(Anamnesis anamnesis)
+        private Appointment examination;
+        private List<Appointment> loggedAppointments;
+        private int selectedIndex;
+        public AnamnesisInvoiceWindow(Anamnesis anamnesis, Appointment examination, List<Appointment> loggedAppointments, int selectedPatient)
         {
             InitializeComponent();
             this.anamnesis = anamnesis;
+            this.loggedAppointments = loggedAppointments;
+            this.selectedIndex = selectedPatient;
+            this.examination = examination;
+
             this.patientTxt.Text = anamnesis.Patient.Name + ' ' + anamnesis.Patient.Surname;
             this.dateOfBirthTxt.Text = anamnesis.Patient.DateOfBirth.ToString("dd/MM/yyyy");
             this.idTxt.Text = anamnesis.Patient.Id;
@@ -49,6 +56,15 @@ namespace IS_Bolnica.DoctorUI
             {
                 this.IsEnabled = true;
             }
+        }
+
+        private void BackButtonClick(object sender, RoutedEventArgs e)
+        {
+            AnamnesisWindow anamnesisWindow = new AnamnesisWindow(examination, loggedAppointments, selectedIndex);
+            anamnesisWindow.symptomsTxt.Text = anamnesis.Symptoms;
+            anamnesisWindow.diagnosisTxt.Text = anamnesis.Diagnosis;
+            anamnesisWindow.Show();
+            this.Close();
         }
     }
 }

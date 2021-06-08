@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="AnamnesisInvoiceWindow" Height="768" Width="1024" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Label Content="Izveštaj o anamnezi" HorizontalAlignment="Left" Margin="385,10,0,0" VerticalAlignment="Top" Height="41" Width="296" FontSize="20" FontWeight="Bold"/>
+        <Label Content="Izveštaj o anamnezi" HorizontalAlignment="Left" Margin="396,23,0,0" VerticalAlignment="Top" Height="41" Width="296" FontSize="20" FontWeight="Bold"/>
         <Label Content="&quot;Zdravo&quot; korporacija&#xA;" HorizontalAlignment="Left" Margin="673,89,0,0" VerticalAlignment="Top" Height="35" Width="190" FontSize="14" FontWeight="Bold"/>
         <Label Content="Trg Dositeja Obradovića 6, Novi Sad&#xA;" HorizontalAlignment="Left" Margin="588,104,0,0" VerticalAlignment="Top" Height="32" Width="275" FontSize="14"/>
         <Label Content="Ime i prezime osiguranog lica:&#xA;" HorizontalAlignment="Left" Margin="135,173,0,0" VerticalAlignment="Top" Height="35" Width="242" FontSize="13" FontWeight="Bold"/>
@@ -28,7 +28,16 @@
         <TextBox x:Name="sympthomsTxt" HorizontalAlignment="Left" Height="23" Margin="414,408,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="314" BorderBrush="{x:Null}" IsReadOnly="True"/>
         <TextBox x:Name="diagnosisTxt" HorizontalAlignment="Left" Height="79" Margin="414,448,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="278" BorderBrush="{x:Null}" IsReadOnly="True"/>
         <Label Content="(M.P)" HorizontalAlignment="Left" Margin="645,675,0,0" VerticalAlignment="Top" Height="32" Width="167"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="858,36,0,0" VerticalAlignment="Top" Width="75" Click="PrintButtonClick"/>
+        <Button HorizontalAlignment="Left" Margin="938,28,0,0" VerticalAlignment="Top" Width="45" Click="PrintButtonClick" Height="36" Background="{x:Null}" BorderBrush="{x:Null}">
+            <StackPanel>
+                <Image Source="../Images/printer.png" Width="30" Height="30"/>
+            </StackPanel>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" Width="60" Height="41" BorderBrush="{x:Null}" Background="{x:Null}" Click="BackButtonClick">
+            <StackPanel Background="Transparent">
+                <Image Source="../Images/back.png" Width="30" Height="30"/>
+            </StackPanel>
+        </Button>
 
     </Grid>
 </Window>

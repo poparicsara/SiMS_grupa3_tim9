@@ -32,7 +32,7 @@
         <DataGrid Name="operationsDataGrid" HorizontalAlignment="Left" Height="412" Margin="157,174,0,0" VerticalAlignment="Top"
                   Width="788" BorderBrush="{x:Null}" Foreground="Black" FontSize="14" FontFamily="Malgun Gothic" FontWeight="Bold" 
                   Background="White" SelectionMode="Single" CanUserReorderColumns="False" CanUserResizeColumns="False" 
-                  IsReadOnly="True" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Disabled" CanUserResizeRows="False" Grid.RowSpan="2">
+                  IsReadOnly="True" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Disabled" CanUserResizeRows="False" Grid.RowSpan="2" HeadersVisibility="Column">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FF3F5038"/>

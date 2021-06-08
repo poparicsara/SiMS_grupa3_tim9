@@ -143,6 +143,9 @@
     <Compile Include="DoctorUI\ProlongTreatmentWindow.xaml.cs">
       <DependentUpon>ProlongTreatmentWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DoctorUI\ReviewMedRequestWindow.xaml.cs">
+      <DependentUpon>ReviewMedRequestWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DoctorUI\ScheduleExaminationWindow.xaml.cs">
       <DependentUpon>ScheduleExaminationWindow.xaml</DependentUpon>
     </Compile>
@@ -555,6 +558,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DoctorUI\ProlongTreatmentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DoctorUI\ReviewMedRequestWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1035,6 +1042,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\pharmacy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\printer.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

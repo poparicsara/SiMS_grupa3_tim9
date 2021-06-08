@@ -52,5 +52,15 @@ namespace IS_Bolnica.DoctorUI
                 this.IsEnabled = true;
             }
         }
+
+        private void BackButtonClick(object sender, RoutedEventArgs e)
+        {
+            CreatePrescriptionWindow createPrescriptionWindow = new CreatePrescriptionWindow(prescription.Anamnesis);
+            createPrescriptionWindow.medTxt.Text = prescription.Therapy.MedicationName;
+            createPrescriptionWindow.doseTxt.Text = prescription.Therapy.Dose.ToString();
+            createPrescriptionWindow.Show();
+            this.Close();
+
+        }
     }
 }

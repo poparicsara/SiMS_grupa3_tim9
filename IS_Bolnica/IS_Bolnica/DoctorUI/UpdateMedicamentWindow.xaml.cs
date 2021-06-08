@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,8 +25,8 @@ namespace IS_Bolnica.DoctorUI
         private MedicamentService medicamentService = new MedicamentService();
         private IngredientService ingredientService = new IngredientService();
         private Point startPoint = new Point();
-        public List<Ingredient> MedIngredients { get; set; }
-        public List<Ingredient> AllIngredients { get; set; }
+        public ObservableCollection<Ingredient> MedIngredients { get; set; }
+        public ObservableCollection<Ingredient> AllIngredients { get; set; }
         public UpdateMedicamentWindow(Medicament medicament)
         {
             InitializeComponent();
@@ -41,19 +42,9 @@ namespace IS_Bolnica.DoctorUI
             }
 
             replacementsCB.ItemsSource = medicamentService.ShowMedicamentReplacements();
-            ingredientsDataGrid.ItemsSource = selectedMedication.Ingredients;
-            //allIngredientsDataGrid.ItemsSource = ingredientService.GetAllIngredients();
-            //ingredientsLV.ItemsSource = ingredientService.GetAllIngredients();
-            //foreach (Ingredient ingredient in selectedMedication.Ingredients)
-            //{
-            //    medIngredientsLV.Items.Add(ingredient.Name);
-            //}
-            //foreach (Ingredient ingredient in ingredientService.GetAllIngredients())
-            //{
-            //    ingredientsLV.Items.Add(ingredient.Name);
-            //}
-            MedIngredients = selectedMedication.Ingredients;
-            AllIngredients = ingredientService.GetAllIngredients();
+
+            AllIngredients = new ObservableCollection<Ingredient>(ingredientService.GetAllIngredients());
+            MedIngredients = new ObservableCollection<Ingredient>(selectedMedication.Ingredients);
         }
 
         private void ConfirmButtonClick(object sender, RoutedEventArgs e)
@@ -62,6 +53,7 @@ namespace IS_Bolnica.DoctorUI
             updatedMedicament.Name = nameTxt.Text;
             updatedMedicament.Producer = producerTxt.Text;
             updatedMedicament.Replacement = medicamentService.SetMedicamentReplacement(replacementsCB.SelectedItem.ToString());
+            updatedMedicament.Ingredients = new List<Ingredient>(MedIngredients);
 
             int index = medicamentService.GetIndexOfOldMedicament(selectedMedication);
             medicamentService.UpdateMedicament(updatedMedicament, index);
@@ -70,34 +62,23 @@ namespace IS_Bolnica.DoctorUI
             medicamentsWindow.Show();
             this.Close();
         }
-        private void DeleteIngredientButtonClick(object sender, RoutedEventArgs e)
-        {
-            int index = ingredientsDataGrid.SelectedIndex;
-            Ingredient ingredient = (Ingredient)ingredientsDataGrid.SelectedItem;
-            Medicament newMedicament = new Medicament();
 
-            if (index == -1)
-            {
-                MessageBox.Show("Niste izabrali sastojak koji želite da obrišete!");
-            }
-            else
-            {
-                ingredientService.RemoveIngredientFromMedicament(selectedMedication, ingredient);
-                newMedicament = selectedMedication;
-                int idx = medicamentService.GetIndexOfOldMedicament(selectedMedication);
-                medicamentService.UpdateMedicament(newMedicament, idx);
-            }
-            this.Close();
-        }
-
-        private void AddIngredientButtonClick(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void BackButtonClick(object sender, RoutedEventArgs e)
         {
+            MessageBoxResult messageBox = MessageBox.Show("Da li ste sigurni da želite da izađete?",
+                "Izmena leka", MessageBoxButton.YesNo);
 
+            switch (messageBox)
+            {
+                case MessageBoxResult.Yes:
+                    MedicamentsWindow medicamentsWindow = new MedicamentsWindow();
+                    medicamentsWindow.Show();
+                    this.Close();
+                    break;
+                case MessageBoxResult.No:
+                    break;
+            }
         }
 
         private void ExaminationsButtonClick(object sender, RoutedEventArgs e)
@@ -116,12 +97,16 @@ namespace IS_Bolnica.DoctorUI
 
         private void NotificationsButtonClick(object sender, RoutedEventArgs e)
         {
-
+            NotificationsWindow notificationsWindow = new NotificationsWindow();
+            notificationsWindow.Show();
+            this.Close();
         }
 
         private void StatisticsButtonClick(object sender, RoutedEventArgs e)
         {
-
+            ChartWindow chartWindow = new ChartWindow();
+            chartWindow.Show();
+            this.Close();
         }
 
         private void SingOutButtonClick(object sender, RoutedEventArgs e)
@@ -132,7 +117,7 @@ namespace IS_Bolnica.DoctorUI
 
         private void SettingsButtonClick(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void MedicamentsButtonClick(object sender, RoutedEventArgs e)
@@ -142,12 +127,12 @@ namespace IS_Bolnica.DoctorUI
             this.Close();
         }
 
-        private void MedIngredientsLV_OnPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void AllIngredients_OnPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             startPoint = e.GetPosition(null);
         }
 
-        private void MedIngredientsLV_OnMouseMove(object sender, MouseEventArgs e)
+        private void AllIngredients_OnMouseMove(object sender, MouseEventArgs e)
         {
             Point mousePos = e.GetPosition(null);
             Vector diff = startPoint - mousePos;
@@ -182,7 +167,7 @@ namespace IS_Bolnica.DoctorUI
             return null;
         }
 
-        private void ListView_DragOver(object sender, DragEventArgs e)
+        private void MedIngredients_DragOver(object sender, DragEventArgs e)
         {
             if (!e.Data.GetDataPresent("myFormat") || e.Source == sender)
             {
@@ -190,19 +175,57 @@ namespace IS_Bolnica.DoctorUI
             }
         }
 
-        private void ListView_Drop(object sender, DragEventArgs e)
+        private void MedIngredients_Drop(object sender, DragEventArgs e)
         {
-            Medicament newMedicament = new Medicament();
             if (e.Data.GetDataPresent("myFormat"))
             {
                 Ingredient ingredient = e.Data.GetData("myFormat") as Ingredient;
                 AllIngredients.Remove(ingredient);
                 MedIngredients.Add(ingredient);
+            }
+        }
 
-                ingredientService.RemoveIngredientFromMedicament(selectedMedication, ingredient);
-                newMedicament = selectedMedication;
-                int idx = medicamentService.GetIndexOfOldMedicament(selectedMedication);
-                medicamentService.UpdateMedicament(newMedicament, idx);
+        private void AllIngredientsLV_OnDragOver(object sender, DragEventArgs e)
+        {
+            if (!e.Data.GetDataPresent("myFormat") || e.Source == sender)
+            {
+                e.Effects = DragDropEffects.None;
+            }
+        }
+
+        private void AllIngredientsLV_OnDrop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent("myFormat"))
+            {
+                Ingredient ingredient = e.Data.GetData("myFormat") as Ingredient;
+                MedIngredients.Remove(ingredient);
+                AllIngredients.Add(ingredient);
+            }
+        }
+
+        private void MedIngredientsLV_OnPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            startPoint = e.GetPosition(null);
+        }
+
+        private void MedIngredientsLV_OnMouseMove(object sender, MouseEventArgs e)
+        {
+            Point mousePos = e.GetPosition(null);
+            Vector diff = startPoint - mousePos;
+
+            if (e.LeftButton == MouseButtonState.Pressed &&
+                (Math.Abs(diff.X) > SystemParameters.MinimumHorizontalDragDistance
+                 || Math.Abs(diff.Y) > SystemParameters.MinimumVerticalDragDistance))
+            {
+                ListView listView = sender as ListView;
+                ListViewItem listViewItem = FindAncestor<ListViewItem>((DependencyObject)e.OriginalSource);
+
+                if (listViewItem == null) return;
+
+                Ingredient ingredient = (Ingredient)listView.ItemContainerGenerator.ItemFromContainer(listViewItem);
+
+                DataObject dragData = new DataObject("myFormat", ingredient);
+                DragDrop.DoDragDrop(listViewItem, dragData, DragDropEffects.Move);
             }
         }
     }
