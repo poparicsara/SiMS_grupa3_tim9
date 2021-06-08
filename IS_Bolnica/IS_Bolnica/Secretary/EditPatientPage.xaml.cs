@@ -132,5 +132,16 @@ namespace IS_Bolnica.Secretary
 
             return user1;
         }
+
+        private void EditAllergens_Clicked(object sender, RoutedEventArgs e)
+        {
+            if (id.Text.Equals(""))
+            {
+                MessageBox.Show("Niste uneli id pacijenta!");
+                return;
+            }
+            AllergenManipulation am = new AllergenManipulation(this, id.Text);
+            this.NavigationService.Navigate(am);
+        }
     }
 }

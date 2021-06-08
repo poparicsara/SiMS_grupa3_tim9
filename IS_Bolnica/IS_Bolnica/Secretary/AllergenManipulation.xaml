@@ -16,20 +16,25 @@
         </Button>
         <Label Content="ZDRAVO KORPORACIJA" FontSize="20" Foreground="Green" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,14,0,0" Height="35" Width="235" Grid.ColumnSpan="2"/>
         <Image x:Name="nasLogo" HorizontalAlignment="Left" Height="48" Margin="366,10,0,0" VerticalAlignment="Top" Width="48" Source="C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\Images\nasLogo.jpg"/>
-        <Label Content="ALERGENI" FontWeight="Bold"  Foreground="Green" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,75,0,0" Width="299" Height="48"/>
-        <ListView x:Name="AllAllergens" HorizontalAlignment="Left" Height="134" Margin="40,181,0,0" VerticalAlignment="Top" Width="342" SelectionChanged="ListView_SelectionChanged">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
+        <Label Content="ALERGENI" FontWeight="Bold"  Foreground="Green" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,75,0,0" Width="299" Height="48"/>
+        <ListView x:Name="AllAllergens" ItemsSource="{Binding  IngredientsAll}" AllowDrop="True" DragOver="AllAllergens_OnDragOver" Drop="AllAllergens_OnDrop" PreviewMouseLeftButtonDown="AllAllergens_OnPreviewMouseLeftButtonDown" MouseMove="AllAllergens_OnMouseMove" HorizontalAlignment="Left" Height="134" Margin="40,181,0,0" VerticalAlignment="Top" Width="342">
+            <ListView.ItemTemplate >
+                <DataTemplate>
+                    <WrapPanel>
+                        <TextBlock Text="{Binding Name}"></TextBlock>
+                    </WrapPanel>
+                </DataTemplate>
+
+            </ListView.ItemTemplate>
         </ListView>
-        <ListView x:Name="PatientsAllergens" HorizontalAlignment="Left" Height="148" Margin="40,385,0,0" VerticalAlignment="Top" Width="342">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
+        <ListView x:Name="PatientsAllergens" ItemsSource="{Binding IngredientsPatient}" AllowDrop="True" DragOver="PatientsAllergens_OnDragOver" Drop="PatientsAllergens_OnDrop" PreviewMouseLeftButtonDown="PatientsAllergens_OnPreviewMouseLeftButtonDown" MouseMove="PatientsAllergens_OnMouseMove" HorizontalAlignment="Left" Height="148" Margin="40,385,0,0" VerticalAlignment="Top" Width="342">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <TextBlock Text="{Binding Name}"></TextBlock>
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
         <Button Content="Potvrdi" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="40,658,0,0" VerticalAlignment="Top" Width="342" Click="EditAllergens" Height="35" />
         <Button Content="Odustani" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="40,608,0,0" VerticalAlignment="Top" Width="342" Click="CancelEditingAllergens" Height="35" />

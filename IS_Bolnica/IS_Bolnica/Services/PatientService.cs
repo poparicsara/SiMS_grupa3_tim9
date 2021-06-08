@@ -9,7 +9,7 @@ namespace IS_Bolnica.Services
         private List<Patient> patients = new List<Patient>();
         private PatientRepository patientRepository = new PatientRepository();
         private List<Patient> blockedPatients = new List<Patient>();
-        
+
 
         public PatientService()
         {
@@ -95,7 +95,6 @@ namespace IS_Bolnica.Services
                     return true;
                 }
             }
-            MessageBox.Show("Pacijent sa ovim JMBG-om ne postoji!");
             return false;
         }
 
@@ -133,5 +132,43 @@ namespace IS_Bolnica.Services
         {
             return patientRepository.LoadFromFile("PatientRecordFileStorage.json");
         }
+
+        public void SetPatientAllergens(List<Ingredient> ingredients, string id)
+        {
+            patients = patientRepository.LoadFromFile("PatientRecordFileStorage.json");
+            foreach (var patient in patients)
+            {
+                if (patient.Id.Equals(id))
+                {
+                    patient.Ingredients = ingredients;
+                }
+            }
+            patientRepository.SaveToFile(patients, "PatientRecordFileStorage.json");
+        }
+
+        public List<Patient> GetSearchedPatients(string text)
+        {
+            patients = patientRepository.LoadFromFile("PatientRecordFileStorage.json");
+            List<Patient> searchedPatients = new List<Patient>();
+            foreach (Patient patient in patients)
+            {
+                if (ISearched(text, patient))
+                {
+                    searchedPatients.Add(patient);
+                }
+            }
+
+            return searchedPatients;
+        }
+
+        private static bool ISearched(string text, Patient p)
+        {
+            return p.Name.ToLower().StartsWith(text) ||
+                   p.Surname.ToLower().StartsWith(text) ||
+                   p.Id.ToLower().StartsWith(text) ||
+                   p.Username.ToLower().StartsWith(text);
+        }
+
+
     }
 }

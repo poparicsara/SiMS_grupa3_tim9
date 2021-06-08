@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using IS_Bolnica.Model;
@@ -14,12 +17,17 @@ namespace IS_Bolnica.Secretary
         private User user = new User();
         private PatientService patientService = new PatientService();
         private UserService userService = new UserService();
+        public ObservableCollection<Ingredient> Ingredients { get; set; }
+        private IngredientService ingredientService = new IngredientService();
+
+        public string JMBG { get; set; }
 
         public AddPatientPage(Page previousPage)
         {
             InitializeComponent();
             this.previousPage = previousPage;
             this.DataContext = this;
+            Ingredients = new ObservableCollection<Ingredient>(ingredientService.GetIngredients());
 
         }
 
@@ -62,12 +70,9 @@ namespace IS_Bolnica.Secretary
             {
                 patient.Gender = Gender.female;
             }
-            /*String[] alergeni = (allergens.Text).Split(',');
-            patient.Allergens = new List<string>();
-            for (int i = 0; i < alergeni.Length; i++)
-            {
-                patient.Allergens.Add(alergeni[i]);
-            }*/
+
+            setAllergens();
+            
             //formiranje adrese
             patient.Address = new Address();
             String[] adresa = (adress.Text).Split(' ');
@@ -127,6 +132,21 @@ namespace IS_Bolnica.Secretary
             }
             AllergenManipulation am = new AllergenManipulation(this, id.Text);
             this.NavigationService.Navigate(am);
+        }
+
+        private void setAllergens()
+        {
+            int i = Allergens.SelectedIndex;
+            if (i == -1)
+            {
+                patient.Ingredients = new List<Ingredient>();
+            }
+            else
+            {
+                List<Ingredient> ingredients = new List<Ingredient>();
+                ingredients = Allergens.SelectedItems.Cast<Ingredient>().ToList();
+                patient.Ingredients = ingredients;
+            }
         }
     }
 }

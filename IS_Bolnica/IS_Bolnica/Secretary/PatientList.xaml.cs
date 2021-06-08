@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
+using IS_Bolnica.Model;
 using IS_Bolnica.Services;
 using Model;
 
@@ -67,15 +68,14 @@ namespace IS_Bolnica.Secretary
             ep.city.Text = patient.Address.City.name + " "
                                                      + Convert.ToString(patient.Address.City.postalCode);
             ep.country.Text = patient.Address.City.Country.name;
-            //ep.debit.Text = Convert.ToString(patient.Debit);
-            /*List<string> alergeni = patient.Allergens;
-            foreach (var alergen in alergeni)
+            if (patient.Gender == Gender.male)
             {
-                ep.allergens.Text += alergen + ",";
-
+                ep.GenderBox.SelectedIndex = 0;
             }
-            String pom = ep.allergens.Text;*/
-            //ep.allergens.Text = pom.Remove(pom.Length - 1, 1);
+            else
+            {
+                ep.GenderBox.SelectedIndex = 1;
+            }
         }
 
         private void deletePatient(object sender, RoutedEventArgs e)
@@ -127,14 +127,12 @@ namespace IS_Bolnica.Secretary
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(prevoiusPage);
-            
         }
 
         private void pretraziBox_KeyUp(object sender, KeyEventArgs e)
         {
-            var filtered = patients.Where(patient => patient.Id.StartsWith(pretraziBox.Text));
-            filtered = patients.Where(patient => patient.Name.StartsWith(pretraziBox.Text));
 
+            var filtered = patientService.GetSearchedPatients(pretraziBox.Text.ToLower());
             PatientListGrid.ItemsSource = filtered;
         }
     }

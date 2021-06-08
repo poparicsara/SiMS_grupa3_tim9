@@ -37,7 +37,14 @@ namespace IS_Bolnica.Services
         public List<Ingredient> GetPatientsIngredients(string id)
         {
             Patient patient = patientService.FindPatietnById(id);
-            return patient.Ingredients;
+            if (patient.Ingredients != null)
+            {
+                return patient.Ingredients;
+            }
+            else
+            {
+                return new List<Ingredient>();
+            }
         }
 
         public List<Ingredient> GetAllOtherIngredients(string id)
@@ -45,14 +52,27 @@ namespace IS_Bolnica.Services
             List<Ingredient> ingredients = ingredientRepository.loadFromFile("Sastojci.json");
             List<Ingredient> allOtheriIngredients = new List<Ingredient>();
             List<Ingredient> patientIngredients = GetPatientsIngredients(id);
+            if (patientIngredients.Count == 0)
+            {
+                return ingredients;
+            }
+
+            int brojac = 0;
+
             foreach (var ingredient in ingredients)
             {
+                brojac = 0;
                 foreach (var patientIngredient in patientIngredients)
                 {
-                    if (!ingredient.Equals(patientIngredient))
+                    if (ingredient.Name.Equals(patientIngredient.Name))
                     {
-                        allOtheriIngredients.Add(ingredient);
+                        brojac++;
                     }
+                }
+
+                if (brojac == 0)
+                {
+                    allOtheriIngredients.Add(ingredient);
                 }
             }
 

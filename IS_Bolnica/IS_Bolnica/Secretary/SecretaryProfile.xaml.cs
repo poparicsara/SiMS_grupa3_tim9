@@ -37,5 +37,10 @@ namespace IS_Bolnica.Secretary
             ActionBar ab = new ActionBar();
             this.NavigationService.Navigate(ab);
         }
+
+        private void Logout_Clicked(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
