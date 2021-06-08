@@ -35,7 +35,7 @@
         <Grid HorizontalAlignment="Left" Width="207" Background="White">
             <StackPanel>
                 <ListView BorderThickness="0, 0, 2, 0" Background="white" BorderBrush="Black" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="625" Margin="0,0,0.2,0">
-                    <ListViewItem HorizontalAlignment="Left" Height="84" Margin="0,100,0,0">
+                    <ListViewItem HorizontalAlignment="Left" Height="84" Margin="0,0,0,0">
                         <Button  Width="187" Height="62" Background="Transparent" BorderBrush="Transparent" IsTabStop="True" IsDefault="True" Click="ProfileButtonClicked">
                             <StackPanel Orientation="Horizontal" Width="187" Height="62">
                                 <Image Source="DemoMode/profileIcon.png" Margin="0,15,0,0" Width="58" Height="47" VerticalAlignment="Top"/>
@@ -60,7 +60,7 @@
                         </Button>
                     </ListViewItem>
                     <ListViewItem HorizontalAlignment="Left" Height="84">
-                        <Button Width="187" Height="62" Background="Transparent" IsDefault="True" BorderBrush="Transparent" IsTabStop="True" Click="MedicamentButtonClicked">
+                        <Button Width="187" Height="62" Background="Transparent" IsDefault="True" BorderBrush="Transparent" Click="MedicamentButtonClicked">
                             <StackPanel Orientation="Horizontal" Width="187" Height="62">
                                 <Image Source="DemoMode/medicine.png" Margin="0,15,0,0" Width="58" Height="47" VerticalAlignment="Top"/>
                                 <TextBlock Text="Lekovi" FontSize="16" Width="98" Margin="10,17,10,24.2" FontWeight="Bold"/>
@@ -72,6 +72,30 @@
                             <StackPanel Orientation="Horizontal" Width="187" Height="62">
                                 <Image Source="DemoMode/notification.png" Margin="0,15,0,0" Width="58" Height="47" VerticalAlignment="Top"/>
                                 <TextBlock Text="Obaveštenja" FontSize="16" Width="98" Margin="10,17,10,24.2" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Button>
+                    </ListViewItem>
+                    <ListViewItem HorizontalAlignment="Left" Height="84">
+                        <Button Width="187" Height="62" Background="Transparent" IsDefault="True" BorderBrush="Transparent"  IsTabStop="True" Click="ReportButtonClicked" >
+                            <StackPanel Orientation="Horizontal" Width="187" Height="62">
+                                <Image Source="DemoMode/contract.png" Margin="0,15,0,0" Width="58" Height="47" VerticalAlignment="Top"/>
+                                <TextBlock Text="Izveštaj" FontSize="16" Width="98" Margin="10,17,10,24.2" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Button>
+                    </ListViewItem>
+                    <ListViewItem HorizontalAlignment="Left" Height="84">
+                        <Button Width="187" Height="62" Background="Transparent" IsDefault="True" BorderBrush="Transparent" IsTabStop="True" Click="SignOutButtonClicked">
+                            <StackPanel Orientation="Horizontal" Width="187" Height="62">
+                                <Image Source="DemoMode/singOut.png" Margin="0,5,0,0" Width="58" Height="47" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                                    <Image.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="-180"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Image.RenderTransform>
+                                </Image>
                             </StackPanel>
                         </Button>
                     </ListViewItem>

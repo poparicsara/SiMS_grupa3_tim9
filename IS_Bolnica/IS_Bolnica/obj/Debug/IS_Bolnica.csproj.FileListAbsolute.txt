@@ -805,3 +805,17 @@ C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DemoMode\DemoMedicamentWindow.baml
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DemoMode\DemoProfileWindow.g.cs
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DemoMode\DemoProfileWindow.baml
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DemoMode\AddRoomDemo.g.cs
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DemoMode\EditRoomDemo.g.cs
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DemoMode\MergeDemo.g.cs
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DemoMode\RenovationDemo.g.cs
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\ReportWindow.g.cs
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DemoMode\AddRoomDemo.baml
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DemoMode\EditRoomDemo.baml
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DemoMode\RenovationDemo.baml
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DemoMode\MergeDemo.baml
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\ReportWindow.baml
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DemoMode\SeparateDemo.g.cs
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DemoMode\SeparateDemo.baml
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DemoMode\AddInventoryDemo.g.cs
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DemoMode\AddInventoryDemo.baml

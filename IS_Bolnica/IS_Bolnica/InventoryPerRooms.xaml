@@ -49,10 +49,16 @@
                             <DataGridTextColumn Header ="KOLIČINA" Width="120" Binding="{Binding Path = Inventory.CurrentAmount}"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button Content="PRERASPODELA" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                            Width="120" Height="26" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" 
-                            BorderBrush="#FF425431" Click="ChangeInventoryPlaceButtonClicked" Canvas.Left="429" Canvas.Top="499" FontSize="16"/>
-                    <TextBox x:Name="ordinationSearchBox" Height="32" TextWrapping="Wrap" Width="120" Canvas.Left="429" KeyDown="OperationRoomKeyUp"/>
+                    <Button HorizontalAlignment="Left" VerticalAlignment="Top" 
+                            Width="35" Height="35" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" 
+                            BorderBrush="#FF425431" Click="ChangeInventoryPlaceButtonClicked" Canvas.Left="514" Canvas.Top="490" FontSize="16">
+                        <StackPanel>
+                            <Image Source="DemoMode/switch.png"/>
+                        </StackPanel>
+                    </Button>
+                    <TextBox x:Name="ordinationSearchBox" Height="32" TextWrapping="Wrap" Width="120" Canvas.Left="399" KeyDown="OperationRoomKeyUp"/>
+                    <Image Source="DemoMode/search.png" Height="28" Canvas.Left="1034" Canvas.Top="58" Width="33"/>
+                    <Image Source="DemoMode/search.png" Height="28" Width="33" Canvas.Left="519"/>
 
                 </Canvas>
 
@@ -88,10 +94,15 @@
                         </DataGrid.Columns>
                     </DataGrid>
 
-                    <Button Content="PRERASPODELA" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                    Width="107" Height="26" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" 
-                    BorderBrush="#FF425431" Click="ChangeInventoryPlaceButtonClicked" Canvas.Left="421" Canvas.Top="499"/>
-                    <TextBox x:Name="operationRoomSearchBox" Height="32" TextWrapping="Wrap" Width="120" FontSize="16" Canvas.Left="429" Canvas.Top="10" KeyDown="OperationRoomKeyUp"/>
+                    <Button HorizontalAlignment="Left" VerticalAlignment="Top" 
+                    Width="35" Height="35" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" 
+                    BorderBrush="#FF425431" Click="ChangeInventoryPlaceButtonClicked" Canvas.Left="514" Canvas.Top="490">
+                        <StackPanel>
+                            <Image Source="DemoMode/switch.png"/>
+                        </StackPanel>
+                    </Button>
+                    <TextBox x:Name="operationRoomSearchBox" Height="32" TextWrapping="Wrap" Width="120" FontSize="16" Canvas.Left="399" KeyDown="OperationRoomKeyUp" Canvas.Top="2"/>
+                    <Image Source="DemoMode/search.png" Height="28" Width="33" Canvas.Left="519"/>
 
 
                 </Canvas>
@@ -126,16 +137,21 @@
                         </DataGrid.Columns>
                     </DataGrid>
 
-                    <Button Content="PRERASPODELA" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                    Width="107" Height="26" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" 
-                    BorderBrush="#FF425431" Click="ChangeInventoryPlaceButtonClicked" Canvas.Left="442" Canvas.Top="499"/>
-                    <TextBox x:Name="RoomSearchBox" Height="32" TextWrapping="Wrap" Width="120" Canvas.Left="429" Canvas.Top="10" KeyDown="RoomKeyUp"/>
+                    <Button HorizontalAlignment="Left" VerticalAlignment="Top" 
+                    Width="35" Height="35" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" 
+                    BorderBrush="#FF425431" Click="ChangeInventoryPlaceButtonClicked" Canvas.Left="514" Canvas.Top="490">
+                        <StackPanel>
+                            <Image Source="DemoMode/switch.png"/>
+                        </StackPanel>
+                    </Button>
+                    <TextBox x:Name="RoomSearchBox" Height="32" TextWrapping="Wrap" Width="120" Canvas.Left="399" Canvas.Top="4" KeyDown="RoomKeyUp"/>
+                    <Image Source="DemoMode/search.png" Height="28" Width="33" Canvas.Left="519" Canvas.Top="4"/>
 
                 </Canvas>
 
             </TabItem>
             <TabItem Header="Magacin" Height="32" Background="White" Width="128"  Margin="10,-1,-10,1" FontSize="16">
-                
+
                 <Canvas Margin="10,0,0.2,0.2">
                     <Border BorderThickness="4" BorderBrush="Black">
                         <Canvas Height="529" Width="384" Background="#FFF0F0F0">
@@ -145,12 +161,15 @@
                             <Label Name="currentAmount" Canvas.Left="199" Canvas.Top="24" FontSize="18" Height="37" Width="185"/>
                             <Label Name="minAmount" Canvas.Left="199" Canvas.Top="90" FontSize="18" Height="37" Width="185"/>
 
-                            <Button Content="PRERASPODELA" HorizontalAlignment="Left" VerticalAlignment="Top" 
-                            Width="107" Height="26" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" 
-                            BorderBrush="#FF425431" Click="ChangeInventoryPlaceButtonClicked" Canvas.Left="419" Canvas.Top="469"/>
-
                         </Canvas>
                     </Border>
+                    <Button HorizontalAlignment="Left" VerticalAlignment="Top" 
+                            Width="35" Height="35" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" 
+                            BorderBrush="#FF425431" Click="ChangeInventoryPlaceButtonClicked" Canvas.Left="504" Canvas.Top="490">
+                        <StackPanel>
+                            <Image Source="DemoMode/switch.png"/>
+                        </StackPanel>
+                    </Button>
                 </Canvas>
 
             </TabItem>

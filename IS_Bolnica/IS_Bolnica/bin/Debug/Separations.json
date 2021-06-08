@@ -126,5 +126,36 @@
     "Hour": 1,
     "Minute": 45,
     "Executed": false
+  },
+  {
+    "Room": {
+      "Id": 8,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Krevet",
+          "CurrentAmount": 2,
+          "Minimum": 0,
+          "Id": 666,
+          "InventoryType": 1
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "NewRoomNumber": 10,
+    "StartDate": "6/8/2021",
+    "EndDate": "6/8/2021",
+    "Hour": 18,
+    "Minute": 50,
+    "Executed": false
   }
 ]

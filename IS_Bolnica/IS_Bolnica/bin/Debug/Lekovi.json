@@ -405,5 +405,53 @@
     },
     "Producer": "novi  proizvodjac",
     "Status": 0
+  },
+  {
+    "Id": 2,
+    "Name": "novi lek",
+    "Ingredients": [
+      {
+        "Name": "sastojak1"
+      },
+      {
+        "Name": "sastojak2"
+      }
+    ],
+    "Replacement": {
+      "Id": 101,
+      "Name": "Alopurinol",
+      "Ingredients": [
+        {
+          "Name": "Alopurinol"
+        },
+        {
+          "Name": "Kukuruzni skrob"
+        },
+        {
+          "Name": "Celuloza"
+        },
+        {
+          "Name": "Natrijum-skrobglikolat"
+        },
+        {
+          "Name": "Talk"
+        },
+        {
+          "Name": "Magnezijum-stearat"
+        }
+      ],
+      "Replacement": {
+        "Id": 102,
+        "Name": "ESBESUL",
+        "Ingredients": null,
+        "Replacement": null,
+        "Producer": "Bayer",
+        "Status": 0
+      },
+      "Producer": "Bayer",
+      "Status": 0
+    },
+    "Producer": "ftn novi sad",
+    "Status": 1
   }
 ]

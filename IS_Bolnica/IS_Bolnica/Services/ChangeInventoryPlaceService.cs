@@ -40,11 +40,16 @@ namespace IS_Bolnica.Services
             return inventoryRepository.HasRoomSelectedInventory(room, inventory);
         }
 
-        public bool HasEnoughAmount(Inventory inventory, Room room)
+        public bool HasEnoughAmount(Inventory inventory, Room room, int amount)
         {
-            if (GetInventoryFromRoom(inventory, room) != null)
+            Inventory i = GetInventoryFromRoom(inventory, room);
+            if (i != null)
             {
-                return true;
+                if (i.CurrentAmount >= amount)
+                {
+                    return true;
+                }
+                return false;
             }
             return false;
         }

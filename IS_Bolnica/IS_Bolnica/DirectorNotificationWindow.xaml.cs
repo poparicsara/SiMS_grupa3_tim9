@@ -114,5 +114,26 @@ namespace IS_Bolnica
             mw.Show();
             this.Close();
         }
+
+        private void SignOutButtonClicked(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult messageBox = MessageBox.Show("Da li ste sigurni da želite da se odjavite?",
+                "Odjava", MessageBoxButton.YesNo);
+            switch (messageBox)
+            {
+                case MessageBoxResult.Yes:
+                    this.Close();
+                    break;
+                case MessageBoxResult.No:
+                    break;
+            }
+        }
+
+        private void ReportButtonClicked(object sender, RoutedEventArgs e)
+        {
+            ReportWindow rw = new ReportWindow();
+            rw.Show();
+            this.Close();
+        }
     }
 }

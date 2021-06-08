@@ -80,6 +80,12 @@
     <Compile Include="CreatePrescription.xaml.cs">
       <DependentUpon>CreatePrescription.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DemoMode\AddInventoryDemo.xaml.cs">
+      <DependentUpon>AddInventoryDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DemoMode\AddRoomDemo.xaml.cs">
+      <DependentUpon>AddRoomDemo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DemoMode\DemoInventoryWindow.xaml.cs">
       <DependentUpon>DemoInventoryWindow.xaml</DependentUpon>
     </Compile>
@@ -91,6 +97,18 @@
     </Compile>
     <Compile Include="DemoMode\DemoRoomWindow.xaml.cs">
       <DependentUpon>DemoRoomWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DemoMode\EditRoomDemo.xaml.cs">
+      <DependentUpon>EditRoomDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DemoMode\MergeDemo.xaml.cs">
+      <DependentUpon>MergeDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DemoMode\RenovationDemo.xaml.cs">
+      <DependentUpon>RenovationDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DemoMode\SeparateDemo.xaml.cs">
+      <DependentUpon>SeparateDemo.xaml</DependentUpon>
     </Compile>
     <Compile Include="Diagnosis.xaml.cs">
       <DependentUpon>Diagnosis.xaml</DependentUpon>
@@ -138,6 +156,9 @@
     <Compile Include="Model\Merging.cs" />
     <Compile Include="Model\Separation.cs" />
     <Compile Include="Model\Shifting.cs" />
+    <Compile Include="ReportWindow.xaml.cs">
+      <DependentUpon>ReportWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RoomInventory.xaml.cs">
       <DependentUpon>RoomInventory.xaml</DependentUpon>
     </Compile>
@@ -406,6 +427,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="DemoMode\AddInventoryDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DemoMode\AddRoomDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DemoMode\DemoInventoryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -419,6 +448,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DemoMode\DemoRoomWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DemoMode\EditRoomDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DemoMode\MergeDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DemoMode\RenovationDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DemoMode\SeparateDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -471,6 +516,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="MergeRoomsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReportWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -854,6 +903,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="DemoMode\director.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\switch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\contract.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

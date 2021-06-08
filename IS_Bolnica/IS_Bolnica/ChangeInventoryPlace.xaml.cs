@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Diagnostics;
+using IS_Bolnica.Model;
 using IS_Bolnica.Services;
 
 namespace IS_Bolnica
@@ -43,14 +44,13 @@ namespace IS_Bolnica
             InitializeComponent();
 
             wardFromBox.ItemsSource = GetWardsWithMagacin();
-            //wardFromBox.SelectedItem = GetWardsWithMagacin().ElementAt(0);
             wardToBox.ItemsSource = roomService.GetHospitalWards();
-            //wardToBox.SelectedItem = roomService.GetHospitalWards().ElementAt(0);
 
             purposeFromBox.ItemsSource = roomService.GetRoomPurposes();
-            //purposeFromBox.SelectedItem = roomService.GetRoomPurposes().ElementAt(0);
             purposeToBox.ItemsSource = roomService.GetRoomPurposes();
-            //purposeToBox.SelectedItem = roomService.GetRoomPurposes().ElementAt(0);
+
+            numberFromBox.ItemsSource = roomService.GetRoomNumbers();
+            numberToBox.ItemsSource = roomService.GetRoomNumbers();
 
             selectedInventory = selected;
 
@@ -147,10 +147,56 @@ namespace IS_Bolnica
 
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
-            SetRooms();
-            amount = (int)Int64.Parse(amountBox.Text);
-            CheckRoomInventory();
-            CheckAmount();
+            if (selectedInventory.InventoryType == InventoryType.dinamicki)
+            {
+                if (!IsAnythingNullDynamic())
+                {
+                    SetRooms();
+                    amount = (int)Int64.Parse(amountBox.Text);
+                    if (CheckRoomInventory())
+                    {
+                        CheckAmount();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Sva polja moraju biti popunjena!");
+                }
+            }
+            else
+            {
+                if (!IsAnythingNullStatic())
+                {
+                    SetRooms();
+                    amount = (int)Int64.Parse(amountBox.Text);
+                    if (CheckRoomInventory())
+                    {
+                        CheckAmount();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Sva polja moraju biti popunjena!");
+                }
+            }
+            
+        }
+
+        private bool IsAnythingNullDynamic()
+        {
+            return wardFromBox.SelectedItem == null || purposeFromBox.SelectedItem == null ||
+                   numberFromBox.SelectedItem == null ||
+                   wardToBox.SelectedItem == null || purposeFromBox.SelectedItem == null ||
+                   numberToBox.SelectedItem == null || amountBox.Text.Equals("");
+        }
+
+        private bool IsAnythingNullStatic()
+        {
+            return wardFromBox.SelectedItem == null || purposeFromBox.SelectedItem == null ||
+                   numberFromBox.SelectedItem == null ||
+                   wardToBox.SelectedItem == null || purposeFromBox.SelectedItem == null ||
+                   numberToBox.SelectedItem == null || amountBox.Text.Equals("") || dateofChange.SelectedDate == null || 
+                   hourofChange.SelectedItem == null || minuteOfChange.SelectedItem == null;
         }
 
         private void SetRooms()
@@ -159,17 +205,19 @@ namespace IS_Bolnica
             roomTo = roomService.GetRoom((int)Int64.Parse(to));
         }
 
-        private void CheckRoomInventory()
+        private bool CheckRoomInventory()
         {
             if (!changeService.HasRoomSelectedInventory(selectedInventory, roomFrom))
             {
                 MessageBox.Show("Prostorija iz koje zelite da izvrsite preraspodelu ne sadrzi izabrani inventar!");
+                return false;
             }
+            return true;
         }
 
         private void CheckAmount()
         {
-            if(!changeService.HasEnoughAmount(selectedInventory, roomFrom))
+            if(!changeService.HasEnoughAmount(selectedInventory, roomFrom, amount))
             {
                 MessageBox.Show("Prostorija iz koje zelite da izvrsite preraspodelu ne sadrzi dovoljnu kolicinu izabranog inventara");
             }
@@ -208,6 +256,11 @@ namespace IS_Bolnica
         {
             InventoryPerRooms sw = new InventoryPerRooms(selectedInventory);
             sw.Show();
+        }
+
+        private void CancelButtonClicked(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

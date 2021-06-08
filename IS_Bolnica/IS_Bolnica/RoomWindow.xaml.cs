@@ -169,6 +169,13 @@ namespace IS_Bolnica
                     break;
             }
         }
+
+        private void ReportButtonClicked(object sender, RoutedEventArgs e)
+        {
+            ReportWindow rw = new ReportWindow();
+            rw.Show();
+            this.Close();
+        }
     }
 
 }

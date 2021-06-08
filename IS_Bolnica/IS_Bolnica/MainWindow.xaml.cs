@@ -121,7 +121,6 @@ namespace IS_Bolnica
         {
             DemoRoomWindow rw = new DemoRoomWindow();
             rw.Show();
-            this.Close();
         }
     }
 }

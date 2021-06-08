@@ -18,7 +18,7 @@
         <ComboBox x:Name="purposeToBox" HorizontalAlignment="Left" Height="32" Margin="427,301,0,0" VerticalAlignment="Top" Width="203" SelectionChanged="purposeToChanged" FontSize="16"/>
         <ComboBox Name="numberToBox" HorizontalAlignment="Left" Margin="427,351,0,0" VerticalAlignment="Top" Height="32" Width="203" SelectionChanged="numberToChanged" FontSize="16"/>
         <TextBox x:Name="amountBox" HorizontalAlignment="Left" Height="32" Margin="427,401,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" PreviewTextInput="NumberValidation" FontSize="16"/>
-        
+
         <Label Content="Količina:" HorizontalAlignment="Left" Margin="71,402,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="Namena prostorije IZ koje se preraspoređuje:" HorizontalAlignment="Left" Margin="71,146,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="Namena prostorije U koju se preraspoređuje:" HorizontalAlignment="Left" Margin="71,298,0,0" VerticalAlignment="Top" FontSize="16"/>
@@ -65,12 +65,12 @@
             <ComboBoxItem Content="50"/>
             <ComboBoxItem Content="55"/>
         </ComboBox>
-        <Button Content="POTVRDI" HorizontalAlignment="Left" Margin="419,592,0,0" VerticalAlignment="Top" 
+        <Button Content="POTVRDI" HorizontalAlignment="Left" Margin="374,592,0,0" VerticalAlignment="Top" 
                 Width="81" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" 
                 BorderBrush="#FF425431" Click="DoneButtonClicked"/>
-        <Button Content="ODUSTANI" HorizontalAlignment="Left" Margin="296,592,0,0" VerticalAlignment="Top" 
+        <Button Content="ODUSTANI" HorizontalAlignment="Left" Margin="251,592,0,0" VerticalAlignment="Top" 
             Width="81" Height="24" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" 
-            BorderBrush="#FF425431" Click="DoneButtonClicked"/>
+            BorderBrush="#FF425431" Click="CancelButtonClicked" />
         <Label Content="PRERASPODELA INVENTARA" HorizontalAlignment="Left" Margin="185,10,0,0" VerticalAlignment="Top" FontSize="26" FontWeight="Bold"/>
     </Grid>
 </Window>

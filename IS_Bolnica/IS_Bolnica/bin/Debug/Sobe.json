@@ -12,7 +12,7 @@
       },
       {
         "Name": "Injekcija",
-        "CurrentAmount": 24,
+        "CurrentAmount": 27,
         "Minimum": 2,
         "Id": 202,
         "InventoryType": 0
@@ -33,7 +33,7 @@
       },
       {
         "Name": "Krevet",
-        "CurrentAmount": 3,
+        "CurrentAmount": 1,
         "Minimum": 0,
         "Id": 666,
         "InventoryType": 1
@@ -70,7 +70,7 @@
       },
       {
         "Name": "Injekcija",
-        "CurrentAmount": 2,
+        "CurrentAmount": -4,
         "Minimum": 0,
         "Id": 202,
         "InventoryType": 0
@@ -594,7 +594,7 @@
       },
       {
         "Name": "Injekcija",
-        "CurrentAmount": 27,
+        "CurrentAmount": 24,
         "Minimum": 2,
         "Id": 202,
         "InventoryType": 0
@@ -614,25 +614,32 @@
   {
     "Id": 8,
     "HospitalWard": "Alergologija i imunologija",
-    "Inventory": [],
+    "Inventory": [
+      {
+        "Name": "Injekcija",
+        "CurrentAmount": 3,
+        "Minimum": 0,
+        "Id": 202,
+        "InventoryType": 0
+      },
+      {
+        "Name": "Krevet",
+        "CurrentAmount": 2,
+        "Minimum": 0,
+        "Id": 666,
+        "InventoryType": 1
+      }
+    ],
     "RoomPurpose": {
       "Name": "Ordinacija"
     }
   },
   {
-    "Id": 9,
+    "Id": 15,
     "HospitalWard": "Alergologija i imunologija",
     "Inventory": [],
     "RoomPurpose": {
       "Name": "Ordinacija"
-    }
-  },
-  {
-    "Id": 2,
-    "HospitalWard": "Alergologija i imunologija",
-    "Inventory": null,
-    "RoomPurpose": {
-      "Name": "Soba"
     }
   }
 ]
