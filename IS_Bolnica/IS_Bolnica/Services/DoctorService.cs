@@ -144,5 +144,10 @@ namespace IS_Bolnica.Services
             return specialistsNameSurname;
         }
 
+        public List<Doctor> GetAllDoctors()
+        {
+            return doctorRepository.LoadFromFile();
+        }
+
     }
 }

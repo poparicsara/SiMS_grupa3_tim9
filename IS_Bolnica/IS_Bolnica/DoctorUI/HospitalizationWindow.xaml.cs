@@ -99,8 +99,18 @@ namespace IS_Bolnica.DoctorUI
 
         private void SingOutButtonClick(object sender, RoutedEventArgs e)
         {
-            userService.LogOut();
-            this.Close();
+            MessageBoxResult messageBox = MessageBox.Show("Da li ste sigurni da želite da se odjavite?",
+                "Odjavljivanje", MessageBoxButton.YesNo);
+
+            switch (messageBox)
+            {
+                case MessageBoxResult.Yes:
+                    userService.LogOut();
+                    this.Close();
+                    break;
+                case MessageBoxResult.No:
+                    break;
+            }
         }
 
         private void SettingsButtonClick(object sender, RoutedEventArgs e)

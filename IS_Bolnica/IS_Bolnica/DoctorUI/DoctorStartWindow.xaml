@@ -66,8 +66,8 @@
                 <Image Source="../Images/add2.png" Width="30" Height="30"/>
             </StackPanel>
         </Button>
-        <DataGrid Name="examinationsDataGrid" HorizontalAlignment="Left" Height="412" Margin="164,174,0,0" VerticalAlignment="Top"
-                  Width="765" BorderBrush="{x:Null}" Foreground="Black" FontSize="14" FontFamily="Malgun Gothic" FontWeight="Bold" 
+        <DataGrid Name="examinationsDataGrid" HorizontalAlignment="Left" Height="412" Margin="208,174,0,0" VerticalAlignment="Top"
+                  Width="661" BorderBrush="{x:Null}" Foreground="Black" FontSize="14" FontFamily="Malgun Gothic" FontWeight="Bold" 
                   Background="White" SelectionMode="Single" CanUserReorderColumns="False" CanUserResizeColumns="False" 
                   IsReadOnly="True" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Disabled" CanUserResizeRows="False" Grid.RowSpan="2" HeadersVisibility="Column">
             <DataGrid.Resources>
@@ -82,12 +82,11 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="DATUM" Width="100" Binding="{Binding StartTime, StringFormat= dd/MM/yyyy}"/>
-                <DataGridTextColumn Header="VREME" Width="75" Binding="{Binding StartTime, StringFormat= HH:mm}"/>
-                <DataGridTextColumn Header="ORDINACIJA" Width="110" Binding="{Binding Doctor.Ordination}"/>
                 <DataGridTextColumn Header="IME" Width="160" Binding="{Binding Patient.Name}"/>
                 <DataGridTextColumn Header="PREZIME" Width="160" Binding="{Binding Patient.Surname}"/>
-                <DataGridTextColumn Header="OPIS" Width="150"/>
+                <DataGridTextColumn Header="DATUM" Width="120" Binding="{Binding StartTime, StringFormat= dd/MM/yyyy}"/>
+                <DataGridTextColumn Header="VREME" Width="90" Binding="{Binding StartTime, StringFormat= HH:mm}"/>
+                <DataGridTextColumn Header="ORDINACIJA" Width="130" Binding="{Binding Doctor.Ordination}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Započni pregled" HorizontalAlignment="Left" Margin="765,273,0,0" Grid.Row="1" VerticalAlignment="Top" Width="158" Height="48" Background="#FF3F5038" Foreground="White" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="14" Click="StartExaminationButtonClick">

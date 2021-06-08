@@ -131,7 +131,7 @@
   },
   {
     "Id": 9999,
-    "Name": "aa",
+    "Name": "Zovirax",
     "Ingredients": null,
     "Replacement": {
       "Id": 102,
@@ -188,90 +188,50 @@
       },
       {
         "Name": "Treonin"
+      },
+      {
+        "Name": "Anastrozol"
       }
     ],
     "Replacement": {
-      "Id": 102,
-      "Name": "ESBESUL",
+      "Id": 9999,
+      "Name": "Zovirax",
       "Ingredients": null,
-      "Replacement": null,
-      "Producer": "Bayer",
+      "Replacement": {
+        "Id": 102,
+        "Name": "Altravesa",
+        "Ingredients": [
+          {
+            "Name": "Anastrozol"
+          },
+          {
+            "Name": "Laktoza"
+          },
+          {
+            "Name": "Natrijum-skrobglikolat"
+          },
+          {
+            "Name": "Povidon K25"
+          },
+          {
+            "Name": "Magnezijum-stearat"
+          }
+        ],
+        "Replacement": {
+          "Id": 102,
+          "Name": "ESBESUL",
+          "Ingredients": null,
+          "Replacement": null,
+          "Producer": "Bayer",
+          "Status": 0
+        },
+        "Producer": "Hemofarm",
+        "Status": 0
+      },
+      "Producer": "ap",
       "Status": 0
     },
     "Producer": "Hemofarm",
-    "Status": 0
-  },
-  {
-    "Id": 66,
-    "Name": "nesto",
-    "Ingredients": null,
-    "Replacement": {
-      "Id": 102,
-      "Name": "Altravesa",
-      "Ingredients": [
-        {
-          "Name": "Anastrozol"
-        },
-        {
-          "Name": "Laktoza"
-        },
-        {
-          "Name": "Natrijum-skrobglikolat"
-        },
-        {
-          "Name": "Povidon K25"
-        }
-      ],
-      "Replacement": {
-        "Id": 102,
-        "Name": "ESBESUL",
-        "Ingredients": null,
-        "Replacement": null,
-        "Producer": "Bayer",
-        "Status": 0
-      },
-      "Producer": "Hemofarm",
-      "Status": 0
-    },
-    "Producer": "neko",
-    "Status": 0
-  },
-  {
-    "Id": 94,
-    "Name": "a",
-    "Ingredients": null,
-    "Replacement": {
-      "Id": 102,
-      "Name": "Altravesa",
-      "Ingredients": [
-        {
-          "Name": "Anastrozol"
-        },
-        {
-          "Name": "Laktoza"
-        },
-        {
-          "Name": "Natrijum-skrobglikolat"
-        },
-        {
-          "Name": "Povidon K25"
-        },
-        {
-          "Name": "Magnezijum-stearat"
-        }
-      ],
-      "Replacement": {
-        "Id": 102,
-        "Name": "ESBESUL",
-        "Ingredients": null,
-        "Replacement": null,
-        "Producer": "Bayer",
-        "Status": 0
-      },
-      "Producer": "Hemofarm",
-      "Status": 0
-    },
-    "Producer": "a",
     "Status": 0
   }
 ]

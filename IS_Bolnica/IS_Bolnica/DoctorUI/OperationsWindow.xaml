@@ -29,8 +29,8 @@
                 <Image Source="../Images/add2.png" Width="30" Height="30"/>
             </StackPanel>
         </Button>
-        <DataGrid Name="operationsDataGrid" HorizontalAlignment="Left" Height="412" Margin="157,174,0,0" VerticalAlignment="Top"
-                  Width="788" BorderBrush="{x:Null}" Foreground="Black" FontSize="14" FontFamily="Malgun Gothic" FontWeight="Bold" 
+        <DataGrid Name="operationsDataGrid" HorizontalAlignment="Left" Height="412" Margin="199,174,0,0" VerticalAlignment="Top"
+                  Width="677" BorderBrush="{x:Null}" Foreground="Black" FontSize="14" FontFamily="Malgun Gothic" FontWeight="Bold" 
                   Background="White" SelectionMode="Single" CanUserReorderColumns="False" CanUserResizeColumns="False" 
                   IsReadOnly="True" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Disabled" CanUserResizeRows="False" Grid.RowSpan="2" HeadersVisibility="Column">
             <DataGrid.Resources>
@@ -45,16 +45,15 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="DATUM" Width="100" Binding="{Binding StartTime, StringFormat= dd/MM/yyyy}"/>
-                <DataGridTextColumn Header="VREME" Width="75" Binding="{Binding StartTime, StringFormat=HH:mm}"/>
-                <DataGridTextColumn Header="SALA" Width="75" Binding="{Binding Room.Id}"/>
                 <DataGridTextColumn Header="IME" Width="140" Binding="{Binding Patient.Name}"/>
                 <DataGridTextColumn Header="PREZIME" Width="140" Binding="{Binding Patient.Surname}"/>
-                <DataGridTextColumn Header="OPIS" Width="160"/>
-                <DataGridTextColumn Header="HITNA" Width="90" Binding="{Binding IsUrgent}"/>
+                <DataGridTextColumn Header="DATUM" Width="120" Binding="{Binding StartTime, StringFormat= dd/MM/yyyy}"/>
+                <DataGridTextColumn Header="VREME" Width="90" Binding="{Binding StartTime, StringFormat=HH:mm}"/>
+                <DataGridTextColumn Header="SALA" Width="90" Binding="{Binding Room.Id}"/>
+                <DataGridTextColumn Header="HITNA" Width="100" Binding="{Binding IsUrgent}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="hospitalizedPatientsBTN" Content="Hospitalizovani pacijenti" HorizontalAlignment="Left" Margin="157,270,0,0" VerticalAlignment="Top" Width="198" Height="42" Background="#FF3F5038" Foreground="White" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="14" Click="HospitalizedPatientsButtonClick" Grid.Row="1" />
+        <Button x:Name="hospitalizedPatientsBTN" Content="Hospitalizovani pacijenti" HorizontalAlignment="Left" Margin="683,279,0,0" VerticalAlignment="Top" Width="198" Height="42" Background="#FF3F5038" Foreground="White" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="14" Click="HospitalizedPatientsButtonClick" Grid.Row="1" />
         <Grid HorizontalAlignment="Left" Height="739" VerticalAlignment="Top" Width="100" Background="#FFF1F0F0" Margin="0" Grid.RowSpan="2">
             <Button HorizontalAlignment="Left" Margin="0,110,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="ExaminationsButtonClick">
                 <StackPanel>

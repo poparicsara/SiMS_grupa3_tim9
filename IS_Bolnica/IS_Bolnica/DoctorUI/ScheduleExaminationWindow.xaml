@@ -15,33 +15,29 @@
             </StackPanel>
         </Button>
         <Grid HorizontalAlignment="Left" Height="551" Margin="178,120,0,0" VerticalAlignment="Top" Width="770" Background="#FFF1F0F0">
-            <Label Content="Pacijent (ime i prezime):" HorizontalAlignment="Left" Margin="28,29,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="192"/>
-            <Label Content="JMBG:" HorizontalAlignment="Left" Margin="28,77,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="192"/>
-            <Label Content="Broj zdravstvene knjižice:" HorizontalAlignment="Left" Margin="28,122,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="192"/>
-            <Label Content="Datum pregleda:" HorizontalAlignment="Left" Margin="28,167,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="192"/>
-            <Label Content="Vreme pregleda:" HorizontalAlignment="Left" Margin="28,214,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="192"/>
-            <Label Content="Lekar:" HorizontalAlignment="Left" Margin="28,264,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="92"/>
-            <ComboBox Name="doctorsCB" HorizontalAlignment="Left" Margin="281,272,0,0" VerticalAlignment="Top" Width="150" RenderTransformOrigin="0.328,0.349" SelectionChanged="DoctorsSelectionChanged"/>
-            <Label Content="Ordinacija:" HorizontalAlignment="Left" Margin="28,323,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="114"/>
-            <Label Content="Kratak opis pregleda:" HorizontalAlignment="Left" Margin="28,382,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="169"/>
-            <TextBox Name="patientTxt" HorizontalAlignment="Left" Height="23" Margin="281,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}">
+            <Label Content="Pacijent (ime i prezime):" HorizontalAlignment="Left" Margin="51,63,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="192"/>
+            <Label Content="JMBG:" HorizontalAlignment="Left" Margin="51,121,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="192"/>
+            <Label Content="Broj zdravstvene knjižice:" HorizontalAlignment="Left" Margin="51,171,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="192"/>
+            <Label Content="Datum pregleda:" HorizontalAlignment="Left" Margin="51,227,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="192"/>
+            <Label Content="Vreme pregleda:" HorizontalAlignment="Left" Margin="51,278,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="192"/>
+            <Label Content="Lekar:" HorizontalAlignment="Left" Margin="51,326,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="92"/>
+            <ComboBox Name="doctorsCB" HorizontalAlignment="Left" Margin="304,334,0,0" VerticalAlignment="Top" Width="150" RenderTransformOrigin="0.328,0.349" SelectionChanged="DoctorsSelectionChanged"/>
+            <Label Content="Ordinacija:" HorizontalAlignment="Left" Margin="51,379,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="114"/>
+            <TextBox Name="patientTxt" HorizontalAlignment="Left" Height="23" Margin="304,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}">
 
             </TextBox>
-            <TextBox Name="patinetIdTxt" HorizontalAlignment="Left" Height="23" Margin="281,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" LostFocus="IdTextFieldLostFocus" BorderBrush="{x:Null}">
+            <TextBox Name="patinetIdTxt" HorizontalAlignment="Left" Height="23" Margin="304,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" LostFocus="IdTextFieldLostFocus" BorderBrush="{x:Null}">
 
             </TextBox>
-            <TextBox Name="healthCardNumTxt" HorizontalAlignment="Left" Height="23" Margin="281,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}">
+            <TextBox Name="healthCardNumTxt" HorizontalAlignment="Left" Height="23" Margin="304,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}">
 
             </TextBox>
-            <TextBox Name="ordinationTxt" HorizontalAlignment="Left" Height="23" Margin="281,330,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}">
+            <TextBox Name="ordinationTxt" HorizontalAlignment="Left" Height="23" Margin="304,386,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}">
 
             </TextBox>
-            <TextBox Name="descriptionTxt" HorizontalAlignment="Left" Height="23" Margin="281,389,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}">
-
-            </TextBox>
-            <DatePicker Name="examinationDate" HorizontalAlignment="Left" Margin="281,167,0,0" VerticalAlignment="Top" Width="150" Height="29" BorderBrush="{x:Null}" DisplayDateStart="{x:Static sys:DateTime.Today}"/>
-            <ComboBox Name="hoursCB" HorizontalAlignment="Left" Margin="281,222,0,0" VerticalAlignment="Top" Width="65"/>
-            <ComboBox Name="minutesCB" HorizontalAlignment="Left" Margin="366,222,0,0" VerticalAlignment="Top" Width="65"/>
+            <DatePicker Name="examinationDate" HorizontalAlignment="Left" Margin="304,227,0,0" VerticalAlignment="Top" Width="150" Height="29" BorderBrush="{x:Null}" DisplayDateStart="{x:Static sys:DateTime.Today}"/>
+            <ComboBox Name="hoursCB" HorizontalAlignment="Left" Margin="304,286,0,0" VerticalAlignment="Top" Width="65"/>
+            <ComboBox Name="minutesCB" HorizontalAlignment="Left" Margin="389,286,0,0" VerticalAlignment="Top" Width="65"/>
         </Grid>
         <Button Content="POTVRDI" HorizontalAlignment="Left" Margin="791,604,0,0" VerticalAlignment="Top" Width="109" Height="34" Background="#FF3F5038" Foreground="White" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="14" Click="PotvrdiButtonClick"/>
         <Grid HorizontalAlignment="Left" Height="739" VerticalAlignment="Top" Width="100" Background="#FFF1F0F0" Margin="0">
