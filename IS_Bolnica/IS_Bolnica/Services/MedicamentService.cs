@@ -61,6 +61,11 @@ namespace IS_Bolnica.Services
             return repository.HasMedicamentIngredient(medicament, ingredient);
         }
 
+        public List<Medicament> GetSearchedMeds(string text)
+        {
+            return repository.GetSearchedMeds(text);
+        }
+
         private int FindIndex(Medicament medicament)
         {
             meds = GetMedicaments();

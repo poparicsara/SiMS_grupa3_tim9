@@ -9,29 +9,32 @@
     <Window.Resources>
         <RoutedUICommand x:Key="medicamentCommand"/>
         <RoutedCommand x:Key="roomCommand"/>
-        <RoutedCommand x:Key="addCommand"/>
         <RoutedCommand x:Key="editCommand"/>
         <RoutedCommand x:Key="deleteCommand"/>
+        <RoutedCommand x:Key="editStatic"/>
+        <RoutedCommand x:Key="deleteStatic"/>
         <RoutedCommand x:Key="perRoomDynamicCommand"/>
         <RoutedCommand x:Key="perRoomStaticCommand"/>
     </Window.Resources>
     <Window.CommandBindings>
         <CommandBinding Command="{StaticResource medicamentCommand}" Executed="MedicamentButtonClicked"/>
         <CommandBinding Command="{StaticResource roomCommand}" Executed="RoomButtonClicked"/>
-        <CommandBinding Command="{StaticResource addCommand}" Executed="AddDynamicButtonClicked"/>
         <CommandBinding Command="{StaticResource editCommand}" Executed="EditDynamicButtonClicked"/>
         <CommandBinding Command="{StaticResource deleteCommand}" Executed="DeleteDynamicButtonClicked"/>
         <CommandBinding Command="{StaticResource perRoomDynamicCommand}" Executed="InventoryPerRoomDynamicButton"/>
         <CommandBinding Command="{StaticResource perRoomStaticCommand}" Executed="InventoryPerRoomStaticButton"/>
+        <CommandBinding Command="{StaticResource editStatic}" Executed="EditStaticButtonClicked"/>
+        <CommandBinding Command="{StaticResource deleteStatic}" Executed="DeleteStaticButtonClicked"/>
     </Window.CommandBindings>
     <Window.InputBindings>
         <KeyBinding Command="{StaticResource medicamentCommand}" Key="M" Modifiers="Alt"/>
         <KeyBinding Command="{StaticResource roomCommand}" Key="R" Modifiers="Alt"/>
-        <KeyBinding Command="{StaticResource addCommand}" Key="N" Modifiers="Control"/>
         <KeyBinding Command="{StaticResource editCommand}" Key="E" Modifiers="Control"/>
         <KeyBinding Command="{StaticResource deleteCommand}" Key="D" Modifiers="Control"/>
         <KeyBinding Command="{StaticResource perRoomDynamicCommand}" Key="D" Modifiers="Alt"/>
         <KeyBinding Command="{StaticResource perRoomStaticCommand}" Key="S" Modifiers="Alt"/>
+        <KeyBinding Command="{StaticResource editStatic}" Key="E" Modifiers="Shift"/>
+        <KeyBinding Command="{StaticResource deleteStatic}" Key="D" Modifiers="Shift"/>
     </Window.InputBindings>
     <Grid>
         <Grid HorizontalAlignment="Left" Width="207" Background="White">
@@ -110,7 +113,6 @@
                         </DataGrid.Columns>
                     </DataGrid>
 
-                    <TextBox Name="searchBox" IsTabStop="False" BorderThickness="1" BorderBrush="Black" Canvas.Left="530" Canvas.Top="69" Width="162" Height="32" KeyUp="DynamicKeyUp" Background="White"/>
                     <Button  HorizontalAlignment="Left" VerticalAlignment="Top" Width="35" Height="35" Background="White" FontFamily="Ebrima" FontWeight="Bold" Foreground="Black" BorderBrush="#FF425431" Canvas.Left="712" Canvas.Top="577" FontSize="14" Click="AddDynamicButtonClicked">
                         <StackPanel>
                             <Image Source="DemoMode/addIcon.png"/>
@@ -128,9 +130,11 @@
 
                         </StackPanel>
                     </Button>
+                    <TextBox Name="searchBox" IsTabStop="True" BorderThickness="1" BorderBrush="Black" Canvas.Left="530" Canvas.Top="69" Width="162" Height="32" KeyUp="DynamicKeyUp" Background="White" FontWeight="Normal"/>
+
                     <Label Content="CTRL+D" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="8" FontWeight="Bold" Canvas.Left="718" Canvas.Top="506"/>
                     <Label Content="CTRL+E" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="8" FontWeight="Bold" Canvas.Left="718" Canvas.Top="450"/>
-                    <Label Content="CTRL+N" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="8" FontWeight="Bold" Canvas.Left="715" Canvas.Top="562"/>
+                    <Image Source="DemoMode/search.png" Height="28" Width="33" Canvas.Left="695" Canvas.Top="73"/>
 
                 </Canvas>
 
@@ -164,7 +168,6 @@
                         </DataGrid.Columns>
                     </DataGrid>
 
-                    <TextBox Name="statickiSearchBox" IsTabStop="False" BorderBrush="Black" BorderThickness="1" Canvas.Left="530" Canvas.Top="68" Width="162" Height="32" KeyDown="StaticKeyUp"/>
                     <Button  HorizontalAlignment="Left" VerticalAlignment="Top" Width="35" Height="35" Background="White" FontFamily="Ebrima" FontWeight="Bold" Foreground="Black" BorderBrush="#FF425431" Canvas.Left="712" Canvas.Top="577" FontSize="14" Click="AddStaticButtonClicked">
                         <StackPanel>
                             <Image Source="DemoMode/addIcon.png"/>
@@ -181,9 +184,11 @@
                             <Image Source="DemoMode/edit.png"/>
                         </StackPanel>
                     </Button>
-                    <Label Content="CTRL+E" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="8" FontWeight="Bold" Canvas.Left="718" Canvas.Top="454"/>
-                    <Label Content="CTRL+N" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="8" FontWeight="Bold" Canvas.Left="715" Canvas.Top="562"/>
-                    <Label Content="CTRL+D" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="8" FontWeight="Bold" Canvas.Left="717" Canvas.Top="507"/>
+                    <TextBox Name="statickiSearchBox" IsTabStop="True" BorderBrush="Black" BorderThickness="1" Canvas.Left="530" Canvas.Top="68" Width="162" Height="32" KeyDown="StaticKeyUp" FontWeight="Normal"/>
+
+                    <Label Content="SHIFT+E" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="8" FontWeight="Bold" Canvas.Left="714" Canvas.Top="454"/>
+                    <Label Content="SHIFT+D" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="8" FontWeight="Bold" Canvas.Left="713" Canvas.Top="507"/>
+                    <Image Source="DemoMode/search.png" Height="28" Width="33" Canvas.Left="691" Canvas.Top="72"/>
                 </Canvas>
 
 

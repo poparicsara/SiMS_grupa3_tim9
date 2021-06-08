@@ -41,7 +41,7 @@ namespace Model
             List<Room> searchedRooms = new List<Room>();
             foreach (var r in rooms)
             {
-                if (ISearched(text, r))
+                if (IsSearched(text, r))
                 {
                     searchedRooms.Add(r);
                 }
@@ -49,7 +49,7 @@ namespace Model
             return searchedRooms;
         }
 
-        private static bool ISearched(string text, Room r)
+        private static bool IsSearched(string text, Room r)
         {
             return r.HospitalWard.ToLower().StartsWith(text) || r.RoomPurpose.Name.ToLower().StartsWith(text);
         }
@@ -140,6 +140,18 @@ namespace Model
             foreach (Room r in rooms)
             {
                 if (r.Id == roomNumber)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public bool IsInventoryIdUnique(Room room, int id)
+        {
+            foreach (var i in GetRoomInvenotory(room))
+            {
+                if (i.Id == id)
                 {
                     return false;
                 }

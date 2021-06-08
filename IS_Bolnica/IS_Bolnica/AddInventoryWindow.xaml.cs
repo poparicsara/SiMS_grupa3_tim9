@@ -30,6 +30,9 @@ namespace IS_Bolnica
 
             type = inventoryType;
 
+            idBox.Focusable = true;
+            idBox.Focus();
+
             this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
         }
 
@@ -43,18 +46,42 @@ namespace IS_Bolnica
 
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
-            SetNewInventory();
-            service.AddInventory(inventory);
-            this.Close();
+            if (!IsAnythingNull())
+            {
+                if (SetNewInventory())
+                {
+                    service.AddInventory(inventory);
+                    this.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Sva polja moraju biti popunjena!");
+            }
         }
 
-        private void SetNewInventory()
+        private bool IsAnythingNull()
         {
-            inventory.Id = (int)Int64.Parse(idBox.Text);
-            inventory.Name = nameBox.Text;
-            inventory.CurrentAmount = (int)Int64.Parse(currentBox.Text);
-            inventory.Minimum = (int)Int64.Parse(minBox.Text);
-            SetInventoryType();
+            return idBox.Text.Equals("") || nameBox.Text.Equals("") || currentBox.Text.Equals("") ||
+                   minBox.Text.Equals("");
+        }
+
+        private bool SetNewInventory()
+        {
+            if (service.IsInventoryIdUnique((int) Int64.Parse(idBox.Text)))
+            {
+                inventory.Id = (int)Int64.Parse(idBox.Text);
+                inventory.Name = nameBox.Text;
+                inventory.CurrentAmount = (int)Int64.Parse(currentBox.Text);
+                inventory.Minimum = (int)Int64.Parse(minBox.Text);
+                SetInventoryType();
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Već postoji inventar sa unetim brojem!");
+                return false;
+            }
         }
 
         private void SetInventoryType()

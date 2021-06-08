@@ -86,8 +86,15 @@
         "Name": "novo",
         "CurrentAmount": 0,
         "Minimum": 0,
-        "Id": 10,
-        "InventoryType": 0
+        "Id": 9,
+        "InventoryType": 1
+      },
+      {
+        "Name": "ajde",
+        "CurrentAmount": 0,
+        "Minimum": 0,
+        "Id": 6,
+        "InventoryType": 1
       }
     ],
     "RoomPurpose": {

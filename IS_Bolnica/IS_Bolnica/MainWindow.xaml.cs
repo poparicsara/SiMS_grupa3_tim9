@@ -36,10 +36,10 @@ namespace IS_Bolnica
             doctorWindow.Show();
         }
 
-        //private void PatientButtonClicked(object sender, RoutedEventArgs e)
+        //private void PatientButtonClicked(object sender, RoutedEventArgs eč
         //{
-        //    PatientWindow pw = new PatientWindow();
-        //    pw.Show();
+        //    PatientWindow pw = new PatientWindow(č;
+        //    pw.Show(č;
 
         //}
 
@@ -52,7 +52,7 @@ namespace IS_Bolnica
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            users = storage.LoadFromFile("UserRepository.json");
+            /*users = storage.LoadFromFile("UserRepository.json");
             patients = patientStorage.LoadFromFile("PatientRecordFileStorage.json");
             
             string username = usernameBox.Text;
@@ -98,6 +98,22 @@ namespace IS_Bolnica
                             break;
                     }
                 }
+            }*/
+
+            string username = usernameBox.Text;
+            string password = passwordBox.Password.ToString();
+            if (!username.Equals("Sara"))
+            {
+                MessageBox.Show("Navedeno korisničko ima ne postoji!");
+            }
+            else if (!password.Equals("ftn"))
+            {
+                MessageBox.Show("Pogrešna lozinka!");
+            }
+            else
+            {
+                DirectorProfileWindow dw = new DirectorProfileWindow("0601234567", "ivanivanovic@gmail.com");
+                dw.Show();
             }
         }
 

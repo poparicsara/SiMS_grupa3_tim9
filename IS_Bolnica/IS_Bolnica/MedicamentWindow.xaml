@@ -123,7 +123,7 @@
             </StackPanel>
         </Button>
         <Image Source="DemoMode/search.png" Margin="1039,69,37.6,528.6"/>
-        <TextBox Name="searchBox" IsTabStop="False" HorizontalAlignment="Left" Height="32" Margin="875,69,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="162"/>
+        <TextBox Name="searchBox" IsTabStop="False" HorizontalAlignment="Left" Height="32" Margin="875,69,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="162" KeyUp="SearchKeyUp" FontSize="16"/>
         <Label Content="LEKOVI" HorizontalAlignment="Left" Margin="593,23,0,0" VerticalAlignment="Top" FontSize="26" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black"/>
         <Label Content="CTRL+E" HorizontalAlignment="Left" Margin="1056,444,0,0" VerticalAlignment="Top" FontSize="8" FontWeight="Bold" Width="42"/>
         <Label Content="CTRL+D" HorizontalAlignment="Left" Margin="1056,501,0,0" VerticalAlignment="Top" FontSize="8" FontWeight="Bold"/>

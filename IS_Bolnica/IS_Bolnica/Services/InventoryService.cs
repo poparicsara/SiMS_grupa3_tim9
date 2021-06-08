@@ -51,6 +51,11 @@ namespace IS_Bolnica.Services
             roomRepository.EditInventory(index, newInventory, magacin);
         }
 
+        public bool IsInventoryIdUnique(int id)
+        {
+            return roomRepository.IsInventoryIdUnique(magacin, id);
+        }
+
         private int FindInventoryIndex(Inventory inventory)
         {
             int index = 0;

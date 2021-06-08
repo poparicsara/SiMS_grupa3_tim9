@@ -123,6 +123,25 @@ namespace IS_Bolnica.Model
             return true;
         }
 
+        public List<Medicament> GetSearchedMeds(string text)
+        {
+            List<Medicament> searchedmeds = new List<Medicament>();
+            meds = GetMedicaments();
+            foreach (var m in meds)
+            {
+                if (IsSearched(text, m))
+                {
+                    searchedmeds.Add(m);
+                }
+            }
+            return searchedmeds;
+        }
+
+        private static bool IsSearched(string text, Medicament m)
+        {
+            return m.Name.ToLower().StartsWith(text) || m.Producer.ToLower().StartsWith(text) || m.Status.ToString().StartsWith(text);
+        }
+
         public void SaveToFile(List<Medicament> medicaments)
         {
             string jsonString = JsonConvert.SerializeObject(medicaments, Formatting.Indented);

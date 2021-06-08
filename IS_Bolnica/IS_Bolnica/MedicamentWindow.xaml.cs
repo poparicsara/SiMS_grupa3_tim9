@@ -30,6 +30,25 @@ namespace IS_Bolnica
 
             medicamentDataGrid.ItemsSource = medService.GetMedicaments();
 
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+
+        }
+
+        private void HandleEsc(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                MessageBoxResult messageBox = MessageBox.Show("Da li ste sigurni da želite da se odjavite?",
+                    "Odjava", MessageBoxButton.YesNo);
+                switch (messageBox)
+                {
+                    case MessageBoxResult.Yes:
+                        this.Close();
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                }
+            }
         }
 
         private void RowDoubleClick(object sender, MouseButtonEventArgs e)
@@ -135,6 +154,12 @@ namespace IS_Bolnica
             DirectorNotificationWindow dw = new DirectorNotificationWindow();
             dw.Show();
             this.Close();
+        }
+
+        private void SearchKeyUp(object sender, KeyEventArgs e)
+        {
+            var filtered = medService.GetSearchedMeds(searchBox.Text.ToLower());
+            medicamentDataGrid.ItemsSource = filtered;
         }
     }
 }

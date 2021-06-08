@@ -79,7 +79,14 @@
       "Id": 102,
       "Name": "ESBESUL",
       "Ingredients": null,
-      "Replacement": null,
+      "Replacement": {
+        "Id": 102,
+        "Name": "ESBESUL",
+        "Ingredients": null,
+        "Replacement": null,
+        "Producer": "Bayer",
+        "Status": 0
+      },
       "Producer": "Bayer",
       "Status": 0
     },
@@ -94,7 +101,14 @@
       "Id": 0,
       "Name": "aaa",
       "Ingredients": null,
-      "Replacement": null,
+      "Replacement": {
+        "Id": 102,
+        "Name": "ESBESUL",
+        "Ingredients": null,
+        "Replacement": null,
+        "Producer": "Bayer",
+        "Status": 0
+      },
       "Producer": null,
       "Status": 0
     },
@@ -128,7 +142,14 @@
       "Id": 102,
       "Name": "ESBESUL",
       "Ingredients": null,
-      "Replacement": null,
+      "Replacement": {
+        "Id": 102,
+        "Name": "ESBESUL",
+        "Ingredients": null,
+        "Replacement": null,
+        "Producer": "Bayer",
+        "Status": 0
+      },
       "Producer": "Bayer",
       "Status": 0
     },
@@ -219,7 +240,14 @@
         "Name": "d"
       }
     ],
-    "Replacement": null,
+    "Replacement": {
+      "Id": 102,
+      "Name": "ESBESUL",
+      "Ingredients": null,
+      "Replacement": null,
+      "Producer": "Bayer",
+      "Status": 0
+    },
     "Producer": "oni",
     "Status": 0
   },

@@ -30,6 +30,25 @@ namespace IS_Bolnica
 
             dynamicDataGrid.ItemsSource = service.GetDynamicInventory();
             staticDataGrid.ItemsSource = service.GetStaticInventory();
+
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+        }
+
+        private void HandleEsc(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                MessageBoxResult messageBox = MessageBox.Show("Da li ste sigurni da želite da se odjavite?",
+                    "Odjava", MessageBoxButton.YesNo);
+                switch (messageBox)
+                {
+                    case MessageBoxResult.Yes:
+                        this.Close();
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                }
+            }
         }
 
         private void AddDynamicButtonClicked(object sender, RoutedEventArgs e)
@@ -98,8 +117,17 @@ namespace IS_Bolnica
         {
             if (IsAnyStaticInventorySelected())
             {
-                service.DeleteInventory(selectedInventory);
-                RefreshDataGrid();
+                MessageBoxResult messageBox = MessageBox.Show("Da li ste sigurni da želite da obrišete izabrani inventar?",
+                    "Brisanje inventara", MessageBoxButton.YesNo);
+                switch (messageBox)
+                {
+                    case MessageBoxResult.Yes:
+                        service.DeleteInventory(selectedInventory);
+                        RefreshDataGrid();
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                }
             }
         }
 
@@ -175,7 +203,7 @@ namespace IS_Bolnica
         private void StaticKeyUp(object sender, KeyEventArgs e)
         {
             List<Inventory> staticInventories = service.GetStaticInventory();
-            var filtered = staticInventories.Where(inventory => inventory.Name.ToLower().Contains(searchBox.Text.ToLower()));
+            var filtered = staticInventories.Where(inventory => inventory.Name.ToLower().Contains(statickiSearchBox.Text.ToLower()));
             staticDataGrid.ItemsSource = filtered;
         }
 
