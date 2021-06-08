@@ -19,8 +19,7 @@ namespace IS_Bolnica.GUI.Patient.View
         public EvaluationsForAppointments()
         {
             InitializeComponent();
-            DataContext = new EvaulationsForAppointmentsVM();
-            OceneDataBinding.ItemsSource = evaluationService.getPatientEvaluationsOfAppointment();
+            DataContext = new EvaulationsForAppointmentsVM(); 
         }
 
         private void BackButtonClicked(object sender, RoutedEventArgs e)

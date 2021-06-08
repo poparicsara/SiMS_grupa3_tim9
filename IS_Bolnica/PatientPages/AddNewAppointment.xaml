@@ -31,7 +31,7 @@
         <Button Click="ButtonZakaziClicked" Margin="164,357,396.8,65.4" Background="white" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="correct.png" Stretch="Fill" Height="30" Width="47" />
-                <Label Content="Zakazi" FontSize="18" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="61" RenderTransformOrigin="0.5,0.5"/>
+                <Label Content="Zakaži" FontSize="18" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="61" RenderTransformOrigin="0.5,0.5"/>
             </StackPanel>
         </Button>
         <Button Click="ButtonPredloziClicked" Margin="501,199,22.8,223.4" Background="white" >
@@ -40,7 +40,7 @@
                 <Label Content="Predlozi za vas" FontSize="18" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="126" RenderTransformOrigin="0.5,0.5"/>
             </StackPanel>
         </Button>
-        <Label Content="Zakazite pregled" HorizontalAlignment="Left" FontSize="45" Margin="174,19,0,0" VerticalAlignment="Top" Height="74" Width="340"/>
+        <Label Content="Zakažite pregled" HorizontalAlignment="Left" FontSize="45" Margin="174,19,0,0" VerticalAlignment="Top" Height="74" Width="340"/>
 
         <Label Content="Doktor" HorizontalAlignment="Left" FontSize="20" Margin="96,129,0,0" VerticalAlignment="Top" Width="76" Height="44"/>
         <Label Content="Datum" FontSize="20" HorizontalAlignment="Left" Margin="96,193,0,0" VerticalAlignment="Top" Height="37" Width="69"/>

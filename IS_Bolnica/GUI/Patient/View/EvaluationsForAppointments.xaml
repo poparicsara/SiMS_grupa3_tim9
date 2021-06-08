@@ -25,7 +25,8 @@
           HorizontalAlignment="Center" 
           Name="OceneDataBinding" 
           IsReadOnly="True"
-          VerticalAlignment="Center" Margin="45,173,22.8,39.4" >
+          VerticalAlignment="Center" Margin="45,173,22.8,39.4"
+                  ItemsSource="{Binding Path=PatientEvaluations}">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FF4E8E73"/>
@@ -44,7 +45,7 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <Label Content="Vase ocene dosadasnjih pregleda" FontSize="26" HorizontalAlignment="Left" Height="54" Margin="134,60,0,0" VerticalAlignment="Top" Width="392"/>
+        <Label Content="Vaše ocene dosadašnjih pregleda" FontSize="26" HorizontalAlignment="Left" Height="54" Margin="134,60,0,0" VerticalAlignment="Top" Width="392"/>
         <Image Source="/PatientPages/nasLogo.jpg" Stretch="Fill" Margin="24,10,609.8,404.4"/>
         <Label Content="Zdravo bolnica" HorizontalAlignment="Left" Height="27" Margin="10,66,0,0" VerticalAlignment="Top" Width="96"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" Width="196" Margin="45,140,0,0" >

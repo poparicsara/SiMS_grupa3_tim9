@@ -33,7 +33,7 @@
         <Button HorizontalAlignment="Left" Margin="0,301,0,0" Background="White" VerticalAlignment="Top" Width="149" Height="43" Click="HelpButtonClicked">
             <StackPanel Orientation="Horizontal">
                 <Image Source="help.png" Height="41" Width="68"/>
-                <Label Content="Pomoc" FontSize="14" Height="30" Width="60"/>
+                <Label Content="Pomoć" FontSize="14" Height="30" Width="60"/>
             </StackPanel>
         </Button>
 

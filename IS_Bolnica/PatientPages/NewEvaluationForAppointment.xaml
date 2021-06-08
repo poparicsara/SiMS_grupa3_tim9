@@ -25,7 +25,7 @@
         <Button Click="ButtonZabeleziClicked" Margin="494,223,9.8,199.4" Background="white" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="correct.png" Stretch="Fill" Height="30" Width="47" />
-                <Label Content="Zabelezi ocenu" FontSize="18" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="131"/>
+                <Label Content="Zabeleži ocenu" FontSize="18" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="131"/>
             </StackPanel>
         </Button>
         <TextBox IsEnabled="True" FontSize="18" HorizontalAlignment="Left" Height="85" Margin="236,313,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="340" Name="CommentTextBox"/>

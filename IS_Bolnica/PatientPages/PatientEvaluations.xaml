@@ -28,7 +28,7 @@
                 <Label Content="Ocene bolnice" FontSize="20" HorizontalAlignment="Left" Height="37" VerticalAlignment="Top" Width="143"/>
             </StackPanel>
         </Button>
-        <Label Content="Vase ocene" FontSize="50" HorizontalAlignment="Left" Height="79" Margin="228,102,0,0" VerticalAlignment="Top" Width="271"/>
+        <Label Content="Vaše ocene" FontSize="50" HorizontalAlignment="Left" Height="79" Margin="228,102,0,0" VerticalAlignment="Top" Width="271"/>
         <Image Source="nasLogo.jpg" Stretch="Fill" Margin="24,10,609.8,404.4"/>
         <Label Content="Zdravo bolnica" HorizontalAlignment="Left" Height="27" Margin="10,66,0,0" VerticalAlignment="Top" Width="93"/>
     </Grid>

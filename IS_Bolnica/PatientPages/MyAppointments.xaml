@@ -82,7 +82,7 @@
         <Button Click="ObavestenjaButtonClicked" Margin="557,343,0,78.4" Background="white" HorizontalAlignment="Left" Width="122" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="notification.png" Stretch="Fill" Height="30" Width="30" />
-                <Label Content="Obavestenja" FontSize="14" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="91"/>
+                <Label Content="Obaveštenja" FontSize="14" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="91"/>
             </StackPanel>
         </Button>
         <Button Click="AnamnezeButtonClicked" Margin="557,396,114.6,25.4" Background="white" >

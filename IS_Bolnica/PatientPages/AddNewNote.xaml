@@ -37,10 +37,10 @@
             </StackPanel>
         </Button>
         <TextBox IsEnabled="True" FontSize="18" HorizontalAlignment="Left" Height="149" Margin="24,144,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="419" Name="NoteTextBox"/>
-        <Label Content="Unesite belesku" FontSize="35" HorizontalAlignment="Left" Height="56" Margin="213,66,0,0" VerticalAlignment="Top" Width="268"/>
+        <Label Content="Unesite belešku" FontSize="35" HorizontalAlignment="Left" Height="56" Margin="213,66,0,0" VerticalAlignment="Top" Width="268"/>
         <Image Source="nasLogo.jpg" Stretch="Fill" Margin="24,10,609.8,404.4"/>
         <Label Content="Zdravo bolnica" HorizontalAlignment="Left" Height="27" Margin="10,66,0,0" VerticalAlignment="Top" Width="93"/>
         <Label Content="Back" FontSize="16" HorizontalAlignment="Left" Height="27" Margin="715,27,0,0" VerticalAlignment="Top" Width="48"/>
-        <Label Content="Podesite podsetnik, oznacite koliko ranije da Vam se salju obavestenja" FontSize="18" HorizontalAlignment="Left" Height="43" Margin="10,358,0,0" VerticalAlignment="Top" Width="564"/>
+        <Label Content="Podesite podsetnik, označite koliko ranije da Vam se šalju obaveštenja" FontSize="18" HorizontalAlignment="Left" Height="43" Margin="10,358,0,0" VerticalAlignment="Top" Width="564"/>
     </Grid>
 </Page>

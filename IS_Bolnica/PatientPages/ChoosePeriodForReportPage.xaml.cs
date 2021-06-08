@@ -22,6 +22,7 @@ namespace IS_Bolnica.PatientPages
     public partial class ChoosePeriodForReportPage : Page
     {
         private ReportService reportService = new ReportService();
+        private FindAttributesService findAttributesService = new FindAttributesService();
         public ChoosePeriodForReportPage()
         {
             InitializeComponent();
@@ -34,16 +35,21 @@ namespace IS_Bolnica.PatientPages
 
         private void ButtonSendClicked(object sender, RoutedEventArgs e)
         {
-            if (reportService.getMonth(StartDatePicker.Text) == reportService.getMonth(EndDatePicker.Text))
+            if (findAttributesService.checkDatePicker(StartDatePicker.Text) && findAttributesService.checkDatePicker(EndDatePicker.Text))
             {
-                if (reportService.getDay(StartDatePicker.Text) < reportService.getDay(EndDatePicker.Text))
-                    PatientWindow.MyFrame.NavigationService.Navigate(new TheReportPage(StartDatePicker.Text, EndDatePicker.Text));
+                if (reportService.getMonth(StartDatePicker.Text) == reportService.getMonth(EndDatePicker.Text))
+                {
+                    if (reportService.getDay(StartDatePicker.Text) < reportService.getDay(EndDatePicker.Text))
+                        PatientWindow.MyFrame.NavigationService.Navigate(new TheReportPage(StartDatePicker.Text, EndDatePicker.Text));
+                    else
+                        PatientWindow.MyFrame.NavigationService.Navigate(new InformationPage("Greška", "Period između startnog i krajnjeg datuma ne postoji!"));
+                }
                 else
-                    PatientWindow.MyFrame.NavigationService.Navigate(new InformationPage("Greška", "Period između startnog i krajnjeg datuma ne postoji!"));
-            }
-            else {
-                PatientWindow.MyFrame.NavigationService.Navigate(new TheReportPage(StartDatePicker.Text, EndDatePicker.Text));
-            }
+                {
+                    PatientWindow.MyFrame.NavigationService.Navigate(new TheReportPage(StartDatePicker.Text, EndDatePicker.Text));
+                }
+            } else
+                PatientWindow.MyFrame.NavigationService.Navigate(new InformationPage("UPOZORENJE!", "Nisu popunjena sva neophodna polja!"));
         }
 
         private void ButtonStopClicked(object sender, RoutedEventArgs e)

@@ -15,7 +15,7 @@
                 <Label Content="Back" FontSize="16" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="48"/>
             </StackPanel>
         </Button>
-        <Label Content="Vas profil" HorizontalAlignment="Left" FontSize="45" Margin="270,66,0,0" VerticalAlignment="Top" Height="74" Width="201"/>
+        <Label Content="Vaš profil" HorizontalAlignment="Left" FontSize="45" Margin="270,66,0,0" VerticalAlignment="Top" Height="74" Width="201"/>
         <Label Content="Zdravo bolnica" HorizontalAlignment="Left" Height="27" Margin="10,66,0,0" VerticalAlignment="Top" Width="93"/>
         <Image Source="nasLogo.jpg" Stretch="Fill" Margin="24,10,609.8,404.4"/>
         <Label Content="Username:" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="92,155,0,0" RenderTransformOrigin="0.341,1.027" Width="103"/>

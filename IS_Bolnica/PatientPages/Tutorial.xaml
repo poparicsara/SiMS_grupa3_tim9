@@ -57,6 +57,15 @@
             <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="DragAndDrop" FontSize="15"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Label FontSize="15" Content = "Drag and drop mehanizam na našem sajtu podrazumeva mogućnost za vas da &#xA;prevlačenjem jednog pregleda na dugme &quot;Otkazivanje,&quot; zapravo postignete &#xA;istu stvar poput označavanja pregleda, pa nakon toga pritiska na dugme &#xA;&quot;Otkazivanje&quot;.&#xA;Cilj ovog mehanizma jeste da vam olakša korišćenje našeg sajta, i nadamo se da&#xA;vam pomaže u radu." Margin="0,5,13.6,4.8">
+                </Label>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Video" FontSize="15"/>
                     </StackPanel>
                 </TabItem.Header>

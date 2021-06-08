@@ -14,9 +14,11 @@ namespace IS_Bolnica.GUI.Patient.ViewModel
 {
     public class EvaulationsForAppointmentsVM
     {
+        private EvaluationService evaluationService = new EvaluationService();
         #region Properties
 
         public string SearchText { get; set; }
+        public List<Evaluation> PatientEvaluations { get; set; }
 
         #endregion
 
@@ -25,6 +27,7 @@ namespace IS_Bolnica.GUI.Patient.ViewModel
         public EvaulationsForAppointmentsVM()
         {
             SetCommands();
+            PatientEvaluations = evaluationService.getPatientEvaluationsOfAppointment();
         }
 
         #endregion
