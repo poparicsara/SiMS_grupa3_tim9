@@ -57,7 +57,7 @@ namespace IS_Bolnica.Secretary
             ep.surname.Text = patient.Surname;
             ep.username.Text = patient.Username;
             ep.dateOfBirth.SelectedDate = new DateTime(patient.DateOfBirth.Year, patient.DateOfBirth.Month, patient.DateOfBirth.Day);
-            ep.iniciallyPassword.Text = patient.Password;
+            ep.iniciallyPassword.Password = patient.Password;
             ep.id.Text = patient.Id.ToString();
             ep.phone.Text = patient.Phone.ToString();
             ep.email.Text = patient.Email;
@@ -76,6 +76,17 @@ namespace IS_Bolnica.Secretary
             {
                 ep.GenderBox.SelectedIndex = 1;
             }
+
+            ep.alergensBlock.Text = "";
+            if (patient.Ingredients != null && patient.Ingredients.Count != 0)
+            {
+                foreach (var ingredient in patient.Ingredients)
+                {
+                    ep.alergensBlock.Text += ingredient.Name + "\n";
+                }
+            }
+
+
         }
 
         private void deletePatient(object sender, RoutedEventArgs e)
@@ -134,6 +145,46 @@ namespace IS_Bolnica.Secretary
 
             var filtered = patientService.GetSearchedPatients(pretraziBox.Text.ToLower());
             PatientListGrid.ItemsSource = filtered;
+        }
+
+        private void PatientListGrid_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Patient patient = (Patient) PatientListGrid.SelectedItem;
+            SelectedPatient sp = new SelectedPatient(this);
+            sp.imeLabel.Content = patient.Name;
+            sp.prezimeimeLabel.Content = patient.Surname;
+            sp.JMBGLabel.Content = patient.Id;
+            sp.adressLabel.Content = patient.Address.Street + " "
+                                                    + Convert.ToString(patient.Address.NumberOfBuilding) + "/"
+                                                    + Convert.ToString(patient.Address.Floor) + "/"
+                                                    + Convert.ToString(patient.Address.Apartment);
+            sp.cityLabel.Content = patient.Address.City.name + " "
+                                                     + Convert.ToString(patient.Address.City.postalCode);
+            sp.countryLabel.Content = patient.Address.City.Country.name;
+            sp.dateLabel.Content = patient.DateOfBirth.Day + "." + patient.DateOfBirth.Month + "." +
+                                   patient.DateOfBirth.Year;
+            sp.emailLabel.Content = patient.Email;
+            if (patient.Gender == Gender.male)
+            {
+                sp.genderLabel.Content = "Muško";
+            }
+            else
+            {
+                sp.genderLabel.Content = "Žensko";
+            }
+
+            sp.telephoneLabel.Content = patient.Phone;
+            sp.usernameLabel.Content = patient.Username;
+            sp.allergensLabel.Text = "";
+            if (patient.Ingredients != null && patient.Ingredients.Count != 0)
+            {
+                foreach (var ingredient in patient.Ingredients)
+                {
+                    sp.allergensLabel.Text += ingredient.Name + "\n";
+                }
+            }
+
+            this.NavigationService.Navigate(sp);
         }
     }
 }

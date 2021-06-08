@@ -75,5 +75,30 @@ namespace IS_Bolnica.Services
 
             return doctorList;
         }
+
+        public List<Doctor> GetSearchedDoctors(string text)
+        {
+            doctors = doctorRepository.loadFromFile("Doctors.json");
+            List<Doctor> searchedDoctors = new List<Doctor>();
+            foreach (Doctor doctor in doctors)
+            {
+                if (ISearched(text, doctor))
+                {
+                    searchedDoctors.Add(doctor);
+                }
+            }
+
+            return searchedDoctors;
+        }
+
+        private static bool ISearched(string text, Doctor d)
+        {
+            return d.Name.ToLower().Contains(text) ||
+                   d.Surname.ToLower().Contains(text) ||
+                   d.Username.ToLower().Contains(text) ||
+                   d.Id.ToLower().StartsWith(text);
+        }
+
+
     }
 }

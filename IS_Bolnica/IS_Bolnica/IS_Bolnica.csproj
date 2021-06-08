@@ -48,6 +48,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -60,6 +61,12 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WPFLocalizeExtension, Version=3.8.0.0, Culture=neutral, PublicKeyToken=c726e0262981a1eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\WPFLocalizeExtension.3.8.0\lib\net452\WPFLocalizeExtension.dll</HintPath>
+    </Reference>
+    <Reference Include="XAMLMarkupExtensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c726e0262981a1eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\XAMLMarkupExtensions.2.0.0\lib\net472\XAMLMarkupExtensions.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -137,7 +144,7 @@
     <Compile Include="Model\Shift.cs" />
     <Compile Include="Model\ShiftType.cs" />
     <Compile Include="Model\Vacation.cs" />
-    <Compile Include="Properties\Resources.en-US.Designer.cs">
+    <Compile Include="Resources\Resources.en-US.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.en-US.resx</DependentUpon>
@@ -220,14 +227,8 @@
     <Compile Include="Secretary\ActionBar.xaml.cs">
       <DependentUpon>ActionBar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Secretary\ActionBarWindow.xaml.cs">
-      <DependentUpon>ActionBarWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Secretary\AddExamination.xaml.cs">
       <DependentUpon>AddExamination.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Secretary\AddExaminationWindow.xaml.cs">
-      <DependentUpon>AddExaminationWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\AddGuestUser.xaml.cs">
       <DependentUpon>AddGuestUser.xaml</DependentUpon>
@@ -235,32 +236,17 @@
     <Compile Include="Secretary\AddNotification.xaml.cs">
       <DependentUpon>AddNotification.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Secretary\AddNotificationWindow.xaml.cs">
-      <DependentUpon>AddNotificationWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Secretary\AddOperation.xaml.cs">
       <DependentUpon>AddOperation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Secretary\AddOperationWindow.xaml.cs">
-      <DependentUpon>AddOperationWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Secretary\AddPatient.xaml.cs">
-      <DependentUpon>AddPatient.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Secretary\AddPatientPage.xaml.cs">
       <DependentUpon>AddPatientPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Secretary\AddUrgentExamination.xaml.cs">
-      <DependentUpon>AddUrgentExamination.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\AddUrgentExaminationPage.xaml.cs">
       <DependentUpon>AddUrgentExaminationPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\AddUrgentOperation.xaml.cs">
       <DependentUpon>AddUrgentOperation.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Secretary\AddUrgentOperationWindow.xaml.cs">
-      <DependentUpon>AddUrgentOperationWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\AddVacation.xaml.cs">
       <DependentUpon>AddVacation.xaml</DependentUpon>
@@ -271,32 +257,17 @@
     <Compile Include="Secretary\BlockedPatientsList.xaml.cs">
       <DependentUpon>BlockedPatientsList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Secretary\BlockedPatientsListWindow.xaml.cs">
-      <DependentUpon>BlockedPatientsListWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Secretary\DoctorList.xaml.cs">
       <DependentUpon>DoctorList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\EditExamination.xaml.cs">
       <DependentUpon>EditExamination.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Secretary\EditExaminationWindow.xaml.cs">
-      <DependentUpon>EditExaminationWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Secretary\EditNotification.xaml.cs">
       <DependentUpon>EditNotification.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Secretary\EditNotificationWindow.xaml.cs">
-      <DependentUpon>EditNotificationWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Secretary\EditOperation.xaml.cs">
       <DependentUpon>EditOperation.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Secretary\EditOperationWindow.xaml.cs">
-      <DependentUpon>EditOperationWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Secretary\EditPatient.xaml.cs">
-      <DependentUpon>EditPatient.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\EditPatientPage.xaml.cs">
       <DependentUpon>EditPatientPage.xaml</DependentUpon>
@@ -307,38 +278,20 @@
     <Compile Include="Secretary\ExaminationList.xaml.cs">
       <DependentUpon>ExaminationList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Secretary\ExaminationListWindow.xaml.cs">
-      <DependentUpon>ExaminationListWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Secretary\GuestUserAccount.xaml.cs">
-      <DependentUpon>GuestUserAccount.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Secretary\GuestUserList.xaml.cs">
       <DependentUpon>GuestUserList.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Secretary\GuestUserListWindow.xaml.cs">
-      <DependentUpon>GuestUserListWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\NotificationList.xaml.cs">
       <DependentUpon>NotificationList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Secretary\NotificationListWindow.xaml.cs">
-      <DependentUpon>NotificationListWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Secretary\OperationList.xaml.cs">
       <DependentUpon>OperationList.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Secretary\OperationListWindow.xaml.cs">
-      <DependentUpon>OperationListWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\Options.xaml.cs">
       <DependentUpon>Options.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\PatientList.xaml.cs">
       <DependentUpon>PatientList.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Secretary\PatientListWindow.xaml.cs">
-      <DependentUpon>PatientListWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\Report.xaml.cs">
       <DependentUpon>Report.xaml</DependentUpon>
@@ -349,17 +302,17 @@
     <Compile Include="Secretary\SecretaryProfile.xaml.cs">
       <DependentUpon>SecretaryProfile.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Secretary\SelectedNotification.xaml.cs">
+      <DependentUpon>SelectedNotification.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\SelectedPatient.xaml.cs">
+      <DependentUpon>SelectedPatient.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Secretary\UrgentExaminationOptions.xaml.cs">
       <DependentUpon>UrgentExaminationOptions.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Secretary\UrgentExaminationOptionsWindow.xaml.cs">
-      <DependentUpon>UrgentExaminationOptionsWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Secretary\UrgentOperationOptions.xaml.cs">
       <DependentUpon>UrgentOperationOptions.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Secretary\UrgentOperationOptionsWindow.xaml.cs">
-      <DependentUpon>UrgentOperationOptionsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="SekretarWindow.xaml.cs">
       <DependentUpon>SekretarWindow.xaml</DependentUpon>
@@ -386,6 +339,7 @@
     <Compile Include="Services\RoomService.cs" />
     <Compile Include="Services\UrgentAppointmentService.cs" />
     <Compile Include="Services\UserService.cs" />
+    <Compile Include="TranslationSource.cs" />
     <Compile Include="UpdateExaminationWindow.xaml.cs">
       <DependentUpon>UpdateExaminationWindow.xaml</DependentUpon>
     </Compile>
@@ -563,17 +517,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Secretary\ActionBarWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Secretary\AddExamination.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Secretary\AddExaminationWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Secretary\AddGuestUser.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -583,29 +529,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Secretary\AddNotificationWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Secretary\AddOperation.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Secretary\AddOperationWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Secretary\AddPatient.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Secretary\AddPatientPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Secretary\AddUrgentExamination.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Secretary\AddUrgentExaminationPage.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -614,10 +544,6 @@
     <Page Include="Secretary\AddUrgentOperation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Secretary\AddUrgentOperationWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Secretary\AddVacation.xaml">
       <SubType>Designer</SubType>
@@ -631,10 +557,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Secretary\BlockedPatientsListWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Secretary\DoctorList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -643,27 +565,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Secretary\EditExaminationWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Secretary\EditNotification.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Secretary\EditNotificationWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Secretary\EditOperation.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Secretary\EditOperationWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Secretary\EditPatient.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -679,19 +585,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Secretary\ExaminationListWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Secretary\GuestUserAccount.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Secretary\GuestUserList.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Secretary\GuestUserListWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -699,27 +593,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Secretary\NotificationListWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Secretary\OperationList.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Secretary\OperationListWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Secretary\Options.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Secretary\PatientList.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Secretary\PatientListWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -735,21 +617,21 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Secretary\SelectedNotification.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary\SelectedPatient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Secretary\UrgentExaminationOptions.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Secretary\UrgentExaminationOptionsWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Secretary\UrgentOperationOptions.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Secretary\UrgentOperationOptionsWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SekretarWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -816,7 +698,7 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
+    <Compile Include="Resources\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -830,11 +712,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Language.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.en-US.resx">
+    <EmbeddedResource Include="Resources\Resources.en-US.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.en-US.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
+    <EmbeddedResource Include="Resources\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>

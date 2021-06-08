@@ -56,5 +56,26 @@ namespace IS_Bolnica.Services
 
             return -1;
         }
+
+        public List<GuestUser> GetSearchedGuests(string text)
+        {
+            guestUsers = guestUserRepository.LoadFromFile("GuestUsersFile.json");
+            List<GuestUser> searchedGuest = new List<GuestUser>();
+            foreach (GuestUser guestUser in guestUsers)
+            {
+                if (ISearched(text, guestUser))
+                {
+                    searchedGuest.Add(guestUser);
+                }
+            }
+
+            return searchedGuest;
+        }
+
+        private static bool ISearched(string text, GuestUser g)
+        {
+            return g.SystemName.ToLower().StartsWith(text) ||
+                   g.InjuryDescription.ToLower().StartsWith(text);
+        }
     }
 }

@@ -3,6 +3,7 @@ using Model;
 using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace IS_Bolnica.Secretary
 {
@@ -11,6 +12,7 @@ namespace IS_Bolnica.Secretary
         private Page prevoiusPage;
         private Notification notification = new Notification();
         private NotificationService notificationService = new NotificationService();
+        private AddNotification an = new AddNotification();
 
         public NotificationList(Page prevoiusPage)
         {
@@ -29,7 +31,7 @@ namespace IS_Bolnica.Secretary
 
         private void addNotification(object sender, RoutedEventArgs e)
         {
-            AddNotification an = new AddNotification(this);
+            an = new AddNotification(this);
             this.NavigationService.Navigate(an);
         }
 
@@ -98,6 +100,21 @@ namespace IS_Bolnica.Secretary
                         break;
                 }
             }
+        }
+
+        private void pretraziBox_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            var filtered = notificationService.GetSearchedNotifications(pretraziBox.Text.ToLower());
+            NotificationListGrid.ItemsSource = filtered;
+        }
+
+        private void NotificationListGrid_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Notification selectedNotification = (Notification)NotificationListGrid.SelectedItem;
+            SelectedNotification sn = new SelectedNotification(this);
+            sn.titleLabel.Content = selectedNotification.Title;
+            sn.NotificationContentBlock.Text = selectedNotification.Content;
+            this.NavigationService.Navigate(sn);
         }
     }
 }

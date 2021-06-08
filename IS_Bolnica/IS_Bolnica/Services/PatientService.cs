@@ -163,10 +163,10 @@ namespace IS_Bolnica.Services
 
         private static bool ISearched(string text, Patient p)
         {
-            return p.Name.ToLower().StartsWith(text) ||
-                   p.Surname.ToLower().StartsWith(text) ||
+            return p.Name.ToLower().Contains(text) ||
+                   p.Surname.ToLower().Contains(text) ||
                    p.Id.ToLower().StartsWith(text) ||
-                   p.Username.ToLower().StartsWith(text);
+                   p.Username.ToLower().Contains(text);
         }
 
 

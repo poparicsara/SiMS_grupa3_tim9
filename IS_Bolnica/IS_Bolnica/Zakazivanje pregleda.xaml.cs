@@ -32,7 +32,7 @@ namespace IS_Bolnica
         public Zakazivanje_pregleda(int brojAkcija, int brojOcenjivanja)
         {
             UserRepository exStorage = new UserRepository();
-            List<User> users = exStorage.LoadFromFile("UserRepository.json");
+            List<User> users = exStorage.LoadFromFile("UsersFileStorage.json");
 
             doktori = new List<String>();
 

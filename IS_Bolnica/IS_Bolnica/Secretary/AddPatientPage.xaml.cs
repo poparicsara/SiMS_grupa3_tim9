@@ -57,7 +57,7 @@ namespace IS_Bolnica.Secretary
             patient.DateOfBirth = dateOfBirth.DisplayDate;
             patient.Name = name.Text;
             patient.Id = id.Text;
-            patient.Password = iniciallyPassword.Text;
+            patient.Password = iniciallyPassword.Password;
             patient.Phone = phone.Text;
             patient.Surname = surname.Text;
             patient.Username = username.Text;
@@ -97,6 +97,9 @@ namespace IS_Bolnica.Secretary
 
             patient.Address.City.Country = new Country();
             patient.Address.City.Country.name = county.Text;
+            patient.examinations = new List<Examination>();
+            patient.Anamneses = new List<Anamnesis>();
+            patient.HealthCardNumber = "";
 
             return patient;
         }

@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:IS_Bolnica.Secretary"
       xmlns:sys="clr-namespace:System;assembly=mscorlib"
-      
+      xmlns:ns="clr-namespace:IS_Bolnica"
       mc:Ignorable="d" 
       d:DesignHeight="750" d:DesignWidth="430"
       Title="EditExamination">
@@ -16,13 +16,13 @@
                 <Image Source="C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\Images\undo.jpg" Width="46" Height="41" RenderTransformOrigin="0.543,0.5"/>
             </StackPanel>
         </Button>
-        <Label Content="ZDRAVO KORPORACIJA" FontSize="20" Foreground="Green" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,14,0,0" Height="35" Width="235" Grid.ColumnSpan="2"/>
+        <Label Content="{ns:Loc Logo}" FontSize="20" Foreground="Green" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,14,0,0" Height="35" Width="241"/>
         <Image x:Name="nasLogo" HorizontalAlignment="Left" Height="48" Margin="366,10,0,0" VerticalAlignment="Top" Width="48" Source="C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\Images\nasLogo.jpg"/>
-        <Label Content="Izmena pregleda" FontWeight="Bold"  Foreground="Green" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,75,0,0" Width="299" Height="48"/>
-        <Label Content="JMBG pacijenta: " HorizontalAlignment="Left" Margin="40,147,0,0" VerticalAlignment="Top"/>
-        <Label Content="Izaberite lekara: " HorizontalAlignment="Left" Margin="40,197,0,0" VerticalAlignment="Top"/>
-        <Label Content="Izaberite datum: " HorizontalAlignment="Left" Margin="40,247,0,0" VerticalAlignment="Top"/>
-        <Label Content="Izaberite vreme: " HorizontalAlignment="Left" Margin="40,297,0,0" VerticalAlignment="Top"/>
+        <Label Content="{ns:Loc EditExLabel}" FontWeight="Bold"  Foreground="Green" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,75,0,0" Width="299" Height="48"/>
+        <Label Content="{ns:Loc JMBGLabel}" HorizontalAlignment="Left" Margin="40,147,0,0" VerticalAlignment="Top"/>
+        <Label Content="{ns:Loc ChooseDocLabel}" HorizontalAlignment="Left" Margin="40,197,0,0" VerticalAlignment="Top"/>
+        <Label Content="{ns:Loc ChooseDateLabel}" HorizontalAlignment="Left" Margin="40,247,0,0" VerticalAlignment="Top"/>
+        <Label Content="{ns:Loc ChooseTimeLabel}" HorizontalAlignment="Left" Margin="40,297,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="idPatientBox" HorizontalAlignment="Left" Height="23" Margin="200,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" RenderTransformOrigin="0.067,-0.191"/>
         <ComboBox x:Name="doctorBox" HorizontalAlignment="Left" Margin="200,197,0,0" VerticalAlignment="Top" Width="182">
         </ComboBox>
@@ -44,10 +44,10 @@
             <ComboBoxItem>0</ComboBoxItem>
             <ComboBoxItem>30</ComboBoxItem>
         </ComboBox>
-        <Button Content="Potvrdi" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="40,630,0,0" VerticalAlignment="Top" Width="342" Click="editExamination" Height="35" />
-        <Button Content="Odustani" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="40,580,0,0" VerticalAlignment="Top" Width="342" Click="cancelEditingExamination" Height="35" />
+        <Button Content="{ns:Loc ConfirmButton}" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="40,630,0,0" VerticalAlignment="Top" Width="342" Click="editExamination" Height="35" />
+        <Button Content="{ns:Loc CancelButton}" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="40,580,0,0" VerticalAlignment="Top" Width="342" Click="cancelEditingExamination" Height="35" />
         <DatePicker x:Name="dateBox" DisplayDateStart="{x:Static sys:DateTime.Today}" HorizontalAlignment="Left" Margin="200,247,0,0" VerticalAlignment="Top" Width="182"/>
-        <Label Content="Izaberite trajanje (min): " HorizontalAlignment="Left" Margin="40,347,0,0" VerticalAlignment="Top"/>
+        <Label Content="{ns:Loc ChooseDurLabel}" HorizontalAlignment="Left" Margin="40,347,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="durationInMinutesBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" Margin="200,347,0,0">
             <ComboBoxItem>30</ComboBoxItem>
         </ComboBox>

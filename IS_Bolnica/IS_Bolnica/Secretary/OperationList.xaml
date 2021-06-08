@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:IS_Bolnica.Secretary"
+      xmlns:ns="clr-namespace:IS_Bolnica"
       mc:Ignorable="d" 
       d:DesignHeight="750" d:DesignWidth="430"
       Title="OperationList">
@@ -14,20 +15,21 @@
                 <Image Source="C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\Images\undo.jpg" Width="46" Height="41" RenderTransformOrigin="0.543,0.5"/>
             </StackPanel>
         </Button>
-        <Label Content="ZDRAVO KORPORACIJA" FontSize="20" Foreground="Green" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,14,0,0" Height="35" Width="235" Grid.ColumnSpan="2"/>
+        <Label Content="{ns:Loc Logo}" FontSize="20" Foreground="Green" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,14,0,0" Height="35" Width="261"/>
         <Image x:Name="nasLogo" HorizontalAlignment="Left" Height="48" Margin="366,10,0,0" VerticalAlignment="Top" Width="48" Source="C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\Images\nasLogo.jpg"/>
-        <Label Content="SPISAK OPERACIJA" FontWeight="Bold"  Foreground="Green" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,69,0,0" Width="246" Height="37"/>
+        <Label Content="{ns:Loc SurgeryButton}" FontWeight="Bold"  Foreground="Green" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,69,0,0" Width="246" Height="37"/>
         <DataGrid HeadersVisibility="Column" x:Name="OperationListGrid" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" HorizontalAlignment="Stretch" Margin="10,111,10,142.8" VerticalAlignment="Stretch" GridLinesVisibility="Vertical">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Datum i vreme" Binding="{Binding StartTime}" Width="100"/>
-                <DataGridTextColumn Header="Soba" Binding="{Binding Room.Id}" Width="100"/>
-                <DataGridTextColumn Header="JMBG pacijenta" Binding="{Binding Patient.Id}" Width="100"/>
-                <DataGridTextColumn Header="Doktor" Binding="{Binding Doctor.Surname}" Width="100"/>
+                <DataGridTextColumn Header="{ns:Loc DateHeader}" Binding="{Binding StartTime}" Width="100"/>
+                <DataGridTextColumn Header="{ns:Loc RoomHeader}" Binding="{Binding Room.Id}" Width="100"/>
+                <DataGridTextColumn Header="{ns:Loc PatJMBGHeader}" Binding="{Binding Patient.Id}" Width="100"/>
+                <DataGridTextColumn Header="{ns:Loc DoctorHeader}" Binding="{Binding Doctor.Surname}" Width="100"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Dodaj operaciju" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" HorizontalAlignment="Left" Margin="10,592,0,0" VerticalAlignment="Top" Width="401" Click="addOperation" Height="30"  />
-        <Button Content="Izmeni operaciju" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" HorizontalAlignment="Left" Margin="10,632,0,0" VerticalAlignment="Top" Width="401" RenderTransformOrigin="0.189,0.889" Click="editOperation" Height="30"/>
-        <Button Content="Obriši operaciju" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" HorizontalAlignment="Left" Margin="10,672,0,0" VerticalAlignment="Top" Width="401" Click="deleteOperation" RenderTransformOrigin="0.475,0.167" Height="30"  />
+        <Button Content="{ns:Loc Add}" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" HorizontalAlignment="Left" Margin="10,592,0,0" VerticalAlignment="Top" Width="401" Click="addOperation" Height="30"  />
+        <Button Content="{ns:Loc Edit}" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" HorizontalAlignment="Left" Margin="10,632,0,0" VerticalAlignment="Top" Width="401" RenderTransformOrigin="0.189,0.889" Click="editOperation" Height="30"/>
+        <Button Content="{ns:Loc Delete}" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" HorizontalAlignment="Left" Margin="10,672,0,0" VerticalAlignment="Top" Width="401" Click="deleteOperation" RenderTransformOrigin="0.475,0.167" Height="30"  />
+        <TextBox x:Name="pretraziBox" HorizontalAlignment="Left" Height="23" Margin="250,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" KeyUp="pretraziBox_KeyUp" />
 
     </Grid>
 </Page>

@@ -79,5 +79,11 @@ namespace IS_Bolnica.Secretary
         {
 
         }
+
+        private void pretraziBox_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            var filtered = guestUserService.GetSearchedGuests(pretraziBox.Text.ToLower());
+            guestUsersGrid.ItemsSource = filtered;
+        }
     }
 }

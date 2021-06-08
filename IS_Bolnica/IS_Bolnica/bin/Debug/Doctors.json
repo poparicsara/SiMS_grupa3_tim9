@@ -28,7 +28,19 @@
     "Email": "maricm@hotmail.com",
     "Id": "457896",
     "UserType": 1,
-    "Address": null
+    "Address": {
+      "Street": "Ive Lole Ribara ",
+      "NumberOfBuilding": 2,
+      "Floor": 5,
+      "Apartment": 9,
+      "City": {
+        "name": "Sombor ",
+        "postalCode": "25000",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
   },
   {
     "Specialization": {
@@ -59,7 +71,19 @@
     "Email": "nikolas@gmail.com",
     "Id": "4341009",
     "UserType": 1,
-    "Address": null
+    "Address": {
+      "Street": "Ive Lole Ribara ",
+      "NumberOfBuilding": 2,
+      "Floor": 5,
+      "Apartment": 9,
+      "City": {
+        "name": "Sombor ",
+        "postalCode": "25000",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
   },
   {
     "Specialization": {
@@ -90,7 +114,19 @@
     "Email": "ana@gmail.com",
     "Id": "4321009",
     "UserType": 1,
-    "Address": null
+    "Address": {
+      "Street": "Ive Lole Ribara ",
+      "NumberOfBuilding": 2,
+      "Floor": 5,
+      "Apartment": 9,
+      "City": {
+        "name": "Sombor ",
+        "postalCode": "25000",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
   },
   {
     "Specialization": {
@@ -127,7 +163,19 @@
     "Email": "maricm@hotmail.com",
     "Id": "1",
     "UserType": 1,
-    "Address": null
+    "Address": {
+      "Street": "Ive Lole Ribara ",
+      "NumberOfBuilding": 2,
+      "Floor": 5,
+      "Apartment": 9,
+      "City": {
+        "name": "Sombor ",
+        "postalCode": "25000",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
   },
   {
     "Specialization": {
@@ -158,7 +206,19 @@
     "Email": "maricm@hotmail.com",
     "Id": "2",
     "UserType": 1,
-    "Address": null
+    "Address": {
+      "Street": "Ive Lole Ribara ",
+      "NumberOfBuilding": 2,
+      "Floor": 5,
+      "Apartment": 9,
+      "City": {
+        "name": "Sombor ",
+        "postalCode": "25000",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
   },
   {
     "Specialization": {
@@ -189,7 +249,19 @@
     "Email": "maricm@hotmail.com",
     "Id": "3",
     "UserType": 1,
-    "Address": null
+    "Address": {
+      "Street": "Ive Lole Ribara ",
+      "NumberOfBuilding": 2,
+      "Floor": 5,
+      "Apartment": 9,
+      "City": {
+        "name": "Sombor ",
+        "postalCode": "25000",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
   },
   {
     "Specialization": {
@@ -220,7 +292,19 @@
     "Email": "maricm@hotmail.com",
     "Id": "4",
     "UserType": 1,
-    "Address": null
+    "Address": {
+      "Street": "Ive Lole Ribara ",
+      "NumberOfBuilding": 2,
+      "Floor": 5,
+      "Apartment": 9,
+      "City": {
+        "name": "Sombor ",
+        "postalCode": "25000",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
   },
   {
     "Specialization": {
@@ -251,7 +335,19 @@
     "Email": "maricm@hotmail.com",
     "Id": "5",
     "UserType": 1,
-    "Address": null
+    "Address": {
+      "Street": "Ive Lole Ribara ",
+      "NumberOfBuilding": 2,
+      "Floor": 5,
+      "Apartment": 9,
+      "City": {
+        "name": "Sombor ",
+        "postalCode": "25000",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
   },
   {
     "Specialization": {
@@ -282,7 +378,19 @@
     "Email": "maricm@hotmail.com",
     "Id": "6",
     "UserType": 1,
-    "Address": null
+    "Address": {
+      "Street": "Ive Lole Ribara ",
+      "NumberOfBuilding": 2,
+      "Floor": 5,
+      "Apartment": 9,
+      "City": {
+        "name": "Sombor ",
+        "postalCode": "25000",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
   },
   {
     "Specialization": {
@@ -314,7 +422,19 @@
     "Email": "maricm@hotmail.com",
     "Id": "7",
     "UserType": 1,
-    "Address": null
+    "Address": {
+      "Street": "Ive Lole Ribara ",
+      "NumberOfBuilding": 2,
+      "Floor": 5,
+      "Apartment": 9,
+      "City": {
+        "name": "Sombor ",
+        "postalCode": "25000",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
   },
   {
     "Specialization": {
@@ -345,7 +465,19 @@
     "Email": "maricm@hotmail.com",
     "Id": "8",
     "UserType": 1,
-    "Address": null
+    "Address": {
+      "Street": "Ive Lole Ribara ",
+      "NumberOfBuilding": 2,
+      "Floor": 5,
+      "Apartment": 9,
+      "City": {
+        "name": "Sombor ",
+        "postalCode": "25000",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
   },
   {
     "Specialization": {
@@ -376,7 +508,19 @@
     "Email": "maricm@hotmail.com",
     "Id": "9",
     "UserType": 1,
-    "Address": null
+    "Address": {
+      "Street": "Ive Lole Ribara ",
+      "NumberOfBuilding": 2,
+      "Floor": 5,
+      "Apartment": 9,
+      "City": {
+        "name": "Sombor ",
+        "postalCode": "25000",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
   },
   {
     "Specialization": {
@@ -407,7 +551,19 @@
     "Email": "maricm@hotmail.com",
     "Id": "10",
     "UserType": 1,
-    "Address": null
+    "Address": {
+      "Street": "Ive Lole Ribara ",
+      "NumberOfBuilding": 2,
+      "Floor": 5,
+      "Apartment": 9,
+      "City": {
+        "name": "Sombor ",
+        "postalCode": "25000",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
   },
   {
     "Specialization": {
@@ -438,7 +594,19 @@
     "Email": "maricm@hotmail.com",
     "Id": "11",
     "UserType": 1,
-    "Address": null
+    "Address": {
+      "Street": "Ive Lole Ribara ",
+      "NumberOfBuilding": 2,
+      "Floor": 5,
+      "Apartment": 9,
+      "City": {
+        "name": "Sombor ",
+        "postalCode": "25000",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
   },
   {
     "Specialization": {
@@ -469,7 +637,19 @@
     "Email": "maricm@hotmail.com",
     "Id": "12",
     "UserType": 1,
-    "Address": null
+    "Address": {
+      "Street": "Ive Lole Ribara ",
+      "NumberOfBuilding": 2,
+      "Floor": 5,
+      "Apartment": 9,
+      "City": {
+        "name": "Sombor ",
+        "postalCode": "25000",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
   },
   {
     "Specialization": {
@@ -500,7 +680,19 @@
     "Email": "maricm@hotmail.com",
     "Id": "13",
     "UserType": 1,
-    "Address": null
+    "Address": {
+      "Street": "Ive Lole Ribara ",
+      "NumberOfBuilding": 2,
+      "Floor": 5,
+      "Apartment": 9,
+      "City": {
+        "name": "Sombor ",
+        "postalCode": "25000",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
   },
   {
     "Specialization": {
@@ -531,7 +723,19 @@
     "Email": "maricm@hotmail.com",
     "Id": "14",
     "UserType": 1,
-    "Address": null
+    "Address": {
+      "Street": "Ive Lole Ribara ",
+      "NumberOfBuilding": 2,
+      "Floor": 5,
+      "Apartment": 9,
+      "City": {
+        "name": "Sombor ",
+        "postalCode": "25000",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
   },
   {
     "Specialization": {
@@ -562,7 +766,19 @@
     "Email": "maricm@hotmail.com",
     "Id": "15",
     "UserType": 1,
-    "Address": null
+    "Address": {
+      "Street": "Ive Lole Ribara ",
+      "NumberOfBuilding": 2,
+      "Floor": 5,
+      "Apartment": 9,
+      "City": {
+        "name": "Sombor ",
+        "postalCode": "25000",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
   },
   {
     "Specialization": {
@@ -593,6 +809,18 @@
     "Email": "maricm@hotmail.com",
     "Id": "16",
     "UserType": 1,
-    "Address": null
+    "Address": {
+      "Street": "Ive Lole Ribara ",
+      "NumberOfBuilding": 2,
+      "Floor": 5,
+      "Apartment": 9,
+      "City": {
+        "name": "Sombor ",
+        "postalCode": "25000",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
   }
 ]

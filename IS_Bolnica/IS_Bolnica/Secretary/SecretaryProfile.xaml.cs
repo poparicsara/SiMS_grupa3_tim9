@@ -13,7 +13,7 @@ namespace IS_Bolnica.Secretary
             //setProfileInfo(user);
         }
 
-        public void setProfileInfo(User user)
+        /*public void setProfileInfo(User user)
         {
             name.Text = user.Name;
             surname.Text = user.Surname;
@@ -30,7 +30,7 @@ namespace IS_Bolnica.Secretary
             city.Text = user.Address.City.name + " "
                                                + Convert.ToString(user.Address.City.postalCode);
             country.Text = user.Address.City.Country.name;
-        }
+        }*/
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

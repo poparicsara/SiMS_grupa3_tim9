@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -41,12 +42,11 @@ namespace IS_Bolnica.Secretary
         private void LanguageBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (LanguageBox.SelectedIndex == 0)
-                Properties.Settings.Default.languageCode = "en-US";
+                TranslationSource.Instance.CurrentCulture = new System.Globalization.CultureInfo("en-US");
             else
             {
-                Properties.Settings.Default.languageCode = "srp-RS";
+                TranslationSource.Instance.CurrentCulture = new System.Globalization.CultureInfo("sr-RS");
             }
-            Properties.Settings.Default.Save();
         }
     }
 }

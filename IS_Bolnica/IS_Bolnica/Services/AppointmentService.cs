@@ -8,13 +8,9 @@ namespace IS_Bolnica.Services
     public class AppointmentService
     {
         private AppointmentRepository appointmentRepository = new AppointmentRepository();
-        private PatientRepository patientRepository = new PatientRepository();
         private List<Appointment> appointments = new List<Appointment>();
         private List<Appointment> examinations = new List<Appointment>();
         private List<Appointment> operations = new List<Appointment>();
-        private List<Patient> patients = new List<Patient>();
-        private List<Doctor> doctors = new List<Doctor>();
-        private DoctorRepository doctorRepository = new DoctorRepository();
 
         public AppointmentService()
         {
@@ -23,7 +19,7 @@ namespace IS_Bolnica.Services
 
         public void AddAppointment(Appointment appointment)
         {
-            appointments = GetAppointments();
+            appointments = appointmentRepository.LoadFromFile();
             if (isAppointmentValid(appointment))
             {
                 if (IsAvailable(appointment))
@@ -36,7 +32,7 @@ namespace IS_Bolnica.Services
 
         public void DeleteAppointment(Appointment appointment)
         {
-            appointments = GetAppointments();
+            appointments = appointmentRepository.LoadFromFile();
             int index = FindAppointmentIndex(appointment);
             appointments.RemoveAt(index);
             appointmentRepository.SaveToFile(appointments);
@@ -44,7 +40,7 @@ namespace IS_Bolnica.Services
 
         public void EditAppointment(Appointment oldAppointment, Appointment newAppointment)
         {
-            appointments = GetAppointments();
+            appointments = appointmentRepository.LoadFromFile();
             if (isAppointmentValid(newAppointment))
             {
                 int indexOld = FindAppointmentIndex(oldAppointment);
@@ -64,7 +60,7 @@ namespace IS_Bolnica.Services
 
         public List<Appointment> getExaminations()
         {
-            appointments = GetAppointments();
+            appointments = appointmentRepository.LoadFromFile();
             foreach (var appointment in appointments)
             {
                 if (appointment.AppointmentType == 0)
@@ -78,7 +74,7 @@ namespace IS_Bolnica.Services
 
         public List<Appointment> getOperations()
         {
-            appointments = GetAppointments();
+            appointments = appointmentRepository.LoadFromFile();
             foreach (var appointment in appointments)
             {
                 if (appointment.AppointmentType == AppointmentType.operation)
@@ -92,7 +88,7 @@ namespace IS_Bolnica.Services
 
         public void RemovePatientsAppointments(Patient patient)
         {
-            appointments = GetAppointments();
+            appointments = appointmentRepository.LoadFromFile();
             List<Appointment> patientAppointments = FindPatientAppointments(patient);
             for (int i = 0; i < appointments.Count; i++)
             {
@@ -119,7 +115,7 @@ namespace IS_Bolnica.Services
 
         private List<Appointment> FindPatientAppointments(Patient patient)
         {
-            appointments = GetAppointments();
+            appointments = appointmentRepository.LoadFromFile();
             List<Appointment> patientAppointments = new List<Appointment>();
             foreach (var appointment in appointments)
             {
@@ -135,7 +131,7 @@ namespace IS_Bolnica.Services
 
         private int FindAppointmentIndex(Appointment appointment)
         {
-            appointments = GetAppointments();
+            appointments = appointmentRepository.LoadFromFile();
             for (int i = 0; i < appointments.Count; i++)
             {
                 if (appointment.StartTime.Equals(appointments[i].StartTime) &&
@@ -150,7 +146,7 @@ namespace IS_Bolnica.Services
 
         private bool isPatientFree(Appointment appointment)
         {
-            appointments = GetAppointments();
+            appointments = appointmentRepository.LoadFromFile();
             foreach (Appointment app in appointments)
             {
                 if (app.Patient.Id == appointment.Patient.Id)
@@ -174,7 +170,7 @@ namespace IS_Bolnica.Services
 
         private bool isRoomFree(Appointment appointment)
         {
-            appointments = GetAppointments();
+            appointments = appointmentRepository.LoadFromFile();
             foreach (Appointment app in appointments)
             {
                 if (app.Room.Id == appointment.Room.Id)
@@ -198,7 +194,7 @@ namespace IS_Bolnica.Services
 
         private bool isDoctorFree(Appointment appointment)
         {
-            appointments = GetAppointments();
+            appointments = appointmentRepository.LoadFromFile();
             foreach (Appointment app in appointments)
             {
                 if (app.Doctor.Id == appointment.Doctor.Id)
@@ -255,6 +251,48 @@ namespace IS_Bolnica.Services
         public List<Appointment> GetAppointments()
         {
             return appointmentRepository.LoadFromFile();
+        }
+
+        public List<Appointment> GetSearchedExaminations(string text)
+        {
+            appointments = appointmentRepository.LoadFromFile();
+            List<Appointment> searchedAppointments = new List<Appointment>();
+            foreach (Appointment appointment in appointments)
+            {
+                if (ISearched(text, appointment))
+                {
+                    if (appointment.AppointmentType == AppointmentType.examination)
+                    {
+                        searchedAppointments.Add(appointment);
+                    }
+                }
+            }
+
+            return searchedAppointments;
+        }
+
+        public List<Appointment> GetSearchedOperations(string text)
+        {
+            appointments = appointmentRepository.LoadFromFile();
+            List<Appointment> searchedAppointments = new List<Appointment>();
+            foreach (Appointment appointment in appointments)
+            {
+                if (ISearched(text, appointment))
+                {
+                    if (appointment.AppointmentType == AppointmentType.operation)
+                    {
+                        searchedAppointments.Add(appointment);
+                    }
+                }
+            }
+
+            return searchedAppointments;
+        }
+
+        private static bool ISearched(string text, Appointment a)
+        {
+            return a.Patient.Id.ToLower().StartsWith(text) ||
+                   a.Doctor.Surname.ToLower().StartsWith(text);
         }
 
     }

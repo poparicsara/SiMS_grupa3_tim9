@@ -103,5 +103,12 @@ namespace IS_Bolnica.Secretary
         {
             this.NavigationService.Navigate(prevoiusPage);
         }
+
+        private void pretraziBox_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            var filtered = appointmentService.GetSearchedOperations(pretraziBox.Text.ToLower());
+            OperationListGrid.ItemsSource = filtered;
+        }
+
     }
 }

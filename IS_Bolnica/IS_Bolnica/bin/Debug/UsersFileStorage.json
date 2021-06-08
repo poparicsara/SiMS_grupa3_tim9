@@ -9,7 +9,19 @@
     "Email": "maricm@hotmail.com",
     "Id": "457896",
     "UserType": 1,
-    "Address": null
+    "Address": {
+      "Street": "Masarikova ulica ",
+      "NumberOfBuilding": 12,
+      "Floor": 25,
+      "Apartment": 13,
+      "City": {
+        "name": "Sombor ",
+        "postalCode": "12564",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
   },
   {
     "Username": "Sara",
@@ -21,7 +33,19 @@
     "Email": "milovicmica@gmail.com",
     "Id": "11111",
     "UserType": 3,
-    "Address": null
+    "Address": {
+      "Street": "Masarikova ulica ",
+      "NumberOfBuilding": 12,
+      "Floor": 25,
+      "Apartment": 13,
+      "City": {
+        "name": "Sombor ",
+        "postalCode": "12564",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
   },
   {
     "Username": "p__nina",
@@ -105,7 +129,19 @@
     "Email": "nikolas@gmail.com",
     "Id": "4341009",
     "UserType": 1,
-    "Address": null
+    "Address": {
+      "Street": "Masarikova ulica ",
+      "NumberOfBuilding": 12,
+      "Floor": 25,
+      "Apartment": 13,
+      "City": {
+        "name": "Sombor ",
+        "postalCode": "12564",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
   },
   {
     "Username": "nnnn",
@@ -153,18 +189,6 @@
     "Email": "maricm@hotmail.com",
     "Id": "5",
     "UserType": 1,
-    "Address": null
-  },
-  {
-    "Username": "nikola_nikolic",
-    "Password": "sasasa",
-    "Name": "Marko",
-    "Surname": "Nikolic",
-    "DateOfBirth": "1984-12-01T00:00:00",
-    "Phone": "0647896587",
-    "Email": "nikolic@gmail.com",
-    "Id": "2222",
-    "UserType": 0,
     "Address": {
       "Street": "Masarikova ulica ",
       "NumberOfBuilding": 12,
@@ -175,78 +199,6 @@
         "postalCode": "12564",
         "Country": {
           "name": "Srbija"
-        }
-      }
-    }
-  },
-  {
-    "Username": "mara",
-    "Password": "aaaaa",
-    "Name": "Mara",
-    "Surname": "Maric",
-    "DateOfBirth": "1999-01-01T00:00:00",
-    "Phone": "06879856",
-    "Email": "SSS",
-    "Id": "15478965",
-    "UserType": 0,
-    "Address": {
-      "Street": "Lukijana Musickog ",
-      "NumberOfBuilding": 1,
-      "Floor": 0,
-      "Apartment": 5,
-      "City": {
-        "name": "Novi Sad ",
-        "postalCode": "21000",
-        "Country": {
-          "name": "Srbija"
-        }
-      }
-    }
-  },
-  {
-    "Username": "bj",
-    "Password": "sd",
-    "Name": "aaa",
-    "Surname": "bhjbhj",
-    "DateOfBirth": "2021-06-07T00:00:00+02:00",
-    "Phone": "8451",
-    "Email": "845",
-    "Id": "52",
-    "UserType": 0,
-    "Address": {
-      "Street": "ajsd ",
-      "NumberOfBuilding": 5,
-      "Floor": 5,
-      "Apartment": 8,
-      "City": {
-        "name": "aaa ",
-        "postalCode": "45",
-        "Country": {
-          "name": "uhjn"
-        }
-      }
-    }
-  },
-  {
-    "Username": "asdasasd",
-    "Password": "aaa",
-    "Name": "aaa",
-    "Surname": "sd",
-    "DateOfBirth": "2021-06-07T00:00:00+02:00",
-    "Phone": "54156",
-    "Email": "okjhnb",
-    "Id": "7777",
-    "UserType": 0,
-    "Address": {
-      "Street": "asd ",
-      "NumberOfBuilding": 8,
-      "Floor": 8,
-      "Apartment": 8,
-      "City": {
-        "name": "aaa ",
-        "postalCode": "5488",
-        "Country": {
-          "name": "aaaa"
         }
       }
     }

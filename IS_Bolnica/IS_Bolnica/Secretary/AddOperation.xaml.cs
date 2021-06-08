@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using IS_Bolnica.Model;
 using IS_Bolnica.Services;
+using Model;
 
 namespace IS_Bolnica.Secretary
 {
@@ -56,6 +57,9 @@ namespace IS_Bolnica.Secretary
 
                 appointment.EndTime = appointment.StartTime.AddMinutes(appointment.DurationInMins);
                 appointment.AppointmentType = AppointmentType.operation;
+                appointment.GuestUser = new GuestUser();
+                appointment.IsUrgent = false;
+                appointment.PostponedDate = new DateTime();
 
                 if (appointmentService.IsAvailable(appointment))
                 {

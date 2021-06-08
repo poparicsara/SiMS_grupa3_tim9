@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:IS_Bolnica.Secretary"
+      xmlns:ns="clr-namespace:IS_Bolnica"
       mc:Ignorable="d" 
       d:DesignHeight="750" d:DesignWidth="430"
       Title="AllergenManipulation">
@@ -14,9 +15,9 @@
                 <Image Source="C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\Images\undo.jpg" Width="46" Height="41" RenderTransformOrigin="0.543,0.5"/>
             </StackPanel>
         </Button>
-        <Label Content="ZDRAVO KORPORACIJA" FontSize="20" Foreground="Green" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,14,0,0" Height="35" Width="235" Grid.ColumnSpan="2"/>
+        <Label Content="{ns:Loc Logo}" FontSize="20" Foreground="Green" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,14,0,0" Height="35" Width="239"/>
         <Image x:Name="nasLogo" HorizontalAlignment="Left" Height="48" Margin="366,10,0,0" VerticalAlignment="Top" Width="48" Source="C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\Images\nasLogo.jpg"/>
-        <Label Content="ALERGENI" FontWeight="Bold"  Foreground="Green" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,75,0,0" Width="299" Height="48"/>
+        <Label Content="{ns:Loc AllergensLabel}" FontWeight="Bold"  Foreground="Green" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,75,0,0" Width="299" Height="48"/>
         <ListView x:Name="AllAllergens" ItemsSource="{Binding  IngredientsAll}" AllowDrop="True" DragOver="AllAllergens_OnDragOver" Drop="AllAllergens_OnDrop" PreviewMouseLeftButtonDown="AllAllergens_OnPreviewMouseLeftButtonDown" MouseMove="AllAllergens_OnMouseMove" HorizontalAlignment="Left" Height="134" Margin="40,181,0,0" VerticalAlignment="Top" Width="342">
             <ListView.ItemTemplate >
                 <DataTemplate>
@@ -36,9 +37,9 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Content="Potvrdi" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="40,658,0,0" VerticalAlignment="Top" Width="342" Click="EditAllergens" Height="35" />
-        <Button Content="Odustani" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="40,608,0,0" VerticalAlignment="Top" Width="342" Click="CancelEditingAllergens" Height="35" />
-        <Label Content="Svi alergeni:" HorizontalAlignment="Left" Margin="48,150,0,0" VerticalAlignment="Top"/>
-        <Label Content="Alergeni pacijenta: " HorizontalAlignment="Left" Margin="48,356,0,0" VerticalAlignment="Top"/>
+        <Button Content="{ns:Loc ConfirmButton}" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="40,658,0,0" VerticalAlignment="Top" Width="342" Click="EditAllergens" Height="35" />
+        <Button Content="{ns:Loc CancelButton}" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="40,608,0,0" VerticalAlignment="Top" Width="342" Click="CancelEditingAllergens" Height="35" />
+        <Label Content="{ns:Loc AllAllergensLabel}" HorizontalAlignment="Left" Margin="48,150,0,0" VerticalAlignment="Top"/>
+        <Label Content="{ns:Loc PatientsAllergensLabel}" HorizontalAlignment="Left" Margin="48,356,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Page>

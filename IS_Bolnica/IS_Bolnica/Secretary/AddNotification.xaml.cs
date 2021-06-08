@@ -16,6 +16,11 @@ namespace IS_Bolnica.Secretary
         private NotificationService notificationService = new NotificationService();
         private UserService userService = new UserService();
 
+        public AddNotification()
+        {
+            
+        }
+
         public AddNotification(Page previousPage)
         {
             InitializeComponent();
@@ -97,14 +102,17 @@ namespace IS_Bolnica.Secretary
             if (comboBox.SelectedIndex == 0)
             {
                 notification.notificationType = NotificationType.doctor;
+                notification.PersonId = new List<string>();
             }
             else if (comboBox.SelectedIndex == 1)
             {
                 notification.notificationType = NotificationType.patient;
+                notification.PersonId = new List<string>();
             }
             else if (comboBox.SelectedIndex == 2)
             {
                 notification.notificationType = NotificationType.all;
+                notification.PersonId = new List<string>();
             }
             else
             {

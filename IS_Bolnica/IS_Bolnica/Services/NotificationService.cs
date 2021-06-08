@@ -91,7 +91,27 @@ namespace IS_Bolnica.Services
             return false;
         }
 
+        public List<Notification> GetSearchedNotifications(string text)
+        {
+            notifications = notificationRepository.LoadFromFile("NotificationsFileStorage.json");
+            List<Notification> searchedNotifications = new List<Notification>();
+            foreach (Notification notification in notifications)
+            {
+                if (ISearched(text, notification))
+                {
+                    searchedNotifications.Add(notification);
+                }
+            }
 
+            return searchedNotifications;
+        }
+
+        private static bool ISearched(string text, Notification n)
+        {
+            return n.Title.ToLower().Contains(text) ||
+                   n.Content.ToLower().Contains(text) ||
+                   n.notificationType.ToString().ToLower().StartsWith(text) ;
+        }
 
 
 

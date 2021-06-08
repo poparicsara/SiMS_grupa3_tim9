@@ -47,7 +47,8 @@ namespace IS_Bolnica.Secretary
             {
                 EditExamination ee = new EditExamination(appointment, this);
                 setElementsEE(ee, appointment);
-                
+                this.NavigationService.Navigate(ee);
+
 
             }
         }
@@ -99,6 +100,12 @@ namespace IS_Bolnica.Secretary
                         break;
                 }
             }
+        }
+
+        private void pretraziBox_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            var filtered = appointmentService.GetSearchedExaminations(pretraziBox.Text.ToLower());
+            ExaminationListGrid.ItemsSource = filtered;
         }
     }
 }
