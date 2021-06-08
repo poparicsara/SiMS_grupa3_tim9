@@ -27,7 +27,7 @@
             <TextBox x:Name="healthCardNumTxt" HorizontalAlignment="Left" Height="23" Margin="310,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" BorderBrush="{x:Null}" IsReadOnly="True" Background="{x:Null}" FontFamily="Malgun Gothic" FontWeight="Bold"/>
             <Label Content="Dijagnoza:" HorizontalAlignment="Left" Margin="47,219,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" Width="192"/>
             <DatePicker x:Name="startDateDP" HorizontalAlignment="Left" Margin="310,340,0,0" VerticalAlignment="Top" Width="195" BorderBrush="{x:Null}" DisplayDateStart="{x:Static sys:DateTime.Today}"/>
-            <TextBox x:Name="diagnosisTxt" HorizontalAlignment="Left" Height="88" Margin="310,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="195" BorderBrush="{x:Null}"/>
+            <TextBox x:Name="diagnosisTxt" HorizontalAlignment="Left" Height="88" Margin="310,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="195" BorderBrush="{x:Null}" TextChanged="DiagnosisTextChanged"/>
             <Label Content="Datum kraja hospitalizacije:" HorizontalAlignment="Left" Margin="47,380,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" Width="192"/>
             <TextBox x:Name="doctorTxt" HorizontalAlignment="Left" Height="22" Margin="310,473,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="195" BorderBrush="{x:Null}" Background="{x:Null}" IsReadOnly="True"/>
             <Label Content="Naziv zdravstvene ustanove:" HorizontalAlignment="Left" Margin="47,31,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" Width="229"/>
@@ -37,7 +37,7 @@
             <TextBox Text="Zdravo korporacija" HorizontalAlignment="Left" Height="23" Margin="310,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="195" BorderBrush="{x:Null}" FontFamily="Malgun Gothic" Background="{x:Null}"/>
             <Label Content="Soba/odeljenje:" HorizontalAlignment="Left" Margin="47,420,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" Width="192"/>
             <DatePicker x:Name="endDateDP" HorizontalAlignment="Left" Margin="310,380,0,0" VerticalAlignment="Top" Width="195" BorderBrush="{x:Null}" DisplayDateStart="{x:Static sys:DateTime.Today}"/>
-            <ComboBox Name="roomsCB" HorizontalAlignment="Left" Margin="310,420,0,0" VerticalAlignment="Top" Width="195"/>
+            <ComboBox Name="roomsCB" HorizontalAlignment="Left" Margin="310,420,0,0" VerticalAlignment="Top" Width="195" SelectionChanged="RoomSelectionChanged" BorderBrush="{x:Null}"/>
         </Grid>
         <Button x:Name="confirmBTN" Content="POTVRDI" HorizontalAlignment="Left" Margin="813,621,0,0" VerticalAlignment="Top" Width="109" Height="34" Background="#FF3F5038" Foreground="White" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="14" Click="ConfirmButtonClick" />
         <Grid HorizontalAlignment="Left" Height="739" VerticalAlignment="Top" Width="100" Background="#FFF1F0F0" Margin="0">

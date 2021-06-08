@@ -30,6 +30,7 @@ namespace IS_Bolnica.DoctorUI
             InitializeComponent();
             this.anamnesis = anamnesis;
             SetDataInTextFields();
+            confirmBTN.IsEnabled = false;
         }
 
         private void ConfirmButtonClick(object sender, RoutedEventArgs e)
@@ -132,6 +133,28 @@ namespace IS_Bolnica.DoctorUI
             MedicamentsWindow medicamentsWindow = new MedicamentsWindow();
             medicamentsWindow.Show();
             this.Close();
+        }
+
+        private void SetButtonVisibility()
+        {
+            if (roomsCB.SelectedItem != null && diagnosisTxt.Text != String.Empty)
+            {
+                confirmBTN.IsEnabled = true;
+            }
+            else
+            {
+                confirmBTN.IsEnabled = false;
+            }
+        }
+
+        private void DiagnosisTextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetButtonVisibility();
+        }
+
+        private void RoomSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SetButtonVisibility();
         }
     }
 }

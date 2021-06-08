@@ -19,7 +19,7 @@
             <Label Content="Broj zdravstvene knjižice:" HorizontalAlignment="Left" Margin="266,38,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" Width="192"/>
             <TextBox Name="patientTxt" HorizontalAlignment="Left" Height="23" Margin="47,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}" IsReadOnly="True" Background="{x:Null}" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="14"/>
             <TextBox Name="patinetIdTxt" HorizontalAlignment="Left" Height="23" Margin="458,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}" IsReadOnly="True" Background="{x:Null}" FontFamily="Malgun Gothic" FontWeight="Bold"/>
-            <TextBox Name="healthCardNumTxt" HorizontalAlignment="Left" Height="23" Margin="458,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}" IsReadOnly="True" Background="{x:Null}" FontFamily="Malgun Gothic" FontWeight="Bold"/>
+            <TextBox Name="healthCardNumTxt" HorizontalAlignment="Left" Height="23" Margin="458,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}" IsReadOnly="True" Background="{x:Null}" FontFamily="Malgun Gothic" FontWeight="Bold"/>
             <TextBox x:Name="dateOfBirthTxt" HorizontalAlignment="Left" Height="23" Margin="47,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}" IsReadOnly="True" Background="{x:Null}" FontFamily="Malgun Gothic" FontWeight="Bold"/>
             <TextBox x:Name="addressTxt" HorizontalAlignment="Left" Height="23" Margin="47,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}" IsReadOnly="True" Background="{x:Null}" FontFamily="Malgun Gothic" FontWeight="Bold"/>
             <Label Content="Datum pregleda:" HorizontalAlignment="Left" Margin="47,177,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="192"/>
@@ -36,12 +36,12 @@
                     <Image Source="../Images/pills.png" Width="30" Height="30" />
                 </StackPanel>
             </Button>
-            <TextBox Name="symptomsTxt" HorizontalAlignment="Left" Height="96" Margin="266,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="239" BorderBrush="{x:Null}"/>
-            <TextBox Name="diagnosisTxt" HorizontalAlignment="Left" Height="101" Margin="266,356,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="239" BorderBrush="{x:Null}"/>
+            <TextBox Name="symptomsTxt" HorizontalAlignment="Left" Height="96" Margin="266,232,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="239" BorderBrush="{x:Null}" TextChanged="SymptomsTextChanged"/>
+            <TextBox Name="diagnosisTxt" HorizontalAlignment="Left" Height="101" Margin="266,356,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="239" BorderBrush="{x:Null}" TextChanged="DiagnosisTextChanged"/>
             <Label Content="Lekar: " HorizontalAlignment="Left" Margin="47,483,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="192"/>
             <TextBox x:Name="doctorTxt" HorizontalAlignment="Left" Height="22" Margin="266,491,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="239" BorderBrush="{x:Null}" Background="{x:Null}" IsReadOnly="True"/>
         </Grid>
-        <Button Content="SAČUVAJ" HorizontalAlignment="Left" Margin="812,581,0,0" VerticalAlignment="Top" Width="109" Height="34" Background="#FF3F5038" Foreground="White" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="14" Click="SaveButtonClick" />
+        <Button Name="saveButton" Content="SAČUVAJ" HorizontalAlignment="Left" Margin="812,581,0,0" VerticalAlignment="Top" Width="109" Height="34" Background="#FF3F5038" Foreground="White" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="14" Click="SaveButtonClick" />
         <Button HorizontalAlignment="Left" Margin="902,52,0,0" VerticalAlignment="Top" Width="46" Height="42" Background="{x:Null}" BorderBrush="{x:Null}" Click="InvoiceButtonClick">
             <StackPanel Background="Transparent">
                 <Image Source="../Images/pdf.png" Width="30" Height="30"/>

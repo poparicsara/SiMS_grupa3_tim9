@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "Username": "nikola",
+    "Password": "dzoni",
+    "Name": "Nikola",
+    "Surname": "Spasojević",
+    "DateOfBirth": "1980-11-01T00:00:00",
+    "Phone": "67894234",
+    "Email": "nikolas@gmail.com",
+    "Id": "0111980825082",
+    "UserType": 1,
+    "Address": null
+  }
+]

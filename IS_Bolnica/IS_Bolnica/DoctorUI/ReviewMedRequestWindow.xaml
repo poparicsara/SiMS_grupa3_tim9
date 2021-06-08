@@ -21,12 +21,13 @@
             <Label Content="Proizvođač:" HorizontalAlignment="Left" Margin="47,230,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="192"/>
             <Label Content="Zamenski lek:" HorizontalAlignment="Left" Margin="47,171,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="192"/>
             <Label Content="Sastav:" HorizontalAlignment="Left" Margin="425,58,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="192"/>
-            <TextBox Name="idTxt" HorizontalAlignment="Left" Height="23" Margin="196,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
-            <TextBox Name="nameTxt" HorizontalAlignment="Left" Height="23" Margin="196,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
-            <TextBox Name="producerTxt" HorizontalAlignment="Left" Height="23" Margin="196,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
-            <TextBox Name="replacementTxt" HorizontalAlignment="Left" Height="23" Margin="196,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
-            <TextBox Name="ingredientsTxt" HorizontalAlignment="Left" Height="195" Margin="527,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192"/>
-            <TextBox Name="responseTxt" HorizontalAlignment="Left" Height="145" Margin="196,346,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
+            <TextBox Name="idTxt" HorizontalAlignment="Left" Height="23" Margin="196,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187" BorderBrush="{x:Null}">
+            </TextBox>
+            <TextBox Name="nameTxt" HorizontalAlignment="Left" Height="23" Margin="196,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187" BorderBrush="{x:Null}"/>
+            <TextBox Name="producerTxt" HorizontalAlignment="Left" Height="23" Margin="196,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187" BorderBrush="{x:Null}"/>
+            <TextBox Name="replacementTxt" HorizontalAlignment="Left" Height="23" Margin="196,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187" BorderBrush="{x:Null}"/>
+            <TextBox Name="ingredientsTxt" HorizontalAlignment="Left" Height="195" Margin="527,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" BorderBrush="{x:Null}"/>
+            <TextBox Name="responseTxt" HorizontalAlignment="Left" Height="145" Margin="196,346,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187" BorderBrush="{x:Null}"/>
             <Button Name="approveDeleting" Content="DOZVOLI BRISANJE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Height="34" Background="#FF3F5038" Foreground="White" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="14" Click="ApproveDeletingButtonClick" Margin="559,426,0,0" />
             <Button Name="approveMed" Content="ODOBRI LEK" HorizontalAlignment="Left" Margin="559,371,0,0" VerticalAlignment="Top" Width="160" Height="34" Background="#FF3F5038" Foreground="White" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="14" Click="ApproveMedButtonClick" />
             <Button Name="sendOnUpdate" Content="POŠALJI NA IZMENU" HorizontalAlignment="Left" Margin="559,479,0,0" VerticalAlignment="Top" Width="160" Height="34" Background="#FF3F5038" Foreground="White" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="14" Click="SendOnUpdateButtonClick" />

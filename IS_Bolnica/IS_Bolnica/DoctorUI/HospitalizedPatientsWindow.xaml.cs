@@ -23,6 +23,7 @@ namespace IS_Bolnica.DoctorUI
         {
             InitializeComponent();
             hospitalizedPatientsDataGrid.ItemsSource = hospitalizationService.GetAllHospitalizedPatients();
+            prolongBTN.IsEnabled = false;
         }
 
         private void ExaminationsButtonClick(object sender, RoutedEventArgs e)
@@ -86,6 +87,23 @@ namespace IS_Bolnica.DoctorUI
             MedicamentsWindow medicamentsWindow = new MedicamentsWindow();
             medicamentsWindow.Show();
             this.Close();
+        }
+
+        private void SetButtonVisibility()
+        {
+            if (hospitalizedPatientsDataGrid.SelectedItem != null)
+            {
+                prolongBTN.IsEnabled = true;
+            }
+            else
+            {
+                prolongBTN.IsEnabled = false;
+            }
+        }
+
+        private void PatientSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SetButtonVisibility();
         }
     }
 }

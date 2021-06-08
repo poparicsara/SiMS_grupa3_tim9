@@ -30,6 +30,7 @@ namespace IS_Bolnica
             this.DataContext = this;
             this.loggedUser = userService.GetLoggedUser();
             examinationsDataGrid.ItemsSource = appointmentService.GetDoctorsExaminations();
+            startExaminationButton.IsEnabled = false;
         }
 
         private void ExaminationButtonClick(object sender, RoutedEventArgs e)
@@ -87,19 +88,30 @@ namespace IS_Bolnica
         private void DeleteButtonClick(object sender, RoutedEventArgs e)
         {
             int index = examinationsDataGrid.SelectedIndex;
-            appointment = (Appointment) examinationsDataGrid.SelectedItem;
-            if (index == -1)
-            {
-                MessageBox.Show("Niste izabrali pregled koji želite da otkažete!");
-            }
-            else
-            {
-                appointmentService.DeleteAppointment(appointment);
-            }
+            appointment = (Appointment)examinationsDataGrid.SelectedItem;
+            MessageBoxResult messageBox = MessageBox.Show("Da li ste sigurni da želite da otkažete pregled?",
+                "Otkazivanje pregleda", MessageBoxButton.YesNo);
 
-            DoctorStartWindow doctorStartWindow = new DoctorStartWindow();
-            doctorStartWindow.Show();
-            this.Close();
+            switch (messageBox)
+            {
+                case MessageBoxResult.Yes:
+
+                    if (index == -1)
+                    {
+                        MessageBox.Show("Niste izabrali pregled koji želite da otkažete!");
+                    }
+                    else
+                    {
+                        appointmentService.DeleteAppointment(appointment);
+                    }
+
+                    DoctorStartWindow doctorStartWindow = new DoctorStartWindow();
+                    doctorStartWindow.Show();
+                    this.Close();
+                    break;
+                case MessageBoxResult.No:
+                    break;
+            }
         }
 
         private void EditButtonClick(object sender, RoutedEventArgs e)
@@ -131,6 +143,23 @@ namespace IS_Bolnica
             MedicamentsWindow medicamentsWindow = new MedicamentsWindow();
             medicamentsWindow.Show();
             this.Close();
+        }
+
+        private void SetButtonVisibility()
+        {
+            if (examinationsDataGrid.SelectedItem != null)
+            {
+                startExaminationButton.IsEnabled = true;
+            }
+            else
+            {
+                startExaminationButton.IsEnabled = false;
+            }
+        }
+
+        private void ExaminationSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SetButtonVisibility();
         }
     }
 }

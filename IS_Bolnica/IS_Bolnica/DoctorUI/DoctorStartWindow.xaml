@@ -69,7 +69,7 @@
         <DataGrid Name="examinationsDataGrid" HorizontalAlignment="Left" Height="412" Margin="208,174,0,0" VerticalAlignment="Top"
                   Width="661" BorderBrush="{x:Null}" Foreground="Black" FontSize="14" FontFamily="Malgun Gothic" FontWeight="Bold" 
                   Background="White" SelectionMode="Single" CanUserReorderColumns="False" CanUserResizeColumns="False" 
-                  IsReadOnly="True" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Disabled" CanUserResizeRows="False" Grid.RowSpan="2" HeadersVisibility="Column">
+                  IsReadOnly="True" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Disabled" CanUserResizeRows="False" Grid.RowSpan="2" HeadersVisibility="Column" SelectionChanged="ExaminationSelectionChanged">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FF3F5038"/>
@@ -89,7 +89,7 @@
                 <DataGridTextColumn Header="ORDINACIJA" Width="130" Binding="{Binding Doctor.Ordination}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Započni pregled" HorizontalAlignment="Left" Margin="765,273,0,0" Grid.Row="1" VerticalAlignment="Top" Width="158" Height="48" Background="#FF3F5038" Foreground="White" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="14" Click="StartExaminationButtonClick">
+        <Button Name="startExaminationButton" Content="Započni pregled" HorizontalAlignment="Left" Margin="711,270,0,0" Grid.Row="1" VerticalAlignment="Top" Width="158" Height="48" Background="#FF3F5038" Foreground="White" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="14" Click="StartExaminationButtonClick">
         </Button>
     </Grid>
 </Window>

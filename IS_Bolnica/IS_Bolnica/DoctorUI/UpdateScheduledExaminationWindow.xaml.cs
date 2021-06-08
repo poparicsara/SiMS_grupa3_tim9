@@ -170,5 +170,38 @@ namespace IS_Bolnica.DoctorUI
             medicamentsWindow.Show();
             this.Close();
         }
+
+        private void SetButtonVisibility()
+        {
+            if (patientTxt.Text != String.Empty && patinetIdTxt.Text != String.Empty && healthCardNumTxt.Text != String.Empty && ordinationTxt.Text != String.Empty
+                && doctorsCB.SelectedItem != null && minutesCB.SelectedItem != null && hoursCB.SelectedItem != null)
+            {
+                confirmButton.IsEnabled = true;
+            }
+            else
+            {
+                confirmButton.IsEnabled = false;
+            }
+        }
+
+        private void PatientTextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetButtonVisibility();
+        }
+
+        private void IdTextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetButtonVisibility();
+        }
+
+        private void HealthCardTextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetButtonVisibility();
+        }
+
+        private void OrdinationTextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetButtonVisibility();
+        }
     }
 }

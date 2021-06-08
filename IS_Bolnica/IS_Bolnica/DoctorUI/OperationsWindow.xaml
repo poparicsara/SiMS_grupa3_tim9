@@ -50,7 +50,7 @@
                 <DataGridTextColumn Header="DATUM" Width="120" Binding="{Binding StartTime, StringFormat= dd/MM/yyyy}"/>
                 <DataGridTextColumn Header="VREME" Width="90" Binding="{Binding StartTime, StringFormat=HH:mm}"/>
                 <DataGridTextColumn Header="SALA" Width="90" Binding="{Binding Room.Id}"/>
-                <DataGridTextColumn Header="HITNA" Width="100" Binding="{Binding IsUrgent}"/>
+                <DataGridTextColumn Header="HITNA" Width="100" Binding="{Binding YesNo}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="hospitalizedPatientsBTN" Content="Hospitalizovani pacijenti" HorizontalAlignment="Left" Margin="683,279,0,0" VerticalAlignment="Top" Width="198" Height="42" Background="#FF3F5038" Foreground="White" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="14" Click="HospitalizedPatientsButtonClick" Grid.Row="1" />

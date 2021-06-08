@@ -17,7 +17,7 @@
         <DataGrid Name="hospitalizedPatientsDataGrid" HorizontalAlignment="Left" Height="412" Margin="212,180,0,0" VerticalAlignment="Top"
                   Width="669" BorderBrush="{x:Null}" Foreground="Black" FontSize="14" FontFamily="Malgun Gothic" FontWeight="Bold" 
                   Background="White" SelectionMode="Single" CanUserReorderColumns="False" CanUserResizeColumns="False" 
-                  IsReadOnly="True" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Disabled" CanUserResizeRows="False" Grid.RowSpan="2" HeadersVisibility="Column">
+                  IsReadOnly="True" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Disabled" CanUserResizeRows="False" Grid.RowSpan="2" HeadersVisibility="Column" SelectionChanged="PatientSelectionChanged">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FF3F5038"/>

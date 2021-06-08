@@ -45,6 +45,8 @@ namespace IS_Bolnica.DoctorUI
 
             AllIngredients = new ObservableCollection<Ingredient>(ingredientService.GetAllIngredients());
             MedIngredients = new ObservableCollection<Ingredient>(selectedMedication.Ingredients);
+
+            confirmBTN.IsEnabled = false;
         }
 
         private void ConfirmButtonClick(object sender, RoutedEventArgs e)
@@ -237,6 +239,39 @@ namespace IS_Bolnica.DoctorUI
                 DataObject dragData = new DataObject("myFormat", ingredient);
                 DragDrop.DoDragDrop(listViewItem, dragData, DragDropEffects.Move);
             }
+        }
+
+        private void SetButtonVisibility()
+        {
+            if (idTxt.Text != String.Empty && nameTxt.Text != String.Empty && producerTxt.Text != String.Empty &&
+                replacementsCB.SelectedItem != null)
+            {
+                confirmBTN.IsEnabled = true;
+            }
+            else
+            {
+                confirmBTN.IsEnabled = false;
+            }
+        }
+
+        private void IdTextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetButtonVisibility();
+        }
+
+        private void NameTextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetButtonVisibility();
+        }
+
+        private void ProducerTextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetButtonVisibility();
+        }
+
+        private void ReplacementSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SetButtonVisibility();
         }
     }
 }

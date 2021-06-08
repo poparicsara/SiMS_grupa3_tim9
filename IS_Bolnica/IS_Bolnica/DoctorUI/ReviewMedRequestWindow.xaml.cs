@@ -169,5 +169,18 @@ namespace IS_Bolnica.DoctorUI
             notificationsWindow.Show();
             this.Close();
         }
+
+        private void SetButtonVisibility()
+        {
+            if (nameTxt.Text != String.Empty && idTxt.Text != String.Empty && replacementTxt.Text != String.Empty &&
+                producerTxt.Text != String.Empty && ingredientsTxt.Text != String.Empty)
+            {
+                approveMed.IsEnabled = true;
+            }
+            else
+            {
+                approveMed.IsEnabled = false;
+            }
+        }
     }
 }

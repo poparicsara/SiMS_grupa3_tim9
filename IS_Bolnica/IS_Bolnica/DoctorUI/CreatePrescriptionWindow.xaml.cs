@@ -29,6 +29,7 @@ namespace IS_Bolnica.DoctorUI
             InitializeComponent();
             this.anamnesis = anamnesis;
             SetDataInTextFields();
+            confirmBTN.IsEnabled = false;
         }
 
         private void ConfirmButtonClick(object sender, RoutedEventArgs e)
@@ -145,6 +146,7 @@ namespace IS_Bolnica.DoctorUI
                 allergyWarningTxt.Text = " ";
                 confirmBTN.IsEnabled = true;
             }
+
         }
 
         private void MedicamentsButtonClick(object sender, RoutedEventArgs e)
@@ -161,6 +163,33 @@ namespace IS_Bolnica.DoctorUI
             InvoiceWindow invoiceWindow = new InvoiceWindow(prescription);
             invoiceWindow.Show();
             this.Close();
+        }
+
+        private void SetButtonVisibility()
+        {
+            if (diagnosisTxt.Text != String.Empty && doseTxt.Text != String.Empty && medTxt.Text != String.Empty)
+            {
+                confirmBTN.IsEnabled = true;
+            }
+            else
+            {
+                confirmBTN.IsEnabled = false;
+            }
+        }
+
+        private void DiagnosisTextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetButtonVisibility();
+        }
+
+        private void DoseTextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetButtonVisibility();
+        }
+
+        private void DoseLostFocus(object sender, RoutedEventArgs e)
+        {
+            SetButtonVisibility();
         }
     }
 }

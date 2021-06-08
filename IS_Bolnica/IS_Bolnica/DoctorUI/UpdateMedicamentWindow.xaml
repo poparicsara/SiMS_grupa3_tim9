@@ -54,16 +54,16 @@
         </Button>
         <Grid HorizontalAlignment="Left" Height="551" Margin="178,120,0,0" VerticalAlignment="Top" Width="770" Background="#FFF1F0F0">
             <Label Content="Šifra:" HorizontalAlignment="Left" Margin="47,35,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" Width="139" FontSize="14"/>
-            <TextBox x:Name="idTxt" HorizontalAlignment="Left" Height="23" Margin="152,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" BorderBrush="{x:Null}"/>
-            <Label Content="Naziv:" HorizontalAlignment="Left" Margin="47,101,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" Width="139" FontSize="14"/>
-            <Label Content="Zamenski lek:" HorizontalAlignment="Left" Margin="408,35,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" Width="138" FontSize="14"/>
-            <Label Content="Proizvođač:" HorizontalAlignment="Left" Margin="408,95,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" Width="120" FontSize="14"/>
-            <TextBox x:Name="nameTxt" HorizontalAlignment="Left" Height="23" Margin="152,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" BorderBrush="{x:Null}"/>
-            <TextBox x:Name="producerTxt" HorizontalAlignment="Left" Height="23" Margin="546,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" BorderBrush="{x:Null}"/>
-            <ComboBox Name="replacementsCB" HorizontalAlignment="Left" Margin="546,41,0,0" VerticalAlignment="Top" Width="159"/>
-            <ListView Name="medIngredientsLV" HorizontalAlignment="Left" Height="202" Margin="47,270,0,0" VerticalAlignment="Top" Width="159" 
+            <TextBox x:Name="idTxt" HorizontalAlignment="Left" Height="23" Margin="191,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" BorderBrush="{x:Null}" TextChanged="IdTextChanged"/>
+            <Label Content="Naziv:" HorizontalAlignment="Left" Margin="47,81,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" Width="139" FontSize="14"/>
+            <Label Content="Zamenski lek:" HorizontalAlignment="Left" Margin="48,122,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" Width="138" FontSize="14"/>
+            <Label Content="Proizvođač:" HorizontalAlignment="Left" Margin="48,164,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" Width="120" FontSize="14"/>
+            <TextBox x:Name="nameTxt" HorizontalAlignment="Left" Height="23" Margin="191,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" BorderBrush="{x:Null}" TextChanged="NameTextChanged"/>
+            <TextBox x:Name="producerTxt" HorizontalAlignment="Left" Height="23" Margin="191,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" BorderBrush="{x:Null}" TextChanged="ProducerTextChanged"/>
+            <ComboBox Name="replacementsCB" HorizontalAlignment="Left" Margin="191,122,0,0" VerticalAlignment="Top" Width="186" SelectionChanged="ReplacementSelectionChanged"/>
+            <ListView Name="medIngredientsLV" HorizontalAlignment="Left" Height="202" Margin="191,213,0,0" VerticalAlignment="Top" Width="186" 
                       AllowDrop="True" DragOver="MedIngredients_DragOver" Drop="MedIngredients_Drop" ItemsSource="{Binding MedIngredients}"
-                      PreviewMouseLeftButtonDown="MedIngredientsLV_OnPreviewMouseLeftButtonDown" MouseMove="MedIngredientsLV_OnMouseMove">
+                      PreviewMouseLeftButtonDown="MedIngredientsLV_OnPreviewMouseLeftButtonDown" MouseMove="MedIngredientsLV_OnMouseMove" BorderBrush="{x:Null}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <WrapPanel>
@@ -72,9 +72,9 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <ListView Name="allIngredientsLV" HorizontalAlignment="Left" Height="202" Margin="366,270,0,0" VerticalAlignment="Top" Width="162"
+            <ListView Name="allIngredientsLV" HorizontalAlignment="Left" Height="202" Margin="511,213,0,0" VerticalAlignment="Top" Width="186"
                      AllowDrop="True" PreviewMouseLeftButtonDown="AllIngredients_OnPreviewMouseLeftButtonDown" MouseMove="AllIngredients_OnMouseMove"
-                      DragOver="AllIngredientsLV_OnDragOver" Drop="AllIngredientsLV_OnDrop" ItemsSource="{Binding AllIngredients}">
+                      DragOver="AllIngredientsLV_OnDragOver" Drop="AllIngredientsLV_OnDrop" ItemsSource="{Binding AllIngredients}" BorderBrush="{x:Null}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <WrapPanel>
@@ -83,9 +83,10 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Label Content="Sastojci:" HorizontalAlignment="Left" Margin="47,241,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" Width="159" FontSize="14"/>
+            <Label Content="Sastojci:" HorizontalAlignment="Left" Margin="48,213,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" Width="159" FontSize="14"/>
+            <Label Content="" HorizontalAlignment="Left" Margin="511,193,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" Width="159" FontSize="14"/>
         </Grid>
-        <Button x:Name="confirmBTN" Content="POTVRDI" HorizontalAlignment="Left" Margin="822,621,0,0" VerticalAlignment="Top" Width="109" Height="34" Background="#FF3F5038" Foreground="White" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="14" Click="ConfirmButtonClick" />
+        <Button x:Name="confirmBTN" Content="POTVRDI" HorizontalAlignment="Left" Margin="762,604,0,0" VerticalAlignment="Top" Width="109" Height="34" Background="#FF3F5038" Foreground="White" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="14" Click="ConfirmButtonClick" />
 
     </Grid>
 </Window>

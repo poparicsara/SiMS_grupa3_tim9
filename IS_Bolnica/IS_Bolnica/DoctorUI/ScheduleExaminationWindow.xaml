@@ -23,23 +23,23 @@
             <Label Content="Lekar:" HorizontalAlignment="Left" Margin="51,326,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="92"/>
             <ComboBox Name="doctorsCB" HorizontalAlignment="Left" Margin="304,334,0,0" VerticalAlignment="Top" Width="150" RenderTransformOrigin="0.328,0.349" SelectionChanged="DoctorsSelectionChanged"/>
             <Label Content="Ordinacija:" HorizontalAlignment="Left" Margin="51,379,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="114"/>
-            <TextBox Name="patientTxt" HorizontalAlignment="Left" Height="23" Margin="304,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}">
+            <TextBox Name="patientTxt" HorizontalAlignment="Left" Height="23" Margin="304,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}" TextChanged="PatientTextBoxChanged">
 
             </TextBox>
-            <TextBox Name="patinetIdTxt" HorizontalAlignment="Left" Height="23" Margin="304,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" LostFocus="IdTextFieldLostFocus" BorderBrush="{x:Null}">
+            <TextBox Name="patinetIdTxt" PreviewTextInput="PatinetIdTxt_OnPreviewTextInput" HorizontalAlignment="Left" Height="23" Margin="304,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" LostFocus="IdTextFieldLostFocus" BorderBrush="{x:Null}" TextChanged="IdTextBoxChanged">
+                
+            </TextBox>
+            <TextBox Name="healthCardNumTxt" HorizontalAlignment="Left" Height="23" Margin="304,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}" TextChanged="HealthCardTextBoxChanged">
 
             </TextBox>
-            <TextBox Name="healthCardNumTxt" HorizontalAlignment="Left" Height="23" Margin="304,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}">
-
-            </TextBox>
-            <TextBox Name="ordinationTxt" HorizontalAlignment="Left" Height="23" Margin="304,386,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}">
+            <TextBox Name="ordinationTxt" HorizontalAlignment="Left" Height="23" Margin="304,386,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}" TextChanged="OrdinationTextBoxChanged">
 
             </TextBox>
             <DatePicker Name="examinationDate" HorizontalAlignment="Left" Margin="304,227,0,0" VerticalAlignment="Top" Width="150" Height="29" BorderBrush="{x:Null}" DisplayDateStart="{x:Static sys:DateTime.Today}"/>
             <ComboBox Name="hoursCB" HorizontalAlignment="Left" Margin="304,286,0,0" VerticalAlignment="Top" Width="65"/>
             <ComboBox Name="minutesCB" HorizontalAlignment="Left" Margin="389,286,0,0" VerticalAlignment="Top" Width="65"/>
         </Grid>
-        <Button Content="POTVRDI" HorizontalAlignment="Left" Margin="791,604,0,0" VerticalAlignment="Top" Width="109" Height="34" Background="#FF3F5038" Foreground="White" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="14" Click="PotvrdiButtonClick"/>
+        <Button Name="confirmButton" Content="POTVRDI" HorizontalAlignment="Left" Margin="791,604,0,0" VerticalAlignment="Top" Width="109" Height="34" Background="#FF3F5038" Foreground="White" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="14" Click="PotvrdiButtonClick"/>
         <Grid HorizontalAlignment="Left" Height="739" VerticalAlignment="Top" Width="100" Background="#FFF1F0F0" Margin="0">
             <Button HorizontalAlignment="Left" Margin="0,110,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="ExaminationButtonClick">
                 <StackPanel>

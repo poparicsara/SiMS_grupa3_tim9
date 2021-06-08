@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -30,6 +31,7 @@ namespace IS_Bolnica.DoctorUI
             InitializeComponent();
             SetTimePicker();
             doctorsCB.ItemsSource = doctorService.GetDoctorNamesList();
+            confirmButton.IsEnabled = false;
         }
         private void PotvrdiButtonClick(object sender, RoutedEventArgs e)
         {
@@ -130,6 +132,8 @@ namespace IS_Bolnica.DoctorUI
             examination.StartTime = new DateTime(examinationDate.Year, examinationDate.Month, examinationDate.Day, hour, minute, 0);
             examination.Room = roomService.FindOrdinationById(examination.Doctor.Ordination);
             examination.AppointmentType = AppointmentType.examination;
+
+
         }
 
         private void IdTextFieldLostFocus(object sender, RoutedEventArgs e)
@@ -159,6 +163,45 @@ namespace IS_Bolnica.DoctorUI
             MedicamentsWindow medicamentsWindow = new MedicamentsWindow();
             medicamentsWindow.Show();
             this.Close();
+        }
+
+        private void SetButtonVisibility()
+        {
+            if (patientTxt.Text != String.Empty && patinetIdTxt.Text != String.Empty && healthCardNumTxt.Text != String.Empty && ordinationTxt.Text != String.Empty
+                    && doctorsCB.SelectedItem != null && minutesCB.SelectedItem != null && hoursCB.SelectedItem != null)
+            {
+                confirmButton.IsEnabled = true;
+            }
+            else
+            {
+                confirmButton.IsEnabled = false;
+            }
+        }
+
+        private void PatientTextBoxChanged(object sender, TextChangedEventArgs e)
+        {
+            SetButtonVisibility();
+        }
+
+        private void IdTextBoxChanged(object sender, TextChangedEventArgs e)
+        {
+            SetButtonVisibility();
+        }
+
+        private void HealthCardTextBoxChanged(object sender, TextChangedEventArgs e)
+        {
+            SetButtonVisibility();
+        }
+
+        private void OrdinationTextBoxChanged(object sender, TextChangedEventArgs e)
+        {
+            SetButtonVisibility();
+        }
+
+        private void PatinetIdTxt_OnPreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[0-9]{13}");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

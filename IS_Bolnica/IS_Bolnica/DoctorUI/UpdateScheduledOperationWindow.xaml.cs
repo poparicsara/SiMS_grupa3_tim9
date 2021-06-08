@@ -147,7 +147,7 @@ namespace IS_Bolnica.DoctorUI
 
         private void BackButtonClick(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult messageBox = MessageBox.Show("Da li ste sigurni da želite da izađete?",
+            MessageBoxResult messageBox = MessageBox.Show("Da li ste sigurni da želite da izađete? Vaše promene neće biti sačuvane.",
                 "Izmena operacije", MessageBoxButton.YesNo);
 
             switch (messageBox)
@@ -162,10 +162,6 @@ namespace IS_Bolnica.DoctorUI
             }
         }
 
-        private void SetDataInTextBoxes()
-        {
-        }
-
         private void IdTextFieldLostFocus(object sender, RoutedEventArgs e)
         {
             healthCardNumTxt.Text = patientService.findPatientById(patinetIdTxt.Text).HealthCardNumber;
@@ -176,6 +172,39 @@ namespace IS_Bolnica.DoctorUI
             MedicamentsWindow medicamentsWindow = new MedicamentsWindow();
             medicamentsWindow.Show();
             this.Close();
+        }
+
+        private void SetButtonVisibility()
+        {
+            if (patientTxt.Text != String.Empty && patinetIdTxt.Text != String.Empty && healthCardNumTxt.Text != String.Empty
+                && doctorsCB.SelectedItem != null && minutesCB.SelectedItem != null && hoursCB.SelectedItem != null && roomCB.SelectedItem != null)
+            {
+                confirmButton.IsEnabled = true;
+            }
+            else
+            {
+                confirmButton.IsEnabled = false;
+            }
+        }
+
+        private void PatientTextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetButtonVisibility();
+        }
+
+        private void IdTextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetButtonVisibility();
+        }
+
+        private void HealthCardTextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetButtonVisibility();
+        }
+
+        private void DoctorsSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SetButtonVisibility();
         }
     }
 }

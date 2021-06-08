@@ -39,6 +39,8 @@ namespace IS_Bolnica.DoctorUI
             examinationDate.SelectedDate = examination.StartTime;
             addressTxt.Text = examination.Patient.Address.Street + ", " + examination.Patient.Address.City.name;
             doctorTxt.Text = examination.Doctor.Name + ' ' + examination.Doctor.Surname;
+
+            saveButton.IsEnabled = false;
         }
 
         private void SaveButtonClick(object sender, RoutedEventArgs e)
@@ -155,6 +157,28 @@ namespace IS_Bolnica.DoctorUI
             AnamnesisInvoiceWindow anamnesisInvoiceWindow = new AnamnesisInvoiceWindow(anamnesis, examination, loggedAppointments, selectedIndex);
             anamnesisInvoiceWindow.Show();
             this.Close();
+        }
+
+        private void SetButtonVisibility()
+        {
+            if (diagnosisTxt.Text != String.Empty && symptomsTxt.Text != String.Empty)
+            {
+                saveButton.IsEnabled = true;
+            }
+            else
+            {
+                saveButton.IsEnabled = false;
+            }
+        }
+
+        private void SymptomsTextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetButtonVisibility();
+        }
+
+        private void DiagnosisTextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetButtonVisibility();
         }
     }
 }

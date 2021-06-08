@@ -31,6 +31,7 @@ namespace IS_Bolnica.DoctorUI
             roomCB.ItemsSource = roomService.GetOperationRoomsId();
             SetTimePicker();
             doctorsCB.ItemsSource = doctorService.GetSpecialistsNameSurname();
+            confirmButton.IsEnabled = false;
         }
         private void PotvrdiButtonClick(object sender, RoutedEventArgs e)
         {
@@ -40,10 +41,12 @@ namespace IS_Bolnica.DoctorUI
             if (isUrgentRB.IsChecked == true)
             {
                 operation.IsUrgent = true;
+                operation.YesNo = "DA";
             }
             else
             {
                 operation.IsUrgent = false;
+                operation.YesNo = "NE";
             }
             DateTime date = (DateTime)operationDate.SelectedDate;
             int hour = Convert.ToInt32(hoursCB.Text);
@@ -146,8 +149,8 @@ namespace IS_Bolnica.DoctorUI
             switch (messageBox)
             {
                 case MessageBoxResult.Yes:
-                    DoctorStartWindow doctorStartWindow = new DoctorStartWindow();
-                    doctorStartWindow.Show();
+                    OperationsWindow operationsWindow = new OperationsWindow();
+                    operationsWindow.Show();
                     this.Close();
                     break;
                 case MessageBoxResult.No:
@@ -166,5 +169,35 @@ namespace IS_Bolnica.DoctorUI
             medicamentsWindow.Show();
             this.Close();
         }
+
+        private void SetButtonVisibility()
+        {
+            if (patientTxt.Text != String.Empty && patinetIdTxt.Text != String.Empty && healthCardNumTxt.Text != String.Empty
+                && doctorsCB.SelectedItem != null && minutesCB.SelectedItem != null && hoursCB.SelectedItem != null && roomCB.SelectedItem != null)
+            {
+                confirmButton.IsEnabled = true;
+            }
+            else
+            {
+                confirmButton.IsEnabled = false;
+            }
+        }
+
+        private void PatientTextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetButtonVisibility();
+        }
+
+        private void IdTextChanged(object sender, TextChangedEventArgs e)
+        {
+            SetButtonVisibility();
+        }
+
+
+        private void DoctorsSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SetButtonVisibility();
+        }
+
     }
 }

@@ -80,18 +80,30 @@ namespace IS_Bolnica
         {
             int index = operationsDataGrid.SelectedIndex;
             appointment = (Appointment)operationsDataGrid.SelectedItem;
-            if (index == -1)
-            {
-                MessageBox.Show("Niste izabrali operaciju koji želite da otkažete!");
-            }
-            else
-            {
-                appointmentService.DeleteAppointment(appointment);
-            }
 
-            OperationsWindow operationsWindow = new OperationsWindow();
-            operationsWindow.Show();
-            this.Close();
+            MessageBoxResult messageBox = MessageBox.Show("Da li ste sigurni da želite da otkažete operaciju?",
+                "Otkazivanje operacije", MessageBoxButton.YesNo);
+
+            switch (messageBox)
+            {
+                case MessageBoxResult.Yes:
+                    if (index == -1)
+                    {
+                        MessageBox.Show("Niste izabrali operaciju koji želite da otkažete!");
+                    }
+                    else
+                    {
+                        appointmentService.DeleteAppointment(appointment);
+                    }
+
+                    OperationsWindow operationsWindow = new OperationsWindow();
+                    operationsWindow.Show();
+                    this.Close();
+                    break;
+                case MessageBoxResult.No:
+                    break;
+            }
+            
         }
 
         private void EditButtonClick(object sender, RoutedEventArgs e)
