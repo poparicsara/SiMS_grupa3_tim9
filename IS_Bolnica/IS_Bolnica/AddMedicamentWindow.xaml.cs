@@ -28,6 +28,9 @@ namespace IS_Bolnica
 
             replacementBox.ItemsSource = medService.GetReplacementNames();
 
+            idBox.Focusable = true;
+            idBox.Focus();
+
             this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
         }
 
@@ -41,18 +44,44 @@ namespace IS_Bolnica
 
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
-            SendAddingRequest();
-            AddMedicament();
+            if (!IsAnythingNull())
+            {
+                SetMedicamentAttributes();
+                DoAdding();
+            }
+            else
+            {
+                MessageBox.Show("Sva polja moraju biti popunjena!");
+            }
+            
+        }
 
-            this.Close();
+        private void DoAdding()
+        {
+            if (medService.IsMedNumberUnique(newMedicament.Id))
+            {
+                SendAddingRequest();
+                AddMedicament();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Već postoji lek sa unetim brojem!");
+            }
+        }
+
+        private bool IsAnythingNull()
+        {
+            return idBox.Text.Equals("") || nameBox.Text.Equals("") || replacementBox.SelectedItem == null ||
+                   producerBox.Text.Equals("") || toBox.SelectedItem == null || ingredientBox.Text.Equals("");
         }
 
         private void AddMedicament()
         {
-            SetMedicamentAttributes();
+            
             string ingredients = ingredientBox.Text;
             medService.AddMedicament(newMedicament, ingredients);
-        }
+            }
 
         private void SetMedicamentAttributes()
         {
@@ -98,6 +127,11 @@ namespace IS_Bolnica
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void CancelButtonClicked(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

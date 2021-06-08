@@ -21,26 +21,76 @@ namespace IS_Bolnica
         private Medicament selectedMedicament;
         private Ingredient ingredient = new Ingredient();
         private IngredientService service = new IngredientService();
+        private MedicamentService medService = new MedicamentService();
 
         public AddIngredientByDirectorWindow(Medicament selected)
         {
             InitializeComponent();
 
             selectedMedicament = selected;
+
+            ingredientNameTxt.Focusable = true;
+            ingredientNameTxt.Focus();
+
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+        }
+
+        private void HandleEsc(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                this.Close();
+            }
         }
 
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
-            ingredient = new Ingredient { Name = ingredientNameTxt.Text };
-            service.AddIngredient(selectedMedicament, ingredient);
+            if (SetNewIngredient())
+            {
+                
+                service.AddIngredient(selectedMedicament, ingredient);
 
-            this.Close();
+                this.Close();
+            }
+        }
+
+        private bool SetNewIngredient()
+        {
+            if (ingredientNameTxt.Text.Equals(""))
+            {
+                MessageBox.Show("Morate uneti naziv sastojka");
+                return false;
+            }
+            else
+            {
+                return CheckMedicamentIngredients();
+            }
+        }
+
+        private bool CheckMedicamentIngredients()
+        {
+            if (!medService.HasMedicamentIngredient(selectedMedicament, ingredientNameTxt.Text))
+            {
+                ingredient = new Ingredient {Name = ingredientNameTxt.Text};
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Lek već ima uneti sastojak!");
+                return false;
+            }
+            
         }
 
         private void ClosingWindow(object sender, System.ComponentModel.CancelEventArgs e)
         {
             IngredientsWindow iw = new IngredientsWindow(selectedMedicament);
             iw.Show();
+        }
+
+        private void CancelButtonClicked(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

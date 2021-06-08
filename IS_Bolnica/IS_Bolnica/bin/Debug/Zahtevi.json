@@ -70,5 +70,29 @@
     "Content": "123|novi lek|Altravesa|novi  proizvodjac|sastojak\nsastojak\n",
     "Sender": 3,
     "Recipient": 0
+  },
+  {
+    "Title": "Dodavanje leka u bazu",
+    "Content": "1000|novi lek|Alopurinol|mi|a",
+    "Sender": 3,
+    "Recipient": 0
+  },
+  {
+    "Title": "Dodavanje leka u bazu",
+    "Content": "123|novi lek|Altravesa|novi  proizvodjac|sastojak\nsastojak\n",
+    "Sender": 3,
+    "Recipient": 0
+  },
+  {
+    "Title": "Dodavanje leka u bazu",
+    "Content": "123|novi lek|Altravesa|novi  proizvodjac|sastojak\nsastojak\n",
+    "Sender": 3,
+    "Recipient": 0
+  },
+  {
+    "Title": "Dodavanje leka u bazu",
+    "Content": "123|novi lekkk|Altravesa|novi  proizvodjac|sastojak\nsastojak\n",
+    "Sender": 3,
+    "Recipient": 0
   }
 ]

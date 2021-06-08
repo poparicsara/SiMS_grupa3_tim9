@@ -110,6 +110,7 @@ namespace IS_Bolnica
         {
             DirectorNotificationWindow dnw = new DirectorNotificationWindow();
             dnw.Show();
+            this.Close();
         }
 
         private void MedicamentButtonClicked(object sender, RoutedEventArgs e)

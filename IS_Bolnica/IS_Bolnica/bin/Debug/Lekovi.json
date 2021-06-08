@@ -332,13 +332,16 @@
   },
   {
     "Id": 123,
-    "Name": "novi lek",
+    "Name": "novi lekkk",
     "Ingredients": [
       {
         "Name": "sastojak"
       },
       {
         "Name": "sastojak"
+      },
+      {
+        "Name": "novi"
       }
     ],
     "Replacement": {

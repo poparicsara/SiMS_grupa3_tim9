@@ -24,7 +24,7 @@ namespace IS_Bolnica
 
         private void LogInButtonClicked(object sender, RoutedEventArgs e)
         {
-            DirectorProfileWindow dw = new DirectorProfileWindow();
+            DirectorProfileWindow dw = new DirectorProfileWindow("0601234567", "ivanivanovic@gmail.com");
             dw.Show();
         }
 

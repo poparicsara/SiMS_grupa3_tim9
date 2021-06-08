@@ -852,5 +852,8 @@
   <ItemGroup>
     <Resource Include="DemoMode\search.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\director.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

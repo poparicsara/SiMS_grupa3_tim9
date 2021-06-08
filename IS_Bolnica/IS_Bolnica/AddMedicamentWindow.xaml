@@ -27,7 +27,7 @@
                 BorderBrush="#FF425431" Click="DoneButtonClicked" FontSize="16"/>
         <Button Content="ODUSTANI" HorizontalAlignment="Left" Margin="183,516,0,0" VerticalAlignment="Top" 
                 Width="130" Height="32" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" 
-                BorderBrush="#FF425431" FontSize="16"/>
+                BorderBrush="#FF425431" FontSize="16" Click="CancelButtonClicked"/>
 
         <Label Content="Primalac:" HorizontalAlignment="Left" Margin="32,397,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="Sastav:" HorizontalAlignment="Left" Margin="402,124,0,0" VerticalAlignment="Top" FontSize="16"/>

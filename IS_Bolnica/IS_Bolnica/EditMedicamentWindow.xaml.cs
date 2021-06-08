@@ -2,6 +2,7 @@
 using Model;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -40,6 +41,9 @@ namespace IS_Bolnica
             replacementBox.ItemsSource = medService.GetReplacementNames();
             SetOldReplacement();
 
+            idBox.Focusable = true;
+            idBox.Focus();
+
             this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
         }
 
@@ -47,6 +51,8 @@ namespace IS_Bolnica
         {
             if (e.Key == Key.Escape)
             {
+                MedicamentWindow mw = new MedicamentWindow();
+                mw.Show();
                 this.Close();
             }
         }
@@ -70,17 +76,64 @@ namespace IS_Bolnica
         {
             IngredientsWindow compositionWindow = new IngredientsWindow(oldMedicament);
             compositionWindow.Show();
-            this.Close();
         }
 
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
-            SetNewMedicament();
-            medService.EditMedicament(oldMedicament, newMedicament);
+            if (!IsAnythingNull())
+            {
+                SetNewMedicament();
+                DoEditing();
+            }
+            else
+            {
+                MessageBox.Show("Sva polja moraju biti popunjena!");
+            }
+        }
 
-            SendEditRequest();
+        private void DoEditing()
+        {
+            Debug.WriteLine(oldMedicament.Id);
+            Debug.WriteLine(newMedicament.Id);
+            if (IsIdChanged())
+            {
+                CheckRoomId();
+            }
+            else
+            {
+                medService.EditMedicament(oldMedicament, newMedicament);
+                SendEditRequest();
+                MedicamentWindow mw = new MedicamentWindow();
+                mw.Show();
+                this.Close();
+            }
+        }
 
-            this.Close();
+        private void CheckRoomId()
+        {
+            if (medService.IsMedNumberUnique(newMedicament.Id))
+            {
+                medService.EditMedicament(oldMedicament, newMedicament);
+                SendEditRequest();
+                MedicamentWindow mw = new MedicamentWindow();
+                mw.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Već postoji soba sa unetim brojem!");
+            }
+        }
+
+        private bool IsIdChanged()
+        {
+            return oldMedicament.Id != newMedicament.Id;
+        }
+
+        private bool IsAnythingNull()
+        {
+            return idBox.Text.Equals("") || nameBox.Text.Equals("") || replacementBox.SelectedItem == null ||
+                   producerBox.Text.Equals("");
         }
 
         private void SendEditRequest()
@@ -130,6 +183,13 @@ namespace IS_Bolnica
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void CancelButtonClicked(object sender, RoutedEventArgs e)
+        {
+            MedicamentWindow mw = new MedicamentWindow();
+            mw.Show();
+            this.Close();
         }
     }
 }

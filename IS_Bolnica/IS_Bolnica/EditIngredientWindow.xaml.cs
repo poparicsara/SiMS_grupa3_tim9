@@ -32,15 +32,57 @@ namespace IS_Bolnica
 
             oldIngredient = ingredient;
 
-            ingredientNameTxt.Text = ingredient.Name; 
+            ingredientNameTxt.Text = ingredient.Name;
+
+            ingredientNameTxt.Focusable = true;
+            ingredientNameTxt.Focus();
+
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+        }
+
+        private void HandleEsc(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                this.Close();
+            }
         }
 
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
-            newIngredient.Name = ingredientNameTxt.Text;
-            service.EditIngredient(selectedMedicament, oldIngredient, newIngredient);
-            
-            this.Close();
+            if (SetNewIngredient())
+            {
+                service.EditIngredient(selectedMedicament, oldIngredient, newIngredient);
+                this.Close();
+            }
+        }
+
+        private bool SetNewIngredient()
+        {
+            if (ingredientNameTxt.Text.Equals(""))
+            {
+                MessageBox.Show("Morate uneti naziv sastojka");
+                return false;
+            }
+            else
+            {
+                return CheckMedicamentIngredients();
+            }
+        }
+
+        private bool CheckMedicamentIngredients()
+        {
+            if (!medService.HasMedicamentIngredient(selectedMedicament, ingredientNameTxt.Text))
+            {
+                newIngredient.Name = ingredientNameTxt.Text;
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Lek već ima uneti sastojak!");
+                return false;
+            }
+
         }
 
         private void ClosingWindow(object sender, System.ComponentModel.CancelEventArgs e)

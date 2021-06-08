@@ -125,8 +125,15 @@ namespace IS_Bolnica
 
         private void ProfileButtonClicked(object sender, RoutedEventArgs e)
         {
-            DirectorProfileWindow profileWindow = new DirectorProfileWindow();
+            DirectorProfileWindow profileWindow = new DirectorProfileWindow("0601234567", "ivanivanovic@gmail.com");
             profileWindow.Show();
+            this.Close();
+        }
+
+        private void NotificationButtonClicked(object sender, RoutedEventArgs e)
+        {
+            DirectorNotificationWindow dw = new DirectorNotificationWindow();
+            dw.Show();
             this.Close();
         }
     }

@@ -1,19 +1,5 @@
 [
   {
-    "Title": "RENOVACIJE",
-    "Content": "...",
-    "Sender": 2,
-    "notificationType": 4,
-    "PersonId": null
-  },
-  {
-    "Title": "VAZNO",
-    "Content": "Obavestavamo Vas da promenite lozinku.",
-    "Sender": 2,
-    "notificationType": 4,
-    "PersonId": null
-  },
-  {
     "Title": "Potrebno pomeranje termina",
     "Content": "Prostorija  102 se renovira.\nPotrebno je pomeranje zakazanog termina",
     "Sender": 3,

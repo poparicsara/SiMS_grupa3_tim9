@@ -5,14 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Bolnica"
         mc:Ignorable="d"
-        Title="SelectedNotificationWindow" Height="450" Width="800" Closing="ClosingWindow" WindowStartupLocation="CenterScreen">
+        Title="SelectedNotificationWindow" Height="655" Width="700" Closing="ClosingWindow" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="627*"/>
-            <ColumnDefinition Width="166*"/>
-        </Grid.ColumnDefinitions>
-        <TextBox x:Name="contentBox" HorizontalAlignment="Left" Height="259" Margin="285,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="242"/>
-        <Label Content="Sadrzaj:" HorizontalAlignment="Left" Margin="285,36,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="contentBox" IsReadOnly="True" HorizontalAlignment="Left" Height="221" Margin="49,296,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="601" FontSize="16"/>
+        <Label Content="Sadrzaj:" HorizontalAlignment="Left" Margin="49,259,0,0" VerticalAlignment="Top" FontSize="16" Width="65"/>
+        <Label Content="OBAVEŠTENJE" HorizontalAlignment="Left" Margin="277,35,0,0" VerticalAlignment="Top" FontSize="26" FontWeight="Bold"/>
+        <TextBox x:Name="senderBox" IsReadOnly="True" HorizontalAlignment="Left" Height="32" Margin="152,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="498" FontSize="16"/>
+        <Label Content="Pošiljalac:" HorizontalAlignment="Left" Margin="49,129,0,0" VerticalAlignment="Top" FontSize="16" Width="78"/>
+        <TextBox x:Name="titleBox" IsReadOnly="True" HorizontalAlignment="Left" Height="32" Margin="152,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="498" FontSize="16"/>
+        <Label Content="Naslov:" HorizontalAlignment="Left" Margin="49,195,0,0" VerticalAlignment="Top" FontSize="16" Width="62"/>
 
     </Grid>
 </Window>

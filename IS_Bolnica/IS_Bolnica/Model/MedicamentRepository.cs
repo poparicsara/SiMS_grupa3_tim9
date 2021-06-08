@@ -98,6 +98,31 @@ namespace IS_Bolnica.Model
             SaveToFile(meds);
         }
 
+        public bool HasMedicamentIngredient(Medicament medicament, String ingredient)
+        {
+            medicament = GetMedicament(medicament.Name);
+            foreach (var i in medicament.Ingredients)
+            {
+                if (i.Name.Equals(ingredient))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool IsMedNumberUnique(int medNumber)
+        {
+            foreach (Medicament m in meds)
+            {
+                if (m.Id == medNumber)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         public void SaveToFile(List<Medicament> medicaments)
         {
             string jsonString = JsonConvert.SerializeObject(medicaments, Formatting.Indented);

@@ -5,29 +5,62 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Bolnica"
         mc:Ignorable="d"
-        Title="MedicamentCompositionWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="MedicamentCompositionWindow" Height="655" Width="700" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <RoutedCommand x:Key="addCommand"/>
+        <RoutedCommand x:Key="editCommand"/>
+        <RoutedCommand x:Key="deleteCommand"/>
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource addCommand}" Executed="AddButtonClicked"/>
+        <CommandBinding Command="{StaticResource editCommand}" Executed="EditButtonClicked"/>
+        <CommandBinding Command="{StaticResource deleteCommand}" Executed="DeleteButtonClicked"/>
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Command="{StaticResource addCommand}" Key="N" Modifiers="Control"/>
+        <KeyBinding Command="{StaticResource editCommand}" Key="E" Modifiers="Control"/>
+        <KeyBinding Command="{StaticResource deleteCommand}" Key="D" Modifiers="Control"/>
+    </Window.InputBindings>
     <Grid>
-        <DataGrid x:Name ="ingredientDataGrid" HorizontalAlignment="Center" Height="340" VerticalAlignment="Center" Width="211" FontSize="13"
+        <DataGrid x:Name ="ingredientDataGrid" HorizontalAlignment="Center" Height="458" VerticalAlignment="Center" Width="438" FontSize="16"
                    CanUserResizeRows="False" CanUserResizeColumns="False" CanUserAddRows="False" AutoGenerateColumns="False"
-                  IsReadOnly="True" SelectionMode="Single" CanUserDeleteRows="True" Margin="105,37,477.6,43" BorderBrush="#FF0A0B0C">
+                  IsReadOnly="True" SelectionMode="Single" CanUserDeleteRows="True" Margin="132,133,123.6,34.6" 
+                   BorderBrush="Black" BorderThickness="8" RowHeight="30" HorizontalScrollBarVisibility="Hidden">
             <!-- Style -->
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
-                    <Setter Property="Background" Value="#FFA5BC90"/>
+                    <Setter Property="Background" Value="White"/>
                     <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                    <Setter Property="Height" Value="30"/>
+                    <Setter Property="Height" Value="35"/>
                     <Setter Property="BorderThickness" Value="1"/>
                     <Setter Property="BorderBrush" Value="Black"/>
                     <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="FontSize" Value="18"/>
                 </Style>
             </DataGrid.Resources>
             <!-- Header -->
             <DataGrid.Columns>
-                <DataGridTextColumn Width="200" Header = "NAZIV" Binding="{Binding Name}"/>
+                <DataGridTextColumn Width="417" Header = "NAZIV" Binding="{Binding Name}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="DODAJ" HorizontalAlignment="Left" Margin="645,228,0,0" VerticalAlignment="Top" Width="75" Click="AddButtonClicked"/>
-        <Button Content="IZMENI" HorizontalAlignment="Left" Margin="645,265,0,0" VerticalAlignment="Top" Width="75" Click="EditButtonClicked"/>
-        <Button Content="OBRIŠI" HorizontalAlignment="Left" Margin="645,304,0,0" VerticalAlignment="Top" Width="75" Click="DeleteButtonClicked"/>
+        <Button IsTabStop="True" HorizontalAlignment="Left" Margin="612,556,0,0" VerticalAlignment="Top" Height="35" Width="35" Click="AddButtonClicked">
+            <StackPanel>
+                <Image Source="DemoMode/addIcon.png"/>
+            </StackPanel>
+        </Button>
+        <Button IsTabStop="True" Background="White" HorizontalAlignment="Left" Margin="612,497,0,0" VerticalAlignment="Top" Height="35" Width="35" Click="DeleteButtonClicked">
+            <StackPanel>
+                <Image Source="DemoMode/delete.png"></Image>
+            </StackPanel>
+        </Button>
+        <Button IsTabStop="True" Background="White" HorizontalAlignment="Left" Margin="612,437,0,0" VerticalAlignment="Top" Height="35" Width="35" Click="EditButtonClicked">
+            <StackPanel>
+                <Image Source="DemoMode/edit.png"></Image>
+            </StackPanel>
+        </Button>
+        <Label Content="SASTOJCI" HorizontalAlignment="Left" Margin="291,44,0,0" VerticalAlignment="Top" FontSize="26" FontWeight="Bold"/>
+        <Label Content="CTRL+E" HorizontalAlignment="Left" Margin="622,422,0,0" VerticalAlignment="Top" FontSize="8" FontWeight="Bold"/>
+        <Label Content="CTRL+D" HorizontalAlignment="Left" Margin="622,481,0,0" VerticalAlignment="Top" FontSize="8" FontWeight="Bold"/>
+        <Label Content="CTRL+N" HorizontalAlignment="Left" Margin="622,541,0,0" VerticalAlignment="Top" FontSize="8" FontWeight="Bold"/>
     </Grid>
 </Window>

@@ -32,6 +32,16 @@ namespace IS_Bolnica
             selectedMedicament = medService.GetMedicament(selected.Name);
 
             ingredientDataGrid.ItemsSource = ingService.GetIngredients(selected);
+
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+        }
+
+        private void HandleEsc(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                this.Close();
+            }
         }
 
         private void AddButtonClicked(object sender, RoutedEventArgs e)
@@ -45,7 +55,7 @@ namespace IS_Bolnica
         {
             if (ingredientDataGrid.SelectedIndex < 0)
             {
-                MessageBox.Show("Niste izabrali nijedan lek!");
+                MessageBox.Show("Niste izabrali nijedan sastojak!");
                 return false;
             }
             else
@@ -69,8 +79,17 @@ namespace IS_Bolnica
         {
             if (IsAnyMedicamentSelected())
             {
-                ingService.DeleteIngredient(selectedMedicament, selectedIngredient);
-                RefreshDataGrid();
+                MessageBoxResult messageBox = MessageBox.Show("Da li ste sigurni da želite da obrišete izabrani lek?",
+                    "Brisanje leka", MessageBoxButton.YesNo);
+                switch (messageBox)
+                {
+                    case MessageBoxResult.Yes:
+                        ingService.DeleteIngredient(selectedMedicament, selectedIngredient);
+                        RefreshDataGrid();
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                }
             }
         }
 

@@ -51,6 +51,16 @@ namespace IS_Bolnica.Services
             repository.EditMedicament(index, newMedicament);
         }
 
+        public bool IsMedNumberUnique(int medNumber)
+        {
+            return repository.IsMedNumberUnique(medNumber);
+        }
+
+        public bool HasMedicamentIngredient(Medicament medicament, String ingredient)
+        {
+            return repository.HasMedicamentIngredient(medicament, ingredient);
+        }
+
         private int FindIndex(Medicament medicament)
         {
             meds = GetMedicaments();

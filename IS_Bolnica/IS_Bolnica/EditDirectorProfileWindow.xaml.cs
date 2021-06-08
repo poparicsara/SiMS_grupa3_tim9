@@ -19,29 +19,45 @@ namespace IS_Bolnica
     {
         private User user = new User();
 
-        public EditDirectorProfileWindow()
+        public EditDirectorProfileWindow(String phone, String email)
         {
             InitializeComponent();
+
+            numberBox.Text = phone;
+            emailBox.Text = email;
+
+            numberBox.Focusable = true;
+            numberBox.Focus();
+
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
         }
 
-        private void setInfo()
+        private void HandleEsc(object sender, KeyEventArgs e)
         {
-            user.Id = "60";
-            user.Name = "Ivan";
-            user.Surname = "Ivanovic";
-            user.Phone = "0601234567";
+            if (e.Key == Key.Escape)
+            {
+                this.Close();
+            }
         }
 
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
-            DirectorProfileWindow profileWindow = new DirectorProfileWindow();
-            profileWindow.Show();
-            this.Close();
+            if (!numberBox.Text.Equals("") && !emailBox.Text.Equals(""))
+            {
+                DirectorProfileWindow profileWindow = new DirectorProfileWindow(numberBox.Text, emailBox.Text);
+                profileWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Sva polja moraju biti popunjena!");
+            }
+            
         }
 
-        private void getInfo()
+        private void CancelButtonClicked(object sender, RoutedEventArgs e)
         {
-            user.Surname = SurnameBox.Text;            
+            this.Close();
         }
     }
 }
