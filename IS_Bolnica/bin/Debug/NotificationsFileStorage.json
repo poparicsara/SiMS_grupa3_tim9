@@ -123,5 +123,12 @@
     "Sender": 0,
     "notificationType": 4,
     "PersonId": null
+  },
+  {
+    "Title": "Feedback od pacijenta",
+    "Content": "Neophodna obnova inventara u sobi 101.",
+    "Sender": 0,
+    "notificationType": 4,
+    "PersonId": null
   }
 ]

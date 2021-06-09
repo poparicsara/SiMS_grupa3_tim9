@@ -41,6 +41,7 @@ namespace IS_Bolnica.PatientPages
                     notificationType = NotificationType.all
                 };
                 notificationService.AddNotification(notification);
+                PatientWindow.MyFrame.NavigationService.Navigate(new PatientNotificationsPage());
             }
             else
             {
