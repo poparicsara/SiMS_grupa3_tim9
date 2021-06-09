@@ -83,6 +83,9 @@
     <Compile Include="DemoMode\AddInventoryDemo.xaml.cs">
       <DependentUpon>AddInventoryDemo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DemoMode\AddMedDemo.xaml.cs">
+      <DependentUpon>AddMedDemo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DemoMode\AddRoomDemo.xaml.cs">
       <DependentUpon>AddRoomDemo.xaml</DependentUpon>
     </Compile>
@@ -97,6 +100,12 @@
     </Compile>
     <Compile Include="DemoMode\DemoRoomWindow.xaml.cs">
       <DependentUpon>DemoRoomWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DemoMode\EditInventoryDemo.xaml.cs">
+      <DependentUpon>EditInventoryDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DemoMode\EditMedDemo.xaml.cs">
+      <DependentUpon>EditMedDemo.xaml</DependentUpon>
     </Compile>
     <Compile Include="DemoMode\EditRoomDemo.xaml.cs">
       <DependentUpon>EditRoomDemo.xaml</DependentUpon>
@@ -431,6 +440,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DemoMode\AddMedDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DemoMode\AddRoomDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -448,6 +461,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DemoMode\DemoRoomWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DemoMode\EditInventoryDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DemoMode\EditMedDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

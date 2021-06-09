@@ -18,15 +18,19 @@ using Model;
 namespace IS_Bolnica.DemoMode
 {
 
-    public partial class AddInventoryDemo : Window
+    public partial class EditInventoryDemo : Window
     {
-        private Inventory inventory = new Inventory();
-        private String type = "dinamicki";
+        private Inventory oldInventory = new Inventory();
+        private Inventory newInventory = new Inventory();
         private InventoryService service = new InventoryService();
 
-        public AddInventoryDemo()
+        public EditInventoryDemo(Inventory selectedInventory)
         {
             InitializeComponent();
+
+            oldInventory = selectedInventory;
+
+            FillTextBoxes();
 
             idBox.Focusable = true;
             idBox.Focus();
@@ -42,11 +46,18 @@ namespace IS_Bolnica.DemoMode
             }
         }
 
+        private void FillTextBoxes()
+        {
+            idBox.Text = oldInventory.Id.ToString();
+            nameBox.Text = oldInventory.Name;
+            currentBox.Text = oldInventory.CurrentAmount.ToString();
+            minBox.Text = oldInventory.Minimum.ToString();
+        }
+
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-
 
         private void CancelButtonClicked(object sender, RoutedEventArgs e)
         {

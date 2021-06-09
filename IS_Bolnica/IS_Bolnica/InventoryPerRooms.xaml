@@ -56,7 +56,7 @@
                             <Image Source="DemoMode/switch.png"/>
                         </StackPanel>
                     </Button>
-                    <TextBox x:Name="ordinationSearchBox" Height="32" TextWrapping="Wrap" Width="120" Canvas.Left="399" KeyDown="OperationRoomKeyUp"/>
+                    <TextBox x:Name="ordinationSearchBox" Height="32" TextWrapping="Wrap" Width="120" Canvas.Left="399" KeyDown="OrdinationKeyUp"/>
                     <Image Source="DemoMode/search.png" Height="28" Canvas.Left="1034" Canvas.Top="58" Width="33"/>
                     <Image Source="DemoMode/search.png" Height="28" Width="33" Canvas.Left="519"/>
 

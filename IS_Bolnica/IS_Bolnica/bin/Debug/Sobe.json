@@ -76,13 +76,6 @@
         "InventoryType": 0
       },
       {
-        "Name": "nesto",
-        "CurrentAmount": 20,
-        "Minimum": 0,
-        "Id": 555,
-        "InventoryType": 0
-      },
-      {
         "Name": "novo",
         "CurrentAmount": 0,
         "Minimum": 0,

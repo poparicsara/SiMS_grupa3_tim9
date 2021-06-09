@@ -18,10 +18,15 @@ namespace IS_Bolnica
     public partial class EditDirectorProfileWindow : Window
     {
         private User user = new User();
+        private string phone;
+        private string email;
 
         public EditDirectorProfileWindow(String phone, String email)
         {
             InitializeComponent();
+
+            this.phone = phone;
+            this.email = email;
 
             numberBox.Text = phone;
             emailBox.Text = email;
@@ -36,6 +41,8 @@ namespace IS_Bolnica
         {
             if (e.Key == Key.Escape)
             {
+                DirectorProfileWindow profileWindow = new DirectorProfileWindow(phone, email);
+                profileWindow.Show();
                 this.Close();
             }
         }
@@ -57,6 +64,8 @@ namespace IS_Bolnica
 
         private void CancelButtonClicked(object sender, RoutedEventArgs e)
         {
+            DirectorProfileWindow profileWindow = new DirectorProfileWindow(phone, email);
+            profileWindow.Show();
             this.Close();
         }
     }

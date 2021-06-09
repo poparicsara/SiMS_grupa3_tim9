@@ -55,8 +55,6 @@ namespace IS_Bolnica.DemoMode
                 switch (messageBox)
                 {
                     case MessageBoxResult.Yes:
-                        service.DeleteInventory(selectedInventory);
-                        RefreshDataGrid();
                         break;
                     case MessageBoxResult.No:
                         break;
@@ -78,17 +76,11 @@ namespace IS_Bolnica.DemoMode
             }
         }
 
-        private void RefreshDataGrid()
-        {
-            dynamicDataGrid.ItemsSource = service.GetDynamicInventory();
-            staticDataGrid.ItemsSource = service.GetStaticInventory();
-        }
-
         private void EditDynamicButtonClicked(object sender, RoutedEventArgs e)
         {
             if (IsAnyDynamicInventorySelected())
             {
-                EditInventoryWindow ew = new EditInventoryWindow(selectedInventory);
+                EditInventoryDemo ew = new EditInventoryDemo(selectedInventory);
                 ew.Show();
                 this.Close();
             }
@@ -135,7 +127,7 @@ namespace IS_Bolnica.DemoMode
         {
             if (IsAnyStaticInventorySelected())
             {
-                EditInventoryWindow ew = new EditInventoryWindow(selectedInventory);
+                EditInventoryDemo ew = new EditInventoryDemo(selectedInventory);
                 ew.Show();
                 this.Close();
             }

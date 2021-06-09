@@ -12,21 +12,30 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Model;
 using IS_Bolnica.Services;
 using Model;
 
 namespace IS_Bolnica.DemoMode
 {
 
-    public partial class AddInventoryDemo : Window
+    public partial class AddMedDemo : Window
     {
-        private Inventory inventory = new Inventory();
-        private String type = "dinamicki";
-        private InventoryService service = new InventoryService();
+        private Request newRequest = new Request();
+        private string replacement;
+        private Medicament selectedReplacement = new Medicament();
+        private List<Medicament> meds;
+        private Medicament newMedicament = new Medicament();
+        private MedicamentService medService = new MedicamentService();
+        private RequestService requestService = new RequestService();
 
-        public AddInventoryDemo()
+        public AddMedDemo()
         {
             InitializeComponent();
+
+            meds = medService.GetMedicaments();
+
+            replacementBox.ItemsSource = medService.GetReplacementNames();
 
             idBox.Focusable = true;
             idBox.Focus();
@@ -45,24 +54,32 @@ namespace IS_Bolnica.DemoMode
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
             this.Close();
+
         }
 
 
-        private void CancelButtonClicked(object sender, RoutedEventArgs e)
+        private void ReplacementComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            this.Close();
+            var combo = sender as ComboBox;
+            replacement = (string)combo.SelectedItem;
+            selectedReplacement = medService.GetMedicament(replacement);
         }
 
         private void ClosingWindow(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            DemoInventoryWindow iw = new DemoInventoryWindow();
-            iw.Show();
+            DemoMedicamentWindow mw = new DemoMedicamentWindow();
+            mw.Show();
         }
 
-        private void NumberValidation(object sender, TextCompositionEventArgs e)
+        private void NumberValidation(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void CancelButtonClicked(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
