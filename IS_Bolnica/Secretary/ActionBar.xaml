@@ -115,6 +115,13 @@
                     </TextBlock>
                 </StackPanel>
             </ListBoxItem>
+            <ListBoxItem FontSize="20" FontWeight="Bold" Foreground="#FF15285D" Selected="Opcije_Selected">
+                <StackPanel>
+                    <TextBlock>
+                        Opcije
+                    </TextBlock>
+                </StackPanel>
+            </ListBoxItem>
         </ListBox>
     </Grid>
 </Page>

@@ -89,5 +89,11 @@ namespace IS_Bolnica.Secretary
         {
 
         }
+
+        private void Opcije_Selected(object sender, RoutedEventArgs e)
+        {
+            Options o = new Options();
+            this.NavigationService.Navigate(o);
+        }
     }
 }
