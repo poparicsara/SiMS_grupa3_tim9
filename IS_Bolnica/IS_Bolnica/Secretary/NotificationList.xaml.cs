@@ -12,7 +12,6 @@ namespace IS_Bolnica.Secretary
         private Page prevoiusPage;
         private Notification notification = new Notification();
         private NotificationService notificationService = new NotificationService();
-        private AddNotification an = new AddNotification();
 
         public NotificationList(Page prevoiusPage)
         {
@@ -31,7 +30,7 @@ namespace IS_Bolnica.Secretary
 
         private void addNotification(object sender, RoutedEventArgs e)
         {
-            an = new AddNotification(this);
+            AddNotification an = new AddNotification(this);
             this.NavigationService.Navigate(an);
         }
 
@@ -86,7 +85,7 @@ namespace IS_Bolnica.Secretary
             }
             else
             {
-                MessageBoxResult result = MessageBox.Show("Da li stvarno želite da obrišete pacijenta?", "Brisanje pacijenta", MessageBoxButton.YesNo);
+                MessageBoxResult result = MessageBox.Show("Da li stvarno želite da obrišete obaveštenje?", "Brisanje pacijenta", MessageBoxButton.YesNo);
                 switch (result)
                 {
                     case MessageBoxResult.Yes:

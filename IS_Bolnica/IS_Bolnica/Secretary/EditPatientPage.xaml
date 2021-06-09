@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:ns="clr-namespace:IS_Bolnica"
+      xmlns:val="clr-namespace:IS_Bolnica.Validation"
       xmlns:local="clr-namespace:IS_Bolnica.Secretary"
       mc:Ignorable="d" 
       d:DesignHeight="750" d:DesignWidth="430"
@@ -27,7 +28,7 @@
         <Label Content="{ns:Loc EmailLabel}" HorizontalAlignment="Left" Margin="40,308,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="28"/>
         <Label Content="{ns:Loc TelephoneLabel}" HorizontalAlignment="Left" Margin="40,280,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="28"/>
         <DatePicker x:Name="dateOfBirth" HorizontalAlignment="Left" Margin="200,252,0,0" VerticalAlignment="Top" Width="182" Height="23"/>
-        <TextBox x:Name="name" HorizontalAlignment="Left" Height="23" Margin="200,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
+        <TextBox x:Name="name" HorizontalAlignment="Left" Height="23" Margin="200,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"></TextBox>
         <TextBox x:Name="surname" HorizontalAlignment="Left" Height="23" Margin="200,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
         <TextBox x:Name="username" HorizontalAlignment="Left" Height="23" Margin="200,196,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
         <TextBox x:Name="id" HorizontalAlignment="Left" Height="23" Margin="200,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>

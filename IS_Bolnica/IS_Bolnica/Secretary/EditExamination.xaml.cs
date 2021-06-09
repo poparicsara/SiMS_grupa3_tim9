@@ -29,6 +29,17 @@ namespace IS_Bolnica.Secretary
             this.NavigationService.Navigate(previousPage);
         }
 
+        private bool isAllFilled()
+        {
+            if (idPatientBox.Text == "" || doctorBox.SelectedIndex == -1 || dateBox.SelectedDate == null )
+            {
+                MessageBox.Show("Morate da popunite sva polja!");
+                return false;
+            }
+
+            return true;
+        }
+
         private void editExamination(object sender, RoutedEventArgs e)
         {
             appointment.Patient = findAttributesService.FindPatient(idPatientBox.Text);

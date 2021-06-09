@@ -28,8 +28,20 @@ namespace IS_Bolnica.Secretary
             this.prevoiusPage = prevoiusPage;
         }
 
+        private bool isAllFilled()
+        {
+            if (shiftBox.SelectedIndex == -1 || dateStartBox.SelectedDate == null || dateEndBox.SelectedDate == null)
+            {
+                MessageBox.Show("Morate da popunite sva polja!");
+                return false;
+            }
+
+            return true;
+        }
+
         private void addShift(object sender, RoutedEventArgs e)
         {
+            if (!isAllFilled()) return;
             int startTime = 0;
             int endTime = 0;
             if (shiftBox.SelectedIndex == 0)

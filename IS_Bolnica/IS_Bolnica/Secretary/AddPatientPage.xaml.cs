@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
+using IS_Bolnica.Annotations;
 using IS_Bolnica.Model;
 using IS_Bolnica.Services;
 using Model;
 
 namespace IS_Bolnica.Secretary
 {
-    public partial class AddPatientPage : Page
+    public partial class AddPatientPage : Page, INotifyPropertyChanged
     {
         private Page previousPage;
         private Patient patient = new Patient();
@@ -20,7 +23,171 @@ namespace IS_Bolnica.Secretary
         public ObservableCollection<Ingredient> Ingredients { get; set; }
         private IngredientService ingredientService = new IngredientService();
 
-        public string JMBG { get; set; }
+
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        public virtual void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
+        private string jmbgInput;
+
+        public string JmbgInput
+        {
+            get { return jmbgInput; }
+            set
+            {
+                if (value != jmbgInput)
+                {
+                    jmbgInput = value;
+                    OnPropertyChanged("JmbgInput");
+                }
+            }
+        }
+
+        private string phoneInput;
+
+        public string PhoneInput
+        {
+            get { return phoneInput; }
+            set
+            {
+                if (value != phoneInput)
+                {
+                    phoneInput = value;
+                    OnPropertyChanged("PhoneInput");
+                }
+            }
+        }
+
+        private string addressInput;
+
+        public string AddressInput
+        {
+            get { return addressInput; }
+            set
+            {
+                if (value != addressInput)
+                {
+                    addressInput = value;
+                    OnPropertyChanged("AddressInput");
+                }
+            }
+        }
+
+        private string emaillInput;
+
+        public string EmaillInput
+        {
+            get { return emaillInput; }
+            set
+            {
+                if (value != emaillInput)
+                {
+                    emaillInput = value;
+                    OnPropertyChanged("EmaillInput");
+                }
+            }
+        }
+
+        private string cityInput;
+
+        public string CityInput
+        {
+            get { return cityInput; }
+            set
+            {
+                if (value != cityInput)
+                {
+                    cityInput = value;
+                    OnPropertyChanged("CityInput");
+                }
+            }
+        }
+
+        private string nameInput;
+
+        public string NameInput
+        {
+            get { return nameInput; }
+            set
+            {
+                if (value != nameInput)
+                {
+                    nameInput = value;
+                    OnPropertyChanged("NameInput");
+                }
+            }
+        }
+
+        private string surnameInput;
+
+        public string SurnameInput
+        {
+            get { return surnameInput; }
+            set
+            {
+                if (value != surnameInput)
+                {
+                    surnameInput = value;
+                    OnPropertyChanged("SurnameInput");
+                }
+            }
+        }
+
+        private string countryInput;
+
+        public string CountryInput
+        {
+            get { return countryInput; }
+            set
+            {
+                if (value!=countryInput)
+                {
+                    countryInput = value;
+                    OnPropertyChanged("CountryInput");
+                }
+            }
+        }
+
+        private string usernameInput;
+
+        public string UsernameInput
+        {
+            get { return usernameInput; }
+            set
+            {
+                if (value!=usernameInput)
+                {
+                    usernameInput = value;
+                    OnPropertyChanged("UsernameInput");
+                }
+            }
+        }
+
+        private string passwordInput;
+
+        public string PasswordInput
+        {
+            get { return passwordInput; }
+            set
+            {
+                if (value != passwordInput)
+                {
+                    passwordInput = value;
+                    OnPropertyChanged("PasswordInput");
+                }
+            }
+        }
+
+
+
 
         public AddPatientPage(Page previousPage)
         {
@@ -38,6 +205,21 @@ namespace IS_Bolnica.Secretary
 
         private void addPatient(object sender, RoutedEventArgs e)
         {
+            if (email.Text == "" || dateOfBirth.DisplayDate == null || name.Text == "" || id.Text == "" ||
+                iniciallyPassword.Password == "" || phone.Text == "" || surname.Text == "" || username.Text == "" ||
+                GenderBox.SelectedIndex == -1 || adress.Text == "" || city.Text == "" || county.Text == "")
+            {
+                MessageBox.Show("Morate da popunite sva polja!");
+                return;
+            }
+
+            if (emaillInput.Trim() == null || nameInput.Trim() == null || jmbgInput.Trim() == null || phoneInput.Trim() == null || surnameInput.Trim() == null || usernameInput.Trim() == null 
+                || addressInput.Trim() == null || cityInput.Trim() == null || countryInput.Trim() == null)
+            {
+                MessageBox.Show("Morate validno da popunite sva polja.");
+                return;
+            }
+
             patient = setPatientAtributes();
 
             patientService.AddPatient(patient);

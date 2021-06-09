@@ -33,6 +33,21 @@ namespace IS_Bolnica.Secretary
             this.NavigationService.Navigate(prevoiusPage);
         }
 
+        private bool isAllFilled()
+        {
+            if (room.SelectedIndex == -1 || doctorBox.SelectedIndex == -1 || patientId.Text == "" ||
+                date.SelectedDate == null
+                || hourBoxStart.SelectedIndex == -1 || minuteBoxEnd.SelectedIndex == -1 ||
+                hourBoxEnd.SelectedIndex == -1
+                || minutesBoxStart.SelectedIndex == -1)
+            {
+                MessageBox.Show("Morate da popunite sva polja!");
+                return false;
+            }
+
+            return true;
+        }
+
         private void editOperation(object sender, RoutedEventArgs e)
         {
             string[] doctorNameAndSurname = doctorBox.Text.Split(' ');

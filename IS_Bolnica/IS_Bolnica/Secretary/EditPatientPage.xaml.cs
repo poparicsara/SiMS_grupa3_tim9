@@ -34,6 +34,7 @@ namespace IS_Bolnica.Secretary
 
         private void editPatient(object sender, RoutedEventArgs e)
         {
+            if (!isAllFiller()) return;
             patientService.EditPatient(oldPatient, setPatient());
             userService.EditUser(setUser(oldPatient), setPatient());
 
@@ -48,8 +49,23 @@ namespace IS_Bolnica.Secretary
             this.NavigationService.Navigate(pl);
         }
 
+        private bool isAllFiller()
+        {
+            if (email.Text == "" || dateOfBirth.SelectedDate == null || name.Text == "" || id.Text == "" ||
+                iniciallyPassword.Password == ""
+                || phone.Text == "" || surname.Text == "" || username.Text == "" || adress.Text == "" ||
+                city.Text == "" || country.Text == "")
+            {
+                MessageBox.Show("Morate popuniti sva polja!");
+                return false;
+            }
+
+            return true;
+        }
+
         private Patient setPatient()
         {
+
             Patient patient = new Patient();
 
             patient.Email = email.Text;
@@ -69,13 +85,7 @@ namespace IS_Bolnica.Secretary
             {
                 patient.Gender = Gender.female;
             }
-            //formiranje alergena
-            /*patient.Allergens = new List<string>();
-            String[] alergeni = (allergens.Text).Split(',');
-            for (int k = 0; k < alergeni.Length; k++)
-            {
-                patient.Allergens.Add(alergeni[k]);
-            }*/
+            
             //formiranje adrese
             patient.Address = new Address();
             patient.Address.Street = "";

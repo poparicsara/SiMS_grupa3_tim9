@@ -16,11 +16,6 @@ namespace IS_Bolnica.Secretary
         private NotificationService notificationService = new NotificationService();
         private UserService userService = new UserService();
 
-        public AddNotification()
-        {
-            
-        }
-
         public AddNotification(Page previousPage)
         {
             InitializeComponent();
@@ -97,6 +92,10 @@ namespace IS_Bolnica.Secretary
 
         private void addNotification(object sender, RoutedEventArgs e)
         {
+            if (title.Text == "" || content.Text == "" ||  comboBox.SelectedIndex == -1)
+            {
+                MessageBox.Show("Morate da popunite sva polja!");
+            }
             notification.Title = title.Text;
             notification.Content = content.Text;
             if (comboBox.SelectedIndex == 0)

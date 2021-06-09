@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:ns="clr-namespace:IS_Bolnica"
+      xmlns:val="clr-namespace:IS_Bolnica.Validation"
       xmlns:local="clr-namespace:IS_Bolnica.Secretary"
       mc:Ignorable="d" 
       d:DesignHeight="750" d:DesignWidth="430"
@@ -26,11 +27,146 @@
         <Label Content="{ns:Loc EmailLabel}" HorizontalAlignment="Left" Margin="40,308,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="28"/>
         <Label Content="{ns:Loc TelephoneLabel}" HorizontalAlignment="Left" Margin="40,280,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="28"/>
         <DatePicker x:Name="dateOfBirth" HorizontalAlignment="Left" Margin="200,253,0,0" VerticalAlignment="Top" Width="182" Height="22"/>
-        <TextBox x:Name="surname" Text="{Binding Path=Username}" HorizontalAlignment="Left" Height="23" Margin="200,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
-        <TextBox x:Name="username" HorizontalAlignment="Left" Height="23" Margin="200,196,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
-        <TextBox x:Name="id" HorizontalAlignment="Left" Height="23" Margin="200,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" RenderTransformOrigin="0.49,1.678"/>
-        <TextBox x:Name="phone" HorizontalAlignment="Left" Height="23" Margin="200,280,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
-        <TextBox x:Name="email" HorizontalAlignment="Left" Height="23" Margin="200,308,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
+        <TextBox x:Name="surname" HorizontalAlignment="Left" Height="23" Margin="200,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182">
+            <TextBox.Text>
+                <Binding Path="SurnameInput" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:ValidationRuleRequired ValidationStep="RawProposedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="1"/>
+                        <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding [0].ErrorContent}" FontSize="8" Background="White"  Foreground="RED"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        
+        
+        
+        
+        <TextBox x:Name="username" HorizontalAlignment="Left" Height="23" Margin="200,196,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182">
+            <TextBox.Text>
+                <Binding Path="UsernameInput" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:ValidationRuleRequired ValidationStep="RawProposedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="1"/>
+                        <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding [0].ErrorContent}" FontSize="8" Background="White"  Foreground="RED"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        
+
+
+
+
+        <TextBox x:Name="id" HorizontalAlignment="Left" Height="23" Margin="200,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" RenderTransformOrigin="0.49,1.678">
+            <TextBox.Text>
+                <Binding Path="JmbgInput" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:ValidationRuleJMBG ValidationStep="RawProposedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="1"/>
+                        <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding [0].ErrorContent}" FontSize="8" Background="White" Foreground="Red"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+
+        <TextBox x:Name="phone" HorizontalAlignment="Left" Height="23" Margin="200,280,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182">
+            <TextBox.Text>
+                <Binding Path="PhoneInput" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:ValidationRulePhone ValidationStep="RawProposedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <AdornedElementPlaceholder Grid.Row="1" Grid.Column="0"/>
+                        <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding [0].ErrorContent}" FontSize="8" Background="White" Foreground="Red"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        
+        
+        
+        
+        
+        
+        <TextBox x:Name="email" HorizontalAlignment="Left" Height="23" Margin="200,308,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182">
+            <TextBox.Text>
+                <Binding Path="EmaillInput" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:ValidationRuleEmail ValidationStep="RawProposedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <AdornedElementPlaceholder Grid.Row="1" Grid.Column="0"/>
+                        <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding [0].ErrorContent}" FontSize="8" Background="White" Foreground="Red"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        
+        
+        
+        
         <Button Content="{ns:Loc ConfirmButton}" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="40,630,0,0" VerticalAlignment="Top" Width="342" Click="addPatient" RenderTransformOrigin="0.573,2.531" Height="35"/>
         <Button Content="{ns:Loc CancelButton}" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="40,580,0,0" VerticalAlignment="Top" Width="342" Click="cancelAdding" Height="35"/>
         <Label Content="{ns:Loc PasswordLabel}" HorizontalAlignment="Left" Margin="40,336,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="28"/>
@@ -39,10 +175,112 @@
         <Label Content="{ns:Loc CityLabel}" HorizontalAlignment="Left" Margin="40,420,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="28"/>
         <Label Content="{ns:Loc CountryLabel}" HorizontalAlignment="Left" Margin="40,448,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="28"/>
         <Label Content="{ns:Loc AllergenLabel}" HorizontalAlignment="Left" Margin="40,476,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="32"/>
-        <TextBox x:Name="adress" HorizontalAlignment="Left" Height="23" Margin="200,392,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
-        <TextBox x:Name="name" HorizontalAlignment="Left" Height="23" Margin="200,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
-        <TextBox x:Name="city" HorizontalAlignment="Left" Height="23" Margin="200,420,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
-        <TextBox x:Name="county" HorizontalAlignment="Left" Height="23" Margin="200,448,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
+        <TextBox x:Name="adress" HorizontalAlignment="Left" Height="23" Margin="200,392,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182">
+            <TextBox.Text>
+                <Binding Path="AddressInput" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:ValidationRuleAddress ValidationStep="RawProposedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="1"/>
+                        <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding [0].ErrorContent}" FontSize="8" Background="White"  Foreground="RED"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        
+        <TextBox x:Name="name" HorizontalAlignment="Left" Height="23" Margin="200,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182">
+            <TextBox.Text>
+                <Binding Path="NameInput" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:ValidationRuleRequired ValidationStep="RawProposedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="1"/>
+                        <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding [0].ErrorContent}" FontSize="8" Background="White"  Foreground="RED"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        
+        
+        
+        
+        
+        
+        
+        <TextBox x:Name="city" HorizontalAlignment="Left" Height="23" Margin="200,420,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182">
+            <TextBox.Text>
+                <Binding Path="CityInput" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:ValidationRuleCity ValidationStep="RawProposedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="1"/>
+                        <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding [0].ErrorContent}" FontSize="8" Background="White"  Foreground="RED"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        
+        <TextBox x:Name="county" HorizontalAlignment="Left" Height="23" Margin="200,448,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182">
+            <TextBox.Text>
+                <Binding Path="CountryInput" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:ValidationRuleRequired ValidationStep="RawProposedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="1"/>
+                        <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding [0].ErrorContent}" FontSize="8" Background="White"  Foreground="RED"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        
         <ComboBox x:Name="GenderBox" HorizontalAlignment="Left" Margin="200,365,0,0" VerticalAlignment="Top" Width="182">
             <ComboBoxItem>Muško</ComboBoxItem>
             <ComboBoxItem>Žensko</ComboBoxItem>

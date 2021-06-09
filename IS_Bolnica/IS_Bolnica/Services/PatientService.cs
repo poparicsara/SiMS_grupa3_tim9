@@ -59,16 +59,17 @@ namespace IS_Bolnica.Services
 
         public List<Patient> GetBlockedPatients()
         {
+            blockedPatients = new List<Patient>();
             patients = patientRepository.LoadFromFile("PatientRecordFileStorage.json");
             foreach (var patient in patients)
             {
-                if (patient.isBlocked)
+                if (patient.isBlocked || patient.Akcije >= 6)
                 {
                     blockedPatients.Add(patient);
                 }
             }
 
-            return patients;
+            return blockedPatients;
         }
 
         public bool PatientExists(Patient patient)

@@ -86,9 +86,22 @@ namespace IS_Bolnica.Secretary
             this.NavigationService.Navigate(nl);
         }
 
+        private bool isAllFilled()
+        {
+            if (comboBox.SelectedIndex == -1 || title.Text == "" || content.Text == "")
+            {
+                MessageBox.Show("Morate popuniti sva polja!");
+                return false;
+            }
+
+            return true;
+        }
+
         private void editNotification(object sender, RoutedEventArgs e)
         {
-            notification.Content = content.Text;
+            if (!isAllFilled()) return;
+
+                notification.Content = content.Text;
             notification.Title = title.Text;
             if (comboBox.SelectedIndex == 0)
             {

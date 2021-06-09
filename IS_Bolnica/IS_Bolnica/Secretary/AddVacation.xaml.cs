@@ -31,7 +31,9 @@ namespace IS_Bolnica.Secretary
 
         private void addVacation(object sender, RoutedEventArgs e)
         {
-            vacation.DoctorsId = idDoctorBox.Text;
+            if (!isAllFilled()) return;
+
+                vacation.DoctorsId = idDoctorBox.Text;
             vacation.VacationStartDate = (DateTime)startDateBox.SelectedDate;
             vacation.VacationEndDate = (DateTime) endDateBox.SelectedDate;
 
@@ -40,6 +42,17 @@ namespace IS_Bolnica.Secretary
             DoctorList dl = new DoctorList(this);
             this.NavigationService.Navigate(dl);
 
+        }
+
+        private bool isAllFilled()
+        {
+            if (idDoctorBox.Text == "" || startDateBox.SelectedDate == null || endDateBox.SelectedDate == null)
+            {
+                MessageBox.Show("Morate da popunite sva polja!");
+                return false;
+            }
+
+            return true;
         }
 
         private void cancelAddingVacation(object sender, RoutedEventArgs e)

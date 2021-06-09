@@ -48,8 +48,29 @@ namespace IS_Bolnica.Secretary
             this.NavigationService.Navigate(agu);
         }
 
+        private bool isAllFilled()
+        {
+            if (patientIdBox.Text == "" && systemNameBox.Text == "")
+            {
+                return false;
+            }
+
+            if (specializationBox.SelectedIndex == -1)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         private void getOptions(object sender, RoutedEventArgs e)
         {
+            if (!isAllFilled())
+            {
+                MessageBox.Show("Morate da popunite sva dozvoljena polja!");
+                return;
+            }
+            
             if (patientIdBox.Text != "")
             {
                 patient = findAttributesService.FindPatient(patientIdBox.Text);

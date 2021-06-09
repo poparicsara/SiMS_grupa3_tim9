@@ -23,10 +23,10 @@
         <Label VerticalAlignment="Top" Margin="40,160,0,0" HorizontalAlignment="Left" Content="{ns:Loc RoomLabel}"/>
         <Label VerticalAlignment="Top" Margin="40,220,0,0" HorizontalAlignment="Left" Content="{ns:Loc DateFromLabel}"/>
         <Label VerticalAlignment="Top" Margin="40,280,0,0" HorizontalAlignment="Left" Content="{ns:Loc DateToLabel}"/>
-        <DatePicker x:Name="dateBoxFrom" DisplayDateStart="{x:Static System:DateTime.Today}" HorizontalAlignment="Left" Margin="200,220,0,0" VerticalAlignment="Top" Width="182"/>
+        <DatePicker x:Name="dateBoxFrom" HorizontalAlignment="Left" Margin="200,220,0,0" VerticalAlignment="Top" Width="182"/>
         <Label Content="{ns:Loc ReportForm}" FontWeight="Bold"  Foreground="Green" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,75,0,0" Width="372" Height="48"/>
         <ComboBox x:Name="roomBox" Width="182" VerticalAlignment="Top" Margin="200,160,0,0" HorizontalAlignment="Left"/>
-        <DatePicker x:Name="dateBoxTo" DisplayDateStart="{x:Static System:DateTime.Today}" HorizontalAlignment="Left" Margin="200,280,0,0" VerticalAlignment="Top" Width="182"/>
+        <DatePicker x:Name="dateBoxTo" HorizontalAlignment="Left" Margin="200,280,0,0" VerticalAlignment="Top" Width="182"/>
         <Button Content="{ns:Loc CreateReportButton}" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="40,600,0,0" VerticalAlignment="Top" Width="342" Click="createReport" Height="35" />
 
 

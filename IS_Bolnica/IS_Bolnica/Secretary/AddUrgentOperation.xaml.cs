@@ -15,6 +15,7 @@ namespace IS_Bolnica.Secretary
         private GuestUser guestUser = new GuestUser();
         private Appointment appointment = new Appointment();
         private FindAttributesService findAttributesService = new FindAttributesService();
+        private PatientService patientService = new PatientService();
 
         public AddUrgentOperation(Page previousPage)
         {
@@ -48,10 +49,29 @@ namespace IS_Bolnica.Secretary
             this.NavigationService.Navigate(agu);
         }
 
+        private bool isAllFilled()
+        {
+            if (patientIdBox.Text == "" && systemNameBox.Text == "") return false;
+            if (specializationBox.SelectedIndex == -1 || hourBox.SelectedIndex == -1 || minuteBox.SelectedIndex == -1 ||
+                operatiomRoomBox.SelectedIndex == -1) return false;
+            return true;
+        }
+
         private void getOptions(object sender, RoutedEventArgs e)
         {
+            if (!isAllFilled())
+            {
+                MessageBox.Show("Morate da popunite sva dozvoljena polja!");
+                return;
+            }
+
             if (patientIdBox.Text != "")
             {
+                if (!patientService.PatientIdExists(patientIdBox.Text))
+                {
+                    MessageBox.Show("Pacijent sa ovim JMBG-om ne postoji!");
+                    return;
+                }
                 patient = findAttributesService.FindPatient(patientIdBox.Text);
             }
             else if (patientIdBox.Text == "" && patientIdBox.IsEnabled)

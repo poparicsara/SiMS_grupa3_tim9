@@ -26,6 +26,13 @@ namespace IS_Bolnica.Secretary
 
         private void addExamination(object sender, RoutedEventArgs e)
         {
+            if (doctorBox.SelectedIndex == -1 || dateBox.SelectedDate == null || idPatientBox.Text == "" 
+                || hourBox.SelectedIndex == -1 || minutesBox.SelectedIndex == -1)
+            {
+                MessageBox.Show("Morate da popunite sva polja!");
+                return;
+            }
+
             appointment.DurationInMins = 30;
             appointment.Patient = findAttributesService.FindPatient(idPatientBox.Text);
             string[] doctorNameAndSurname = doctorBox.Text.Split(' ');

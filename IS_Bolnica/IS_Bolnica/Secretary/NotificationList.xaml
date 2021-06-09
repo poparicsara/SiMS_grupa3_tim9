@@ -27,7 +27,7 @@
         </DataGrid>
         <Button Content="{ns:Loc Add}" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" HorizontalAlignment="Left" Margin="10,592,0,0" VerticalAlignment="Top" Width="401" Click="addNotification" Height="30"  />
         <Button Content="{ns:Loc Edit}" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" HorizontalAlignment="Left" Margin="10,632,0,0" VerticalAlignment="Top" Width="401" RenderTransformOrigin="0.189,0.889" Click="editNotification" Height="30"/>
-        <Button Content="{ns:Loc Delet}" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" HorizontalAlignment="Left" Margin="10,672,0,0" VerticalAlignment="Top" Width="401" Click="deleteNotification" RenderTransformOrigin="0.475,0.167" Height="30"  />
+        <Button Content="{ns:Loc Delete}" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" HorizontalAlignment="Left" Margin="10,672,0,0" VerticalAlignment="Top" Width="401" Click="deleteNotification" RenderTransformOrigin="0.475,0.167" Height="30"  />
         <TextBox x:Name="pretraziBox" HorizontalAlignment="Left" Height="23" Margin="250,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" KeyUp="pretraziBox_KeyUp"/>
 
     </Grid>

@@ -26,8 +26,8 @@
                 <DataGridTextColumn Header="{ns:Loc UsernameHeader}" Binding="{Binding Username}" Width="106"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="{ns:Loc AddShiftButton}" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" HorizontalAlignment="Left" Margin="10,605,0,0" VerticalAlignment="Top" Width="401" Click="addShift" Height="30"  />
-        <Button Content="{ns:Loc AddVacationButton}" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" HorizontalAlignment="Left" Margin="10,655,0,0" VerticalAlignment="Top" Width="401" RenderTransformOrigin="0.189,0.889" Click="addVacation" Height="30"/>
+        <Button Content="{ns:Loc AddShiftButton}" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" HorizontalAlignment="Left" Margin="10,583,0,0" VerticalAlignment="Top" Width="401" Click="addShift" Height="30"  />
+        <Button Content="{ns:Loc AddVacationButton}" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" HorizontalAlignment="Left" Margin="10,633,0,0" VerticalAlignment="Top" Width="401" RenderTransformOrigin="0.189,0.889" Click="addVacation" Height="30"/>
         <TextBox x:Name="pretraziBox" HorizontalAlignment="Left" Height="23" Margin="250,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" KeyUp="pretraziBox_KeyUp"/>
 
     </Grid>

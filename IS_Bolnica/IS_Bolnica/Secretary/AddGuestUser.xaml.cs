@@ -33,6 +33,12 @@ namespace IS_Bolnica.Secretary
 
         private void addGuestAccount(object sender, RoutedEventArgs e)
         {
+            if (systemName.Text == "" || injury.Text == "")
+            {
+                MessageBox.Show("Morate da popunite sva polja!");
+                return;
+            }
+
             guestUser.SystemName = systemName.Text;
             guestUser.InjuryDescription = injury.Text;
 

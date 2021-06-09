@@ -9,6 +9,7 @@
       lex:ResxLocalizationProvider.DefaultAssembly="StorageCalc"
       lex:ResxLocalizationProvider.DefaultDictionary="Strings"
       xmlns:local="clr-namespace:IS_Bolnica.Secretary"
+      xmlns:val="clr-namespace:IS_Bolnica.Validation"
       xmlns:sys="clr-namespace:System;assembly=mscorlib"
       mc:Ignorable="d" 
       d:DesignHeight="750" d:DesignWidth="430"
@@ -20,7 +21,7 @@
                 <Image Source="C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\Images\undo.jpg" Width="46" Height="41" RenderTransformOrigin="0.543,0.5"/>
             </StackPanel>
         </Button>
-        <Label Content="{ns:Loc Logo}" FontSize="20" Foreground="Green" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,14,0,0" Height="35" Width="235" Grid.ColumnSpan="2"/>
+        <Label Content="{ns:Loc Logo}" FontSize="20" Foreground="Green" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,14,0,0" Height="35" Width="242"/>
         <Image x:Name="nasLogo" HorizontalAlignment="Left" Height="48" Margin="366,10,0,0" VerticalAlignment="Top" Width="48" Source="C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\Images\nasLogo.jpg"/>
         <Label Content="{ns:Loc ScheduleOpLabel}" FontWeight="Bold"  Foreground="Green" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,75,0,0" Width="299" Height="48"/>
         <Label Content="{ns:Loc RoomLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,155,0,0"/>
@@ -72,7 +73,30 @@
         <Button Content="{ns:Loc CancelButton}" FontWeight="Bold" Background="#FF15285D" Foreground="White" HorizontalAlignment="Left" Margin="40,580,0,0" VerticalAlignment="Top" Width="342" Click="cancelAddingOperation" Height="35" />
         <DatePicker x:Name="dateBox" DisplayDateStart="{x:Static sys:DateTime.Today}" HorizontalAlignment="Left" Margin="204,255,0,0" VerticalAlignment="Top" Width="178"/>
         <Label Content="{ns:Loc JMBGLabel}" HorizontalAlignment="Left" Margin="40,355,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="idPatientBox" HorizontalAlignment="Left" Height="23" Margin="204,355,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
+        <TextBox x:Name="idPatientBox" HorizontalAlignment="Left" Height="23" Margin="204,355,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178">
+            <TextBox.Text>
+                <Binding Path="JmbggInput" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <val:ValidationRuleJMBG ValidationStep="RawProposedValue"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <AdornedElementPlaceholder Grid.Column="0" Grid.Row="1"/>
+                        <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding [0].ErrorContent}" FontSize="8" Background="White" Foreground="Red"/>
+                    </Grid>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
         <ComboBox x:Name="doctorBox" HorizontalAlignment="Left" Margin="204,305,0,0" VerticalAlignment="Top" Width="178">
         </ComboBox>
         <Label Content="{ns:Loc ChooseDurOpLabel}" HorizontalAlignment="Left" Margin="40,405,0,0" VerticalAlignment="Top"/>

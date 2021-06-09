@@ -144,6 +144,7 @@
     <Compile Include="Model\Shift.cs" />
     <Compile Include="Model\ShiftType.cs" />
     <Compile Include="Model\Vacation.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Resources\Resources.en-US.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -353,7 +354,6 @@
       <DependentUpon>RoomWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Validation\Validation.cs" />
-    <Compile Include="Validation\Validations.cs" />
     <Compile Include="Zakazivanje pregleda.xaml.cs">
       <DependentUpon>Zakazivanje pregleda.xaml</DependentUpon>
     </Compile>
