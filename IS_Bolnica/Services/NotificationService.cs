@@ -163,6 +163,14 @@ namespace IS_Bolnica.Services
                 return patientEvaluations[patientEvaluations.Count - 1];
             return null;
         }
+
+        public Boolean checkNotificationText(String text)
+        {
+            if (!text.Equals(""))
+                return true;
+
+            return false;
+        }
     }
 
 }

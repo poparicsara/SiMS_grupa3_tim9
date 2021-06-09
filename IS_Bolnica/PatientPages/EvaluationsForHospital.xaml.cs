@@ -26,7 +26,7 @@ namespace IS_Bolnica.PatientPages
         public EvaluationsForHospital()
         {
             InitializeComponent();
-            OceneBolniceDataBinding.ItemsSource = evaluationService.getPatientEvaluationsOfHospital();
+            EvaluationsOfHospitalDataBinding.ItemsSource = evaluationService.getPatientEvaluationsOfHospital();
         }
 
         private void BackButtonClicked(object sender, RoutedEventArgs e)
@@ -38,7 +38,7 @@ namespace IS_Bolnica.PatientPages
         {
             List<Evaluation> patientEvaluations = evaluationService.getPatientEvaluationsOfHospital();
             var filtered = patientEvaluations.Where(evaluation => evaluation.Assessment.ToString().Contains(SearchBox.Text.ToLower()));
-            OceneBolniceDataBinding.ItemsSource = filtered;
+            EvaluationsOfHospitalDataBinding.ItemsSource = filtered;
         }
     }
 }

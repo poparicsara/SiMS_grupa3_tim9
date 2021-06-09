@@ -26,12 +26,12 @@ namespace IS_Bolnica.PatientPages
             InitializeComponent();
         }
 
-        private void ButtonOcenePregledaClicked(object sender, RoutedEventArgs e)
+        private void AppointmentEvaluationsButtonClicked(object sender, RoutedEventArgs e)
         {
             PatientWindow.MyFrame.NavigationService.Navigate(new EvaluationsForAppointments());
         }
 
-        private void ButtonOceneBolniceClicked(object sender, RoutedEventArgs e)
+        private void HospitalEvaluationsButtonClicked(object sender, RoutedEventArgs e)
         {
             PatientWindow.MyFrame.NavigationService.Navigate(new EvaluationsForHospital());
         }

@@ -25,7 +25,7 @@
           MouseMove="DataGridMouseMove"
           PreviewMouseLeftButtonDown="DataGridPreviewMouseLeftButtonDown"
           HorizontalAlignment="Center" 
-          Name="lvDataBinding" 
+          Name="AppointmentsDataBinding" 
           IsReadOnly="True"
           VerticalAlignment="Center" Margin="10,168,243.6,25.4" >
             <DataGrid.Resources>
@@ -49,7 +49,7 @@
         <Label Content="Vasi pregledi" FontSize="30" HorizontalAlignment="Left" Height="51" Margin="260,42,0,0" VerticalAlignment="Top" Width="180"/>
         <Image Margin="27,17,708.6,405.4" Source="nasLogo.jpg" Stretch="Fill"/>
         <Label Content="Zdravo bolnica" HorizontalAlignment="Left" Height="27" Margin="10,66,0,0" VerticalAlignment="Top" Width="93"/>
-        <Button Click="OcenjivanjeButtonClicked" Margin="557,290,114.6,131.4" Background="white" >
+        <Button Click="EvaluationsButtonClicked" Margin="557,290,114.6,131.4" Background="white" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="evaluation.png" Stretch="Fill" Height="30" Width="34" />
                 <Label Content="Ocenjivanje" FontSize="14" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="91"/>
@@ -61,13 +61,13 @@
                 <Label Content="Kalendar" FontSize="14" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="86"/>
             </StackPanel>
         </Button>
-        <Button Click="IzmeniButtonClicked" Margin="557,206,114.6,215.4" Background="white" >
+        <Button Click="EditButtonClicked" Margin="557,206,114.6,215.4" Background="white" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="pencil.jpg" Stretch="Fill" Height="30" Width="44" />
                 <Label Content="Izmena" FontSize="14" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="91"/>
             </StackPanel>
         </Button>
-        <Button Click="OtkaziButtonClicked" AllowDrop="True" Drop="DeleteAppoinmentDrop" Name="DeleteButton" Margin="557,153,114.6,268.4" Background="white" >
+        <Button Click="RemoveButtonClicked" AllowDrop="True" Drop="DeleteAppoinmentDrop" Name="DeleteButton" Margin="557,153,114.6,268.4" Background="white" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="remove.png" Stretch="Fill" Height="30" Width="32" />
                 <Label Content="Otkazivanje" FontSize="14" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="91"/>
@@ -79,13 +79,13 @@
                 <Label Content="Zakazivanje" FontSize="14" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="81"/>
             </StackPanel>
         </Button>
-        <Button Click="ObavestenjaButtonClicked" Margin="557,343,0,78.4" Background="white" HorizontalAlignment="Left" Width="122" >
+        <Button Click="NotificationsButtonClicked" Margin="557,343,0,78.4" Background="white" HorizontalAlignment="Left" Width="122" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="notification.png" Stretch="Fill" Height="30" Width="30" />
                 <Label Content="Obaveštenja" FontSize="14" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="91"/>
             </StackPanel>
         </Button>
-        <Button Click="AnamnezeButtonClicked" Margin="557,396,114.6,25.4" Background="white" >
+        <Button Click="HealthButtonClicked" Margin="557,396,114.6,25.4" Background="white" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="health.jpg" Stretch="Fill" Height="30" Width="32" />
                 <Label Content="Anamneze" FontSize="16" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="87"/>

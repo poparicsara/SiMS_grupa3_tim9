@@ -23,7 +23,7 @@
           ColumnWidth="177.33"
           FontSize="15"
           HorizontalAlignment="Center" 
-          Name="AnamnezeDataBinding" 
+          Name="HealthCardItemsDataBinding" 
           IsReadOnly="True"
           VerticalAlignment="Center" Margin="24,159,132.8,30.4" >
             <DataGrid.Resources>
@@ -43,7 +43,7 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <Button Click="BeleskeButtonClicked" Margin="570,365,9.8,57.4" Background="white" >
+        <Button Click="NotesButtonClicked" Margin="570,365,9.8,57.4" Background="white" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="notes.png" Stretch="Fill" Height="30" Width="34" />
                 <Label Content="Beleške" FontSize="18" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="70"/>

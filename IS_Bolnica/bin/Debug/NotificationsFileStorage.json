@@ -116,5 +116,12 @@
     "Sender": 0,
     "notificationType": 2,
     "PersonId": null
+  },
+  {
+    "Title": "Feedback od pacijenta",
+    "Content": "Neophodno je malo ljubaznije osoblje.",
+    "Sender": 0,
+    "notificationType": 4,
+    "PersonId": null
   }
 ]

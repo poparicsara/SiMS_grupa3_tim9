@@ -23,7 +23,7 @@
         <Label Content="Krajnji datum" FontSize="22" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="103,279,0,0" Width="150"/>
         <DatePicker FontSize="22" HorizontalAlignment="Left" Name="StartDatePicker" VerticalAlignment="Top" Margin="364,201,0,0" Width="202" DisplayDateStart="{Binding DisplayDate, ElementName=StartDatePicker}"/>
         <DatePicker FontSize="22" HorizontalAlignment="Left" Name="EndDatePicker" VerticalAlignment="Top" Margin="364,282,0,0" Width="202" DisplayDateStart="{Binding DisplayDate, ElementName=EndDatePicker}"/>
-        <Button Click="ButtonStopClicked" Margin="364,389,178.8,33.4" Background="white" >
+        <Button Click="DeclineButtonClicked" Margin="364,389,178.8,33.4" Background="white" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="incorrect.png" Stretch="Fill" Height="30" Width="43" />
                 <Label Content="Odustani" FontSize="18" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="83"/>

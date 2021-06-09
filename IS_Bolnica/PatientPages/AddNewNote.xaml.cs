@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using IS_Bolnica.GUI.Patient.View;
 
 namespace IS_Bolnica.PatientPages
 {
@@ -42,8 +43,8 @@ namespace IS_Bolnica.PatientPages
                 evaluation.Patient = findAttributesService.findPatientByUsername(PatientWindow.username_patient);
                 evaluation.Comment = NoteTextBox.Text;
                 evaluation.commentType = 2;
-                if (!minBox.Text.Equals(""))
-                    evaluation.numOfMinutes = Convert.ToInt32(minBox.Text);
+                if (!MinBox.Text.Equals(""))
+                    evaluation.numOfMinutes = Convert.ToInt32(MinBox.Text);
                 else
                     evaluation.numOfMinutes = 5;
                 evaluationService.addNote(evaluation);

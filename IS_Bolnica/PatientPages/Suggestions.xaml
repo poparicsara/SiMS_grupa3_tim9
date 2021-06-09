@@ -23,7 +23,7 @@
           ColumnWidth="162.5"
           FontSize="15"
           HorizontalAlignment="Center" 
-          Name="PredloziBinding" 
+          Name="SuggestionsDataBinding" 
           IsReadOnly="True"
           VerticalAlignment="Center" Margin="37,141,22.8,34.4" RenderTransformOrigin="1.721,0.487"  >
             <DataGrid.Resources>

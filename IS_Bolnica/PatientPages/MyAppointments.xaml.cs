@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using IS_Bolnica.GUI.Patient.View;
 
 namespace IS_Bolnica.PatientPages
 {
@@ -38,7 +39,7 @@ namespace IS_Bolnica.PatientPages
                     PatientWindow.MyFrame.NavigationService.Navigate(new NewEvaluationForAppointment(appointment));
             }
 
-            lvDataBinding.ItemsSource = appointmentService.FindPatientAppointments(PatientWindow.loggedPatient);
+            AppointmentsDataBinding.ItemsSource = appointmentService.FindPatientAppointments(PatientWindow.loggedPatient);
         }
 
         private void AddButtonClicked(object sender, RoutedEventArgs e)
@@ -46,14 +47,14 @@ namespace IS_Bolnica.PatientPages
             PatientWindow.MyFrame.NavigationService.Navigate(new AddNewAppointment());
         }
 
-        private void OtkaziButtonClicked(object sender, RoutedEventArgs e)
+        private void RemoveButtonClicked(object sender, RoutedEventArgs e)
         {
-            if (!findAttributesService.checkSelectedIndex(lvDataBinding.SelectedIndex))
+            if (!findAttributesService.checkSelectedIndex(AppointmentsDataBinding.SelectedIndex))
             {
-                Appointment selectedAppointment = appointmentService.findSelectedPatientAppointment(lvDataBinding.SelectedIndex);
+                Appointment selectedAppointment = appointmentService.findSelectedPatientAppointment(AppointmentsDataBinding.SelectedIndex);
 
                 if (!appointmentService.checkDateOfAppointment(selectedAppointment))
-                    PatientWindow.MyFrame.NavigationService.Navigate(new ConfirmDeletingAppointment(lvDataBinding.SelectedIndex));
+                    PatientWindow.MyFrame.NavigationService.Navigate(new ConfirmDeletingAppointment(AppointmentsDataBinding.SelectedIndex));
                 else
                     PatientWindow.MyFrame.NavigationService.Navigate(new InformationPage("UPOZORENJE!", "Ne mozete da oktazete pregled jer je zakazan u periodu od naredna dva dana!"));
             }
@@ -61,14 +62,14 @@ namespace IS_Bolnica.PatientPages
                 PatientWindow.MyFrame.NavigationService.Navigate(new InformationPage("UPOZORENJE!", "Oznacite pregled koji zelite da otkazete!"));
         }
 
-        private void IzmeniButtonClicked(object sender, RoutedEventArgs e)
+        private void EditButtonClicked(object sender, RoutedEventArgs e)
         {
-            if (!findAttributesService.checkSelectedIndex(lvDataBinding.SelectedIndex))
+            if (!findAttributesService.checkSelectedIndex(AppointmentsDataBinding.SelectedIndex))
             {
-                Appointment selectedAppointment = appointmentService.findSelectedPatientAppointment(lvDataBinding.SelectedIndex);
+                Appointment selectedAppointment = appointmentService.findSelectedPatientAppointment(AppointmentsDataBinding.SelectedIndex);
 
                 if (!appointmentService.checkDateOfAppointment(selectedAppointment))
-                    PatientWindow.MyFrame.NavigationService.Navigate(new EditAppointment(lvDataBinding.SelectedIndex));
+                    PatientWindow.MyFrame.NavigationService.Navigate(new EditAppointment(AppointmentsDataBinding.SelectedIndex));
                 else
                     PatientWindow.MyFrame.NavigationService.Navigate(new InformationPage("UPOZORENJE!", "Ne mozete da izmenite pregled jer je zakazan u periodu od naredna dva dana!"));
             }
@@ -76,17 +77,17 @@ namespace IS_Bolnica.PatientPages
                 PatientWindow.MyFrame.NavigationService.Navigate(new InformationPage("UPOZORENJE!", "Oznacite pregled koji zelite da izmenite!"));
         }
 
-        private void ObavestenjaButtonClicked(object sender, RoutedEventArgs e)
+        private void NotificationsButtonClicked(object sender, RoutedEventArgs e)
         {
             PatientWindow.MyFrame.NavigationService.Navigate(new PatientNotificationsPage());
         }
 
-        private void OcenjivanjeButtonClicked(object sender, RoutedEventArgs e)
+        private void EvaluationsButtonClicked(object sender, RoutedEventArgs e)
         {
             PatientWindow.MyFrame.NavigationService.Navigate(new PatientEvaluations());
         }
 
-        private void AnamnezeButtonClicked(object sender, RoutedEventArgs e)
+        private void HealthButtonClicked(object sender, RoutedEventArgs e)
         {
             PatientWindow.MyFrame.NavigationService.Navigate(new ShowAnamneses());
         }
@@ -100,7 +101,7 @@ namespace IS_Bolnica.PatientPages
         {
             List<Appointment> patientAppointment = appointmentService.FindPatientAppointments(PatientWindow.loggedPatient);
             var filtered = patientAppointment.Where(apppointment => apppointment.Doctor.Name.ToLower().Contains(SearchBox.Text.ToLower()));
-            lvDataBinding.ItemsSource = filtered;
+            AppointmentsDataBinding.ItemsSource = filtered;
         }
 
         private void DataGridPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -159,11 +160,11 @@ namespace IS_Bolnica.PatientPages
             if (e.Data.GetDataPresent("Appointment"))
             {
                 Appointment selectedAppointment = e.Data.GetData("Appointment") as Appointment;
-                if (!findAttributesService.checkSelectedIndex(lvDataBinding.SelectedIndex))
+                if (!findAttributesService.checkSelectedIndex(AppointmentsDataBinding.SelectedIndex))
                 {
 
                     if (!appointmentService.checkDateOfAppointment(selectedAppointment))
-                        PatientWindow.MyFrame.NavigationService.Navigate(new ConfirmDeletingAppointment(lvDataBinding.SelectedIndex));
+                        PatientWindow.MyFrame.NavigationService.Navigate(new ConfirmDeletingAppointment(AppointmentsDataBinding.SelectedIndex));
                     else
                         PatientWindow.MyFrame.NavigationService.Navigate(new InformationPage("UPOZORENJE!", "Ne mozete da oktazete pregled jer je zakazan u periodu od naredna dva dana!"));
                 }

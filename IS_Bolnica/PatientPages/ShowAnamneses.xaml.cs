@@ -26,7 +26,7 @@ namespace IS_Bolnica.PatientPages
         public ShowAnamneses()
         {
             InitializeComponent();
-            AnamnezeDataBinding.ItemsSource = anamnesisService.getPatientAnamneses(PatientWindow.username_patient);
+            HealthCardItemsDataBinding.ItemsSource = anamnesisService.getPatientAnamneses(PatientWindow.username_patient);
         }
 
         private void BackButtonClicked(object sender, RoutedEventArgs e)
@@ -34,7 +34,7 @@ namespace IS_Bolnica.PatientPages
             PatientWindow.MyFrame.NavigationService.Navigate(new MyAppointments());
         }
 
-        private void BeleskeButtonClicked(object sender, RoutedEventArgs e)
+        private void NotesButtonClicked(object sender, RoutedEventArgs e)
         {
             PatientWindow.MyFrame.NavigationService.Navigate(new Notes());
         }
@@ -43,7 +43,7 @@ namespace IS_Bolnica.PatientPages
         {
             List<Anamnesis> patientAnamneses = anamnesisService.getPatientAnamneses(PatientWindow.username_patient);
             var filtered = patientAnamneses.Where(anamnesis => anamnesis.Diagnosis.ToLower().Contains(SearchBox.Text.ToLower()));
-            AnamnezeDataBinding.ItemsSource = filtered;
+            HealthCardItemsDataBinding.ItemsSource = filtered;
         }
     }
 }

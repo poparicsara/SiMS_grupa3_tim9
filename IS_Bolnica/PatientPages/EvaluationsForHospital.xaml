@@ -23,7 +23,7 @@
           ColumnWidth="188.33"
           FontSize="15"
           HorizontalAlignment="Center" 
-          Name="OceneBolniceDataBinding"
+          Name="EvaluationsOfHospitalDataBinding"
           IsReadOnly="True"
           VerticalAlignment="Center" Margin="45,173,22.8,39.4" >
             <DataGrid.Resources>

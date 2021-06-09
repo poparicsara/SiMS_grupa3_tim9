@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using IS_Bolnica.GUI.Patient.View;
 
 namespace IS_Bolnica.PatientPages
 {
@@ -52,7 +53,7 @@ namespace IS_Bolnica.PatientPages
                 PatientWindow.MyFrame.NavigationService.Navigate(new InformationPage("UPOZORENJE!", "Nisu popunjena sva neophodna polja!"));
         }
 
-        private void ButtonStopClicked(object sender, RoutedEventArgs e)
+        private void DeclineButtonClicked(object sender, RoutedEventArgs e)
         {
             PatientWindow.MyFrame.NavigationService.Navigate(new CalendarForAppointments());
         }

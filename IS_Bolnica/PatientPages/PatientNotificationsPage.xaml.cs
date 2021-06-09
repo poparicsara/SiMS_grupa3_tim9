@@ -44,5 +44,10 @@ namespace IS_Bolnica.PatientPages
             var filtered = patientNotifications.Where(notification => notification.Title.ToLower().Contains(SearchBox.Text.ToLower()));
             patientNotificationsGrid.ItemsSource = filtered;
         }
+
+        private void AddNotificationButtonClicked(object sender, RoutedEventArgs e)
+        {
+            PatientWindow.MyFrame.NavigationService.Navigate(new AddNewNotification());
+        }
     }
 }

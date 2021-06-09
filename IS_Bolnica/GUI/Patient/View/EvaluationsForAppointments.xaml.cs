@@ -22,16 +22,11 @@ namespace IS_Bolnica.GUI.Patient.View
             DataContext = new EvaulationsForAppointmentsVM(); 
         }
 
-        private void BackButtonClicked(object sender, RoutedEventArgs e)
-        {
-            PatientWindow.MyFrame.NavigationService.Navigate(new PatientEvaluations());
-        }
-
         private void SearchKeyUp(object sender, KeyEventArgs e)
         {
             List<Evaluation> patientEvaluations = evaluationService.getPatientEvaluationsOfAppointment();
             var filtered = patientEvaluations.Where(evaluation => evaluation.Doctor.Name.ToLower().Contains(SearchBox.Text.ToLower()));
-            OceneDataBinding.ItemsSource = filtered;
+            EvaluationsOfAppointmentsDataBinding.ItemsSource = filtered;
         }
     }
 }

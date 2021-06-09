@@ -27,15 +27,15 @@ namespace IS_Bolnica.PatientPages
         public NewEvaluationForHospital()
         {
             InitializeComponent();
-            BolnicaTextBox.Text = "Zdravo bolnica, Novi Sad";
+            HospitalTextBox.Text = "Zdravo bolnica, Novi Sad";
         }
 
-        private void ButtonZabeleziClicked(object sender, RoutedEventArgs e)
+        private void ConfirmButtonClicked(object sender, RoutedEventArgs e)
         {
             Evaluation evaluation = new Evaluation();
             evaluation.Bolnica = "Zdravo bolnica, Novi Sad";
             evaluation.Patient = findAttributesService.findPatientByUsername(PatientWindow.username_patient);
-            evaluation.Assessment = Convert.ToInt32(OcenaComboBox.Text);
+            evaluation.Assessment = Convert.ToInt32(EvaluationComboBox.Text);
             evaluation.Comment = CommentTextBox.Text;
             evaluation.numOfMinutes = 5;
             evaluation.commentType = 1;

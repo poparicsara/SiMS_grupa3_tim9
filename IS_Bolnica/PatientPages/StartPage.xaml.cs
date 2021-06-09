@@ -23,7 +23,7 @@ namespace IS_Bolnica.PatientPages
         public StartPage()
         {
             InitializeComponent();
-            welcomeLabel.Content = "Pozdrav " + PatientWindow.loggedPatient.Name + "!";
+            WelcomeLabel.Content = "Pozdrav " + PatientWindow.loggedPatient.Name + "!";
         }
     }
 }

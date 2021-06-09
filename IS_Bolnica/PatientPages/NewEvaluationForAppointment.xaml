@@ -15,14 +15,14 @@
         <Label Content="Kompletna ocena" FontSize="24" HorizontalAlignment="Left" Height="48" Margin="64,223,0,0" VerticalAlignment="Top" Width="196"/>
         <Label Content="Komentar" FontSize="24" HorizontalAlignment="Left" Height="41" Margin="64,313,0,0" VerticalAlignment="Top" Width="117" RenderTransformOrigin="-0.013,0.556"/>
         <TextBox IsEnabled="False" FontSize="20" HorizontalAlignment="Left" Height="41" Margin="311,151,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="176" Name="DoktorTextBox"/>
-        <ComboBox HorizontalAlignment="Left" FontSize="24" Height="48" Margin="311,223,0,0" VerticalAlignment="Top" Width="66" Name="OcenaComboBox" RenderTransformOrigin="0.233,1.155">
+        <ComboBox HorizontalAlignment="Left" FontSize="24" Height="48" Margin="311,223,0,0" VerticalAlignment="Top" Width="66" Name="EvaluationComboBox" RenderTransformOrigin="0.233,1.155">
             <ComboBoxItem Content="1"/>
             <ComboBoxItem Content="2"/>
             <ComboBoxItem Content="3"/>
             <ComboBoxItem Content="4"/>
             <ComboBoxItem Content="5"/>
         </ComboBox>
-        <Button Click="ButtonZabeleziClicked" Margin="494,223,9.8,199.4" Background="white" >
+        <Button Click="ConfirmButtonClicked" Margin="494,223,9.8,199.4" Background="white" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="correct.png" Stretch="Fill" Height="30" Width="47" />
                 <Label Content="Zabeleži ocenu" FontSize="18" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="131"/>

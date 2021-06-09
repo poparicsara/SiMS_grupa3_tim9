@@ -13,14 +13,13 @@
         <Label Content="Zdravo bolnica" HorizontalAlignment="Left" Height="27" Margin="10,66,0,0" VerticalAlignment="Top" Width="93"/>
         <DataGrid AutoGenerateColumns="False" 
           Height="277" 
-          Width="589"
+          Width="516"
           ColumnHeaderHeight="30"
-          ColumnWidth="294.5"
           FontSize="15"
           HorizontalAlignment="Center" 
           Name="patientNotificationsGrid" 
           IsReadOnly="True"
-          VerticalAlignment="Center" Margin="46,150,53.8,43.4" >
+          VerticalAlignment="Center" Margin="16,155,156.8,38.4" >
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FF4E8E73"/>
@@ -32,20 +31,26 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Naslov" Binding="{ Binding Title }" />
-                <DataGridTextColumn Header="Sadržaj" Binding="{ Binding Content}" />
+                <DataGridTextColumn Width="170" Header="Naslov" Binding="{ Binding Title }" />
+                <DataGridTextColumn Width="346" Header="Sadržaj" Binding="{ Binding Content}" />
             </DataGrid.Columns>
 
         </DataGrid>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" Width="198" Margin="46,117,0,0" >
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" Width="198" Margin="16,122,0,0" >
             <Image Source="search.jpg" Stretch="Fill" Height="33" Width="46"  Margin="0,0,0,-0.2"  />
-            <TextBox KeyUp="SearchKeyUp" FontSize="20" Margin="0,0,0,-0.2" Width="150" Name="SearchBox"/>
+            <TextBox KeyUp="SearchKeyUp" FontSize="20" Margin="0,0,0,-0.2" Width="150" x:Name="SearchBox"/>
         </StackPanel>
         <Label Content="Pacijentova obaveštenja" FontSize="26" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="204,48,0,0" Width="290" RenderTransformOrigin="0.412,0.348"/>
         <Button Click="BackButtonClicked" Margin="549,33,22.8,390.4" Background="white" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="back.png" Stretch="Fill" Height="30" Width="36" />
                 <Label Content="Back" FontSize="16" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="48"/>
+            </StackPanel>
+        </Button>
+        <Button Click="AddNotificationButtonClicked" Margin="549,296,22.8,127.4" Background="white" >
+            <StackPanel Orientation="Horizontal">
+                <Image Source="notification.png" Stretch="Fill" Height="30" Width="36" />
+                <Label Content="Dodaj" FontSize="16" HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" Width="55"/>
             </StackPanel>
         </Button>
     </Grid>

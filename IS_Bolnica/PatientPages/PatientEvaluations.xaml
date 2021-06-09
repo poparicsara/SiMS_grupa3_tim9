@@ -16,13 +16,13 @@
                 <Label Content="Back" FontSize="16" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="48"/>
             </StackPanel>
         </Button>
-        <Button Click="ButtonOcenePregledaClicked" Margin="79,319,388.8,90.4" Background="white" >
+        <Button Click="AppointmentEvaluationsButtonClicked" Margin="79,319,388.8,90.4" Background="white" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="evaluation.png" Stretch="Fill" Height="43" Width="44" />
                 <Label Content="Ocene pregleda" FontSize="20" HorizontalAlignment="Left" Height="37" VerticalAlignment="Top" Width="153"/>
             </StackPanel>
         </Button>
-        <Button Click="ButtonOceneBolniceClicked" Margin="389,319,78.8,90.4" Background="white" >
+        <Button Click="HospitalEvaluationsButtonClicked" Margin="389,319,78.8,90.4" Background="white" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="evaluation.png" Stretch="Fill" Height="43" Width="51" />
                 <Label Content="Ocene bolnice" FontSize="20" HorizontalAlignment="Left" Height="37" VerticalAlignment="Top" Width="143"/>

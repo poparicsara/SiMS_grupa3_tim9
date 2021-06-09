@@ -23,7 +23,7 @@
           ColumnWidth="141.2"
           FontSize="15"
           HorizontalAlignment="Center" 
-          Name="OceneDataBinding" 
+          Name="EvaluationsOfAppointmentsDataBinding" 
           IsReadOnly="True"
           VerticalAlignment="Center" Margin="45,173,22.8,39.4"
                   ItemsSource="{Binding Path=PatientEvaluations}">
@@ -54,7 +54,7 @@
                      Text="{Binding Path=SearchText,Mode=OneWayToSource}"
                      >
                 <TextBox.InputBindings>
-                    <KeyBinding Command="{Binding Path=SearchCommand}" CommandParameter="{Binding ElementName=OceneDataBinding}" Key="Enter" />
+                    <KeyBinding Command="{Binding Path=SearchCommand}" CommandParameter="{Binding ElementName=EvaluationsOfAppointmentsDataBinding}" Key="Enter" />
                 </TextBox.InputBindings>
             </TextBox>
         </StackPanel>

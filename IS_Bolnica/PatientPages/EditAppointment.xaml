@@ -16,13 +16,13 @@
                 <Label Content="Back" FontSize="16" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="48"/>
             </StackPanel>
         </Button>
-        <Button Click="OdustaniButtonClicked" Margin="379,357,163.8,65.4" Background="white" >
+        <Button Click="DeclineButtonClicked" Margin="379,357,163.8,65.4" Background="white" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="incorrect.png" Stretch="Fill" Height="30" Width="47" />
                 <Label Content="Odustani" FontSize="18" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="83"/>
             </StackPanel>
         </Button>
-        <Button Click="IzmeniButtonClicked" Margin="164,357,396.8,65.4" Background="white" >
+        <Button Click="EditButtonClicked" Margin="164,357,396.8,65.4" Background="white" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="correct.png" Stretch="Fill" Height="30" Width="47" />
                 <Label Content="Izmeni" FontSize="18" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="76"/>
@@ -33,8 +33,8 @@
         <Label Content="Datum pregleda" FontSize="20" HorizontalAlignment="Left" Margin="95,205,0,0" VerticalAlignment="Top" Width="160"/>
         <Label Content="Vreme pregleda" FontSize="20" HorizontalAlignment="Left" Margin="95,267,0,0" VerticalAlignment="Top"/>
         <ComboBox ItemsSource="{Binding Path=doctors}" HorizontalAlignment="Left" FontSize="18" Height="37" Margin="296,139,0,0" VerticalAlignment="Top" Width="229" Name="DoktorBox" />
-        <DatePicker HorizontalAlignment="Left" FontSize="18" Margin="296,210,0,0" VerticalAlignment="Top" Height="32" Width="229" Name="DateBox"/>
-        <ComboBox HorizontalAlignment="Left" FontSize="18" Margin="296,273,0,0" VerticalAlignment="Top" Width="60" Name="SatiBox">
+        <DatePicker HorizontalAlignment="Left" FontSize="18" Margin="296,210,0,0" VerticalAlignment="Top" Height="32" Width="229" Name="EditDatePicker"/>
+        <ComboBox HorizontalAlignment="Left" FontSize="18" Margin="296,273,0,0" VerticalAlignment="Top" Width="60" Name="HourBox">
             <ComboBoxItem Content="07"/>
             <ComboBoxItem Content="08"/>
             <ComboBoxItem Content="09"/>
@@ -48,7 +48,7 @@
             <ComboBoxItem Content="17"/>
             <ComboBoxItem Content="18"/>
         </ComboBox>
-        <ComboBox HorizontalAlignment="Left" FontSize="18" Margin="472,273,0,0" VerticalAlignment="Top" Width="53" Name="MinutiBox" RenderTransformOrigin="0.672,0.5">
+        <ComboBox HorizontalAlignment="Left" FontSize="18" Margin="472,273,0,0" VerticalAlignment="Top" Width="53" Name="MinutesBox" RenderTransformOrigin="0.672,0.5">
             <ComboBoxItem Content="00" />
             <ComboBoxItem Content="30" />
         </ComboBox>

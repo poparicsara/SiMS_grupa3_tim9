@@ -22,19 +22,19 @@
                 <Label Content="Back" FontSize="16" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="48"/>
             </StackPanel>
         </Button>
-        <Button Click="ButtonOdustaniClicked" Margin="379,357,163.8,65.4" Background="white" >
+        <Button Click="DeclineButtonClicked" Margin="379,357,163.8,65.4" Background="white" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="incorrect.png" Stretch="Fill" Height="30" Width="43" />
                 <Label Content="Odustani" FontSize="18" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="83"/>
             </StackPanel>
         </Button>
-        <Button Click="ButtonZakaziClicked" Margin="164,357,396.8,65.4" Background="white" >
+        <Button Click="AddButtonClicked" Margin="164,357,396.8,65.4" Background="white" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="correct.png" Stretch="Fill" Height="30" Width="47" />
                 <Label Content="Zakaži" FontSize="18" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="61" RenderTransformOrigin="0.5,0.5"/>
             </StackPanel>
         </Button>
-        <Button Click="ButtonPredloziClicked" Margin="501,199,22.8,223.4" Background="white" >
+        <Button Click="SuggestionButtonClicked" Margin="501,199,22.8,223.4" Background="white" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="suggestion.png" Stretch="Fill" Height="30" Width="33" />
                 <Label Content="Predlozi za vas" FontSize="18" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="126" RenderTransformOrigin="0.5,0.5"/>
@@ -44,11 +44,11 @@
 
         <Label Content="Doktor" HorizontalAlignment="Left" FontSize="20" Margin="96,129,0,0" VerticalAlignment="Top" Width="76" Height="44"/>
         <Label Content="Datum" FontSize="20" HorizontalAlignment="Left" Margin="96,193,0,0" VerticalAlignment="Top" Height="37" Width="69"/>
-        <DatePicker Name="Datum"  HorizontalAlignment="Left" FontSize="15" Margin="232,199,0,0" VerticalAlignment="Top" Height="25" Width="167" DisplayDateStart="{Binding DisplayDate, ElementName=Datum}"/>
+        <DatePicker Name="AddDatePicker"  HorizontalAlignment="Left" FontSize="15" Margin="232,199,0,0" VerticalAlignment="Top" Height="25" Width="167" DisplayDateStart="{Binding DisplayDate, ElementName=Datum}"/>
         <ComboBox ItemsSource="{Binding Path=doctors}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="232,133,0,0" Width="167" Name="DoctorCombo" Height="22" />
         <Label Content="Vreme" FontSize="20" HorizontalAlignment="Left" Margin="96,261,0,0" VerticalAlignment="Top" Height="37" Width="67"/>
         
-        <ComboBox HorizontalAlignment="Left" FontSize="18" Margin="232,265,0,0" VerticalAlignment="Top" Width="52" x:Name="hourBox" Height="30">
+        <ComboBox HorizontalAlignment="Left" FontSize="18" Margin="232,265,0,0" VerticalAlignment="Top" Width="52" x:Name="HourBox" Height="30">
             <ComboBoxItem Content="07"/>
             <ComboBoxItem Content="08"/>
             <ComboBoxItem Content="09"/>
@@ -62,7 +62,7 @@
             <ComboBoxItem Content="17"/>
             <ComboBoxItem Content="18"/>
         </ComboBox>
-        <ComboBox HorizontalAlignment="Left" FontSize="18" Margin="347,265,0,0" VerticalAlignment="Top" Width="52" x:Name="minutesBox" Height="30">
+        <ComboBox HorizontalAlignment="Left" FontSize="18" Margin="347,265,0,0" VerticalAlignment="Top" Width="52" x:Name="MinutesBox" Height="30">
             <ComboBoxItem Content="00"/>
             <ComboBoxItem Content="30"/>
         </ComboBox>

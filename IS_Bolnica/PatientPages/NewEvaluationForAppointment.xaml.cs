@@ -32,12 +32,12 @@ namespace IS_Bolnica.PatientPages
             DoktorTextBox.Text = appointment.Doctor.Name + " " + appointment.Doctor.Surname;
         }
 
-        private void ButtonZabeleziClicked(object sender, RoutedEventArgs e)
+        private void ConfirmButtonClicked(object sender, RoutedEventArgs e)
         {
             Evaluation evaluation = new Evaluation();
             evaluation.Doctor = findAttributesService.findDoctor(DoktorTextBox.Text.Split(' ')[0], DoktorTextBox.Text.Split(' ')[1]);
             evaluation.Patient = findAttributesService.findPatientByUsername(PatientWindow.username_patient);
-            evaluation.Assessment = Convert.ToInt32(OcenaComboBox.Text);
+            evaluation.Assessment = Convert.ToInt32(EvaluationComboBox.Text);
             evaluation.Comment = CommentTextBox.Text;
             evaluation.Bolnica = "";
             evaluation.numOfMinutes = 5;

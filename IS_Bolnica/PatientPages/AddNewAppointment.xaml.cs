@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using IS_Bolnica.GUI.Patient.View;
 
 namespace IS_Bolnica.PatientPages
 {
@@ -42,9 +43,9 @@ namespace IS_Bolnica.PatientPages
             PatientWindow.MyFrame.NavigationService.Navigate(new MyAppointments());
         }
 
-        private void ButtonZakaziClicked(object sender, RoutedEventArgs e)
+        private void AddButtonClicked(object sender, RoutedEventArgs e)
         {
-            if (findAttributesService.checkComboBoxes(DoctorCombo.Text, hourBox.Text, minutesBox.Text) && findAttributesService.checkDatePicker(Datum.Text))
+            if (findAttributesService.checkComboBoxes(DoctorCombo.Text, HourBox.Text, MinutesBox.Text) && findAttributesService.checkDatePicker(AddDatePicker.Text))
             {
                 if (!appointmentService.processActions())
                     AddAppointment();
@@ -58,7 +59,7 @@ namespace IS_Bolnica.PatientPages
         private void AddAppointment() {
             Doctor doctor = findAttributesService.findDoctor(Regex.Replace(DoctorCombo.Text.Split('(')[0].Split()[0], @"[^0-9a-zA-Z\ ]+", ""),
                 Regex.Replace(DoctorCombo.Text.Split('(')[0].Split()[1], @"[^0-9a-zA-Z\ ]+", ""));
-            DateTime dateOfAppointment = findAttributesService.returnSelectedDate((DateTime)Datum.SelectedDate, hourBox.Text, minutesBox.Text);
+            DateTime dateOfAppointment = findAttributesService.returnSelectedDate((DateTime)AddDatePicker.SelectedDate, HourBox.Text, MinutesBox.Text);
 
             if (!appointmentService.isSelectedDateFree(dateOfAppointment, doctor))
             {
@@ -74,14 +75,14 @@ namespace IS_Bolnica.PatientPages
                 PatientWindow.MyFrame.NavigationService.Navigate(new InformationPage("UPOZORENJE!", "Termin kod označenog doktora je zauzet!"));
         }
 
-        private void ButtonOdustaniClicked(object sender, RoutedEventArgs e)
+        private void DeclineButtonClicked(object sender, RoutedEventArgs e)
         { 
             PatientWindow.MyFrame.NavigationService.Navigate(new MyAppointments());
         }
 
-        private void ButtonPredloziClicked(object sender, RoutedEventArgs e)
+        private void SuggestionButtonClicked(object sender, RoutedEventArgs e)
         {
-            PatientWindow.MyFrame.NavigationService.Navigate(new Suggestions(DoctorCombo.Text, Datum.Text));
+            PatientWindow.MyFrame.NavigationService.Navigate(new Suggestions(DoctorCombo.Text, AddDatePicker.Text));
         }
 
     }

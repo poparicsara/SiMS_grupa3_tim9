@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using IS_Bolnica.GUI.Patient.View;
 
 namespace IS_Bolnica.PatientPages
 {
@@ -38,9 +39,9 @@ namespace IS_Bolnica.PatientPages
             InitializeComponent();
 
             DoktorBox.SelectedValue = findAttributesService.returnDoctorsNameAndSurnameByIndex(index);
-            DateBox.SelectedDate = findAttributesService.returnSelectedDateByIndex(index);
-            SatiBox.Text = findAttributesService.returnSelectedHourByIndex(index);
-            MinutiBox.Text = findAttributesService.returnSelectedMinutesByIndex(index);
+            EditDatePicker.SelectedDate = findAttributesService.returnSelectedDateByIndex(index);
+            HourBox.Text = findAttributesService.returnSelectedHourByIndex(index);
+            MinutesBox.Text = findAttributesService.returnSelectedMinutesByIndex(index);
         }
 
         private void BackButtonClicked(object sender, RoutedEventArgs e)
@@ -48,9 +49,9 @@ namespace IS_Bolnica.PatientPages
             PatientWindow.MyFrame.NavigationService.Navigate(new MyAppointments());
         }
 
-        private void IzmeniButtonClicked(object sender, RoutedEventArgs e)
+        private void EditButtonClicked(object sender, RoutedEventArgs e)
         {
-            if (findAttributesService.checkComboBoxes(DoktorBox.Text, SatiBox.Text, MinutiBox.Text) && findAttributesService.checkDatePicker(DateBox.Text))      
+            if (findAttributesService.checkComboBoxes(DoktorBox.Text, HourBox.Text, MinutesBox.Text) && findAttributesService.checkDatePicker(EditDatePicker.Text))      
             {
                 if (!appointmentService.processActions())
                     EditSelectedAppointment();
@@ -67,7 +68,7 @@ namespace IS_Bolnica.PatientPages
             String nameAndSurname = DoktorBox.Text.Split('(')[0];
             Doctor doctor = findAttributesService.findDoctor(Regex.Replace(nameAndSurname.Split()[0], @"[^0-9a-zA-Z\ ]+", ""),
                 Regex.Replace(nameAndSurname.Split()[1], @"[^0-9a-zA-Z\ ]+", ""));
-            DateTime dateOfAppointment = findAttributesService.returnSelectedDate((DateTime)DateBox.SelectedDate, SatiBox.Text, MinutiBox.Text);
+            DateTime dateOfAppointment = findAttributesService.returnSelectedDate((DateTime)EditDatePicker.SelectedDate, HourBox.Text, MinutesBox.Text);
 
             if (!appointmentService.isSelectedDateFree(dateOfAppointment, doctor))
             {
@@ -83,7 +84,7 @@ namespace IS_Bolnica.PatientPages
                 PatientWindow.MyFrame.NavigationService.Navigate(new InformationPage("UPOZORENJE!", "Termin kod označenog doktora je zauzet!"));
         }
 
-        private void OdustaniButtonClicked(object sender, RoutedEventArgs e)
+        private void DeclineButtonClicked(object sender, RoutedEventArgs e)
         {
             PatientWindow.MyFrame.NavigationService.Navigate(new MyAppointments());
         }

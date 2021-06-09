@@ -27,13 +27,13 @@ namespace IS_Bolnica.PatientPages
         {
             InitializeComponent();
             if (!doctor.Equals("") && date.Equals(""))
-                PredloziBinding.ItemsSource = suggestionService.getSuggestionsBySelectedDoctor(doctor.Split('(')[0]);
+                SuggestionsDataBinding.ItemsSource = suggestionService.getSuggestionsBySelectedDoctor(doctor.Split('(')[0]);
             else if (!date.Equals("") && doctor.Equals(""))
-                PredloziBinding.ItemsSource = suggestionService.getSuggestionsBySelectedDate(date);
+                SuggestionsDataBinding.ItemsSource = suggestionService.getSuggestionsBySelectedDate(date);
             else if(!date.Equals("") && !doctor.Equals(""))
-                PredloziBinding.ItemsSource = suggestionService.getSuggestionsBySelectedDateAndDoctor(doctor.Split('(')[0], date);
+                SuggestionsDataBinding.ItemsSource = suggestionService.getSuggestionsBySelectedDateAndDoctor(doctor.Split('(')[0], date);
             else
-                PredloziBinding.ItemsSource = suggestionService.getSuggestions();
+                SuggestionsDataBinding.ItemsSource = suggestionService.getSuggestions();
         }
 
         private void BackButtonClicked(object sender, RoutedEventArgs e)

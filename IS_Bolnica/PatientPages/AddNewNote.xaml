@@ -16,7 +16,7 @@
                 <Label Content="Back" FontSize="16" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="48"/>
             </StackPanel>
         </Button>
-        <ComboBox HorizontalAlignment="Left" FontSize="18" Margin="608,358,0,0" VerticalAlignment="Top" Width="52" x:Name="minBox" Height="27" RenderTransformOrigin="1.507,0.537">
+        <ComboBox HorizontalAlignment="Left" FontSize="18" Margin="608,358,0,0" VerticalAlignment="Top" Width="52" x:Name="MinBox" Height="27" RenderTransformOrigin="1.507,0.537">
             <ComboBoxItem Content="5"/>
             <ComboBoxItem Content="10"/>
             <ComboBoxItem Content="15"/>
