@@ -95,8 +95,50 @@
     <Compile Include="CreatePrescription.xaml.cs">
       <DependentUpon>CreatePrescription.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DemoMode\AddInventoryDemo.xaml.cs">
+      <DependentUpon>AddInventoryDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DemoMode\AddMedDemo.xaml.cs">
+      <DependentUpon>AddMedDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DemoMode\AddRoomDemo.xaml.cs">
+      <DependentUpon>AddRoomDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DemoMode\DemoInventoryWindow.xaml.cs">
+      <DependentUpon>DemoInventoryWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DemoMode\DemoMedicamentWindow.xaml.cs">
+      <DependentUpon>DemoMedicamentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DemoMode\DemoProfileWindow.xaml.cs">
+      <DependentUpon>DemoProfileWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DemoMode\DemoRoomWindow.xaml.cs">
+      <DependentUpon>DemoRoomWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DemoMode\EditInventoryDemo.xaml.cs">
+      <DependentUpon>EditInventoryDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DemoMode\EditMedDemo.xaml.cs">
+      <DependentUpon>EditMedDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DemoMode\EditRoomDemo.xaml.cs">
+      <DependentUpon>EditRoomDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DemoMode\MergeDemo.xaml.cs">
+      <DependentUpon>MergeDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DemoMode\RenovationDemo.xaml.cs">
+      <DependentUpon>RenovationDemo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DemoMode\SeparateDemo.xaml.cs">
+      <DependentUpon>SeparateDemo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Diagnosis.xaml.cs">
       <DependentUpon>Diagnosis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DirectorLogInWindow.xaml.cs">
+      <DependentUpon>DirectorLogInWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="DirectorNotificationWindow.xaml.cs">
       <DependentUpon>DirectorNotificationWindow.xaml</DependentUpon>
@@ -149,6 +191,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.en-US.resx</DependentUpon>
+    <Compile Include="MergeRoomsWindow.xaml.cs">
+      <DependentUpon>MergeRoomsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AppointmentRepository.cs" />
+    <Compile Include="Model\AppointmentType.cs" />
+    <Compile Include="Model\Merging.cs" />
+    <Compile Include="Model\Separation.cs" />
+    <Compile Include="Model\Shifting.cs" />
+    <Compile Include="ReportWindow.xaml.cs">
+      <DependentUpon>ReportWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="RoomInventory.xaml.cs">
       <DependentUpon>RoomInventory.xaml</DependentUpon>
@@ -177,7 +229,7 @@
     <Compile Include="Model\HospitalWardFileStorage.cs" />
     <Compile Include="Model\InventoryType.cs" />
     <Compile Include="Model\Medicament.cs" />
-    <Compile Include="Model\MedicamentFileStorage.cs" />
+    <Compile Include="Model\MedicamentRepository.cs" />
     <Compile Include="Model\MedicamentStatus.cs" />
     <Compile Include="Model\Notification.cs" />
     <Compile Include="Model\NotificationRepository.cs" />
@@ -187,7 +239,7 @@
     <Compile Include="Model\Renovation.cs" />
     <Compile Include="Model\RenovationRepository.cs" />
     <Compile Include="Model\Request.cs" />
-    <Compile Include="Model\RequestFileStorage.cs" />
+    <Compile Include="Model\RequestRepository.cs" />
     <Compile Include="Model\TherapiesFileStorage.cs" />
     <Compile Include="Model\Therapy.cs" />
     <Compile Include="Model\UserRepository.cs" />
@@ -327,16 +379,23 @@
     <Compile Include="SelectedRequest.xaml.cs">
       <DependentUpon>SelectedRequest.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SeparateRoomWindow.xaml.cs">
+      <DependentUpon>SeparateRoomWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Services\AppointmentService.cs" />
+    <Compile Include="Services\ChangeInventoryPlaceService.cs" />
     <Compile Include="Services\FindAttributesService.cs" />
     <Compile Include="Services\DoctorService.cs" />
     <Compile Include="Services\GuestUserService.cs" />
     <Compile Include="Services\IngredientService.cs" />
+    <Compile Include="Services\InventoryPerRoomService.cs" />
     <Compile Include="Services\InventoryService.cs" />
+    <Compile Include="Services\MedicamentService.cs" />
     <Compile Include="Services\NotificationService.cs" />
     <Compile Include="Services\PatientService.cs" />
     <Compile Include="Services\RenovationService.cs" />
     <Compile Include="Services\ReportService.cs" />
+    <Compile Include="Services\RequestService.cs" />
     <Compile Include="Services\RoomService.cs" />
     <Compile Include="Services\UrgentAppointmentService.cs" />
     <Compile Include="Services\UserService.cs" />
@@ -389,9 +448,65 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="DemoMode\AddInventoryDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DemoMode\AddMedDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DemoMode\AddRoomDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DemoMode\DemoInventoryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DemoMode\DemoMedicamentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DemoMode\DemoProfileWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DemoMode\DemoRoomWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DemoMode\EditInventoryDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DemoMode\EditMedDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DemoMode\EditRoomDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DemoMode\MergeDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DemoMode\RenovationDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DemoMode\SeparateDemo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Diagnosis.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DirectorLogInWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DirectorNotificationWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -432,6 +547,14 @@
     <Page Include="InventoryWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MergeRoomsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReportWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RoomInventory.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -649,6 +772,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="SeparateRoomWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UpdateExaminationWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -730,6 +857,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="DemoMode\inventory.png" />
+    <Resource Include="DemoMode\notification.png" />
+    <Resource Include="DemoMode\profileIcon.png" />
     <Resource Include="Images\nasLogo.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -744,7 +874,54 @@
   <ItemGroup>
     <Resource Include="actionBarIcon.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="roomIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="menuRoomIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\roomIcon100x50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\addIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\hamerIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\medicine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\separate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\merge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\singOut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\director.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\switch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="DemoMode\contract.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.1.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.1.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

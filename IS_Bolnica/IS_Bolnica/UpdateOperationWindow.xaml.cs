@@ -55,7 +55,7 @@ namespace IS_Bolnica.DoctorsWindows
 
             foreach (Room room in Rooms)
             {
-                if (room.roomPurpose.Name.Equals("Operaciona sala"))
+                if (room.RoomPurpose.Name.Equals("Operaciona sala"))
                 {
                     RoomId.Add(room.Id);
                 }

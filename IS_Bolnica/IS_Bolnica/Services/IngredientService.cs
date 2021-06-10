@@ -12,10 +12,47 @@ namespace IS_Bolnica.Services
     {
         private IngredientRepository ingredientRepository = new IngredientRepository();
         private PatientService patientService = new PatientService();
+        private MedicamentRepository repository = new MedicamentRepository();
 
         public IngredientService()
         {
 
+        }
+
+        public List<Ingredient> GetIngredients(Medicament medicament)
+        {
+            return repository.GetIngredients(medicament);
+        }
+
+        public void AddIngredient(Medicament medicament, Ingredient ingredient)
+        {
+            repository.AddIngredient(medicament, ingredient);
+        }
+
+        public void DeleteIngredient(Medicament medicament, Ingredient ingredient)
+        {
+            int index = GetIndex(medicament, ingredient);
+            repository.DeleteIngredient(medicament, index);
+        }
+
+        public void EditIngredient(Medicament medicament, Ingredient oldIngredient, Ingredient newIngredient)
+        {
+            int index = GetIndex(medicament, oldIngredient);
+            repository.EditIngredient(medicament, index, newIngredient);
+        }
+
+        private int GetIndex(Medicament medicament, Ingredient ingredient)
+        {
+            int index = 0;
+            foreach (var i in medicament.Ingredients)
+            {
+                if (i.Name.Equals(ingredient.Name))
+                {
+                    break;
+                }
+                index++;
+            }
+            return index;
         }
 
         public void RemoveIngredientFromMedicament(Medicament medicament, Ingredient ingredient)
@@ -80,3 +117,4 @@ namespace IS_Bolnica.Services
         }
     }
 }
+

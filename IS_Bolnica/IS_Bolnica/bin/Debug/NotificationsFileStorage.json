@@ -56,6 +56,16 @@
     "PersonId": []
   },
   {
+    "Title": "aaaa",
+    "Content": "aaaa",
+    "Sender": 0,
+    "notificationType": 5,
+    "PersonId": [
+      "1111",
+      "2222"
+    ]
+  },
+  {
     "Title": "Pažnja",
     "Content": "Obaveštavamo Vas da je vreme da promenite  svoje lozinke radi bolje bezbednosti.                                                                               Vaša Zdravo korporacija",
     "Sender": 0,

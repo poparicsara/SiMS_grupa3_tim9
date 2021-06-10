@@ -13,26 +13,42 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica
 {
     public partial class MedicamentWindow : Window
     {
         private Request request = new Request();
-        private RequestFileStorage requestStorage = new RequestFileStorage();
+        private RequestService requestService = new RequestService();
         private Medicament selectedMedicament = new Medicament();
-        private MedicamentFileStorage medStorage = new MedicamentFileStorage();
-        private List<Request> requests = new List<Request>();
+        private MedicamentService medService = new MedicamentService();
 
         public MedicamentWindow()
         {
             InitializeComponent();
-            
-            List<Medicament> meds = medStorage.loadFromFile("Lekovi.json");
 
-            medicamentDataGrid.ItemsSource = meds;
+            medicamentDataGrid.ItemsSource = medService.GetMedicaments();
 
-            requests = requestStorage.LoadFromFile("Zahtevi.json");
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+
+        }
+
+        private void HandleEsc(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                MessageBoxResult messageBox = MessageBox.Show("Da li ste sigurni da želite da se odjavite?",
+                    "Odjava", MessageBoxButton.YesNo);
+                switch (messageBox)
+                {
+                    case MessageBoxResult.Yes:
+                        this.Close();
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                }
+            }
         }
 
         private void RowDoubleClick(object sender, MouseButtonEventArgs e)
@@ -59,19 +75,14 @@ namespace IS_Bolnica
                 switch (messageBox)
                 {
                     case MessageBoxResult.Yes:
-                        SendDeletingRequest();
+                        
+                        SetRequestAttributes();
+                        requestService.SendRequest(request);
                         break;
                     case MessageBoxResult.No:
                         break;
                 }
             }
-        }
-
-        private void SendDeletingRequest()
-        {           
-            SetRequestAttributes();
-            requests.Add(request);
-            requestStorage.SaveToFile(requests, "Zahtevi.json");
         }
 
         private void SetRequestAttributes()
@@ -110,9 +121,8 @@ namespace IS_Bolnica
         {
             if (IsAnyMedicamentSelected())
             {
-                Medicament med = (Medicament)medicamentDataGrid.SelectedItem;
-                EditMedicamentWindow medicamentInfo = new EditMedicamentWindow(med);
-                medicamentInfo.Show();
+                EditMedicamentWindow ew = new EditMedicamentWindow(selectedMedicament);
+                ew.Show();
                 this.Close();
             }
         }
@@ -134,8 +144,42 @@ namespace IS_Bolnica
 
         private void ProfileButtonClicked(object sender, RoutedEventArgs e)
         {
-            DirectorProfileWindow profileWindow = new DirectorProfileWindow();
+            DirectorProfileWindow profileWindow = new DirectorProfileWindow("0601234567", "ivanivanovic@gmail.com");
             profileWindow.Show();
+            this.Close();
+        }
+
+        private void NotificationButtonClicked(object sender, RoutedEventArgs e)
+        {
+            DirectorNotificationWindow dw = new DirectorNotificationWindow();
+            dw.Show();
+            this.Close();
+        }
+
+        private void SearchKeyUp(object sender, KeyEventArgs e)
+        {
+            var filtered = medService.GetSearchedMeds(searchBox.Text.ToLower());
+            medicamentDataGrid.ItemsSource = filtered;
+        }
+
+        private void SingOutButtonClicked(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult messageBox = MessageBox.Show("Da li ste sigurni da želite da se odjavite?",
+                "Odjava", MessageBoxButton.YesNo);
+            switch (messageBox)
+            {
+                case MessageBoxResult.Yes:
+                    this.Close();
+                    break;
+                case MessageBoxResult.No:
+                    break;
+            }
+        }
+
+        private void ReportButtonClicked(object sender, RoutedEventArgs e)
+        {
+            ReportWindow rw = new ReportWindow();
+            rw.Show();
             this.Close();
         }
     }

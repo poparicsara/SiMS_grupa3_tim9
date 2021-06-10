@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using IS_Bolnica.Model;
 using Model;
@@ -11,10 +13,25 @@ namespace IS_Bolnica.Services
     class RenovationService
     {
         private RenovationRepository repository = new RenovationRepository();
-        private List<Renovation> renovations = new List<Renovation>();
+        private RoomService roomService = new RoomService();
+        private Room newRoom = new Room();
+        private Thread thread;
+        private Thread separationThreat;
+        private int hourOfChange;
+        private int minuteOfChange;
+        private string dateOfChange;
+        private string startDate;
+        private Room room1;
+        private Room room2;
+        private bool merge = false;
+        private bool separate = false;
+        private List<Merging> mergings = new List<Merging>();
+        private List<Separation> separations = new List<Separation>();
+
         public RenovationService()
         {
-            renovations = repository.GetRenovations();
+            mergings = repository.GetMergings();
+            separations = repository.GetSeparations();
         }
 
         public void AddRenovation(Renovation renovation)
@@ -23,18 +40,23 @@ namespace IS_Bolnica.Services
             CheckScheduledAppointments(renovation);
         }
 
-        public void CheckScheduledAppointments(Renovation renovation)
+        private void CheckScheduledAppointments(Renovation renovation)
         {
             AppointmentService appointmentService = new AppointmentService();
             List<Appointment> appointments = appointmentService.GetAppointments();
             foreach (var a in appointments)
             {
-                if (a.Room.Id == renovation.Room.Id)
+                CheckAppointment(renovation, a);
+            }
+        }
+
+        private void CheckAppointment(Renovation renovation, Appointment a)
+        {
+            if (a.Room.Id == renovation.Room.Id)
+            {
+                if (IsStartDateInRenovationPeriod(a, renovation) || IsEndDateInRenovationPeriod(a, renovation))
                 {
-                    if (IsStartDateInRenovationPeriod(a, renovation) || IsEndDateInRenovationPeriod(a, renovation))
-                    {
-                        SendNotification(a);
-                    }
+                    SendNotification(a);
                 }
             }
         }
@@ -75,9 +97,286 @@ namespace IS_Bolnica.Services
             notification.Content += "\t" + "Doktor: " + appointment.Doctor.Name + " " + appointment.Patient.Surname + "\n";
         }
 
+        public void MergeRooms(Room room1, Room room2, string startDate, string endDate, int hour, int minute, int roomNumber)
+        {
+            SetMergeAttributes(room1, room2, startDate, endDate, hour, minute, roomNumber);
+            AddMerging();
+            StartThread();
+        }
+
+        public void SeparateRoom(Room room1, string startDate, string endDate, int hour, int minute, int roomNumber)
+        {
+            SetSeparationAttributes(room1, startDate, endDate, hour, minute, roomNumber);
+            AddSeparation();
+            StartThread();
+        }
+
+        private void SetSeparationAttributes(Room room1, string startDate, string endDate, int hour, int minute, int roomNumber)
+        {
+            separate = true;
+            this.room1 = room1;
+            SetNewRoom(roomNumber);
+            room2 = newRoom;
+            SetDateAttributes(startDate, endDate, hour, minute);
+        }
+
+        private void SetMergeAttributes(Room room1, Room room2, string startDate, string endDate, int hour, int minute, int roomNumber)
+        {
+            merge = true;
+            SetDateAttributes(startDate, endDate, hour, minute);
+            SetRooms(room1, room2, roomNumber);
+        }
+
+        private void SetDateAttributes(string startDate, string endDate, int hour, int minute)
+        {
+            this.startDate = startDate;
+            dateOfChange = endDate;
+            hourOfChange = hour;
+            minuteOfChange = minute;
+        }
+
+        private void SetRooms(Room room1, Room room2, int roomNumber)
+        {
+            this.room1 = room1;
+            this.room2 = room2;
+            SetNewRoom(roomNumber);
+        }
+
+        private void SetNewRoom(int id)
+        {
+            newRoom.Id = id;
+            newRoom.HospitalWard = room1.HospitalWard;
+            newRoom.RoomPurpose = room1.RoomPurpose;
+            newRoom.Inventory = new List<Inventory>();  //just empty list (not null)
+        }
+
+        private void StartSeparationThread()
+        {
+            separationThreat = new Thread(new ThreadStart(CheckingTime));
+            separationThreat.Start();
+        }
+
+        private void StartThread()
+        {
+            thread = new Thread(new ThreadStart(CheckingTime));
+            thread.Start();
+        }
+
+        private void CheckingTime()
+        {
+            while (true)
+            {
+                if (IsSelectedTime() || HasTimeOfChangePassed())
+                {
+                    DoChange();
+                    thread.Abort();
+                }
+                Thread.Sleep(TimeSpan.FromSeconds(59));
+            }
+        }
+
+        private void DoChange()
+        {
+            if (merge)
+            {
+                DoMerge();
+                EditMerging();
+            }
+            else if (separate)
+            {
+                DoSeparation();
+                EditSeparation();
+            }
+        }
+
+        private bool IsSelectedTime()
+        {
+            return GetCurrentDate().Equals(dateOfChange) && GetCurrentHour() == hourOfChange && GetCurrentMinute() == minuteOfChange;
+        }
+
+        private bool HasTimeOfChangePassed()
+        {
+            string fullDate = dateOfChange + " " + hourOfChange + ":" + minuteOfChange;
+            DateTime fullDateOfChange = Convert.ToDateTime(fullDate);
+            DateTime currentDate = DateTime.Now;
+            if (fullDateOfChange < currentDate)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void DoMerge()
+        {
+            roomService.AddRoom(newRoom);
+            roomService.DeleteRoom(room1);
+            roomService.DeleteRoom(room2);
+        }
+
+        private void DoSeparation()
+        {
+            roomService.AddRoom(room2);
+        }
+
+        private string[] GetFullCurrentDate()
+        {
+            DateTime currentTime = DateTime.Now;
+            string[] time = currentTime.ToString().Split(' ');
+            return time;
+        }
+
+        private string GetCurrentDate()
+        {
+            string date = GetFullCurrentDate()[0];
+            return date;
+        }
+
+        private string[] GetCurrentTime()
+        {
+            string[] time = GetFullCurrentDate()[1].Split(':');
+            return time;
+        }
+
+        private int GetCurrentHour()
+        {
+            int hour = (int)Int64.Parse(GetCurrentTime()[0]);
+            if (!IsHourAM())
+            {
+                hour += 12;
+            }
+            else if (IsMidnight())
+            {
+                hour = 0;
+            }
+            return hour;
+        }
+
+        private int GetCurrentMinute()
+        {
+            int minute = (int)Int64.Parse(GetCurrentTime()[1]);
+            return minute;
+        }
+
+        private bool IsMidnight()
+        {
+            if (GetCurrentTime()[0].Equals("12"))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool IsHourAM()
+        {
+            if (GetFullCurrentDate()[2].Equals("AM"))
+            {
+                return true;
+            }
+            return false;
+        }
+
         public List<Renovation> GetRenovations()
         {
             return repository.GetRenovations();
         }
+
+        public void CheckUnexecutedMergings()
+        {
+            mergings = repository.GetMergings();
+            if (mergings != null)
+            {
+                foreach (var m in mergings)
+                {
+                    if (!m.Executed)
+                    {
+                        SetMergeAttributes(m.Room1, m.Room2, m.StartDate, m.EndDate, m.Hour, m.Minute, m.NewRoomNumber);
+                        StartThread();
+                    }
+                }
+            }
+        }
+
+        private void AddMerging()
+        {
+            Merging newMerging = new Merging
+            {
+                Room1 = room1, Room2 = room2, StartDate = startDate, EndDate = dateOfChange, Hour = hourOfChange,
+                Minute = minuteOfChange, NewRoomNumber = newRoom.Id
+            };
+            repository.AddMerging(newMerging);
+        }
+
+        private void EditMerging()
+        {
+            int index = GetMergingIndex();
+            repository.EditMerging(index);
+        }
+
+        private int GetMergingIndex()
+        {
+            var index = 0;
+            mergings = repository.GetMergings();
+            foreach (var s in mergings)
+            {
+                if (room1.Id == s.Room1.Id && room2.Id == s.Room2.Id)
+                {
+                    break;
+                }
+                index++;
+            }
+            return index;
+        }
+
+        private void AddSeparation()
+        {
+            Separation newSeparation = new Separation
+            {
+                Room = room1,
+                StartDate = startDate,
+                EndDate = dateOfChange,
+                Hour = hourOfChange,
+                Minute = minuteOfChange,
+                NewRoomNumber = newRoom.Id
+            };
+            repository.AddSeparation(newSeparation);
+        }
+
+        private void EditSeparation()
+        {
+            int index = GetSeparationIndex();
+            repository.EditSeparation(index);
+        }
+
+        private int GetSeparationIndex()
+        {
+            var index = 0;
+            separations = repository.GetSeparations();
+            foreach (var s in separations)
+            {
+                if (room1.Id == s.Room.Id)
+                {
+                    break;
+                }
+                index++;
+            }
+            return index;
+        }
+
+        public void CheckUnexecutedSeparations()
+        {
+            separations = repository.GetSeparations();
+            foreach (var separation in separations)
+            {
+                if (!separation.Executed)
+                {
+                    SetSeparationAttributes(separation.Room, separation.StartDate, separation.EndDate, separation.Hour, separation.Minute, separation.NewRoomNumber);
+                    StartThread();
+                }
+            }
+        }
+
     }
 }

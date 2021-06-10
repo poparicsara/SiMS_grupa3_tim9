@@ -1,18 +1,10 @@
 ﻿using Model;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using IS_Bolnica.Services;
 
 namespace IS_Bolnica
@@ -23,52 +15,64 @@ namespace IS_Bolnica
         Director director = new Director();
         string selectedWard;
         string selectedPurpose;
-        private List<Room> rooms = new List<Room>();
-        private List<string> hospitalWards = new List<string>();
-        private Specialization specialization = new Specialization();
         private RoomService service = new RoomService();
 
         public AddRoomWindow()
         {
             InitializeComponent();
 
-            wardBox.ItemsSource = GetHospitalWards();
-            wardBox.SelectedItem = GetHospitalWards().ElementAt(0);
+            wardBox.ItemsSource = service.GetHospitalWards();
+            wardBox.SelectedItem = service.GetHospitalWards().ElementAt(0);
 
-            purposeBox.ItemsSource = GetRoomPurposes();
-            purposeBox.SelectedItem = GetRoomPurposes().ElementAt(0);
+            purposeBox.ItemsSource = service.GetRoomPurposes();
+            purposeBox.SelectedItem = service.GetRoomPurposes().ElementAt(0);
+
+            roomBox.Focusable = true;
+            roomBox.Focus();
+
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
         }
 
-        private List<string> GetHospitalWards()
+        private void HandleEsc(object sender, KeyEventArgs e)
         {
-            List<Specialization> specializations = specialization.getSpecializations();
-            foreach (Specialization s in specializations)
+            if (e.Key == Key.Escape)
             {
-                hospitalWards.Add(s.Name);
+                this.Close();
             }
-            return hospitalWards;
-        }
-
-        private List<string> GetRoomPurposes()
-        {
-            RoomPurpose purpose = new RoomPurpose();
-            List<string> purposes = purpose.GetPurposes();
-            return purposes;
         }
 
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
-            SetRoomInfo();
-            service.AddRoom(newRoom);
-            this.Close();
+            if (roomBox.Text.Equals(""))
+            {
+                MessageBox.Show("Polje sa brojem sobe je obavezno!");
+            }
+            else
+            {
+                SetRoomAttributes();
+                AddRoom();
+            }
         }
 
-        private void SetRoomInfo()
+        private void AddRoom()
+        {
+            if (service.IsRoomNumberUnique(newRoom.Id))
+            {
+                service.AddRoom(newRoom);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Već postoji postoji prostorija sa izabranim brojem");
+            }
+        }
+
+        private void SetRoomAttributes()
         {
             newRoom.Id = (int)Int64.Parse(roomBox.Text);
             newRoom.HospitalWard = selectedWard;
             RoomPurpose purpose = new RoomPurpose { Name = selectedPurpose };
-            newRoom.roomPurpose = purpose;
+            newRoom.RoomPurpose = purpose;
         }
 
         private void CancelButtonClicked(object sender, RoutedEventArgs e)

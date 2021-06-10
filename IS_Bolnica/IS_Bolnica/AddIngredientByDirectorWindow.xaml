@@ -5,11 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IS_Bolnica"
         mc:Ignorable="d"
-        Title="AddCompositionWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="AddCompositionWindow" Height="655" Width="700" WindowStartupLocation="CenterScreen" Closing="ClosingWindow">
     <Grid >
-        <TextBox Name="ingredientNameTxt" HorizontalAlignment="Left" Height="23" Margin="336,174,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177"/>
-        <Label Content="Unesite naziv sastojka:" HorizontalAlignment="Left" Margin="347,118,0,0" VerticalAlignment="Top" Width="139" FontWeight="Bold"/>
-        <Button Content="Potvrdi" HorizontalAlignment="Left" Margin="383,260,0,0" VerticalAlignment="Top" Width="75" Click="DoneButtonClicked"/>
+        <TextBox Name="ingredientNameTxt" HorizontalAlignment="Left" Height="42" Margin="217,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="297" FontSize="16"/>
+        <Label Content="Unesite naziv sastojka:" HorizontalAlignment="Left" Margin="217,189,0,0" VerticalAlignment="Top" Width="192" FontWeight="Bold" FontSize="16"/>
+        <Button Content="POTVRDI" IsTabStop="True" Background="White" HorizontalAlignment="Left" Margin="399,445,0,0" VerticalAlignment="Top" Width="97" Click="DoneButtonClicked" FontSize="16" FontWeight="Bold"/>
+        <Label Content="DODAVANJE NOVOG SASTOJKA" HorizontalAlignment="Left" Margin="147,42,0,0" VerticalAlignment="Top" Width="425" FontWeight="Bold" FontSize="26"/>
+        <Button Content="ODUSTANI" IsTabStop="True" Background="White" HorizontalAlignment="Left" Margin="217,445,0,0" VerticalAlignment="Top" Width="101" FontSize="16" FontWeight="Bold" Click="CancelButtonClicked"/>
 
     </Grid>
 </Window>

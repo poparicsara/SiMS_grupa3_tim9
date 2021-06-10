@@ -11,7 +11,6 @@ namespace IS_Bolnica
     {
         private List<Room> rooms = new List<Room>();
         private Room selectedRoom;
-        private RoomRepository storage = new RoomRepository();
         private RoomService service = new RoomService();
 
         public RoomWindow(Director director)
@@ -20,7 +19,26 @@ namespace IS_Bolnica
 
             DataContext = director;
 
-            roomDataGrid.ItemsSource = storage.GetRooms();
+            roomDataGrid.ItemsSource = service.GetRooms();
+
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+        }
+
+        private void HandleEsc(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                MessageBoxResult messageBox = MessageBox.Show("Da li ste sigurni da želite da se odjavite?",
+                    "Odjava", MessageBoxButton.YesNo);
+                switch (messageBox)
+                {
+                    case MessageBoxResult.Yes:
+                        this.Close();
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                }
+            }
         }
 
         private void AddButtonClicked(object sender, RoutedEventArgs e)
@@ -34,8 +52,17 @@ namespace IS_Bolnica
         {
             if (IsAnyRoomSelected())
             {
-                service.DeleteRoom(selectedRoom);
-                RefreshRoomDataGrid();
+                MessageBoxResult messageBox = MessageBox.Show("Da li ste sigurni da želite da obrišete izabranu prostoriju?",
+                    "Brisanje prostorije", MessageBoxButton.YesNo);
+                switch (messageBox)
+                {
+                    case MessageBoxResult.Yes:
+                        service.DeleteRoom(selectedRoom);
+                        RefreshRoomDataGrid();
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                }
             }
         }
 
@@ -75,7 +102,7 @@ namespace IS_Bolnica
 
         private void searchKeyUp(object sender, KeyEventArgs e)
         {
-            var filtered = rooms.Where(room => room.roomPurpose.Name.StartsWith(searchBox.Text));
+            var filtered = service.GetSearchedRooms(searchBox.Text.ToLower());
             roomDataGrid.ItemsSource = filtered;
         }
 
@@ -83,6 +110,7 @@ namespace IS_Bolnica
         {
             DirectorNotificationWindow dnw = new DirectorNotificationWindow();
             dnw.Show();
+            this.Close();
         }
 
         private void MedicamentButtonClicked(object sender, RoutedEventArgs e)
@@ -92,7 +120,7 @@ namespace IS_Bolnica
             this.Close();
         }
 
-        private void RenovationButton(object sender, RoutedEventArgs e)
+        private void RenovationButtonClicked(object sender, RoutedEventArgs e)
         {
             if (IsAnyRoomSelected())
             {
@@ -104,8 +132,6 @@ namespace IS_Bolnica
 
         private void ProfileButtonClicked(object sender, RoutedEventArgs e)
         {
-            DirectorProfileWindow profileWindow = new DirectorProfileWindow();
-            profileWindow.Show();
             this.Close();
         }
 
@@ -113,6 +139,41 @@ namespace IS_Bolnica
         {
             InventoryWindow inventarWindow = new InventoryWindow();
             inventarWindow.Show();
+            this.Close();
+        }
+
+        private void MergeButtonClicked(object sender, RoutedEventArgs e)
+        {
+            MergeRoomsWindow mw = new MergeRoomsWindow();
+            mw.Show();
+            this.Close();
+        }
+
+        private void SeparateButtonClicked(object sender, RoutedEventArgs e)
+        {
+            SeparateRoomWindow sw = new SeparateRoomWindow();
+            sw.Show();
+            this.Close();
+        }
+
+        private void SignOutButtonClicked(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult messageBox = MessageBox.Show("Da li ste sigurni da želite da se odjavite?",
+                "Odjava", MessageBoxButton.YesNo);
+            switch (messageBox)
+            {
+                case MessageBoxResult.Yes:
+                    this.Close();
+                    break;
+                case MessageBoxResult.No:
+                    break;
+            }
+        }
+
+        private void ReportButtonClicked(object sender, RoutedEventArgs e)
+        {
+            ReportWindow rw = new ReportWindow();
+            rw.Show();
             this.Close();
         }
     }

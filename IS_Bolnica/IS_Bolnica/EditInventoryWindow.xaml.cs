@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica
 {
@@ -20,7 +22,7 @@ namespace IS_Bolnica
     {
         private Inventory oldInventory = new Inventory();
         private Inventory newInventory = new Inventory();
-        private InventoryRepository storage = new InventoryRepository();
+        private InventoryService service = new InventoryService();
 
         public EditInventoryWindow(Inventory selectedInventory)
         {
@@ -29,6 +31,19 @@ namespace IS_Bolnica
             oldInventory = selectedInventory;
 
             FillTextBoxes();
+
+            idBox.Focusable = true;
+            idBox.Focus();
+
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+        }
+
+        private void HandleEsc(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                this.Close();
+            }
         }
 
         private void FillTextBoxes()
@@ -41,18 +56,54 @@ namespace IS_Bolnica
 
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
-            SetNewInventory();
-            storage.EditInventory(oldInventory, newInventory);
-            this.Close();
+            if (!IsAnythingNull())
+            {
+                if (SetNewInventory())
+                {
+                    service.EditInventory(oldInventory, newInventory);
+                    this.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Sva polja moraju biti popunjena!");
+            }
         }
 
-        private void SetNewInventory()
+        private bool IsAnythingNull()
         {
-            newInventory.Id = (int)Int64.Parse(idBox.Text);
-            newInventory.Name = nameBox.Text;
-            newInventory.CurrentAmount = (int)Int64.Parse(currentBox.Text);
-            newInventory.Minimum = (int)Int64.Parse(minBox.Text);
-            newInventory.InventoryType = oldInventory.InventoryType;
+            return idBox.Text.Equals("") || nameBox.Text.Equals("") || currentBox.Text.Equals("") ||
+                   minBox.Text.Equals("");
+        }
+
+        private bool SetNewInventory()
+        {
+            if (oldInventory.Id.ToString() != idBox.Text)
+            {
+                if (service.IsInventoryIdUnique((int)Int64.Parse(idBox.Text)))
+                {
+                    newInventory.Id = (int)Int64.Parse(idBox.Text);
+                    newInventory.Name = nameBox.Text;
+                    newInventory.CurrentAmount = (int)Int64.Parse(currentBox.Text);
+                    newInventory.Minimum = (int)Int64.Parse(minBox.Text);
+                    newInventory.InventoryType = oldInventory.InventoryType;
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show("Već postoji inventar sa unetim brojem!");
+                    return false;
+                }
+            }
+            else
+            {
+                newInventory.Id = (int)Int64.Parse(idBox.Text);
+                newInventory.Name = nameBox.Text;
+                newInventory.CurrentAmount = (int)Int64.Parse(currentBox.Text);
+                newInventory.Minimum = (int)Int64.Parse(minBox.Text);
+                newInventory.InventoryType = oldInventory.InventoryType;
+                return true;
+            }
         }
 
         private void CancelButtonClicked(object sender, RoutedEventArgs e)
@@ -66,6 +117,10 @@ namespace IS_Bolnica
             iw.Show();
         }
 
-
+        private void NumberValidation(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
     }
 }

@@ -30,7 +30,26 @@ namespace IS_Bolnica
 
             notifications = storage.LoadFromFile("NotificationsFileStorage.json");
 
-            NotificationList.ItemsSource = GetDirectorNotifications();
+            notificationDataGrid.ItemsSource = GetDirectorNotifications();
+
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+        }
+
+        private void HandleEsc(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                MessageBoxResult messageBox = MessageBox.Show("Da li ste sigurni da želite da se odjavite?",
+                    "Odjava", MessageBoxButton.YesNo);
+                switch (messageBox)
+                {
+                    case MessageBoxResult.Yes:
+                        this.Close();
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                }
+            }
         }
 
         private List<Notification> GetDirectorNotifications()
@@ -53,9 +72,67 @@ namespace IS_Bolnica
 
         private void Row_DoubleClik(object sender, MouseButtonEventArgs e)
         {
-            Notification selectedNotification = (Notification)NotificationList.SelectedItem;
+            Notification selectedNotification = (Notification)notificationDataGrid.SelectedItem;
             SelectedNotificationWindow selected = new SelectedNotificationWindow(selectedNotification);
             selected.Show();
+            this.Close();
+        }
+
+        private void OpenNotification(object sender, RoutedEventArgs e)
+        {
+            Notification selectedNotification = (Notification)notificationDataGrid.SelectedItem;
+            SelectedNotificationWindow selected = new SelectedNotificationWindow(selectedNotification);
+            selected.Show();
+            this.Close();
+        }
+
+        private void ProfileButtonClicked(object sender, RoutedEventArgs e)
+        {
+            DirectorProfileWindow dw = new DirectorProfileWindow("", "");
+            dw.Show();
+            this.Close();
+        }
+
+        private void RoomButtonClicked(object sender, RoutedEventArgs e)
+        {
+            Director director = new Director();
+            RoomWindow rw = new RoomWindow(director);
+            rw.Show();
+            this.Close();
+        }
+
+        private void InventoryButtonClicked(object sender, RoutedEventArgs e)
+        {
+            InventoryWindow iw = new InventoryWindow();
+            iw.Show();
+            this.Close();
+        }
+
+        private void MedicamentButtonClicked(object sender, RoutedEventArgs e)
+        {
+            MedicamentWindow mw = new MedicamentWindow();
+            mw.Show();
+            this.Close();
+        }
+
+        private void SignOutButtonClicked(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult messageBox = MessageBox.Show("Da li ste sigurni da želite da se odjavite?",
+                "Odjava", MessageBoxButton.YesNo);
+            switch (messageBox)
+            {
+                case MessageBoxResult.Yes:
+                    this.Close();
+                    break;
+                case MessageBoxResult.No:
+                    break;
+            }
+        }
+
+        private void ReportButtonClicked(object sender, RoutedEventArgs e)
+        {
+            ReportWindow rw = new ReportWindow();
+            rw.Show();
             this.Close();
         }
     }

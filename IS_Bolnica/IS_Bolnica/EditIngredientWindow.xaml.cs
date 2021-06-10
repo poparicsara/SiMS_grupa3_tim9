@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica
 {
@@ -20,64 +21,74 @@ namespace IS_Bolnica
         private Ingredient oldIngredient;
         private Ingredient newIngredient = new Ingredient();
         private Medicament selectedMedicament = new Medicament();
-        private MedicamentFileStorage storage = new MedicamentFileStorage();
-        private List<Medicament> meds = new List<Medicament>();
+        private IngredientService service = new IngredientService();
+        private MedicamentService medService = new MedicamentService();
 
         public EditIngredientWindow(Medicament med, Ingredient ingredient)
         {
             InitializeComponent();
 
-            meds = storage.loadFromFile("Lekovi.json");
+            selectedMedicament = medService.GetMedicament(med.Name);
+
             oldIngredient = ingredient;
-            SetSelectedMedicament(med.Id);
-            ingredientNameTxt.Text = ingredient.Name; 
+
+            ingredientNameTxt.Text = ingredient.Name;
+
+            ingredientNameTxt.Focusable = true;
+            ingredientNameTxt.Focus();
+
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+        }
+
+        private void HandleEsc(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                this.Close();
+            }
         }
 
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
-            SetNewIngredient();
+            if (SetNewIngredient())
+            {
+                service.EditIngredient(selectedMedicament, oldIngredient, newIngredient);
+                this.Close();
+            }
+        }
+
+        private bool SetNewIngredient()
+        {
+            if (ingredientNameTxt.Text.Equals(""))
+            {
+                MessageBox.Show("Morate uneti naziv sastojka");
+                return false;
+            }
+            else
+            {
+                return CheckMedicamentIngredients();
+            }
+        }
+
+        private bool CheckMedicamentIngredients()
+        {
+            if (!medService.HasMedicamentIngredient(selectedMedicament, ingredientNameTxt.Text))
+            {
+                newIngredient.Name = ingredientNameTxt.Text;
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Lek već ima uneti sastojak!");
+                return false;
+            }
+
+        }
+
+        private void ClosingWindow(object sender, System.ComponentModel.CancelEventArgs e)
+        {
             IngredientsWindow iw = new IngredientsWindow(selectedMedicament);
             iw.Show();
-            this.Close();
-        }
-
-        private void SetNewIngredient()
-        {
-            newIngredient.Name = ingredientNameTxt.Text;
-            SaveChange();
-        }
-
-        private void SaveChange()
-        {
-            int index = GetOldIngredientIndex(selectedMedicament);
-            selectedMedicament.Ingredients.RemoveAt(index);
-            selectedMedicament.Ingredients.Insert(index, newIngredient);
-            storage.saveToFile(meds, "Lekovi.json");
-        }
-
-        private int GetOldIngredientIndex(Medicament med)
-        {
-            int index = 0;
-            foreach(Ingredient i in med.Ingredients)
-            {
-                if (i.Name.Equals(oldIngredient.Name))
-                {
-                    break;
-                }
-                index++;
-            }
-            return index;
-        }
-
-        private void SetSelectedMedicament(int id)
-        {
-            foreach(Medicament m in meds)
-            {
-                if(m.Id == id)
-                {
-                    selectedMedicament = m;
-                }
-            }
         }
     }
 }

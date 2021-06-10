@@ -30,35 +30,25 @@ namespace IS_Bolnica
             storage = new NotificationRepository();
             notifications = storage.LoadFromFile("NotificationsFileStorage.json");
 
+            titleBox.Text = notification.Title;
+            senderBox.Text = notification.Sender.ToString();
             contentBox.Text = notification.Content;
+
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+        }
+
+        private void HandleEsc(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                this.Close();
+            }
         }
 
         private void ClosingWindow(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            DeleteNotification();
             DirectorNotificationWindow nw = new DirectorNotificationWindow();
             nw.Show();
-        }
-
-        private void DeleteNotification()
-        {
-            int index = GetNotificationIndex();
-            notifications.RemoveAt(index);
-            storage.SaveToFile(notifications, "NotificationsFileStorage.json");
-        }
-
-        private int GetNotificationIndex()
-        {
-            int index = 0;
-            foreach (Notification n in notifications)
-            {
-                if (n.Title.Equals(selectedNotification.Title) && n.Content.Equals(selectedNotification.Content))
-                {
-                    break;
-                }
-                index++;
-            }
-            return index;
         }
     }
 }

@@ -12,46 +12,36 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica
 {
     public partial class IngredientsWindow : Window
     {
         private Medicament selectedMedicament;
-        private List<Medicament> meds;
-        private MedicamentFileStorage storage = new MedicamentFileStorage();
+        private MedicamentService medService = new MedicamentService();
+        private IngredientService ingService = new IngredientService();
+        private string medicamentName;
+        private Ingredient selectedIngredient = new Ingredient();
+
         public IngredientsWindow(Medicament selected)
         {
             InitializeComponent();
-            
-            storage = new MedicamentFileStorage();
-            meds = storage.loadFromFile("Lekovi.json");
-            SetSelectedMedicament(selected.Id);
-            ingredientDataGrid.ItemsSource = GetSelectedMedicamentIngredients();
+
+            medicamentName = selected.Name;
+            selectedMedicament = medService.GetMedicament(selected.Name);
+
+            ingredientDataGrid.ItemsSource = ingService.GetIngredients(selected);
+
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
         }
 
-        private void SetSelectedMedicament(int id)
+        private void HandleEsc(object sender, KeyEventArgs e)
         {
-            foreach(Medicament m in meds)
+            if (e.Key == Key.Escape)
             {
-                if(m.Id == id)
-                {
-                    selectedMedicament = m;
-                }
+                this.Close();
             }
-        }
-
-        private List<Ingredient> GetSelectedMedicamentIngredients()
-        {
-            List<Ingredient> ingredients = new List<Ingredient>();
-            if(selectedMedicament.Ingredients != null)
-            {
-                foreach (Ingredient i in selectedMedicament.Ingredients)
-                {
-                    ingredients.Add(i);
-                }
-            }            
-            return ingredients;
         }
 
         private void AddButtonClicked(object sender, RoutedEventArgs e)
@@ -61,40 +51,53 @@ namespace IS_Bolnica
             this.Close();
         }
 
+        private bool IsAnyMedicamentSelected()
+        {
+            if (ingredientDataGrid.SelectedIndex < 0)
+            {
+                MessageBox.Show("Niste izabrali nijedan sastojak!");
+                return false;
+            }
+            else
+            {
+                selectedIngredient = (Ingredient)ingredientDataGrid.SelectedItem;
+                return true;
+            }
+        }
+
         private void EditButtonClicked(object sender, RoutedEventArgs e)
         {
-            Ingredient ing = (Ingredient)ingredientDataGrid.SelectedItem;
-            EditIngredientWindow ew = new EditIngredientWindow(selectedMedicament, ing);
-            ew.Show();
-            this.Close();
+            if (IsAnyMedicamentSelected())
+            {
+                EditIngredientWindow ew = new EditIngredientWindow(selectedMedicament, selectedIngredient);
+                ew.Show();
+                this.Close();
+            }
         }
 
         private void DeleteButtonClicked(object sender, RoutedEventArgs e)
         {
-            DoChange();
-            ingredientDataGrid.ItemsSource = selectedMedicament.Ingredients;
-        }
-
-        private void DoChange()
-        {
-            Ingredient ing = (Ingredient)ingredientDataGrid.SelectedItem;
-            int index = GetIngredientIndex(ing);
-            selectedMedicament.Ingredients.RemoveAt(index);
-            storage.saveToFile(meds, "Lekovi.json");
-        }
-
-        private int GetIngredientIndex(Ingredient selectedIngredient)
-        {
-            int index = 0;
-            foreach (Ingredient i in selectedMedicament.Ingredients)
+            if (IsAnyMedicamentSelected())
             {
-                if (i.Name.Equals(selectedIngredient.Name))
+                MessageBoxResult messageBox = MessageBox.Show("Da li ste sigurni da želite da obrišete izabrani lek?",
+                    "Brisanje leka", MessageBoxButton.YesNo);
+                switch (messageBox)
                 {
-                    break;
+                    case MessageBoxResult.Yes:
+                        ingService.DeleteIngredient(selectedMedicament, selectedIngredient);
+                        RefreshDataGrid();
+                        break;
+                    case MessageBoxResult.No:
+                        break;
                 }
-                index++;
             }
-            return index;
         }
+
+        private void RefreshDataGrid()
+        {
+            selectedMedicament = medService.GetMedicament(medicamentName);
+            ingredientDataGrid.ItemsSource = ingService.GetIngredients(selectedMedicament);
+        }
+
     }
 }

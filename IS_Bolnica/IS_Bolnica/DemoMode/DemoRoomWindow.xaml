@@ -1,0 +1,165 @@
+﻿<Window x:Class="IS_Bolnica.DemoMode.DemoRoomWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IS_Bolnica.DemoMode"
+        mc:Ignorable="d"
+        Title="DemoRoomWindow" Height="655" Width="1116" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <RoutedUICommand x:Key="medicamentCommand"/>
+        <RoutedCommand x:Key="inventoryCommand"/>
+        <RoutedCommand x:Key="addCommand"/>
+        <RoutedCommand x:Key="editCommand"/>
+        <RoutedCommand x:Key="deleteCommand"/>
+        <RoutedCommand x:Key="renovationCommand"/>
+        <RoutedCommand x:Key="notificationCommand"/>
+        <RoutedCommand x:Key="profileCommand"/>
+
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource medicamentCommand}" Executed="MedicamentButtonClicked"/>
+        <CommandBinding Command="{StaticResource inventoryCommand}" Executed="InventoryButtonClicked"/>
+        <CommandBinding Command="{StaticResource addCommand}" Executed="AddButtonClicked"/>
+        <CommandBinding Command="{StaticResource editCommand}" Executed="EditButtonClicked"/>
+        <CommandBinding Command="{StaticResource deleteCommand}" Executed="DeleteButtonClicked"/>
+        <CommandBinding Command="{StaticResource renovationCommand}" Executed="RenovationButtonClicked"/>
+        <CommandBinding Command="{StaticResource notificationCommand}" Executed="NotificationButtonClicked"/>
+        <CommandBinding Command="{StaticResource profileCommand}" Executed="ProfileButtonClicked"/>
+
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Command="{StaticResource medicamentCommand}" Key="M" Modifiers="Alt"/>
+        <KeyBinding Command="{StaticResource inventoryCommand}" Key="I" Modifiers="Alt"/>
+        <KeyBinding Command="{StaticResource notificationCommand}" Key="N" Modifiers="Alt"/>
+        <KeyBinding Command="{StaticResource addCommand}" Key="N" Modifiers="Control"/>
+        <KeyBinding Command="{StaticResource editCommand}" Key="E" Modifiers="Control"/>
+        <KeyBinding Command="{StaticResource deleteCommand}" Key="D" Modifiers="Control"/>
+        <KeyBinding Command="{StaticResource renovationCommand}" Key="R" Modifiers="Control"/>
+        <KeyBinding Command="{StaticResource profileCommand}" Key="P" Modifiers="Alt"/>
+
+    </Window.InputBindings>
+    <Grid>
+        <Grid HorizontalAlignment="Left" Width="207" Background="White">
+            <StackPanel>
+                <ListView BorderThickness="0, 0, 2, 0" Background="white" BorderBrush="Black" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="625" Margin="0,0,0.2,0">
+                    <ListViewItem HorizontalAlignment="Left" Height="84" Margin="0,60,0,0">
+                        <Button  Width="187" Height="62" Background="Transparent" BorderBrush="Transparent" IsTabStop="True" IsDefault="True" Click="ProfileButtonClicked">
+                            <StackPanel Orientation="Horizontal" Width="187" Height="62">
+                                <Image Source="profileIcon.png" Margin="0,15,0,0" Width="58" Height="47" VerticalAlignment="Top"/>
+                                <TextBlock Text="Profil" FontSize="16" Width="98" Margin="10,17,10,24.2" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Button>
+                    </ListViewItem>
+                    <ListViewItem HorizontalAlignment="Left" Height="84" IsTabStop="True">
+                        <Button Width="187" Height="62" Background="Transparent" BorderBrush="Transparent" IsTabStop="True" IsDefault="True">
+                            <StackPanel Orientation="Horizontal" Width="187" Height="62">
+                                <Image Source="roomIcon100x50.png" Width="58" Height="47" VerticalAlignment="Top"/>
+                                <TextBlock Text="Prostorije" FontSize="16" Width="98" Margin="10,17,10,24.2" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Button>
+                    </ListViewItem>
+                    <ListViewItem HorizontalAlignment="Left" Height="84">
+                        <Button Width="187" Height="62" Background="Transparent" IsDefault="True" BorderBrush="Transparent" Click="InventoryButtonClicked" IsTabStop="True">
+                            <StackPanel Orientation="Horizontal" Width="187" Height="62">
+                                <Image Source="inventory.png" Margin="0,15,0,0" Width="58" Height="47" VerticalAlignment="Top"/>
+                                <TextBlock Text="Inventar" FontSize="16" Width="98" Margin="10,17,10,24.2" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Button>
+                    </ListViewItem>
+                    <ListViewItem HorizontalAlignment="Left" Height="84">
+                        <Button Width="187" Height="62" Background="Transparent" IsDefault="True" BorderBrush="Transparent" Click="MedicamentButtonClicked" IsTabStop="True">
+                            <StackPanel Orientation="Horizontal" Width="187" Height="62">
+                                <Image Source="medicine.png" Margin="0,15,0,0" Width="58" Height="47" VerticalAlignment="Top"/>
+                                <TextBlock Text="Lekovi" FontSize="16" Width="98" Margin="10,17,10,24.2" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Button>
+                    </ListViewItem>
+                    <ListViewItem HorizontalAlignment="Left" Height="84">
+                        <Button Width="187" Height="62" Background="Transparent" IsDefault="True" BorderBrush="Transparent" Click="NotificationButtonClicked" IsTabStop="True">
+                            <StackPanel Orientation="Horizontal" Width="187" Height="62">
+                                <Image Source="notification.png" Margin="0,15,0,0" Width="58" Height="47" VerticalAlignment="Top"/>
+                                <TextBlock Text="Obaveštenja" FontSize="16" Width="98" Margin="10,17,10,24.2" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Button>
+                    </ListViewItem>
+                    <ListViewItem HorizontalAlignment="Left" Height="84" Margin="0,45,0,0">
+                        <Button Width="187" Height="62" Background="Transparent" IsDefault="True" BorderBrush="Transparent" IsTabStop="True" Click="SignOutButtonClicked">
+                            <StackPanel Orientation="Horizontal" Width="187" Height="62">
+                                <Image Source="singOut.png" Margin="0,5,0,0" Width="58" Height="47" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                                    <Image.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="-180"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Image.RenderTransform>
+                                </Image>
+                            </StackPanel>
+                        </Button>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
+        </Grid>
+        <DataGrid x:Name ="roomDataGrid" HorizontalAlignment="Center" Height="512" VerticalAlignment="Center" Width="805" FontSize="16"
+                  ColumnWidth="187.7" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserAddRows="False" AutoGenerateColumns="False"
+                  IsReadOnly="True" SelectionMode="Single" CanUserDeleteRows="True" Margin="224,104,80.6,9.6" BorderThickness="8" BorderBrush="Black"
+                  RowHeight="30">
+            <!-- Style -->
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="Height" Value="35"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Setter Property="FontSize" Value="18"/>
+                </Style>
+            </DataGrid.Resources>
+            <!-- Header -->
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="255" Header ="BROJ SOBE" Binding="{Binding Id}"/>
+                <DataGridTextColumn Width="255" Header ="BOLNIČKO ODELJENJE" Binding="{Binding HospitalWard}"/>
+                <DataGridTextColumn Width="255" Header ="NAMENA" Binding="{Binding Path = RoomPurpose.Name}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button ToolTip="Dodavanje nove prostorije" IsTabStop="True" IsDefault="True" HorizontalAlignment="Left" Margin="1053,578,0,0" VerticalAlignment="Top" Width="35" Height="35" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" Click="AddButtonClicked">
+            <StackPanel>
+                <Image Source="addIcon.png"/>
+            </StackPanel>
+        </Button>
+        <Button IsTabStop="True" IsDefault="True" HorizontalAlignment="Left" VerticalAlignment="Top" Width="35" Height="35" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" Margin="1053,524,0,0" Click="DeleteButtonClicked">
+            <StackPanel>
+                <Image Source="delete.png"/>
+            </StackPanel>
+        </Button>
+        <Button IsTabStop="True" IsDefault="True" HorizontalAlignment="Left" Margin="1053,469,0,0" VerticalAlignment="Top" Width="35" Height="35" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" Click="EditButtonClicked" FontSize="14">
+            <StackPanel>
+                <Image Source="edit.png"/>
+            </StackPanel>
+        </Button>
+        <Button IsTabStop="True" IsDefault="True" HorizontalAlignment="Left" Margin="1053,414,0,0" VerticalAlignment="Top" Width="35" Height="35" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" Click="RenovationButtonClicked" FontSize="14">
+            <StackPanel>
+                <Image Source="hamerIcon.png"/>
+            </StackPanel>
+        </Button>
+        <Label Content="PROSTORIJE"  HorizontalAlignment="Left" Margin="555,21,0,0" VerticalAlignment="Top" FontSize="26" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black"/>
+        <Button  IsTabStop="True" IsDefault="True" HorizontalAlignment="Left" Margin="1053,356,0,0" VerticalAlignment="Top" Width="35" Height="35" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" FontSize="14" Click="MergeButtonClicked">
+            <StackPanel>
+                <Image Source="merge.png"/>
+            </StackPanel>
+        </Button>
+        <Button IsTabStop="True" IsDefault="True" HorizontalAlignment="Left" Margin="1053,298,0,0" VerticalAlignment="Top" Width="35" Height="35" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" FontSize="14" Click="SeparateButtonClicked">
+            <StackPanel>
+                <Image Source="separate.png"/>
+            </StackPanel>
+        </Button>
+        <Image Source="search.png" Margin="1034,58,42.6,539.6"/>
+        <TextBox Name="searchBox" IsTabStop="True" HorizontalAlignment="Left" Height="32" Margin="867,54,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="162" KeyUp="searchKeyUp" FontSize="16"/>
+        <Label Content="CTRL+N" HorizontalAlignment="Left" Margin="1061,564,0,0" VerticalAlignment="Top" FontSize="8" FontWeight="Bold"/>
+        <Label Content="CTRL+D" HorizontalAlignment="Left" Margin="1061,509,0,0" VerticalAlignment="Top" FontSize="8" FontWeight="Bold"/>
+        <Label Content="CTRL+E" HorizontalAlignment="Left" Margin="1061,454,0,0" VerticalAlignment="Top" FontSize="8" FontWeight="Bold"/>
+        <Label Content="CTRL+R" HorizontalAlignment="Left" Margin="1059,401,0,0" VerticalAlignment="Top" FontSize="8" FontWeight="Bold"/>
+    </Grid>
+</Window>

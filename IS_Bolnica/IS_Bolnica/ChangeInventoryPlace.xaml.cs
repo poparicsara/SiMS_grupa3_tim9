@@ -15,6 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Diagnostics;
+using IS_Bolnica.Model;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica
 {
@@ -29,35 +31,26 @@ namespace IS_Bolnica
         private Inventory selectedInventory;
         private string from;
         private string to;
-        private List<Room> rooms = new List<Room>();
         private string selectedDate;
         private int selectedHour;
         private int selectedMinute;
-        private RoomRepository roomRepository = new RoomRepository();
-        private Inventory inventoryFrom = new Inventory();
-        private Inventory inventoryTo = new Inventory();
-        private Thread thread;
         private Room roomFrom;
         private Room roomTo;
-        private const int FROM = 1;
-        private const int TO = 0;
-        private Specialization spec = new Specialization();
+        private RoomService roomService = new RoomService();
+        private ChangeInventoryPlaceService changeService = new ChangeInventoryPlaceService();
 
         public ChangeInventoryPlace(Inventory selected)
         {
             InitializeComponent();
 
-            rooms = roomRepository.GetRooms();
+            wardFromBox.ItemsSource = GetWardsWithMagacin();
+            wardToBox.ItemsSource = roomService.GetHospitalWards();
 
-            wardFromBox.ItemsSource = GetHospitalWards(FROM);
-            wardFromBox.SelectedItem = GetHospitalWards(FROM).ElementAt(0);
-            wardToBox.ItemsSource = GetHospitalWards(TO);
-            wardToBox.SelectedItem = GetHospitalWards(TO).ElementAt(0);
+            purposeFromBox.ItemsSource = roomService.GetRoomPurposes();
+            purposeToBox.ItemsSource = roomService.GetRoomPurposes();
 
-            purposeFromBox.ItemsSource = GetRoomPurposes();
-            purposeFromBox.SelectedItem = GetRoomPurposes().ElementAt(0);
-            purposeToBox.ItemsSource = GetRoomPurposes();
-            purposeToBox.SelectedItem = GetRoomPurposes().ElementAt(0);
+            numberFromBox.ItemsSource = roomService.GetRoomNumbers();
+            numberToBox.ItemsSource = roomService.GetRoomNumbers();
 
             selectedInventory = selected;
 
@@ -65,27 +58,22 @@ namespace IS_Bolnica
             {
                 DisableTime();
             }
-        }
 
-        private List<string> GetHospitalWards(int room)
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+        }
+        private void HandleEsc(object sender, KeyEventArgs e)
         {
-            List<Specialization> specializations = spec.getSpecializations();           
-            foreach(Specialization s in specializations)
+            if (e.Key == Key.Escape)
             {
-                hospitalWards.Add(s.Name);
+                this.Close();
             }
-            if (room == FROM)
-            {
-                hospitalWards.Add("Magacin");
-            }            
-            return hospitalWards;
         }
 
-        public List<string> GetRoomPurposes()
+        private List<string> GetWardsWithMagacin()
         {
-            RoomPurpose purpose = new RoomPurpose();
-            List<string> purposes = purpose.GetPurposes();
-            return purposes;
+            hospitalWards = roomService.GetHospitalWards();
+            hospitalWards.Add("Magacin");
+            return hospitalWards;
         }
 
         private void DisableTime()
@@ -122,20 +110,7 @@ namespace IS_Bolnica
             var combo = sender as ComboBox;
             selectedPurposeFrom = (string)combo.SelectedItem;
 
-            numberFromBox.ItemsSource = GetAppropriateRoomNumbers(selectedWardFrom, selectedPurposeFrom);
-        }
-
-        private List<int> GetAppropriateRoomNumbers(string hospitalWard, string roomPurpose)
-        {
-            List<int> roomNumbers = new List<int>();
-            foreach (Room room in rooms)
-            {
-                if (room.HospitalWard.Equals(hospitalWard) && room.roomPurpose.Name.Equals(roomPurpose))
-                {
-                    roomNumbers.Add(room.Id);
-                }
-            }
-            return roomNumbers;
+            numberFromBox.ItemsSource = roomService.GetAppropriateRoomNumbers(selectedWardFrom, selectedPurposeFrom);
         }
 
         private void numberFromChanged(object sender, SelectionChangedEventArgs e)
@@ -155,7 +130,7 @@ namespace IS_Bolnica
             var combo = sender as ComboBox;
             selectedPurposeTo = (string)combo.SelectedItem;
 
-            numberToBox.ItemsSource = GetAppropriateRoomNumbers(selectedWardTo, selectedPurposeTo);
+            numberToBox.ItemsSource = roomService.GetAppropriateRoomNumbers(selectedWardTo, selectedPurposeTo);
         }
 
         private void numberToChanged(object sender, SelectionChangedEventArgs e)
@@ -170,191 +145,87 @@ namespace IS_Bolnica
             e.Handled = regex.IsMatch(e.Text);
         }
 
-        private void SetAmount()
+        private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
-            amount = (int)Int64.Parse(amountBox.Text);
+            if (selectedInventory.InventoryType == InventoryType.dinamicki)
+            {
+                if (!IsAnythingNullDynamic())
+                {
+                    SetRooms();
+                    amount = (int)Int64.Parse(amountBox.Text);
+                    if (CheckRoomInventory())
+                    {
+                        CheckAmount();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Sva polja moraju biti popunjena!");
+                }
+            }
+            else
+            {
+                if (!IsAnythingNullStatic())
+                {
+                    SetRooms();
+                    amount = (int)Int64.Parse(amountBox.Text);
+                    if (CheckRoomInventory())
+                    {
+                        CheckAmount();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Sva polja moraju biti popunjena!");
+                }
+            }
+            
         }
 
-        private void SettingValues(object sender, RoutedEventArgs e)
+        private bool IsAnythingNullDynamic()
         {
-            SetRooms();
-            SetAmount();
-            SetInventories();
-            CheckAmount();
+            return wardFromBox.SelectedItem == null || purposeFromBox.SelectedItem == null ||
+                   numberFromBox.SelectedItem == null ||
+                   wardToBox.SelectedItem == null || purposeFromBox.SelectedItem == null ||
+                   numberToBox.SelectedItem == null || amountBox.Text.Equals("");
+        }
+
+        private bool IsAnythingNullStatic()
+        {
+            return wardFromBox.SelectedItem == null || purposeFromBox.SelectedItem == null ||
+                   numberFromBox.SelectedItem == null ||
+                   wardToBox.SelectedItem == null || purposeFromBox.SelectedItem == null ||
+                   numberToBox.SelectedItem == null || amountBox.Text.Equals("") || dateofChange.SelectedDate == null || 
+                   hourofChange.SelectedItem == null || minuteOfChange.SelectedItem == null;
         }
 
         private void SetRooms()
         {
-            foreach (Room r in rooms)
-            {
-                if (r.Id == (int)Int64.Parse(from))
-                {
-                    roomFrom = r;
-                }
-                else if(r.Id == (int)Int64.Parse(to))
-                {
-                    roomTo = r;
-                }
-            }
+            roomFrom = roomService.GetRoom((int) Int64.Parse(from));
+            roomTo = roomService.GetRoom((int)Int64.Parse(to));
         }
 
-        private void SetInventories()
+        private bool CheckRoomInventory()
         {
-            SetInventoryFrom(roomFrom);
-            SetInventoryTo(roomTo);
-        }
-
-        private void CheckInventoryType()
-        {
-            if(selectedInventory.InventoryType == Model.InventoryType.staticki)
-            {
-                StartThread();
-            }
-            else
-            {
-                DoChange();
-            }
-            this.Close();
-        }
-
-        private void SetInventoryFrom(Room room)
-        {
-            if(FindInventory(room) != null)
-            {
-                inventoryFrom = FindInventory(room);
-            }
-            else
+            if (!changeService.HasRoomSelectedInventory(selectedInventory, roomFrom))
             {
                 MessageBox.Show("Prostorija iz koje zelite da izvrsite preraspodelu ne sadrzi izabrani inventar!");
+                return false;
             }
-        }
-
-        private void SetInventoryTo(Room room)
-        {
-            if (FindInventory(room) != null)
-            {
-                inventoryTo = FindInventory(room);
-            }
-            else
-            {
-                AddInventory();
-                inventoryTo = FindInventory(room);
-            }
-        }
-
-        private void AddInventory()
-        {
-            InventoryRepository inventoryStorage = new InventoryRepository();
-            inventoryStorage.AddInventoryInRoom(roomTo, selectedInventory);
-        }
-
-        private Inventory FindInventory(Room room)
-        {
-            Inventory inventory = null;
-            foreach (Inventory i in room.inventory)
-            {
-                if (i.Id == selectedInventory.Id)
-                {
-                    inventory = i;
-                }
-            }
-            return inventory;
+            return true;
         }
 
         private void CheckAmount()
         {
-            if(inventoryFrom.CurrentAmount < amount)
+            if(!changeService.HasEnoughAmount(selectedInventory, roomFrom, amount))
             {
                 MessageBox.Show("Prostorija iz koje zelite da izvrsite preraspodelu ne sadrzi dovoljnu kolicinu izabranog inventara");
             }
             else
             {
-                CheckInventoryType();
+                changeService.ChangePlaceOfInventory(roomFrom, roomTo, selectedInventory, amount, selectedDate, selectedHour, selectedMinute);
+                this.Close();
             }
-        }
-
-        private void ReduceAmount()
-        {
-            inventoryFrom.CurrentAmount -= amount;
-        }
-        private void IncreaseAmount()
-        {
-            inventoryTo.CurrentAmount += amount;
-        }
-
-        private void StartThread()
-        {
-            thread = new Thread(new ThreadStart(CheckingTime));
-            thread.Start();
-        }
-
-        private void CheckingTime()
-        {
-            while (true)
-            {
-                if (IsSelectedTime())
-                {
-                    DoChange();
-                    thread.Abort();
-                }
-                Thread.Sleep(TimeSpan.FromSeconds(59));
-            } 
-        }
-
-        private bool IsSelectedTime()
-        {
-            return GetCurrentDate().Equals(selectedDate) && GetCurrentHour() == selectedHour && GetCurrentMinute() == selectedMinute;
-        }
-
-        private void DoChange()
-        {
-            ReduceAmount();
-            IncreaseAmount();
-            roomRepository.saveToFile(rooms);
-        }
-
-        private string[] GetFullCurrentDate()
-        {
-            DateTime currentTime = DateTime.Now;
-            string[] time = currentTime.ToString().Split(' ');
-            return time;
-        }
-
-        private string GetCurrentDate()
-        {
-            string date = GetFullCurrentDate()[0];
-            return date;
-        }
-
-        private string[] GetCurrentTime()
-        {
-            string[] time = GetFullCurrentDate()[1].Split(':');
-            return time;
-        }
-
-        private int GetCurrentHour()
-        {
-            int hour = (int)Int64.Parse(GetCurrentTime()[0]);
-            if (!IsHourAM())
-            {
-                hour += 12;
-            }
-            return hour;
-        }
-
-        private int GetCurrentMinute()
-        {
-            int minute = (int)Int64.Parse(GetCurrentTime()[1]);
-            return minute;
-        }
-
-        private bool IsHourAM()
-        {
-            if (GetFullCurrentDate()[2].Equals("AM"))
-            {
-                return true;
-            }
-            return false;
         }
 
         private void hourChanged(object sender, SelectionChangedEventArgs e)
@@ -385,6 +256,11 @@ namespace IS_Bolnica
         {
             InventoryPerRooms sw = new InventoryPerRooms(selectedInventory);
             sw.Show();
+        }
+
+        private void CancelButtonClicked(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

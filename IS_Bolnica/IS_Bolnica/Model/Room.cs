@@ -9,9 +9,9 @@ namespace Model
         public int Id { get; set; }
         public String HospitalWard { get; set; }
 
-        public System.Collections.Generic.List<Inventory> inventory { get; set; }
+        public System.Collections.Generic.List<Inventory> Inventory { get; set; }
 
-        public RoomPurpose roomPurpose { get; set; }
+        public RoomPurpose RoomPurpose { get; set; }
 
     }
 }

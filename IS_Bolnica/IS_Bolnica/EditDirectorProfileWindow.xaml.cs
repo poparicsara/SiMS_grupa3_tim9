@@ -18,30 +18,55 @@ namespace IS_Bolnica
     public partial class EditDirectorProfileWindow : Window
     {
         private User user = new User();
+        private string phone;
+        private string email;
 
-        public EditDirectorProfileWindow()
+        public EditDirectorProfileWindow(String phone, String email)
         {
             InitializeComponent();
+
+            this.phone = phone;
+            this.email = email;
+
+            numberBox.Text = phone;
+            emailBox.Text = email;
+
+            numberBox.Focusable = true;
+            numberBox.Focus();
+
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
         }
 
-        private void setInfo()
+        private void HandleEsc(object sender, KeyEventArgs e)
         {
-            user.Id = "60";
-            user.Name = "Ivan";
-            user.Surname = "Ivanovic";
-            user.Phone = "0601234567";
+            if (e.Key == Key.Escape)
+            {
+                DirectorProfileWindow profileWindow = new DirectorProfileWindow(phone, email);
+                profileWindow.Show();
+                this.Close();
+            }
         }
 
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
-            DirectorProfileWindow profileWindow = new DirectorProfileWindow();
-            profileWindow.Show();
-            this.Close();
+            if (!numberBox.Text.Equals("") && !emailBox.Text.Equals(""))
+            {
+                DirectorProfileWindow profileWindow = new DirectorProfileWindow(numberBox.Text, emailBox.Text);
+                profileWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Sva polja moraju biti popunjena!");
+            }
+            
         }
 
-        private void getInfo()
+        private void CancelButtonClicked(object sender, RoutedEventArgs e)
         {
-            user.Surname = SurnameBox.Text;            
+            DirectorProfileWindow profileWindow = new DirectorProfileWindow(phone, email);
+            profileWindow.Show();
+            this.Close();
         }
     }
 }

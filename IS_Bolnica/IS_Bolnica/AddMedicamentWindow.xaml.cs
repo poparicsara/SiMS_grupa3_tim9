@@ -2,69 +2,86 @@
 using Model;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica
 {
     public partial class AddMedicamentWindow : Window
     {
-        private Request request = new Request();
-        private RequestFileStorage requestStorage = new RequestFileStorage();
-        private List<Request> requests = new List<Request>();
+        private Request newRequest = new Request();
         private string replacement;
         private Medicament selectedReplacement = new Medicament();
-        private List<Medicament> meds = new List<Medicament>();
-        private MedicamentFileStorage medStorage = new MedicamentFileStorage();
+        private List<Medicament> meds;
         private Medicament newMedicament = new Medicament();
+        private MedicamentService medService = new MedicamentService();
+        private RequestService requestService = new RequestService();
 
         public AddMedicamentWindow()
         {
             InitializeComponent();
 
-            MedicamentFileStorage medStorage = new MedicamentFileStorage();
-            meds = medStorage.loadFromFile("Lekovi.json");
+            meds = medService.GetMedicaments();
 
-            requests = requestStorage.LoadFromFile("Zahtevi.json");
+            replacementBox.ItemsSource = medService.GetReplacementNames();
 
-            replacementBox.ItemsSource = GetReplacements();
+            idBox.Focusable = true;
+            idBox.Focus();
+
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
         }
 
-        private List<string> GetReplacements()
+        private void HandleEsc(object sender, KeyEventArgs e)
         {
-            List<string> replacements = new List<string>();
-            foreach (Medicament med in meds)
+            if (e.Key == Key.Escape)
             {
-                replacements.Add(med.Name);
+                this.Close();
             }
-            return replacements;
         }
 
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
-            SendAddingRequest();
-            AddMedicament();
+            if (!IsAnythingNull())
+            {
+                SetMedicamentAttributes();
+                DoAdding();
+            }
+            else
+            {
+                MessageBox.Show("Sva polja moraju biti popunjena!");
+            }
+            
+        }
 
-            this.Close();
+        private void DoAdding()
+        {
+            if (medService.IsMedNumberUnique(newMedicament.Id))
+            {
+                SendAddingRequest();
+                AddMedicament();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Već postoji lek sa unetim brojem!");
+            }
+        }
+
+        private bool IsAnythingNull()
+        {
+            return idBox.Text.Equals("") || nameBox.Text.Equals("") || replacementBox.SelectedItem == null ||
+                   producerBox.Text.Equals("") || toBox.SelectedItem == null || ingredientBox.Text.Equals("");
         }
 
         private void AddMedicament()
         {
-            SetMedicamentAttributes();
-            meds.Add(newMedicament);
-            medStorage.saveToFile(meds, "Lekovi.json");
-        }
+            
+            string ingredients = ingredientBox.Text;
+            medService.AddMedicament(newMedicament, ingredients);
+            }
 
         private void SetMedicamentAttributes()
         {
@@ -72,75 +89,49 @@ namespace IS_Bolnica
             newMedicament.Replacement = new Medicament();
             newMedicament.Replacement = selectedReplacement;
             newMedicament.Status = MedicamentStatus.dissapproved;
-            newMedicament.Ingredients = GetIngredients();
-        }
-
-        private List<Ingredient> GetIngredients()
-        {
-            List<Ingredient> ingredients = new List<Ingredient>();
-            string[] ings = ingredientBox.Text.Split('\n');
-            for (int i = 0; i < ings.Length; i++)
-            {
-                Ingredient ingredient = GetIngredient(ings, i);
-                ingredients.Add(ingredient);
-            }
-            return ingredients;
-        }
-
-        private Ingredient GetIngredient(string[] ingredients, int index)
-        {
-            string temp = ingredients[index];
-            if (ingredients[index].Contains('\r'))
-            {
-                int endIndex = ingredients[index].IndexOf('\r');
-                temp = ingredients[index].Substring(0, endIndex);
-            }
-            Ingredient ingredient = new Ingredient { Name = temp };
-            return ingredient;
         }
 
         private void SendAddingRequest()
         {
             SetRequestAttributes();
-            requests.Add(request);
-            requestStorage.SaveToFile(requests, "Zahtevi.json");
+            requestService.SendRequest(newRequest);
         }
 
         private void SetRequestAttributes()
         {
-            request.Title = "Dodavanje leka u bazu";
+            newRequest.Title = "Dodavanje leka u bazu";
             SetRequestContent();
-            request.Recipient = NotificationType.doctor;
-            request.Sender = UserType.director;
+            newRequest.Recipient = NotificationType.doctor;
+            newRequest.Sender = UserType.director;
         }
 
         private void SetRequestContent()
         {
-            request.Content = idBox.Text + "|" + nameBox.Text + "|" + replacement + "|" + producerBox.Text + "|" + ingredientBox.Text;
+            newRequest.Content = idBox.Text + "|" + nameBox.Text + "|" + replacement + "|" + producerBox.Text + "|" + ingredientBox.Text;
         }
 
         private void ReplacementComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var combo = sender as ComboBox;
             replacement = (string)combo.SelectedItem;
-            SetSelectedReplacemet();
-        }
-
-        private void SetSelectedReplacemet()
-        {
-            foreach (Medicament med in meds)
-            {
-                if (med.Name.Equals(replacement))
-                {
-                    selectedReplacement = med;
-                }
-            }
+            selectedReplacement = medService.GetMedicament(replacement);
         }
 
         private void ClosingWindow(object sender, System.ComponentModel.CancelEventArgs e)
         {
             MedicamentWindow mw = new MedicamentWindow();
             mw.Show();
+        }
+
+        private void NumberValidation(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void CancelButtonClicked(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

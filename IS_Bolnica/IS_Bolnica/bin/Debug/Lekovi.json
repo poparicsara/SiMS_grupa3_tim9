@@ -79,7 +79,14 @@
       "Id": 102,
       "Name": "ESBESUL",
       "Ingredients": null,
-      "Replacement": null,
+      "Replacement": {
+        "Id": 102,
+        "Name": "ESBESUL",
+        "Ingredients": null,
+        "Replacement": null,
+        "Producer": "Bayer",
+        "Status": 0
+      },
       "Producer": "Bayer",
       "Status": 0
     },
@@ -94,7 +101,14 @@
       "Id": 0,
       "Name": "aaa",
       "Ingredients": null,
-      "Replacement": null,
+      "Replacement": {
+        "Id": 102,
+        "Name": "ESBESUL",
+        "Ingredients": null,
+        "Replacement": null,
+        "Producer": "Bayer",
+        "Status": 0
+      },
       "Producer": null,
       "Status": 0
     },
@@ -128,7 +142,14 @@
       "Id": 102,
       "Name": "ESBESUL",
       "Ingredients": null,
-      "Replacement": null,
+      "Replacement": {
+        "Id": 102,
+        "Name": "ESBESUL",
+        "Ingredients": null,
+        "Replacement": null,
+        "Producer": "Bayer",
+        "Status": 0
+      },
       "Producer": "Bayer",
       "Status": 0
     },
@@ -219,7 +240,14 @@
         "Name": "d"
       }
     ],
-    "Replacement": null,
+    "Replacement": {
+      "Id": 102,
+      "Name": "ESBESUL",
+      "Ingredients": null,
+      "Replacement": null,
+      "Producer": "Bayer",
+      "Status": 0
+    },
     "Producer": "oni",
     "Status": 0
   },
@@ -278,5 +306,152 @@
     },
     "Producer": "a",
     "Status": 0
+  },
+  {
+    "Id": 5,
+    "Name": "a",
+    "Ingredients": [
+      {
+        "Name": "a"
+      },
+      {
+        "Name": "a"
+      },
+      {
+        "Name": "a"
+      }
+    ],
+    "Replacement": {
+      "Id": 101,
+      "Name": "Alopurinol",
+      "Ingredients": [
+        {
+          "Name": "Alopurinol"
+        },
+        {
+          "Name": "Kukuruzni skrob"
+        },
+        {
+          "Name": "Celuloza"
+        },
+        {
+          "Name": "Natrijum-skrobglikolat"
+        },
+        {
+          "Name": "Talk"
+        },
+        {
+          "Name": "Magnezijum-stearat"
+        }
+      ],
+      "Replacement": {
+        "Id": 102,
+        "Name": "ESBESUL",
+        "Ingredients": null,
+        "Replacement": null,
+        "Producer": "Bayer",
+        "Status": 0
+      },
+      "Producer": "Bayer",
+      "Status": 0
+    },
+    "Producer": "b",
+    "Status": 0
+  },
+  {
+    "Id": 123,
+    "Name": "novi lekkk",
+    "Ingredients": [
+      {
+        "Name": "sastojak"
+      },
+      {
+        "Name": "sastojak"
+      },
+      {
+        "Name": "novi"
+      }
+    ],
+    "Replacement": {
+      "Id": 102,
+      "Name": "Altravesa",
+      "Ingredients": [
+        {
+          "Name": "Anastrozol"
+        },
+        {
+          "Name": "Laktoza"
+        },
+        {
+          "Name": "Natrijum-skrobglikolat"
+        },
+        {
+          "Name": "Povidon K25"
+        },
+        {
+          "Name": "Magnezijum-stearat"
+        }
+      ],
+      "Replacement": {
+        "Id": 102,
+        "Name": "ESBESUL",
+        "Ingredients": null,
+        "Replacement": null,
+        "Producer": "Bayer",
+        "Status": 0
+      },
+      "Producer": "Hemofarm",
+      "Status": 0
+    },
+    "Producer": "novi  proizvodjac",
+    "Status": 0
+  },
+  {
+    "Id": 2,
+    "Name": "novi lek",
+    "Ingredients": [
+      {
+        "Name": "sastojak1"
+      },
+      {
+        "Name": "sastojak2"
+      }
+    ],
+    "Replacement": {
+      "Id": 101,
+      "Name": "Alopurinol",
+      "Ingredients": [
+        {
+          "Name": "Alopurinol"
+        },
+        {
+          "Name": "Kukuruzni skrob"
+        },
+        {
+          "Name": "Celuloza"
+        },
+        {
+          "Name": "Natrijum-skrobglikolat"
+        },
+        {
+          "Name": "Talk"
+        },
+        {
+          "Name": "Magnezijum-stearat"
+        }
+      ],
+      "Replacement": {
+        "Id": 102,
+        "Name": "ESBESUL",
+        "Ingredients": null,
+        "Replacement": null,
+        "Producer": "Bayer",
+        "Status": 0
+      },
+      "Producer": "Bayer",
+      "Status": 0
+    },
+    "Producer": "ftn novi sad",
+    "Status": 1
   }
 ]

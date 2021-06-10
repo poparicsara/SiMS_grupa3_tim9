@@ -21,59 +21,33 @@ namespace IS_Bolnica
 
     public partial class InventoryWindow : Window
     {
-        private List<Inventory> dynamicInventories = new List<Inventory>();
-        private List<Inventory> staticInventories = new List<Inventory>();
-        private Director director = new Director();
-        private List<Inventory> magacinInventory = new List<Inventory>();
-        private List<Room> rooms = new List<Room>();
-        private Room magacin = new Room();
-        private RoomRepository roomRepository = new RoomRepository();
         private Inventory selectedInventory = new Inventory();
-        private InventoryRepository storage = new InventoryRepository();
         private InventoryService service = new InventoryService();
 
         public InventoryWindow()
         {
             InitializeComponent();
 
-            //SetMagacin();
-            //SetDynamicAndStaticInventory();
-
             dynamicDataGrid.ItemsSource = service.GetDynamicInventory();
             staticDataGrid.ItemsSource = service.GetStaticInventory();
+
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
         }
 
-        private void SetMagacin()
+        private void HandleEsc(object sender, KeyEventArgs e)
         {
-            rooms = roomRepository.GetRooms();
-            foreach (Room r in rooms)
+            if (e.Key == Key.Escape)
             {
-                if (r.HospitalWard.Equals("Magacin"))
+                MessageBoxResult messageBox = MessageBox.Show("Da li ste sigurni da želite da se odjavite?",
+                    "Odjava", MessageBoxButton.YesNo);
+                switch (messageBox)
                 {
-                    magacin = r;
+                    case MessageBoxResult.Yes:
+                        this.Close();
+                        break;
+                    case MessageBoxResult.No:
+                        break;
                 }
-            }
-        }
-
-        private void SetDynamicAndStaticInventory()
-        {
-            dynamicInventories = new List<Inventory>();
-            staticInventories = new List<Inventory>();
-            foreach(Inventory i in magacin.inventory)
-            {
-                SetInventoryType(i);
-            }
-        }
-
-        private void SetInventoryType(Inventory i)
-        {
-            if (i.InventoryType == InventoryType.dinamicki)
-            {
-                dynamicInventories.Add(i);
-            }
-            else
-            {
-                staticInventories.Add(i);
             }
         }
 
@@ -88,8 +62,17 @@ namespace IS_Bolnica
         {
             if (IsAnyDynamicInventorySelected())
             {
-                storage.DeleteInventory(selectedInventory);
-                RefreshDataGrid();
+                MessageBoxResult messageBox = MessageBox.Show("Da li ste sigurni da želite da obrišete izabrani inventar?",
+                    "Brisanje inventara", MessageBoxButton.YesNo);
+                switch (messageBox)
+                {
+                    case MessageBoxResult.Yes:
+                        service.DeleteInventory(selectedInventory);
+                        RefreshDataGrid();
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                }
             }
         }
 
@@ -97,7 +80,7 @@ namespace IS_Bolnica
         {
             if(dynamicDataGrid.SelectedIndex < 0)
             {
-                MessageBox.Show("Niste izabrali nijedan inventar!");
+                MessageBox.Show("Niste izabrali nijedan dinamički inventar!");
                 return false;
             }
             else
@@ -109,10 +92,8 @@ namespace IS_Bolnica
 
         private void RefreshDataGrid()
         {
-            SetMagacin();
-            SetDynamicAndStaticInventory();
-            dynamicDataGrid.ItemsSource = dynamicInventories;
-            staticDataGrid.ItemsSource = staticInventories;
+            dynamicDataGrid.ItemsSource = service.GetDynamicInventory();
+            staticDataGrid.ItemsSource = service.GetStaticInventory();
         }
 
         private void EditDynamicButtonClicked(object sender, RoutedEventArgs e)
@@ -136,8 +117,17 @@ namespace IS_Bolnica
         {
             if (IsAnyStaticInventorySelected())
             {
-                storage.DeleteInventory(selectedInventory);
-                RefreshDataGrid();
+                MessageBoxResult messageBox = MessageBox.Show("Da li ste sigurni da želite da obrišete izabrani inventar?",
+                    "Brisanje inventara", MessageBoxButton.YesNo);
+                switch (messageBox)
+                {
+                    case MessageBoxResult.Yes:
+                        service.DeleteInventory(selectedInventory);
+                        RefreshDataGrid();
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                }
             }
         }
 
@@ -145,7 +135,7 @@ namespace IS_Bolnica
         {
             if (staticDataGrid.SelectedIndex < 0)
             {
-                MessageBox.Show("Niste izabrali nijedan inventar!");
+                MessageBox.Show("Niste izabrali nijedan statički inventar!");
                 return false;
             }
             else
@@ -169,27 +159,51 @@ namespace IS_Bolnica
         {
             selectedInventory = (Inventory)dynamicDataGrid.SelectedItem;
             DataGridRow row = sender as DataGridRow;
-            InventoryPerRooms si = new InventoryPerRooms(selectedInventory);
-            si.Show();
+            InventoryPerRooms iw = new InventoryPerRooms(selectedInventory);
+            iw.Show();
         }
-        
-        private void StaticRowDoubelClick(object sender, MouseButtonEventArgs e)
+
+        private void InventoryPerRoomDynamicButton(object sender, RoutedEventArgs e)
+        {
+            if (IsAnyDynamicInventorySelected())
+            {
+                selectedInventory = (Inventory)dynamicDataGrid.SelectedItem;
+                DataGridRow row = sender as DataGridRow;
+                InventoryPerRooms iw = new InventoryPerRooms(selectedInventory);
+                iw.Show();
+            }
+        }
+
+        private void InventoryPerRoomStaticButton(object sender, RoutedEventArgs e)
+        {
+            if (IsAnyStaticInventorySelected())
+            {
+                selectedInventory = (Inventory)staticDataGrid.SelectedItem;
+                DataGridRow row = sender as DataGridRow;
+                InventoryPerRooms iw = new InventoryPerRooms(selectedInventory);
+                iw.Show();
+            }
+        }
+
+        private void StaticRowDoubleClick(object sender, MouseButtonEventArgs e)
         {
             selectedInventory = (Inventory)staticDataGrid.SelectedItem;
             DataGridRow row = sender as DataGridRow;
-            InventoryPerRooms si = new InventoryPerRooms(selectedInventory);
-            si.Show();
+            InventoryPerRooms iw = new InventoryPerRooms(selectedInventory);
+            iw.Show();
         }
 
         private void DynamicKeyUp(object sender, KeyEventArgs e)
         {
+            List<Inventory> dynamicInventories = service.GetDynamicInventory();
             var filtered = dynamicInventories.Where(inventory => inventory.Name.ToLower().Contains(searchBox.Text.ToLower()));
             dynamicDataGrid.ItemsSource = filtered;
         }
 
         private void StaticKeyUp(object sender, KeyEventArgs e)
         {
-            var filtered = staticInventories.Where(inventory => inventory.Name.ToLower().Contains(searchBox.Text.ToLower()));
+            List<Inventory> staticInventories = service.GetStaticInventory();
+            var filtered = staticInventories.Where(inventory => inventory.Name.ToLower().Contains(statickiSearchBox.Text.ToLower()));
             staticDataGrid.ItemsSource = filtered;
         }
 
@@ -210,8 +224,36 @@ namespace IS_Bolnica
 
         private void ProfileButtonClicked(object sender, RoutedEventArgs e)
         {
-            DirectorProfileWindow profileWindow = new DirectorProfileWindow();
+            DirectorProfileWindow profileWindow = new DirectorProfileWindow("0601234567", "ivanivanovic@gmail.com");
             profileWindow.Show();
+            this.Close();
+        }
+
+        private void NotificationButtonClicked(object sender, RoutedEventArgs e)
+        {
+            DirectorNotificationWindow dw = new DirectorNotificationWindow();
+            dw.Show();
+            this.Close();
+        }
+
+        private void SignOutButtonClicked(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult messageBox = MessageBox.Show("Da li ste sigurni da želite da se odjavite?",
+                "Odjava", MessageBoxButton.YesNo);
+            switch (messageBox)
+            {
+                case MessageBoxResult.Yes:
+                    this.Close();
+                    break;
+                case MessageBoxResult.No:
+                    break;
+            }
+        }
+
+        private void ReportButtonClicked(object sender, RoutedEventArgs e)
+        {
+            ReportWindow rw = new ReportWindow();
+            rw.Show();
             this.Close();
         }
     }
