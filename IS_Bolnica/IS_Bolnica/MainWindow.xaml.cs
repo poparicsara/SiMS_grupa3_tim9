@@ -24,7 +24,7 @@ namespace IS_Bolnica
 
         private void ButtonUpravnikClicked(object sender, RoutedEventArgs e)
         {
-            DirectorProfileWindow profileWindow = new DirectorProfileWindow();
+            DirectorProfileWindow profileWindow = new DirectorProfileWindow("0601111", "sara");
             profileWindow.Show();
         }
 
@@ -83,7 +83,7 @@ namespace IS_Bolnica
 
                             break;
                         case UserType.director:
-                            DirectorProfileWindow profileWindow = new DirectorProfileWindow();
+                            DirectorProfileWindow profileWindow = new DirectorProfileWindow("0601111", "sara");
                             profileWindow.Show();
                             break;
                         case UserType.secretary:

@@ -150,7 +150,7 @@
     "Akcije": 0,
     "brojOcenjenihPregleda": 0,
     "Gender": 1,
-    "isBlocked": true,
+    "isBlocked": false,
     "HealthCardNumber": "",
     "Anamneses": [],
     "Ingredients": [],

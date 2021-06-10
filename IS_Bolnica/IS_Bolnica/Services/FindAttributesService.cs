@@ -132,7 +132,7 @@ namespace IS_Bolnica.Services
             rooms = roomRepository.GetRooms();
             for (int i = 0; i < rooms.Count; i++)
             {
-                if (rooms[i].roomPurpose.Name == "Operaciona sala")
+                if (rooms[i].RoomPurpose.Name == "Operaciona sala")
                 {
                     roomNums.Add(rooms[i].Id);
                 }
