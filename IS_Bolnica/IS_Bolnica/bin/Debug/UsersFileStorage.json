@@ -250,5 +250,29 @@
         }
       }
     }
+  },
+  {
+    "Username": "Milica",
+    "Password": "milica",
+    "Name": "Milica",
+    "Surname": "Milic",
+    "DateOfBirth": "1990-01-01T00:00:00",
+    "Phone": "065978465",
+    "Email": "milic@gmail.com",
+    "Id": "5555555555555",
+    "UserType": 0,
+    "Address": {
+      "Street": "Trg Dositeja Obradovica ",
+      "NumberOfBuilding": 5,
+      "Floor": 5,
+      "Apartment": 9,
+      "City": {
+        "name": "Novi Sad ",
+        "postalCode": "21000",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
   }
 ]
