@@ -117,7 +117,10 @@ namespace IS_Bolnica
         {
             if (roomService.IsRoomNumberUnique(newRoomNumber))
             {
-                renovationService.SeparateRoom(room1, selectedStartDate, selectedEndDate, selectedHour, selectedMinute, newRoomNumber);
+                //renovationService.SeparateRoom(room1, selectedStartDate, selectedEndDate, selectedHour, selectedMinute, newRoomNumber);
+                Room room2 = new Room
+                    {HospitalWard = room1.HospitalWard, Id = newRoomNumber, RoomPurpose = room1.RoomPurpose};
+                roomService.AddRoom(room2);
                 this.Close();
             }
             else

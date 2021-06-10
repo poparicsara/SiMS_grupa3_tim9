@@ -26,6 +26,7 @@ namespace Model
 
         public Room GetRoom(int id)
         {
+            rooms = GetRooms();
             foreach (var r in rooms)
             {
                 if (r.Id == id)
@@ -34,6 +35,44 @@ namespace Model
                 }
             }
             return null;
+        }
+
+        public void ReduceAmount(Room room, Inventory inventory, int amount)
+        {
+            foreach (var r in rooms)
+            {
+                if (r.Id == room.Id)
+                {
+                    foreach (var i in r.Inventory)
+                    {
+                        if (i.Id == inventory.Id)
+                        {
+                            i.CurrentAmount -= amount;
+                            saveToFile(rooms);
+                        }
+                    }
+                }
+            }
+            
+        }
+
+        public void IncreaseAmount(Room room, Inventory inventory, int amount)
+        {
+            foreach (var r in rooms)
+            {
+                if (r.Id == room.Id)
+                {
+                    foreach (var i in r.Inventory)
+                    {
+                        if (i.Id == inventory.Id)
+                        {
+                            i.CurrentAmount += amount;
+                            saveToFile(rooms);
+                        }
+                    }
+                }
+            }
+
         }
 
         public List<Room> GetSearchedRooms(string text)
@@ -74,6 +113,51 @@ namespace Model
             inventories.RemoveAt(index);
             inventories.Insert(index, newInventory);
             saveToFile(rooms);
+        }
+
+        public bool HasRoomSelectedInventory(Room room, Inventory selectedInventory)
+        {
+            foreach (var r in rooms)
+            {
+                if (r.Id == room.Id)
+                {
+                    if (r.Inventory != null)
+                    {
+                        foreach (var i in r.Inventory)
+                        {
+                            if (i.Id == selectedInventory.Id)
+                            {
+                                return true;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                    
+                }
+            }
+
+            return false;
+        }
+
+        public void AddInventoryToRoom(Room room, Inventory newInventory)
+        {
+            foreach (var r in rooms)
+            {
+                if (r.Id == room.Id)
+                {
+                    if (r.Inventory == null)
+                    {
+                        r.Inventory = new List<Inventory>();
+                    }
+                    newInventory.CurrentAmount = 0;
+                    r.Inventory.Add(newInventory);
+                    saveToFile(rooms);
+                }
+            }
+            
         }
 
         public List<Inventory> GetDynamicInventory(Room room)

@@ -28,6 +28,7 @@ namespace IS_Bolnica.Services
         private InventoryRepository inventoryRepository = new InventoryRepository();
         private List<Shifting> shiftings = new List<Shifting>();
         private Shifting newShifting = new Shifting();
+        private RoomRepository roomRepository = new RoomRepository();
 
         public ChangeInventoryPlaceService()
         {
@@ -37,7 +38,7 @@ namespace IS_Bolnica.Services
 
         public bool HasRoomSelectedInventory(Inventory inventory, Room room)
         {
-            return inventoryRepository.HasRoomSelectedInventory(room, inventory);
+            return roomRepository.HasRoomSelectedInventory(room, inventory);
         }
 
         public bool HasEnoughAmount(Inventory inventory, Room room, int amount)
@@ -118,14 +119,15 @@ namespace IS_Bolnica.Services
         {
             if (!HasRoomSelectedInventory(selectedInventory, roomTo))
             {
-                inventoryRepository.AddInventoryToRoom(this.roomTo, selectedInventory);
-                roomService.Save(rooms);
+                roomRepository.AddInventoryToRoom(this.roomTo, selectedInventory);
+                //roomService.Save(rooms);
             }
             SetInventoryTo();
         }
 
         private void SetInventoryTo()
         {
+            roomTo = roomRepository.GetRoom(roomTo.Id);
             foreach (var i in roomTo.Inventory)
             {
                 if (i.Id == selectedInventory.Id)
@@ -146,8 +148,9 @@ namespace IS_Bolnica.Services
         {
             if (selectedInventory.InventoryType == InventoryType.staticki)
             {
-                AddShifting();
-                StartThread();
+                //AddShifting();
+                //StartThread();
+                DoChange();
             }
             else
             {
@@ -203,9 +206,11 @@ namespace IS_Bolnica.Services
 
         private void DoChange()
         {
-            inventoryFrom.CurrentAmount -= amount;
+            /*inventoryFrom.CurrentAmount -= amount;
             inventoryTo.CurrentAmount += amount;
-            roomService.Save(rooms);
+            roomService.Save(rooms);*/
+            roomRepository.ReduceAmount(roomFrom, selectedInventory, amount);
+            roomRepository.IncreaseAmount(roomTo, selectedInventory, amount);
         }
 
         private string[] GetFullCurrentDate()
