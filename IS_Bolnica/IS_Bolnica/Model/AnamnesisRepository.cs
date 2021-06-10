@@ -10,18 +10,19 @@ namespace IS_Bolnica.Model
 {
     class AnamnesisRepository
     {
+        private string fileName = "anamneses.json";
         public List<Anamnesis> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public void saveToFile(List<Anamnesis> anamneses, string fileName)
+        public void SaveToFile(List<Anamnesis> anamneses)
         {
             string jsonString = JsonConvert.SerializeObject(anamneses, Formatting.Indented);
             File.WriteAllText(fileName, jsonString);
         }
 
-        public List<Anamnesis> loadFromFile(string fileName)
+        public List<Anamnesis> LoadFromFile()
         {
             var anamneses = new List<Anamnesis>();
 

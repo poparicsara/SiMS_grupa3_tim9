@@ -30,8 +30,10 @@ namespace IS_Bolnica
 
         private void doctorButtonClicked(object sender, RoutedEventArgs e)
         {
-            DoctorWindow doctorWindow = new DoctorWindow();
-            doctorWindow.Show();
+            //DoctorWindow doctorWindow = new DoctorWindow();
+            //doctorWindow.Show();
+            DoctorStartWindow doctorStartWindow = new DoctorStartWindow();
+            doctorStartWindow.Show();
         }
 
         //private void PatientButtonClicked(object sender, RoutedEventArgs e)
@@ -52,7 +54,7 @@ namespace IS_Bolnica
         {
             users = storage.LoadFromFile("UsersFileStorage.json");
             patients = patientStorage.LoadFromFile("PatientRecordFileStorage.json");
-            
+
             string username = usernameBox.Text;
             string password = passwordBox.Password.ToString();
 
@@ -77,8 +79,10 @@ namespace IS_Bolnica
 
                             loggedUsers.Add(user);
                             storage.SaveToFile(loggedUsers, "loggedUsers.json");
-                            DoctorWindow doctorWindow = new DoctorWindow();
-                            doctorWindow.Show();
+                            //DoctorWindow doctorWindow = new DoctorWindow();
+                            //doctorWindow.Show();
+                            DoctorStartWindow doctorStartWindow = new DoctorStartWindow();
+                            doctorStartWindow.Show();
                             this.Close();
 
                             break;

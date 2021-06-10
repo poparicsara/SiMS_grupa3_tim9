@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace IS_Bolnica.Model
 {
-    class MedicamentRepository
+    public class MedicamentRepository
     {
         private List<Medicament> meds;
 

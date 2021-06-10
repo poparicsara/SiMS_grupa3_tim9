@@ -115,6 +115,9 @@ namespace IS_Bolnica.Services
 
             return allOtheriIngredients;
         }
+        public List<Ingredient> GetAllIngredients()
+        {
+            return ingredientRepository.loadFromFile("Sastojci.json");
+        }
     }
 }
-

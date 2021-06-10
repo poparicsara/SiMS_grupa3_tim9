@@ -22,6 +22,7 @@ namespace IS_Bolnica.Services
         {
             rooms = roomService.GetRooms();
             magacin = roomService.GetMagacin();
+            //inventoryItems = GetInventory();
         }
 
         public List<Inventory> GetDynamicInventory()
@@ -70,6 +71,17 @@ namespace IS_Bolnica.Services
             return index;
         }
 
-        
+        public int GetNumberOfBedsInRoom(Room room)
+        {
+            int numberOfBeds = 0;
+            foreach (Inventory inventory in room.inventory)
+            {
+                if (inventory.Name.Equals("Krevet"))
+                {
+                    numberOfBeds = inventory.CurrentAmount;
+                }
+            }
+            return numberOfBeds;
+        }
     }
 }

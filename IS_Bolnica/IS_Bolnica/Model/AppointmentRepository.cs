@@ -11,6 +11,7 @@ namespace IS_Bolnica.Model
 {
     class AppointmentRepository
     {
+        private string fileName = "Appointments.json";
         public List<Appointment> GetAll()
         {
             throw new NotImplementedException();

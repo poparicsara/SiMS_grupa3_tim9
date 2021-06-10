@@ -4,9 +4,6 @@
     "Name": "Alopurinol",
     "Ingredients": [
       {
-        "Name": "Alopurinol"
-      },
-      {
         "Name": "Kukuruzni skrob"
       },
       {
@@ -20,14 +17,93 @@
       },
       {
         "Name": "Magnezijum-stearat"
+      },
+      {
+        "Name": "Lizin"
       }
     ],
     "Replacement": {
       "Id": 102,
-      "Name": "ESBESUL",
-      "Ingredients": null,
-      "Replacement": null,
-      "Producer": "Bayer",
+      "Name": "Altravesa",
+      "Ingredients": [
+        {
+          "Name": "Anastrozol"
+        },
+        {
+          "Name": "Laktoza"
+        },
+        {
+          "Name": "Natrijum-skrobglikolat"
+        },
+        {
+          "Name": "Povidon K25"
+        }
+      ],
+      "Replacement": {
+        "Id": 101,
+        "Name": "Alopurinol",
+        "Ingredients": [
+          {
+            "Name": "Kukuruzni skrob"
+          },
+          {
+            "Name": "Celuloza"
+          },
+          {
+            "Name": "Natrijum-skrobglikolat"
+          },
+          {
+            "Name": "Talk"
+          },
+          {
+            "Name": "Magnezijum-stearat"
+          },
+          {
+            "Name": "Lizin"
+          }
+        ],
+        "Replacement": {
+          "Id": 104,
+          "Name": "Bactim roche",
+          "Ingredients": null,
+          "Replacement": {
+            "Id": 101,
+            "Name": "Alopurinol",
+            "Ingredients": [
+              {
+                "Name": "Kukuruzni skrob"
+              },
+              {
+                "Name": "Celuloza"
+              },
+              {
+                "Name": "Natrijum-skrobglikolat"
+              },
+              {
+                "Name": "Talk"
+              },
+              {
+                "Name": "Magnezijum-stearat"
+              }
+            ],
+            "Replacement": {
+              "Id": 102,
+              "Name": "ESBESUL",
+              "Ingredients": null,
+              "Replacement": null,
+              "Producer": "Bayer",
+              "Status": 0
+            },
+            "Producer": "Bayer",
+            "Status": 0
+          },
+          "Producer": "Bayer",
+          "Status": 0
+        },
+        "Producer": "Bayer",
+        "Status": 0
+      },
+      "Producer": "Hemofarm",
       "Status": 0
     },
     "Producer": "Bayer",
@@ -48,71 +124,73 @@
       },
       {
         "Name": "Povidon K25"
-      },
-      {
-        "Name": "Magnezijum-stearat"
       }
     ],
     "Replacement": {
-      "Id": 102,
-      "Name": "ESBESUL",
-      "Ingredients": null,
-      "Replacement": null,
+      "Id": 101,
+      "Name": "Alopurinol",
+      "Ingredients": [
+        {
+          "Name": "Kukuruzni skrob"
+        },
+        {
+          "Name": "Celuloza"
+        },
+        {
+          "Name": "Natrijum-skrobglikolat"
+        },
+        {
+          "Name": "Talk"
+        },
+        {
+          "Name": "Magnezijum-stearat"
+        },
+        {
+          "Name": "Lizin"
+        }
+      ],
+      "Replacement": {
+        "Id": 104,
+        "Name": "Bactim roche",
+        "Ingredients": null,
+        "Replacement": {
+          "Id": 101,
+          "Name": "Alopurinol",
+          "Ingredients": [
+            {
+              "Name": "Kukuruzni skrob"
+            },
+            {
+              "Name": "Celuloza"
+            },
+            {
+              "Name": "Natrijum-skrobglikolat"
+            },
+            {
+              "Name": "Talk"
+            },
+            {
+              "Name": "Magnezijum-stearat"
+            }
+          ],
+          "Replacement": {
+            "Id": 102,
+            "Name": "ESBESUL",
+            "Ingredients": null,
+            "Replacement": null,
+            "Producer": "Bayer",
+            "Status": 0
+          },
+          "Producer": "Bayer",
+          "Status": 0
+        },
+        "Producer": "Bayer",
+        "Status": 0
+      },
       "Producer": "Bayer",
       "Status": 0
     },
     "Producer": "Hemofarm",
-    "Status": 0
-  },
-  {
-    "Id": 104,
-    "Name": "Bactim roche",
-    "Ingredients": [
-      {
-        "Name": "Sulfametoksazol"
-      },
-      {
-        "Name": "Trimetoprim"
-      }
-    ],
-    "Replacement": {
-      "Id": 102,
-      "Name": "ESBESUL",
-      "Ingredients": null,
-      "Replacement": {
-        "Id": 102,
-        "Name": "ESBESUL",
-        "Ingredients": null,
-        "Replacement": null,
-        "Producer": "Bayer",
-        "Status": 0
-      },
-      "Producer": "Bayer",
-      "Status": 0
-    },
-    "Producer": "Bayer",
-    "Status": 0
-  },
-  {
-    "Id": 333,
-    "Name": "aaa",
-    "Ingredients": null,
-    "Replacement": {
-      "Id": 0,
-      "Name": "aaa",
-      "Ingredients": null,
-      "Replacement": {
-        "Id": 102,
-        "Name": "ESBESUL",
-        "Ingredients": null,
-        "Replacement": null,
-        "Producer": "Bayer",
-        "Status": 0
-      },
-      "Producer": null,
-      "Status": 0
-    },
-    "Producer": "aaa",
     "Status": 0
   },
   {
@@ -136,141 +214,113 @@
       },
       {
         "Name": "Treonin"
+      },
+      {
+        "Name": "Anastrozol"
       }
     ],
     "Replacement": {
       "Id": 102,
-      "Name": "ESBESUL",
-      "Ingredients": null,
+      "Name": "Altravesa",
+      "Ingredients": [
+        {
+          "Name": "Anastrozol"
+        },
+        {
+          "Name": "Laktoza"
+        },
+        {
+          "Name": "Natrijum-skrobglikolat"
+        },
+        {
+          "Name": "Povidon K25"
+        }
+      ],
       "Replacement": {
-        "Id": 102,
-        "Name": "ESBESUL",
-        "Ingredients": null,
-        "Replacement": null,
+        "Id": 101,
+        "Name": "Alopurinol",
+        "Ingredients": [
+          {
+            "Name": "Kukuruzni skrob"
+          },
+          {
+            "Name": "Celuloza"
+          },
+          {
+            "Name": "Natrijum-skrobglikolat"
+          },
+          {
+            "Name": "Talk"
+          },
+          {
+            "Name": "Magnezijum-stearat"
+          },
+          {
+            "Name": "Lizin"
+          }
+        ],
+        "Replacement": {
+          "Id": 104,
+          "Name": "Bactim roche",
+          "Ingredients": null,
+          "Replacement": {
+            "Id": 101,
+            "Name": "Alopurinol",
+            "Ingredients": [
+              {
+                "Name": "Kukuruzni skrob"
+              },
+              {
+                "Name": "Celuloza"
+              },
+              {
+                "Name": "Natrijum-skrobglikolat"
+              },
+              {
+                "Name": "Talk"
+              },
+              {
+                "Name": "Magnezijum-stearat"
+              }
+            ],
+            "Replacement": {
+              "Id": 102,
+              "Name": "ESBESUL",
+              "Ingredients": null,
+              "Replacement": null,
+              "Producer": "Bayer",
+              "Status": 0
+            },
+            "Producer": "Bayer",
+            "Status": 0
+          },
+          "Producer": "Bayer",
+          "Status": 0
+        },
         "Producer": "Bayer",
         "Status": 0
       },
-      "Producer": "Bayer",
+      "Producer": "Hemofarm",
       "Status": 0
     },
     "Producer": "Hemofarm",
     "Status": 0
   },
   {
-    "Id": 1,
-    "Name": "eto",
+    "Id": 140,
+    "Name": "Panadol",
     "Ingredients": [
       {
-        "Name": "b"
+        "Name": "Leucin"
       },
       {
-        "Name": "b"
+        "Name": "Valin"
       },
       {
-        "Name": "b"
+        "Name": "Triacetin"
       },
       {
-        "Name": "ccc"
-      }
-    ],
-    "Replacement": {
-      "Id": 333,
-      "Name": "aaa",
-      "Ingredients": null,
-      "Replacement": {
-        "Id": 0,
-        "Name": "aaa",
-        "Ingredients": null,
-        "Replacement": null,
-        "Producer": null,
-        "Status": 0
-      },
-      "Producer": "aaa",
-      "Status": 0
-    },
-    "Producer": "eto",
-    "Status": 1
-  },
-  {
-    "Id": 3,
-    "Name": "promena",
-    "Ingredients": [
-      {
-        "Name": "c"
-      },
-      {
-        "Name": "c"
-      },
-      {
-        "Name": "c"
-      }
-    ],
-    "Replacement": {
-      "Id": 333,
-      "Name": "aaa",
-      "Ingredients": null,
-      "Replacement": {
-        "Id": 0,
-        "Name": "aaa",
-        "Ingredients": null,
-        "Replacement": null,
-        "Producer": null,
-        "Status": 0
-      },
-      "Producer": "aaa",
-      "Status": 0
-    },
-    "Producer": "promena",
-    "Status": 0
-  },
-  {
-    "Id": 4,
-    "Name": "AJDE",
-    "Ingredients": [
-      {
-        "Name": "proba1"
-      },
-      {
-        "Name": "proba2"
-      },
-      {
-        "Name": "c"
-      },
-      {
-        "Name": "d"
-      }
-    ],
-    "Replacement": {
-      "Id": 102,
-      "Name": "ESBESUL",
-      "Ingredients": null,
-      "Replacement": null,
-      "Producer": "Bayer",
-      "Status": 0
-    },
-    "Producer": "oni",
-    "Status": 0
-  },
-  {
-    "Id": 666,
-    "Name": "nesto",
-    "Ingredients": null,
-    "Replacement": null,
-    "Producer": "neko",
-    "Status": 0
-  },
-  {
-    "Id": 3,
-    "Name": "a",
-    "Ingredients": [
-      {
-        "Name": "a"
-      },
-      {
-        "Name": "a"
-      },
-      {
-        "Name": "a"
+        "Name": "Caffeine"
       }
     ],
     "Replacement": {
@@ -288,170 +338,76 @@
         },
         {
           "Name": "Povidon K25"
-        },
-        {
-          "Name": "Magnezijum-stearat"
         }
       ],
       "Replacement": {
-        "Id": 102,
-        "Name": "ESBESUL",
-        "Ingredients": null,
-        "Replacement": null,
+        "Id": 101,
+        "Name": "Alopurinol",
+        "Ingredients": [
+          {
+            "Name": "Kukuruzni skrob"
+          },
+          {
+            "Name": "Celuloza"
+          },
+          {
+            "Name": "Natrijum-skrobglikolat"
+          },
+          {
+            "Name": "Talk"
+          },
+          {
+            "Name": "Magnezijum-stearat"
+          },
+          {
+            "Name": "Lizin"
+          }
+        ],
+        "Replacement": {
+          "Id": 104,
+          "Name": "Bactim roche",
+          "Ingredients": null,
+          "Replacement": {
+            "Id": 101,
+            "Name": "Alopurinol",
+            "Ingredients": [
+              {
+                "Name": "Kukuruzni skrob"
+              },
+              {
+                "Name": "Celuloza"
+              },
+              {
+                "Name": "Natrijum-skrobglikolat"
+              },
+              {
+                "Name": "Talk"
+              },
+              {
+                "Name": "Magnezijum-stearat"
+              }
+            ],
+            "Replacement": {
+              "Id": 102,
+              "Name": "ESBESUL",
+              "Ingredients": null,
+              "Replacement": null,
+              "Producer": "Bayer",
+              "Status": 0
+            },
+            "Producer": "Bayer",
+            "Status": 0
+          },
+          "Producer": "Bayer",
+          "Status": 0
+        },
         "Producer": "Bayer",
         "Status": 0
       },
       "Producer": "Hemofarm",
       "Status": 0
     },
-    "Producer": "a",
+    "Producer": "Bayer",
     "Status": 0
-  },
-  {
-    "Id": 5,
-    "Name": "a",
-    "Ingredients": [
-      {
-        "Name": "a"
-      },
-      {
-        "Name": "a"
-      },
-      {
-        "Name": "a"
-      }
-    ],
-    "Replacement": {
-      "Id": 101,
-      "Name": "Alopurinol",
-      "Ingredients": [
-        {
-          "Name": "Alopurinol"
-        },
-        {
-          "Name": "Kukuruzni skrob"
-        },
-        {
-          "Name": "Celuloza"
-        },
-        {
-          "Name": "Natrijum-skrobglikolat"
-        },
-        {
-          "Name": "Talk"
-        },
-        {
-          "Name": "Magnezijum-stearat"
-        }
-      ],
-      "Replacement": {
-        "Id": 102,
-        "Name": "ESBESUL",
-        "Ingredients": null,
-        "Replacement": null,
-        "Producer": "Bayer",
-        "Status": 0
-      },
-      "Producer": "Bayer",
-      "Status": 0
-    },
-    "Producer": "b",
-    "Status": 0
-  },
-  {
-    "Id": 123,
-    "Name": "novi lekkk",
-    "Ingredients": [
-      {
-        "Name": "sastojak"
-      },
-      {
-        "Name": "sastojak"
-      },
-      {
-        "Name": "novi"
-      }
-    ],
-    "Replacement": {
-      "Id": 102,
-      "Name": "Altravesa",
-      "Ingredients": [
-        {
-          "Name": "Anastrozol"
-        },
-        {
-          "Name": "Laktoza"
-        },
-        {
-          "Name": "Natrijum-skrobglikolat"
-        },
-        {
-          "Name": "Povidon K25"
-        },
-        {
-          "Name": "Magnezijum-stearat"
-        }
-      ],
-      "Replacement": {
-        "Id": 102,
-        "Name": "ESBESUL",
-        "Ingredients": null,
-        "Replacement": null,
-        "Producer": "Bayer",
-        "Status": 0
-      },
-      "Producer": "Hemofarm",
-      "Status": 0
-    },
-    "Producer": "novi  proizvodjac",
-    "Status": 0
-  },
-  {
-    "Id": 2,
-    "Name": "novi lek",
-    "Ingredients": [
-      {
-        "Name": "sastojak1"
-      },
-      {
-        "Name": "sastojak2"
-      }
-    ],
-    "Replacement": {
-      "Id": 101,
-      "Name": "Alopurinol",
-      "Ingredients": [
-        {
-          "Name": "Alopurinol"
-        },
-        {
-          "Name": "Kukuruzni skrob"
-        },
-        {
-          "Name": "Celuloza"
-        },
-        {
-          "Name": "Natrijum-skrobglikolat"
-        },
-        {
-          "Name": "Talk"
-        },
-        {
-          "Name": "Magnezijum-stearat"
-        }
-      ],
-      "Replacement": {
-        "Id": 102,
-        "Name": "ESBESUL",
-        "Ingredients": null,
-        "Replacement": null,
-        "Producer": "Bayer",
-        "Status": 0
-      },
-      "Producer": "Bayer",
-      "Status": 0
-    },
-    "Producer": "ftn novi sad",
-    "Status": 1
   }
 ]
