@@ -56,7 +56,7 @@
       },
       {
         "Name": "Krevet",
-        "CurrentAmount": 0,
+        "CurrentAmount": 7,
         "Minimum": 0,
         "Id": 666,
         "InventoryType": 1
@@ -630,7 +630,22 @@
   {
     "Id": 10,
     "HospitalWard": "Alergologija i imunologija",
-    "Inventory": null,
+    "Inventory": [
+      {
+        "Name": "Injekcija",
+        "CurrentAmount": 0,
+        "Minimum": 0,
+        "Id": 202,
+        "InventoryType": 0
+      },
+      {
+        "Name": "Krevet",
+        "CurrentAmount": 3,
+        "Minimum": 0,
+        "Id": 666,
+        "InventoryType": 1
+      }
+    ],
     "RoomPurpose": {
       "Name": "Ordinacija"
     }

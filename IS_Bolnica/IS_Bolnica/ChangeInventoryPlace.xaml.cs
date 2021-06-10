@@ -101,8 +101,19 @@ namespace IS_Bolnica
 
         private void LockPurposeAndNumberBox()
         {
+            SetMagacinFields();
             purposeFromBox.IsEnabled = false;
             numberFromBox.IsEnabled = false;
+        }
+
+        private void SetMagacinFields()
+        {
+            int index = roomService.GetRoomPurposes().Count - 1;
+            purposeFromBox.SelectedItem = roomService.GetRoomPurposes().ElementAt(index);
+            List<int> roomNumbers = new List<int>();
+            roomNumbers.Add(1);
+            numberFromBox.ItemsSource = roomNumbers;
+            numberFromBox.SelectedItem = roomNumbers.ElementAt(0);
         }
 
         private void purposeFromChanged(object sender, SelectionChangedEventArgs e)

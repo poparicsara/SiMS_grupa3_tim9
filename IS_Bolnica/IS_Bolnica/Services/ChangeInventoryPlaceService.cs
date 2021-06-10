@@ -120,7 +120,6 @@ namespace IS_Bolnica.Services
             if (!HasRoomSelectedInventory(selectedInventory, roomTo))
             {
                 roomRepository.AddInventoryToRoom(this.roomTo, selectedInventory);
-                //roomService.Save(rooms);
             }
             SetInventoryTo();
         }
@@ -148,9 +147,8 @@ namespace IS_Bolnica.Services
         {
             if (selectedInventory.InventoryType == InventoryType.staticki)
             {
-                //AddShifting();
-                //StartThread();
-                DoChange();
+                AddShifting();
+                StartThread();
             }
             else
             {
@@ -206,9 +204,6 @@ namespace IS_Bolnica.Services
 
         private void DoChange()
         {
-            /*inventoryFrom.CurrentAmount -= amount;
-            inventoryTo.CurrentAmount += amount;
-            roomService.Save(rooms);*/
             roomRepository.ReduceAmount(roomFrom, selectedInventory, amount);
             roomRepository.IncreaseAmount(roomTo, selectedInventory, amount);
         }
