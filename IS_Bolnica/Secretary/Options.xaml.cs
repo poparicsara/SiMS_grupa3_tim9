@@ -7,18 +7,18 @@ namespace IS_Bolnica.Secretary
 {
     public partial class Options : Page
     {
-        private Page prevoiusPage;
+        /*private Page prevoiusPage;
         public Options(Page prevoiusPage)
         {
             InitializeComponent();
             this.prevoiusPage = prevoiusPage;
             if (Properties.Settings.Default.ColorMode == "Black")
             {
-                darkBtn.IsChecked = true;
+                //darkBtn.IsChecked = true;
             }
             else
             {
-                lightBtn.IsChecked = true;
+                //lightBtn.IsChecked = true;
             }
         }
 
@@ -41,12 +41,12 @@ namespace IS_Bolnica.Secretary
 
         private void LanguageBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (LanguageBox.SelectedIndex == 0)
+            *//*if (LanguageBox.SelectedIndex == 0)
                 TranslationSource.Instance.CurrentCulture = new System.Globalization.CultureInfo("en-US");
             else
             {
                 TranslationSource.Instance.CurrentCulture = new System.Globalization.CultureInfo("sr-RS");
-            }
-        }
+            }*//*
+        }*/
     }
 }

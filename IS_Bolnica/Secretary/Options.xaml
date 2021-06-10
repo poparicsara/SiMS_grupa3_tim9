@@ -10,11 +10,11 @@
       Title="Options">
 
     <Grid>
-        <Button Background="White" BorderBrush="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="48" Margin="10,10,0,0" Height="48" Click="Button_clicked">
+        <!--Button Background="White" BorderBrush="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="48" Margin="10,10,0,0" Height="48" Click="Button_clicked">
             <StackPanel>
                 <Image Source="C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\Images\undo.jpg" Width="46" Height="41" RenderTransformOrigin="0.543,0.5"/>
             </StackPanel>
-        </Button>
+        </>
         <Label Content="{ns:Loc Logo}" FontSize="20" Foreground="Green" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,14,0,0" Height="35" Width="242"/>
         <Image x:Name="nasLogo" HorizontalAlignment="Left" Height="48" Margin="366,10,0,0" VerticalAlignment="Top" Width="48" Source="/IS_Bolnica;component/Images/nasLogo.jpg"/>
         <Label Content="{ns:Loc OptionLabel}" FontWeight="Bold"  Foreground="Green" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,75,0,0" Width="299" Height="48"/>
@@ -27,7 +27,7 @@
         <ComboBox x:Name="LanguageBox" SelectionChanged="LanguageBox_OnSelectionChanged" HorizontalAlignment="Left" Margin="228,266,0,0" VerticalAlignment="Top" Width="139">
             <ComboBoxItem>ENG</ComboBoxItem>
             <ComboBoxItem>SRB</ComboBoxItem>
-        </ComboBox>
+        </ComboBox-->
 
     </Grid>
 </Page>

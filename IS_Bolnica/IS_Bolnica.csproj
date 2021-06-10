@@ -88,6 +88,14 @@
     </Compile>
     <Compile Include="GUI\Patient\Command\RelayCommand.cs" />
     <Compile Include="GUI\Patient\ViewModel\EvaulationsForAppointmentsVM.cs" />
+    <Compile Include="GUI\Patient\ViewModel\InformationPageVM.cs" />
+    <Compile Include="GUI\Patient\ViewModel\ProfileVM.cs" />
+    <Compile Include="GUI\Patient\View\InformationPage.xaml.cs">
+      <DependentUpon>InformationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Patient\View\Profile.xaml.cs">
+      <DependentUpon>Profile.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\EvaluationRepository.cs" />
     <Compile Include="Model\Report.cs" />
     <Compile Include="Model\Suggestion.cs" />
@@ -169,6 +177,9 @@
     <Compile Include="Model\AppointmentType.cs" />
     <Compile Include="Model\Hospitalization.cs" />
     <Compile Include="Model\HospitalizationRepository.cs" />
+    <Compile Include="PatientPages\AddNewNotification.xaml.cs">
+      <DependentUpon>AddNewNotification.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PatientPages\CalendarForAppointments.xaml.cs">
       <DependentUpon>CalendarForAppointments.xaml</DependentUpon>
     </Compile>
@@ -187,9 +198,6 @@
     <Compile Include="PatientPages\EvaluationsForHospital.xaml.cs">
       <DependentUpon>EvaluationsForHospital.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PatientPages\InformationPage.xaml.cs">
-      <DependentUpon>InformationPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="PatientPages\MyAppointments.xaml.cs">
       <DependentUpon>MyAppointments.xaml</DependentUpon>
     </Compile>
@@ -207,9 +215,6 @@
     </Compile>
     <Compile Include="PatientPages\PatientNotificationsPage.xaml.cs">
       <DependentUpon>PatientNotificationsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PatientPages\Profile.xaml.cs">
-      <DependentUpon>Profile.xaml</DependentUpon>
     </Compile>
     <Compile Include="PatientPages\ShowAnamneses.xaml.cs">
       <DependentUpon>ShowAnamneses.xaml</DependentUpon>
@@ -467,6 +472,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="GUI\Patient\View\InformationPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\Patient\View\Profile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="PatientPages\AddNewAppointment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -563,6 +576,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PatientPages\AddNewNotification.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="PatientPages\CalendarForAppointments.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -587,10 +604,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PatientPages\InformationPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="PatientPages\MyAppointments.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -612,10 +625,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PatientPages\PatientNotificationsPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="PatientPages\Profile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

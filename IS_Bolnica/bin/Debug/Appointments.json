@@ -303,184 +303,6 @@
     },
     "Doctor": {
       "Specialization": {
-        "Name": "Interna medicina"
-      },
-      "Ordination": 110,
-      "Username": "Brankica",
-      "Password": "ftn",
-      "Name": "Brankica",
-      "Surname": "Banic",
-      "DateOfBirth": "1979-11-01T00:00:00",
-      "Phone": "67894652",
-      "Email": "maricm@hotmail.com",
-      "Id": "5",
-      "UserType": 1,
-      "Address": null
-    },
-    "DurationInMins": 25,
-    "GuestUser": null,
-    "Room": {
-      "Id": 110,
-      "HospitalWard": "Pedijatrija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 27,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Ordinacija"
-      }
-    },
-    "StartTime": "2021-06-10T15:00:00",
-    "EndTime": "2021-06-10T15:30:00",
-    "PostponedDate": "0001-01-01T00:00:00",
-    "IsUrgent": false,
-    "AppointmentType": 0
-  },
-  {
-    "Patient": {
-      "Allergens": [
-        "brufen"
-      ],
-      "examinations": null,
-      "Akcije": 2,
-      "brojOcenjenihPregleda": 0,
-      "Debit": 3000.0,
-      "HealthCardNumber": "80",
-      "Anamneses": null,
-      "Ingredients": null,
-      "Username": "p__nina",
-      "Password": "hehe",
-      "Name": "Nikolina",
-      "Surname": "Pavkovic",
-      "DateOfBirth": "2000-02-01T00:00:00",
-      "Phone": "0658886407",
-      "Email": "pavkovicn@hotmail.com",
-      "Id": "1502000815038",
-      "UserType": 0,
-      "Address": {
-        "Street": "Nova",
-        "NumberOfBuilding": 130,
-        "Floor": 0,
-        "Apartment": 0,
-        "City": {
-          "name": "Apatin",
-          "postalCode": "25260",
-          "Country": {
-            "name": "Srbija"
-          }
-        }
-      }
-    },
-    "Doctor": {
-      "Specialization": {
-        "Name": "Pedijatrija"
-      },
-      "Ordination": 107,
-      "Username": "nikola",
-      "Password": "dzoni",
-      "Name": "Nikola",
-      "Surname": "Spasojevic",
-      "DateOfBirth": "1980-11-01T00:00:00",
-      "Phone": "67894234",
-      "Email": "nikolas@gmail.com",
-      "Id": "4341009",
-      "UserType": 1,
-      "Address": null
-    },
-    "DurationInMins": 28,
-    "GuestUser": null,
-    "Room": {
-      "Id": 107,
-      "HospitalWard": "Pedijatrija",
-      "inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 27,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "roomPurpose": {
-        "Name": "Ordinacija"
-      }
-    },
-    "StartTime": "2021-08-28T10:00:00",
-    "EndTime": "2021-08-28T10:30:00",
-    "PostponedDate": "0001-01-01T00:00:00",
-    "IsUrgent": false,
-    "AppointmentType": 0
-  },
-  {
-    "Patient": {
-      "Allergens": [
-        ""
-      ],
-      "examinations": null,
-      "Akcije": 5,
-      "brojOcenjenihPregleda": 0,
-      "Debit": 0.0,
-      "HealthCardNumber": "17",
-      "Anamneses": null,
-      "Ingredients": null,
-      "Username": "Vladimir",
-      "Password": "ftn",
-      "Name": "Petar",
-      "Surname": "Petrović",
-      "DateOfBirth": "1964-06-01T00:00:00",
-      "Phone": "069778189",
-      "Email": "pera@gmail.com",
-      "Id": "1111111111111",
-      "UserType": 0,
-      "Address": {
-        "Street": "Ive Lole Ribara ",
-        "NumberOfBuilding": 2,
-        "Floor": 5,
-        "Apartment": 9,
-        "City": {
-          "name": "Sombor ",
-          "postalCode": "25000",
-          "Country": {
-            "name": "Srbija"
-          }
-        }
-      }
-    },
-    "Doctor": {
-      "Specialization": {
         "Name": "Dermatologija"
       },
       "Ordination": 301,
@@ -707,6 +529,95 @@
     },
     "StartTime": "2021-06-25T17:30:00",
     "EndTime": "2021-06-25T18:00:00",
+    "PostponedDate": "0001-01-01T00:00:00",
+    "IsUrgent": false,
+    "AppointmentType": 0
+  },
+  {
+    "Patient": {
+      "Allergens": [
+        "brufen"
+      ],
+      "examinations": null,
+      "Akcije": 4,
+      "brojOcenjenihPregleda": 0,
+      "Debit": 3000.0,
+      "HealthCardNumber": "80",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Username": "p__nina",
+      "Password": "hehe",
+      "Name": "Nikolina",
+      "Surname": "Pavkovic",
+      "DateOfBirth": "2000-02-01T00:00:00",
+      "Phone": "0658886407",
+      "Email": "pavkovicn@hotmail.com",
+      "Id": "1502000815038",
+      "UserType": 0,
+      "Address": {
+        "Street": "Nova",
+        "NumberOfBuilding": 130,
+        "Floor": 0,
+        "Apartment": 0,
+        "City": {
+          "name": "Apatin",
+          "postalCode": "25260",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "Doctor": {
+      "Specialization": {
+        "Name": "Pedijatrija"
+      },
+      "Ordination": 107,
+      "Username": "nikola",
+      "Password": "dzoni",
+      "Name": "Nikola",
+      "Surname": "Spasojevic",
+      "DateOfBirth": "1980-11-01T00:00:00",
+      "Phone": "67894234",
+      "Email": "nikolas@gmail.com",
+      "Id": "4341009",
+      "UserType": 1,
+      "Address": null
+    },
+    "DurationInMins": 23,
+    "GuestUser": null,
+    "Room": {
+      "Id": 107,
+      "HospitalWard": "Pedijatrija",
+      "inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 27,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "roomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "StartTime": "2021-08-28T16:00:00",
+    "EndTime": "2021-08-28T16:30:00",
     "PostponedDate": "0001-01-01T00:00:00",
     "IsUrgent": false,
     "AppointmentType": 0
