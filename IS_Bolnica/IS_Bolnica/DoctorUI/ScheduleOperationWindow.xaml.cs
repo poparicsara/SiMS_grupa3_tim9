@@ -36,7 +36,7 @@ namespace IS_Bolnica.DoctorUI
         private void PotvrdiButtonClick(object sender, RoutedEventArgs e)
         {
             operation.Doctor = doctorService.FindDoctorByName(doctorsCB.SelectedItem.ToString());
-            operation.Patient = patientService.findPatientById(patinetIdTxt.Text);
+            operation.Patient = patientService.FindPatietnById(patinetIdTxt.Text);
             operation.Room = roomService.FindOrdinationById(Convert.ToInt32(roomCB.SelectedItem));
             if (isUrgentRB.IsChecked == true)
             {
@@ -160,7 +160,7 @@ namespace IS_Bolnica.DoctorUI
 
         private void IdTextFieldLostFocus(object sender, RoutedEventArgs e)
         {
-            healthCardNumTxt.Text = patientService.findPatientById(patinetIdTxt.Text).HealthCardNumber;
+            healthCardNumTxt.Text = patientService.FindPatietnById(patinetIdTxt.Text).HealthCardNumber;
         }
 
         private void MedicamentsButtonClick(object sender, RoutedEventArgs e)

@@ -11,11 +11,13 @@ namespace IS_Bolnica.Services
     public class UserService
     {
         private List<User> users = new List<User>();
+        private List<User> loggedUsers = new List<User>();
         private UserRepository userRepository = new UserRepository();
 
         public UserService()
         {
             users = GetUsers();
+            loggedUsers = GetLoggedUsers();
         }
 
         public User GetLoggedUser()

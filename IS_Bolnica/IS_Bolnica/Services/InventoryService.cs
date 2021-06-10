@@ -74,7 +74,7 @@ namespace IS_Bolnica.Services
         public int GetNumberOfBedsInRoom(Room room)
         {
             int numberOfBeds = 0;
-            foreach (Inventory inventory in room.inventory)
+            foreach (Inventory inventory in room.Inventory)
             {
                 if (inventory.Name.Equals("Krevet"))
                 {

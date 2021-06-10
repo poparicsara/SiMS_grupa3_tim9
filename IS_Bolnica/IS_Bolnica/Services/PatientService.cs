@@ -20,7 +20,7 @@ namespace IS_Bolnica.Services
         {
             patients = GetPatients();
             patients.Add(patient);
-            patientRepository.SaveToFile(patients, "PatientRecordFileStorage.json");
+            patientRepository.SaveToFile(patients);
         }
 
         public void DeletePatient(Patient patient)
@@ -30,7 +30,7 @@ namespace IS_Bolnica.Services
             {
                 int index = FindPatientIndex(patient);
                 patients.RemoveAt(index);
-                patientRepository.SaveToFile(patients, "PatientRecordFileStorage.json");
+                patientRepository.SaveToFile(patients);
             }
         }
 
@@ -40,12 +40,12 @@ namespace IS_Bolnica.Services
             int index = FindPatientIndex(oldPatient);
             patients.RemoveAt(index);
             patients.Add(newPatient);
-            patientRepository.SaveToFile(patients, "PatientRecordFileStorage.json");
+            patientRepository.SaveToFile(patients);
         }
 
         public void UnblockPatient(Patient patient)
         {
-            patients = patientRepository.LoadFromFile("PatientRecordFileStorage.json");
+            patients = patientRepository.LoadFromFile();
             for (int i =  0; i < patients.Count; i++)
             {
                 if (patient.Id.Equals(patients[i].Id))
@@ -54,13 +54,13 @@ namespace IS_Bolnica.Services
                     patients[i].Akcije = 0;
                 }
             }
-            patientRepository.SaveToFile(patients, "PatientRecordFileStorage.json");
+            patientRepository.SaveToFile(patients);
         }
 
         public List<Patient> GetBlockedPatients()
         {
             blockedPatients = new List<Patient>();
-            patients = patientRepository.LoadFromFile("PatientRecordFileStorage.json");
+            patients = patientRepository.LoadFromFile();
             foreach (var patient in patients)
             {
                 if (patient.isBlocked || patient.Akcije >= 6)
@@ -116,7 +116,7 @@ namespace IS_Bolnica.Services
 
         public Patient FindPatietnById(string id)
         {
-            patients = patientRepository.LoadFromFile("PatientRecordFileStorage.json");
+            patients = patientRepository.LoadFromFile();
             foreach (var patient in patients)
             {
                 if (patient.Id.Equals(id))
@@ -131,12 +131,12 @@ namespace IS_Bolnica.Services
 
         public List<Patient> GetPatients()
         {
-            return patientRepository.LoadFromFile("PatientRecordFileStorage.json");
+            return patientRepository.LoadFromFile();
         }
 
         public void SetPatientAllergens(List<Ingredient> ingredients, string id)
         {
-            patients = patientRepository.LoadFromFile("PatientRecordFileStorage.json");
+            patients = patientRepository.LoadFromFile();
             foreach (var patient in patients)
             {
                 if (patient.Id.Equals(id))
@@ -144,12 +144,12 @@ namespace IS_Bolnica.Services
                     patient.Ingredients = ingredients;
                 }
             }
-            patientRepository.SaveToFile(patients, "PatientRecordFileStorage.json");
+            patientRepository.SaveToFile(patients);
         }
 
         public List<Patient> GetSearchedPatients(string text)
         {
-            patients = patientRepository.LoadFromFile("PatientRecordFileStorage.json");
+            patients = patientRepository.LoadFromFile();
             List<Patient> searchedPatients = new List<Patient>();
             foreach (Patient patient in patients)
             {
@@ -170,6 +170,53 @@ namespace IS_Bolnica.Services
                    p.Username.ToLower().Contains(text);
         }
 
+        public bool IsPatientAllergic(string patientId, string allergen)
+        {
+            for (int i = 0; i < patients.Count; i++)
+            {
+                if (patients[i].Id.Equals(patientId))
+                {
+                    for (int j = 0; j < patients[i].Alergeni.Count; j++)
+                    {
+                        if (patients[i].Alergeni[j].Name == allergen)
+                        {
+                            return true;
+                        }
+                        for (int k = 0; k < patients[i].Alergeni[j].IngredientsAllergens.Count; k++)
+                        {
+                            if (patients[i].Alergeni[j].IngredientsAllergens[k].Name == allergen
+                                || patients[i].Alergeni[j].MedicamentsAllergens[k].Name == allergen)
+                            {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
+        public List<string> GetPatientsAllergies(string patientId)
+        {
+            List<string> allergies = new List<string>();
+            for (int i = 0; i < patients.Count; i++)
+            {
+                if (patients[i].Id.Equals(patientId))
+                {
+                    for (int j = 0; j < patients[i].Alergeni.Count; j++)
+                    {
+                        allergies.Add(patients[i].Alergeni[j].Name);
+                        for (int k = 0; k < patients[i].Alergeni[j].IngredientsAllergens.Count; k++)
+                        {
+                            allergies.Add(patients[i].Alergeni[j].IngredientsAllergens[k].Name);
+                            allergies.Add(patients[i].Alergeni[j].MedicamentsAllergens[k].Name);
+                        }
+                    }
+                }
+            }
+
+            return allergies;
+        }
 
     }
 }

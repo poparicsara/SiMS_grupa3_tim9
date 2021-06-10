@@ -5,8 +5,5 @@
     <Setting Name="ColorMode" Type="System.String" Scope="User">
       <Value Profile="(Default)">Light</Value>
     </Setting>
-    <Setting Name="languageCode" Type="System.String" Scope="User">
-      <Value Profile="(Default)">en-US</Value>
-    </Setting>
   </Settings>
 </SettingsFile>

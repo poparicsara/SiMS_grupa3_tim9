@@ -109,7 +109,7 @@ namespace IS_Bolnica.DoctorUI
         }
         private void IdTextFieldLostFocus(object sender, RoutedEventArgs e)
         {
-            healthCardNumTxt.Text = patientService.findPatientById(patinetIdTxt.Text).HealthCardNumber;
+            healthCardNumTxt.Text = patientService.FindPatietnById(patinetIdTxt.Text).HealthCardNumber;
         }
 
         private void ShowDoctorsOrdination()
@@ -156,7 +156,7 @@ namespace IS_Bolnica.DoctorUI
         private void SetUpdatedData()
         {
             examination.Doctor = doctorService.FindDoctorByName(doctorsCB.SelectedItem.ToString());
-            examination.Patient = patientService.findPatientById(patinetIdTxt.Text);
+            examination.Patient = patientService.FindPatietnById(patinetIdTxt.Text);
             DateTime date = (DateTime)examinationDate.SelectedDate;
             int hour = Convert.ToInt32(hoursCB.Text);
             int minute = Convert.ToInt32(minutesCB.Text);

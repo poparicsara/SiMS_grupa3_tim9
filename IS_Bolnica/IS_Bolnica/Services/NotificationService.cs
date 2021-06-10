@@ -93,7 +93,7 @@ namespace IS_Bolnica.Services
 
         public List<Notification> GetSearchedNotifications(string text)
         {
-            notifications = notificationRepository.LoadFromFile("NotificationsFileStorage.json");
+            notifications = notificationRepository.LoadFromFile();
             List<Notification> searchedNotifications = new List<Notification>();
             foreach (Notification notification in notifications)
             {

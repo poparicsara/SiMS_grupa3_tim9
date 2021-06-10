@@ -114,12 +114,12 @@ namespace IS_Bolnica.Services
                     medicament.Replacement = new Medicament();
                 }
             }
-            medicamentRepository.saveToFile(meds);
+            repository.SaveToFile(meds);
         }
 
         public void SaveMedicament(Medicament medicament)
           {
-              medicamentRepository.saveToFile(meds);
+              repository.SaveToFile(meds);
           }
 
           public void AddIngredientInMedicament(Ingredient ingredient, int medicamentId)
@@ -190,7 +190,7 @@ namespace IS_Bolnica.Services
           {
               meds.RemoveAt(index);
               meds.Insert(index, updatedMedicament);
-              medicamentRepository.saveToFile(meds);
+              repository.SaveToFile(meds);
           }
 
           public bool DoesChoosenMedContainsAllergens(string medName, string allergens)
@@ -224,7 +224,7 @@ namespace IS_Bolnica.Services
                 index++;
             }
             meds.RemoveAt(index);
-            medicamentRepository.saveToFile(meds);
+            repository.SaveToFile(meds);
         }
 
         public void ChangeMedicamentStatus(int medicamentId)
@@ -236,11 +236,11 @@ namespace IS_Bolnica.Services
                     med.Status = MedicamentStatus.approved;
                 }
             }
-            medicamentRepository.saveToFile(meds);
+            repository.SaveToFile(meds);
         }
         private List<Medicament> GetAllMedicaments()
         {
-            return medicamentRepository.GetMedicaments();
+            return repository.GetMedicaments();
         }
     }
 

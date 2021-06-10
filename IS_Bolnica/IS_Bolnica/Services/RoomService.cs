@@ -150,7 +150,7 @@ namespace IS_Bolnica.Services
             List<int> operationRooms = new List<int>();
             foreach (Room room in rooms)
             {
-                if (room.roomPurpose.Name.Equals("Operaciona sala"))
+                if (room.RoomPurpose.Name.Equals("Operaciona sala"))
                 {
                     operationRooms.Add(room.Id);
                 }
@@ -169,7 +169,7 @@ namespace IS_Bolnica.Services
             List<int> availableRooms = new List<int>();
             foreach (Room room in rooms)
             {
-                if (room.roomPurpose.Name.Equals("Soba"))
+                if (room.RoomPurpose.Name.Equals("Soba"))
                 {
                     availableRooms.Add(room.Id);
                 }
@@ -182,9 +182,9 @@ namespace IS_Bolnica.Services
         {
             foreach (Room room in rooms)
             {
-                if (room.roomPurpose.Name.Equals("Soba"))
+                if (room.RoomPurpose.Name.Equals("Soba"))
                 {
-                    foreach (Inventory inventory in room.inventory)
+                    foreach (Inventory inventory in room.Inventory)
                     {
                         if (inventory.Name.Equals("Krevet") && inventory.CurrentAmount == 0)
                         {
@@ -194,48 +194,6 @@ namespace IS_Bolnica.Services
                 }
             }
             return true;
-        }
-
-        public List<int> GetRoomNumbers()
-        {
-            List<int> roomNumbers = new List<int>();
-            foreach (var r in rooms)
-            {
-                roomNumbers.Add(r.Id);
-            }
-            return roomNumbers;
-        }
-
-        public void AddRoom(Room newRoom)
-        {
-            repository.AddRoom(newRoom);
-        }
-
-        public void DeleteRoom(Room selectedRoom)
-        {
-            int index = FindIndex(selectedRoom);
-            repository.DeleteRoom(index);
-        }
-
-        public void EditRoom(Room oldRoom, Room newRoom)
-        {
-            int index = FindIndex(oldRoom);
-            repository.EditRoom(index, newRoom);
-        }
-
-        private int FindIndex(Room room)
-        {
-            rooms = GetRooms();
-            int index = 0;
-            foreach (Room r in rooms)
-            {
-                if (r.Id == room.Id)
-                {
-                    break;
-                }
-                index++;
-            }
-            return index;
         }
 
     }
