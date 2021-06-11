@@ -4,15 +4,86 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using IS_Bolnica.IRepository;
 using IS_Bolnica.Model;
 
 namespace Model
 {
-    public class RoomRepository
+    public class RoomRepository : IRoomRepository
     {
         private List<Room> rooms;
 
-        public RoomRepository()
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int FindIndex(Room room)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Room FindOrdinationById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Room> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<int> GetAppropriateNumbers(string hospitalWard, string roomPurpose)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<int> GetAvailableRoomRoomsForHospitalization()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Room GetMagacin()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Room FindById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<int> GetOperationRoomNums()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<int> GetRoomNumbers()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Room> GetSearchedRooms(string text)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsRoomNumberUnique(int roomNumber)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SaveToFile(List<Room> entities)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Room oldEntity, Room newEntity)
+        {
+            throw new NotImplementedException();
+        }
+
+        /*public RoomRepository()
         {
             rooms = GetRooms();
         }
@@ -258,9 +329,9 @@ namespace Model
                 roomList = (List<Room>)serializer.Deserialize(file, typeof(List<Room>));
             }
             return roomList;
-        }
+        }*/
 
-        
+
 
     }
 }
