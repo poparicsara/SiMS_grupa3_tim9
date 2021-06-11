@@ -36,7 +36,7 @@ namespace IS_Bolnica.Secretary
             int i = OperationOptions.SelectedIndex;
             List<Appointment> appoints = new List<Appointment>();
             appoints = OperationOptions.SelectedItems.Cast<Appointment>().ToList();
-            List<Appointment> appointments = appointmentRepository.LoadFromFile();
+            List<Appointment> appointments = appointmentRepository.GetAll();
 
             if (i == -1)
             {

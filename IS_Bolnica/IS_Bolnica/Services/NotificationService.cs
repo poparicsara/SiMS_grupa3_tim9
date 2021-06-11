@@ -22,35 +22,24 @@ namespace IS_Bolnica.Services
 
         public void AddNotification(Notification notification)
         {
-            notifications.Add(notification);
-            notificationRepository.SaveToFile(notifications);
+            notificationRepository.Add(notification);
         }
 
         public void EditNotification(Notification oldNotification, Notification newNotification)
         {
             int index = FindNotificationIndex(oldNotification);
-            notifications.RemoveAt(index);
-            notifications.Add(newNotification);
-            notificationRepository.SaveToFile(notifications);
+            notificationRepository.Update(index, newNotification);
         }
 
         public void DeleteNotification(Notification notification)
         {
-            for (int i = 0; i < notifications.Count; i++)
-            {
-                if (notification.Content.Equals(notifications[i].Content)
-                    && notification.Title.Equals(notifications[i].Title)
-                    && notification.notificationType.Equals(notifications[i].notificationType))
-                {
-                    notifications.RemoveAt(i);
-                }
-            }
-            notificationRepository.SaveToFile(notifications);
+            int index = FindNotificationIndex(notification);
+            notificationRepository.Delete(index);
         }
 
         public List<Notification> getNotifications()
         {
-            return notificationRepository.LoadFromFile();
+            return notificationRepository.GetAll();
         }
 
         private int FindNotificationIndex(Notification notification)
@@ -93,7 +82,7 @@ namespace IS_Bolnica.Services
 
         public List<Notification> GetSearchedNotifications(string text)
         {
-            notifications = notificationRepository.LoadFromFile();
+            notifications = notificationRepository.GetAll();
             List<Notification> searchedNotifications = new List<Notification>();
             foreach (Notification notification in notifications)
             {
@@ -210,14 +199,6 @@ namespace IS_Bolnica.Services
             if (patientEvaluations.Count != 0)
                 return patientEvaluations[patientEvaluations.Count - 1];
             return null;
-        }
-
-        public Boolean checkNotificationText(String text)
-        {
-            if (!text.Equals(""))
-                return true;
-
-            return false;
         }
 
     }

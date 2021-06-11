@@ -90,7 +90,7 @@ namespace IS_Bolnica.Services
 
         public void AddUrgentOperation(Appointment appointment, List<Appointment> selectedAppointments)
         {
-            appointments = appointmentRepository.LoadFromFile();
+            appointments = appointmentRepository.GetAll();
             for (int k = 0; k < appointments.Count; k++)
             {
                 if (selectedAppointments.Count == 1)
@@ -160,7 +160,7 @@ namespace IS_Bolnica.Services
             List<Appointment> options = new List<Appointment>();
             doctors = doctorRepository.LoadFromFile();
             rooms = roomRepository.GetAll();
-            scheduledAppointments = appointmentRepository.LoadFromFile();
+            scheduledAppointments = appointmentRepository.GetAll();
 
             currentDate = DateTime.Now;
             appointmentOption = appointment;
@@ -212,7 +212,7 @@ namespace IS_Bolnica.Services
             List<Appointment> options = new List<Appointment>();
             doctors = doctorRepository.LoadFromFile();
             rooms = roomRepository.GetAll();
-            scheduledAppointments = appointmentRepository.LoadFromFile();
+            scheduledAppointments = appointmentRepository.GetAll();
 
             currentDate = DateTime.Now;
             appointmentOption = appointment;
@@ -377,7 +377,7 @@ namespace IS_Bolnica.Services
         public Appointment SetPostponedDate(Appointment appointment)
         {
             List<Appointment> exams = new List<Appointment>();
-            appointments = appointmentRepository.LoadFromFile();
+            appointments = appointmentRepository.GetAll();
 
             DateTime dateNew = new DateTime();
             dateNew = appointment.StartTime;
@@ -427,7 +427,7 @@ namespace IS_Bolnica.Services
         public Appointment PostponeAppointment(Appointment appointment)
         {
             Appointment appoint = appointment;
-            appointments = appointmentRepository.LoadFromFile();
+            appointments = appointmentRepository.GetAll();
 
             DateTime dateNew = new DateTime();
             dateNew = appoint.StartTime;

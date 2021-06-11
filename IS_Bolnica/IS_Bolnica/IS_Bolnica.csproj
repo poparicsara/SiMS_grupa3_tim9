@@ -218,8 +218,10 @@
       <DependentUpon>InventoryWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="InventoryInRoom.cs" />
+    <Compile Include="IRepository\IAppointmentRepository.cs" />
     <Compile Include="IRepository\IGenericRepository.cs" />
     <Compile Include="IRepository\IMedicamentRepository.cs" />
+    <Compile Include="IRepository\INotificationRepository.cs" />
     <Compile Include="IRepository\IPatientRepository.cs" />
     <Compile Include="IRepository\IRenovationRepository.cs" />
     <Compile Include="IRepository\IRoomRepository.cs" />
@@ -244,8 +246,10 @@
     <Compile Include="Model\Suggestion.cs" />
     <Compile Include="Model\Vacation.cs" />
     <Compile Include="PatientPages\AddNewAppointment.xaml.cs" />
+    <Compile Include="PatientPages\AddNewFeedback.xaml.cs">
+      <DependentUpon>AddNewFeedback.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PatientPages\AddNewNote.xaml.cs" />
-    <Compile Include="PatientPages\AddNewNotification.xaml.cs" />
     <Compile Include="PatientPages\CalendarForAppointments.xaml.cs" />
     <Compile Include="PatientPages\ChoosePeriodForReportPage.xaml.cs" />
     <Compile Include="PatientPages\ConfirmDeletingAppointment.xaml.cs" />
@@ -672,11 +676,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="PatientPages\AddNewNote.xaml">
+    <Page Include="PatientPages\AddNewFeedback.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="PatientPages\AddNewNotification.xaml">
+    <Page Include="PatientPages\AddNewNote.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
