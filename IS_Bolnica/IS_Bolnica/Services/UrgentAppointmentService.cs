@@ -29,20 +29,32 @@ namespace IS_Bolnica.Services
             this.appointments = appointmentService.GetAppointments();
         }
 
+        private Appointment setExamination(Appointment appointment, Appointment selectedAppointment)
+        {
+            appointment.StartTime = selectedAppointment.StartTime;
+            appointment.EndTime = selectedAppointment.StartTime.AddMinutes(30);
+            appointment.Doctor = selectedAppointment.Doctor;
+            appointment.Room = selectedAppointment.Room;
+            appointment.DurationInMins = 30;
+            appointment.AppointmentType = AppointmentType.examination;
+            return appointment;
+        }
+
         public void AddUrgentExamination(Appointment appointment,Appointment selectedAppointment)
         {
             appointments = appointmentService.GetAppointments();
             foreach (Appointment ap in appointments)
             {
-                if (ap.StartTime == appointment.StartTime && ap.Doctor.Id.Equals(appointment.Doctor.Id))
+                if (appointmentFound(ap, selectedAppointment))
                 {
                     MessageBox.Show("CONTAINS");
 
-                    appointment.StartTime = selectedAppointment.StartTime;
+                    /*appointment.StartTime = selectedAppointment.StartTime;
                     appointment.EndTime = selectedAppointment.StartTime.AddMinutes(30);
                     appointment.Doctor = selectedAppointment.Doctor;
                     appointment.Room = selectedAppointment.Room;
-                    appointment.DurationInMins = 30;
+                    appointment.DurationInMins = 30;*/
+                    appointment = setExamination(appointment, selectedAppointment);
                     appointments.Remove(ap);
                     appointments.Add(appointment);
                     appointmentRepository.SaveToFile(appointments);
@@ -53,11 +65,10 @@ namespace IS_Bolnica.Services
             }
 
             appointments.Add(appointment);
-            MessageBox.Show("Okay");
             appointmentRepository.SaveToFile(appointments);
         }
 
-        private Appointment setAppointment(Appointment appointment, Appointment selectedAppointment)
+        private Appointment setOperation(Appointment appointment, Appointment selectedAppointment)
         {
             appointment.StartTime = selectedAppointment.StartTime;
             appointment.EndTime = appointment.StartTime.AddMinutes(appointment.DurationInMins);
@@ -65,6 +76,16 @@ namespace IS_Bolnica.Services
             appointment.Room = selectedAppointment.Room;
             appointment.AppointmentType = AppointmentType.operation;
             return appointment;
+        }
+
+        public void addSelectedOperation(Appointment appointment, Appointment selectedAppointment, int index)
+        {
+            if (selectedAppointment.DurationInMins < appointment.DurationInMins) return; 
+            appointment = setOperation(appointment, selectedAppointment);
+            appointments.RemoveAt(index);
+            appointments.Add(appointment);
+            appointmentRepository.SaveToFile(appointments);
+            PostponeAppointment(selectedAppointment);
         }
 
         public void AddUrgentOperation(Appointment appointment, List<Appointment> selectedAppointments)
@@ -76,12 +97,13 @@ namespace IS_Bolnica.Services
                 {
                     if (appointmentFound(appointments[k], selectedAppointments[0]))
                     {
-                        if (selectedAppointments[0].DurationInMins < appointment.DurationInMins) return;
-                        appointment = setAppointment(appointment, selectedAppointments[0]);
+                        /*if (selectedAppointments[0].DurationInMins < appointment.DurationInMins) return;
+                        appointment = setOperation(appointment, selectedAppointments[0]);
                         appointments.RemoveAt(k);
                         appointments.Add(appointment);
                         appointmentRepository.SaveToFile(appointments);
-                        PostponeAppointment(selectedAppointments[0]);
+                        PostponeAppointment(selectedAppointments[0]);*/
+                        addSelectedOperation(appointment, selectedAppointments[0], k);
                         return;
                     }
                 }
@@ -91,7 +113,7 @@ namespace IS_Bolnica.Services
             {
                 if (!IsAppointmentLongEnough(selectedAppointments, appointment)) return;
 
-                appointment = setAppointment(appointment, selectedAppointments[0]);
+                appointment = setOperation(appointment, selectedAppointments[0]);
                 removeSelectedOperation(selectedAppointments[0], appointments);
                 appointments.Add(appointment);
                 appointmentRepository.SaveToFile(appointments);
