@@ -103,5 +103,10 @@ namespace IS_Bolnica
         {
             MyFrame.NavigationService.Navigate(new Profile());
         }
+
+        private void AddFeedbackButtonClicked(object sender, RoutedEventArgs e)
+        {
+            PatientWindow.MyFrame.NavigationService.Navigate(new AddNewFeedback());
+        }
     }
 }

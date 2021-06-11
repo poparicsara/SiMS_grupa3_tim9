@@ -45,9 +45,5 @@ namespace IS_Bolnica.PatientPages
             patientNotificationsGrid.ItemsSource = filtered;
         }
 
-        private void AddNotificationButtonClicked(object sender, RoutedEventArgs e)
-        {
-            PatientWindow.MyFrame.NavigationService.Navigate(new AddNewNotification());
-        }
     }
 }

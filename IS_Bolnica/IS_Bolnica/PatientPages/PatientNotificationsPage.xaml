@@ -13,13 +13,13 @@
         <Label Content="Zdravo bolnica" HorizontalAlignment="Left" Height="27" Margin="10,66,0,0" VerticalAlignment="Top" Width="93"/>
         <DataGrid AutoGenerateColumns="False" 
           Height="277" 
-          Width="516"
+          Width="650"
           ColumnHeaderHeight="30"
           FontSize="15"
           HorizontalAlignment="Center" 
           Name="patientNotificationsGrid" 
           IsReadOnly="True"
-          VerticalAlignment="Center" Margin="16,155,156.8,38.4" >
+          VerticalAlignment="Center" Margin="16,155,22.8,38.4" >
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FF4E8E73"/>
@@ -31,8 +31,8 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Width="170" Header="Naslov" Binding="{ Binding Title }" />
-                <DataGridTextColumn Width="346" Header="Sadržaj" Binding="{ Binding Content}" />
+                <DataGridTextColumn Width="186" Header="Naslov" Binding="{ Binding Title }" />
+                <DataGridTextColumn Width="464" Header="Sadržaj" Binding="{ Binding Content}" />
             </DataGrid.Columns>
 
         </DataGrid>
@@ -47,11 +47,6 @@
                 <Label Content="Back" FontSize="16" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="48"/>
             </StackPanel>
         </Button>
-        <Button Click="AddNotificationButtonClicked" Margin="549,296,22.8,127.4" Background="white" >
-            <StackPanel Orientation="Horizontal">
-                <Image Source="notification.png" Stretch="Fill" Height="30" Width="36" />
-                <Label Content="Dodaj" FontSize="16" HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" Width="55"/>
-            </StackPanel>
-        </Button>
+
     </Grid>
 </Page>

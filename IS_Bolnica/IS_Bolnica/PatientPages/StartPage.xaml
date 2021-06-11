@@ -9,7 +9,7 @@
       Title="StartPage">
 
     <Grid>
-        <Label Content="" FontSize="48" HorizontalAlignment="Left" Height="71" Margin="201,10,0,0" VerticalAlignment="Top" Width="360" Name="WelcomeLabel"/>
+        <Label Content="" FontSize="48" HorizontalAlignment="Left" Height="71" Margin="182,10,0,0" VerticalAlignment="Top" Width="389" Name="WelcomeLabel"/>
         <Label Content="Dobrodošli u bolnicu Zdravo!" FontSize="48" HorizontalAlignment="Left" Height="71" Margin="27,86,0,0" VerticalAlignment="Top" Width="652"/>
         <Image Source="nasLogo.jpg" Stretch="Fill" Margin="182,197,192.8,29.4"/>
     </Grid>

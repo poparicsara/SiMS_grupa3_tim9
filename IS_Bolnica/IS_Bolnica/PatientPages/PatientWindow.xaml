@@ -36,6 +36,11 @@
                 <Label Content="Pomoć" FontSize="14" Height="30" Width="60"/>
             </StackPanel>
         </Button>
-
+        <Button HorizontalAlignment="Left" Margin="0,359,0,0" Background="White" VerticalAlignment="Top" Width="149" Height="43" Click="AddFeedbackButtonClicked">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="notification.png" Height="41" Width="52"/>
+                <Label Content="Feedback" FontSize="14" Height="30" Width="76"/>
+            </StackPanel>
+        </Button>
     </Grid>
 </Window>
