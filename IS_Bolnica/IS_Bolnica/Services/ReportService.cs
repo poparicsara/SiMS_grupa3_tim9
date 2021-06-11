@@ -36,7 +36,7 @@ namespace IS_Bolnica.Services
         private List<Appointment> GetAppointmentsOfRoom(ReportData reportData)
         {
             roomAppointments = new List<Appointment>();
-            appointments = appointmentRepository.LoadFromFile();
+            appointments = appointmentRepository.GetAll();
             foreach (var appointment in appointments)
             {
                 if (appointment.Room.Id.Equals(reportData.RoomId))
@@ -51,7 +51,7 @@ namespace IS_Bolnica.Services
         public List<Appointment> getAllAppointmentsOfPatient()
         {
             List<Appointment> patientAppointments = new List<Appointment>();
-            List<Appointment> appointments = appointmentRepository.LoadFromFile();
+            List<Appointment> appointments = appointmentRepository.GetAll();
 
             foreach (Appointment appointment in appointments)
             {
