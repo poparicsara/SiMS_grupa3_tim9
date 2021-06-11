@@ -22,7 +22,7 @@ namespace IS_Bolnica.Services
         public List<int> GetRoomNumbers()
         {
             List<int> roomNumbers = new List<int>();
-            foreach (var r in rooms)
+            foreach (var r in repository.GetAll())
             {
                 roomNumbers.Add(r.Id);
             }
@@ -44,7 +44,7 @@ namespace IS_Bolnica.Services
         public List<int> GetAppropriateRoomNumbers(string hospitalWard, string roomPurpose)
         {
             List<int> roomNumbers = new List<int>();
-            foreach (Room room in rooms)
+            foreach (Room room in repository.GetAll())
             {
                 if (room.HospitalWard.Equals(hospitalWard) && room.RoomPurpose.Name.Equals(roomPurpose))
                 {
@@ -113,12 +113,7 @@ namespace IS_Bolnica.Services
 
         public Room GetMagacin()
         {
-            return repository.GetMagacin();
-        }
-
-        public void Save(List<Room> rooms)
-        {
-            repository.SaveToFile(rooms);
+            return repository.FindById(1);
         }
 
         public Room GetRoom(int roomId)
@@ -128,7 +123,14 @@ namespace IS_Bolnica.Services
 
         public bool IsRoomNumberUnique(int roomNumber)
         {
-            return repository.IsRoomNumberUnique(roomNumber);
+            foreach (Room r in rooms)
+            {
+                if (r.Id == roomNumber)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         public Room FindOrdinationById(int id)
@@ -161,7 +163,20 @@ namespace IS_Bolnica.Services
 
         public List<Room> GetSearchedRooms(string text)
         {
-            return repository.GetSearchedRooms(text);
+            List<Room> searchedRooms = new List<Room>();
+            foreach (var r in repository.GetAll())
+            {
+                if (IsSearched(text, r))
+                {
+                    searchedRooms.Add(r);
+                }
+            }
+            return searchedRooms;
+        }
+
+        private static bool IsSearched(string text, Room r)
+        {
+            return r.HospitalWard.ToLower().StartsWith(text) || r.RoomPurpose.Name.ToLower().StartsWith(text);
         }
 
         public List<int> GetAvailableRoomsForHospitalization()

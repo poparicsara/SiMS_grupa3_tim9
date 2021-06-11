@@ -18,6 +18,7 @@ namespace IS_Bolnica
 {
     public partial class DirectorProfileWindow : Window
     {
+        private ChangeInventoryPlaceService changeService = new ChangeInventoryPlaceService();
 
         public DirectorProfileWindow(String phone, String email)
         {
@@ -32,6 +33,8 @@ namespace IS_Bolnica
             {
                 this.email.Content = email;
             }
+
+            changeService.CheckUnexecutedShiftings();
 
             this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
         }

@@ -13,14 +13,11 @@ namespace Model
     {
         private List<Room> rooms;
 
-        public void Delete(int id)
+        public void Delete(int index)
         {
-            throw new NotImplementedException();
-        }
-
-        public int FindIndex(Room room)
-        {
-            throw new NotImplementedException();
+            rooms = GetAll();
+            rooms.RemoveAt(index);
+            SaveToFile(rooms);
         }
 
         public Room FindOrdinationById(int id)
@@ -30,89 +27,23 @@ namespace Model
 
         public List<Room> GetAll()
         {
-            throw new NotImplementedException();
+            var roomList = new List<Room>();
+            using (StreamReader file = File.OpenText("Sobe.json"))
+            {
+                var serializer = new JsonSerializer();
+                roomList = (List<Room>)serializer.Deserialize(file, typeof(List<Room>));
+            }
+            return roomList;
         }
 
-        public List<int> GetAppropriateNumbers(string hospitalWard, string roomPurpose)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<int> GetAvailableRoomRoomsForHospitalization()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ReduceAmount(Room room, Inventory inventory, int amount)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void IncreaseAmount(Room room, Inventory inventory, int amount)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Room GetMagacin()
+        public List<int> GetAvailableRoomsForHospitalization()
         {
             throw new NotImplementedException();
         }
 
         public Room FindById(int id)
         {
-            throw new NotImplementedException();
-        }
-
-        public List<int> GetOperationRoomNums()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<int> GetRoomNumbers()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Room> GetSearchedRooms(string text)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool IsRoomNumberUnique(int roomNumber)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SaveToFile(List<Room> entities)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Add(Room newEntity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(int index, Room newEntity)
-        {
-            throw new NotImplementedException();
-        }
-
-        /*public RoomRepository()
-        {
-            rooms = GetRooms();
-        }
-
-        public Room GetMagacin()
-        {
-            int id = 1;  // magacin id = 1
-            Room magacin = GetRoom(id);
-            return magacin;
-        }
-
-        public Room GetRoom(int id)
-        {
-            rooms = GetRooms();
+            rooms = GetAll();
             foreach (var r in rooms)
             {
                 if (r.Id == id)
@@ -121,6 +52,24 @@ namespace Model
                 }
             }
             return null;
+        }
+
+        public List<int> GetOperationRoomNums()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SaveToFile(List<Room> entities)
+        {
+            string jsonString = JsonConvert.SerializeObject(rooms, Formatting.Indented);
+            File.WriteAllText("Sobe.json", jsonString);
+        }
+
+        public void Add(Room newEntity)
+        {
+            rooms = GetAll();
+            rooms.Add(newEntity);
+            SaveToFile(rooms);
         }
 
         public void ReduceAmount(Room room, Inventory inventory, int amount)
@@ -134,12 +83,11 @@ namespace Model
                         if (i.Id == inventory.Id)
                         {
                             i.CurrentAmount -= amount;
-                            saveToFile(rooms);
+                            SaveToFile(rooms);
                         }
                     }
                 }
             }
-            
         }
 
         public void IncreaseAmount(Room room, Inventory inventory, int amount)
@@ -153,31 +101,23 @@ namespace Model
                         if (i.Id == inventory.Id)
                         {
                             i.CurrentAmount += amount;
-                            saveToFile(rooms);
+                            SaveToFile(rooms);
                         }
                     }
                 }
             }
-
         }
 
-        public List<Room> GetSearchedRooms(string text)
+        public void Update(int index, Room newEntity)
         {
-            List<Room> searchedRooms = new List<Room>();
-            foreach (var r in rooms)
-            {
-                if (IsSearched(text, r))
-                {
-                    searchedRooms.Add(r);
-                }
-            }
-            return searchedRooms;
+            rooms = GetAll();
+            rooms.RemoveAt(index);
+            rooms.Insert(index, newEntity);
+            SaveToFile(rooms);
         }
 
-        private static bool IsSearched(string text, Room r)
-        {
-            return r.HospitalWard.ToLower().StartsWith(text) || r.RoomPurpose.Name.ToLower().StartsWith(text);
-        }
+
+       /* 
 
         public void AddInventory(Inventory newInvenotory, Room room)
         {
@@ -284,38 +224,7 @@ namespace Model
             return null;
         }
 
-        public void AddRoom(Room newRoom)
-        {
-            rooms = GetRooms();
-            rooms.Add(newRoom);
-            saveToFile(rooms);
-        }
 
-        public void DeleteRoom(int index)
-        {
-            rooms = GetRooms();
-            rooms.RemoveAt(index);
-            saveToFile(rooms);
-        }
-
-        public void EditRoom(int index, Room newRoom)
-        {
-            rooms.RemoveAt(index);
-            rooms.Insert(index, newRoom);
-            saveToFile(rooms);
-        }
-
-        public bool IsRoomNumberUnique(int roomNumber)
-        {
-            foreach (Room r in rooms)
-            {
-                if (r.Id == roomNumber)
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
 
         public bool IsInventoryIdUnique(Room room, int id)
         {
@@ -328,23 +237,7 @@ namespace Model
             }
             return true;
         }
-
-        public void saveToFile(List<Room> rooms)
-        {
-            string jsonString = JsonConvert.SerializeObject(rooms, Formatting.Indented);
-            File.WriteAllText("Sobe.json", jsonString);
-        }
-
-        public List<Room> GetRooms()
-        {
-            var roomList = new List<Room>();
-            using (StreamReader file = File.OpenText("Sobe.json"))
-            {
-                var serializer = new JsonSerializer();
-                roomList = (List<Room>)serializer.Deserialize(file, typeof(List<Room>));
-            }
-            return roomList;
-        }*/
+*/
 
 
 

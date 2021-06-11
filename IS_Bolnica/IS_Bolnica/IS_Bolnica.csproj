@@ -280,9 +280,6 @@
     <Compile Include="ReportWindow.xaml.cs">
       <DependentUpon>ReportWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MergeRoomsWindow.xaml.cs">
-      <DependentUpon>MergeRoomsWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Model\Allergen.cs" />
     <Compile Include="Model\Hospitalization.cs" />
     <Compile Include="Model\HospitalizationRepository.cs" />
