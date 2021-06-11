@@ -28,7 +28,7 @@ namespace IS_Bolnica
             InitializeComponent();
             this.DataContext = this;
 
-            notifications = storage.LoadFromFile("NotificationsFileStorage.json");
+            notifications = storage.LoadFromFile();
 
             notificationDataGrid.ItemsSource = GetDirectorNotifications();
 

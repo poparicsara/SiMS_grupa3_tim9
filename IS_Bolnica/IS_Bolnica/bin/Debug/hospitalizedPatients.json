@@ -1,0 +1,95 @@
+[
+  {
+    "StartDate": "2021-06-03T00:00:00",
+    "EndDate": "2021-06-11T00:00:00",
+    "Patient": {
+      "Allergens": null,
+      "examinations": null,
+      "Akcije": 0,
+      "brojOcenjenihPregleda": 0,
+      "Debit": 1.0,
+      "HealthCardNumber": "19",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Alergeni": [
+        {
+          "Name": "Polen",
+          "IngredientsAllergens": [
+            {
+              "Name": "Celuloza"
+            }
+          ],
+          "MedicamentsAllergens": [
+            {
+              "Id": 0,
+              "Name": "Altravesa",
+              "Ingredients": null,
+              "Replacement": null,
+              "Producer": null,
+              "Status": 0
+            }
+          ]
+        }
+      ],
+      "Username": "nnnn",
+      "Password": "ftn",
+      "Name": "Nina",
+      "Surname": "Pavković",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "12345",
+      "Email": "dad",
+      "Id": "1203984805082",
+      "UserType": 0,
+      "Address": {
+        "Street": "Laze Kostića",
+        "NumberOfBuilding": 4,
+        "Floor": 3,
+        "Apartment": 2,
+        "City": {
+          "name": "Novi Sad",
+          "postalCode": "21000",
+          "Country": {
+            "name": "srb"
+          }
+        }
+      }
+    },
+    "Room": {
+      "Id": 121,
+      "HospitalWard": "Ginekologija",
+      "inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Krevet",
+          "CurrentAmount": 15,
+          "Minimum": 2,
+          "Id": 666,
+          "InventoryType": 1
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "roomPurpose": {
+        "Name": "Soba"
+      }
+    }
+  }
+]

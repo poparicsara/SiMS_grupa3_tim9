@@ -37,5 +37,7 @@ namespace Model
             get; 
             set;
         }
+
+        public List<Allergen> Alergeni { get; set; }
     }
 }

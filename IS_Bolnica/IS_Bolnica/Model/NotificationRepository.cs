@@ -12,18 +12,19 @@ namespace IS_Bolnica.Model
 {
     public class NotificationRepository
     {
+        private string fileName = "NotificationsFileStorage.json";
         public List<Notification> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public void SaveToFile(List<Notification> notifications, string fileName)
+        public void SaveToFile(List<Notification> notifications)
         {
             string jsonString = JsonConvert.SerializeObject(notifications, Formatting.Indented);
             File.WriteAllText(fileName, jsonString);
         }
 
-        public List<Notification> LoadFromFile(string fileName)
+        public List<Notification> LoadFromFile()
         {
             var notifications = new List<Notification>();
 

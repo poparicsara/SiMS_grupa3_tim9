@@ -22,7 +22,7 @@ namespace IS_Bolnica.Services
 
         public void AddShift(Shift shift)
         {
-            doctors = doctorRepository.loadFromFile("Doctors.json");
+            doctors = doctorRepository.LoadFromFile();
             for (int i = 0; i < doctors.Count; i++)
             {
                 if (doctors[i].Id.Equals(shift.DoctorsId))
@@ -35,12 +35,12 @@ namespace IS_Bolnica.Services
                     //}
                 }
             }
-            doctorRepository.saveToFile(doctors, "Doctors.json");
+            doctorRepository.SaveToFile(doctors);
         }
 
         public void AddVacation(Vacation vacation)
         {
-            doctors = doctorRepository.loadFromFile("Doctors.json");
+            doctors = doctorRepository.LoadFromFile();
             for (int i = 0; i < doctors.Count; i++)
             {
                 if (doctors[i].Id.Equals(vacation.DoctorsId))
@@ -50,13 +50,13 @@ namespace IS_Bolnica.Services
                 }
             }
 
-            doctorRepository.saveToFile(doctors, "Doctors.json");
+            doctorRepository.SaveToFile(doctors);
         }
 
         public List<string> GetDoctorNamesList()
         {
             List<string> docNames = new List<string>();
-            doctors = doctorRepository.loadFromFile("Doctors.json");
+            doctors = doctorRepository.LoadFromFile();
             for (int i = 0; i < doctors.Count; i++)
             {
                 docNames.Add(doctors[i].Name + " " + doctors[i].Surname);
@@ -67,7 +67,7 @@ namespace IS_Bolnica.Services
         public List<Doctor> GetDoctors()
         {
             List<Doctor> doctorList = new List<Doctor>();
-            doctors = doctorRepository.loadFromFile("Doctors.json");
+            doctors = doctorRepository.LoadFromFile();
             foreach (var doctor in doctors)
             {
                 doctorList.Add(doctor);
@@ -78,7 +78,7 @@ namespace IS_Bolnica.Services
 
         public List<Doctor> GetSearchedDoctors(string text)
         {
-            doctors = doctorRepository.loadFromFile("Doctors.json");
+            doctors = doctorRepository.LoadFromFile();
             List<Doctor> searchedDoctors = new List<Doctor>();
             foreach (Doctor doctor in doctors)
             {
@@ -99,6 +99,124 @@ namespace IS_Bolnica.Services
                    d.Id.ToLower().StartsWith(text);
         }
 
+        public Doctor FindDoctorByName(string drNameSurname)
+        {
+            Doctor doctor = new Doctor();
+            List<Doctor> doctors = doctorRepository.LoadFromFile();
+            foreach (Doctor dr in doctors)
+            {
+                string doctorsNameAndSurname = dr.Name + ' ' + dr.Surname;
+                if (doctorsNameAndSurname.Equals(drNameSurname))
+                {
+                    doctor = dr;
+                }
+            }
 
+            return doctor;
+        }
+
+        public List<string> GetSpecializationNames()
+        {
+            List<string> specializationNames = new List<string>();
+            Specialization specialization = new Specialization();
+            List<Specialization> specializations = specialization.getSpecializations();
+            foreach (Specialization spec in specializations)
+            {
+                specializationNames.Add(spec.Name);
+            }
+
+            return specializationNames;
+        }
+
+        public List<string> GetDoctorsNameSurname()
+        {
+            List<string> doctorsNameSurname = new List<string>();
+            foreach (Doctor doctor in doctorRepository.LoadFromFile())
+            {
+                if (doctor.Specialization.Name == " ")
+                {
+                    doctorsNameSurname.Add(doctor.Name + ' ' + doctor.Surname);
+                }
+            }
+            return doctorsNameSurname;
+        }
+
+        public List<string> RemoveDoctorsFromComboBox()
+        {
+            List<string> doctorsNameSurname = new List<string>();
+            foreach (Doctor doctor in doctorRepository.LoadFromFile())
+            {
+                if (doctor.Specialization.Name == " ")
+                {
+                    doctorsNameSurname.Remove(doctor.Name + ' ' + doctor.Surname);
+                }
+            }
+            return doctorsNameSurname;
+        }
+
+        public List<string> RemoveSpecialistsFromComboBox()
+        {
+            List<string> specialistsNameSurname = new List<string>();
+            foreach (Doctor doctor in doctorRepository.LoadFromFile())
+            {
+                if (doctor.Specialization.Name != " ")
+                {
+                    specialistsNameSurname.Remove(doctor.Name + ' ' + doctor.Surname);
+                }
+            }
+
+            return specialistsNameSurname;
+        }
+
+        public int ShowDoctorsOrdination(string doctorsNameSurname)
+        {
+            int ordinationNumber = 0;
+            foreach (Doctor doctor in doctorRepository.LoadFromFile())
+            {
+                string drNameSurname = doctor.Name + ' ' + doctor.Surname;
+                if (drNameSurname.Equals(doctorsNameSurname))
+                {
+                    ordinationNumber = doctor.Ordination;
+                }
+            }
+
+            return ordinationNumber;
+        }
+
+        public List<string> SetSpecialistsInComboBox(string specializationName)
+        {
+            List<String> specialistsNameAndSurname = new List<string>();
+            foreach (Doctor doctor in doctorRepository.LoadFromFile())
+            {
+                if (doctor.Specialization.Name.Equals(specializationName))
+                {
+                    specialistsNameAndSurname.Add(doctor.Name + ' ' + doctor.Surname);
+                }
+                else
+                {
+                    specialistsNameAndSurname.Remove(doctor.Name + ' ' + doctor.Surname);
+                }
+            }
+
+            return specialistsNameAndSurname;
+        }
+
+        public List<string> GetSpecialistsNameSurname()
+        {
+            List<string> specialistsNameSurname = new List<string>();
+            foreach (Doctor doctor in doctorRepository.LoadFromFile())
+            {
+                if (doctor.Specialization != null)
+                {
+                    specialistsNameSurname.Add(doctor.Name + ' ' + doctor.Surname);
+                }
+            }
+            return specialistsNameSurname;
+        }
+
+        public List<Doctor> GetAllDoctors()
+        {
+            return doctorRepository.LoadFromFile();
+        }
     }
 }

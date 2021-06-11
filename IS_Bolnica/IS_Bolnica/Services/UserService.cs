@@ -11,11 +11,23 @@ namespace IS_Bolnica.Services
     public class UserService
     {
         private List<User> users = new List<User>();
+        private List<User> loggedUsers = new List<User>();
         private UserRepository userRepository = new UserRepository();
 
         public UserService()
         {
             users = GetUsers();
+            loggedUsers = GetLoggedUsers();
+        }
+
+        public User GetLoggedUser()
+        {
+            User loggedUser = new User();
+            foreach (User user in loggedUsers)
+            {
+                loggedUser = user;
+            }
+            return loggedUser;
         }
 
         public void AddUser(User user)
@@ -100,5 +112,20 @@ namespace IS_Bolnica.Services
         {
             return userRepository.LoadFromFile("UsersFileStorage.json");
         }
+
+        public List<User> GetLoggedUsers()
+        {
+            return userRepository.LoadFromFile("loggedUsers.json");
+        }
+
+        public void LogOut()
+        {
+            for (int i = 0; i < loggedUsers.Count; i++)
+            {
+                loggedUsers.RemoveAt(i);
+            }
+            userRepository.SaveToFile(loggedUsers, "loggedUsers.json");
+        }
+
     }
 }

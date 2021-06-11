@@ -184,7 +184,7 @@
     "brojOcenjenihPregleda": 0,
     "Gender": 1,
     "isBlocked": false,
-    "HealthCardNumber": "",
+    "HealthCardNumber": "12",
     "Anamneses": [],
     "Ingredients": [
       {

@@ -18,6 +18,7 @@ namespace IS_Bolnica.Services
             rooms = repository.GetRooms();
         }
 
+
         public List<int> GetRoomNumbers()
         {
             List<int> roomNumbers = new List<int>();
@@ -91,10 +92,11 @@ namespace IS_Bolnica.Services
             return index;
         }
 
+
         public List<int> GetOperationRoomNums()
         {
             List<int> roomNums = new List<int>();
-            for (int i = 0; i <rooms.Count; i++)
+            for (int i = 0; i < rooms.Count; i++)
             {
                 if (rooms[i].RoomPurpose.Name == "Operaciona sala")
                 {
@@ -129,9 +131,69 @@ namespace IS_Bolnica.Services
             return repository.IsRoomNumberUnique(roomNumber);
         }
 
+        public Room FindOrdinationById(int id)
+        {
+            Room foundRoom = new Room();
+            foreach (Room room in rooms)
+            {
+                if (room.Id.Equals(id))
+                {
+                    foundRoom = room;
+                }
+            }
+
+            return foundRoom;
+        }
+
+        public List<int> GetOperationRoomsId()
+        {
+            List<int> operationRooms = new List<int>();
+            foreach (Room room in rooms)
+            {
+                if (room.RoomPurpose.Name.Equals("Operaciona sala"))
+                {
+                    operationRooms.Add(room.Id);
+                }
+            }
+            return operationRooms;
+
+        }
+
         public List<Room> GetSearchedRooms(string text)
         {
             return repository.GetSearchedRooms(text);
+        }
+
+        public List<int> GetAvailableRoomsForHospitalization()
+        {
+            List<int> availableRooms = new List<int>();
+            foreach (Room room in rooms)
+            {
+                if (room.RoomPurpose.Name.Equals("Soba"))
+                {
+                    availableRooms.Add(room.Id);
+                }
+            }
+
+            return availableRooms;
+        }
+
+        public bool DoesSelectedRoomHasEmptyBed(int roomId)
+        {
+            foreach (Room room in rooms)
+            {
+                if (room.RoomPurpose.Name.Equals("Soba"))
+                {
+                    foreach (Inventory inventory in room.Inventory)
+                    {
+                        if (inventory.Name.Equals("Krevet") && inventory.CurrentAmount == 0)
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
         }
 
     }

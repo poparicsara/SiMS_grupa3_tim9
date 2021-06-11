@@ -34,7 +34,7 @@ namespace IS_Bolnica
 
             Notifications = new List<Notification>();
 
-            List<Notification> notifications = storage.LoadFromFile("NotificationsFileStorage.json");
+            List<Notification> notifications = storage.LoadFromFile();
 
             foreach (Notification notification in notifications)
             {

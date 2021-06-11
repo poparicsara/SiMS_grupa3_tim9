@@ -28,7 +28,7 @@ namespace IS_Bolnica
 
             selectedNotification = notification;
             storage = new NotificationRepository();
-            notifications = storage.LoadFromFile("NotificationsFileStorage.json");
+            notifications = storage.LoadFromFile();
 
             titleBox.Text = notification.Title;
             senderBox.Text = notification.Sender.ToString();

@@ -23,7 +23,7 @@ namespace IS_Bolnica.Services
         public void AddNotification(Notification notification)
         {
             notifications.Add(notification);
-            notificationRepository.SaveToFile(notifications, "NotificationsFileStorage.json");
+            notificationRepository.SaveToFile(notifications);
         }
 
         public void EditNotification(Notification oldNotification, Notification newNotification)
@@ -31,7 +31,7 @@ namespace IS_Bolnica.Services
             int index = FindNotificationIndex(oldNotification);
             notifications.RemoveAt(index);
             notifications.Add(newNotification);
-            notificationRepository.SaveToFile(notifications, "NotificationsFileStorage.json");
+            notificationRepository.SaveToFile(notifications);
         }
 
         public void DeleteNotification(Notification notification)
@@ -45,12 +45,12 @@ namespace IS_Bolnica.Services
                     notifications.RemoveAt(i);
                 }
             }
-            notificationRepository.SaveToFile(notifications, "NotificationsFileStorage.json");
+            notificationRepository.SaveToFile(notifications);
         }
 
         public List<Notification> getNotifications()
         {
-            return notificationRepository.LoadFromFile("NotificationsFileStorage.json");
+            return notificationRepository.LoadFromFile();
         }
 
         private int FindNotificationIndex(Notification notification)
@@ -93,7 +93,7 @@ namespace IS_Bolnica.Services
 
         public List<Notification> GetSearchedNotifications(string text)
         {
-            notifications = notificationRepository.LoadFromFile("NotificationsFileStorage.json");
+            notifications = notificationRepository.LoadFromFile();
             List<Notification> searchedNotifications = new List<Notification>();
             foreach (Notification notification in notifications)
             {

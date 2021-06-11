@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Services;
 
 namespace IS_Bolnica
 {
@@ -21,31 +22,17 @@ namespace IS_Bolnica
         private Anamnesis anamnesis;
         private Prescription prescription = new Prescription();
         private Therapy therapy = new Therapy();
-        private PrescriptionFileStorage prescriptionStorage = new PrescriptionFileStorage();
-        private List<Prescription> Prescriptions { get; set; } = new List<Prescription>();
-        public List<Anamnesis> Anamneses { get; set; } = new List<Anamnesis>();
-        private AnamnesisRepository anamnesisStorage = new AnamnesisRepository();
+        private PatientService patientService = new PatientService();
+        private PrescriptionService prescriptionService = new PrescriptionService();
         public CreatePrescription(Anamnesis anamnesis)
         {
             InitializeComponent();
-
             this.anamnesis = anamnesis;
-
-            patientTxt.Text = anamnesis.Patient.Name + ' ' + anamnesis.Patient.Surname;
-            dateOfBirthTxt.Text = anamnesis.Patient.DateOfBirth.ToString();
-            jmbgTxt.Text = anamnesis.Patient.Id;
-            healthCardIdTxt.Text = anamnesis.Patient.HealthCardNumber;
-            prescriptionDateTxt.Text = anamnesis.Date.ToString();
-            diagnosisTxt.Text = anamnesis.Diagnosis;
-            doctorTxt.Text = anamnesis.Doctor.Name + ' ' + anamnesis.Doctor.Surname;
-
+            SetDataInTextFields();
         }
 
         private void potvrdiClicked(object sender, RoutedEventArgs e)
         {
-            Prescriptions = prescriptionStorage.loadFromFile("prescriptions.json");
-            Anamneses = anamnesisStorage.loadFromFile("anamneses.json");
-
             therapy.MedicationName = medTxt.Text;
             therapy.Dose = int.Parse(doseTxt.Text);
             prescription.Therapy = therapy;
@@ -53,49 +40,42 @@ namespace IS_Bolnica
             prescription.Patient = anamnesis.Patient;
             prescription.Doctor = anamnesis.Doctor;
 
-            if (isPatientAllergic(prescription.Patient, medTxt.Text)) 
+            if (patientService.IsPatientAllergic(prescription.Patient.Id, medTxt.Text))
             {
                 MessageBox.Show("Pacijent je alergican na unesen lek/sastojak!");
             }
             else
             {
-                createPrescription(prescription);
+                prescriptionService.CreatePrescription(prescription);
                 this.Close();
             }
 
             //this.Close();
         }
 
-        //private void medTxt_TextChanged(object sender, TextChangedEventArgs e)
-        //{
-        //    if (anamnesis.Patient.Id.Equals(jmbgTxt.Text))
-        //    {
-        //        if (anamnesis.Patient.Allergens.Contains(medTxt.Text))
-        //        {
-        //            allergyWarning.Content = "Pacijent je alergican na unesen lek/sastojak!";
-        //            potvrdiBtn.IsEnabled = false;
-        //        }
-        //        else
-        //        {
-        //            allergyWarning.Content = ' ';
-        //            potvrdiBtn.IsEnabled = true;
-        //        }
-        //    }
-        //}
-
-        private bool isPatientAllergic(Patient patient, string allergen)
+        private void medTxt_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (patient.Allergens.Contains(allergen))
+            if (patientService.IsPatientAllergic(jmbgTxt.Text, medTxt.Text))
             {
-                return true;
+                allergyWarning.Content = "Pacijent je alergičan na unesen lek/sastojak!";
+                potvrdiBtn.IsEnabled = false;
             }
-            return false;
+            else
+            {
+                allergyWarning.Content = ' ';
+                potvrdiBtn.IsEnabled = true;
+            }
         }
 
-        private void createPrescription(Prescription prescription)
+        private void SetDataInTextFields()
         {
-            Prescriptions.Add(prescription);
-            prescriptionStorage.saveToFile(Prescriptions, "prescriptions.json");
+            patientTxt.Text = anamnesis.Patient.Name + ' ' + anamnesis.Patient.Surname;
+            dateOfBirthTxt.Text = anamnesis.Patient.DateOfBirth.ToString();
+            jmbgTxt.Text = anamnesis.Patient.Id;
+            healthCardIdTxt.Text = anamnesis.Patient.HealthCardNumber;
+            prescriptionDateTxt.Text = anamnesis.Date.ToString();
+            diagnosisTxt.Text = anamnesis.Diagnosis;
+            doctorTxt.Text = anamnesis.Doctor.Name + ' ' + anamnesis.Doctor.Surname;
         }
     }
 }

@@ -1,0 +1,92 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IS_Bolnica.DoctorUI"
+        xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="IS_Bolnica.DoctorUI.UpdateMedicamentWindow"
+        mc:Ignorable="d"
+        Title="UpdateMedicamentWindow" Height="768" Width="1024" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid HorizontalAlignment="Left" Height="739" VerticalAlignment="Top" Width="100" Background="#FFF1F0F0" Margin="0">
+            <Button HorizontalAlignment="Left" Margin="0,110,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="ExaminationsButtonClick">
+                <StackPanel>
+                    <Image Source="/IS_Bolnica;component/Images/greenstethoscope.png" Width="84" Height="48"/>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Margin="0,195,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="OperationButtonClick">
+                <StackPanel>
+                    <Image Source="/IS_Bolnica;component/Images/greenscissors.png" Width="84" Height="48"/>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Margin="0,270,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="NotificationsButtonClick">
+                <StackPanel>
+                    <Image Source="/IS_Bolnica;component/Images/message.png" Width="84" Height="48"/>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Margin="0,350,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="MedicamentsButtonClick">
+                <StackPanel>
+                    <Image Source="/IS_Bolnica;component/Images/pharmacy.png" Width="84" Height="48"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+        <Button HorizontalAlignment="Left" Margin="0,430,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="StatisticsButtonClick">
+            <StackPanel>
+                <Image Source="/IS_Bolnica;component/Images/chartgreen.png" Width="84" Height="48"/>
+            </StackPanel>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="0,671,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="SingOutButtonClick">
+            <StackPanel>
+                <Image Source="/IS_Bolnica;component/Images/singout.png" Width="84" Height="48"/>
+            </StackPanel>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="0,604,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="SettingsButtonClick">
+            <StackPanel>
+                <Image Source="/IS_Bolnica;component/Images/settings.png" Width="84" Height="48"/>
+            </StackPanel>
+        </Button>
+
+        <Label Width="405" VerticalAlignment="Top" Margin="178,23,0,0" Height="71" HorizontalAlignment="Left" FontFamily="Malgun Gothic" FontSize="30" FontWeight="Bold" Content="Informacije o leku"/>
+        <Button Width="68" VerticalAlignment="Top" Margin="105,23,0,0" Height="53" HorizontalAlignment="Left" Click="BackButtonClick" Background="{x:Null}" BorderBrush="{x:Null}">
+            <StackPanel Background="Transparent">
+                <Image Height="30" Source="/IS_Bolnica;component/Images/back.png" Width="30"/>
+            </StackPanel>
+        </Button>
+        <Grid HorizontalAlignment="Left" Height="551" Margin="178,120,0,0" VerticalAlignment="Top" Width="770" Background="#FFF1F0F0">
+            <Label Content="Šifra:" HorizontalAlignment="Left" Margin="47,35,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" Width="139" FontSize="14"/>
+            <TextBox x:Name="idTxt" HorizontalAlignment="Left" Height="23" Margin="191,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" BorderBrush="{x:Null}" TextChanged="IdTextChanged"/>
+            <Label Content="Naziv:" HorizontalAlignment="Left" Margin="47,81,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" Width="139" FontSize="14"/>
+            <Label Content="Zamenski lek:" HorizontalAlignment="Left" Margin="48,122,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" Width="138" FontSize="14"/>
+            <Label Content="Proizvođač:" HorizontalAlignment="Left" Margin="48,164,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" Width="120" FontSize="14"/>
+            <TextBox x:Name="nameTxt" HorizontalAlignment="Left" Height="23" Margin="191,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" BorderBrush="{x:Null}" TextChanged="NameTextChanged"/>
+            <TextBox x:Name="producerTxt" HorizontalAlignment="Left" Height="23" Margin="191,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" BorderBrush="{x:Null}" TextChanged="ProducerTextChanged"/>
+            <ComboBox Name="replacementsCB" HorizontalAlignment="Left" Margin="191,122,0,0" VerticalAlignment="Top" Width="186" SelectionChanged="ReplacementSelectionChanged"/>
+            <ListView Name="medIngredientsLV" HorizontalAlignment="Left" Height="202" Margin="191,213,0,0" VerticalAlignment="Top" Width="186" 
+                      AllowDrop="True" DragOver="MedIngredients_DragOver" Drop="MedIngredients_Drop" ItemsSource="{Binding MedIngredients}"
+                      PreviewMouseLeftButtonDown="MedIngredientsLV_OnPreviewMouseLeftButtonDown" MouseMove="MedIngredientsLV_OnMouseMove" BorderBrush="{x:Null}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel>
+                            <TextBlock Text="{Binding Name}" FontWeight="Bold" ></TextBlock>
+                        </WrapPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ListView Name="allIngredientsLV" HorizontalAlignment="Left" Height="202" Margin="511,213,0,0" VerticalAlignment="Top" Width="186"
+                     AllowDrop="True" PreviewMouseLeftButtonDown="AllIngredients_OnPreviewMouseLeftButtonDown" MouseMove="AllIngredients_OnMouseMove"
+                      DragOver="AllIngredientsLV_OnDragOver" Drop="AllIngredientsLV_OnDrop" ItemsSource="{Binding AllIngredients}" BorderBrush="{x:Null}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel>
+                            <TextBlock Text="{Binding Name}" FontWeight="Bold" Cursor="Hand" ></TextBlock>
+                        </WrapPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Label Content="Sastojci:" HorizontalAlignment="Left" Margin="48,213,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" Width="159" FontSize="14"/>
+            <Label Content="" HorizontalAlignment="Left" Margin="511,193,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" Width="159" FontSize="14"/>
+        </Grid>
+        <Button x:Name="confirmBTN" Content="POTVRDI" HorizontalAlignment="Left" Margin="762,604,0,0" VerticalAlignment="Top" Width="109" Height="34" Background="#FF3F5038" Foreground="White" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="14" Click="ConfirmButtonClick" />
+
+    </Grid>
+</Window>

@@ -136,7 +136,7 @@ namespace IS_Bolnica.Services
         public List<Appointment> GetUrgentOperationOptions(Appointment appointment, Specialization specialization1)
         {
             List<Appointment> options = new List<Appointment>();
-            doctors = doctorRepository.loadFromFile("Doctors.json");
+            doctors = doctorRepository.LoadFromFile();
             rooms = roomRepository.GetRooms();
             scheduledAppointments = appointmentRepository.LoadFromFile();
 
@@ -188,7 +188,7 @@ namespace IS_Bolnica.Services
         public List<Appointment> GetUrgentExaminationOptions(Appointment appointment, Specialization specialization1)
         {
             List<Appointment> options = new List<Appointment>();
-            doctors = doctorRepository.loadFromFile("Doctors.json");
+            doctors = doctorRepository.LoadFromFile();
             rooms = roomRepository.GetRooms();
             scheduledAppointments = appointmentRepository.LoadFromFile();
 
