@@ -13,82 +13,44 @@ namespace IS_Bolnica.Services
 
         public PatientService()
         {
-            patients = GetPatients();
+            
         }
 
         public void AddPatient(Patient patient)
         {
-            patients = GetPatients();
-            patients.Add(patient);
-            patientRepository.SaveToFile(patients);
+            patientRepository.Add(patient);
         }
 
         public void DeletePatient(Patient patient)
         {
-            patients = GetPatients();
-            if (PatientExists(patient))
-            {
-                int index = FindPatientIndex(patient);
-                patients.RemoveAt(index);
-                patientRepository.SaveToFile(patients);
-            }
+            int index = FindPatientIndex(patient);
+            patientRepository.Delete(index);
         }
 
         public void EditPatient(Patient oldPatient, Patient newPatient)
         {
-            patients = GetPatients();
             int index = FindPatientIndex(oldPatient);
-            patients.RemoveAt(index);
-            patients.Add(newPatient);
-            patientRepository.SaveToFile(patients);
+            patientRepository.Update(index, newPatient);
         }
 
         public void UnblockPatient(Patient patient)
         {
-            patients = patientRepository.LoadFromFile();
-            for (int i =  0; i < patients.Count; i++)
-            {
-                if (patient.Id.Equals(patients[i].Id))
-                {
-                    patients[i].isBlocked = false;
-                    patients[i].Akcije = 0;
-                }
-            }
-            patientRepository.SaveToFile(patients);
+            patientRepository.UnblockPatient(patient);
         }
 
-        public List<Patient> GetBlockedPatients()
+        public void SetPatientAllergens(List<Ingredient> ingredients, string id)
         {
-            blockedPatients = new List<Patient>();
-            patients = patientRepository.LoadFromFile();
-            foreach (var patient in patients)
-            {
-                if (patient.isBlocked || patient.Akcije >= 6)
-                {
-                    blockedPatients.Add(patient);
-                }
-            }
-
-            return blockedPatients;
+            patientRepository.SetPatientAllergents(ingredients, id);
         }
 
-        public bool PatientExists(Patient patient)
+        public List<Patient> GetPatients()
         {
-            patients = GetPatients();
-            foreach (var p in patients)
-            {
-                if (p.Id.Equals(patient.Id))
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return patientRepository.GetAll();
         }
 
         public bool PatientIdExists(string id)
         {
-            patients = GetPatients();
+            patients = patientRepository.GetAll();
             foreach (var p in patients)
             {
                 if (p.Id.Equals(id))
@@ -99,24 +61,25 @@ namespace IS_Bolnica.Services
             return false;
         }
 
-        private int FindPatientIndex(Patient patient)
+        public List<Patient> GetBlockedPatients()
         {
-            patients = GetPatients();
-            for (int i = 0; i < patients.Count; i++)
+            blockedPatients = new List<Patient>();
+            patients = patientRepository.GetAll();
+            foreach (var patient in patients)
             {
-                if (patient.Id.Equals(patients[i].Id))
+                if (patient.isBlocked || patient.Akcije >= 6)
                 {
-                    return i;
+                    blockedPatients.Add(patient);
                 }
             }
 
-            return -1;
+            return blockedPatients;
 
         }
 
-        public Patient FindPatietnById(string id)
+        public Patient FindById(string id)
         {
-            patients = patientRepository.LoadFromFile();
+            List<Patient> patients = patientRepository.GetAll();
             foreach (var patient in patients)
             {
                 if (patient.Id.Equals(id))
@@ -126,30 +89,11 @@ namespace IS_Bolnica.Services
             }
 
             return null;
-
-        }
-
-        public List<Patient> GetPatients()
-        {
-            return patientRepository.LoadFromFile();
-        }
-
-        public void SetPatientAllergens(List<Ingredient> ingredients, string id)
-        {
-            patients = patientRepository.LoadFromFile();
-            foreach (var patient in patients)
-            {
-                if (patient.Id.Equals(id))
-                {
-                    patient.Ingredients = ingredients;
-                }
-            }
-            patientRepository.SaveToFile(patients);
         }
 
         public List<Patient> GetSearchedPatients(string text)
         {
-            patients = patientRepository.LoadFromFile();
+            patients = patientRepository.GetAll();
             List<Patient> searchedPatients = new List<Patient>();
             foreach (Patient patient in patients)
             {
@@ -168,6 +112,20 @@ namespace IS_Bolnica.Services
                    p.Surname.ToLower().Contains(text) ||
                    p.Id.ToLower().StartsWith(text) ||
                    p.Username.ToLower().Contains(text);
+        }
+
+        private int FindPatientIndex(Patient patient)
+        {
+            patients = patientRepository.GetAll();
+            for (int i = 0; i < patients.Count; i++)
+            {
+                if (patient.Id.Equals(patients[i].Id))
+                {
+                    return i;
+                }
+            }
+
+            return -1;
         }
 
         public bool IsPatientAllergic(string patientId, string allergen)

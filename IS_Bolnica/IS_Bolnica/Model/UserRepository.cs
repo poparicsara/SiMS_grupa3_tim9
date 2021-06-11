@@ -2,21 +2,12 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IS_Bolnica.Model
 {
     class UserRepository
     {
-        public List<User> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
         public void SaveToFile(List<User> users, string fileName)
         {
             string jsonString = JsonConvert.SerializeObject(users, Formatting.Indented);

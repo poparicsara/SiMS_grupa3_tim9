@@ -159,15 +159,12 @@ namespace IS_Bolnica.Services
                 {
                     if (app.StartTime <= appointment.StartTime && appointment.StartTime < app.EndTime)
                     {
-                        MessageBox.Show("Pacijent je zauzet!");
                         return false;
                     } else if (app.StartTime < appointment.EndTime && appointment.EndTime <= app.EndTime)
                     {
-                        MessageBox.Show("Pacijent je zauzet!");
                         return false;
                     } else if (app.StartTime >= appointment.StartTime && app.EndTime < appointment.EndTime)
                     {
-                        MessageBox.Show("Pacijent je zauzet!");
                         return false;
                     }
                 }
@@ -186,17 +183,14 @@ namespace IS_Bolnica.Services
                 {
                     if (app.StartTime <= appointment.StartTime && appointment.StartTime < app.EndTime)
                     {
-                        MessageBox.Show("Soba je zauzeta!");
                         return false;
                     }
                     else if (app.StartTime < appointment.EndTime && appointment.EndTime <= app.EndTime)
                     {
-                        MessageBox.Show("Soba je zauzeta!");
                         return false;
                     }
                     else if (app.StartTime >= appointment.StartTime && app.EndTime < appointment.EndTime)
                     {
-                        MessageBox.Show("Soba je zauzeta!");
                         return false;
                     }
                 }
@@ -213,17 +207,14 @@ namespace IS_Bolnica.Services
                 {
                     if (app.StartTime <= appointment.StartTime && appointment.StartTime < app.EndTime)
                     {
-                        MessageBox.Show("Doktor je zauzet!");
                         return false;
                     }
                     else if (app.StartTime < appointment.EndTime && appointment.EndTime <= app.EndTime)
                     {
-                        MessageBox.Show("Doktor je zauzet!");
                         return false;
                     }
                     else if (app.StartTime >= appointment.StartTime && app.EndTime <= appointment.EndTime)
                     {
-                        MessageBox.Show("Doktor je zauzet!");
                         return false;
                     }
                 }
@@ -388,7 +379,7 @@ namespace IS_Bolnica.Services
             }
             else
             {
-                MessageBox.Show("Nije moguce zakazati termin!");
+                return;
             }
         }
 
@@ -426,17 +417,14 @@ namespace IS_Bolnica.Services
                 {
                     if (app.StartTime <= appointment.StartTime && appointment.StartTime < app.EndTime)
                     {
-                        MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
                         return false;
                     }
                     else if (app.StartTime < appointment.EndTime && appointment.EndTime <= app.EndTime)
                     {
-                        MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
                         return false;
                     }
                     else if (app.StartTime >= appointment.StartTime && app.EndTime < appointment.EndTime)
                     {
-                        MessageBox.Show("Pacijent u ovom terminu ima već zakazan pregled");
                         return false;
                     }
                 }
@@ -454,17 +442,14 @@ namespace IS_Bolnica.Services
                 {
                     if (app.StartTime <= appointment.StartTime && appointment.StartTime < app.EndTime)
                     {
-                        MessageBox.Show("Soba " + appointment.Room.Id + "je zauzeta u izabranom terminu");
                         return false;
                     }
                     else if (app.StartTime < appointment.EndTime && appointment.EndTime <= app.EndTime)
                     {
-                        MessageBox.Show("Soba " + appointment.Room.Id + "je zauzeta u izabranom terminu");
                         return false;
                     }
                     else if (app.StartTime >= appointment.StartTime && app.EndTime < appointment.EndTime)
                     {
-                        MessageBox.Show("Soba " + appointment.Room.Id + "je zauzeta u izabranom terminu");
                         return false;
                     }
                 }
@@ -480,17 +465,14 @@ namespace IS_Bolnica.Services
                 {
                     if (app.StartTime <= appointment.StartTime && appointment.StartTime < app.EndTime)
                     {
-                        MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
                         return false;
                     }
                     else if (app.StartTime < appointment.EndTime && appointment.EndTime <= app.EndTime)
                     {
-                        MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
                         return false;
                     }
                     else if (app.StartTime >= appointment.StartTime && app.EndTime <= appointment.EndTime)
                     {
-                        MessageBox.Show("Doktor već ima zakazan termin u isto vreme!");
                         return false;
                     }
                 }
@@ -553,7 +535,7 @@ namespace IS_Bolnica.Services
 
             string[] appointmentStartDateAndTime = appointment.StartTime.ToString().Split(' ');
             string[] appointmentDate = appointmentStartDateAndTime[0].Split('/');
-            List<Patient> patients = patientRepository.LoadFromFile();
+            List<Patient> patients = patientRepository.GetAll();
             Patient loggedPatient = findPatientByUsername(PatientWindow.loggedPatient.Username);
 
             if (Convert.ToInt32(dateNow[0]) > Convert.ToInt32(appointmentDate[0]))
@@ -592,7 +574,7 @@ namespace IS_Bolnica.Services
 
         private void increaseActions()
         {
-            List<Patient> patients = patientRepository.LoadFromFile();
+            List<Patient> patients = patientRepository.GetAll();
             foreach (Patient patient in patients)
             {
                 if (patient.Username.Equals(PatientWindow.loggedPatient.Username))
@@ -640,7 +622,7 @@ namespace IS_Bolnica.Services
 
         public Patient findPatientByUsername(string username)
         {
-            List<Patient> patients = patientRepository.LoadFromFile();
+            List<Patient> patients = patientRepository.GetAll();
             Patient returnPatient = new Patient();
 
             foreach (Patient patient in patients)

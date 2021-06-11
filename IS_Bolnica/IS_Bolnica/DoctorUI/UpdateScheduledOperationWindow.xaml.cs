@@ -59,7 +59,7 @@ namespace IS_Bolnica.DoctorUI
             appointmentService.DeleteAppointment(operation);
 
             operation.Doctor = doctorService.FindDoctorByName(doctorsCB.SelectedItem.ToString());
-            operation.Patient = patientService.FindPatietnById(patinetIdTxt.Text);
+            operation.Patient = patientService.FindById(patinetIdTxt.Text);
             DateTime date = new DateTime();
             date = (DateTime)operationDate.SelectedDate;
             int hour = Convert.ToInt32(hoursCB.Text);
@@ -164,7 +164,7 @@ namespace IS_Bolnica.DoctorUI
 
         private void IdTextFieldLostFocus(object sender, RoutedEventArgs e)
         {
-            healthCardNumTxt.Text = patientService.FindPatietnById(patinetIdTxt.Text).HealthCardNumber;
+            healthCardNumTxt.Text = patientService.FindById(patinetIdTxt.Text).HealthCardNumber;
         }
 
         private void MedicamentsButtonClick(object sender, RoutedEventArgs e)

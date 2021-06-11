@@ -43,6 +43,16 @@ namespace Model
             throw new NotImplementedException();
         }
 
+        public void ReduceAmount(Room room, Inventory inventory, int amount)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void IncreaseAmount(Room room, Inventory inventory, int amount)
+        {
+            throw new NotImplementedException();
+        }
+
         public Room GetMagacin()
         {
             throw new NotImplementedException();
@@ -78,7 +88,12 @@ namespace Model
             throw new NotImplementedException();
         }
 
-        public void Update(Room oldEntity, Room newEntity)
+        public void Add(Room newEntity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(int index, Room newEntity)
         {
             throw new NotImplementedException();
         }

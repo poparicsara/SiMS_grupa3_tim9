@@ -15,7 +15,7 @@ namespace IS_Bolnica.Services
 
         public RoomService()
         {
-            rooms = repository.GetRooms();
+            rooms = repository.GetAll();
         }
 
 
@@ -62,20 +62,20 @@ namespace IS_Bolnica.Services
 
         public void AddRoom(Room newRoom)
         {
-            repository.AddRoom(newRoom);
+            repository.Add(newRoom);
         }
 
         public void DeleteRoom(Room selectedRoom)
         {
             rooms = GetRooms();
             int index = FindIndex(selectedRoom);
-            repository.DeleteRoom(index);
+            repository.Delete(index);
         }
 
         public void EditRoom(Room oldRoom, Room newRoom)
         {
             int index = FindIndex(oldRoom);
-            repository.EditRoom(index, newRoom);
+            repository.Update(index, newRoom);
         }
 
         private int FindIndex(Room room)
@@ -108,7 +108,7 @@ namespace IS_Bolnica.Services
 
         public List<Room> GetRooms()
         {
-            return repository.GetRooms();
+            return repository.GetAll();
         }
 
         public Room GetMagacin()
@@ -118,12 +118,12 @@ namespace IS_Bolnica.Services
 
         public void Save(List<Room> rooms)
         {
-            repository.saveToFile(rooms);
+            repository.SaveToFile(rooms);
         }
 
         public Room GetRoom(int roomId)
         {
-            return repository.GetRoom(roomId);
+            return repository.FindById(roomId);
         }
 
         public bool IsRoomNumberUnique(int roomNumber)

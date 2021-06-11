@@ -8,7 +8,7 @@ using Model;
 
 namespace IS_Bolnica.Services
 {
-    public class IngredientService
+    public partial class IngredientService
     {
         private IngredientRepository ingredientRepository = new IngredientRepository();
         private PatientService patientService = new PatientService();
@@ -73,7 +73,7 @@ namespace IS_Bolnica.Services
 
         public List<Ingredient> GetPatientsIngredients(string id)
         {
-            Patient patient = patientService.FindPatietnById(id);
+            Patient patient = patientService.FindById(id);
             if (patient.Ingredients != null)
             {
                 return patient.Ingredients;

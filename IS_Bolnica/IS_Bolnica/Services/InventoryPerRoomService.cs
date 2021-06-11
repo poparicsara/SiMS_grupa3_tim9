@@ -21,7 +21,7 @@ namespace IS_Bolnica.Services
 
         public InventoryPerRoomService(Inventory selected)
         {
-            rooms = roomRepository.GetRooms();
+            rooms = roomRepository.GetAll();
             CheckAllRooms(selected);
         }
 

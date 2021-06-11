@@ -11,85 +11,16 @@ namespace Model
     public class PatientRepository : IPatientRepository
     {
         private string fileName = "PatientRecordFileStorage.json";
+        private List<Patient> patients = new List<Patient>();
 
-        public void Delete(string id)
+        public void Delete(int index)
         {
-            throw new NotImplementedException();
-        }
-
-        public Patient FindPatientById(string id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int FindPatientIndex(Patient patient)
-        {
-            throw new NotImplementedException();
+            patients = GetAll();
+            patients.RemoveAt(index);
+            SaveToFile(patients);
         }
 
         public List<Patient> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Patient> GetBlockPatients()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Patient FindById(string id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Patient> GetSearchedPatients(string text)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool PatientExists(Patient patient)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool PatientIdExists(string id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SaveToFile(List<Patient> entities)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SetPatientAllergents(List<Ingredient> ingredients, string id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UnblockPatient(Patient patient)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(Patient oldEntity, Patient newEntity)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        /*public List<Patient> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SaveToFile(List<Patient> patients)
-        {
-            string jsonString = JsonConvert.SerializeObject(patients, Formatting.Indented);
-            File.WriteAllText(fileName, jsonString);
-        }
-
-        public List<Patient> LoadFromFile()
         {
             var patientsList = new List<Patient>();
 
@@ -100,7 +31,69 @@ namespace Model
             }
 
             return patientsList;
-        }*/
+        }
+
+        public Patient FindById(string id)
+        {
+            List<Patient> patients = GetAll();
+            foreach (var patient in patients)
+            {
+                if (patient.Id.Equals(id))
+                {
+                    return patient;
+                }
+            }
+
+            return null;
+        }
+
+        public void SaveToFile(List<Patient> entities)
+        {
+            string jsonString = JsonConvert.SerializeObject(entities, Formatting.Indented);
+            File.WriteAllText(fileName, jsonString);
+        }
+
+        public void Add(Patient newEntity)
+        {
+            patients = GetAll();
+            patients.Add(newEntity);
+            SaveToFile(patients);
+        }
+
+        public void SetPatientAllergents(List<Ingredient> ingredients, string id)
+        {
+            patients = GetAll();
+            foreach (var patient in patients)
+            {
+                if (patient.Id.Equals(id))
+                {
+                    patient.Ingredients = ingredients;
+                }
+            }
+            SaveToFile(patients);
+        }
+
+        public void UnblockPatient(Patient patient)
+        {
+            patients = GetAll();
+            for (int i = 0; i < patients.Count; i++)
+            {
+                if (patient.Id.Equals(patients[i].Id))
+                {
+                    patients[i].isBlocked = false;
+                    patients[i].Akcije = 0;
+                }
+            }
+            SaveToFile(patients);
+        }
+
+        public void Update(int index, Patient newEntity)
+        {
+            patients = GetAll();
+            patients.RemoveAt(index);
+            patients.Add(newEntity);
+            SaveToFile(patients);
+        }
 
     }
 }

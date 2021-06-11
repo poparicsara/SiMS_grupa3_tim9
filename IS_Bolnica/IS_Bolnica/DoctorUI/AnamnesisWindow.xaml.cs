@@ -137,7 +137,7 @@ namespace IS_Bolnica.DoctorUI
         private void SetAnamnesisFields()
         {
             anamnesis.Doctor = doctorService.FindDoctorByName(doctorTxt.Text);
-            anamnesis.Patient = patientService.FindPatietnById(patinetIdTxt.Text);
+            anamnesis.Patient = patientService.FindById(patinetIdTxt.Text);
             anamnesis.Symptoms = symptomsTxt.Text;
             anamnesis.Diagnosis = diagnosisTxt.Text;
             anamnesis.Date = (DateTime)examinationDate.SelectedDate;

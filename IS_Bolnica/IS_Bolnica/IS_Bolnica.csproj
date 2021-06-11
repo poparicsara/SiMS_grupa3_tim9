@@ -223,6 +223,7 @@
     <Compile Include="IRepository\IPatientRepository.cs" />
     <Compile Include="IRepository\IRenovationRepository.cs" />
     <Compile Include="IRepository\IRoomRepository.cs" />
+    <Compile Include="IRepository\IUserRepository.cs" />
     <Compile Include="Language.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -452,7 +453,6 @@
     <Compile Include="Services\FindAttributesService.cs" />
     <Compile Include="Services\DoctorService.cs" />
     <Compile Include="Services\GuestUserService.cs" />
-    <Compile Include="Services\IngredientService.cs" />
     <Compile Include="Services\InventoryPerRoomService.cs" />
     <Compile Include="Services\InventoryService.cs" />
     <Compile Include="Services\NotificationService.cs" />

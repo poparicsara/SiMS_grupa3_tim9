@@ -35,7 +35,7 @@ namespace IS_Bolnica.DoctorUI
 
         private void ConfirmButtonClick(object sender, RoutedEventArgs e)
         {
-            hospitalization.Patient = patientService.FindPatietnById(patinetIdTxt.Text);
+            hospitalization.Patient = patientService.FindById(patinetIdTxt.Text);
             hospitalization.Room = roomService.FindOrdinationById(Convert.ToInt32(roomsCB.SelectedItem));
             DateTime startDate = (DateTime)this.startDateDP.SelectedDate;
             DateTime endDate = (DateTime)this.endDateDP.SelectedDate;

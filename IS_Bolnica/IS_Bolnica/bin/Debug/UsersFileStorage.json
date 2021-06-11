@@ -274,5 +274,29 @@
         }
       }
     }
+  },
+  {
+    "Username": "srki",
+    "Password": "srki",
+    "Name": "Srdjan",
+    "Surname": "Srdic",
+    "DateOfBirth": "1954-11-01T00:00:00",
+    "Phone": "779856",
+    "Email": "srdjan@gmail.com",
+    "Id": "6666666666666",
+    "UserType": 0,
+    "Address": {
+      "Street": "Trgovacka ",
+      "NumberOfBuilding": 5,
+      "Floor": 8,
+      "Apartment": 9,
+      "City": {
+        "name": "Budimpesta ",
+        "postalCode": "69896",
+        "Country": {
+          "name": "Madjarska"
+        }
+      }
+    }
   }
 ]
