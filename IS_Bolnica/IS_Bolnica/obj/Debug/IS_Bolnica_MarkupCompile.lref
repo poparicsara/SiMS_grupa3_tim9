@@ -25,6 +25,7 @@ FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\DoctorUI\Anamnes
 FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\DoctorUI\AnamnesisWindow.xaml;;
 FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\DoctorUI\ChartWindow.xaml;;
 FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\DoctorUI\CreatePrescriptionWindow.xaml;;
+FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\DoctorUI\FeedbackWindow.xaml;;
 FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\DoctorUI\HospitalizationWindow.xaml;;
 FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\DoctorUI\HospitalizedPatientsWindow.xaml;;
 FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\DoctorUI\InvoiceWindow.xaml;;
@@ -43,9 +44,33 @@ FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\EditIngredientWi
 FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\EditInventoryWindow.xaml;;
 FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\EditDirectorProfileWindow.xaml;;
 FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\EditRoomWindow.xaml;;
+FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\GUI\Patient\View\EvaluationsForAppointments.xaml;;
+FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\GUI\Patient\View\InformationPage.xaml;;
+FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\GUI\Patient\View\Profile.xaml;;
 FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\InventoryWindow.xaml;;
 FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\DoctorUI\DoctorStartWindow.xaml;;
 FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\MergeRoomsWindow.xaml;;
+FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\PatientPages\AddNewAppointment.xaml;;
+FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\PatientPages\AddNewNote.xaml;;
+FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\PatientPages\AddNewNotification.xaml;;
+FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\PatientPages\CalendarForAppointments.xaml;;
+FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\PatientPages\ChoosePeriodForReportPage.xaml;;
+FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\PatientPages\ConfirmDeletingAppointment.xaml;;
+FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\PatientPages\EditAppointment.xaml;;
+FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\PatientPages\EvaluationsForAppointments.xaml;;
+FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\PatientPages\EvaluationsForHospital.xaml;;
+FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\PatientPages\MyAppointments.xaml;;
+FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\PatientPages\NewEvaluationForAppointment.xaml;;
+FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\PatientPages\NewEvaluationForHospital.xaml;;
+FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\PatientPages\Notes.xaml;;
+FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\PatientPages\PatientEvaluations.xaml;;
+FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\PatientPages\PatientNotificationsPage.xaml;;
+FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\PatientPages\PatientWindow.xaml;;
+FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\PatientPages\ShowAnamneses.xaml;;
+FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\PatientPages\StartPage.xaml;;
+FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\PatientPages\Suggestions.xaml;;
+FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\PatientPages\TheReportPage.xaml;;
+FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\PatientPages\Tutorial.xaml;;
 FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\ReportWindow.xaml;;
 FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\DoctorUI\OperationsWindow.xaml;;
 FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\RoomInventory.xaml;;
@@ -102,5 +127,4 @@ FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\SelectedRequest.
 FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\SeparateRoomWindow.xaml;;
 FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\RoomWindow.xaml;;
 FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\Zakazivanje pregleda.xaml;;
-FC:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\DoctorUI\FeedbackWindow.xaml;;
 

@@ -204,7 +204,14 @@
     <Compile Include="EditRoomWindow.xaml.cs">
       <DependentUpon>EditRoomWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EvaluationFileStorage.cs" />
+    <Compile Include="EvaluationRepository.cs" />
+    <Compile Include="GUI\Patient\Command\RelayCommand.cs" />
+    <Compile Include="GUI\Patient\ViewModel\EvaulationsForAppointmentsVM.cs" />
+    <Compile Include="GUI\Patient\ViewModel\InformationPageVM.cs" />
+    <Compile Include="GUI\Patient\ViewModel\ProfileVM.cs" />
+    <Compile Include="GUI\Patient\View\EvaluationsForAppointments.xaml.cs" />
+    <Compile Include="GUI\Patient\View\InformationPage.xaml.cs" />
+    <Compile Include="GUI\Patient\View\Profile.xaml.cs" />
     <Compile Include="Ingredient.cs" />
     <Compile Include="IngredientFileStorage.cs" />
     <Compile Include="InventoryWindow.xaml.cs">
@@ -224,10 +231,33 @@
     <Compile Include="Model\Gender.cs" />
     <Compile Include="Model\IngredientRepository.cs" />
     <Compile Include="Model\PrescriptionRepository.cs" />
+    <Compile Include="Model\Report.cs" />
     <Compile Include="Model\ReportData.cs" />
     <Compile Include="Model\Shift.cs" />
     <Compile Include="Model\ShiftType.cs" />
+    <Compile Include="Model\Suggestion.cs" />
     <Compile Include="Model\Vacation.cs" />
+    <Compile Include="PatientPages\AddNewAppointment.xaml.cs" />
+    <Compile Include="PatientPages\AddNewNote.xaml.cs" />
+    <Compile Include="PatientPages\AddNewNotification.xaml.cs" />
+    <Compile Include="PatientPages\CalendarForAppointments.xaml.cs" />
+    <Compile Include="PatientPages\ChoosePeriodForReportPage.xaml.cs" />
+    <Compile Include="PatientPages\ConfirmDeletingAppointment.xaml.cs" />
+    <Compile Include="PatientPages\EditAppointment.xaml.cs" />
+    <Compile Include="PatientPages\EvaluationsForAppointments.xaml.cs" />
+    <Compile Include="PatientPages\EvaluationsForHospital.xaml.cs" />
+    <Compile Include="PatientPages\MyAppointments.xaml.cs" />
+    <Compile Include="PatientPages\NewEvaluationForAppointment.xaml.cs" />
+    <Compile Include="PatientPages\NewEvaluationForHospital.xaml.cs" />
+    <Compile Include="PatientPages\Notes.xaml.cs" />
+    <Compile Include="PatientPages\PatientEvaluations.xaml.cs" />
+    <Compile Include="PatientPages\PatientNotificationsPage.xaml.cs" />
+    <Compile Include="PatientPages\PatientWindow.xaml.cs" />
+    <Compile Include="PatientPages\ShowAnamneses.xaml.cs" />
+    <Compile Include="PatientPages\StartPage.xaml.cs" />
+    <Compile Include="PatientPages\Suggestions.xaml.cs" />
+    <Compile Include="PatientPages\TheReportPage.xaml.cs" />
+    <Compile Include="PatientPages\Tutorial.xaml.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Resources\Resources.en-US.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -257,9 +287,6 @@
     </Compile>
     <Compile Include="RoomInventory.xaml.cs">
       <DependentUpon>RoomInventory.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Izmena pregleda.xaml.cs">
-      <DependentUpon>Izmena pregleda.xaml</DependentUpon>
     </Compile>
     <Compile Include="IngredientsWindow.xaml.cs">
       <DependentUpon>IngredientsWindow.xaml</DependentUpon>
@@ -297,29 +324,8 @@
     <Compile Include="AddRoomWindow.xaml.cs">
       <DependentUpon>AddRoomWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ocene.xaml.cs">
-      <DependentUpon>Ocene.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="OceneBolnice.xaml.cs">
-      <DependentUpon>OceneBolnice.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="OcenePacijenta.xaml.cs">
-      <DependentUpon>OcenePacijenta.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="OcenjivanjeBolnice.xaml.cs">
-      <DependentUpon>OcenjivanjeBolnice.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="OcenjivanjePregleda.xaml.cs">
-      <DependentUpon>OcenjivanjePregleda.xaml</DependentUpon>
-    </Compile>
     <Compile Include="PatientNotificationWindow.xaml.cs">
       <DependentUpon>PatientNotificationWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PatientWindow.xaml.cs">
-      <DependentUpon>PatientWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Predlozi.xaml.cs">
-      <DependentUpon>Predlozi.xaml</DependentUpon>
     </Compile>
     <Compile Include="RenovationWindow.xaml.cs">
       <DependentUpon>RenovationWindow.xaml</DependentUpon>
@@ -435,6 +441,7 @@
     <Compile Include="Services\AnamnesisService.cs" />
     <Compile Include="Services\AppointmentService.cs" />
     <Compile Include="Services\ChangeInventoryPlaceService.cs" />
+    <Compile Include="Services\EvaluationService.cs" />
     <Compile Include="Services\FeedbackService.cs" />
     <Compile Include="Services\FindAttributesService.cs" />
     <Compile Include="Services\DoctorService.cs" />
@@ -452,6 +459,7 @@
     <Compile Include="Services\MedicamentService.cs" />
     <Compile Include="Services\PrescriptionService.cs" />
     <Compile Include="Services\RoomService.cs" />
+    <Compile Include="Services\SuggestionService.cs" />
     <Compile Include="Services\UrgentAppointmentService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="TranslationSource.cs" />
@@ -459,9 +467,6 @@
       <DependentUpon>RoomWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Validation\Validation.cs" />
-    <Compile Include="Zakazivanje pregleda.xaml.cs">
-      <DependentUpon>Zakazivanje pregleda.xaml</DependentUpon>
-    </Compile>
     <Page Include="AddIngredientByDirectorWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -638,6 +643,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="GUI\Patient\View\EvaluationsForAppointments.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\Patient\View\InformationPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\Patient\View\Profile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="InventoryWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -648,6 +665,90 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PatientPages\AddNewAppointment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PatientPages\AddNewNote.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PatientPages\AddNewNotification.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PatientPages\CalendarForAppointments.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PatientPages\ChoosePeriodForReportPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PatientPages\ConfirmDeletingAppointment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PatientPages\EditAppointment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PatientPages\EvaluationsForAppointments.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PatientPages\EvaluationsForHospital.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PatientPages\MyAppointments.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PatientPages\NewEvaluationForAppointment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PatientPages\NewEvaluationForHospital.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PatientPages\Notes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PatientPages\PatientEvaluations.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PatientPages\PatientNotificationsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PatientPages\PatientWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PatientPages\ShowAnamneses.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PatientPages\StartPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PatientPages\Suggestions.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PatientPages\TheReportPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PatientPages\Tutorial.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ReportWindow.xaml" />
     <Page Include="DoctorUI\OperationsWindow.xaml">
       <SubType>Designer</SubType>
@@ -656,10 +757,6 @@
     <Page Include="RoomInventory.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Izmena pregleda.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -689,37 +786,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Ocene.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="OceneBolnice.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="OcenePacijenta.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="OcenjivanjeBolnice.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="OcenjivanjePregleda.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="PatientNotificationWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="PatientWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Predlozi.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RenovationWindow.xaml">
       <SubType>Designer</SubType>
@@ -870,10 +939,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RoomWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Zakazivanje pregleda.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1051,6 +1116,47 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\remove2.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="PatientPages\add.png" />
+    <Resource Include="PatientPages\appointment.png" />
+    <Resource Include="PatientPages\back.png" />
+    <Resource Include="PatientPages\calendar.png" />
+    <Resource Include="PatientPages\correct.png" />
+    <Resource Include="PatientPages\download.png" />
+    <Resource Include="PatientPages\evaluation.png" />
+    <Resource Include="PatientPages\exclamation-mark.png" />
+    <Resource Include="PatientPages\health.jpg" />
+    <Resource Include="PatientPages\help.jpg" />
+    <Resource Include="PatientPages\help.png" />
+    <Resource Include="PatientPages\incorrect.png" />
+    <Resource Include="PatientPages\logout.png" />
+    <Resource Include="PatientPages\nasLogo.jpg" />
+    <Resource Include="PatientPages\notes.png" />
+    <Resource Include="PatientPages\notification.png" />
+    <Resource Include="PatientPages\pencil.jpg" />
+    <Resource Include="PatientPages\print.png" />
+    <Resource Include="PatientPages\profile.png" />
+    <Resource Include="PatientPages\remove.png" />
+    <Resource Include="PatientPages\report.jpg" />
+    <Resource Include="PatientPages\search.jpg" />
+    <Resource Include="PatientPages\suggestion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PatientPages\videoTutorial\scripts\config_xml.js" />
+    <Content Include="PatientPages\videoTutorial\scripts\techsmith-smart-player.min.js" />
+    <Content Include="PatientPages\videoTutorial\skins\overlay\spritesheet.min.css" />
+    <Resource Include="PatientPages\videoTutorial\skins\overlay\spritesheet.png" />
+    <Content Include="PatientPages\videoTutorial\skins\overlay\techsmith-smart-player.min.css" />
+    <Content Include="PatientPages\videoTutorial\videoTutorial.html" />
+    <Content Include="PatientPages\videoTutorial\videoTutorial.mp4" />
+    <Resource Include="PatientPages\videoTutorial\videoTutorial_config.xml" />
+    <Content Include="PatientPages\videoTutorial\videoTutorial_controller.swf" />
+    <Content Include="PatientPages\videoTutorial\videoTutorial_embed.css" />
+    <Resource Include="PatientPages\videoTutorial\videoTutorial_First_Frame.png" />
+    <Content Include="PatientPages\videoTutorial\videoTutorial_player.html" />
+    <Resource Include="PatientPages\videoTutorial\videoTutorial_Thumbnails.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.1.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.1.0\build\MaterialDesignThemes.targets')" />

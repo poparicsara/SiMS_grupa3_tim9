@@ -1,0 +1,628 @@
+[
+  {
+    "Patient": {
+      "Allergens": null,
+      "examinations": null,
+      "Akcije": 0,
+      "brojOcenjenihPregleda": 0,
+      "Gender": 0,
+      "isBlocked": false,
+      "HealthCardNumber": null,
+      "Anamneses": null,
+      "Ingredients": null,
+      "Alergeni": null,
+      "Username": "Vladimir",
+      "Password": null,
+      "Name": null,
+      "Surname": null,
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": null,
+      "Email": null,
+      "Id": null,
+      "UserType": 0,
+      "Address": null
+    },
+    "Doctor": {
+      "Specialization": null,
+      "Ordination": 0,
+      "Shifts": null,
+      "Vacations": null,
+      "Username": null,
+      "Password": null,
+      "Name": "Marija",
+      "Surname": "Maric",
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": null,
+      "Email": null,
+      "Id": null,
+      "UserType": 0,
+      "Address": null
+    },
+    "Comment": "adsabasd",
+    "Assessment": 5,
+    "Bolnica": "",
+    "commentType": 0,
+    "numOfMinutes": 20
+  },
+  {
+    "Patient": {
+      "Allergens": null,
+      "examinations": null,
+      "Akcije": 0,
+      "brojOcenjenihPregleda": 0,
+      "Gender": 0,
+      "isBlocked": false,
+      "HealthCardNumber": null,
+      "Anamneses": null,
+      "Ingredients": null,
+      "Alergeni": null,
+      "Username": "Vladimir",
+      "Password": null,
+      "Name": null,
+      "Surname": null,
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": null,
+      "Email": null,
+      "Id": null,
+      "UserType": 0,
+      "Address": null
+    },
+    "Doctor": {
+      "Specialization": null,
+      "Ordination": 0,
+      "Shifts": null,
+      "Vacations": null,
+      "Username": null,
+      "Password": null,
+      "Name": "Milica",
+      "Surname": "Milanovic",
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": null,
+      "Email": null,
+      "Id": null,
+      "UserType": 0,
+      "Address": null
+    },
+    "Comment": "hebgkva",
+    "Assessment": 3,
+    "Bolnica": "",
+    "commentType": 0,
+    "numOfMinutes": 5
+  },
+  {
+    "Patient": {
+      "Allergens": null,
+      "examinations": null,
+      "Akcije": 0,
+      "brojOcenjenihPregleda": 0,
+      "Gender": 0,
+      "isBlocked": false,
+      "HealthCardNumber": null,
+      "Anamneses": null,
+      "Ingredients": null,
+      "Alergeni": null,
+      "Username": "Vladimir",
+      "Password": null,
+      "Name": null,
+      "Surname": null,
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": null,
+      "Email": null,
+      "Id": null,
+      "UserType": 0,
+      "Address": null
+    },
+    "Doctor": null,
+    "Comment": "Odlicna",
+    "Assessment": 3,
+    "Bolnica": "Zdravo bolnica, Novi Sad",
+    "commentType": 1,
+    "numOfMinutes": 45
+  },
+  {
+    "Patient": {
+      "Allergens": null,
+      "examinations": null,
+      "Akcije": 0,
+      "brojOcenjenihPregleda": 0,
+      "Gender": 0,
+      "isBlocked": false,
+      "HealthCardNumber": null,
+      "Anamneses": null,
+      "Ingredients": null,
+      "Alergeni": null,
+      "Username": "Vladimir",
+      "Password": null,
+      "Name": null,
+      "Surname": null,
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": null,
+      "Email": null,
+      "Id": null,
+      "UserType": 0,
+      "Address": null
+    },
+    "Doctor": null,
+    "Comment": "assga",
+    "Assessment": 3,
+    "Bolnica": "Zdravo bolnica, Novi Sad",
+    "commentType": 1,
+    "numOfMinutes": 10
+  },
+  {
+    "Patient": {
+      "Allergens": [
+        ""
+      ],
+      "examinations": null,
+      "Akcije": 9,
+      "brojOcenjenihPregleda": 0,
+      "Gender": 0,
+      "isBlocked": false,
+      "HealthCardNumber": "17",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Alergeni": null,
+      "Username": "Vladimir",
+      "Password": "ftn",
+      "Name": "Petar",
+      "Surname": "Petrović",
+      "DateOfBirth": "1964-06-01T00:00:00",
+      "Phone": "069778189",
+      "Email": "pera@gmail.com",
+      "Id": "1111111111111",
+      "UserType": 0,
+      "Address": {
+        "Street": "Ive Lole Ribara ",
+        "NumberOfBuilding": 2,
+        "Floor": 5,
+        "Apartment": 9,
+        "City": {
+          "name": "Sombor ",
+          "postalCode": "25000",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "Doctor": null,
+    "Comment": "fkjasbfjaskfas",
+    "Assessment": 0,
+    "Bolnica": null,
+    "commentType": 2,
+    "numOfMinutes": 55
+  },
+  {
+    "Patient": {
+      "Allergens": [
+        ""
+      ],
+      "examinations": null,
+      "Akcije": 9,
+      "brojOcenjenihPregleda": 0,
+      "Gender": 0,
+      "isBlocked": false,
+      "HealthCardNumber": "17",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Alergeni": null,
+      "Username": "Vladimir",
+      "Password": "ftn",
+      "Name": "Petar",
+      "Surname": "Petrović",
+      "DateOfBirth": "1964-06-01T00:00:00",
+      "Phone": "069778189",
+      "Email": "pera@gmail.com",
+      "Id": "1111111111111",
+      "UserType": 0,
+      "Address": {
+        "Street": "Ive Lole Ribara ",
+        "NumberOfBuilding": 2,
+        "Floor": 5,
+        "Apartment": 9,
+        "City": {
+          "name": "Sombor ",
+          "postalCode": "25000",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "Doctor": null,
+    "Comment": "evo",
+    "Assessment": 0,
+    "Bolnica": null,
+    "commentType": 2,
+    "numOfMinutes": 30
+  },
+  {
+    "Patient": {
+      "Allergens": [
+        "brufen",
+        "penicilin"
+      ],
+      "examinations": null,
+      "Akcije": 6,
+      "brojOcenjenihPregleda": 0,
+      "Gender": 0,
+      "isBlocked": false,
+      "HealthCardNumber": "19",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Alergeni": null,
+      "Username": "nnnn",
+      "Password": "ftn",
+      "Name": "Nina",
+      "Surname": "Pavkovic",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "12345",
+      "Email": "dad",
+      "Id": "1234",
+      "UserType": 0,
+      "Address": {
+        "Street": "abc ",
+        "NumberOfBuilding": 4,
+        "Floor": 3,
+        "Apartment": 2,
+        "City": {
+          "name": "ns ",
+          "postalCode": "21000",
+          "Country": {
+            "name": "srb"
+          }
+        }
+      }
+    },
+    "Doctor": null,
+    "Comment": "gafsafass",
+    "Assessment": 0,
+    "Bolnica": null,
+    "commentType": 2,
+    "numOfMinutes": 40
+  },
+  {
+    "Patient": {
+      "Allergens": [
+        "brufen",
+        "penicilin"
+      ],
+      "examinations": null,
+      "Akcije": 6,
+      "brojOcenjenihPregleda": 0,
+      "Gender": 0,
+      "isBlocked": false,
+      "HealthCardNumber": "19",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Alergeni": null,
+      "Username": "nnnn",
+      "Password": "ftn",
+      "Name": "Nina",
+      "Surname": "Pavkovic",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "12345",
+      "Email": "dad",
+      "Id": "1234",
+      "UserType": 0,
+      "Address": {
+        "Street": "abc ",
+        "NumberOfBuilding": 4,
+        "Floor": 3,
+        "Apartment": 2,
+        "City": {
+          "name": "ns ",
+          "postalCode": "21000",
+          "Country": {
+            "name": "srb"
+          }
+        }
+      }
+    },
+    "Doctor": null,
+    "Comment": "nova beleska",
+    "Assessment": 0,
+    "Bolnica": null,
+    "commentType": 2,
+    "numOfMinutes": 30
+  },
+  {
+    "Patient": {
+      "Allergens": [
+        ""
+      ],
+      "examinations": null,
+      "Akcije": 3,
+      "brojOcenjenihPregleda": 0,
+      "Gender": 0,
+      "isBlocked": false,
+      "HealthCardNumber": "17",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Alergeni": null,
+      "Username": "Vladimir",
+      "Password": "ftn",
+      "Name": "Petar",
+      "Surname": "Petrović",
+      "DateOfBirth": "1964-06-01T00:00:00",
+      "Phone": "069778189",
+      "Email": "pera@gmail.com",
+      "Id": "1111111111111",
+      "UserType": 0,
+      "Address": {
+        "Street": "Ive Lole Ribara ",
+        "NumberOfBuilding": 2,
+        "Floor": 5,
+        "Apartment": 9,
+        "City": {
+          "name": "Sombor ",
+          "postalCode": "25000",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "Doctor": null,
+    "Comment": "Nova beleska",
+    "Assessment": 0,
+    "Bolnica": null,
+    "commentType": 2,
+    "numOfMinutes": 5
+  },
+  {
+    "Patient": {
+      "Allergens": [
+        ""
+      ],
+      "examinations": null,
+      "Akcije": 3,
+      "brojOcenjenihPregleda": 0,
+      "Gender": 0,
+      "isBlocked": false,
+      "HealthCardNumber": "17",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Alergeni": null,
+      "Username": "Vladimir",
+      "Password": "ftn",
+      "Name": "Petar",
+      "Surname": "Petrović",
+      "DateOfBirth": "1964-06-01T00:00:00",
+      "Phone": "069778189",
+      "Email": "pera@gmail.com",
+      "Id": "1111111111111",
+      "UserType": 0,
+      "Address": {
+        "Street": "Ive Lole Ribara ",
+        "NumberOfBuilding": 2,
+        "Floor": 5,
+        "Apartment": 9,
+        "City": {
+          "name": "Sombor ",
+          "postalCode": "25000",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "Doctor": null,
+    "Comment": "Beleska",
+    "Assessment": 0,
+    "Bolnica": null,
+    "commentType": 2,
+    "numOfMinutes": 55
+  },
+  {
+    "Patient": {
+      "Allergens": [
+        ""
+      ],
+      "examinations": null,
+      "Akcije": 3,
+      "brojOcenjenihPregleda": 0,
+      "Gender": 0,
+      "isBlocked": false,
+      "HealthCardNumber": "17",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Alergeni": null,
+      "Username": "Vladimir",
+      "Password": "ftn",
+      "Name": "Petar",
+      "Surname": "Petrović",
+      "DateOfBirth": "1964-06-01T00:00:00",
+      "Phone": "069778189",
+      "Email": "pera@gmail.com",
+      "Id": "1111111111111",
+      "UserType": 0,
+      "Address": {
+        "Street": "Ive Lole Ribara ",
+        "NumberOfBuilding": 2,
+        "Floor": 5,
+        "Apartment": 9,
+        "City": {
+          "name": "Sombor ",
+          "postalCode": "25000",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "Doctor": {
+      "Specialization": {
+        "Name": "Interna medicina"
+      },
+      "Ordination": 110,
+      "Shifts": null,
+      "Vacations": null,
+      "Username": "Brankica",
+      "Password": "ftn",
+      "Name": "Brankica",
+      "Surname": "Banic",
+      "DateOfBirth": "1979-11-01T00:00:00",
+      "Phone": "67894652",
+      "Email": "maricm@hotmail.com",
+      "Id": "5",
+      "UserType": 1,
+      "Address": null
+    },
+    "Comment": "Strucan doktor",
+    "Assessment": 4,
+    "Bolnica": "",
+    "commentType": 0,
+    "numOfMinutes": 5
+  },
+  {
+    "Patient": {
+      "Allergens": [
+        ""
+      ],
+      "examinations": null,
+      "Akcije": 3,
+      "brojOcenjenihPregleda": 0,
+      "Gender": 0,
+      "isBlocked": false,
+      "HealthCardNumber": "17",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Alergeni": null,
+      "Username": "Vladimir",
+      "Password": "ftn",
+      "Name": "Petar",
+      "Surname": "Petrović",
+      "DateOfBirth": "1964-06-01T00:00:00",
+      "Phone": "069778189",
+      "Email": "pera@gmail.com",
+      "Id": "1111111111111",
+      "UserType": 0,
+      "Address": {
+        "Street": "Ive Lole Ribara ",
+        "NumberOfBuilding": 2,
+        "Floor": 5,
+        "Apartment": 9,
+        "City": {
+          "name": "Sombor ",
+          "postalCode": "25000",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "Doctor": null,
+    "Comment": "Zadovoljan sam radom bolnice",
+    "Assessment": 4,
+    "Bolnica": "Zdravo bolnica, Novi Sad",
+    "commentType": 1,
+    "numOfMinutes": 5
+  },
+  {
+    "Patient": {
+      "Allergens": [
+        ""
+      ],
+      "examinations": null,
+      "Akcije": 3,
+      "brojOcenjenihPregleda": 1,
+      "Gender": 0,
+      "isBlocked": false,
+      "HealthCardNumber": "17",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Alergeni": null,
+      "Username": "Vladimir",
+      "Password": "ftn",
+      "Name": "Petar",
+      "Surname": "Petrović",
+      "DateOfBirth": "1964-06-01T00:00:00",
+      "Phone": "069778189",
+      "Email": "pera@gmail.com",
+      "Id": "1111111111111",
+      "UserType": 0,
+      "Address": {
+        "Street": "Ive Lole Ribara ",
+        "NumberOfBuilding": 2,
+        "Floor": 5,
+        "Apartment": 9,
+        "City": {
+          "name": "Sombor ",
+          "postalCode": "25000",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "Doctor": {
+      "Specialization": {
+        "Name": "Interna medicina"
+      },
+      "Ordination": 110,
+      "Shifts": null,
+      "Vacations": null,
+      "Username": "Brankica",
+      "Password": "ftn",
+      "Name": "Brankica",
+      "Surname": "Banic",
+      "DateOfBirth": "1979-11-01T00:00:00",
+      "Phone": "67894652",
+      "Email": "maricm@hotmail.com",
+      "Id": "5",
+      "UserType": 1,
+      "Address": null
+    },
+    "Comment": "Odlicna doktorka",
+    "Assessment": 5,
+    "Bolnica": "",
+    "commentType": 0,
+    "numOfMinutes": 5
+  },
+  {
+    "Patient": {
+      "Allergens": [
+        "brufen"
+      ],
+      "examinations": null,
+      "Akcije": 6,
+      "brojOcenjenihPregleda": 0,
+      "Gender": 0,
+      "isBlocked": true,
+      "HealthCardNumber": "80",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Alergeni": null,
+      "Username": "p__nina",
+      "Password": "hehe",
+      "Name": "Nikolina",
+      "Surname": "Pavkovic",
+      "DateOfBirth": "2000-02-01T00:00:00",
+      "Phone": "0658886407",
+      "Email": "pavkovicn@hotmail.com",
+      "Id": "1502000815038",
+      "UserType": 0,
+      "Address": {
+        "Street": "Nova",
+        "NumberOfBuilding": 130,
+        "Floor": 0,
+        "Apartment": 0,
+        "City": {
+          "name": "Apatin",
+          "postalCode": "25260",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "Doctor": null,
+    "Comment": "asdf",
+    "Assessment": 0,
+    "Bolnica": null,
+    "commentType": 2,
+    "numOfMinutes": 5
+  }
+]

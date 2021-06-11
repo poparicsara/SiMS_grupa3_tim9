@@ -69,7 +69,7 @@ namespace IS_Bolnica
                             {
                                 if(patient.Username.Equals(user.Username) && patient.Password.Equals(user.Password))
                                 {
-                                    PatientWindow pw = new PatientWindow(username, true);
+                                    PatientWindow pw = new PatientWindow(username);
                                     pw.Show();
                                     break;
                                 }

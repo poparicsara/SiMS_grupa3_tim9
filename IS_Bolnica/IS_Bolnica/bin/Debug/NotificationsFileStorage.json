@@ -74,5 +74,12 @@
       "2222222222222",
       "3333333333333"
     ]
+  },
+  {
+    "Title": "Blokada",
+    "Content": "Blokiran pacijent Nikolina Pavkovic!",
+    "Sender": 0,
+    "notificationType": 2,
+    "PersonId": null
   }
 ]
