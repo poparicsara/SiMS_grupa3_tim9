@@ -28,7 +28,7 @@ namespace IS_Bolnica
 
         private void ButtonZabeleziClicked(object sender, RoutedEventArgs e)
         {
-            EvaluationFileStorage exStorage = new EvaluationFileStorage();
+            EvaluationRepository exStorage = new EvaluationRepository();
             List<Evaluation> ocene = exStorage.loadFromFile("Ocene.json");
             Evaluation ocena = new Evaluation();
             ocena.Bolnica = "Zdravo bolnica, Novi Sad";

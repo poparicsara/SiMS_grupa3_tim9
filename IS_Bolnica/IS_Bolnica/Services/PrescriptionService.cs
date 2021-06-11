@@ -41,5 +41,19 @@ namespace IS_Bolnica.Services
         {
             return prescriptionRepository.LoadFromFile();
         }
+
+        public List<Prescription> getPatientPrescriptions(String username)
+        {
+            prescriptions = GetPrescriptions();
+            List<Prescription> patientPrescriptions = new List<Prescription>();
+
+            foreach (Prescription prescription in prescriptions)
+            {
+                if (prescription.Patient.Username.Equals(username))
+                    patientPrescriptions.Add(prescription);
+            }
+
+            return patientPrescriptions;
+        }
     }
 }

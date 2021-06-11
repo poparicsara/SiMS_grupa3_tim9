@@ -115,19 +115,6 @@ namespace IS_Bolnica.Services
             return doctor;
         }
 
-        public List<string> GetSpecializationNames()
-        {
-            List<string> specializationNames = new List<string>();
-            Specialization specialization = new Specialization();
-            List<Specialization> specializations = specialization.getSpecializations();
-            foreach (Specialization spec in specializations)
-            {
-                specializationNames.Add(spec.Name);
-            }
-
-            return specializationNames;
-        }
-
         public List<string> GetDoctorsNameSurname()
         {
             List<string> doctorsNameSurname = new List<string>();
@@ -141,32 +128,6 @@ namespace IS_Bolnica.Services
             return doctorsNameSurname;
         }
 
-        public List<string> RemoveDoctorsFromComboBox()
-        {
-            List<string> doctorsNameSurname = new List<string>();
-            foreach (Doctor doctor in doctorRepository.LoadFromFile())
-            {
-                if (doctor.Specialization.Name == " ")
-                {
-                    doctorsNameSurname.Remove(doctor.Name + ' ' + doctor.Surname);
-                }
-            }
-            return doctorsNameSurname;
-        }
-
-        public List<string> RemoveSpecialistsFromComboBox()
-        {
-            List<string> specialistsNameSurname = new List<string>();
-            foreach (Doctor doctor in doctorRepository.LoadFromFile())
-            {
-                if (doctor.Specialization.Name != " ")
-                {
-                    specialistsNameSurname.Remove(doctor.Name + ' ' + doctor.Surname);
-                }
-            }
-
-            return specialistsNameSurname;
-        }
 
         public int ShowDoctorsOrdination(string doctorsNameSurname)
         {
@@ -183,23 +144,6 @@ namespace IS_Bolnica.Services
             return ordinationNumber;
         }
 
-        public List<string> SetSpecialistsInComboBox(string specializationName)
-        {
-            List<String> specialistsNameAndSurname = new List<string>();
-            foreach (Doctor doctor in doctorRepository.LoadFromFile())
-            {
-                if (doctor.Specialization.Name.Equals(specializationName))
-                {
-                    specialistsNameAndSurname.Add(doctor.Name + ' ' + doctor.Surname);
-                }
-                else
-                {
-                    specialistsNameAndSurname.Remove(doctor.Name + ' ' + doctor.Surname);
-                }
-            }
-
-            return specialistsNameAndSurname;
-        }
 
         public List<string> GetSpecialistsNameSurname()
         {
@@ -217,6 +161,19 @@ namespace IS_Bolnica.Services
         public List<Doctor> GetAllDoctors()
         {
             return doctorRepository.LoadFromFile();
+        }
+
+        public List<string> GetDoctorNamesWithSpecialization()
+        {
+            List<string> docNames = new List<string>();
+            doctors = doctorRepository.LoadFromFile();
+
+            foreach (Doctor doctor in doctors)
+            {
+                docNames.Add(doctor.Name + " " + doctor.Surname + "(" + doctor.Specialization.Name + ")");
+            }
+
+            return docNames;
         }
     }
 }

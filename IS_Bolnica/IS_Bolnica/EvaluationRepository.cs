@@ -5,15 +5,16 @@ using System.IO;
 
 namespace Model
 {
-    class EvaluationFileStorage
+    class EvaluationRepository
     {
-        public void saveToFile(List<Evaluation> evaluations, string fileName)
+        private string fileName = "Ocene.json";
+        public void saveToFile(List<Evaluation> evaluations)
         {
             string jsonString = JsonConvert.SerializeObject(evaluations, Formatting.Indented);
             File.WriteAllText(fileName, jsonString);
         }
 
-        public List<Evaluation> loadFromFile(string fileName)
+        public List<Evaluation> loadFromFile()
         {
             var evaluationList = new List<Evaluation>();
 

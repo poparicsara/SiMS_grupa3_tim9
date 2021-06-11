@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using IS_Bolnica.Model;
 using Model;
@@ -8,6 +9,8 @@ namespace IS_Bolnica.Services
     public class AppointmentService
     {
         private AppointmentRepository appointmentRepository = new AppointmentRepository();
+        private NotificationRepository notificationRepository = new NotificationRepository();
+        private PatientRepository patientRepository = new PatientRepository();
         private List<Appointment> appointments = new List<Appointment>();
         private List<Appointment> examinations = new List<Appointment>();
         private List<Appointment> operations = new List<Appointment>();
@@ -47,6 +50,7 @@ namespace IS_Bolnica.Services
             {
                 int indexOld = FindAppointmentIndex(oldAppointment);
                 appointments.RemoveAt(indexOld);
+                appointmentRepository.SaveToFile(appointments);
                 if (IsAvailable(newAppointment))
                 {
                     appointments.Add(newAppointment);
@@ -115,7 +119,7 @@ namespace IS_Bolnica.Services
 
         }
 
-        private List<Appointment> FindPatientAppointments(Patient patient)
+        public List<Appointment> FindPatientAppointments(Patient patient)
         {
             appointments = appointmentRepository.LoadFromFile();
             List<Appointment> patientAppointments = new List<Appointment>();
@@ -541,6 +545,160 @@ namespace IS_Bolnica.Services
             return true;
         }
 
+        public Boolean checkAppointment(Appointment appointment)
+        {
+            DateTime now = DateTime.Now;
+            string[] pom = now.ToString().Split(' ');
+            string[] dateNow = pom[0].Split('/');
+
+            string[] appointmentStartDateAndTime = appointment.StartTime.ToString().Split(' ');
+            string[] appointmentDate = appointmentStartDateAndTime[0].Split('/');
+            List<Patient> patients = patientRepository.LoadFromFile();
+            Patient loggedPatient = findPatientByUsername(PatientWindow.loggedPatient.Username);
+
+            if (Convert.ToInt32(dateNow[0]) > Convert.ToInt32(appointmentDate[0]))
+            {
+                loggedPatient.brojOcenjenihPregleda++;
+                patientRepository.SaveToFile(patients);
+                DeleteAppointment(appointment);
+                return true;
+            }
+            else if (Convert.ToInt32(dateNow[0]) == Convert.ToInt32(appointmentDate[0]) && Convert.ToInt32(dateNow[1]) > Convert.ToInt32(appointmentDate[1]))
+            {
+                loggedPatient.brojOcenjenihPregleda++;
+                patientRepository.SaveToFile(patients);
+                DeleteAppointment(appointment);
+                return true;
+            }
+            return false;
+        }
+
+        public Boolean sendEvaluationOfHospital()
+        {
+            Patient loggedPatient = findPatientByUsername(PatientWindow.loggedPatient.Username);
+            if (loggedPatient.brojOcenjenihPregleda % 7 == 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public Boolean processActions()
+        {
+            increaseActions();
+            return checkActions();
+        }
+
+        private void increaseActions()
+        {
+            List<Patient> patients = patientRepository.LoadFromFile();
+            foreach (Patient patient in patients)
+            {
+                if (patient.Username.Equals(PatientWindow.loggedPatient.Username))
+                    patient.Akcije++;
+            }
+
+            patientRepository.SaveToFile(patients);
+        }
+
+        private Boolean checkActions()
+        {
+            Patient patient = findPatientByUsername(PatientWindow.loggedPatient.Username);
+            if (patient.Akcije >= 6)
+            {
+                Notification notification = new Notification
+                {
+                    Title = "Blokada",
+                    Content = "Blokiran pacijent " + PatientWindow.loggedPatient.Name +
+                    " " + PatientWindow.loggedPatient.Surname + "!",
+                    Sender = UserType.patient,
+                    notificationType = NotificationType.secretory
+                };
+                addNotification(notification);
+                return true;
+            }
+            return false;
+        }
+
+        private void addNotification(Notification newNotification)
+        {
+            List<Notification> notifications = notificationRepository.LoadFromFile();
+            Boolean posible = true;
+            foreach (Notification notification in notifications)
+            {
+                if (newNotification.Content.Equals(notification.Content))
+                    posible = false;
+            }
+
+            if (posible)
+            {
+                notifications.Add(newNotification);
+                notificationRepository.SaveToFile(notifications);
+            }
+        }
+
+        public Patient findPatientByUsername(string username)
+        {
+            List<Patient> patients = patientRepository.LoadFromFile();
+            Patient returnPatient = new Patient();
+
+            foreach (Patient patient in patients)
+            {
+                if (patient.Username.Equals(username))
+                {
+                    returnPatient = patient;
+                }
+            }
+
+            return returnPatient;
+        }
+
+        public Boolean isSelectedDateFree(DateTime selectedDate, Doctor selectedDoctor)
+        {
+            List<Appointment> appointments = GetAppointments();
+
+            foreach (Appointment appointment in appointments)
+            {
+                if (Convert.ToString(appointment.StartTime).Equals(selectedDate.ToString()) && selectedDoctor.Name.Equals(appointment.Doctor.Name) && selectedDoctor.Surname.Equals(appointment.Doctor.Surname))
+                    return true;
+            }
+
+            return false;
+        }
+
+        public Appointment findSelectedPatientAppointment(int selectedIndex)
+        {
+            List<Appointment> patientAppointments = FindPatientAppointments(findPatientByUsername(PatientWindow.loggedPatient.Username));
+            Appointment selectedAppointment = new Appointment();
+
+            for (int i = 0; i < patientAppointments.Count; i++)
+            {
+                if (i == selectedIndex)
+                    selectedAppointment = patientAppointments[i];
+            }
+
+            return selectedAppointment;
+        }
+
+        public Boolean checkDateOfAppointment(Appointment selectedAppointment)
+        {
+            DateTime now = DateTime.Now;
+            string[] pom = now.AddDays(2).ToString().Split(' ');
+            string[] dateNow = pom[0].Split('/');
+
+            string[] appointmentStartDateAndTime = selectedAppointment.StartTime.ToString().Split(' ');
+            string[] appointmentDate = appointmentStartDateAndTime[0].Split('/');
+
+            if (Convert.ToInt32(dateNow[0]) == Convert.ToInt32(appointmentDate[0]))
+            {
+                if (Convert.ToInt32(dateNow[1]) < Convert.ToInt32(appointmentDate[1]))
+                    return false;
+                else
+                    return true;
+            }
+            return false;
+        }
 
     }
 }

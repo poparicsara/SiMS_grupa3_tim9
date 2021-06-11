@@ -26,7 +26,7 @@ namespace IS_Bolnica
         {
             InitializeComponent();
 
-            EvaluationFileStorage exStorage = new EvaluationFileStorage();
+            EvaluationRepository exStorage = new EvaluationRepository();
             List<Evaluation> ocene = exStorage.loadFromFile("Ocene.json");
             ObservableCollection<Evaluation> oceneUlogovanogPacijenta = new ObservableCollection<Evaluation>();
 

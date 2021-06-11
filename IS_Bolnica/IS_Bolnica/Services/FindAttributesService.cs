@@ -10,7 +10,7 @@ using Model;
 
 namespace IS_Bolnica.Services
 {
-    class FindAttributesService
+    public class FindAttributesService
     {
         private List<Patient> patients = new List<Patient>();
         private PatientRepository patientRepository = new PatientRepository();
@@ -25,6 +25,7 @@ namespace IS_Bolnica.Services
         private GuestUserRepository guestUserRepository = new GuestUserRepository();
         private List<GuestUser> guestUsers = new List<GuestUser>();
         private List<int> roomNums = new List<int>();
+        private AppointmentRepository appointmentRepository = new AppointmentRepository();
 
         public FindAttributesService()
         {
@@ -153,6 +154,125 @@ namespace IS_Bolnica.Services
         public int GetDurationInMinutes(int hours, int minutes)
         {
             return hours * 60 + minutes;
+        }
+
+        public Patient findPatientByUsername(string username)
+        {
+            patients = patientRepository.LoadFromFile();
+            Patient returnPatient = new Patient();
+
+            foreach (Patient patient in patients)
+            {
+                if (patient.Username.Equals(username))
+                {
+                    returnPatient = patient;
+                }
+            }
+
+            return returnPatient;
+        }
+
+        public DateTime returnSelectedDate(DateTime date, String selectedHour, String selectedMin)
+        {
+            int days = date.Day;
+            int month = date.Month;
+            int year = date.Year;
+            int hours = Convert.ToInt32(selectedHour);
+            int minutes = Convert.ToInt32(selectedMin);
+
+            DateTime selectedDate = new DateTime(year, month, days, hours, minutes, 0);
+            return selectedDate;
+        }
+
+        public Boolean checkSelectedIndex(int index)
+        {
+            if (index == -1)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public DateTime returnSelectedDateByIndex(int index)
+        {
+            List<Appointment> patientAppointments = FindPatientAppointments(findPatientByUsername(PatientWindow.loggedPatient.Username));
+            //2.3.2020. 09:15:00 
+            DateTime selectedDate = patientAppointments.ElementAt(index).StartTime;
+            string[] pom = selectedDate.ToString().Split(' ');
+            string[] date = pom[0].Split('/');
+            DateTime returnDate = new DateTime(Int32.Parse(date[2]), Int32.Parse(date[0]), Int32.Parse(date[1]));
+
+            return returnDate;
+        }
+
+        public String returnDoctorsNameAndSurnameByIndex(int index)
+        {
+            List<Appointment> patientAppointments = FindPatientAppointments(findPatientByUsername(PatientWindow.loggedPatient.Username));
+            return patientAppointments.ElementAt(index).Doctor.Name + " " + patientAppointments.ElementAt(index).Doctor.Surname +
+                "(" + patientAppointments.ElementAt(index).Doctor.Specialization.Name + ")";
+        }
+
+        public String returnSelectedHourByIndex(int index)
+        {
+            List<Appointment> patientAppointments = FindPatientAppointments(findPatientByUsername(PatientWindow.loggedPatient.Username));
+
+            DateTime selectedDate = patientAppointments.ElementAt(index).StartTime;
+            string[] pom = selectedDate.ToString().Split(' ');
+            string[] time = pom[1].Split(':');
+            String hour = "";
+            if (pom[2].Equals("PM") && Convert.ToInt32(time[0]) < 12)
+            {
+                hour = (Convert.ToInt32(time[0]) + 12).ToString();
+            }
+            else
+            {
+                hour = time[0];
+            }
+
+            return hour;
+        }
+
+        public String returnSelectedMinutesByIndex(int index)
+        {
+            List<Appointment> patientAppointments = FindPatientAppointments(findPatientByUsername(PatientWindow.loggedPatient.Username));
+
+            DateTime selectedDate = patientAppointments.ElementAt(index).StartTime;
+            string[] pom = selectedDate.ToString().Split(' ');
+            string[] time = pom[1].Split(':');
+
+            return time[1];
+        }
+
+        public List<Appointment> FindPatientAppointments(Patient patient)
+        {
+            List<Appointment> appointments = appointmentRepository.LoadFromFile();
+            List<Appointment> patientAppointments = new List<Appointment>();
+            foreach (var appointment in appointments)
+            {
+                if (appointment.Patient.Id.Equals(patient.Id))
+                {
+                    patientAppointments.Add(appointment);
+                }
+            }
+
+            return patientAppointments;
+        }
+
+        public Boolean checkComboBoxes(String doctorComboBox, String hourBox, String minuteBox)
+        {
+
+            if (!doctorComboBox.Equals("") && !hourBox.Equals("") && !minuteBox.Equals(""))
+                return true;
+
+            return false;
+        }
+
+        public Boolean checkDatePicker(String date)
+        {
+            if (!date.Equals(""))
+                return true;
+
+            return false;
         }
 
     }
