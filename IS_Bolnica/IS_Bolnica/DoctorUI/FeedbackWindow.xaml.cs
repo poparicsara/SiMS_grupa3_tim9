@@ -11,38 +11,29 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Model;
 using IS_Bolnica.Services;
-using Model;
 
 namespace IS_Bolnica.DoctorUI
 {
-    public partial class SettingsWindow : Window
+    public partial class FeedbackWindow : Window
     {
-        private User loggedUser;
         private UserService userService = new UserService();
-        private DoctorService doctorService = new DoctorService();
-        public SettingsWindow(User loggedUser)
+        private FeedbackService feedbackService = new FeedbackService();
+        private Feedback feedback = new Feedback();
+        public FeedbackWindow()
         {
             InitializeComponent();
-            this.loggedUser = loggedUser;
+        }
 
-            nameTxt.Text = loggedUser.Name;
-            surnameTxt.Text = loggedUser.Surname;
-            idTxt.Text = loggedUser.Id;
-            phoneTxt.Text = loggedUser.Phone;
-            mailTxt.Text = loggedUser.Email;
-            usernameTxt.Text = loggedUser.Username;
+        private void SendFeedbackButtonClick(object sender, RoutedEventArgs e)
+        {
+            feedback.Suggestions = suggestionsTxt.Text;
+            feedback.Comment = commentTxt.Text;
 
-            if (loggedUser.UserType == UserType.doctor)
-            {
-                foreach (Doctor doctor in doctorService.GetAllDoctors())
-                {
-                    if (loggedUser.Username.Equals(doctor.Username))
-                    {
-                        specTxt.Text = doctor.Specialization.Name;
-                    }
-                }
-            }
+            feedbackService.SaveFeedback(feedback);
+
+            this.Close();
         }
 
         private void ExaminationsButtonClick(object sender, RoutedEventArgs e)
@@ -91,7 +82,7 @@ namespace IS_Bolnica.DoctorUI
 
         private void SettingsButtonClick(object sender, RoutedEventArgs e)
         {
-            this.Show();
+
         }
 
         private void MedicamentsButtonClick(object sender, RoutedEventArgs e)
@@ -101,16 +92,34 @@ namespace IS_Bolnica.DoctorUI
             this.Close();
         }
 
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private void ZeroButtonClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            feedback.Grade = 0;
         }
 
-        private void FeedbackButtonClick(object sender, RoutedEventArgs e)
+        private void OneButtonClick(object sender, RoutedEventArgs e)
         {
-            FeedbackWindow feedbackWindow = new FeedbackWindow();
-            feedbackWindow.Show();
-            this.Close();
+            feedback.Grade = 1;
+        }
+
+        private void TwoButtonClick(object sender, RoutedEventArgs e)
+        {
+            feedback.Grade = 2;
+        }
+
+        private void ThreeButtonClick(object sender, RoutedEventArgs e)
+        {
+            feedback.Grade = 3;
+        }
+
+        private void FourButtonClick(object sender, RoutedEventArgs e)
+        {
+            feedback.Grade = 4;
+        }
+
+        private void FiveButtonClick(object sender, RoutedEventArgs e)
+        {
+            feedback.Grade = 5;
         }
     }
 }

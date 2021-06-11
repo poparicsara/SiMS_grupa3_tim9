@@ -149,6 +149,9 @@
     <Compile Include="DoctorUI\CreatePrescriptionWindow.xaml.cs">
       <DependentUpon>CreatePrescriptionWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DoctorUI\FeedbackWindow.xaml.cs">
+      <DependentUpon>FeedbackWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DoctorUI\HospitalizationWindow.xaml.cs">
       <DependentUpon>HospitalizationWindow.xaml</DependentUpon>
     </Compile>
@@ -216,6 +219,8 @@
     <Compile Include="Model\Allergen.cs" />
     <Compile Include="Model\AppointmentRepository.cs" />
     <Compile Include="Model\AppointmentType.cs" />
+    <Compile Include="Model\Feedback.cs" />
+    <Compile Include="Model\FeedbackRepository.cs" />
     <Compile Include="Model\Gender.cs" />
     <Compile Include="Model\IngredientRepository.cs" />
     <Compile Include="Model\PrescriptionRepository.cs" />
@@ -430,6 +435,7 @@
     <Compile Include="Services\AnamnesisService.cs" />
     <Compile Include="Services\AppointmentService.cs" />
     <Compile Include="Services\ChangeInventoryPlaceService.cs" />
+    <Compile Include="Services\FeedbackService.cs" />
     <Compile Include="Services\FindAttributesService.cs" />
     <Compile Include="Services\DoctorService.cs" />
     <Compile Include="Services\GuestUserService.cs" />
@@ -553,6 +559,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DoctorUI\CreatePrescriptionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DoctorUI\FeedbackWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

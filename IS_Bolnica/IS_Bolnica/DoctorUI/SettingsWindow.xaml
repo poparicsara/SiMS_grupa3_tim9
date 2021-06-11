@@ -8,7 +8,7 @@
         Title="SettingsWindow" Height="768" Width="1024 " ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Label Content="Informacije o korisniku" HorizontalAlignment="Left" Margin="178,23,0,0" VerticalAlignment="Top" Width="405" FontFamily="Malgun Gothic" FontSize="30" FontWeight="Bold" Height="71"/>
-        <Grid HorizontalAlignment="Left" Height="551" Margin="178,120,0,0" VerticalAlignment="Top" Width="745" Background="#FFF1F0F0">
+        <Grid HorizontalAlignment="Left" Height="470" Margin="178,120,0,0" VerticalAlignment="Top" Width="745" Background="#FFF1F0F0">
             <Label Content="Ime:" HorizontalAlignment="Left" Margin="151,51,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" Width="142" FontSize="14"/>
             <Label Content="Prezime:" HorizontalAlignment="Left" Margin="151,98,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" Width="142" FontSize="14"/>
             <Label Content="Koricničko ime:" HorizontalAlignment="Left" Margin="151,327,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" Width="142" FontSize="14"/>
@@ -33,7 +33,7 @@
             <Label Content="Specijalizacija:" HorizontalAlignment="Left" Margin="151,185,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" Width="142" FontSize="14"/>
             <TextBox x:Name="specTxt" HorizontalAlignment="Left" Height="23" IsReadOnly="True" Margin="341,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" BorderBrush="{x:Null}"/>
         </Grid>
-        <Button Content="POTVRDI" HorizontalAlignment="Left" Margin="789,595,0,0" VerticalAlignment="Top" Width="95" Height="34" Background="#FF3F5038" Foreground="White" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="13" Click="ButtonBase_OnClick" />
+        <Button Content="POTVRDI" HorizontalAlignment="Left" Margin="798,532,0,0" VerticalAlignment="Top" Width="95" Height="34" Background="#FF3F5038" Foreground="White" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="13" Click="ButtonBase_OnClick" />
         <Grid HorizontalAlignment="Left" Height="739" VerticalAlignment="Top" Width="100" Background="#FFF1F0F0" Margin="0">
             <Button HorizontalAlignment="Left" Margin="0,110,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="ExaminationsButtonClick">
                 <StackPanel>
@@ -71,6 +71,7 @@
                 <Image Source="/IS_Bolnica;component/Images/settings.png" Width="84" Height="48"/>
             </StackPanel>
         </Button>
+        <Button Content="feedback" HorizontalAlignment="Left" Margin="798,671,0,0" VerticalAlignment="Top" Width="95" Height="34" Background="#FF3F5038" Foreground="White" FontFamily="Malgun Gothic" FontSize="13" FontStyle="Italic" FontWeight="Bold" Click="FeedbackButtonClick" />
 
     </Grid>
 </Window>
