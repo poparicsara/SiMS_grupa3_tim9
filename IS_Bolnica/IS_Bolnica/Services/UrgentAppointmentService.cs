@@ -137,7 +137,7 @@ namespace IS_Bolnica.Services
         {
             List<Appointment> options = new List<Appointment>();
             doctors = doctorRepository.LoadFromFile();
-            rooms = roomRepository.GetRooms();
+            rooms = roomRepository.GetAll();
             scheduledAppointments = appointmentRepository.LoadFromFile();
 
             currentDate = DateTime.Now;
@@ -189,7 +189,7 @@ namespace IS_Bolnica.Services
         {
             List<Appointment> options = new List<Appointment>();
             doctors = doctorRepository.LoadFromFile();
-            rooms = roomRepository.GetRooms();
+            rooms = roomRepository.GetAll();
             scheduledAppointments = appointmentRepository.LoadFromFile();
 
             currentDate = DateTime.Now;

@@ -34,7 +34,7 @@ namespace IS_Bolnica.Services
 
         public Patient FindPatient(string id)
         {
-            patients = patientRepository.LoadFromFile();
+            patients = patientRepository.GetAll();
             for (int i = 0; i < patients.Count; i++)
             {
                 if (patients[i].Id.Equals(id))
@@ -75,7 +75,7 @@ namespace IS_Bolnica.Services
 
         public Room findRoomByDoctor(Doctor doc)
         {
-            rooms = roomRepository.GetRooms();
+            rooms = roomRepository.GetAll();
             for (int i = 0; i < rooms.Count; i++)
             {
                 if (rooms[i].Id == doc.Ordination)
@@ -90,7 +90,7 @@ namespace IS_Bolnica.Services
 
         public Room FindRoomById(int id)
         {
-            rooms = roomRepository.GetRooms();
+            rooms = roomRepository.GetAll();
             for (int i = 0; i < rooms.Count; i++)
             {
                 if (rooms[i].Id == id)
@@ -130,7 +130,7 @@ namespace IS_Bolnica.Services
 
         public List<int> GetRoomIds()
         {
-            rooms = roomRepository.GetRooms();
+            rooms = roomRepository.GetAll();
             for (int i = 0; i < rooms.Count; i++)
             {
                 if (rooms[i].RoomPurpose.Name == "Operaciona sala")
@@ -143,7 +143,7 @@ namespace IS_Bolnica.Services
 
         public List<int> GetAllRoomIds()
         {
-            rooms = roomRepository.GetRooms();
+            rooms = roomRepository.GetAll();
             for (int i = 0; i < rooms.Count; i++)
             { 
                 roomNums.Add(rooms[i].Id);
@@ -158,7 +158,7 @@ namespace IS_Bolnica.Services
 
         public Patient findPatientByUsername(string username)
         {
-            patients = patientRepository.LoadFromFile();
+            patients = patientRepository.GetAll();
             Patient returnPatient = new Patient();
 
             foreach (Patient patient in patients)

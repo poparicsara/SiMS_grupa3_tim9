@@ -53,7 +53,7 @@ namespace IS_Bolnica
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             users = storage.LoadFromFile("UsersFileStorage.json");
-            patients = patientStorage.LoadFromFile();
+            patients = patientStorage.GetAll();
 
             string username = usernameBox.Text;
             string password = passwordBox.Password.ToString();

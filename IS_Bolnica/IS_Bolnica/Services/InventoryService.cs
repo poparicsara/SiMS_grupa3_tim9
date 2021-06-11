@@ -27,34 +27,34 @@ namespace IS_Bolnica.Services
 
         public List<Inventory> GetDynamicInventory()
         {
-            return roomRepository.GetDynamicInventory(magacin);
+            return null; //roomRepository.GetDynamicInventory(magacin);
         }
 
         public List<Inventory> GetStaticInventory()
         {
-            return roomRepository.GetStaticInventory(magacin);
+            return null;// roomRepository.GetStaticInventory(magacin);
         }
 
         public void AddInventory(Inventory newInventory)
         {
-            roomRepository.AddInventory(newInventory, magacin);
+            //roomRepository.AddInventory(newInventory, magacin);
         }
 
         public void DeleteInventory(Inventory selectedInventory)
         {
             int index = FindInventoryIndex(selectedInventory);
-            roomRepository.DeleteInventory(index, magacin);
+            //roomRepository.DeleteInventory(index, magacin);
         }
 
         public void EditInventory(Inventory oldInventory, Inventory newInventory)
         {
             int index = FindInventoryIndex(oldInventory);
-            roomRepository.EditInventory(index, newInventory, magacin);
+            //roomRepository.EditInventory(index, newInventory, magacin);
         }
 
         public bool IsInventoryIdUnique(int id)
         {
-            return roomRepository.IsInventoryIdUnique(magacin, id);
+            return false; //roomRepository.IsInventoryIdUnique(magacin, id);
         }
 
         private int FindInventoryIndex(Inventory inventory)

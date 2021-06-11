@@ -45,7 +45,7 @@ namespace IS_Bolnica.Services
 
         public void UnblockPatient(Patient patient)
         {
-            patients = patientRepository.LoadFromFile();
+            patients = patientRepository.GetAll();
             for (int i =  0; i < patients.Count; i++)
             {
                 if (patient.Id.Equals(patients[i].Id))
@@ -60,7 +60,7 @@ namespace IS_Bolnica.Services
         public List<Patient> GetBlockedPatients()
         {
             blockedPatients = new List<Patient>();
-            patients = patientRepository.LoadFromFile();
+            patients = patientRepository.GetAll();
             foreach (var patient in patients)
             {
                 if (patient.isBlocked || patient.Akcije >= 6)
@@ -116,7 +116,7 @@ namespace IS_Bolnica.Services
 
         public Patient FindPatietnById(string id)
         {
-            patients = patientRepository.LoadFromFile();
+            patients = patientRepository.GetAll();
             foreach (var patient in patients)
             {
                 if (patient.Id.Equals(id))
@@ -131,12 +131,12 @@ namespace IS_Bolnica.Services
 
         public List<Patient> GetPatients()
         {
-            return patientRepository.LoadFromFile();
+            return patientRepository.GetAll();
         }
 
         public void SetPatientAllergens(List<Ingredient> ingredients, string id)
         {
-            patients = patientRepository.LoadFromFile();
+            patients = patientRepository.GetAll();
             foreach (var patient in patients)
             {
                 if (patient.Id.Equals(id))
@@ -149,7 +149,7 @@ namespace IS_Bolnica.Services
 
         public List<Patient> GetSearchedPatients(string text)
         {
-            patients = patientRepository.LoadFromFile();
+            patients = patientRepository.GetAll();
             List<Patient> searchedPatients = new List<Patient>();
             foreach (Patient patient in patients)
             {

@@ -21,15 +21,15 @@ namespace Model
         public InventoryRepository()
         {
             shiftings = GetShiftings();
-            rooms = repository.GetRooms();
+            rooms = repository.GetAll();
         }
 
         public void AddInventory(Inventory newInventory, Room room)
         {
-            inventories = repository.GetRoomInvenotory(room);
+            //inventories = repository.GetRoomInvenotory(room);
             //room.Inventory.Add(newInventory);
             inventories.Add(newInventory);
-            repository.saveToFile(rooms);
+            repository.SaveToFile(rooms);
         }
 
         public void DeleteInventory(int index, Room room)

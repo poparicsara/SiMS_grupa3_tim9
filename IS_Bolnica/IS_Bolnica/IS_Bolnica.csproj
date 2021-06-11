@@ -279,9 +279,6 @@
     <Compile Include="ReportWindow.xaml.cs">
       <DependentUpon>ReportWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MergeRoomsWindow.xaml.cs">
-      <DependentUpon>MergeRoomsWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Model\Allergen.cs" />
     <Compile Include="Model\Hospitalization.cs" />
     <Compile Include="Model\HospitalizationRepository.cs" />
@@ -452,7 +449,6 @@
     <Compile Include="Services\FindAttributesService.cs" />
     <Compile Include="Services\DoctorService.cs" />
     <Compile Include="Services\GuestUserService.cs" />
-    <Compile Include="Services\IngredientService.cs" />
     <Compile Include="Services\InventoryPerRoomService.cs" />
     <Compile Include="Services\InventoryService.cs" />
     <Compile Include="Services\NotificationService.cs" />

@@ -12,11 +12,6 @@ namespace Model
     {
         private string fileName = "PatientRecordFileStorage.json";
 
-        public void Delete(string id)
-        {
-            throw new NotImplementedException();
-        }
-
         public Patient FindPatientById(string id)
         {
             throw new NotImplementedException();
@@ -72,7 +67,17 @@ namespace Model
             throw new NotImplementedException();
         }
 
-        public void Update(Patient oldEntity, Patient newEntity)
+        public void Add(Patient newEntity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(int index, Patient newEntity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(int index)
         {
             throw new NotImplementedException();
         }

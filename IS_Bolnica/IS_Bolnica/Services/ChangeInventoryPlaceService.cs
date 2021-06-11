@@ -38,7 +38,7 @@ namespace IS_Bolnica.Services
 
         public bool HasRoomSelectedInventory(Inventory inventory, Room room)
         {
-            return roomRepository.HasRoomSelectedInventory(room, inventory);
+            return false;//roomRepository.HasRoomSelectedInventory(room, inventory);
         }
 
         public bool HasEnoughAmount(Inventory inventory, Room room, int amount)
@@ -119,14 +119,14 @@ namespace IS_Bolnica.Services
         {
             if (!HasRoomSelectedInventory(selectedInventory, roomTo))
             {
-                roomRepository.AddInventoryToRoom(this.roomTo, selectedInventory);
+                //roomRepository.AddInventoryToRoom(this.roomTo, selectedInventory);
             }
             SetInventoryTo();
         }
 
         private void SetInventoryTo()
         {
-            roomTo = roomRepository.GetRoom(roomTo.Id);
+            roomTo = roomRepository.FindById(roomTo.Id);
             foreach (var i in roomTo.Inventory)
             {
                 if (i.Id == selectedInventory.Id)

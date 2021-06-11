@@ -553,7 +553,7 @@ namespace IS_Bolnica.Services
 
             string[] appointmentStartDateAndTime = appointment.StartTime.ToString().Split(' ');
             string[] appointmentDate = appointmentStartDateAndTime[0].Split('/');
-            List<Patient> patients = patientRepository.LoadFromFile();
+            List<Patient> patients = patientRepository.GetAll();
             Patient loggedPatient = findPatientByUsername(PatientWindow.loggedPatient.Username);
 
             if (Convert.ToInt32(dateNow[0]) > Convert.ToInt32(appointmentDate[0]))
@@ -592,7 +592,7 @@ namespace IS_Bolnica.Services
 
         private void increaseActions()
         {
-            List<Patient> patients = patientRepository.LoadFromFile();
+            List<Patient> patients = patientRepository.GetAll();
             foreach (Patient patient in patients)
             {
                 if (patient.Username.Equals(PatientWindow.loggedPatient.Username))
@@ -640,7 +640,7 @@ namespace IS_Bolnica.Services
 
         public Patient findPatientByUsername(string username)
         {
-            List<Patient> patients = patientRepository.LoadFromFile();
+            List<Patient> patients = patientRepository.GetAll();
             Patient returnPatient = new Patient();
 
             foreach (Patient patient in patients)

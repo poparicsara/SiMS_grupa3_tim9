@@ -12,7 +12,8 @@ namespace IS_Bolnica.IRepository
         List<T> GetAll();
         T FindById(M id);
         void SaveToFile(List<T> entities);
-        void Update(T oldEntity, T newEntity);
-        void Delete(M id);
+        void Add(T newEntity);
+        void Update(int index, T newEntity);
+        void Delete(int index);
     }
 }
