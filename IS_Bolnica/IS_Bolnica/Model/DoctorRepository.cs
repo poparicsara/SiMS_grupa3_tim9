@@ -10,7 +10,7 @@ using IS_Bolnica.IRepository;
 
 namespace IS_Bolnica.Model
 {
-    class DoctorRepository:IDoctorRepository
+    class DoctorRepository : IDoctorRepository
     {
         private string fileName = "Doctors.json";
         private List<Doctor> doctors = new List<Doctor>();
@@ -42,7 +42,15 @@ namespace IS_Bolnica.Model
             return null;
         }
 
-        public void SaveToFile(List<Doctor> entities)
+        public void Delete(int index)
+        {
+            doctors = GetAll();
+            doctors.RemoveAt(index);
+            SaveToFile(doctors);
+        }
+
+
+        public void SaveToFile(List<Doctor> doctors)
         {
             string jsonString = JsonConvert.SerializeObject(doctors, Formatting.Indented);
             File.WriteAllText(fileName, jsonString);
@@ -60,32 +68,6 @@ namespace IS_Bolnica.Model
             throw new NotImplementedException();
         }
 
-        public void Delete(int index)
-        {
-            doctors = GetAll();
-            doctors.RemoveAt(index);
-            SaveToFile(doctors);
-        }
-
-
-        /*public void SaveToFile(List<Doctor> doctors)
-        {
-            string jsonString = JsonConvert.SerializeObject(doctors, Formatting.Indented);
-            File.WriteAllText(fileName, jsonString);
-        }
-
-        public List<Doctor> LoadFromFile()
-        {
-            var doctors = new List<Doctor>();
-
-            using (StreamReader file = File.OpenText(fileName))
-            {
-                var serializer = new JsonSerializer();
-                doctors = (List<Doctor>)serializer.Deserialize(file, typeof(List<Doctor>));
-            }
-
-            return doctors;
-        }*/
         public void AddShift(Shift shift)
         {
             doctors = GetAll();

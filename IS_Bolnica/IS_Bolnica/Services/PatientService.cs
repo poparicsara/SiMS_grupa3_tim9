@@ -79,16 +79,7 @@ namespace IS_Bolnica.Services
 
         public Patient FindById(string id)
         {
-            List<Patient> patients = patientRepository.GetAll();
-            foreach (var patient in patients)
-            {
-                if (patient.Id.Equals(id))
-                {
-                    return patient;
-                }
-            }
-
-            return null;
+            return patientRepository.FindById(id);
         }
 
         public List<Patient> GetSearchedPatients(string text)

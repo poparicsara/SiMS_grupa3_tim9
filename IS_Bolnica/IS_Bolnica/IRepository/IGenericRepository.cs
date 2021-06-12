@@ -9,6 +9,7 @@ namespace IS_Bolnica.IRepository
         T FindById(M id);
         void SaveToFile(List<T> entities);
         void Add(T newEntity);
+
         void Update(int index, T newEntity);
         void Delete(int index);
     }

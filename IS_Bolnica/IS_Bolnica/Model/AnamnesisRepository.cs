@@ -5,16 +5,15 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using IS_Bolnica.IRepository;
 
 namespace IS_Bolnica.Model
 {
-    class AnamnesisRepository
+    public class AnamnesisRepository : IAnamnesisRepository
     {
         private string fileName = "anamneses.json";
-        public List<Anamnesis> GetAll()
-        {
-            throw new NotImplementedException();
-        }
+        private IAnamnesisRepository anamnesisRepositoryImplementation;
+        private List<Anamnesis> anamneses;
 
         public void SaveToFile(List<Anamnesis> anamneses)
         {
@@ -22,7 +21,7 @@ namespace IS_Bolnica.Model
             File.WriteAllText(fileName, jsonString);
         }
 
-        public List<Anamnesis> LoadFromFile()
+        public List<Anamnesis> GetAll()
         {
             var anamneses = new List<Anamnesis>();
 
@@ -33,6 +32,30 @@ namespace IS_Bolnica.Model
             }
 
             return anamneses;
+        }
+
+        public void Add(Anamnesis newEntity)
+        {
+            anamneses = GetAll();
+            anamneses.Add(newEntity);
+            SaveToFile(anamneses);
+        }
+
+        public void Update(int index, Anamnesis newEntity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(int index)
+        {
+            //anamnesisRepositoryImplementation.Delete(index);
+            throw new NotImplementedException();
+        }
+
+        public Anamnesis FindById(string id)
+        {
+            //return anamnesisRepositoryImplementation.FindById(id);
+            throw new NotImplementedException();
         }
     }
 }

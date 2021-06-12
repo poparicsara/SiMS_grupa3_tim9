@@ -19,9 +19,7 @@ namespace IS_Bolnica.Services
 
         public void UpdateHospitalization(Hospitalization updatedHospitalization, int index)
         {
-            hospitalizations.RemoveAt(index);
-            hospitalizations.Insert(index, updatedHospitalization);
-            hospitalizationRepository.SaveToFile(hospitalizations);
+            hospitalizationRepository.Update(index, updatedHospitalization);
         }
 
         public int GetIndexOfHospitalization(Hospitalization selectedHospitalization)
@@ -57,13 +55,12 @@ namespace IS_Bolnica.Services
 
         public void AddHospitalization(Hospitalization newHospitalization)
         {
-            hospitalizations.Add(newHospitalization);
-            hospitalizationRepository.SaveToFile(hospitalizations);
+            hospitalizationRepository.Add(newHospitalization);
         }
 
         public List<Hospitalization> GetAllHospitalizedPatients()
         {
-            return hospitalizationRepository.LoadFromFile();
+            return hospitalizationRepository.GetAll();
         }
     }
 }

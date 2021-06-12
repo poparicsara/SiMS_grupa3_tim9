@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IS_Bolnica.IRepository
 {
-    interface IIngredientRepository : IGenericRepository<Ingredient, string>
+    public interface IIngredientRepository : IGenericRepository<Ingredient, string>
     {
     }
 }

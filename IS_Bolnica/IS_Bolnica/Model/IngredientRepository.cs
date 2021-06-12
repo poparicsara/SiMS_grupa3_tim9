@@ -6,10 +6,12 @@ using IS_Bolnica.IRepository;
 
 namespace IS_Bolnica
 {
-    internal class IngredientRepository : IIngredientRepository
+    public class IngredientRepository : IIngredientRepository
     {
         private string fileName = "Sastojci.json";
-        private List<Ingredient> ingredients = new List<Ingredient>();
+        private List<Ingredient> ingredients;
+
+
         public List<Ingredient> GetAll()
         {
             var ingredients = new List<Ingredient>();

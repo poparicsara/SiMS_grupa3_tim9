@@ -218,6 +218,11 @@
       <DependentUpon>InventoryWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="InventoryInRoom.cs" />
+
+    <Compile Include="IRepository\IAnamnesisRepository.cs" />
+    <Compile Include="IRepository\IDoctorRepository.cs" />
+    <Compile Include="IRepository\IGenericRepository.cs" />
+    <Compile Include="IRepository\IHospitalizationRepository.cs" />
     <Compile Include="IRepository\IAppointmentRepository.cs" />
     <Compile Include="IRepository\IDoctorRepository.cs" />
     <Compile Include="IRepository\IGenericRepository.cs" />
@@ -226,6 +231,7 @@
     <Compile Include="IRepository\IMedicamentRepository.cs" />
     <Compile Include="IRepository\INotificationRepository.cs" />
     <Compile Include="IRepository\IPatientRepository.cs" />
+    <Compile Include="IRepository\IPrescriptionRepository.cs" />
     <Compile Include="IRepository\IRenovationRepository.cs" />
     <Compile Include="IRepository\IRoomRepository.cs" />
     <Compile Include="IRepository\IUserRepository.cs" />
@@ -323,7 +329,6 @@
     <Compile Include="Model\NotificationRepository.cs" />
     <Compile Include="Model\NotificationType.cs" />
     <Compile Include="Model\Prescription.cs" />
-    <Compile Include="Model\PrescriptionFileStorage.cs" />
     <Compile Include="Model\Renovation.cs" />
     <Compile Include="Model\RenovationRepository.cs" />
     <Compile Include="Model\Request.cs" />

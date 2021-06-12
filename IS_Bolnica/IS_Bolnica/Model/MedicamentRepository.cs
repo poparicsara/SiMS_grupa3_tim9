@@ -5,22 +5,30 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using IS_Bolnica.Annotations;
+using IS_Bolnica.IRepository;
 
 namespace IS_Bolnica.Model
 {
-    public class MedicamentRepository
+    public class MedicamentRepository : IMedicamentRepository
     {
         private List<Medicament> meds;
 
         public MedicamentRepository()
         {
-            meds = GetMedicaments();
+            meds = GetAll();
         }
 
-        public void AddMedicament(Medicament newMedicament)
+        public void Add(Medicament newMedicament)
         {
             meds.Add(newMedicament);
             SaveToFile(meds);
+        }
+
+        [CanBeNull]
+        public Medicament FindById(int id)
+        {
+            throw new NotImplementedException();
         }
 
         public Medicament GetMedicament(string name)
@@ -36,14 +44,30 @@ namespace IS_Bolnica.Model
             return medicament;
         }
 
-        public void EditMedicament(int index, Medicament newMedicament)
+        public void Update(int index, Medicament newMedicament)
         {
             meds.RemoveAt(index);
             meds.Insert(index, newMedicament);
             SaveToFile(meds);
         }
 
-        public List<Medicament> GetMedicaments()
+        public void Delete(int id)
+        {
+            int index = 0;
+            foreach (Medicament medicament in meds)
+            {
+                if (medicament.Id.Equals(id))
+                {
+                    break;
+                }
+
+                index++;
+            }
+            meds.RemoveAt(index);
+            SaveToFile(meds);
+        }
+
+        public List<Medicament> GetAll()
         {
             var medicaments = new List<Medicament>();
 
@@ -67,6 +91,11 @@ namespace IS_Bolnica.Model
             return ingredients;
         }
 
+        public List<Ingredient> GetIngredients()
+        {
+            throw new NotImplementedException();
+        }
+
         public void AddIngredient(Medicament medicament, Ingredient ingredient)
         {
             medicament = GetMedicament(medicament.Name);
@@ -75,7 +104,12 @@ namespace IS_Bolnica.Model
             SaveToFile(meds);
         }
 
-        private void CheckMedicamentIngredients(Medicament medicament)
+        public Medicament GetMedicamentByName(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CheckMedicamentIngredients(Medicament medicament)
         {
             if (medicament.Ingredients == null)
             {
@@ -88,6 +122,11 @@ namespace IS_Bolnica.Model
             medicament = GetMedicament(medicament.Name);
             medicament.Ingredients.RemoveAt(index);
             SaveToFile(meds);
+        }
+
+        public void EditIngredient(Medicament medicament, Ingredient ingredient, int index)
+        {
+            throw new NotImplementedException();
         }
 
         public void EditIngredient(Medicament medicament, int index, Ingredient newIngredient)
@@ -126,7 +165,7 @@ namespace IS_Bolnica.Model
         public List<Medicament> GetSearchedMeds(string text)
         {
             List<Medicament> searchedmeds = new List<Medicament>();
-            meds = GetMedicaments();
+            meds = GetAll();
             foreach (var m in meds)
             {
                 if (IsSearched(text, m))

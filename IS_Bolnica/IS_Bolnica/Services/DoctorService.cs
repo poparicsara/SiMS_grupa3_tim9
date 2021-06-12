@@ -35,6 +35,18 @@ namespace IS_Bolnica.Services
             return docNames;
         }
 
+        public List<Doctor> GetDoctors()
+        {
+            List<Doctor> doctorList = new List<Doctor>();
+            doctors = doctorRepository.GetAll();
+            foreach (var doctor in doctors)
+            {
+                doctorList.Add(doctor);
+            }
+
+            return doctorList;
+        }
+
         public List<Doctor> GetSearchedDoctors(string text)
         {
             doctors = doctorRepository.GetAll();
