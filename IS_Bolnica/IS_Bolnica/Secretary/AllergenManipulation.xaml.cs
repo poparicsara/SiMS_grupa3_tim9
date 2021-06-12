@@ -37,7 +37,7 @@ namespace IS_Bolnica.Secretary
             }
             else
             {
-                IngredientsAll = new ObservableCollection<Ingredient>(ingredientService.GetIngredients());
+                IngredientsAll = new ObservableCollection<Ingredient>(ingredientService.GetAllIngredients());
                 IngredientsPatient = new ObservableCollection<Ingredient>();
             }
 

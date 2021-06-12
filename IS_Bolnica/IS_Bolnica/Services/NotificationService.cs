@@ -63,7 +63,6 @@ namespace IS_Bolnica.Services
             {
                 if (i.Equals(id))
                 {
-                    MessageBox.Show("Korisnik već postoji u listi!");
                     return true;
                 }
             }
@@ -74,7 +73,6 @@ namespace IS_Bolnica.Services
         {
             if (id.Equals(""))
             {
-                MessageBox.Show("Niste uneli id korisnika");
                 return true;
             }
             return false;

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Collections.Generic;
 using IS_Bolnica.Model;
 using Model;
 
@@ -22,41 +16,18 @@ namespace IS_Bolnica.Services
 
         public void AddShift(Shift shift)
         {
-            doctors = doctorRepository.LoadFromFile();
-            for (int i = 0; i < doctors.Count; i++)
-            {
-                if (doctors[i].Id.Equals(shift.DoctorsId))
-                {
-                    //if (doctors[i].Shifts == null)
-                    //{
-                        //List<Shift> shifts = new List<Shift>();
-                        //shifts.Add(shift);
-                    doctors[i].Shifts.Add(shift);
-                    //}
-                }
-            }
-            doctorRepository.SaveToFile(doctors);
+            doctorRepository.AddShift(shift);
         }
 
         public void AddVacation(Vacation vacation)
         {
-            doctors = doctorRepository.LoadFromFile();
-            for (int i = 0; i < doctors.Count; i++)
-            {
-                if (doctors[i].Id.Equals(vacation.DoctorsId))
-                {
-                    doctors[i].Vacations.Add(vacation);
-
-                }
-            }
-
-            doctorRepository.SaveToFile(doctors);
+            doctorRepository.AddVacation(vacation);
         }
 
         public List<string> GetDoctorNamesList()
         {
             List<string> docNames = new List<string>();
-            doctors = doctorRepository.LoadFromFile();
+            doctors = doctorRepository.GetAll();
             for (int i = 0; i < doctors.Count; i++)
             {
                 docNames.Add(doctors[i].Name + " " + doctors[i].Surname);
@@ -64,21 +35,9 @@ namespace IS_Bolnica.Services
             return docNames;
         }
 
-        public List<Doctor> GetDoctors()
-        {
-            List<Doctor> doctorList = new List<Doctor>();
-            doctors = doctorRepository.LoadFromFile();
-            foreach (var doctor in doctors)
-            {
-                doctorList.Add(doctor);
-            }
-
-            return doctorList;
-        }
-
         public List<Doctor> GetSearchedDoctors(string text)
         {
-            doctors = doctorRepository.LoadFromFile();
+            doctors = doctorRepository.GetAll();
             List<Doctor> searchedDoctors = new List<Doctor>();
             foreach (Doctor doctor in doctors)
             {
@@ -102,7 +61,7 @@ namespace IS_Bolnica.Services
         public Doctor FindDoctorByName(string drNameSurname)
         {
             Doctor doctor = new Doctor();
-            List<Doctor> doctors = doctorRepository.LoadFromFile();
+            List<Doctor> doctors = doctorRepository.GetAll();
             foreach (Doctor dr in doctors)
             {
                 string doctorsNameAndSurname = dr.Name + ' ' + dr.Surname;
@@ -118,7 +77,7 @@ namespace IS_Bolnica.Services
         public List<string> GetDoctorsNameSurname()
         {
             List<string> doctorsNameSurname = new List<string>();
-            foreach (Doctor doctor in doctorRepository.LoadFromFile())
+            foreach (Doctor doctor in doctorRepository.GetAll())
             {
                 if (doctor.Specialization.Name == " ")
                 {
@@ -132,7 +91,7 @@ namespace IS_Bolnica.Services
         public int ShowDoctorsOrdination(string doctorsNameSurname)
         {
             int ordinationNumber = 0;
-            foreach (Doctor doctor in doctorRepository.LoadFromFile())
+            foreach (Doctor doctor in doctorRepository.GetAll())
             {
                 string drNameSurname = doctor.Name + ' ' + doctor.Surname;
                 if (drNameSurname.Equals(doctorsNameSurname))
@@ -148,7 +107,7 @@ namespace IS_Bolnica.Services
         public List<string> GetSpecialistsNameSurname()
         {
             List<string> specialistsNameSurname = new List<string>();
-            foreach (Doctor doctor in doctorRepository.LoadFromFile())
+            foreach (Doctor doctor in doctorRepository.GetAll())
             {
                 if (doctor.Specialization != null)
                 {
@@ -160,13 +119,13 @@ namespace IS_Bolnica.Services
 
         public List<Doctor> GetAllDoctors()
         {
-            return doctorRepository.LoadFromFile();
+            return doctorRepository.GetAll();
         }
 
         public List<string> GetDoctorNamesWithSpecialization()
         {
             List<string> docNames = new List<string>();
-            doctors = doctorRepository.LoadFromFile();
+            doctors = doctorRepository.GetAll();
 
             foreach (Doctor doctor in doctors)
             {

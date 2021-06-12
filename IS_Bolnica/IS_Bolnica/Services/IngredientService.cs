@@ -66,11 +66,6 @@ namespace IS_Bolnica.Services
             }
         }
 
-        public List<Ingredient> GetIngredients()
-        {
-            return ingredientRepository.loadFromFile("Sastojci.json");
-        }
-
         public List<Ingredient> GetPatientsIngredients(string id)
         {
             Patient patient = patientService.FindById(id);
@@ -86,7 +81,7 @@ namespace IS_Bolnica.Services
 
         public List<Ingredient> GetAllOtherIngredients(string id)
         {
-            List<Ingredient> ingredients = ingredientRepository.loadFromFile("Sastojci.json");
+            List<Ingredient> ingredients = ingredientRepository.GetAll();
             List<Ingredient> allOtheriIngredients = new List<Ingredient>();
             List<Ingredient> patientIngredients = GetPatientsIngredients(id);
             if (patientIngredients.Count == 0)
@@ -117,7 +112,7 @@ namespace IS_Bolnica.Services
         }
         public List<Ingredient> GetAllIngredients()
         {
-            return ingredientRepository.loadFromFile("Sastojci.json");
+            return ingredientRepository.GetAll();
         }
     }
 }

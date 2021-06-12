@@ -56,7 +56,7 @@ namespace IS_Bolnica.Services
         public List<Appointment> GetUrgentOperationOptions(Appointment appointment, Specialization specialization)
         {
             List<Appointment> options = new List<Appointment>();
-            doctors = doctorRepository.LoadFromFile();
+            doctors = doctorRepository.GetAll();
 
             foreach (Doctor doc in doctors)
             {
@@ -78,7 +78,7 @@ namespace IS_Bolnica.Services
         public List<Appointment> GetUrgentExaminationOptions(Appointment appointment, Specialization specialization)
         {
             List<Appointment> options = new List<Appointment>();
-            doctors = doctorRepository.LoadFromFile();
+            doctors = doctorRepository.GetAll();
 
             foreach (Doctor doc in doctors)
             {

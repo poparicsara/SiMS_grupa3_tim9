@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using IS_Bolnica.Model;
+using Model;
+
+namespace IS_Bolnica.IRepository
+{
+    interface IDoctorRepository:IGenericRepository<Doctor, string>
+    {
+        void AddShift(Shift shift);
+        void AddVacation(Vacation vacation);
+    }
+}
