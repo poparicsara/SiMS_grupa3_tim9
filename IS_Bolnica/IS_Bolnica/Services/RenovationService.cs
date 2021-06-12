@@ -28,11 +28,12 @@ namespace IS_Bolnica.Services
         private List<Merging> mergings = new List<Merging>();
         private List<Separation> separations = new List<Separation>();
         private MergingRepository mergeRepository = new MergingRepository();
+        private SeparationRepository separationRepository = new SeparationRepository();
 
         public RenovationService()
         {
-            mergings = repository.GetMergings();
-            separations = repository.GetSeparations();
+            mergings = mergeRepository.GetAll();
+            separations = separationRepository.GetAll();
         }
 
         public void AddRenovation(Renovation renovation)
@@ -286,7 +287,7 @@ namespace IS_Bolnica.Services
 
         public void CheckUnexecutedMergings()
         {
-            mergings = repository.GetMergings();
+            mergings = mergeRepository.GetAll();
             if (mergings != null)
             {
                 foreach (var m in mergings)
@@ -319,7 +320,7 @@ namespace IS_Bolnica.Services
         private int GetMergingIndex()
         {
             var index = 0;
-            mergings = repository.GetMergings();
+            mergings = mergeRepository.GetAll();
             foreach (var s in mergings)
             {
                 if (room1.Id == s.Room1.Id && room2.Id == s.Room2.Id)
@@ -342,19 +343,19 @@ namespace IS_Bolnica.Services
                 Minute = minuteOfChange,
                 NewRoomNumber = newRoom.Id
             };
-            repository.AddSeparation(newSeparation);
+            separationRepository.Add(newSeparation);
         }
 
         private void EditSeparation()
         {
             int index = GetSeparationIndex();
-            repository.EditSeparation(index);
+            separationRepository.EditSeparation(index);
         }
 
         private int GetSeparationIndex()
         {
             var index = 0;
-            separations = repository.GetSeparations();
+            separations = separationRepository.GetAll();
             foreach (var s in separations)
             {
                 if (room1.Id == s.Room.Id)
@@ -368,7 +369,7 @@ namespace IS_Bolnica.Services
 
         public void CheckUnexecutedSeparations()
         {
-            separations = repository.GetSeparations();
+            separations = separationRepository.GetAll();
             foreach (var separation in separations)
             {
                 if (!separation.Executed)

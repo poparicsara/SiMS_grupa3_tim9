@@ -226,6 +226,7 @@
     <Compile Include="IRepository\IPatientRepository.cs" />
     <Compile Include="IRepository\IRenovationRepository.cs" />
     <Compile Include="IRepository\IRoomRepository.cs" />
+    <Compile Include="IRepository\ISeparationRepository.cs" />
     <Compile Include="IRepository\IUserRepository.cs" />
     <Compile Include="Language.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -243,6 +244,7 @@
     <Compile Include="Model\PrescriptionRepository.cs" />
     <Compile Include="Model\Report.cs" />
     <Compile Include="Model\ReportData.cs" />
+    <Compile Include="Model\SeparationRepository.cs" />
     <Compile Include="Model\Shift.cs" />
     <Compile Include="Model\ShiftType.cs" />
     <Compile Include="Model\Suggestion.cs" />
