@@ -43,7 +43,7 @@ namespace IS_Bolnica.DoctorUI
 
             replacementsCB.ItemsSource = medicamentService.ShowMedicamentReplacements();
 
-            AllIngredients = new ObservableCollection<Ingredient>(ingredientService.GetAllIngredients());
+            AllIngredients = new ObservableCollection<Ingredient>(ingredientService.GetIngredients());
             MedIngredients = new ObservableCollection<Ingredient>(selectedMedication.Ingredients);
 
             confirmBTN.IsEnabled = false;

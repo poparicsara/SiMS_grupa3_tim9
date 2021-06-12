@@ -20,6 +20,11 @@ namespace Model
             SaveToFile(patients);
         }
 
+        public void Delete(string id)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Patient> GetAll()
         {
             var patientsList = new List<Patient>();

@@ -32,13 +32,12 @@ namespace IS_Bolnica.Services
 
         public void CreateAnamnesis(Anamnesis anamnesis)
         {
-            anamneses.Add(anamnesis);
-            anamnesisRepository.SaveToFile(anamneses);
+            anamnesisRepository.Add(anamnesis);
         }
 
         private List<Anamnesis> GetAnamneses()
         {
-            return anamnesisRepository.LoadFromFile();
+            return anamnesisRepository.GetAll();
         }
 
         public List<Anamnesis> getPatientAnamneses(String username)

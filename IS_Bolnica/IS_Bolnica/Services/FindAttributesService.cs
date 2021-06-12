@@ -49,7 +49,7 @@ namespace IS_Bolnica.Services
 
         public Doctor FindDoctor(string name, string surname)
         {
-            doctors = doctorRepository.LoadFromFile();
+            doctors = doctorRepository.GetAll();
             foreach (Doctor doc in doctors)
             {
                 if (doc.Name.Equals(name) && doc.Surname.Equals(surname))

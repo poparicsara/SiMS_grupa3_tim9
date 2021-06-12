@@ -55,20 +55,9 @@ namespace IS_Bolnica.Services
             return index;
         }
 
-        public void RemoveIngredientFromMedicament(Medicament medicament, Ingredient ingredient)
-        {
-            for (int i = 0; i < medicament.Ingredients.Count; i++)
-            {
-                if (medicament.Ingredients[i].Name == ingredient.Name)
-                {
-                    medicament.Ingredients.RemoveAt(i);
-                }
-            }
-        }
-
         public List<Ingredient> GetIngredients()
         {
-            return ingredientRepository.loadFromFile("Sastojci.json");
+            return ingredientRepository.GetAll();
         }
 
         public List<Ingredient> GetPatientsIngredients(string id)
@@ -86,7 +75,7 @@ namespace IS_Bolnica.Services
 
         public List<Ingredient> GetAllOtherIngredients(string id)
         {
-            List<Ingredient> ingredients = ingredientRepository.loadFromFile("Sastojci.json");
+            List<Ingredient> ingredients = ingredientRepository.GetAll();
             List<Ingredient> allOtheriIngredients = new List<Ingredient>();
             List<Ingredient> patientIngredients = GetPatientsIngredients(id);
             if (patientIngredients.Count == 0)
@@ -114,10 +103,6 @@ namespace IS_Bolnica.Services
             }
 
             return allOtheriIngredients;
-        }
-        public List<Ingredient> GetAllIngredients()
-        {
-            return ingredientRepository.loadFromFile("Sastojci.json");
         }
     }
 }

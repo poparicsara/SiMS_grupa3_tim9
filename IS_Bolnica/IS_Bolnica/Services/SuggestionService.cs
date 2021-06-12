@@ -147,7 +147,7 @@ namespace IS_Bolnica.Services
         private Doctor findDoctorByName(string drNameSurname)
         {
             Doctor doctor = new Doctor();
-            List<Doctor> doctors = doctorRepository.LoadFromFile();
+            List<Doctor> doctors = doctorRepository.GetAll();
             foreach (Doctor dr in doctors)
             {
                 string doctorsNameAndSurname = dr.Name + ' ' + dr.Surname;
@@ -162,7 +162,7 @@ namespace IS_Bolnica.Services
 
         private Doctor findRandDoctor()
         {
-            List<Doctor> doctors = doctorRepository.LoadFromFile();
+            List<Doctor> doctors = doctorRepository.GetAll();
             Random rnd = new Random();
             int index = rnd.Next(0, doctors.Count - 1);
             return doctors[index];

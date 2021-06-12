@@ -20,8 +20,7 @@ namespace IS_Bolnica.Services
 
         public void CreatePrescription(Prescription prescription)
         {
-            prescriptions.Add(prescription);
-            prescriptionRepository.SaveToFile(prescriptions);
+            prescriptionRepository.Add(prescription);
         }
 
         public List<string> GetMedicationFromPrescription(string patientId)
@@ -39,7 +38,7 @@ namespace IS_Bolnica.Services
 
         private List<Prescription> GetPrescriptions()
         {
-            return prescriptionRepository.LoadFromFile();
+            return prescriptionRepository.GetAll();
         }
 
         public List<Prescription> getPatientPrescriptions(String username)

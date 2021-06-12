@@ -2,23 +2,47 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using IS_Bolnica.IRepository;
 
 namespace IS_Bolnica
 {
-    internal class IngredientRepository
+    public class IngredientRepository : IIngredientRepository
     {
-        public List<Ingredient> GetAll()
+        private string fileName = "Sastojci.json";
+        private List<Ingredient> ingredients;
+
+        public Ingredient FindById(string id)
         {
             throw new NotImplementedException();
         }
 
-        public void saveToFile(List<Ingredient> ingredients, string fileName)
+        public void SaveToFile(List<Ingredient> ingredients)
         {
             string jsonString = JsonConvert.SerializeObject(ingredients, Formatting.Indented);
             File.WriteAllText(fileName, jsonString);
         }
 
-        public List<Ingredient> loadFromFile(string fileName)
+        public void Add(Ingredient newEntity)
+        {
+            ingredients = GetAll();
+            ingredients.Add(newEntity);
+            SaveToFile(ingredients);
+        }
+
+        public void Update(int index, Ingredient newEntity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(int index)
+        {
+            ingredients = GetAll();
+            ingredients.RemoveAt(index);
+            SaveToFile(ingredients);
+        }
+
+
+        public List<Ingredient> GetAll()
         {
             var ingredients = new List<Ingredient>();
 
@@ -30,5 +54,7 @@ namespace IS_Bolnica
 
             return ingredients;
         }
+
+
     }
 }
