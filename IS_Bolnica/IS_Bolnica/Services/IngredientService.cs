@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,7 @@ namespace IS_Bolnica.Services
     {
         private IngredientRepository ingredientRepository = new IngredientRepository();
         private PatientService patientService = new PatientService();
-        private MedicamentRepository repository = new MedicamentRepository();
+        private MedicamentRepository medRepository = new MedicamentRepository();
 
         public IngredientService()
         {
@@ -21,18 +22,19 @@ namespace IS_Bolnica.Services
 
         public List<Ingredient> GetIngredients(Medicament medicament)
         {
-            return null; //repository.GetIngredients(medicament);
+            return ingredientRepository.GetMedicamentIngredients(medicament);
         }
 
         public void AddIngredient(Medicament medicament, Ingredient ingredient)
         {
-            repository.AddIngredient(medicament, ingredient);
+            Trace.WriteLine("zovem dodavanje");
+            ingredientRepository.AddIngredient(medicament, ingredient);
         }
 
         public void DeleteIngredient(Medicament medicament, Ingredient ingredient)
         {
             int index = GetIndex(medicament, ingredient);
-            repository.DeleteIngredient(medicament, index);
+            medRepository.DeleteIngredient(medicament, index);
         }
 
         public void EditIngredient(Medicament medicament, Ingredient oldIngredient, Ingredient newIngredient)

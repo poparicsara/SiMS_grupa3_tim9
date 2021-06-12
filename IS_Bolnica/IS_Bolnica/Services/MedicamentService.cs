@@ -70,7 +70,16 @@ namespace IS_Bolnica.Services
 
       public bool HasMedicamentIngredient(Medicament medicament, String ingredient)
       {
-          return repository.HasMedicamentIngredient(medicament, ingredient);
+          medicament = repository.FindById(medicament.Id);
+          foreach (var i in medicament.Ingredients)
+          {
+              if (i.Name.Equals(ingredient))
+              {
+                  return true;
+              }
+          }
+
+          return false;
       }
 
       public List<Medicament> GetSearchedMeds(string text)

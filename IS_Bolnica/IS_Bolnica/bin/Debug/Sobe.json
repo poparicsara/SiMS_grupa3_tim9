@@ -88,6 +88,13 @@
         "Minimum": 0,
         "Id": 6,
         "InventoryType": 1
+      },
+      {
+        "Name": "novi",
+        "CurrentAmount": 0,
+        "Minimum": 0,
+        "Id": 999,
+        "InventoryType": 0
       }
     ],
     "RoomPurpose": {
