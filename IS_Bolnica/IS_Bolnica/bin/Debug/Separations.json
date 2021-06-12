@@ -125,7 +125,7 @@
     "EndDate": "6/8/2021",
     "Hour": 1,
     "Minute": 45,
-    "Executed": false
+    "Executed": true
   },
   {
     "Room": {
@@ -156,7 +156,7 @@
     "EndDate": "6/8/2021",
     "Hour": 18,
     "Minute": 50,
-    "Executed": false
+    "Executed": true
   },
   {
     "Room": {
@@ -188,6 +188,85 @@
     "EndDate": "6/12/2021",
     "Hour": 23,
     "Minute": 11,
+    "Executed": true
+  },
+  {
+    "Room": {
+      "Id": 7,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Krevet",
+          "CurrentAmount": 3,
+          "Minimum": 0,
+          "Id": 666,
+          "InventoryType": 1
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "NewRoomNumber": 8,
+    "StartDate": "6/13/2021",
+    "EndDate": "6/13/2021",
+    "Hour": 0,
+    "Minute": 35,
+    "Executed": true
+  },
+  {
+    "Room": {
+      "Id": 4,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": null,
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "NewRoomNumber": 5,
+    "StartDate": "6/13/2021",
+    "EndDate": "6/13/2021",
+    "Hour": 0,
+    "Minute": 43,
+    "Executed": true
+  },
+  {
+    "Room": {
+      "Id": 15,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "NewRoomNumber": 16,
+    "StartDate": "6/13/2021",
+    "EndDate": "6/13/2021",
+    "Hour": 0,
+    "Minute": 50,
+    "Executed": true
+  },
+  {
+    "Room": {
+      "Id": 9,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": null,
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "NewRoomNumber": 10,
+    "StartDate": "6/13/2021",
+    "EndDate": "6/13/2021",
+    "Hour": 1,
+    "Minute": 20,
     "Executed": true
   }
 ]

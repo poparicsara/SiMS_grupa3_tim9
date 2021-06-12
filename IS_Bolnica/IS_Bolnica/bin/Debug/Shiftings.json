@@ -558,5 +558,100 @@
     "Hour": 23,
     "Minute": 25,
     "Executed": true
+  },
+  {
+    "RoomFrom": {
+      "Id": 1,
+      "HospitalWard": "Magacin",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Krevet",
+          "CurrentAmount": 7,
+          "Minimum": 0,
+          "Id": 666,
+          "InventoryType": 1
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 303,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": -4,
+          "Minimum": 0,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "novo",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 9,
+          "InventoryType": 1
+        },
+        {
+          "Name": "ajde",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 6,
+          "InventoryType": 1
+        },
+        {
+          "Name": "novi",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 999,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Magacin"
+      }
+    },
+    "RoomTo": {
+      "Id": 7,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Krevet",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 666,
+          "InventoryType": 1
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "Inventory": {
+      "Name": "Krevet",
+      "CurrentAmount": 7,
+      "Minimum": 0,
+      "Id": 666,
+      "InventoryType": 1
+    },
+    "Amount": 3,
+    "Date": "6/13/2021",
+    "Hour": 0,
+    "Minute": 30,
+    "Executed": true
   }
 ]

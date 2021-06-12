@@ -89,11 +89,11 @@ namespace IS_Bolnica
             return medicament.Ingredients;
         }
 
-        public void saveToFile(List<Ingredient> ingredients, string fileName)
+        /*public void saveToFile(List<Ingredient> ingredients, string fileName)
         {
             string jsonString = JsonConvert.SerializeObject(ingredients, Formatting.Indented);
             File.WriteAllText(fileName, jsonString);
-        }
+        }*/
 
         public List<Ingredient> loadFromFile(string fileName)
         {

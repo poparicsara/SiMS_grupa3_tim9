@@ -29,6 +29,7 @@ namespace IS_Bolnica.Services
         private List<Separation> separations = new List<Separation>();
         private MergingRepository mergeRepository = new MergingRepository();
         private SeparationRepository separationRepository = new SeparationRepository();
+        private Merging merging = new Merging();
 
         public RenovationService()
         {
@@ -99,34 +100,34 @@ namespace IS_Bolnica.Services
             notification.Content += "\t" + "Doktor: " + appointment.Doctor.Name + " " + appointment.Patient.Surname + "\n";
         }
 
-        public void MergeRooms(Room room1, Room room2, string startDate, string endDate, int hour, int minute, int roomNumber)
+        public void MergeRooms(Merging merging)
         {
-            SetMergeAttributes(room1, room2, startDate, endDate, hour, minute, roomNumber);
+            SetMergeAttributes(merging);
             AddMerging();
             StartThread();
         }
 
-        public void SeparateRoom(Room room1, string startDate, string endDate, int hour, int minute, int roomNumber)
+        public void SeparateRoom(Separation separation)
         {
-            SetSeparationAttributes(room1, startDate, endDate, hour, minute, roomNumber);
+            SetSeparationAttributes(separation);
             AddSeparation();
             StartThread();
         }
 
-        private void SetSeparationAttributes(Room room1, string startDate, string endDate, int hour, int minute, int roomNumber)
+        private void SetSeparationAttributes(Separation separation)
         {
             separate = true;
-            this.room1 = room1;
-            SetNewRoom(roomNumber);
+            this.room1 = separation.Room;
+            SetNewRoom(separation.NewRoomNumber);
             room2 = newRoom;
-            SetDateAttributes(startDate, endDate, hour, minute);
+            SetDateAttributes(separation.StartDate, separation.EndDate, separation.Hour, separation.Minute);
         }
 
-        private void SetMergeAttributes(Room room1, Room room2, string startDate, string endDate, int hour, int minute, int roomNumber)
+        private void SetMergeAttributes(Merging merging)
         {
             merge = true;
-            SetDateAttributes(startDate, endDate, hour, minute);
-            SetRooms(room1, room2, roomNumber);
+            SetDateAttributes(merging.StartDate, merging.EndDate, merging.Hour, merging.Minute);
+            SetRooms(merging);
         }
 
         private void SetDateAttributes(string startDate, string endDate, int hour, int minute)
@@ -137,11 +138,11 @@ namespace IS_Bolnica.Services
             minuteOfChange = minute;
         }
 
-        private void SetRooms(Room room1, Room room2, int roomNumber)
+        private void SetRooms(Merging merging)
         {
-            this.room1 = room1;
-            this.room2 = room2;
-            SetNewRoom(roomNumber);
+            this.room1 = merging.Room1;
+            this.room2 = merging.Room2;
+            SetNewRoom(merging.NewRoomNumber);
         }
 
         private void SetNewRoom(int id)
@@ -280,11 +281,6 @@ namespace IS_Bolnica.Services
             return false;
         }
 
-        public List<Renovation> GetRenovations()
-        {
-            return repository.GetAll();
-        }
-
         public void CheckUnexecutedMergings()
         {
             mergings = mergeRepository.GetAll();
@@ -294,7 +290,7 @@ namespace IS_Bolnica.Services
                 {
                     if (!m.Executed)
                     {
-                        SetMergeAttributes(m.Room1, m.Room2, m.StartDate, m.EndDate, m.Hour, m.Minute, m.NewRoomNumber);
+                        SetMergeAttributes(m);
                         StartThread();
                     }
                 }
@@ -374,7 +370,7 @@ namespace IS_Bolnica.Services
             {
                 if (!separation.Executed)
                 {
-                    SetSeparationAttributes(separation.Room, separation.StartDate, separation.EndDate, separation.Hour, separation.Minute, separation.NewRoomNumber);
+                    SetSeparationAttributes(separation);
                     StartThread();
                 }
             }
