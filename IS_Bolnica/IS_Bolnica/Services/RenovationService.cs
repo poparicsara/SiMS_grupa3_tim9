@@ -36,7 +36,7 @@ namespace IS_Bolnica.Services
 
         public void AddRenovation(Renovation renovation)
         {
-            repository.AddRenovation(renovation);
+            repository.Add(renovation);
             CheckScheduledAppointments(renovation);
         }
 
@@ -280,7 +280,7 @@ namespace IS_Bolnica.Services
 
         public List<Renovation> GetRenovations()
         {
-            return repository.GetRenovations();
+            return repository.GetAll();
         }
 
         public void CheckUnexecutedMergings()
