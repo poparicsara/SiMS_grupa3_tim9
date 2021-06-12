@@ -245,6 +245,7 @@
     <Compile Include="Model\ShiftType.cs" />
     <Compile Include="Model\Suggestion.cs" />
     <Compile Include="Model\Vacation.cs" />
+    <Compile Include="Open-Closed Principle\ISuggestionService.cs" />
     <Compile Include="PatientPages\AddNewAppointment.xaml.cs" />
     <Compile Include="PatientPages\AddNewFeedback.xaml.cs">
       <DependentUpon>AddNewFeedback.xaml</DependentUpon>
@@ -466,7 +467,10 @@
     <Compile Include="Services\MedicamentService.cs" />
     <Compile Include="Services\PrescriptionService.cs" />
     <Compile Include="Services\RoomService.cs" />
-    <Compile Include="Services\SuggestionService.cs" />
+    <Compile Include="Services\SuggestionServiceBySelectedDate.cs" />
+    <Compile Include="Services\SuggestionServiceBySelectedDateAndDoctor.cs" />
+    <Compile Include="Services\SuggestionServiceBySelectedDoctor.cs" />
+    <Compile Include="Services\SuggestionServiceWithoutSelection.cs" />
     <Compile Include="Services\UrgentAppointmentService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="TranslationSource.cs" />

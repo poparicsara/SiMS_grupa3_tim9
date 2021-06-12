@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Model;
 
 namespace IS_Bolnica.PatientPages
 {
@@ -21,19 +22,38 @@ namespace IS_Bolnica.PatientPages
     /// </summary>
     public partial class Suggestions : Page
     {
-        private SuggestionService suggestionService = new SuggestionService();
-        
+        private SuggestionServiceBySelectedDoctor suggestionServiceBySelectedDoctor = new SuggestionServiceBySelectedDoctor();
+        private SuggestionServiceWithoutSelection suggestionServiceWithoutSelection = new SuggestionServiceWithoutSelection();
+        private SuggestionServiceBySelectedDate suggestionServiceBySelectedDate = new SuggestionServiceBySelectedDate();
+        private SuggestionServiceBySelectedDateAndDoctor suggestionServiceBySelectedDateAndDoctor = new SuggestionServiceBySelectedDateAndDoctor();
+
+        public static Doctor selectedDoctor = new Doctor();
+        public static DateTime selectedDate = new DateTime();
+        private DoctorService doctorService = new DoctorService();
+        private FindAttributesService findAttributesService = new FindAttributesService();
+
         public Suggestions(String doctor, String date)
         {
             InitializeComponent();
             if (!doctor.Equals("") && date.Equals(""))
-                SuggestionsDataBinding.ItemsSource = suggestionService.getSuggestionsBySelectedDoctor(doctor.Split('(')[0]);
+            {
+                selectedDoctor = doctorService.FindDoctorByName(doctor.Split('(')[0]);
+
+                SuggestionsDataBinding.ItemsSource = suggestionServiceBySelectedDoctor.getSuggestions();
+            }
             else if (!date.Equals("") && doctor.Equals(""))
-                SuggestionsDataBinding.ItemsSource = suggestionService.getSuggestionsBySelectedDate(date);
-            else if(!date.Equals("") && !doctor.Equals(""))
-                SuggestionsDataBinding.ItemsSource = suggestionService.getSuggestionsBySelectedDateAndDoctor(doctor.Split('(')[0], date);
+            {
+                selectedDate = findAttributesService.returnDateBySelectionInDatePicker(date);
+                SuggestionsDataBinding.ItemsSource = suggestionServiceBySelectedDate.getSuggestions();
+            }
+            else if (!date.Equals("") && !doctor.Equals(""))
+            {
+                selectedDoctor = doctorService.FindDoctorByName(doctor.Split('(')[0]);
+                selectedDate = findAttributesService.returnDateBySelectionInDatePicker(date);
+                SuggestionsDataBinding.ItemsSource = suggestionServiceBySelectedDateAndDoctor.getSuggestions();
+            }
             else
-                SuggestionsDataBinding.ItemsSource = suggestionService.getSuggestions();
+                SuggestionsDataBinding.ItemsSource = suggestionServiceWithoutSelection.getSuggestions();
         }
 
         private void BackButtonClicked(object sender, RoutedEventArgs e)

@@ -275,5 +275,12 @@ namespace IS_Bolnica.Services
             return false;
         }
 
+        public DateTime returnDateBySelectionInDatePicker(String selectedDate)
+        {
+            string[] partsOfDate = selectedDate.Split(' ')[0].Split('/');
+            DateTime dateOfSelection = new DateTime(Convert.ToInt32(partsOfDate[2]), Convert.ToInt32(partsOfDate[0]), Convert.ToInt32(partsOfDate[1]),
+                07, 00, 00);
+            return dateOfSelection;
+        }
     }
 }
