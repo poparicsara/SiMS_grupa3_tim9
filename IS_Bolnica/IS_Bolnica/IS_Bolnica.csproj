@@ -396,6 +396,9 @@
     <Compile Include="Secretary\ExaminationList.xaml.cs">
       <DependentUpon>ExaminationList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Secretary\Feedback.xaml.cs">
+      <DependentUpon>Feedback.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Secretary\GuestUserList.xaml.cs">
       <DependentUpon>GuestUserList.xaml</DependentUpon>
     </Compile>
@@ -877,6 +880,10 @@
     <Page Include="Secretary\ExaminationList.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Secretary\Feedback.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Secretary\GuestUserList.xaml">
       <Generator>MSBuild:Compile</Generator>
