@@ -249,6 +249,7 @@
     <Compile Include="PatientPages\AddNewFeedback.xaml.cs">
       <DependentUpon>AddNewFeedback.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PatientPages\AddNewFeedback.xaml.cs" />
     <Compile Include="PatientPages\AddNewNote.xaml.cs" />
     <Compile Include="PatientPages\CalendarForAppointments.xaml.cs" />
     <Compile Include="PatientPages\ChoosePeriodForReportPage.xaml.cs" />
