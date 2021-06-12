@@ -43,12 +43,14 @@ namespace IS_Bolnica.Model
 
         public void Update(int index, Prescription newEntity)
         {
-            throw new NotImplementedException();
+            prescriptions = GetAll();
+            prescriptions.RemoveAt(index);
+            SaveToFile(prescriptions);
         }
 
         public void Delete(int index)
         {
-            prescriptions = GetAll();
+            prescriptions = GetAll();                   
             prescriptions.RemoveAt(index);
             SaveToFile(prescriptions);
         }

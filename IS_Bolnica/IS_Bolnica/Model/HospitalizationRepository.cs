@@ -50,7 +50,9 @@ namespace IS_Bolnica.Model
 
         public void Delete(int index)
         {
-            throw new NotImplementedException();
+            hospitalizations = GetAll();
+            hospitalizations.RemoveAt(index);
+            SaveToFile(hospitalizations);
         }
 
 

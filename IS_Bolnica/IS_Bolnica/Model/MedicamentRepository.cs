@@ -186,5 +186,10 @@ namespace IS_Bolnica.Model
             string jsonString = JsonConvert.SerializeObject(medicaments, Formatting.Indented);
             File.WriteAllText("Lekovi.json", jsonString);
         }
+
+        public Medicament FindById(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
