@@ -21,7 +21,7 @@ namespace IS_Bolnica.Services
 
         public List<Ingredient> GetIngredients(Medicament medicament)
         {
-            return repository.GetIngredients(medicament);
+            return null; //repository.GetIngredients(medicament);
         }
 
         public void AddIngredient(Medicament medicament, Ingredient ingredient)
@@ -38,7 +38,7 @@ namespace IS_Bolnica.Services
         public void EditIngredient(Medicament medicament, Ingredient oldIngredient, Ingredient newIngredient)
         {
             int index = GetIndex(medicament, oldIngredient);
-            repository.EditIngredient(medicament, index, newIngredient);
+            //repository.EditIngredient(medicament, index, newIngredient);
         }
 
         private int GetIndex(Medicament medicament, Ingredient ingredient)

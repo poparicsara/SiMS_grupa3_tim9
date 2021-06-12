@@ -5,19 +5,20 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using IS_Bolnica.IRepository;
 
 namespace IS_Bolnica.Model
 {
-    public class MedicamentRepository
+    public class MedicamentRepository : IMedicamentRepository
     {
         private List<Medicament> meds;
 
         public MedicamentRepository()
         {
-            meds = GetMedicaments();
+            //meds = GetMedicaments();
         }
 
-        public void AddMedicament(Medicament newMedicament)
+        /*public void AddMedicament(Medicament newMedicament)
         {
             meds.Add(newMedicament);
             SaveToFile(meds);
@@ -146,6 +147,104 @@ namespace IS_Bolnica.Model
         {
             string jsonString = JsonConvert.SerializeObject(medicaments, Formatting.Indented);
             File.WriteAllText("Lekovi.json", jsonString);
+        }*/
+        public List<Medicament> GetAll()
+        {
+            var medicaments = new List<Medicament>();
+
+            using (StreamReader file = File.OpenText("Lekovi.json"))
+            {
+                var serializer = new JsonSerializer();
+                medicaments = (List<Medicament>)serializer.Deserialize(file, typeof(List<Medicament>));
+            }
+
+            return medicaments;
+        }
+
+        public Medicament FindById(int id)
+        {
+            meds = GetAll();
+            foreach (var m in meds)
+            {
+                if (m.Id == id)
+                {
+                    return m;
+                }
+            }
+
+            return null;
+        }
+
+        public void SaveToFile(List<Medicament> entities)
+        {
+            string jsonString = JsonConvert.SerializeObject(entities, Formatting.Indented);
+            File.WriteAllText("Lekovi.json", jsonString);
+        }
+
+        public void Add(Medicament newEntity)
+        {
+            meds = GetAll();
+            meds.Add(newEntity);
+            SaveToFile(meds);
+        }
+
+        public void Update(int index, Medicament newEntity)
+        {
+            meds = GetAll();
+            meds.RemoveAt(index);
+            meds.Insert(index, newEntity);
+            SaveToFile(meds);
+        }
+
+        public void Delete(int index)
+        {
+            meds = GetAll();
+            meds.RemoveAt(index);
+            SaveToFile(meds);
+        }
+
+        public List<Ingredient> GetIngredients()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddIngredient(Medicament medicament, Ingredient ingredient)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Medicament GetMedicamentByName(string name)
+        {
+            meds = GetAll();
+            foreach (var m in meds)
+            {
+                if (m.Name.Equals(name))
+                {
+                    return m;
+                }
+            }
+
+            return null;
+        }
+
+        public void CheckMedicamentIngredients(Medicament medicament)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteIngredient(Medicament medicament, int index)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void EditIngredient(Medicament medicament, Ingredient ingredient, int index)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool HasMedicamentIngredient(Medicament medicament, string ingredient)
+        {
+            throw new NotImplementedException();
         }
     }
 }

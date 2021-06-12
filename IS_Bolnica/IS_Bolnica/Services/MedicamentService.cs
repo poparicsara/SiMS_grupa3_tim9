@@ -20,14 +20,14 @@ namespace IS_Bolnica.Services
 
       public List<Medicament> GetMedicaments()
       {
-          return repository.GetMedicaments();
+          return repository.GetAll();
       }
 
       public void AddMedicament(Medicament newMedicament, string ingredients)
       {
           this.newMedicament = newMedicament;
           this.newMedicament.Ingredients = GetIngredients(ingredients);
-          repository.AddMedicament(newMedicament);
+          repository.Add(newMedicament);
       }
 
       public List<string> GetReplacementNames()
@@ -40,20 +40,32 @@ namespace IS_Bolnica.Services
           return replacemets;
       }
 
-      public Medicament GetMedicament(string name)
+      public Medicament GetMedicamentByName(string name)
       {
-          return repository.GetMedicament(name);
+          return repository.GetMedicamentByName(name);
+      }
+
+      public Medicament GetMedicamentById(int id)
+      {
+          return repository.FindById(id);
       }
 
       public void EditMedicament(Medicament oldMedicament, Medicament newMedicament)
       {
           int index = FindIndex(oldMedicament);
-          repository.EditMedicament(index, newMedicament);
+          repository.Update(index, newMedicament);
       }
 
       public bool IsMedNumberUnique(int medNumber)
       {
-          return repository.IsMedNumberUnique(medNumber);
+          foreach (var m in repository.GetAll())
+          {
+              if (m.Id == medNumber)
+              {
+                  return false;
+              }
+          }
+          return true;
       }
 
       public bool HasMedicamentIngredient(Medicament medicament, String ingredient)
@@ -63,10 +75,24 @@ namespace IS_Bolnica.Services
 
       public List<Medicament> GetSearchedMeds(string text)
       {
-          return repository.GetSearchedMeds(text);
+          List<Medicament> searchedmeds = new List<Medicament>();
+          meds = GetMedicaments();
+          foreach (var m in repository.GetAll())
+          {
+              if (IsSearched(text, m))
+              {
+                  searchedmeds.Add(m);
+              }
+          }
+          return searchedmeds;
+        }
+
+      private static bool IsSearched(string text, Medicament m)
+      {
+          return m.Name.ToLower().StartsWith(text) || m.Producer.ToLower().StartsWith(text) || m.Status.ToString().StartsWith(text);
       }
 
-      private int FindIndex(Medicament medicament)
+        private int FindIndex(Medicament medicament)
       {
           meds = GetMedicaments();
           int index = 0;
@@ -211,20 +237,10 @@ namespace IS_Bolnica.Services
             return false;
         }
 
-        public void DeleteMedicament(int medicamentId)
+        public void DeleteMedicament(Medicament medicament)
         {
-            int index = 0;
-            foreach (Medicament medicament in meds)
-            {
-                if (medicament.Id.Equals(medicamentId))
-                {
-                    break;
-                }
-
-                index++;
-            }
-            meds.RemoveAt(index);
-            repository.SaveToFile(meds);
+            int index = FindIndex(medicament);
+            repository.Delete(index);
         }
 
         public void ChangeMedicamentStatus(int medicamentId)
@@ -240,7 +256,7 @@ namespace IS_Bolnica.Services
         }
         private List<Medicament> GetAllMedicaments()
         {
-            return repository.GetMedicaments();
+            return repository.GetAll();
         }
     }
 

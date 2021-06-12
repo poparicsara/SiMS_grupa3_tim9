@@ -28,7 +28,7 @@ namespace IS_Bolnica
         {
             InitializeComponent();
 
-            selectedMedicament = medService.GetMedicament(med.Name);
+            selectedMedicament = medService.GetMedicamentByName(med.Name);
 
             oldIngredient = ingredient;
 

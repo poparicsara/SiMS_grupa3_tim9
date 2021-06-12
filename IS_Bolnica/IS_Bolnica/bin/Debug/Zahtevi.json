@@ -130,5 +130,41 @@
     "Content": "2|novi lek|Alopurinol|ftn novi sad|sastojak1\nsastojak2\n",
     "Sender": 3,
     "Recipient": 0
+  },
+  {
+    "Title": "Dodavanje leka u bazu",
+    "Content": "666|novi lek|Alopurinol|mi|a",
+    "Sender": 3,
+    "Recipient": 0
+  },
+  {
+    "Title": "Dodavanje leka u bazu",
+    "Content": "999|novi|Alopurinol|mi|a",
+    "Sender": 3,
+    "Recipient": 0
+  },
+  {
+    "Title": "Dodavanje leka u bazu",
+    "Content": "999|novi|Alopurinol|mi|a",
+    "Sender": 3,
+    "Recipient": 0
+  },
+  {
+    "Title": "Dodavanje leka u bazu",
+    "Content": "999|novi|Alopurinol|mi|a",
+    "Sender": 3,
+    "Recipient": 0
+  },
+  {
+    "Title": "Dodavanje leka u bazu",
+    "Content": "999|novi|Alopurinol|mi|a",
+    "Sender": 3,
+    "Recipient": 0
+  },
+  {
+    "Title": "Dodavanje leka u bazu",
+    "Content": "1000|novi|Alopurinol|mi|a\n",
+    "Sender": 3,
+    "Recipient": 0
   }
 ]
