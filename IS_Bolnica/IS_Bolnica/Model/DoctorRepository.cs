@@ -42,6 +42,14 @@ namespace IS_Bolnica.Model
             return null;
         }
 
+        public void Delete(int index)
+        {
+            doctors = GetAll();
+            doctors.RemoveAt(index);
+            SaveToFile(doctors);
+        }
+
+
         public void SaveToFile(List<Doctor> doctors)
         {
             string jsonString = JsonConvert.SerializeObject(doctors, Formatting.Indented);

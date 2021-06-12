@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Collections.Generic;
 using IS_Bolnica.Model;
 using Model;
 
@@ -91,6 +85,20 @@ namespace IS_Bolnica.Services
 
             return doctor;
         }
+
+        public List<string> GetDoctorsNameSurname()
+        {
+            List<string> doctorsNameSurname = new List<string>();
+            foreach (Doctor doctor in doctorRepository.GetAll())
+            {
+                if (doctor.Specialization.Name == " ")
+                {
+                    doctorsNameSurname.Add(doctor.Name + ' ' + doctor.Surname);
+                }
+            }
+            return doctorsNameSurname;
+        }
+
 
         public int ShowDoctorsOrdination(string doctorsNameSurname)
         {

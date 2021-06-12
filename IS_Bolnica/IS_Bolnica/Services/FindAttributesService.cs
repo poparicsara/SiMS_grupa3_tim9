@@ -62,7 +62,7 @@ namespace IS_Bolnica.Services
 
         public GuestUser FindGuest(string systemName)
         {
-            guestUsers = guestUserRepository.LoadFromFile("GuestUsersFile.json");
+            guestUsers = guestUserRepository.GetAll();
             foreach (GuestUser guest in guestUsers)
             {
                 if (guest.SystemName.Equals(systemName))
@@ -245,7 +245,7 @@ namespace IS_Bolnica.Services
 
         public List<Appointment> FindPatientAppointments(Patient patient)
         {
-            List<Appointment> appointments = appointmentRepository.LoadFromFile();
+            List<Appointment> appointments = appointmentRepository.GetAll();
             List<Appointment> patientAppointments = new List<Appointment>();
             foreach (var appointment in appointments)
             {

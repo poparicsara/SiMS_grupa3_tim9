@@ -14,6 +14,11 @@
             <ColumnDefinition Width="411*"/>
             <ColumnDefinition Width="19*"/>
         </Grid.ColumnDefinitions>
+        <Button Background="White" BorderBrush="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="48" Margin="10,10,0,0" Height="48" Click="Button_Click">
+            <StackPanel>
+                <Image Source="C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\Images\feedback.png" Width="46" Height="41" RenderTransformOrigin="0.543,0.5"/>
+            </StackPanel>
+        </Button>
         <Label Content="{ns:Loc Logo}" FontSize="20" Foreground="Green" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="84,14,0,0" Height="35" Width="242"/>
         <Image x:Name="nasLogo" HorizontalAlignment="Left" Height="48" Margin="366,10,0,0" VerticalAlignment="Top" Width="48" Source="C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\Images\nasLogo.jpg" Grid.ColumnSpan="2"/>
         <Button Name="ProfilButton" Content="{ns:Loc ProfileButton}" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="Profil_Selected" HorizontalAlignment="Left" Margin="56,95,0,0" VerticalAlignment="Top" Width="300" Height="40"/>

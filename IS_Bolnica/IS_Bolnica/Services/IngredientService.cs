@@ -55,9 +55,21 @@ namespace IS_Bolnica.Services
             return index;
         }
 
+
         public List<Ingredient> GetIngredients()
         {
             return ingredientRepository.GetAll();
+        }
+
+        public void RemoveIngredientFromMedicament(Medicament medicament, Ingredient ingredient)
+        {
+            for (int i = 0; i < medicament.Ingredients.Count; i++)
+            {
+                if (medicament.Ingredients[i].Name == ingredient.Name)
+                {
+                    medicament.Ingredients.RemoveAt(i);
+                }
+            }
         }
 
         public List<Ingredient> GetPatientsIngredients(string id)

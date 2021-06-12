@@ -23,50 +23,36 @@ namespace IS_Bolnica.Services
 
         public void AddAppointment(Appointment appointment)
         {
-            appointments = appointmentRepository.LoadFromFile();
             if (isAppointmentValid(appointment))
             {
                 if (IsAvailable(appointment))
                 {
-                    appointments.Add(appointment);
-                    appointmentRepository.SaveToFile(appointments);
+                    appointmentRepository.Add(appointment);
                 }
             }
         }
 
         public void DeleteAppointment(Appointment appointment)
         {
-            appointments = appointmentRepository.LoadFromFile();
             int index = FindAppointmentIndex(appointment);
-            if (index == -1) return;
-            appointments.RemoveAt(index);
-            appointmentRepository.SaveToFile(appointments);
+            appointmentRepository.Delete(index);
         }
 
         public void EditAppointment(Appointment oldAppointment, Appointment newAppointment)
         {
-            appointments = appointmentRepository.LoadFromFile();
             if (isAppointmentValid(newAppointment))
             {
-                int indexOld = FindAppointmentIndex(oldAppointment);
-                appointments.RemoveAt(indexOld);
-                appointmentRepository.SaveToFile(appointments);
                 if (IsAvailable(newAppointment))
                 {
-                    appointments.Add(newAppointment);
-                    appointmentRepository.SaveToFile(appointments);
-                }
-                else
-                {
-                    appointments.Add(oldAppointment);
-                    appointmentRepository.SaveToFile(appointments);
+                    int indexOld = FindAppointmentIndex(oldAppointment);
+                    appointmentRepository.Update(indexOld, newAppointment);
                 }
             }
         }
 
         public List<Appointment> getExaminations()
         {
-            appointments = appointmentRepository.LoadFromFile();
+            appointments = appointmentRepository.GetAll();
             foreach (var appointment in appointments)
             {
                 if (appointment.AppointmentType == 0)
@@ -80,7 +66,7 @@ namespace IS_Bolnica.Services
 
         public List<Appointment> getOperations()
         {
-            appointments = appointmentRepository.LoadFromFile();
+            appointments = appointmentRepository.GetAll();
             foreach (var appointment in appointments)
             {
                 if (appointment.AppointmentType == AppointmentType.operation)
@@ -94,7 +80,7 @@ namespace IS_Bolnica.Services
 
         public void RemovePatientsAppointments(Patient patient)
         {
-            appointments = appointmentRepository.LoadFromFile();
+            appointments = appointmentRepository.GetAll();
             List<Appointment> patientAppointments = FindPatientAppointments(patient);
             for (int i = 0; i < appointments.Count; i++)
             {
@@ -109,7 +95,7 @@ namespace IS_Bolnica.Services
             appointmentRepository.SaveToFile(appointments);
         }
 
-        private bool isAppointmentValid(Appointment appointment)
+        public bool isAppointmentValid(Appointment appointment)
         {
             if (appointment.Room != null && appointment.Doctor != null && appointment.Patient != null)
             {
@@ -121,7 +107,7 @@ namespace IS_Bolnica.Services
 
         public List<Appointment> FindPatientAppointments(Patient patient)
         {
-            appointments = appointmentRepository.LoadFromFile();
+            appointments = appointmentRepository.GetAll();
             List<Appointment> patientAppointments = new List<Appointment>();
             foreach (var appointment in appointments)
             {
@@ -137,7 +123,7 @@ namespace IS_Bolnica.Services
 
         private int FindAppointmentIndex(Appointment appointment)
         {
-            appointments = appointmentRepository.LoadFromFile();
+            appointments = appointmentRepository.GetAll();
             for (int i = 0; i < appointments.Count; i++)
             {
                 if (appointment.StartTime.Equals(appointments[i].StartTime) &&
@@ -152,7 +138,7 @@ namespace IS_Bolnica.Services
 
         private bool isPatientFree(Appointment appointment)
         {
-            appointments = appointmentRepository.LoadFromFile();
+            appointments = appointmentRepository.GetAll();
             foreach (Appointment app in appointments)
             {
                 if (app.Patient.Id == appointment.Patient.Id)
@@ -176,7 +162,7 @@ namespace IS_Bolnica.Services
 
         private bool isRoomFree(Appointment appointment)
         {
-            appointments = appointmentRepository.LoadFromFile();
+            appointments = appointmentRepository.GetAll();
             foreach (Appointment app in appointments)
             {
                 if (app.Room.Id == appointment.Room.Id)
@@ -200,7 +186,7 @@ namespace IS_Bolnica.Services
 
         private bool isDoctorFree(Appointment appointment)
         {
-            appointments = appointmentRepository.LoadFromFile();
+            appointments = appointmentRepository.GetAll();
             foreach (Appointment app in appointments)
             {
                 if (app.Doctor.Id == appointment.Doctor.Id)
@@ -256,12 +242,12 @@ namespace IS_Bolnica.Services
 
         public List<Appointment> GetAppointments()
         {
-            return appointmentRepository.LoadFromFile();
+            return appointmentRepository.GetAll();
         }
 
         public List<Appointment> GetSearchedExaminations(string text)
         {
-            appointments = appointmentRepository.LoadFromFile();
+            appointments = appointmentRepository.GetAll();
             List<Appointment> searchedAppointments = new List<Appointment>();
             foreach (Appointment appointment in appointments)
             {
@@ -279,7 +265,7 @@ namespace IS_Bolnica.Services
 
         public List<Appointment> GetSearchedOperations(string text)
         {
-            appointments = appointmentRepository.LoadFromFile();
+            appointments = appointmentRepository.GetAll();
             List<Appointment> searchedAppointments = new List<Appointment>();
             foreach (Appointment appointment in appointments)
             {
@@ -605,7 +591,7 @@ namespace IS_Bolnica.Services
 
         private void addNotification(Notification newNotification)
         {
-            List<Notification> notifications = notificationRepository.LoadFromFile();
+            List<Notification> notifications = notificationRepository.GetAll();
             Boolean posible = true;
             foreach (Notification notification in notifications)
             {

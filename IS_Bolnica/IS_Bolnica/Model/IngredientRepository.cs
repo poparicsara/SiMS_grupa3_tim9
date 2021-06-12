@@ -11,14 +11,28 @@ namespace IS_Bolnica
         private string fileName = "Sastojci.json";
         private List<Ingredient> ingredients;
 
+
+        public List<Ingredient> GetAll()
+        {
+            var ingredients = new List<Ingredient>();
+
+            using (StreamReader file = File.OpenText(fileName))
+            {
+                var serializer = new JsonSerializer();
+                ingredients = (List<Ingredient>)serializer.Deserialize(file, typeof(List<Ingredient>));
+            }
+
+            return ingredients;
+        }
+
         public Ingredient FindById(string id)
         {
             throw new NotImplementedException();
         }
 
-        public void SaveToFile(List<Ingredient> ingredients)
+        public void SaveToFile(List<Ingredient> entities)
         {
-            string jsonString = JsonConvert.SerializeObject(ingredients, Formatting.Indented);
+            string jsonString = JsonConvert.SerializeObject(entities, Formatting.Indented);
             File.WriteAllText(fileName, jsonString);
         }
 
@@ -40,21 +54,6 @@ namespace IS_Bolnica
             ingredients.RemoveAt(index);
             SaveToFile(ingredients);
         }
-
-
-        public List<Ingredient> GetAll()
-        {
-            var ingredients = new List<Ingredient>();
-
-            using (StreamReader file = File.OpenText(fileName))
-            {
-                var serializer = new JsonSerializer();
-                ingredients = (List<Ingredient>)serializer.Deserialize(file, typeof(List<Ingredient>));
-            }
-
-            return ingredients;
-        }
-
 
     }
 }

@@ -189,7 +189,7 @@ namespace IS_Bolnica.Services
 
         private List<Appointment> GetAppointments()
         {
-            return appointmentRepository.LoadFromFile();
+            return appointmentRepository.GetAll();
         }
     }
 }

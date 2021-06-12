@@ -4,15 +4,19 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using IS_Bolnica.IRepository;
+using IS_Bolnica.Services;
 using Newtonsoft.Json;
 
 
 namespace IS_Bolnica.Model
 {
-    class AppointmentRepository
+    public class AppointmentRepository : IAppointmentRepository
     {
         private string fileName = "Appointments.json";
-        public List<Appointment> GetAll()
+        private List<Appointment> appointments = new List<Appointment>();
+
+        public Appointment FindById(int id)
         {
             throw new NotImplementedException();
         }
@@ -20,10 +24,33 @@ namespace IS_Bolnica.Model
         public void SaveToFile(List<Appointment> appointments)
         {
             string jsonString = JsonConvert.SerializeObject(appointments, Formatting.Indented);
-            File.WriteAllText("Appointments.json", jsonString);
+            File.WriteAllText(fileName, jsonString);
         }
 
-        public List<Appointment> LoadFromFile()
+        public void Add(Appointment newEntity)
+        {
+            appointments = GetAll();
+            appointments.Add(newEntity);
+            SaveToFile(appointments);
+        }
+
+        public void Update(int index, Appointment newEntity)
+        {
+            appointments = GetAll();
+            appointments.RemoveAt(index);
+            appointments.Add(newEntity);
+            SaveToFile(appointments);
+        }
+
+        public void Delete(int index)
+        {
+            appointments = GetAll();
+            if (index == -1) return;
+            appointments.RemoveAt(index);
+            SaveToFile(appointments);
+        }
+
+        public List<Appointment> GetAll()
         {
             var appointment = new List<Appointment>();
 
@@ -35,5 +62,6 @@ namespace IS_Bolnica.Model
 
             return appointment;
         }
+
     }
 }

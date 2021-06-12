@@ -657,5 +657,21 @@
     "RoomPurpose": {
       "Name": "Ordinacija"
     }
+  },
+  {
+    "Id": 103,
+    "HospitalWard": "Alergologija i imunologija",
+    "Inventory": null,
+    "RoomPurpose": {
+      "Name": "Operaciona sala"
+    }
+  },
+  {
+    "Id": 3,
+    "HospitalWard": "Alergologija i imunologija",
+    "Inventory": null,
+    "RoomPurpose": {
+      "Name": "Operaciona sala"
+    }
   }
 ]

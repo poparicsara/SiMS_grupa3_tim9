@@ -81,5 +81,11 @@ namespace IS_Bolnica.Secretary
             ReportForm rf = new ReportForm(this);
             this.NavigationService.Navigate(rf);
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Feedback f = new Feedback();
+            this.NavigationService.Navigate(f);
+        }
     }
 }

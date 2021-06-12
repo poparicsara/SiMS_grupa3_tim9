@@ -218,12 +218,18 @@
       <DependentUpon>InventoryWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="InventoryInRoom.cs" />
+
     <Compile Include="IRepository\IAnamnesisRepository.cs" />
     <Compile Include="IRepository\IDoctorRepository.cs" />
     <Compile Include="IRepository\IGenericRepository.cs" />
     <Compile Include="IRepository\IHospitalizationRepository.cs" />
+    <Compile Include="IRepository\IAppointmentRepository.cs" />
+    <Compile Include="IRepository\IDoctorRepository.cs" />
+    <Compile Include="IRepository\IGenericRepository.cs" />
+    <Compile Include="IRepository\IGuestUserRepository.cs" />
     <Compile Include="IRepository\IIngredientRepository.cs" />
     <Compile Include="IRepository\IMedicamentRepository.cs" />
+    <Compile Include="IRepository\INotificationRepository.cs" />
     <Compile Include="IRepository\IPatientRepository.cs" />
     <Compile Include="IRepository\IPrescriptionRepository.cs" />
     <Compile Include="IRepository\IRenovationRepository.cs" />
@@ -249,6 +255,10 @@
     <Compile Include="Model\Suggestion.cs" />
     <Compile Include="Model\Vacation.cs" />
     <Compile Include="PatientPages\AddNewAppointment.xaml.cs" />
+    <Compile Include="PatientPages\AddNewFeedback.xaml.cs">
+      <DependentUpon>AddNewFeedback.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PatientPages\AddNewFeedback.xaml.cs" />
     <Compile Include="PatientPages\AddNewNote.xaml.cs" />
     <Compile Include="PatientPages\CalendarForAppointments.xaml.cs" />
     <Compile Include="PatientPages\ChoosePeriodForReportPage.xaml.cs" />
@@ -284,7 +294,6 @@
     <Compile Include="ReportWindow.xaml.cs">
       <DependentUpon>ReportWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\Allergen.cs" />
     <Compile Include="Model\Hospitalization.cs" />
     <Compile Include="Model\HospitalizationRepository.cs" />
     <Compile Include="DoctorUI\DoctorStartWindow.xaml.cs">
@@ -393,6 +402,9 @@
     </Compile>
     <Compile Include="Secretary\ExaminationList.xaml.cs">
       <DependentUpon>ExaminationList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\Feedback.xaml.cs">
+      <DependentUpon>Feedback.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\GuestUserList.xaml.cs">
       <DependentUpon>GuestUserList.xaml</DependentUpon>
@@ -675,6 +687,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="PatientPages\AddNewFeedback.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="PatientPages\AddNewNote.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -871,6 +887,10 @@
     <Page Include="Secretary\ExaminationList.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Secretary\Feedback.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Secretary\GuestUserList.xaml">
       <Generator>MSBuild:Compile</Generator>

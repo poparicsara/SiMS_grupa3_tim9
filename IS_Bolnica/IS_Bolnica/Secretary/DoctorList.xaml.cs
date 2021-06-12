@@ -12,7 +12,7 @@ namespace IS_Bolnica.Secretary
         {
             InitializeComponent();
             this.previousPage = previousPage;
-            DoctorListGrid.ItemsSource = doctorService.GetDoctors();
+            DoctorListGrid.ItemsSource = doctorService.GetAllDoctors();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
