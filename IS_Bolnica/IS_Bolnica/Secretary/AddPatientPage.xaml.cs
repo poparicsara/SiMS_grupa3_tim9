@@ -194,7 +194,7 @@ namespace IS_Bolnica.Secretary
             InitializeComponent();
             this.previousPage = previousPage;
             this.DataContext = this;
-            Ingredients = new ObservableCollection<Ingredient>(ingredientService.GetAllIngredients());
+            Ingredients = new ObservableCollection<Ingredient>(ingredientService.GetIngredients());
 
         }
 

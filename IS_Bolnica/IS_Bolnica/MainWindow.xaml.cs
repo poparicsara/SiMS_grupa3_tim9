@@ -78,7 +78,7 @@ namespace IS_Bolnica
                         case UserType.doctor:
 
                             loggedUsers.Add(user);
-                            storage.SaveToFile(loggedUsers, "loggedUsers.json");
+                            storage.SaveToFile(loggedUsers);
                             //DoctorWindow doctorWindow = new DoctorWindow();
                             //doctorWindow.Show();
                             DoctorStartWindow doctorStartWindow = new DoctorStartWindow();

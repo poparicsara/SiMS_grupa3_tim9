@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using IS_Bolnica.Annotations;
 using IS_Bolnica.IRepository;
 
 namespace IS_Bolnica.Model
@@ -22,6 +23,12 @@ namespace IS_Bolnica.Model
         {
             meds.Add(newMedicament);
             SaveToFile(meds);
+        }
+
+        [CanBeNull]
+        public Medicament FindById(int id)
+        {
+            throw new NotImplementedException();
         }
 
         public Medicament GetMedicament(string name)
@@ -84,12 +91,22 @@ namespace IS_Bolnica.Model
             return ingredients;
         }
 
+        public List<Ingredient> GetIngredients()
+        {
+            throw new NotImplementedException();
+        }
+
         public void AddIngredient(Medicament medicament, Ingredient ingredient)
         {
             medicament = GetMedicament(medicament.Name);
             CheckMedicamentIngredients(medicament);
             medicament.Ingredients.Add(ingredient);
             SaveToFile(meds);
+        }
+
+        public Medicament GetMedicamentByName(string name)
+        {
+            throw new NotImplementedException();
         }
 
         public void CheckMedicamentIngredients(Medicament medicament)
@@ -105,6 +122,11 @@ namespace IS_Bolnica.Model
             medicament = GetMedicament(medicament.Name);
             medicament.Ingredients.RemoveAt(index);
             SaveToFile(meds);
+        }
+
+        public void EditIngredient(Medicament medicament, Ingredient ingredient, int index)
+        {
+            throw new NotImplementedException();
         }
 
         public void EditIngredient(Medicament medicament, int index, Ingredient newIngredient)
