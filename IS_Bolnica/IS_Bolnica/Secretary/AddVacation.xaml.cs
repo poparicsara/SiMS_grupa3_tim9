@@ -33,7 +33,7 @@ namespace IS_Bolnica.Secretary
         {
             if (!isAllFilled()) return;
 
-                vacation.DoctorsId = idDoctorBox.Text;
+            vacation.DoctorsId = idDoctorBox.Text;
             vacation.VacationStartDate = (DateTime)startDateBox.SelectedDate;
             vacation.VacationEndDate = (DateTime) endDateBox.SelectedDate;
 

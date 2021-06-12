@@ -9,7 +9,7 @@ using Model;
 
 namespace IS_Bolnica.Secretary
 {
-    public partial class AddOperation : Page, INotifyPropertyChanged
+    public partial class AddOperation : Page
     {
         private Page previousPage;
         private Appointment appointment = new Appointment();
@@ -17,31 +17,6 @@ namespace IS_Bolnica.Secretary
         private DoctorService doctorService = new DoctorService();
         private AppointmentService appointmentService = new AppointmentService();
         private PatientService patientService = new PatientService();
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public virtual void OnPropertyChanged(string name)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(name));
-            }
-        }
-
-        private string jmbggInput;
-
-        public string JmbggInput
-        {
-            get { return jmbggInput; }
-            set
-            {
-                if (value != jmbggInput)
-                {
-                    jmbggInput = value;
-                    OnPropertyChanged("JmbggInput");
-                }
-            }
-        }
 
         public AddOperation(Page previousPage)
         {

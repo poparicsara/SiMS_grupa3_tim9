@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using IS_Bolnica.Annotations;
 using IS_Bolnica.IRepository;
 
 namespace IS_Bolnica.Model
@@ -22,6 +23,12 @@ namespace IS_Bolnica.Model
         {
             meds.Add(newMedicament);
             SaveToFile(meds);
+        }
+
+        [CanBeNull]
+        public Medicament FindById(int id)
+        {
+            throw new NotImplementedException();
         }
 
         public Medicament GetMedicament(string name)

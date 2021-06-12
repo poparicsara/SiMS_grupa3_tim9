@@ -1,0 +1,12 @@
+Funkcionalnost: Izdavanje recepata
+Autor dijagrama: Marija Petrović RA53/2018 - doktor
+
+- Nakon posmatranja activity dijagrama uvidela sam da je izveštaj kompletan,
+dovoljno je detaljan
+- Jedino bih skrenula pažnju na sledeće dve stvari:
+   *recept bih predstavila kao objekat a ne kao ulazni/izlazni parametar
+   *popunjavanje recepta bih spojila u jednu složenu aktivnost
+- Osim toga nemam nikakvih zamerki, dijagram je veoma smislen i uredan
+
+
+Nikolina Pavković RA56/2018 - sekretar
