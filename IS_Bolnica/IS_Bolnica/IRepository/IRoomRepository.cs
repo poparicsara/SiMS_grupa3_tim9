@@ -12,8 +12,6 @@ namespace IS_Bolnica.IRepository
         List<int> GetOperationRoomNums();
         Room FindOrdinationById(int id);
         List<int> GetAvailableRoomsForHospitalization();
-        void ReduceAmount(Room room, Inventory inventory, int amount);
-        void IncreaseAmount(Room room, Inventory inventory, int amount);
 
     }
 }

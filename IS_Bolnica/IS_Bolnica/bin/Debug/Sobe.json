@@ -610,7 +610,7 @@
     "Inventory": [
       {
         "Name": "Injekcija",
-        "CurrentAmount": 3,
+        "CurrentAmount": 0,
         "Minimum": 0,
         "Id": 202,
         "InventoryType": 0
@@ -653,7 +653,15 @@
   {
     "Id": 4,
     "HospitalWard": "Alergologija i imunologija",
-    "Inventory": null,
+    "Inventory": [
+      {
+        "Name": null,
+        "CurrentAmount": 3,
+        "Minimum": 0,
+        "Id": 202,
+        "InventoryType": 0
+      }
+    ],
     "RoomPurpose": {
       "Name": "Ordinacija"
     }

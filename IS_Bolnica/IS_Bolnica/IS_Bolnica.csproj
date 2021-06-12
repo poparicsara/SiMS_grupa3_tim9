@@ -219,6 +219,7 @@
     </Compile>
     <Compile Include="InventoryInRoom.cs" />
     <Compile Include="IRepository\IGenericRepository.cs" />
+    <Compile Include="IRepository\IInventoryRepository.cs" />
     <Compile Include="IRepository\IMedicamentRepository.cs" />
     <Compile Include="IRepository\IPatientRepository.cs" />
     <Compile Include="IRepository\IRenovationRepository.cs" />

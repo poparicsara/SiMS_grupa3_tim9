@@ -38,7 +38,24 @@ namespace IS_Bolnica.Services
 
         public bool HasRoomSelectedInventory(Inventory inventory, Room room)
         {
-            return false;//roomRepository.HasRoomSelectedInventory(room, inventory);
+            room = roomRepository.FindById(room.Id);
+            HasRoomAnyInventory(room);
+            foreach (var i in room.Inventory)
+            {
+                if (i.Id == inventory.Id)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private static void HasRoomAnyInventory(Room room)
+        {
+            if (room.Inventory == null)
+            {
+                room.Inventory = new List<Inventory>();
+            }
         }
 
         public bool HasEnoughAmount(Inventory inventory, Room room, int amount)
@@ -103,11 +120,12 @@ namespace IS_Bolnica.Services
             }
         }
 
-        private Inventory GetInventoryFromRoom(Inventory selecteInventory, Room room)
+        private Inventory GetInventoryFromRoom(Inventory selectedInventory, Room room)
         {
+            room = roomRepository.FindById(room.Id);
             foreach (var i in room.Inventory)
             {
-                if (i.Id == selecteInventory.Id)
+                if (i.Id == selectedInventory.Id)
                 {
                     return i;
                 }
@@ -119,7 +137,7 @@ namespace IS_Bolnica.Services
         {
             if (!HasRoomSelectedInventory(selectedInventory, roomTo))
             {
-                //roomRepository.AddInventoryToRoom(this.roomTo, selectedInventory);
+                inventoryRepository.AddInventoryToRoom(this.roomTo, selectedInventory);
             }
             SetInventoryTo();
         }
@@ -204,8 +222,8 @@ namespace IS_Bolnica.Services
 
         private void DoChange()
         {
-            roomRepository.ReduceAmount(roomFrom, selectedInventory, amount);
-            roomRepository.IncreaseAmount(roomTo, selectedInventory, amount);
+            inventoryRepository.ReduceAmount(roomFrom, selectedInventory, amount);
+            inventoryRepository.IncreaseAmount(roomTo, selectedInventory, amount);
         }
 
         private string[] GetFullCurrentDate()
