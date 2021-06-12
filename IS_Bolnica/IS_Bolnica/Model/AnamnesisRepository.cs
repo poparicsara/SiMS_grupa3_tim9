@@ -43,13 +43,17 @@ namespace IS_Bolnica.Model
 
         public void Update(int index, Anamnesis newEntity)
         {
-            throw new NotImplementedException();
+            anamneses = GetAll();
+            anamneses.RemoveAt(index);
+            anamneses.Add(newEntity);
+            SaveToFile(anamneses);
         }
 
         public void Delete(int index)
         {
-            //anamnesisRepositoryImplementation.Delete(index);
-            throw new NotImplementedException();
+            anamneses = GetAll();
+            anamneses.RemoveAt(index);
+            SaveToFile(anamneses);
         }
 
         public Anamnesis FindById(string id)

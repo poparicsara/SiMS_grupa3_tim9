@@ -108,7 +108,7 @@ namespace IS_Bolnica.Services
             {
                 loggedUsers.RemoveAt(i);
             }
-            userRepository.SaveToFile(loggedUsers);
+            userRepository.SaveToFile(loggedUsers, "loggedUsers.json");
         }
 
     }

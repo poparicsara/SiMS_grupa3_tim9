@@ -84,12 +84,22 @@ namespace IS_Bolnica.Model
             return ingredients;
         }
 
+        public List<Ingredient> GetIngredients()
+        {
+            throw new NotImplementedException();
+        }
+
         public void AddIngredient(Medicament medicament, Ingredient ingredient)
         {
             medicament = GetMedicament(medicament.Name);
             CheckMedicamentIngredients(medicament);
             medicament.Ingredients.Add(ingredient);
             SaveToFile(meds);
+        }
+
+        public Medicament GetMedicamentByName(string name)
+        {
+            throw new NotImplementedException();
         }
 
         public void CheckMedicamentIngredients(Medicament medicament)
@@ -105,6 +115,11 @@ namespace IS_Bolnica.Model
             medicament = GetMedicament(medicament.Name);
             medicament.Ingredients.RemoveAt(index);
             SaveToFile(meds);
+        }
+
+        public void EditIngredient(Medicament medicament, Ingredient ingredient, int index)
+        {
+            throw new NotImplementedException();
         }
 
         public void EditIngredient(Medicament medicament, int index, Ingredient newIngredient)
@@ -163,6 +178,11 @@ namespace IS_Bolnica.Model
         {
             string jsonString = JsonConvert.SerializeObject(medicaments, Formatting.Indented);
             File.WriteAllText("Lekovi.json", jsonString);
+        }
+
+        public Medicament FindById(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

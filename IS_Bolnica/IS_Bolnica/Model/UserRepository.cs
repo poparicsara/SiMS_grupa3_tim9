@@ -70,5 +70,11 @@ namespace IS_Bolnica.Model
             users.RemoveAt(index);
             SaveToFile(users);
         }
+
+        public void SaveToFile(List<User> entities, string fileName)
+        {
+            string jsonString = JsonConvert.SerializeObject(entities, Formatting.Indented);
+            File.WriteAllText(fileName, jsonString);
+        }
     }
 }

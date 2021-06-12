@@ -68,13 +68,6 @@ namespace IS_Bolnica.Model
             throw new NotImplementedException();
         }
 
-        public void Delete(int index)
-        {
-            doctors = GetAll();
-            doctors.RemoveAt(index);
-            SaveToFile(doctors);
-        }
-
         public void AddShift(Shift shift)
         {
             doctors = GetAll();
