@@ -1,0 +1,7 @@
+Funkcionalnost: Pomeranje termina
+Član tima zadužen za aktivity dijagram: Vladimir Vrbica, RA 50/2018
+
+Smatram da su na dobar i jednostavan nacin prikazane sve aktivnosti unutar dijagrama. Možda su neke aktivnosti mogle biti prikazane kao složene, pa da su se unutar njih mogli navesti koraci njihovog izvržavanja.Takođe nije koriščena particija, nego su samo navedene uloge unutar tekst dijaloga, ali opet, podeljeni su vertikalnom linijom, pa se može razumeti šta kome pripada.
+Sve u svemu, smatram da je dijagram solidno odrađen i da će uz sitne ispravke biti odličan.
+
+Autor izveštaja: Sara Poparić, RA 60/2018

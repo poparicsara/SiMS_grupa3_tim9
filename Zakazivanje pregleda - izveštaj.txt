@@ -1,0 +1,6 @@
+Funkcionalnost: Zakazivanje pregleda
+Član tima zadužen za sequence dijagram: Nikolina Pavković, RA 56/2018
+
+Posmatrajući čitav sequence dijagram mislim da je odrađen kompletno i da je tok razmene podataka između učesnika i objekata dobro razrađen. Jedina stvar koju bih izmenila je da bih malo detaljnije opisala samu proveru da li je moguće zakazati termin na osnovu svakog od preduslova - da li je i kada lekar slobodan, ordinacija i sl.
+
+Autor izveštaja: Marija Petrović, RA 53/2018
