@@ -74,18 +74,18 @@ namespace IS_Bolnica.Services
         }
 
 
-        public void ChangePlaceOfInventory(Room roomFrom, Room roomTo, Inventory selectedInventory, int amount, string date, int hour, int minute)
+        public void ChangePlaceOfInventory(Shifting shifting)
         {
-            SetAttributes(roomFrom, roomTo, selectedInventory, amount, date, hour, minute);
+            SetAttributes(shifting);
             CheckInventoryType();
         }
 
-        private void SetAttributes(Room roomFrom, Room roomTo, Inventory selectedInventory, int amount, string date, int hour, int minute)
+        private void SetAttributes(Shifting shifting)
         {
-            SetRooms(roomFrom, roomTo);
-            SetInventories(selectedInventory);
-            this.amount = amount;
-            SetDate(date, hour, minute);
+            SetRooms(shifting.RoomFrom, shifting.RoomTo);
+            SetInventories(shifting.Inventory);
+            this.amount = shifting.Amount;
+            SetDate(shifting.Date, shifting.Hour, shifting.Minute);
         }
 
         private void SetRooms(Room roomFrom, Room roomTo)
@@ -278,7 +278,7 @@ namespace IS_Bolnica.Services
             {
                 if (!s.Executed)
                 {
-                    SetAttributes(s.RoomFrom, s.RoomTo, s.Inventory, s.Amount, s.Date, s.Hour, s.Minute);
+                    SetAttributes(s);
                     StartThread();
                 }
             }

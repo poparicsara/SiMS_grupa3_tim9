@@ -234,7 +234,18 @@ namespace IS_Bolnica
             }
             else
             {
-                changeService.ChangePlaceOfInventory(roomFrom, roomTo, selectedInventory, amount, selectedDate, selectedHour, selectedMinute);
+                Shifting shifting = new Shifting
+                {
+                    RoomFrom = roomFrom,
+                    RoomTo = roomTo,
+                    Inventory = selectedInventory,
+                    Amount = amount,
+                    Date = selectedDate,
+                    Hour = selectedHour,
+                    Minute = selectedMinute,
+                    Executed = false
+                };
+                changeService.ChangePlaceOfInventory(shifting);
                 this.Close();
             }
         }
