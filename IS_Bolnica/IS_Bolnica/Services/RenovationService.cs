@@ -27,6 +27,7 @@ namespace IS_Bolnica.Services
         private bool separate = false;
         private List<Merging> mergings = new List<Merging>();
         private List<Separation> separations = new List<Separation>();
+        private MergingRepository mergeRepository = new MergingRepository();
 
         public RenovationService()
         {
@@ -306,13 +307,13 @@ namespace IS_Bolnica.Services
                 Room1 = room1, Room2 = room2, StartDate = startDate, EndDate = dateOfChange, Hour = hourOfChange,
                 Minute = minuteOfChange, NewRoomNumber = newRoom.Id
             };
-            repository.AddMerging(newMerging);
+            mergeRepository.Add(newMerging);
         }
 
         private void EditMerging()
         {
             int index = GetMergingIndex();
-            repository.EditMerging(index);
+            mergeRepository.EditMerging(index);
         }
 
         private int GetMergingIndex()

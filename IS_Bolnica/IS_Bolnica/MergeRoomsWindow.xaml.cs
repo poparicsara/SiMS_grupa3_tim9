@@ -79,12 +79,12 @@ namespace IS_Bolnica
         {
             if (roomService.IsRoomNumberUnique(newRoomNumber))
             {
-                //renovationService.MergeRooms(room1, room2, selectedStartDate, selectedEndDate, selectedHour, selectedMinute, newRoomNumber);
-                Room newRoom = new Room
+                renovationService.MergeRooms(room1, room2, selectedStartDate, selectedEndDate, selectedHour, selectedMinute, newRoomNumber);
+                /*Room newRoom = new Room
                     {HospitalWard = room1.HospitalWard, Id = newRoomNumber, RoomPurpose = room1.RoomPurpose};
                 roomService.AddRoom(newRoom);
                 roomService.DeleteRoom(room1);
-                roomService.DeleteRoom(room2);
+                roomService.DeleteRoom(room2);*/
                 this.Close();
             }
             else

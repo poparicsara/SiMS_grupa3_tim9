@@ -222,6 +222,7 @@
     <Compile Include="IRepository\IIngredientRepository.cs" />
     <Compile Include="IRepository\IInventoryRepository.cs" />
     <Compile Include="IRepository\IMedicamentRepository.cs" />
+    <Compile Include="IRepository\IMergingRepository.cs" />
     <Compile Include="IRepository\IPatientRepository.cs" />
     <Compile Include="IRepository\IRenovationRepository.cs" />
     <Compile Include="IRepository\IRoomRepository.cs" />
@@ -238,6 +239,7 @@
     <Compile Include="Model\FeedbackRepository.cs" />
     <Compile Include="Model\Gender.cs" />
     <Compile Include="Model\IngredientRepository.cs" />
+    <Compile Include="Model\MergingRepository.cs" />
     <Compile Include="Model\PrescriptionRepository.cs" />
     <Compile Include="Model\Report.cs" />
     <Compile Include="Model\ReportData.cs" />

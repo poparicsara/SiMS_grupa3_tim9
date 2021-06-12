@@ -635,40 +635,9 @@
     }
   },
   {
-    "Id": 10,
+    "Id": 11,
     "HospitalWard": "Alergologija i imunologija",
-    "Inventory": [
-      {
-        "Name": "Injekcija",
-        "CurrentAmount": 0,
-        "Minimum": 0,
-        "Id": 202,
-        "InventoryType": 0
-      },
-      {
-        "Name": "Krevet",
-        "CurrentAmount": 3,
-        "Minimum": 0,
-        "Id": 666,
-        "InventoryType": 1
-      }
-    ],
-    "RoomPurpose": {
-      "Name": "Ordinacija"
-    }
-  },
-  {
-    "Id": 4,
-    "HospitalWard": "Alergologija i imunologija",
-    "Inventory": [
-      {
-        "Name": null,
-        "CurrentAmount": 3,
-        "Minimum": 0,
-        "Id": 202,
-        "InventoryType": 0
-      }
-    ],
+    "Inventory": [],
     "RoomPurpose": {
       "Name": "Ordinacija"
     }
