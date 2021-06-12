@@ -15,7 +15,6 @@ namespace Model
 {
     public class InventoryRepository : IInventoryRepository
     {
-        private List<Shifting> shiftings = new List<Shifting>();
         private List<Room> rooms = new List<Room>();
         private RoomRepository repository = new RoomRepository();
         private Room room = new Room();
@@ -23,7 +22,6 @@ namespace Model
 
         public InventoryRepository()
         {
-            shiftings = GetShiftings();
             rooms = repository.GetAll();
         }
 
@@ -50,38 +48,6 @@ namespace Model
             {
                 room.Inventory = new List<Inventory>();
             }
-        }
-
-        public void AddShifting(Shifting newShifting)
-        {
-            shiftings.Add(newShifting);
-            SaveShiftings(shiftings);
-        }
-
-        public void EditShifting(int index)
-        {
-            Shifting s = shiftings.ElementAt(index);
-            s.Executed = true;
-            shiftings.RemoveAt(index);
-            shiftings.Insert(index, s);
-            SaveShiftings(shiftings);
-        }
-
-        public void SaveShiftings(List<Shifting> shiftings)
-        {
-            string jsonString = JsonConvert.SerializeObject(shiftings, Formatting.Indented);
-            File.WriteAllText("Shiftings.json", jsonString);
-        }
-
-        public List<Shifting> GetShiftings()
-        {
-            var shiftings = new List<Shifting>();
-            using (StreamReader file = File.OpenText("Shiftings.json"))
-            {
-                var serializer = new JsonSerializer();
-                shiftings = (List<Shifting>)serializer.Deserialize(file, typeof(List<Shifting>));
-            }
-            return shiftings;
         }
 
         public List<Inventory> GetAll()

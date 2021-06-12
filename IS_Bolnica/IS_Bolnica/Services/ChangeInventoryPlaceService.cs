@@ -29,11 +29,12 @@ namespace IS_Bolnica.Services
         private List<Shifting> shiftings = new List<Shifting>();
         private Shifting newShifting = new Shifting();
         private RoomRepository roomRepository = new RoomRepository();
+        private ShiftingRepository shiftingRepository = new ShiftingRepository();
 
         public ChangeInventoryPlaceService()
         {
             rooms = roomService.GetRooms();
-            shiftings = inventoryRepository.GetShiftings();
+            shiftings = shiftingRepository.GetAll();
         }
 
         public bool HasRoomSelectedInventory(Inventory inventory, Room room)
@@ -177,7 +178,7 @@ namespace IS_Bolnica.Services
         private void AddShifting()
         {
             newShifting = new Shifting { RoomFrom = roomFrom, RoomTo = roomTo, Amount = amount, Date = dateOfChange, Hour = hourOfChange, Inventory = selectedInventory, Minute = minuteOfChange, Executed = false};
-            inventoryRepository.AddShifting(newShifting);
+            shiftingRepository.Add(newShifting);
         }
 
         private void StartThread()
@@ -301,12 +302,12 @@ namespace IS_Bolnica.Services
         private void EditShifting()
         {
             int index = GetShiftingIndex();
-            inventoryRepository.EditShifting(index);
+            shiftingRepository.EditShifting(index);
         }
 
         private List<Shifting> GetShiftings()
         {
-            return inventoryRepository.GetShiftings();
+            return shiftingRepository.GetAll();
         }
     }
 }
