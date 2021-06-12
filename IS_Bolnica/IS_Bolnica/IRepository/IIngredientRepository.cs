@@ -10,6 +10,8 @@ namespace IS_Bolnica.IRepository
     interface IIngredientRepository : IGenericRepository<Ingredient, string>
     {
         void AddIngredient(Medicament medicament, Ingredient ingredient);
+        void DeleteIngredient(Medicament medicament, int index);
+        void EditIngredient(Medicament medicament, int index, Ingredient newIngredient);
         List<Ingredient> GetMedicamentIngredients(Medicament medicament);
     }
 }

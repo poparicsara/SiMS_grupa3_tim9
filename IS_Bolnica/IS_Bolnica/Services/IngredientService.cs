@@ -27,24 +27,24 @@ namespace IS_Bolnica.Services
 
         public void AddIngredient(Medicament medicament, Ingredient ingredient)
         {
-            Trace.WriteLine("zovem dodavanje");
             ingredientRepository.AddIngredient(medicament, ingredient);
         }
 
         public void DeleteIngredient(Medicament medicament, Ingredient ingredient)
         {
             int index = GetIndex(medicament, ingredient);
-            medRepository.DeleteIngredient(medicament, index);
+            ingredientRepository.DeleteIngredient(medicament, index);
         }
 
         public void EditIngredient(Medicament medicament, Ingredient oldIngredient, Ingredient newIngredient)
         {
             int index = GetIndex(medicament, oldIngredient);
-            //repository.EditIngredient(medicament, index, newIngredient);
+            ingredientRepository.EditIngredient(medicament, index, newIngredient);
         }
 
         private int GetIndex(Medicament medicament, Ingredient ingredient)
         {
+            medicament = medRepository.FindById(medicament.Id);
             int index = 0;
             foreach (var i in medicament.Ingredients)
             {

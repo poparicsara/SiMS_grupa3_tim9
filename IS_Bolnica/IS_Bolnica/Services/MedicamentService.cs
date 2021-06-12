@@ -152,24 +152,7 @@ namespace IS_Bolnica.Services
             repository.SaveToFile(meds);
         }
 
-        public void SaveMedicament(Medicament medicament)
-          {
-              repository.SaveToFile(meds);
-          }
-
-          public void AddIngredientInMedicament(Ingredient ingredient, int medicamentId)
-          {
-              foreach (Medicament medicament in meds)
-              {
-                  if (medicament.Id.Equals(medicamentId))
-                  {
-                      medicament.Ingredients.Add(ingredient);
-                      SaveMedicament(medicament);
-                  }
-              }
-          }
-
-          public List<Medicament> ShowApprovedMedicaments()
+      public List<Medicament> ShowApprovedMedicaments()
           {
               List<Medicament> approvedMedicaments = new List<Medicament>();
               foreach (Medicament medicament in meds)
