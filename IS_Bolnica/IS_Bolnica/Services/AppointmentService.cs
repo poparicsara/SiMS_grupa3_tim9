@@ -138,6 +138,7 @@ namespace IS_Bolnica.Services
 
         private bool isPatientFree(Appointment appointment)
         {
+            if (appointment.Patient == null) return false;
             appointments = appointmentRepository.GetAll();
             foreach (Appointment app in appointments)
             {
