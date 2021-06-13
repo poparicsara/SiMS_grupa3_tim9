@@ -29,7 +29,8 @@ namespace IS_Bolnica.Services
         private List<Separation> separations = new List<Separation>();
         private MergingRepository mergeRepository = new MergingRepository();
         private SeparationRepository separationRepository = new SeparationRepository();
-        private Merging merging = new Merging();
+        private AppointmentService appointmentService = new AppointmentService();
+        private ChangeInventoryPlaceService changeService = new ChangeInventoryPlaceService();
 
         public RenovationService()
         {
@@ -40,17 +41,101 @@ namespace IS_Bolnica.Services
         public void AddRenovation(Renovation renovation)
         {
             repository.Add(renovation);
+            if (renovation.Room.Inventory != null)
+            {
+                ReplaceInventory(renovation);
+            }
             CheckScheduledAppointments(renovation);
+        }
+
+        private void ReplaceInventory(Renovation renovation)
+        {
+            foreach (var i in renovation.Room.Inventory)
+            {
+                if (i.CurrentAmount > 0)
+                {
+                    changeService.MoveToMagacin(i, i.CurrentAmount, renovation.Room);
+                }
+            }
         }
 
         private void CheckScheduledAppointments(Renovation renovation)
         {
-            AppointmentService appointmentService = new AppointmentService();
             List<Appointment> appointments = appointmentService.GetAppointments();
             foreach (var a in appointments)
             {
                 CheckAppointment(renovation, a);
             }
+        }
+
+        public bool IsAppointmentBetweenAnyRenovation(Appointment appointment)
+        {
+            if (CheckRenovations(appointment)) return true;
+
+            if (CheckMergings(appointment)) return true;
+
+            if (CheckSeparations(appointment)) return true;
+
+            return false;
+        }
+
+        private bool CheckSeparations(Appointment appointment)
+        {
+            foreach (var s in separationRepository.GetAll())
+            {
+                if (s.Room.Id == appointment.Room.Id)
+                {
+                    Renovation r = GetRenovationFromSeparation(s);
+                    if (IsStartDateInRenovationPeriod(appointment, r) || IsEndDateInRenovationPeriod(appointment, r))
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        private bool CheckMergings(Appointment appointment)
+        {
+            foreach (var m in mergeRepository.GetAll())
+            {
+                if (m.Room1.Id == appointment.Room.Id)
+                {
+                    Renovation r1 = GetRenovationFromMerging(m, m.Room1);
+                    if (IsStartDateInRenovationPeriod(appointment, r1) || IsEndDateInRenovationPeriod(appointment, r1))
+                    {
+                        return true;
+                    }
+                }
+
+                if (m.Room2.Id == appointment.Room.Id)
+                {
+                    Renovation r2 = GetRenovationFromMerging(m, m.Room2);
+                    if (IsStartDateInRenovationPeriod(appointment, r2) || IsEndDateInRenovationPeriod(appointment, r2))
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        private bool CheckRenovations(Appointment appointment)
+        {
+            foreach (var r in repository.GetAll())
+            {
+                if (r.Room.Id == appointment.Room.Id)
+                {
+                    if (IsStartDateInRenovationPeriod(appointment, r) || IsEndDateInRenovationPeriod(appointment, r))
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
         }
 
         private void CheckAppointment(Renovation renovation, Appointment a)
@@ -104,6 +189,9 @@ namespace IS_Bolnica.Services
         {
             SetMergeAttributes(merging);
             AddMerging();
+            CompareMergingWithAppointments(merging);
+            ReplaceRoomInventory(merging.Room1);
+            ReplaceRoomInventory(merging.Room2);
             StartThread();
         }
 
@@ -111,7 +199,23 @@ namespace IS_Bolnica.Services
         {
             SetSeparationAttributes(separation);
             AddSeparation();
+            CompareSeparationWithAppointments(separation);
+            ReplaceRoomInventory(separation.Room);
             StartThread();
+        }
+
+        private void ReplaceRoomInventory(Room room)
+        {
+            if (room.Inventory != null)
+            {
+                foreach (var i in room.Inventory)
+                {
+                    if (i.CurrentAmount > 0)
+                    {
+                        changeService.MoveToMagacin(i, i.CurrentAmount, room);
+                    }
+                }
+            }
         }
 
         private void SetSeparationAttributes(Separation separation)
@@ -217,6 +321,40 @@ namespace IS_Bolnica.Services
             roomService.AddRoom(newRoom);
             roomService.DeleteRoom(room1);
             roomService.DeleteRoom(room2);
+        }
+
+        private void CompareMergingWithAppointments(Merging merging)
+        {
+            Renovation r1 = GetRenovationFromMerging(merging, merging.Room1);
+            CheckScheduledAppointments(r1);
+            Renovation r2 = GetRenovationFromMerging(merging, merging.Room2);
+            CheckScheduledAppointments(r2);
+        }
+
+        private Renovation GetRenovationFromMerging(Merging merging, Room room)
+        {
+            string start = merging.StartDate + " " + 0 + ":" + 0;
+            DateTime fullStartDate = Convert.ToDateTime(start);
+            string end = merging.EndDate + " " + merging.Hour + ":" + merging.Minute;
+            DateTime fullEndDate = Convert.ToDateTime(end);
+            Renovation r = new Renovation { Room = room, StartDate = fullStartDate, EndDate = fullEndDate };
+            return r;
+        }
+
+        private void CompareSeparationWithAppointments(Separation separation)
+        {
+            Renovation r = GetRenovationFromSeparation(separation);
+            CheckScheduledAppointments(r);
+        }
+
+        private Renovation GetRenovationFromSeparation(Separation separation)
+        {
+            string start = separation.StartDate + " " + 0 + ":" + 0;
+            DateTime fullStartDate = Convert.ToDateTime(start);
+            string end = separation.EndDate + " " + separation.Hour + ":" + separation.Minute;
+            DateTime fullEndDate = Convert.ToDateTime(end);
+            Renovation r = new Renovation { Room = separation.Room, StartDate = fullStartDate, EndDate = fullEndDate };
+            return r;
         }
 
         private void DoSeparation()

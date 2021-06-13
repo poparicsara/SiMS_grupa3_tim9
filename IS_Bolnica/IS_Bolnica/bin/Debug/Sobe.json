@@ -49,7 +49,7 @@
     "Inventory": [
       {
         "Name": "Špric",
-        "CurrentAmount": 0,
+        "CurrentAmount": 66,
         "Minimum": 0,
         "Id": 101,
         "InventoryType": 0
@@ -63,14 +63,14 @@
       },
       {
         "Name": "Štapić",
-        "CurrentAmount": 0,
+        "CurrentAmount": 66,
         "Minimum": 0,
         "Id": 303,
         "InventoryType": 0
       },
       {
         "Name": "Injekcija",
-        "CurrentAmount": -4,
+        "CurrentAmount": 78,
         "Minimum": 0,
         "Id": 202,
         "InventoryType": 0
@@ -612,15 +612,7 @@
     }
   },
   {
-    "Id": 9,
-    "HospitalWard": "Alergologija i imunologija",
-    "Inventory": null,
-    "RoomPurpose": {
-      "Name": "Ordinacija"
-    }
-  },
-  {
-    "Id": 10,
+    "Id": 20,
     "HospitalWard": "Alergologija i imunologija",
     "Inventory": [],
     "RoomPurpose": {
@@ -628,7 +620,7 @@
     }
   },
   {
-    "Id": 17,
+    "Id": 5,
     "HospitalWard": "Alergologija i imunologija",
     "Inventory": [],
     "RoomPurpose": {

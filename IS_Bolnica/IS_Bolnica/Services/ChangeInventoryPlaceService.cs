@@ -30,6 +30,7 @@ namespace IS_Bolnica.Services
         private Shifting newShifting = new Shifting();
         private RoomRepository roomRepository = new RoomRepository();
         private ShiftingRepository shiftingRepository = new ShiftingRepository();
+        private int MAGACIN_ID = 1;
 
         public ChangeInventoryPlaceService()
         {
@@ -308,6 +309,13 @@ namespace IS_Bolnica.Services
         private List<Shifting> GetShiftings()
         {
             return shiftingRepository.GetAll();
+        }
+
+        public void MoveToMagacin(Inventory inventory, int amount, Room room)
+        {
+            Room magacin = roomRepository.FindById(MAGACIN_ID);
+            inventoryRepository.IncreaseAmount(magacin, inventory, amount);
+            inventoryRepository.ReduceAmount(room, inventory, amount);
         }
     }
 }

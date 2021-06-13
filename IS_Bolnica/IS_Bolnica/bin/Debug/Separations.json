@@ -268,5 +268,29 @@
     "Hour": 1,
     "Minute": 20,
     "Executed": true
+  },
+  {
+    "Room": {
+      "Id": 3,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [
+        {
+          "Name": null,
+          "CurrentAmount": 3,
+          "Minimum": 0,
+          "Id": 202,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "NewRoomNumber": 4,
+    "StartDate": "6/13/2021",
+    "EndDate": "6/13/2021",
+    "Hour": 2,
+    "Minute": 40,
+    "Executed": true
   }
 ]
