@@ -7,10 +7,8 @@ using IS_Bolnica.Model;
 
 namespace IS_Bolnica.IRepository
 {
-    interface IMedicamentRepository : IGenericRepository<Medicament, int>
+    interface ISeparationRepository : IGenericRepository<Separation, int>
     {
-        Medicament GetMedicamentByName(string name);
-        void CheckMedicamentIngredients(Medicament medicament);
-
+        void EditSeparation(int index);
     }
 }

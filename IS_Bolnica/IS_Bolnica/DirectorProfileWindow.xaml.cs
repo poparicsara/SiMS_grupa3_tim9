@@ -19,6 +19,7 @@ namespace IS_Bolnica
     public partial class DirectorProfileWindow : Window
     {
         private ChangeInventoryPlaceService changeService = new ChangeInventoryPlaceService();
+        private RenovationService renovationService = new RenovationService();
 
         public DirectorProfileWindow(String phone, String email)
         {
@@ -35,6 +36,8 @@ namespace IS_Bolnica
             }
 
             changeService.CheckUnexecutedShiftings();
+            renovationService.CheckUnexecutedMergings();
+            renovationService.CheckUnexecutedSeparations();
 
             this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
         }
@@ -116,6 +119,13 @@ namespace IS_Bolnica
         {
             ReportWindow rw = new ReportWindow();
             rw.Show();
+            this.Close();
+        }
+
+        private void FeedBackButtonClicked(object sender, RoutedEventArgs e)
+        {
+            FeedBackByDirector fw = new FeedBackByDirector();
+            fw.Show();
             this.Close();
         }
     }

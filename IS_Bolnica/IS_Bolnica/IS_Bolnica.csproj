@@ -208,6 +208,9 @@
       <DependentUpon>EditRoomWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="EvaluationRepository.cs" />
+    <Compile Include="FeedBackByDirector.xaml.cs">
+      <DependentUpon>FeedBackByDirector.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Patient\Command\RelayCommand.cs" />
     <Compile Include="GUI\Patient\ViewModel\EvaulationsForAppointmentsVM.cs" />
     <Compile Include="GUI\Patient\ViewModel\InformationPageVM.cs" />
@@ -232,10 +235,16 @@
     <Compile Include="IRepository\IIngredientRepository.cs" />
     <Compile Include="IRepository\IMedicamentRepository.cs" />
     <Compile Include="IRepository\INotificationRepository.cs" />
+    <Compile Include="IRepository\IIngredientRepository.cs" />
+    <Compile Include="IRepository\IInventoryRepository.cs" />
+    <Compile Include="IRepository\IMedicamentRepository.cs" />
+    <Compile Include="IRepository\IMergingRepository.cs" />
     <Compile Include="IRepository\IPatientRepository.cs" />
     <Compile Include="IRepository\IPrescriptionRepository.cs" />
     <Compile Include="IRepository\IRenovationRepository.cs" />
     <Compile Include="IRepository\IRoomRepository.cs" />
+    <Compile Include="IRepository\ISeparationRepository.cs" />
+    <Compile Include="IRepository\IShiftingRepository.cs" />
     <Compile Include="IRepository\IUserRepository.cs" />
     <Compile Include="Language.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -249,10 +258,13 @@
     <Compile Include="Model\FeedbackRepository.cs" />
     <Compile Include="Model\Gender.cs" />
     <Compile Include="Model\IngredientRepository.cs" />
+    <Compile Include="Model\MergingRepository.cs" />
     <Compile Include="Model\PrescriptionRepository.cs" />
     <Compile Include="Model\Report.cs" />
     <Compile Include="Model\ReportData.cs" />
+    <Compile Include="Model\SeparationRepository.cs" />
     <Compile Include="Model\Shift.cs" />
+    <Compile Include="Model\ShiftingRepository.cs" />
     <Compile Include="Model\ShiftType.cs" />
     <Compile Include="Model\Suggestion.cs" />
     <Compile Include="Model\Vacation.cs" />
@@ -671,6 +683,10 @@
     <Page Include="EditRoomWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FeedBackByDirector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GUI\Patient\View\EvaluationsForAppointments.xaml">
       <Generator>MSBuild:Compile</Generator>

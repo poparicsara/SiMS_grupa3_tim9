@@ -29,16 +29,35 @@ namespace IS_Bolnica.Services
         private List<Shifting> shiftings = new List<Shifting>();
         private Shifting newShifting = new Shifting();
         private RoomRepository roomRepository = new RoomRepository();
+        private ShiftingRepository shiftingRepository = new ShiftingRepository();
+        private int MAGACIN_ID = 1;
 
         public ChangeInventoryPlaceService()
         {
             rooms = roomService.GetRooms();
-            shiftings = inventoryRepository.GetShiftings();
+            shiftings = shiftingRepository.GetAll();
         }
 
         public bool HasRoomSelectedInventory(Inventory inventory, Room room)
         {
-            return false;//roomRepository.HasRoomSelectedInventory(room, inventory);
+            room = roomRepository.FindById(room.Id);
+            HasRoomAnyInventory(room);
+            foreach (var i in room.Inventory)
+            {
+                if (i.Id == inventory.Id)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private static void HasRoomAnyInventory(Room room)
+        {
+            if (room.Inventory == null)
+            {
+                room.Inventory = new List<Inventory>();
+            }
         }
 
         public bool HasEnoughAmount(Inventory inventory, Room room, int amount)
@@ -56,18 +75,18 @@ namespace IS_Bolnica.Services
         }
 
 
-        public void ChangePlaceOfInventory(Room roomFrom, Room roomTo, Inventory selectedInventory, int amount, string date, int hour, int minute)
+        public void ChangePlaceOfInventory(Shifting shifting)
         {
-            SetAttributes(roomFrom, roomTo, selectedInventory, amount, date, hour, minute);
+            SetAttributes(shifting);
             CheckInventoryType();
         }
 
-        private void SetAttributes(Room roomFrom, Room roomTo, Inventory selectedInventory, int amount, string date, int hour, int minute)
+        private void SetAttributes(Shifting shifting)
         {
-            SetRooms(roomFrom, roomTo);
-            SetInventories(selectedInventory);
-            this.amount = amount;
-            SetDate(date, hour, minute);
+            SetRooms(shifting.RoomFrom, shifting.RoomTo);
+            SetInventories(shifting.Inventory);
+            this.amount = shifting.Amount;
+            SetDate(shifting.Date, shifting.Hour, shifting.Minute);
         }
 
         private void SetRooms(Room roomFrom, Room roomTo)
@@ -103,11 +122,12 @@ namespace IS_Bolnica.Services
             }
         }
 
-        private Inventory GetInventoryFromRoom(Inventory selecteInventory, Room room)
+        private Inventory GetInventoryFromRoom(Inventory selectedInventory, Room room)
         {
+            room = roomRepository.FindById(room.Id);
             foreach (var i in room.Inventory)
             {
-                if (i.Id == selecteInventory.Id)
+                if (i.Id == selectedInventory.Id)
                 {
                     return i;
                 }
@@ -119,7 +139,7 @@ namespace IS_Bolnica.Services
         {
             if (!HasRoomSelectedInventory(selectedInventory, roomTo))
             {
-                //roomRepository.AddInventoryToRoom(this.roomTo, selectedInventory);
+                inventoryRepository.AddInventoryToRoom(this.roomTo, selectedInventory);
             }
             SetInventoryTo();
         }
@@ -159,7 +179,7 @@ namespace IS_Bolnica.Services
         private void AddShifting()
         {
             newShifting = new Shifting { RoomFrom = roomFrom, RoomTo = roomTo, Amount = amount, Date = dateOfChange, Hour = hourOfChange, Inventory = selectedInventory, Minute = minuteOfChange, Executed = false};
-            inventoryRepository.AddShifting(newShifting);
+            shiftingRepository.Add(newShifting);
         }
 
         private void StartThread()
@@ -204,8 +224,8 @@ namespace IS_Bolnica.Services
 
         private void DoChange()
         {
-            roomRepository.ReduceAmount(roomFrom, selectedInventory, amount);
-            roomRepository.IncreaseAmount(roomTo, selectedInventory, amount);
+            inventoryRepository.ReduceAmount(roomFrom, selectedInventory, amount);
+            inventoryRepository.IncreaseAmount(roomTo, selectedInventory, amount);
         }
 
         private string[] GetFullCurrentDate()
@@ -259,7 +279,7 @@ namespace IS_Bolnica.Services
             {
                 if (!s.Executed)
                 {
-                    SetAttributes(s.RoomFrom, s.RoomTo, s.Inventory, s.Amount, s.Date, s.Hour, s.Minute);
+                    SetAttributes(s);
                     StartThread();
                 }
             }
@@ -283,12 +303,19 @@ namespace IS_Bolnica.Services
         private void EditShifting()
         {
             int index = GetShiftingIndex();
-            inventoryRepository.EditShifting(index);
+            shiftingRepository.EditShifting(index);
         }
 
         private List<Shifting> GetShiftings()
         {
-            return inventoryRepository.GetShiftings();
+            return shiftingRepository.GetAll();
+        }
+
+        public void MoveToMagacin(Inventory inventory, int amount, Room room)
+        {
+            Room magacin = roomRepository.FindById(MAGACIN_ID);
+            inventoryRepository.IncreaseAmount(magacin, inventory, amount);
+            inventoryRepository.ReduceAmount(room, inventory, amount);
         }
     }
 }

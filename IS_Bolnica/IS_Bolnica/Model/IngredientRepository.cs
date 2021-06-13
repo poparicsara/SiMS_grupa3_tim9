@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using IS_Bolnica.IRepository;
 
@@ -8,9 +9,56 @@ namespace IS_Bolnica
 {
     public class IngredientRepository : IIngredientRepository
     {
+        private List<Medicament> meds = new List<Medicament>();
+        private MedicamentRepository medRepository = new MedicamentRepository();
         private string fileName = "Sastojci.json";
         private List<Ingredient> ingredients;
 
+        public void AddIngredient(Medicament medicament, Ingredient ingredient)
+        {
+            meds = medRepository.GetAll();
+            foreach (var m in meds)
+            {
+                if (m.Id == medicament.Id)
+                {
+                    m.Ingredients.Add(ingredient);
+                    medRepository.SaveToFile(meds);
+                }
+            }
+        }
+
+        public void DeleteIngredient(Medicament medicament, int index)
+        {
+            meds = medRepository.GetAll();
+            foreach (var m in meds)
+            {
+                if (m.Id == medicament.Id)
+                {
+                    m.Ingredients.RemoveAt(index);
+                    medRepository.SaveToFile(meds);
+                }
+            }
+        }
+
+        public void EditIngredient(Medicament medicament, int index, Ingredient newIngredient)
+        {
+            meds = medRepository.GetAll();
+            foreach (var m in meds)
+            {
+                if (m.Id == medicament.Id)
+                {
+                    m.Ingredients.RemoveAt(index);
+                    m.Ingredients.Insert(index, newIngredient);
+                    medRepository.SaveToFile(meds);
+                }
+            }
+        }
+
+        public List<Ingredient> GetMedicamentIngredients(Medicament medicament)
+        {
+            medicament = medRepository.FindById(medicament.Id);
+            return medicament.Ingredients;
+        }
 
         public List<Ingredient> GetAll()
         {

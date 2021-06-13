@@ -1,7 +1,9 @@
 ﻿using IS_Bolnica.Model;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -45,11 +47,10 @@ namespace IS_Bolnica
 
         private void DoneButtonClicked(object sender, RoutedEventArgs e)
         {
+            Debug.WriteLine("done clicked");
             if (SetNewIngredient())
             {
-                
                 service.AddIngredient(selectedMedicament, ingredient);
-
                 this.Close();
             }
         }
@@ -58,11 +59,13 @@ namespace IS_Bolnica
         {
             if (ingredientNameTxt.Text.Equals(""))
             {
+                Debug.WriteLine("nije unet naziv");
                 MessageBox.Show("Morate uneti naziv sastojka");
                 return false;
             }
             else
             {
+                Debug.WriteLine(" unet naziv");
                 return CheckMedicamentIngredients();
             }
         }
@@ -71,6 +74,7 @@ namespace IS_Bolnica
         {
             if (!medService.HasMedicamentIngredient(selectedMedicament, ingredientNameTxt.Text))
             {
+                Debug.WriteLine("nema taj sastojak");
                 ingredient = new Ingredient {Name = ingredientNameTxt.Text};
                 return true;
             }

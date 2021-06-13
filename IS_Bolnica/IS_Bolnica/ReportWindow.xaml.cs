@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Model;
 
 namespace IS_Bolnica
 {
@@ -21,7 +22,6 @@ namespace IS_Bolnica
         private string specDoctor = "";
         private bool datesSelected = false;
         private List<string> doctorList = new List<string>();
-        private List<string> specializationList = new List<string>();
         private DateTime startDate;
         private DateTime endDate;
 
@@ -34,12 +34,26 @@ namespace IS_Bolnica
             doctorList.Add("Vladimir Vrbica");
             doctorList.Add("Nikolina Pavković");
             doctorList.Add("Sara Poparić");
-            specializationList.Add("oftamologija");
-            specializationList.Add("pedijatrija");
-            specializationList.Add("ortopedija");
-            specializationList.Add("hirurgija");
             doctors.ItemsSource = doctorList;
-            specialization.ItemsSource = specializationList;
+            specializationsBox.ItemsSource = GetSpecializations();
+        }
+
+        private List<string> GetSpecializations()
+        {
+            List<string> specializations = new List<string>();
+            Specialization specialization = new Specialization();
+            foreach (var s in specialization.getSpecializations())
+            {
+                specializations.Add(s.Name);
+            }
+
+            return specializations;
+        }
+
+        private List<string> GetDoctors()
+        {
+            List<string> doctors = new List<string>();
+            return null;
         }
 
         private void startDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
