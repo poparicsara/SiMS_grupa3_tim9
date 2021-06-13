@@ -101,7 +101,7 @@ namespace IS_Bolnica.Services
           return m.Name.ToLower().StartsWith(text) || m.Producer.ToLower().StartsWith(text) || m.Status.ToString().StartsWith(text);
       }
 
-        private int FindIndex(Medicament medicament)
+        public int FindIndex(Medicament medicament)
       {
           meds = GetMedicaments();
           int index = 0;
@@ -185,9 +185,10 @@ namespace IS_Bolnica.Services
       }
 
 
-      public void DeleteMedicament(int medicamentId)
+      public void DeleteMedicament(Medicament medicament)
       {
-          repository.Delete(medicamentId);
+          int index = FindIndex(medicament);
+          repository.Delete(index);
       }
 
       public void ChangeMedicamentStatus(int medicamentId)

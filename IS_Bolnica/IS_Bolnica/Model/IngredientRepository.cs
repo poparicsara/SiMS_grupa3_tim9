@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using IS_Bolnica.IRepository;
+using IS_Bolnica.Model;
 
 namespace IS_Bolnica
 {

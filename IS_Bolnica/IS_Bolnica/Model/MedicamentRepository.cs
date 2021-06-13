@@ -54,6 +54,9 @@ namespace IS_Bolnica.Model
                 }
             }
 
+            return null;
+        }
+
         public void SaveToFile(List<Medicament> entities)
         {
             string jsonString = JsonConvert.SerializeObject(entities, Formatting.Indented);
@@ -94,6 +97,11 @@ namespace IS_Bolnica.Model
             }
 
             return null;
+        }
+
+        public void CheckMedicamentIngredients(Medicament medicament)
+        {
+            throw new NotImplementedException();
         }
     }
 }

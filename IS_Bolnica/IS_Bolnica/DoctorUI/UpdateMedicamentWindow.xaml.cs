@@ -57,7 +57,7 @@ namespace IS_Bolnica.DoctorUI
             updatedMedicament.Replacement = medicamentService.SetMedicamentReplacement(replacementsCB.SelectedItem.ToString());
             updatedMedicament.Ingredients = new List<Ingredient>(MedIngredients);
 
-            int index = medicamentService.GetIndexOfOldMedicament(selectedMedication);
+            int index = medicamentService.FindIndex(selectedMedication);
             medicamentService.UpdateMedicament(updatedMedicament, index);
 
             MedicamentsWindow medicamentsWindow = new MedicamentsWindow();

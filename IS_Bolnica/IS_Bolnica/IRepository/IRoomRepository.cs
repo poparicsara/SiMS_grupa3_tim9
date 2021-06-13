@@ -9,9 +9,6 @@ namespace IS_Bolnica.IRepository
 {
     interface IRoomRepository : IGenericRepository<Room, int>
     {
-        List<int> GetOperationRoomNums();
-        Room FindOrdinationById(int id);
-        List<int> GetAvailableRoomsForHospitalization();
 
     }
 }

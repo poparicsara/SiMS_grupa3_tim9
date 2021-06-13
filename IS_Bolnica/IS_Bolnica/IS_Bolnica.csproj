@@ -225,15 +225,11 @@
     </Compile>
     <Compile Include="InventoryInRoom.cs" />
     <Compile Include="IRepository\IAnamnesisRepository.cs" />
-    <Compile Include="IRepository\IDoctorRepository.cs" />
     <Compile Include="IRepository\IGenericRepository.cs" />
     <Compile Include="IRepository\IHospitalizationRepository.cs" />
     <Compile Include="IRepository\IAppointmentRepository.cs" />
     <Compile Include="IRepository\IDoctorRepository.cs" />
-    <Compile Include="IRepository\IGenericRepository.cs" />
     <Compile Include="IRepository\IGuestUserRepository.cs" />
-    <Compile Include="IRepository\IIngredientRepository.cs" />
-    <Compile Include="IRepository\IMedicamentRepository.cs" />
     <Compile Include="IRepository\INotificationRepository.cs" />
     <Compile Include="IRepository\IIngredientRepository.cs" />
     <Compile Include="IRepository\IInventoryRepository.cs" />
