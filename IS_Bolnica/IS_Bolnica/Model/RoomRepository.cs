@@ -20,11 +20,6 @@ namespace Model
             SaveToFile(rooms);
         }
 
-        public Room FindOrdinationById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<Room> GetAll()
         {
             var roomList = new List<Room>();
@@ -34,11 +29,6 @@ namespace Model
                 roomList = (List<Room>)serializer.Deserialize(file, typeof(List<Room>));
             }
             return roomList;
-        }
-
-        public List<int> GetAvailableRoomsForHospitalization()
-        {
-            throw new NotImplementedException();
         }
 
         public Room FindById(int id)
@@ -52,11 +42,6 @@ namespace Model
                 }
             }
             return null;
-        }
-
-        public List<int> GetOperationRoomNums()
-        {
-            throw new NotImplementedException();
         }
 
         public void SaveToFile(List<Room> entities)
