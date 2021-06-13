@@ -62,7 +62,7 @@ namespace IS_Bolnica.DemoMode
         {
             var combo = sender as ComboBox;
             replacement = (string)combo.SelectedItem;
-            selectedReplacement = medService.GetMedicament(replacement);
+            selectedReplacement = medService.GetMedicamentByName(replacement);
         }
 
         private void ClosingWindow(object sender, System.ComponentModel.CancelEventArgs e)

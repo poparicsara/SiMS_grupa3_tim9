@@ -49,7 +49,7 @@ namespace IS_Bolnica.Services
 
         public Doctor FindDoctor(string name, string surname)
         {
-            doctors = doctorRepository.LoadFromFile();
+            doctors = doctorRepository.GetAll();
             foreach (Doctor doc in doctors)
             {
                 if (doc.Name.Equals(name) && doc.Surname.Equals(surname))
@@ -62,7 +62,7 @@ namespace IS_Bolnica.Services
 
         public GuestUser FindGuest(string systemName)
         {
-            guestUsers = guestUserRepository.LoadFromFile("GuestUsersFile.json");
+            guestUsers = guestUserRepository.GetAll();
             foreach (GuestUser guest in guestUsers)
             {
                 if (guest.SystemName.Equals(systemName))

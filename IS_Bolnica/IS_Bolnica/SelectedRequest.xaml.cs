@@ -26,6 +26,7 @@ namespace IS_Bolnica
         private RequestService requestService = new RequestService();
         private MedicamentService medicamentService = new MedicamentService();
         private NotificationService notificationService = new NotificationService();
+        private Medicament selectedMedicament = new Medicament();
         public SelectedRequest(Request selected)
         {
             InitializeComponent();
@@ -36,6 +37,7 @@ namespace IS_Bolnica
             string[] content = selectedRequest.Content.Split('|');
 
             selectedId = (int)Int64.Parse(content[0]);
+            selectedMedicament = medicamentService.GetMedicamentById(selectedId);
             idBox.Text = content[0];
             nameBox.Text = content[1];
             replacementBox.Text = content[2];
@@ -90,7 +92,7 @@ namespace IS_Bolnica
             switch (messageBox)
             {
                 case MessageBoxResult.Yes:
-                    medicamentService.DeleteMedicament(selectedId);
+                    medicamentService.DeleteMedicament(selectedMedicament);
                     break;
                 case MessageBoxResult.No:
                     break;

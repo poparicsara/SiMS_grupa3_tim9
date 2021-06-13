@@ -168,7 +168,7 @@ namespace IS_Bolnica
             newMedicament.Id = (int)Int64.Parse(idBox.Text);
             newMedicament.Name = nameBox.Text;
             newMedicament.Producer = producerBox.Text;
-            newMedicament.Replacement = medService.GetMedicament(replacement);
+            newMedicament.Replacement = medService.GetMedicamentByName(replacement);
             newMedicament.Ingredients = oldMedicament.Ingredients;
             newMedicament.Status = oldMedicament.Status;
         }

@@ -46,6 +46,8 @@ namespace IS_Bolnica.Secretary
             else
             {
                 urgentAppointmentService.AddUrgentExamination(appointment, selectedAppointment);
+                ExaminationList el = new ExaminationList(this);
+                this.NavigationService.Navigate(el);
             }
         }
     }

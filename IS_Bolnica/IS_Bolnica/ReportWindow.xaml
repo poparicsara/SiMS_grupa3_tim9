@@ -34,7 +34,7 @@
         <Button HorizontalAlignment="Left" Click="sendReport" Margin="655,586,0,0" VerticalAlignment="Top" Height="35" Width="35">
             <Image Source="DemoMode/print.png"/>
         </Button>
-        <ComboBox SelectionChanged="specialization_SelectionChanged" x:Name="specialization" HorizontalAlignment="Left" Margin="404,240,0,0" VerticalAlignment="Top" Width="157"/>
+        <ComboBox x:Name="specializationsBox" SelectionChanged="specialization_SelectionChanged" HorizontalAlignment="Left" Margin="404,240,0,0" VerticalAlignment="Top" Width="157"/>
         <ComboBox SelectionChanged="doctors_SelectionChanged"  x:Name="doctors" HorizontalAlignment="Left" Margin="404,281,0,0" VerticalAlignment="Top" Width="157"/>
         <DatePicker Name="startDatePicker" HorizontalAlignment="Left" Margin="406,316,0,0" VerticalAlignment="Top" Width="157" Height="33" SelectedDateChanged="startDate_SelectedDateChanged"/>
         <DatePicker Name="endDatePicker" HorizontalAlignment="Left" Margin="407,354,0,0" VerticalAlignment="Top" Width="157" Height="33" SelectedDateChanged="endDate_SelectedDateChanged"/>

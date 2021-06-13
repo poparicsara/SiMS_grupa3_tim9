@@ -5,45 +5,32 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using IS_Bolnica.Annotations;
+using IS_Bolnica.IRepository;
 
 namespace IS_Bolnica.Model
 {
-    public class MedicamentRepository
+    public class MedicamentRepository : IMedicamentRepository
     {
         private List<Medicament> meds;
 
         public MedicamentRepository()
         {
-            meds = GetMedicaments();
+            meds = GetAll();
         }
 
-        public void AddMedicament(Medicament newMedicament)
-        {
-            meds.Add(newMedicament);
-            SaveToFile(meds);
-        }
+        /*
 
-        public Medicament GetMedicament(string name)
+        private void CheckMedicamentIngredients(Medicament medicament)
         {
-            Medicament medicament = new Medicament();
-            foreach (var m in meds)
+            if (medicament.Ingredients == null)
             {
-                if (m.Name.Equals(name))
-                {
-                    medicament = m;
-                }
+                medicament.Ingredients = new List<Ingredient>();
             }
-            return medicament;
-        }
+        }*/
 
-        public void EditMedicament(int index, Medicament newMedicament)
-        {
-            meds.RemoveAt(index);
-            meds.Insert(index, newMedicament);
-            SaveToFile(meds);
-        }
 
-        public List<Medicament> GetMedicaments()
+        public List<Medicament> GetAll()
         {
             var medicaments = new List<Medicament>();
 
@@ -56,96 +43,65 @@ namespace IS_Bolnica.Model
             return medicaments;
         }
 
-        public List<Ingredient> GetIngredients(Medicament medicament)
+        public Medicament FindById(int id)
         {
-            medicament = GetMedicament(medicament.Name);
-            List<Ingredient> ingredients = new List<Ingredient>();
-            foreach (var i in medicament.Ingredients)
-            {
-                ingredients.Add(i);
-            }
-            return ingredients;
-        }
-
-        public void AddIngredient(Medicament medicament, Ingredient ingredient)
-        {
-            medicament = GetMedicament(medicament.Name);
-            CheckMedicamentIngredients(medicament);
-            medicament.Ingredients.Add(ingredient);
-            SaveToFile(meds);
-        }
-
-        private void CheckMedicamentIngredients(Medicament medicament)
-        {
-            if (medicament.Ingredients == null)
-            {
-                medicament.Ingredients = new List<Ingredient>();
-            }
-        }
-
-        public void DeleteIngredient(Medicament medicament, int index)
-        {
-            medicament = GetMedicament(medicament.Name);
-            medicament.Ingredients.RemoveAt(index);
-            SaveToFile(meds);
-        }
-
-        public void EditIngredient(Medicament medicament, int index, Ingredient newIngredient)
-        {
-            medicament = GetMedicament(medicament.Name);
-            medicament.Ingredients.RemoveAt(index);
-            medicament.Ingredients.Insert(index, newIngredient);
-            SaveToFile(meds);
-        }
-
-        public bool HasMedicamentIngredient(Medicament medicament, String ingredient)
-        {
-            medicament = GetMedicament(medicament.Name);
-            foreach (var i in medicament.Ingredients)
-            {
-                if (i.Name.Equals(ingredient))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        public bool IsMedNumberUnique(int medNumber)
-        {
-            foreach (Medicament m in meds)
-            {
-                if (m.Id == medNumber)
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        public List<Medicament> GetSearchedMeds(string text)
-        {
-            List<Medicament> searchedmeds = new List<Medicament>();
-            meds = GetMedicaments();
+            meds = GetAll();
             foreach (var m in meds)
             {
-                if (IsSearched(text, m))
+                if (m.Id == id)
                 {
-                    searchedmeds.Add(m);
+                    return m;
                 }
             }
-            return searchedmeds;
+
+            return null;
         }
 
-        private static bool IsSearched(string text, Medicament m)
+        public void SaveToFile(List<Medicament> entities)
         {
-            return m.Name.ToLower().StartsWith(text) || m.Producer.ToLower().StartsWith(text) || m.Status.ToString().StartsWith(text);
-        }
-
-        public void SaveToFile(List<Medicament> medicaments)
-        {
-            string jsonString = JsonConvert.SerializeObject(medicaments, Formatting.Indented);
+            string jsonString = JsonConvert.SerializeObject(entities, Formatting.Indented);
             File.WriteAllText("Lekovi.json", jsonString);
+        }
+
+        public void Add(Medicament newEntity)
+        {
+            meds = GetAll();
+            meds.Add(newEntity);
+            SaveToFile(meds);
+        }
+
+        public void Update(int index, Medicament newEntity)
+        {
+            meds = GetAll();
+            meds.RemoveAt(index);
+            meds.Insert(index, newEntity);
+            SaveToFile(meds);
+        }
+
+        public void Delete(int index)
+        {
+            meds = GetAll();
+            meds.RemoveAt(index);
+            SaveToFile(meds);
+        }
+
+        public Medicament GetMedicamentByName(string name)
+        {
+            meds = GetAll();
+            foreach (var m in meds)
+            {
+                if (m.Name.Equals(name))
+                {
+                    return m;
+                }
+            }
+
+            return null;
+        }
+
+        public void CheckMedicamentIngredients(Medicament medicament)
+        {
+            throw new NotImplementedException();
         }
     }
 }

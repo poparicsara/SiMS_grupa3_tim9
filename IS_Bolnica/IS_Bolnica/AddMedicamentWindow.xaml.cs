@@ -78,7 +78,6 @@ namespace IS_Bolnica
 
         private void AddMedicament()
         {
-            
             string ingredients = ingredientBox.Text;
             medService.AddMedicament(newMedicament, ingredients);
             }
@@ -114,7 +113,7 @@ namespace IS_Bolnica
         {
             var combo = sender as ComboBox;
             replacement = (string)combo.SelectedItem;
-            selectedReplacement = medService.GetMedicament(replacement);
+            selectedReplacement = medService.GetMedicamentByName(replacement);
         }
 
         private void ClosingWindow(object sender, System.ComponentModel.CancelEventArgs e)

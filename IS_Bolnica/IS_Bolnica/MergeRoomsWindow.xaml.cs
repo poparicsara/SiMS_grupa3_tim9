@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.Model;
 using IS_Bolnica.Services;
 using Model;
 
@@ -79,12 +80,18 @@ namespace IS_Bolnica
         {
             if (roomService.IsRoomNumberUnique(newRoomNumber))
             {
-                //renovationService.MergeRooms(room1, room2, selectedStartDate, selectedEndDate, selectedHour, selectedMinute, newRoomNumber);
-                Room newRoom = new Room
-                    {HospitalWard = room1.HospitalWard, Id = newRoomNumber, RoomPurpose = room1.RoomPurpose};
-                roomService.AddRoom(newRoom);
-                roomService.DeleteRoom(room1);
-                roomService.DeleteRoom(room2);
+                Merging merging = new Merging 
+                {       
+                        Room1 = room1, 
+                        Room2 = room2, 
+                        StartDate = selectedStartDate, 
+                        EndDate = selectedEndDate, 
+                        Hour = selectedHour, 
+                        Minute = selectedMinute, 
+                        NewRoomNumber = newRoomNumber, 
+                        Executed = false
+                };
+                renovationService.MergeRooms(merging);
                 this.Close();
             }
             else

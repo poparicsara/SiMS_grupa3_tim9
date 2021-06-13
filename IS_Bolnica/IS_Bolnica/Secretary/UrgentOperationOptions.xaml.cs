@@ -45,6 +45,8 @@ namespace IS_Bolnica.Secretary
             else
             {
                 urgentAppointmentService.AddUrgentOperation(appointment, appoints);
+                OperationList ol = new OperationList(this);
+                this.NavigationService.Navigate(ol);
             }
         }
     }

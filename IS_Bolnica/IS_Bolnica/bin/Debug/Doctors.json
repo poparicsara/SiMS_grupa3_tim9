@@ -142,9 +142,9 @@
       },
       {
         "DoctorsId": "1",
-        "ShiftStartDate": "2021-06-14T00:00:00",
-        "ShiftEndDate": "2021-06-21T00:00:00",
-        "ShiftType": 1
+        "ShiftStartDate": "2021-06-13T06:00:00",
+        "ShiftEndDate": "2021-06-15T00:00:00",
+        "ShiftType": 0
       }
     ],
     "Vacations": [

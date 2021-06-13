@@ -25,7 +25,8 @@ namespace IS_Bolnica.Secretary
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(prevoiusPage);
+            ActionBar ab = new ActionBar();
+            this.NavigationService.Navigate(ab);
         }
 
         private void addNotification(object sender, RoutedEventArgs e)

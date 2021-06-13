@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Documents;
 using System.Windows.Markup.Localizer;
+using IS_Bolnica.IRepository;
+using IS_Bolnica.Model;
 using Model;
 
 namespace IS_Bolnica.Services
@@ -22,39 +24,61 @@ namespace IS_Bolnica.Services
         {
             rooms = roomService.GetRooms();
             magacin = roomService.GetMagacin();
-            //inventoryItems = GetInventory();
         }
 
         public List<Inventory> GetDynamicInventory()
         {
-            return null; //roomRepository.GetDynamicInventory(magacin);
+            List<Inventory> inventories = new List<Inventory>();
+            foreach (var i in repository.GetAll())
+            {
+                if (i.InventoryType == InventoryType.dinamicki)
+                {
+                    inventories.Add(i);
+                }
+            }
+            return inventories; 
         }
 
         public List<Inventory> GetStaticInventory()
         {
-            return null;// roomRepository.GetStaticInventory(magacin);
+            List<Inventory> inventories = new List<Inventory>();
+            foreach (var i in repository.GetAll())
+            {
+                if (i.InventoryType == InventoryType.staticki)
+                {
+                    inventories.Add(i);
+                }   
+            }
+            return inventories;
         }
 
         public void AddInventory(Inventory newInventory)
         {
-            //roomRepository.AddInventory(newInventory, magacin);
+            repository.Add(newInventory);
         }
 
         public void DeleteInventory(Inventory selectedInventory)
         {
             int index = FindInventoryIndex(selectedInventory);
-            //roomRepository.DeleteInventory(index, magacin);
+            repository.Delete(index);
         }
 
         public void EditInventory(Inventory oldInventory, Inventory newInventory)
         {
             int index = FindInventoryIndex(oldInventory);
-            //roomRepository.EditInventory(index, newInventory, magacin);
+            repository.Update(index, newInventory);
         }
 
         public bool IsInventoryIdUnique(int id)
         {
-            return false; //roomRepository.IsInventoryIdUnique(magacin, id);
+            foreach (var i in repository.GetAll())
+            {
+                if (i.Id == id)
+                {
+                    return false;
+                }
+            }
+            return true; 
         }
 
         private int FindInventoryIndex(Inventory inventory)

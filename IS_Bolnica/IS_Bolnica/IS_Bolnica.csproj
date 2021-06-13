@@ -137,6 +137,8 @@
     <Compile Include="DoctorNotificationWindow.xaml.cs">
       <DependentUpon>DoctorNotificationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DoctorUI\Adaptee.cs" />
+    <Compile Include="DoctorUI\Adapter.cs" />
     <Compile Include="DoctorUI\AnamnesisInvoiceWindow.xaml.cs">
       <DependentUpon>AnamnesisInvoiceWindow.xaml</DependentUpon>
     </Compile>
@@ -161,6 +163,7 @@
     <Compile Include="DoctorUI\InvoiceWindow.xaml.cs">
       <DependentUpon>InvoiceWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DoctorUI\IOperation.cs" />
     <Compile Include="DoctorUI\MedicalRecordWindow.xaml.cs">
       <DependentUpon>MedicalRecordWindow.xaml</DependentUpon>
     </Compile>
@@ -205,6 +208,9 @@
       <DependentUpon>EditRoomWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="EvaluationRepository.cs" />
+    <Compile Include="FeedBackByDirector.xaml.cs">
+      <DependentUpon>FeedBackByDirector.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Patient\Command\RelayCommand.cs" />
     <Compile Include="GUI\Patient\ViewModel\EvaulationsForAppointmentsVM.cs" />
     <Compile Include="GUI\Patient\ViewModel\InformationPageVM.cs" />
@@ -218,13 +224,23 @@
       <DependentUpon>InventoryWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="InventoryInRoom.cs" />
-    <Compile Include="IRepository\IAppointmentRepository.cs" />
+    <Compile Include="IRepository\IAnamnesisRepository.cs" />
     <Compile Include="IRepository\IGenericRepository.cs" />
-    <Compile Include="IRepository\IMedicamentRepository.cs" />
+    <Compile Include="IRepository\IHospitalizationRepository.cs" />
+    <Compile Include="IRepository\IAppointmentRepository.cs" />
+    <Compile Include="IRepository\IDoctorRepository.cs" />
+    <Compile Include="IRepository\IGuestUserRepository.cs" />
     <Compile Include="IRepository\INotificationRepository.cs" />
+    <Compile Include="IRepository\IIngredientRepository.cs" />
+    <Compile Include="IRepository\IInventoryRepository.cs" />
+    <Compile Include="IRepository\IMedicamentRepository.cs" />
+    <Compile Include="IRepository\IMergingRepository.cs" />
     <Compile Include="IRepository\IPatientRepository.cs" />
+    <Compile Include="IRepository\IPrescriptionRepository.cs" />
     <Compile Include="IRepository\IRenovationRepository.cs" />
     <Compile Include="IRepository\IRoomRepository.cs" />
+    <Compile Include="IRepository\ISeparationRepository.cs" />
+    <Compile Include="IRepository\IShiftingRepository.cs" />
     <Compile Include="IRepository\IUserRepository.cs" />
     <Compile Include="Language.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -238,10 +254,13 @@
     <Compile Include="Model\FeedbackRepository.cs" />
     <Compile Include="Model\Gender.cs" />
     <Compile Include="Model\IngredientRepository.cs" />
+    <Compile Include="Model\MergingRepository.cs" />
     <Compile Include="Model\PrescriptionRepository.cs" />
     <Compile Include="Model\Report.cs" />
     <Compile Include="Model\ReportData.cs" />
+    <Compile Include="Model\SeparationRepository.cs" />
     <Compile Include="Model\Shift.cs" />
+    <Compile Include="Model\ShiftingRepository.cs" />
     <Compile Include="Model\ShiftType.cs" />
     <Compile Include="Model\Suggestion.cs" />
     <Compile Include="Model\Vacation.cs" />
@@ -250,6 +269,7 @@
     <Compile Include="PatientPages\AddNewFeedback.xaml.cs">
       <DependentUpon>AddNewFeedback.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PatientPages\AddNewFeedback.xaml.cs" />
     <Compile Include="PatientPages\AddNewNote.xaml.cs" />
     <Compile Include="PatientPages\CalendarForAppointments.xaml.cs" />
     <Compile Include="PatientPages\ChoosePeriodForReportPage.xaml.cs" />
@@ -269,6 +289,14 @@
     <Compile Include="PatientPages\Suggestions.xaml.cs" />
     <Compile Include="PatientPages\TheReportPage.xaml.cs" />
     <Compile Include="PatientPages\Tutorial.xaml.cs" />
+    <Compile Include="Patterns\AddAppointmentTemplate.cs" />
+    <Compile Include="Patterns\AddExamination.cs" />
+    <Compile Include="Patterns\AddOperation.cs" />
+    <Compile Include="Patterns\SearchDoctors.cs" />
+    <Compile Include="Patterns\SearchExamination.cs" />
+    <Compile Include="Patterns\SearchGridTemplate.cs" />
+    <Compile Include="Patterns\SearchOperations.cs" />
+    <Compile Include="Patterns\SearchPatients.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
     <Compile Include="Resources\Resources.en-US.Designer.cs">
@@ -285,7 +313,6 @@
     <Compile Include="ReportWindow.xaml.cs">
       <DependentUpon>ReportWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\Allergen.cs" />
     <Compile Include="Model\Hospitalization.cs" />
     <Compile Include="Model\HospitalizationRepository.cs" />
     <Compile Include="DoctorUI\DoctorStartWindow.xaml.cs">
@@ -321,7 +348,6 @@
     <Compile Include="Model\NotificationRepository.cs" />
     <Compile Include="Model\NotificationType.cs" />
     <Compile Include="Model\Prescription.cs" />
-    <Compile Include="Model\PrescriptionFileStorage.cs" />
     <Compile Include="Model\Renovation.cs" />
     <Compile Include="Model\RenovationRepository.cs" />
     <Compile Include="Model\Request.cs" />
@@ -396,6 +422,9 @@
     <Compile Include="Secretary\ExaminationList.xaml.cs">
       <DependentUpon>ExaminationList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Secretary\Feedback.xaml.cs">
+      <DependentUpon>Feedback.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Secretary\GuestUserList.xaml.cs">
       <DependentUpon>GuestUserList.xaml</DependentUpon>
     </Compile>
@@ -419,6 +448,9 @@
     </Compile>
     <Compile Include="Secretary\SecretaryProfile.xaml.cs">
       <DependentUpon>SecretaryProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\SelectedDoctor.xaml.cs">
+      <DependentUpon>SelectedDoctor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\SelectedNotification.xaml.cs">
       <DependentUpon>SelectedNotification.xaml</DependentUpon>
@@ -654,6 +686,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="FeedBackByDirector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GUI\Patient\View\EvaluationsForAppointments.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -881,6 +917,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Secretary\Feedback.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Secretary\GuestUserList.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -910,6 +950,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Secretary\SecretaryProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary\SelectedDoctor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -964,12 +1008,10 @@
     <Compile Include="Model\EmployeeRecordFileStorage.cs" />
     <Compile Include="Model\Evaluation.cs" />
     <Compile Include="Model\Examination.cs" />
-    <Compile Include="Model\ExaminationsRecordFileStorage.cs" />
     <Compile Include="Model\GuestUser.cs" />
     <Compile Include="Model\Inventory.cs" />
     <Compile Include="Model\InventoryRepository.cs" />
     <Compile Include="Model\Operation.cs" />
-    <Compile Include="Model\OperationsFileStorage.cs" />
     <Compile Include="Model\Patient.cs" />
     <Compile Include="Model\PatientRepository.cs" />
     <Compile Include="Model\RoomPurpose.cs" />

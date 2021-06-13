@@ -20,14 +20,14 @@ namespace IS_Bolnica.Services
 
       public List<Medicament> GetMedicaments()
       {
-          return repository.GetMedicaments();
+          return repository.GetAll();
       }
 
       public void AddMedicament(Medicament newMedicament, string ingredients)
       {
           this.newMedicament = newMedicament;
           this.newMedicament.Ingredients = GetIngredients(ingredients);
-          repository.AddMedicament(newMedicament);
+          repository.Add(newMedicament);
       }
 
       public List<string> GetReplacementNames()
@@ -40,33 +40,68 @@ namespace IS_Bolnica.Services
           return replacemets;
       }
 
-      public Medicament GetMedicament(string name)
+      public Medicament GetMedicamentByName(string name)
       {
-          return repository.GetMedicament(name);
+          return repository.GetMedicamentByName(name);
+      }
+
+      public Medicament GetMedicamentById(int id)
+      {
+          return repository.FindById(id);
       }
 
       public void EditMedicament(Medicament oldMedicament, Medicament newMedicament)
       {
           int index = FindIndex(oldMedicament);
-          repository.EditMedicament(index, newMedicament);
+          repository.Update(index, newMedicament);
       }
 
       public bool IsMedNumberUnique(int medNumber)
       {
-          return repository.IsMedNumberUnique(medNumber);
+          foreach (var m in repository.GetAll())
+          {
+              if (m.Id == medNumber)
+              {
+                  return false;
+              }
+          }
+          return true;
       }
 
       public bool HasMedicamentIngredient(Medicament medicament, String ingredient)
       {
-          return repository.HasMedicamentIngredient(medicament, ingredient);
+          medicament = repository.FindById(medicament.Id);
+          foreach (var i in medicament.Ingredients)
+          {
+              if (i.Name.Equals(ingredient))
+              {
+                  return true;
+              }
+          }
+
+          return false;
       }
 
       public List<Medicament> GetSearchedMeds(string text)
       {
-          return repository.GetSearchedMeds(text);
+          List<Medicament> searchedmeds = new List<Medicament>();
+          meds = GetMedicaments();
+          foreach (var m in repository.GetAll())
+          {
+              if (IsSearched(text, m))
+              {
+                  searchedmeds.Add(m);
+              }
+          }
+          return searchedmeds;
+        }
+
+      private static bool IsSearched(string text, Medicament m)
+      {
+          return m.Name.ToLower().StartsWith(text) || m.Producer.ToLower().StartsWith(text) || m.Status.ToString().StartsWith(text);
       }
 
-      private int FindIndex(Medicament medicament)
+        public int FindIndex(Medicament medicament)
       {
           meds = GetMedicaments();
           int index = 0;
@@ -105,142 +140,73 @@ namespace IS_Bolnica.Services
           return ingredient;
       }
 
-      public void DeleteMedReplacement(Medicament selectedMedicament)
-       {
-            foreach (Medicament medicament in meds)
-            {
-                if (medicament.Id.Equals(selectedMedicament.Id))
-                {
-                    medicament.Replacement = new Medicament();
-                }
-            }
-            repository.SaveToFile(meds);
-        }
-
-        public void SaveMedicament(Medicament medicament)
+      public List<Medicament> ShowApprovedMedicaments()
+      {
+          List<Medicament> approvedMedicaments = new List<Medicament>();
+          foreach (Medicament medicament in meds)
           {
-              repository.SaveToFile(meds);
-          }
-
-          public void AddIngredientInMedicament(Ingredient ingredient, int medicamentId)
-          {
-              foreach (Medicament medicament in meds)
+              if (medicament.Status == MedicamentStatus.approved)
               {
-                  if (medicament.Id.Equals(medicamentId))
-                  {
-                      medicament.Ingredients.Add(ingredient);
-                      SaveMedicament(medicament);
-                  }
+                  approvedMedicaments.Add(medicament);
               }
           }
 
-          public List<Medicament> ShowApprovedMedicaments()
+          return approvedMedicaments;
+      }
+
+      public Medicament SetMedicamentReplacement(string replacementName)
+      {
+          Medicament replacement = new Medicament();
+          foreach (Medicament medicament in meds)
           {
-              List<Medicament> approvedMedicaments = new List<Medicament>();
-              foreach (Medicament medicament in meds)
+              if (medicament.Name.Equals(replacementName))
               {
-                  if (medicament.Status == MedicamentStatus.approved)
-                  {
-                      approvedMedicaments.Add(medicament);
-                  }
+                  replacement = medicament;
               }
-              return approvedMedicaments;
           }
 
-          public Medicament SetMedicamentReplacement(string replacementName)
+          return replacement;
+      }
+
+      public List<string> ShowMedicamentReplacements()
+      {
+          List<string> medicamentReplacements = new List<string>();
+          foreach (Medicament medicament in meds)
           {
-              Medicament replacement = new Medicament();
-              foreach (Medicament medicament in meds)
+              medicamentReplacements.Add(medicament.Name);
+          }
+
+          return medicamentReplacements;
+      }
+
+      public void UpdateMedicament(Medicament updatedMedicament, int index)
+      {
+          repository.Update(index, updatedMedicament);
+      }
+
+
+      public void DeleteMedicament(Medicament medicament)
+      {
+          int index = FindIndex(medicament);
+          repository.Delete(index);
+      }
+
+      public void ChangeMedicamentStatus(int medicamentId)
+      {
+          foreach (Medicament med in meds)
+          {
+              if (med.Id.Equals(medicamentId))
               {
-                  if (medicament.Name.Equals(replacementName))
-                  {
-                      replacement = medicament;
-                  }
+                  med.Status = MedicamentStatus.approved;
               }
-              return replacement;
           }
 
-          public List<string> ShowMedicamentReplacements()
-          {
-              List<string> medicamentReplacements = new List<string>();
-              foreach (Medicament medicament in meds)
-              {
-                  medicamentReplacements.Add(medicament.Name);
-              }
-              return medicamentReplacements;
-          }
+          repository.SaveToFile(meds);
+      }
 
-          public int GetIndexOfOldMedicament(Medicament selectedMedicament)
-          {
-              int index = 0;
-              foreach (Medicament medicament in meds)
-              {
-                  if (medicament.Id.Equals(selectedMedicament.Id))
-                  {
-                      break;
-                  }
-
-                  index++;
-              }
-
-              return index;
-          }
-
-          public void UpdateMedicament(Medicament updatedMedicament, int index)
-          {
-              meds.RemoveAt(index);
-              meds.Insert(index, updatedMedicament);
-              repository.SaveToFile(meds);
-          }
-
-          public bool DoesChoosenMedContainsAllergens(string medName, string allergens)
-        {
-            for (int i = 0; i < meds.Count; i++)
-            {
-                if (meds[i].Name.Equals(medName))
-                {
-                    for (int j = 0; j < meds[i].Ingredients.Count; j++)
-                    {
-                        if (meds[i].Ingredients[j].Name.Equals(allergens))
-                        {
-                            return true;
-                        }
-                    }
-                }
-            }
-            return false;
-        }
-
-        public void DeleteMedicament(int medicamentId)
-        {
-            int index = 0;
-            foreach (Medicament medicament in meds)
-            {
-                if (medicament.Id.Equals(medicamentId))
-                {
-                    break;
-                }
-
-                index++;
-            }
-            meds.RemoveAt(index);
-            repository.SaveToFile(meds);
-        }
-
-        public void ChangeMedicamentStatus(int medicamentId)
-        {
-            foreach (Medicament med in meds)
-            {
-                if (med.Id.Equals(medicamentId))
-                {
-                    med.Status = MedicamentStatus.approved;
-                }
-            }
-            repository.SaveToFile(meds);
-        }
         private List<Medicament> GetAllMedicaments()
         {
-            return repository.GetMedicaments();
+            return repository.GetAll();
         }
     }
 

@@ -57,14 +57,8 @@ namespace IS_Bolnica.Secretary
             return true;
         }
 
-        private void getOptions(object sender, RoutedEventArgs e)
+        private void setPatient()
         {
-            if (!isAllFilled())
-            {
-                MessageBox.Show("Morate da popunite sva dozvoljena polja!");
-                return;
-            }
-
             if (patientIdBox.Text != "")
             {
                 if (!patientService.PatientIdExists(patientIdBox.Text))
@@ -77,16 +71,36 @@ namespace IS_Bolnica.Secretary
             else if (patientIdBox.Text == "" && patientIdBox.IsEnabled)
             {
                 MessageBox.Show("Niste uneli id pacijenta");
-                return;
             }
-            else if (systemNameBox.Text != "")
+        }
+
+        private void setGuest()
+        {
+            if (systemNameBox.Text != "")
             {
                 guestUser = findAttributesService.FindGuest(systemNameBox.Text);
             }
             else if (systemNameBox.Text == "" && systemNameBox.IsEnabled)
             {
                 MessageBox.Show("Niste uneli sistemsko ime guest korisnika");
+            }
+        }
+
+        private void getOptions(object sender, RoutedEventArgs e)
+        {
+            if (!isAllFilled())
+            {
+                MessageBox.Show("Morate da popunite sva dozvoljena polja!");
                 return;
+            }
+
+            if (patientIdBox.IsEnabled)
+            {
+                setPatient();
+            }
+            else if (systemNameBox.IsEnabled)
+            {
+                setGuest();
             }
 
             appointment = new Appointment

@@ -32,35 +32,19 @@ namespace IS_Bolnica.Services
 
         public void AddUser(User user)
         {
-            users = GetUsers();
-            if (IsValid(user))
-            {
-                users.Add(user);
-                userRepository.SaveToFile(users, "UsersFileStorage.json");
-            }
+            userRepository.Add(user);
         }
 
         public void DeleteUser(User user)
         {
-            users = GetUsers();
-            if (UserExists(user.Id))
-            {
-                int index = FindUserIndex(user);
-                users.RemoveAt(index);
-                userRepository.SaveToFile(users, "UsersFileStorage.json");
-            }
+            int index = FindUserIndex(user);
+            userRepository.Delete(index);
         }
 
         public void EditUser(User oldUser, User newUser)
         {
-            users = GetUsers();
-            if (IsValid(newUser))
-            {
-                int index = FindUserIndex(oldUser);
-                users.RemoveAt(index);
-                users.Add(newUser);
-                userRepository.SaveToFile(users, "UsersFileStorage.json");
-            }
+            int index = FindUserIndex(oldUser);
+            userRepository.Update(index, newUser);
         }
 
         private bool IsValid(User user)
@@ -110,7 +94,7 @@ namespace IS_Bolnica.Services
 
         private List<User> GetUsers()
         {
-            return userRepository.LoadFromFile("UsersFileStorage.json");
+            return userRepository.GetAll();
         }
 
         public List<User> GetLoggedUsers()

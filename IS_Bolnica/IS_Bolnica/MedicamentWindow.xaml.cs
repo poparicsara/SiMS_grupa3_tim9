@@ -2,6 +2,7 @@
 using Model;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,7 +54,7 @@ namespace IS_Bolnica
 
         private void RowDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Medicament selectedMedicament = (Medicament)medicamentDataGrid.SelectedItem;
+            selectedMedicament = (Medicament)medicamentDataGrid.SelectedItem;
             EditMedicamentWindow medWindow = new EditMedicamentWindow(selectedMedicament);
             medWindow.Show();
             this.Close();
@@ -75,7 +76,6 @@ namespace IS_Bolnica
                 switch (messageBox)
                 {
                     case MessageBoxResult.Yes:
-                        
                         SetRequestAttributes();
                         requestService.SendRequest(request);
                         break;
@@ -87,6 +87,7 @@ namespace IS_Bolnica
 
         private void SetRequestAttributes()
         {
+            Debug.WriteLine("postavljanje atributa");
             request.Title = "Brisanje leka iz baze";
             SetRequestContent();
             request.Recipient = NotificationType.doctor;
@@ -95,6 +96,7 @@ namespace IS_Bolnica
 
         private void SetRequestContent()
         {
+            selectedMedicament = (Medicament)medicamentDataGrid.SelectedItem;
             string content = selectedMedicament.Id + "|" + selectedMedicament.Name + "|" + selectedMedicament.Replacement.Name + "|" + selectedMedicament.Producer + "|";
             foreach (Ingredient i in selectedMedicament.Ingredients)
             {

@@ -25,6 +25,7 @@ namespace IS_Bolnica.DoctorUI
         private MedicamentService medicamentService = new MedicamentService();
         private NotificationService notificationService = new NotificationService();
         private RequestService requestService = new RequestService();
+        private Medicament selectedMedicament = new Medicament();
         private int selectedId;
         public ReviewMedRequestWindow(Request selectedRequest)
         {
@@ -36,6 +37,7 @@ namespace IS_Bolnica.DoctorUI
             string[] content = selectedRequest.Content.Split('|');
 
             selectedId = (int)Int64.Parse(content[0]);
+            selectedMedicament = medicamentService.GetMedicamentById(selectedId);
             idTxt.Text = content[0];
             nameTxt.Text = content[1];
             replacementTxt.Text = content[2];
@@ -133,7 +135,7 @@ namespace IS_Bolnica.DoctorUI
             switch (messageBox)
             {
                 case MessageBoxResult.Yes:
-                    medicamentService.DeleteMedicament(selectedId);
+                    medicamentService.DeleteMedicament(selectedMedicament);
                     break;
                 case MessageBoxResult.No:
                     break;

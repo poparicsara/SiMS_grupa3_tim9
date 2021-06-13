@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using IS_Bolnica.Model;
+using IS_Bolnica.Patterns;
 using IS_Bolnica.Services;
 
 namespace IS_Bolnica.Secretary
@@ -24,7 +25,8 @@ namespace IS_Bolnica.Secretary
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(prevoiusPage);
+            ActionBar ab = new ActionBar();
+            this.NavigationService.Navigate(ab);
         }
 
         private void addExamination(object sender, RoutedEventArgs e)
@@ -104,7 +106,8 @@ namespace IS_Bolnica.Secretary
 
         private void pretraziBox_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            var filtered = appointmentService.GetSearchedExaminations(pretraziBox.Text.ToLower());
+            SearchGridTemplate<Appointment> examinations = new SearchExamination();
+            var filtered = examinations.GetSearchedEntities(pretraziBox.Text.ToLower());
             ExaminationListGrid.ItemsSource = filtered;
         }
     }

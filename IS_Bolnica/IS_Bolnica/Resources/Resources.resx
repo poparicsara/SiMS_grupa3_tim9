@@ -222,6 +222,12 @@
   <data name="Delete" xml:space="preserve">
     <value>Obriši</value>
   </data>
+  <data name="DeleteShiftButton" xml:space="preserve">
+    <value>Obriši smenu</value>
+  </data>
+  <data name="DeleteVacationButton" xml:space="preserve">
+    <value>Obriši pregled</value>
+  </data>
   <data name="DocJMBGLabel" xml:space="preserve">
     <value>JMBG doktora:</value>
   </data>
@@ -233,6 +239,9 @@
   </data>
   <data name="DoctorsButton" xml:space="preserve">
     <value>DOKTORI</value>
+  </data>
+  <data name="DoctorsProfile" xml:space="preserve">
+    <value>Doktor:</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Izmeni</value>
@@ -365,6 +374,15 @@
   </data>
   <data name="SchedulingExLabel" xml:space="preserve">
     <value>Zakažite pregled</value>
+  </data>
+  <data name="ShiftEnd" xml:space="preserve">
+    <value>Kraj</value>
+  </data>
+  <data name="ShiftStart" xml:space="preserve">
+    <value>Početak</value>
+  </data>
+  <data name="ShiftType" xml:space="preserve">
+    <value>Tip smene</value>
   </data>
   <data name="ShowOptionsButton" xml:space="preserve">
     <value>Prikaži opcije termina</value>

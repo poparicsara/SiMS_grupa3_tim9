@@ -29,7 +29,7 @@ namespace IS_Bolnica
             InitializeComponent();
 
             medicamentName = selected.Name;
-            selectedMedicament = medService.GetMedicament(selected.Name);
+            selectedMedicament = medService.GetMedicamentByName(selected.Name);
 
             ingredientDataGrid.ItemsSource = ingService.GetIngredients(selected);
 
@@ -95,7 +95,7 @@ namespace IS_Bolnica
 
         private void RefreshDataGrid()
         {
-            selectedMedicament = medService.GetMedicament(medicamentName);
+            selectedMedicament = medService.GetMedicamentByName(medicamentName);
             ingredientDataGrid.ItemsSource = ingService.GetIngredients(selectedMedicament);
         }
 

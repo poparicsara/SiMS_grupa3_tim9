@@ -14,37 +14,33 @@ namespace IS_Bolnica.Services
 
         public GuestUserService()
         {
-            guestUsers = GetGuestUsers();
         }
 
         public void AddGuestUser(GuestUser guestUser)
         {
-            guestUsers.Add(guestUser);
-            guestUserRepository.SaveToFile(guestUsers,"GuestUsersFile.json");
+            guestUserRepository.Add(guestUser);
         }
 
         public void EditGuestUser(GuestUser oldGuestUser, GuestUser newGuestUser)
         {
             int index = FindGuestUserIndex(oldGuestUser);
-            guestUsers.RemoveAt(index);
-            guestUsers.Add(newGuestUser);
-            guestUserRepository.SaveToFile(guestUsers, "GuestUsersFile.json");
+            guestUserRepository.Update(index, newGuestUser);
         }
 
         public void DeleteGuestUser(GuestUser guestUser)
         {
             int index = FindGuestUserIndex(guestUser);
-            guestUsers.RemoveAt(index);
-            guestUserRepository.SaveToFile(guestUsers, "GuestUsersFile.json");
+            guestUserRepository.Delete(index);
         }
 
         public List<GuestUser> GetGuestUsers()
         {
-            return guestUserRepository.LoadFromFile("GuestUsersFile.json");
+            return guestUserRepository.GetAll();
         }
 
         private int FindGuestUserIndex(GuestUser guestUser)
         {
+            guestUsers = guestUserRepository.GetAll();
             for (int i = 0; i < guestUsers.Count; i++)
             {
                 if (guestUser.SystemName.Equals(guestUsers[i].SystemName) &&
@@ -59,7 +55,7 @@ namespace IS_Bolnica.Services
 
         public List<GuestUser> GetSearchedGuests(string text)
         {
-            guestUsers = guestUserRepository.LoadFromFile("GuestUsersFile.json");
+            guestUsers = guestUserRepository.GetAll();
             List<GuestUser> searchedGuest = new List<GuestUser>();
             foreach (GuestUser guestUser in guestUsers)
             {

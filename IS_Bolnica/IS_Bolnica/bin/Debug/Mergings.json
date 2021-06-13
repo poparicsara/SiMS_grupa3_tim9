@@ -591,7 +591,7 @@
     "Hour": 1,
     "Minute": 15,
     "NewRoomNumber": 7,
-    "Executed": false
+    "Executed": true
   },
   {
     "Room1": {
@@ -615,7 +615,7 @@
     "Hour": 1,
     "Minute": 20,
     "NewRoomNumber": 8,
-    "Executed": false
+    "Executed": true
   },
   {
     "Room1": {
@@ -671,6 +671,285 @@
     "Hour": 0,
     "Minute": 35,
     "NewRoomNumber": 15,
+    "Executed": true
+  },
+  {
+    "Room1": {
+      "Id": 4,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [
+        {
+          "Name": null,
+          "CurrentAmount": 3,
+          "Minimum": 0,
+          "Id": 202,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "Room2": {
+      "Id": 10,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Krevet",
+          "CurrentAmount": 3,
+          "Minimum": 0,
+          "Id": 666,
+          "InventoryType": 1
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "StartDate": "6/12/2021",
+    "EndDate": "6/12/2021",
+    "Hour": 22,
+    "Minute": 55,
+    "NewRoomNumber": 11,
+    "Executed": true
+  },
+  {
+    "Room1": {
+      "Id": 11,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "Room2": {
+      "Id": 12,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "StartDate": "6/13/2021",
+    "EndDate": "6/13/2021",
+    "Hour": 0,
+    "Minute": 35,
+    "NewRoomNumber": 13,
+    "Executed": true
+  },
+  {
+    "Room1": {
+      "Id": 14,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": null,
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "Room2": {
+      "Id": 13,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "StartDate": "6/13/2021",
+    "EndDate": "6/13/2021",
+    "Hour": 0,
+    "Minute": 45,
+    "NewRoomNumber": 15,
+    "Executed": true
+  },
+  {
+    "Room1": {
+      "Id": 15,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "Room2": {
+      "Id": 16,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "StartDate": "6/13/2021",
+    "EndDate": "6/13/2021",
+    "Hour": 1,
+    "Minute": 20,
+    "NewRoomNumber": 17,
+    "Executed": true
+  },
+  {
+    "Room1": {
+      "Id": 10,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "Room2": {
+      "Id": 17,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "StartDate": "6/13/2021",
+    "EndDate": "6/13/2021",
+    "Hour": 1,
+    "Minute": 45,
+    "NewRoomNumber": 18,
+    "Executed": true
+  },
+  {
+    "Room1": {
+      "Id": 9,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 3,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 3,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 3,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "Room2": {
+      "Id": 18,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 3,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 3,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 3,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "StartDate": "6/13/2021",
+    "EndDate": "6/13/2021",
+    "Hour": 2,
+    "Minute": 40,
+    "NewRoomNumber": 20,
+    "Executed": true
+  },
+  {
+    "Room1": {
+      "Id": 3,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 24,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "Room2": {
+      "Id": 4,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 24,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "StartDate": "6/13/2021",
+    "EndDate": "6/13/2021",
+    "Hour": 2,
+    "Minute": 55,
+    "NewRoomNumber": 5,
     "Executed": true
   }
 ]
