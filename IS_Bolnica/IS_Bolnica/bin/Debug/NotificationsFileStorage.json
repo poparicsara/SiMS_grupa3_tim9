@@ -90,5 +90,12 @@
     "PersonId": [
       "3333333333333"
     ]
+  },
+  {
+    "Title": "Pomeranje termina zbog renoviranja",
+    "Content": "\tProstorija: 202\n\tPacijent: Srdjan Srdic\n\tDoktor: Ana Srdic\n",
+    "Sender": 3,
+    "notificationType": 2,
+    "PersonId": null
   }
 ]
