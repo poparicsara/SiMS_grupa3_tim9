@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using IS_Bolnica.GUI.Secretary.View;
 using IS_Bolnica.Patterns;
 using IS_Bolnica.Services;
 using Model;

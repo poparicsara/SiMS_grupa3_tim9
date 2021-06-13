@@ -45,7 +45,7 @@ namespace IS_Bolnica
 
         private void ButtonSekretarCLicked(object sender, RoutedEventArgs e)
         {
-            SekretarWindow sw = new SekretarWindow();
+            SekretarWindow sw = new SekretarWindow("");
             sw.Show();
 
         }
@@ -91,8 +91,7 @@ namespace IS_Bolnica
                             profileWindow.Show();
                             break;
                         case UserType.secretary:
-                            SekretarWindow sw = new SekretarWindow();
-                            //sw.setProfileInfo(user);
+                            SekretarWindow sw = new SekretarWindow(username);
                             sw.Show();
                             break;
                         default:

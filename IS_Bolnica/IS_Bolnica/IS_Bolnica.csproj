@@ -218,6 +218,8 @@
     <Compile Include="GUI\Patient\View\EvaluationsForAppointments.xaml.cs" />
     <Compile Include="GUI\Patient\View\InformationPage.xaml.cs" />
     <Compile Include="GUI\Patient\View\Profile.xaml.cs" />
+    <Compile Include="GUI\Secretary\ViewModel\SecretaryProfileVM.cs" />
+    <Compile Include="GUI\Secretary\ViewModel\SelectedPatientVM.cs" />
     <Compile Include="Ingredient.cs" />
     <Compile Include="IngredientFileStorage.cs" />
     <Compile Include="InventoryWindow.xaml.cs">
@@ -446,7 +448,7 @@
     <Compile Include="Secretary\ReportForm.xaml.cs">
       <DependentUpon>ReportForm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Secretary\SecretaryProfile.xaml.cs">
+    <Compile Include="GUI\Secretary\View\SecretaryProfile.xaml.cs">
       <DependentUpon>SecretaryProfile.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\SelectedDoctor.xaml.cs">
@@ -455,7 +457,7 @@
     <Compile Include="Secretary\SelectedNotification.xaml.cs">
       <DependentUpon>SelectedNotification.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Secretary\SelectedPatient.xaml.cs">
+    <Compile Include="GUI\Secretary\View\SelectedPatient.xaml.cs">
       <DependentUpon>SelectedPatient.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\UrgentExaminationOptions.xaml.cs">
@@ -949,7 +951,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Secretary\SecretaryProfile.xaml">
+    <Page Include="GUI\Secretary\View\SecretaryProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -961,7 +963,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Secretary\SelectedPatient.xaml">
+    <Page Include="GUI\Secretary\View\SelectedPatient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
