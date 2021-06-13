@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using IS_Bolnica.Model;
+using IS_Bolnica.Patterns;
 using IS_Bolnica.Services;
 using Model;
 
@@ -137,13 +138,14 @@ namespace IS_Bolnica.Secretary
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(prevoiusPage);
+            ActionBar ab = new ActionBar();
+            this.NavigationService.Navigate(ab);
         }
 
         private void pretraziBox_KeyUp(object sender, KeyEventArgs e)
         {
-
-            var filtered = patientService.GetSearchedPatients(pretraziBox.Text.ToLower());
+            SearchGridTemplate<Patient> patients = new SearchPatients();
+            var filtered = patients.GetSearchedEntities(pretraziBox.Text.ToLower());
             PatientListGrid.ItemsSource = filtered;
         }
 

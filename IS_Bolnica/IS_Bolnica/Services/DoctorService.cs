@@ -256,7 +256,7 @@ namespace IS_Bolnica.Services
             return docNames;
         }
 
-        public List<Doctor> GetSearchedDoctors(string text)
+        /*public List<Doctor> GetSearchedDoctors(string text)
         {
             doctors = doctorRepository.GetAll();
             List<Doctor> searchedDoctors = new List<Doctor>();
@@ -277,7 +277,7 @@ namespace IS_Bolnica.Services
                    d.Surname.ToLower().Contains(text) ||
                    d.Username.ToLower().Contains(text) ||
                    d.Id.ToLower().StartsWith(text);
-        }
+        }*/
 
         public Doctor FindDoctorByName(string drNameSurname)
         {

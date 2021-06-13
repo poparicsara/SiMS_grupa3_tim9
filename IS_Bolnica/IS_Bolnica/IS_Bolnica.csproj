@@ -291,9 +291,11 @@
     <Compile Include="Patterns\AddAppointmentTemplate.cs" />
     <Compile Include="Patterns\AddExamination.cs" />
     <Compile Include="Patterns\AddOperation.cs" />
-    <Compile Include="Patterns\AppointmentExamination.cs" />
-    <Compile Include="Patterns\AppointmentOperation.cs" />
-    <Compile Include="Patterns\EditAppointmentTemplate.cs" />
+    <Compile Include="Patterns\SearchDoctors.cs" />
+    <Compile Include="Patterns\SearchExamination.cs" />
+    <Compile Include="Patterns\SearchGridTemplate.cs" />
+    <Compile Include="Patterns\SearchOperations.cs" />
+    <Compile Include="Patterns\SearchPatients.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
     <Compile Include="Resources\Resources.en-US.Designer.cs">

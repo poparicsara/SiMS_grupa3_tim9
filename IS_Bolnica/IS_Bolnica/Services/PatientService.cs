@@ -82,7 +82,7 @@ namespace IS_Bolnica.Services
             return patientRepository.FindById(id);
         }
 
-        public List<Patient> GetSearchedPatients(string text)
+        /*public List<Patient> GetSearchedPatients(string text)
         {
             patients = patientRepository.GetAll();
             List<Patient> searchedPatients = new List<Patient>();
@@ -103,7 +103,7 @@ namespace IS_Bolnica.Services
                    p.Surname.ToLower().Contains(text) ||
                    p.Id.ToLower().StartsWith(text) ||
                    p.Username.ToLower().Contains(text);
-        }
+        }*/
 
         private int FindPatientIndex(Patient patient)
         {

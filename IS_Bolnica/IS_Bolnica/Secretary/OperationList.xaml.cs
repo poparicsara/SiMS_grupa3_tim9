@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using IS_Bolnica.Model;
+using IS_Bolnica.Patterns;
 using IS_Bolnica.Services;
 
 namespace IS_Bolnica.Secretary
@@ -106,7 +107,8 @@ namespace IS_Bolnica.Secretary
 
         private void pretraziBox_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            var filtered = appointmentService.GetSearchedOperations(pretraziBox.Text.ToLower());
+            SearchGridTemplate<Appointment> operations = new SearchOperations();
+            var filtered = operations.GetSearchedEntities(pretraziBox.Text.ToLower());
             OperationListGrid.ItemsSource = filtered;
         }
 

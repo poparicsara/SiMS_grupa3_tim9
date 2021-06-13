@@ -218,7 +218,6 @@ namespace IS_Bolnica.Services
 
         private bool isDoctorsShift(Appointment appointment)
         {
-            //doctors = doctorRepository.GetAll();
             Doctor doctor = doctorRepository.FindById(appointment.Doctor.Id);
             Shift shift = findShift(doctor.Shifts, appointment);
             if (shift == null) return false;
@@ -276,7 +275,7 @@ namespace IS_Bolnica.Services
             return appointmentRepository.GetAll();
         }
 
-        public List<Appointment> GetSearchedExaminations(string text)
+        /*public List<Appointment> GetSearchedExaminations(string text)
         {
             appointments = appointmentRepository.GetAll();
             List<Appointment> searchedAppointments = new List<Appointment>();
@@ -316,7 +315,7 @@ namespace IS_Bolnica.Services
         {
             return a.Patient.Id.ToLower().StartsWith(text) ||
                    a.Doctor.Surname.ToLower().StartsWith(text);
-        }
+        }*/
 
         public int CountDoctorsOperations()
         {
