@@ -14,23 +14,27 @@ namespace IS_Bolnica.Services
     {
         private AppointmentRepository appointmentRepository = new AppointmentRepository();
 
+        public SuggestionServiceBySelectedDateAndDoctor()
+        {
+        }
+
         public List<Suggestion> getSuggestions()
         {
             List<Suggestion> suggestions = new List<Suggestion>();
 
             while (suggestions.Count < 6)
             {
-                if (Suggestions.selectedDate.Hour == 19)
-                    Suggestions.selectedDate.AddDays(1);
+                if (AddNewAppointment.selectedDate.Hour == 19)
+                    AddNewAppointment.selectedDate.AddDays(1);
 
-                if (checkSuggestion(Suggestions.selectedDate, Suggestions.selectedDoctor))
+                if (checkSuggestion(AddNewAppointment.selectedDate, AddNewAppointment.selectedDoctor))
                 {
                     Suggestion suggestion = new Suggestion();
-                    suggestion.Doctor = Suggestions.selectedDoctor;
-                    suggestion.DateOfAppointment = Suggestions.selectedDate;
+                    suggestion.Doctor = AddNewAppointment.selectedDoctor;
+                    suggestion.DateOfAppointment = AddNewAppointment.selectedDate;
                     suggestions.Add(suggestion);
                 }
-                Suggestions.selectedDate = Suggestions.selectedDate + TimeSpan.FromHours(1);
+                AddNewAppointment.selectedDate = AddNewAppointment.selectedDate + TimeSpan.FromHours(1);
             }
 
             return suggestions;

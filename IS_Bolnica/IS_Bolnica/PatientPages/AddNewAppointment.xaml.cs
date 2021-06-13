@@ -29,6 +29,8 @@ namespace IS_Bolnica.PatientPages
         private FindAttributesService findAttributesService = new FindAttributesService();
         private AppointmentService appointmentService = new AppointmentService();
         public List<String> doctors { get; set; }
+        public static Doctor selectedDoctor = new Doctor();
+        public static DateTime selectedDate = new DateTime();
         public AddNewAppointment()
         {
             doctors = doctorService.GetDoctorNamesWithSpecialization();
@@ -82,7 +84,24 @@ namespace IS_Bolnica.PatientPages
 
         private void SuggestionButtonClicked(object sender, RoutedEventArgs e)
         {
-            PatientWindow.MyFrame.NavigationService.Navigate(new Suggestions(DoctorCombo.Text, AddDatePicker.Text));
+            if (!DoctorCombo.Text.Equals("") && AddDatePicker.Text.Equals(""))
+            {
+                selectedDoctor = doctorService.FindDoctorByName(DoctorCombo.Text.Split('(')[0]);
+                PatientWindow.MyFrame.NavigationService.Navigate(new Suggestions(new SuggestionServiceBySelectedDoctor()));
+            }
+            else if (!AddDatePicker.Text.Equals("") && DoctorCombo.Text.Equals(""))
+            {
+                selectedDate = findAttributesService.returnDateBySelectionInDatePicker(AddDatePicker.Text);
+                PatientWindow.MyFrame.NavigationService.Navigate(new Suggestions(new SuggestionServiceBySelectedDate()));
+            }
+            else if (!AddDatePicker.Text.Equals("") && !DoctorCombo.Text.Equals(""))
+            {
+                selectedDoctor = doctorService.FindDoctorByName(DoctorCombo.Text.Split('(')[0]);
+                selectedDate = findAttributesService.returnDateBySelectionInDatePicker(AddDatePicker.Text);
+                PatientWindow.MyFrame.NavigationService.Navigate(new Suggestions(new SuggestionServiceBySelectedDateAndDoctor()));
+            }
+            else
+                PatientWindow.MyFrame.NavigationService.Navigate(new Suggestions(new SuggestionServiceWithoutSelection()));
         }
 
     }

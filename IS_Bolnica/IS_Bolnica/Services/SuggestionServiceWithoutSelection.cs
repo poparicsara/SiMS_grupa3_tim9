@@ -13,6 +13,11 @@ namespace IS_Bolnica.Services
     {
         private AppointmentRepository appointmentRepository = new AppointmentRepository();
         private DoctorRepository doctorRepository = new DoctorRepository();
+
+        public SuggestionServiceWithoutSelection()
+        {
+        }
+
         public List<Suggestion> getSuggestions()
         {
             List<Suggestion> suggestions = new List<Suggestion>();

@@ -39,10 +39,10 @@ namespace IS_Bolnica.Services
                 if (startDate.Hour == 19)
                     startDate.AddDays(1);
 
-                if (checkSuggestion(startDate, Suggestions.selectedDoctor))
+                if (checkSuggestion(startDate, AddNewAppointment.selectedDoctor))
                 {
                     Suggestion suggestion = new Suggestion();
-                    suggestion.Doctor = Suggestions.selectedDoctor;
+                    suggestion.Doctor = AddNewAppointment.selectedDoctor;
                     suggestion.DateOfAppointment = startDate;
                     suggestions.Add(suggestion);
                 }
