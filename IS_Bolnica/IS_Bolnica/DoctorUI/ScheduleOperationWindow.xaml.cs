@@ -57,7 +57,7 @@ namespace IS_Bolnica.DoctorUI
             date = new DateTime(date.Year, date.Month, date.Day, hour, minute, 0);
             operation.AppointmentType = AppointmentType.operation;
 
-            List<Appointment> appointments = appointmentService.GetOperations();
+            List<Appointment> appointments = appointmentService.getOperations();
             IOperation ioperation = new Adapter(appointmentService);
 
             if (isUrgentRB.IsChecked == true)
