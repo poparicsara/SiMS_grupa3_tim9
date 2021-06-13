@@ -1,0 +1,31 @@
+﻿<Window x:Class="IS_Bolnica.FeedBackByDirector"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IS_Bolnica"
+        mc:Ignorable="d"
+        Title="FeedBackByDirector" Height="655" Width="700" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="FEEDBACK" HorizontalAlignment="Left" Margin="320,31,0,0" VerticalAlignment="Top" Width="201" FontFamily="Malgun Gothic" FontSize="26" FontWeight="Bold" Height="71"/>
+
+        <Label Content="Ocena aplikacije:" HorizontalAlignment="Left" Margin="61,126,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" Width="318" FontSize="16"/>
+        <TextBox x:Name="suggestionsTxt" BorderThickness="1" HorizontalAlignment="Left" Height="80" Margin="61,281,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" BorderBrush="Black"/>
+        <WrapPanel HorizontalAlignment="Left" Height="45" Margin="61,161,0,0" VerticalAlignment="Top" Width="285">
+            <Button Name="zero" Content="0" Height="45" Width="45" Foreground="Black" BorderBrush="Black" Background="White" FontWeight="Bold" FontSize="15" Click="ZeroButtonClick"/>
+            <Button Name="one" Content="1" Height="45" Width="45" Foreground="Black" BorderBrush="Black" Background="White" FontWeight="Bold" FontSize="15" Click="OneButtonClick"/>
+            <Button Name="two" Content="2" Height="45" Width="45" Foreground="Black" BorderBrush="Black" Background="White" FontWeight="Bold" FontSize="15" Click="TwoButtonClick"/>
+            <Button Name="three" Content="3" Height="45" Width="45" Foreground="Black" BorderBrush="Black" Background="White" FontWeight="Bold" FontSize="15" Click="ThreeButtonClick"/>
+            <Button Name="four" Content="4" Height="45" Width="45" Foreground="Black" BorderBrush="Black" Background="White" FontWeight="Bold" FontSize="15" Click="FourButtonClick"/>
+            <Button Name="five" Content="5" Height="45" Width="45" Foreground="Black" BorderBrush="Black" Background="White" FontWeight="Bold" FontSize="15" Click="FiveButtonClick"/>
+
+        </WrapPanel>
+        <Label Content="Da li imate sugestije za poboljšanje rada?" HorizontalAlignment="Left" Margin="61,246,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" Width="318" FontSize="16"/>
+        <Label Content="Dodatni komentar:" HorizontalAlignment="Left" Margin="61,387,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" Width="318" FontSize="16"/>
+        <TextBox x:Name="commentTxt" HorizontalAlignment="Left" BorderThickness="1"  Height="85" Margin="61,422,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="318" BorderBrush="Black"/>
+
+        <Button Content="POŠALJI" HorizontalAlignment="Left" Margin="566,582,0,0" VerticalAlignment="Top" Width="95" Height="34" Background="White" Foreground="Black" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="16" Click="SendFeedbackButtonClick" />
+
+
+    </Grid>
+</Window>

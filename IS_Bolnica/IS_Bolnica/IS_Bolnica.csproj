@@ -205,6 +205,9 @@
       <DependentUpon>EditRoomWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="EvaluationRepository.cs" />
+    <Compile Include="FeedBackByDirector.xaml.cs">
+      <DependentUpon>FeedBackByDirector.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Patient\Command\RelayCommand.cs" />
     <Compile Include="GUI\Patient\ViewModel\EvaulationsForAppointmentsVM.cs" />
     <Compile Include="GUI\Patient\ViewModel\InformationPageVM.cs" />
@@ -653,6 +656,10 @@
     <Page Include="EditRoomWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FeedBackByDirector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GUI\Patient\View\EvaluationsForAppointments.xaml">
       <Generator>MSBuild:Compile</Generator>

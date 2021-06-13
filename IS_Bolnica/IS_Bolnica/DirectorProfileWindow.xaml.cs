@@ -121,5 +121,12 @@ namespace IS_Bolnica
             rw.Show();
             this.Close();
         }
+
+        private void FeedBackButtonClicked(object sender, RoutedEventArgs e)
+        {
+            FeedBackByDirector fw = new FeedBackByDirector();
+            fw.Show();
+            this.Close();
+        }
     }
 }

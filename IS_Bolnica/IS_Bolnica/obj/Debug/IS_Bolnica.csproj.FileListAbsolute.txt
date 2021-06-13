@@ -1078,3 +1078,5 @@ C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\PatientPages\TheReportPage.baml
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\PatientPages\Tutorial.baml
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\OperationsWindow.baml
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\FeedBackByDirector.g.cs
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\FeedBackByDirector.baml
