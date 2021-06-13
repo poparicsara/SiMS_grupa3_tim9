@@ -1021,3 +1021,5 @@ C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Patient
 C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\Feedback.g.cs
 C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\PatientPages\AddNewFeedback.baml
 C:\Users\Marija\Desktop\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\Feedback.baml
+C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\SelectedDoctor.g.cs
+C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\Secretary\SelectedDoctor.baml

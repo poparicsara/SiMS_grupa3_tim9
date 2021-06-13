@@ -181,9 +181,5 @@ namespace IS_Bolnica.Model
             File.WriteAllText("Lekovi.json", jsonString);
         }
 
-        public Medicament FindById(int id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

@@ -280,6 +280,12 @@
     <Compile Include="PatientPages\Suggestions.xaml.cs" />
     <Compile Include="PatientPages\TheReportPage.xaml.cs" />
     <Compile Include="PatientPages\Tutorial.xaml.cs" />
+    <Compile Include="Patterns\AddAppointmentTemplate.cs" />
+    <Compile Include="Patterns\AddExamination.cs" />
+    <Compile Include="Patterns\AddOperation.cs" />
+    <Compile Include="Patterns\AppointmentExamination.cs" />
+    <Compile Include="Patterns\AppointmentOperation.cs" />
+    <Compile Include="Patterns\EditAppointmentTemplate.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
     <Compile Include="Resources\Resources.en-US.Designer.cs">
@@ -431,6 +437,9 @@
     </Compile>
     <Compile Include="Secretary\SecretaryProfile.xaml.cs">
       <DependentUpon>SecretaryProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\SelectedDoctor.xaml.cs">
+      <DependentUpon>SelectedDoctor.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\SelectedNotification.xaml.cs">
       <DependentUpon>SelectedNotification.xaml</DependentUpon>
@@ -923,6 +932,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Secretary\SecretaryProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary\SelectedDoctor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -42,6 +42,49 @@ namespace IS_Bolnica.Model
             return null;
         }
 
+        public void DeleteShift(int index, string id)
+        {
+            Doctor doctor = FindById(id);
+            doctor.Shifts.RemoveAt(index);
+            SaveShifts(doctor.Shifts, id);
+        }
+
+        public void DeleteVacation(int index, string id)
+        {
+            Doctor doctor = FindById(id);
+            doctor.Vacations.RemoveAt(index);
+            SaveVacations(doctor.Vacations, id);
+        }
+
+
+        private void SaveShifts(List<Shift> shifts, string id)
+        {
+            doctors = GetAll();
+            foreach (var doctor in doctors)
+            {
+                if (doctor.Id.Equals(id))
+                {
+                    doctor.Shifts = shifts;
+                    break;
+                }
+            }
+            SaveToFile(doctors);
+        }
+
+        private void SaveVacations(List<Vacation> vacations, string id)
+        {
+            doctors = GetAll();
+            foreach (var doctor in doctors)
+            {
+                if (doctor.Id.Equals(id))
+                {
+                    doctor.Vacations = vacations;
+                    break;
+                }
+            }
+            SaveToFile(doctors);
+        }
+
         public void Delete(int index)
         {
             doctors = GetAll();

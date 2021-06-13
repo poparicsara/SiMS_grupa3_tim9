@@ -186,5 +186,10 @@ namespace IS_Bolnica.Secretary
 
             this.NavigationService.Navigate(sp);
         }
+
+        private void PatientListGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

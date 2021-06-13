@@ -376,6 +376,24 @@ namespace IS_Bolnica.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Obriši smenu.
+        /// </summary>
+        public static string DeleteShiftButton {
+            get {
+                return ResourceManager.GetString("DeleteShiftButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Obriši pregled.
+        /// </summary>
+        public static string DeleteVacationButton {
+            get {
+                return ResourceManager.GetString("DeleteVacationButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to JMBG doktora:.
         /// </summary>
         public static string DocJMBGLabel {
@@ -408,6 +426,15 @@ namespace IS_Bolnica.Resources {
         public static string DoctorsButton {
             get {
                 return ResourceManager.GetString("DoctorsButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Doktor:.
+        /// </summary>
+        public static string DoctorsProfile {
+            get {
+                return ResourceManager.GetString("DoctorsProfile", resourceCulture);
             }
         }
         
@@ -804,6 +831,33 @@ namespace IS_Bolnica.Resources {
         public static string SchedulingExLabel {
             get {
                 return ResourceManager.GetString("SchedulingExLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kraj.
+        /// </summary>
+        public static string ShiftEnd {
+            get {
+                return ResourceManager.GetString("ShiftEnd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Početak.
+        /// </summary>
+        public static string ShiftStart {
+            get {
+                return ResourceManager.GetString("ShiftStart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tip smene.
+        /// </summary>
+        public static string ShiftType {
+            get {
+                return ResourceManager.GetString("ShiftType", resourceCulture);
             }
         }
         
