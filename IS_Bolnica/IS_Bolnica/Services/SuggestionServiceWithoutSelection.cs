@@ -46,7 +46,7 @@ namespace IS_Bolnica.Services
 
         private Doctor findRandDoctor()
         {
-            List<Doctor> doctors = doctorRepository.LoadFromFile();
+            List<Doctor> doctors = doctorRepository.GetAll();
             Random rnd = new Random();
             int index = rnd.Next(0, doctors.Count - 1);
             return doctors[index];
