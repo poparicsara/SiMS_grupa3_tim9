@@ -16,5 +16,15 @@ namespace Model
         public NotificationType notificationType { get; set; }
         public List<string> PersonId { get; set; }
 
+        public Notification(string title, string content, NotificationType notificationType, List<string> personId)
+        {
+            this.Title = title;
+            this.Content = content;
+            this.notificationType = notificationType;
+            this.PersonId = personId;
+        }
+
+        public Notification(){}
+
     }
 }

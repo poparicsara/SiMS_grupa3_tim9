@@ -12,5 +12,7 @@ namespace IS_Bolnica.IRepository
     {
         void AddShift(Shift shift);
         void AddVacation(Vacation vacation);
+        void DeleteShift(int index, string id);
+        void DeleteVacation(int index, string id);
     }
 }

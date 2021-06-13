@@ -435,6 +435,9 @@
     <Compile Include="Secretary\SecretaryProfile.xaml.cs">
       <DependentUpon>SecretaryProfile.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Secretary\SelectedDoctor.xaml.cs">
+      <DependentUpon>SelectedDoctor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Secretary\SelectedNotification.xaml.cs">
       <DependentUpon>SelectedNotification.xaml</DependentUpon>
     </Compile>
@@ -926,6 +929,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Secretary\SecretaryProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Secretary\SelectedDoctor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

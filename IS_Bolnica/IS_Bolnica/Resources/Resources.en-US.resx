@@ -222,6 +222,12 @@
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
   </data>
+  <data name="DeleteShiftButton" xml:space="preserve">
+    <value>Delete shift</value>
+  </data>
+  <data name="DeleteVacationButton" xml:space="preserve">
+    <value>Delete vacation</value>
+  </data>
   <data name="DocJMBGLabel" xml:space="preserve">
     <value>Doctor's JMBG:</value>
   </data>
@@ -233,6 +239,9 @@
   </data>
   <data name="DoctorsButton" xml:space="preserve">
     <value>DOCTORS</value>
+  </data>
+  <data name="DoctorsProfile" xml:space="preserve">
+    <value>Doctor:</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
@@ -365,6 +374,15 @@
   </data>
   <data name="SchedulingExLabel" xml:space="preserve">
     <value>Schedule examination</value>
+  </data>
+  <data name="ShiftEnd" xml:space="preserve">
+    <value>End</value>
+  </data>
+  <data name="ShiftStart" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="ShiftType" xml:space="preserve">
+    <value>Shift type</value>
   </data>
   <data name="ShowOptionsButton" xml:space="preserve">
     <value>Show appointment options</value>

@@ -15,6 +15,8 @@ namespace IS_Bolnica.Services
         private List<Appointment> examinations = new List<Appointment>();
         private List<Appointment> operations = new List<Appointment>();
         private UserService userService = new UserService();
+        private DoctorRepository doctorRepository = new DoctorRepository();
+        private List<Doctor> doctors = new List<Doctor>();
 
         public AppointmentService()
         {
@@ -209,28 +211,51 @@ namespace IS_Bolnica.Services
             return true;
         }
 
-        /*private bool isDoctorsShift(Appointment appointment)
+        private bool isDoctorsShift(Appointment appointment)
         {
-            doctors = doctorRepository.loadFromFile("Doctors.json");
-            foreach (var doctor in doctors)
+            //doctors = doctorRepository.GetAll();
+            Doctor doctor = doctorRepository.FindById(appointment.Doctor.Id);
+            Shift shift = findShift(doctor.Shifts, appointment);
+            if (shift == null) return false;
+            if (shift.ShiftType == ShiftType.day)
             {
-                if (doctor.Id.Equals(appointment.Doctor.Id))
+                if (appointment.StartTime.Hour < 6 || appointment.StartTime.Hour > 18)
                 {
-                    foreach (var shift in doctor.Shifts)
-                    {
-                        //if(appointment.StartTime <= shift.ShiftStartDate)
-                    }
+                    return false;
+                }
+
+            }
+            else
+            {
+                if (appointment.StartTime.Hour > 6 && appointment.StartTime.Hour < 18)
+                {
+                    return false;
                 }
             }
 
+
             return true;
-        }*/
+        }
+
+        private Shift findShift(List<Shift> shifts, Appointment appointment)
+        {
+            foreach (var shift in shifts)
+            {
+                if (shift.ShiftStartDate <= appointment.StartTime && shift.ShiftEndDate >= appointment.StartTime)
+                {
+                    return shift;
+                }
+            }
+
+            return null;
+        }
 
         public bool IsAvailable(Appointment appointment)
         {
             if (isPatientFree(appointment) &&
                 isRoomFree(appointment) &&
-                isDoctorFree(appointment))
+                isDoctorFree(appointment)&&
+                isDoctorsShift(appointment))
             {
                 return true;
             }
@@ -368,118 +393,6 @@ namespace IS_Bolnica.Services
             {
                 return;
             }
-        }
-
-
-        public List<Appointment> GetOperations()
-        {
-            foreach (var appointment in appointments)
-            {
-                if (appointment.AppointmentType == AppointmentType.operation)
-                {
-                    operations.Add(appointment);
-                }
-            }
-
-            return operations;
-        }
-
-
-        private bool IsAppointmentValid(Appointment appointment)
-        {
-            if (appointment.Room != null && appointment.Doctor != null && appointment.Patient != null)
-            {
-                return true;
-            }
-            return false;
-
-        }
-
-        private bool isPatientFree(List<Appointment> appointments, Appointment appointment)
-        {
-
-            foreach (Appointment app in appointments)
-            {
-                if (app.Patient.Id == appointment.Patient.Id)
-                {
-                    if (app.StartTime <= appointment.StartTime && appointment.StartTime < app.EndTime)
-                    {
-                        return false;
-                    }
-                    else if (app.StartTime < appointment.EndTime && appointment.EndTime <= app.EndTime)
-                    {
-                        return false;
-                    }
-                    else if (app.StartTime >= appointment.StartTime && app.EndTime < appointment.EndTime)
-                    {
-                        return false;
-                    }
-                }
-
-            }
-
-            return true;
-        }
-
-        private bool isRoomFree(List<Appointment> appointments, Appointment appointment)
-        {
-            foreach (Appointment app in appointments)
-            {
-                if (app.Room.Id == appointment.Room.Id)
-                {
-                    if (app.StartTime <= appointment.StartTime && appointment.StartTime < app.EndTime)
-                    {
-                        return false;
-                    }
-                    else if (app.StartTime < appointment.EndTime && appointment.EndTime <= app.EndTime)
-                    {
-                        return false;
-                    }
-                    else if (app.StartTime >= appointment.StartTime && app.EndTime < appointment.EndTime)
-                    {
-                        return false;
-                    }
-                }
-            }
-            return true;
-        }
-
-        private bool isDoctorFree(List<Appointment> appointments, Appointment appointment)
-        {
-            foreach (Appointment app in appointments)
-            {
-                if (app.Doctor.Id == appointment.Doctor.Id)
-                {
-                    if (app.StartTime <= appointment.StartTime && appointment.StartTime < app.EndTime)
-                    {
-                        return false;
-                    }
-                    else if (app.StartTime < appointment.EndTime && appointment.EndTime <= app.EndTime)
-                    {
-                        return false;
-                    }
-                    else if (app.StartTime >= appointment.StartTime && app.EndTime <= appointment.EndTime)
-                    {
-                        return false;
-                    }
-                }
-            }
-            return true;
-        }
-
-        private bool isAvailable(List<Appointment> appointments, Appointment appointment)
-        {
-            if (isPatientFree(appointments, appointment) &&
-                isRoomFree(appointments, appointment) &&
-                isDoctorFree(appointments, appointment))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-
         }
 
         private bool IsDoctorAvailable(Appointment appointment)
