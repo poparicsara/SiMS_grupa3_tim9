@@ -128,7 +128,7 @@ namespace IS_Bolnica.Services
 
         }
 
-        private int FindAppointmentIndex(Appointment appointment)
+        public int FindAppointmentIndex(Appointment appointment)
         {
             appointments = appointmentRepository.GetAll();
             for (int i = 0; i < appointments.Count; i++)
