@@ -185,7 +185,8 @@
     <Compile Include="DoctorUI\ScheduleOperationWindow.xaml.cs">
       <DependentUpon>ScheduleOperationWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DoctorUI\SettingsWindow.xaml.cs">
+    <Compile Include="GUI\Doctor\ViewModel\SettingsWindowVM.cs" />
+    <Compile Include="GUI\Doctor\View\SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="DoctorUI\UpdateMedicamentWindow.xaml.cs">
@@ -656,7 +657,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DoctorUI\SettingsWindow.xaml">
+    <Page Include="GUI\Doctor\View\SettingsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

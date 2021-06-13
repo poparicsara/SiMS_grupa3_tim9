@@ -13,16 +13,5 @@ namespace IS_Bolnica.GUI.Secretary.View
             DataContext = new SecretaryProfileVM(username, window);
         }
 
-
-        /*private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            ActionBar ab = new ActionBar();
-            this.NavigationService.Navigate(ab);
-        }
-
-        private void Logout_Clicked(object sender, RoutedEventArgs e)
-        {
-            
-        }*/
     }
 }
