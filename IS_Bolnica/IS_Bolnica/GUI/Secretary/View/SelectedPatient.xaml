@@ -1,4 +1,4 @@
-﻿<Page x:Class="IS_Bolnica.Secretary.SelectedPatient"
+﻿<Page x:Class="IS_Bolnica.GUI.Secretary.View.SelectedPatient"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -10,7 +10,7 @@
       Title="SelectedPatient">
 
     <Grid>
-        <Button Background="White" BorderBrush="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="48" Margin="10,10,0,0" Height="48" Click="Button_Click">
+        <Button Background="White" Command="{Binding Path=BackButtonCommand}" BorderBrush="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="48" Margin="10,10,0,0" Height="48">
             <StackPanel>
                 <Image Source="C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\Images\undo.jpg" Width="46" Height="41" RenderTransformOrigin="0.543,0.5"/>
             </StackPanel>
@@ -29,18 +29,18 @@
         <Label FontSize="15" FontWeight="Bold" Content="{ns:Loc CityLabel}" HorizontalAlignment="Left" Margin="40,500,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="28"/>
         <Label FontSize="15" FontWeight="Bold" Content="{ns:Loc CountryLabel}" HorizontalAlignment="Left" Margin="40,540,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="28"/>
         <Label FontSize="15" FontWeight="Bold" Content="{ns:Loc AllergenLabel}" HorizontalAlignment="Left" Margin="40,580,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="140" Height="32"/>
-        <Label x:Name="imeLabel" HorizontalAlignment="Left" Margin="232,140,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="170" Height="28"/>
-        <Label x:Name="prezimeimeLabel" HorizontalAlignment="Left" Margin="232,180,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="170" Height="28"/>
-        <Label x:Name="usernameLabel" HorizontalAlignment="Left" Margin="232,220,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="170" Height="28"/>
-        <Label x:Name="JMBGLabel" HorizontalAlignment="Left" Margin="232,260,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="170" Height="28"/>
-        <Label x:Name="dateLabel" HorizontalAlignment="Left" Margin="232,300,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="170" Height="28"/>
-        <Label x:Name="emailLabel" HorizontalAlignment="Left" Margin="232,380,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="170" Height="28"/>
-        <Label x:Name="telephoneLabel" HorizontalAlignment="Left" Margin="232,340,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="170" Height="28"/>
-        <Label x:Name="genderLabel"  HorizontalAlignment="Left" Margin="232,420,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="170" Height="28"/>
-        <Label x:Name="adressLabel" HorizontalAlignment="Left" Margin="232,460,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="170" Height="28"/>
-        <Label x:Name="cityLabel" HorizontalAlignment="Left" Margin="232,500,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="170" Height="28"/>
-        <Label x:Name="countryLabel" HorizontalAlignment="Left" Margin="232,540,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="170" Height="28"/>
-        <TextBlock x:Name="allergensLabel" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="76" Width="166" Margin="236,585,0,0"/>
+        <Label x:Name="imeLabel" Content="{ Binding Path=imeLabel}" HorizontalAlignment="Left" Margin="232,140,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="170" Height="28"/>
+        <Label x:Name="prezimeimeLabel" Content="{ Binding Path=prezimeLabel}" HorizontalAlignment="Left" Margin="232,180,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="170" Height="28"/>
+        <Label x:Name="usernameLabel" Content="{ Binding Path=usernameLabel}" HorizontalAlignment="Left" Margin="232,220,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="170" Height="28"/>
+        <Label x:Name="JMBGLabel" Content="{ Binding Path=JMBGLabel}" HorizontalAlignment="Left" Margin="232,260,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="170" Height="28"/>
+        <Label x:Name="dateLabel" Content="{ Binding Path=dateLabel}" HorizontalAlignment="Left" Margin="232,300,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="170" Height="28"/>
+        <Label x:Name="emailLabel" Content="{ Binding Path=emailLabel}" HorizontalAlignment="Left" Margin="232,380,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="170" Height="28"/>
+        <Label x:Name="telephoneLabel" Content="{ Binding Path=telephoneLabel}" HorizontalAlignment="Left" Margin="232,340,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="170" Height="28"/>
+        <Label x:Name="genderLabel" Content="{ Binding Path=genderLabel}"  HorizontalAlignment="Left" Margin="232,420,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="170" Height="28"/>
+        <Label x:Name="adressLabel" Content="{ Binding Path=addressLabel}" HorizontalAlignment="Left" Margin="232,460,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="170" Height="28"/>
+        <Label x:Name="cityLabel" Content="{ Binding Path=cityLabel}" HorizontalAlignment="Left" Margin="232,500,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="170" Height="28"/>
+        <Label x:Name="countryLabel" Content="{ Binding Path=countryLabel}" HorizontalAlignment="Left" Margin="232,540,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,-0.052" Width="170" Height="28"/>
+        <TextBlock x:Name="allergensLabel" Text="{ Binding Path=allergensLabel}" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="76" Width="166" Margin="236,585,0,0"/>
         <Label Content="{ns:Loc PatientsProfile}" FontWeight="Bold"  Foreground="Green" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,75,0,0" Width="299" Height="48"/>
     </Grid>
 </Page>

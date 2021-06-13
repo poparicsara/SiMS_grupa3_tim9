@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
+using IS_Bolnica.GUI.Secretary.View;
 using IS_Bolnica.Model;
 using IS_Bolnica.Patterns;
 using IS_Bolnica.Services;
@@ -152,8 +153,8 @@ namespace IS_Bolnica.Secretary
         private void PatientListGrid_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             Patient patient = (Patient) PatientListGrid.SelectedItem;
-            SelectedPatient sp = new SelectedPatient(this);
-            sp.imeLabel.Content = patient.Name;
+            SelectedPatient sp = new SelectedPatient(this, patient);
+            /*sp.imeLabel.Content = patient.Name;
             sp.prezimeimeLabel.Content = patient.Surname;
             sp.JMBGLabel.Content = patient.Id;
             sp.adressLabel.Content = patient.Address.Street + " "
@@ -184,7 +185,7 @@ namespace IS_Bolnica.Secretary
                 {
                     sp.allergensLabel.Text += ingredient.Name + "\n";
                 }
-            }
+            }*/
 
             this.NavigationService.Navigate(sp);
         }
