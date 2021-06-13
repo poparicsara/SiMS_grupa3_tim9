@@ -137,6 +137,8 @@
     <Compile Include="DoctorNotificationWindow.xaml.cs">
       <DependentUpon>DoctorNotificationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DoctorUI\Adaptee.cs" />
+    <Compile Include="DoctorUI\Adapter.cs" />
     <Compile Include="DoctorUI\AnamnesisInvoiceWindow.xaml.cs">
       <DependentUpon>AnamnesisInvoiceWindow.xaml</DependentUpon>
     </Compile>
@@ -161,6 +163,7 @@
     <Compile Include="DoctorUI\InvoiceWindow.xaml.cs">
       <DependentUpon>InvoiceWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DoctorUI\IOperation.cs" />
     <Compile Include="DoctorUI\MedicalRecordWindow.xaml.cs">
       <DependentUpon>MedicalRecordWindow.xaml</DependentUpon>
     </Compile>
@@ -218,7 +221,6 @@
       <DependentUpon>InventoryWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="InventoryInRoom.cs" />
-
     <Compile Include="IRepository\IAnamnesisRepository.cs" />
     <Compile Include="IRepository\IDoctorRepository.cs" />
     <Compile Include="IRepository\IGenericRepository.cs" />

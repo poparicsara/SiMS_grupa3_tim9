@@ -25,6 +25,7 @@ namespace IS_Bolnica.DoctorUI
         private RoomService roomService = new RoomService();
         private List<int> hours = new List<int>();
         private Appointment operation = new Appointment();
+        private AppointmentRepository repo = new AppointmentRepository();
         public ScheduleOperationWindow()
         {
             InitializeComponent();
@@ -32,6 +33,8 @@ namespace IS_Bolnica.DoctorUI
             SetTimePicker();
             doctorsCB.ItemsSource = doctorService.GetSpecialistsNameSurname();
             confirmButton.IsEnabled = false;
+
+
         }
         private void PotvrdiButtonClick(object sender, RoutedEventArgs e)
         {
@@ -54,17 +57,12 @@ namespace IS_Bolnica.DoctorUI
             date = new DateTime(date.Year, date.Month, date.Day, hour, minute, 0);
             operation.AppointmentType = AppointmentType.operation;
 
+            List<Appointment> appointments = appointmentService.GetOperations();
+            IOperation ioperation = new Adapter(appointmentService);
+
             if (isUrgentRB.IsChecked == true)
             {
-                foreach (Appointment a in appointmentService.GetAppointments())
-                {
-                    if (date == a.StartTime && a.AppointmentType == AppointmentType.operation)
-                    {
-                        a.StartTime = a.StartTime.AddDays(1);
-                        break;
-                    }
-                }
-
+                ioperation.ScheduleOperation(date);
                 operation.StartTime = date;
             }
             else

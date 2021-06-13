@@ -34,8 +34,13 @@ namespace IS_Bolnica.Services
 
         public void DeleteAppointment(Appointment appointment)
         {
+            //int index = FindAppointmentIndex(appointment);
+            //appointmentRepository.Delete(index);
+            appointments = appointmentRepository.GetAll();
             int index = FindAppointmentIndex(appointment);
-            appointmentRepository.Delete(index);
+            if (index == -1) return;
+            appointments.RemoveAt(index);
+            appointmentRepository.SaveToFile(appointments);
         }
 
         public void EditAppointment(Appointment oldAppointment, Appointment newAppointment)
@@ -666,6 +671,19 @@ namespace IS_Bolnica.Services
                     return true;
             }
             return false;
+        }
+
+        public void ScheduleUrgentOperation(DateTime date)
+        {
+            foreach (Appointment appointment in appointments)
+            {
+                if (date.Equals(appointment.StartTime) && appointment.AppointmentType.Equals(AppointmentType.operation))
+                {
+                    appointment.StartTime = appointment.StartTime.AddDays(1);
+                    break;
+                }
+            }
+            appointmentRepository.SaveToFile(appointments);
         }
 
     }

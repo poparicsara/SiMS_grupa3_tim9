@@ -25,12 +25,6 @@ namespace IS_Bolnica.Model
             SaveToFile(meds);
         }
 
-        [CanBeNull]
-        public Medicament FindById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         public Medicament GetMedicament(string name)
         {
             Medicament medicament = new Medicament();

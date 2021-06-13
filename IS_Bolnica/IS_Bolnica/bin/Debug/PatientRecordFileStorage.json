@@ -42,7 +42,7 @@
     "brojOcenjenihPregleda": 0,
     "Gender": 0,
     "isBlocked": false,
-    "HealthCardNumber": "",
+    "HealthCardNumber": "554",
     "Anamneses": [],
     "Ingredients": [
       {
@@ -230,7 +230,7 @@
     "brojOcenjenihPregleda": 0,
     "Gender": 0,
     "isBlocked": false,
-    "HealthCardNumber": "",
+    "HealthCardNumber": "1234",
     "Anamneses": [],
     "Ingredients": [
       {
