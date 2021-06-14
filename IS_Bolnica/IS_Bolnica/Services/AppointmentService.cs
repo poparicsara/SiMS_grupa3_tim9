@@ -144,7 +144,7 @@ namespace IS_Bolnica.Services
             return -1;
         }
 
-        private bool isPatientFree(Appointment appointment)
+        public bool isPatientFree(Appointment appointment)
         {
             if (appointment.Patient == null) return false;
             appointments = appointmentRepository.GetAll();
@@ -169,7 +169,7 @@ namespace IS_Bolnica.Services
             return true;
         }
 
-        private bool isRoomFree(Appointment appointment)
+        public bool isRoomFree(Appointment appointment)
         {
             appointments = appointmentRepository.GetAll();
             foreach (Appointment app in appointments)
@@ -193,7 +193,7 @@ namespace IS_Bolnica.Services
             return true;
         }
 
-        private bool isDoctorFree(Appointment appointment)
+        public bool isDoctorFree(Appointment appointment)
         {
             appointments = appointmentRepository.GetAll();
             foreach (Appointment app in appointments)
@@ -217,7 +217,7 @@ namespace IS_Bolnica.Services
             return true;
         }
 
-        private bool isDoctorsShift(Appointment appointment)
+        public bool isDoctorsShift(Appointment appointment)
         {
             Doctor doctor = doctorRepository.FindById(appointment.Doctor.Id);
             Shift shift = findShift(doctor.Shifts, appointment);
@@ -276,47 +276,6 @@ namespace IS_Bolnica.Services
             return appointmentRepository.GetAll();
         }
 
-        /*public List<Appointment> GetSearchedExaminations(string text)
-        {
-            appointments = appointmentRepository.GetAll();
-            List<Appointment> searchedAppointments = new List<Appointment>();
-            foreach (Appointment appointment in appointments)
-            {
-                if (ISearched(text, appointment))
-                {
-                    if (appointment.AppointmentType == AppointmentType.examination)
-                    {
-                        searchedAppointments.Add(appointment);
-                    }
-                }
-            }
-
-            return searchedAppointments;
-        }
-
-        public List<Appointment> GetSearchedOperations(string text)
-        {
-            appointments = appointmentRepository.GetAll();
-            List<Appointment> searchedAppointments = new List<Appointment>();
-            foreach (Appointment appointment in appointments)
-            {
-                if (ISearched(text, appointment))
-                {
-                    if (appointment.AppointmentType == AppointmentType.operation)
-                    {
-                        searchedAppointments.Add(appointment);
-                    }
-                }
-            }
-
-            return searchedAppointments;
-        }
-
-        private static bool ISearched(string text, Appointment a)
-        {
-            return a.Patient.Id.ToLower().StartsWith(text) ||
-                   a.Doctor.Surname.ToLower().StartsWith(text);
-        }*/
 
         public int CountDoctorsOperations()
         {
