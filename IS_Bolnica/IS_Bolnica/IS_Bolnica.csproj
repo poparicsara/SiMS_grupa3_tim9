@@ -219,6 +219,7 @@
     <Compile Include="GUI\Patient\View\EvaluationsForAppointments.xaml.cs" />
     <Compile Include="GUI\Patient\View\InformationPage.xaml.cs" />
     <Compile Include="GUI\Patient\View\Profile.xaml.cs" />
+    <Compile Include="GUI\Secretary\ViewModel\DoctorListVM.cs" />
     <Compile Include="GUI\Secretary\ViewModel\SecretaryProfileVM.cs" />
     <Compile Include="GUI\Secretary\ViewModel\SelectedPatientVM.cs" />
     <Compile Include="Ingredient.cs" />
