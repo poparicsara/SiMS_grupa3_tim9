@@ -28,7 +28,7 @@ namespace IS_Bolnica.DoctorUI
         public NotificationsWindow()
         {
             InitializeComponent();
-            this.requests = requestRepository.GetRequests();
+            this.requests = requestRepository.GetAll();
             //this.doctor = user;
             requestsDataGrid.ItemsSource = requests;
 

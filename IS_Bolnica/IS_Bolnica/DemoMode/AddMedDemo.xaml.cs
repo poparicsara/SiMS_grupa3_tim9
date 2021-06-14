@@ -25,9 +25,7 @@ namespace IS_Bolnica.DemoMode
         private string replacement;
         private Medicament selectedReplacement = new Medicament();
         private List<Medicament> meds;
-        private Medicament newMedicament = new Medicament();
         private MedicamentService medService = new MedicamentService();
-        private RequestService requestService = new RequestService();
 
         public AddMedDemo()
         {

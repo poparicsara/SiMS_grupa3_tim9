@@ -22,9 +22,18 @@ namespace IS_Bolnica
             {
                 if (m.Id == medicament.Id)
                 {
+                    CheckMedicamentIngredients(m);
                     m.Ingredients.Add(ingredient);
                     medRepository.SaveToFile(meds);
                 }
+            }
+        }
+
+        private static void CheckMedicamentIngredients(Medicament m)
+        {
+            if (m.Ingredients == null)
+            {
+                m.Ingredients = new List<Ingredient>();
             }
         }
 

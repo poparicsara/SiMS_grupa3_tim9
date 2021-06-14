@@ -81,5 +81,49 @@
     "Sender": 0,
     "notificationType": 2,
     "PersonId": null
+  },
+  {
+    "Title": "Pažnja",
+    "Content": "Obavestavamo vas da vam je otkazan pregled koji je planiran 6/23/2021 10:00:00 AMMolimo Vas da nas kontaktirate kako bismo se dogovorili o ponovnom zakazivanju istog!",
+    "Sender": 0,
+    "notificationType": 5,
+    "PersonId": [
+      "3333333333333"
+    ]
+  },
+  {
+    "Title": "Pomeranje termina zbog renoviranja",
+    "Content": "\tProstorija: 202\n\tPacijent: Srdjan Srdic\n\tDoktor: Ana Srdic\n",
+    "Sender": 3,
+    "notificationType": 2,
+    "PersonId": null
+  },
+  {
+    "Title": "Izmena zahteva za novi lek",
+    "Content": "1000\nposlednji lek\nAlopurinol\nftn\na\r\na\r\na\n\nPROMENI NAZIV",
+    "Sender": 1,
+    "notificationType": 3,
+    "PersonId": null
+  },
+  {
+    "Title": "Izmena zahteva za novi lek",
+    "Content": "1000\ninterfejs\nAlopurinol\nftn\na\r\na\r\na\n\nPROMENI IME",
+    "Sender": 1,
+    "notificationType": 3,
+    "PersonId": null
+  },
+  {
+    "Title": "Izmena zahteva za novi lek",
+    "Content": "1000\najde\nAlopurinol\nmi\na\r\n\n\nPROMENI NESTO",
+    "Sender": 1,
+    "notificationType": 3,
+    "PersonId": null
+  },
+  {
+    "Title": "Izmena zahteva za novi lek",
+    "Content": "1000\nposljednji\nAlopurinol\nmi\na\r\na\r\na\r\na\r\na\n\nPOPRAVI",
+    "Sender": 1,
+    "notificationType": 3,
+    "PersonId": null
   }
 ]

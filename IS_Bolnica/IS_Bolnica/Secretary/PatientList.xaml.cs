@@ -19,6 +19,7 @@ namespace IS_Bolnica.Secretary
         private PatientService patientService = new PatientService();
         private UserService userService = new UserService();
         private AppointmentService appointmentService = new AppointmentService();
+        private Page prevoiusPage;
 
         public PatientList(Page prevoiusPage)
         {

@@ -11,7 +11,7 @@
 
         <DataGrid x:Name ="inventoryDataGrid" HorizontalAlignment="Center" Height="517" VerticalAlignment="Center" Width="588" FontSize="16"
                   ColumnWidth="193.3" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserAddRows="False" AutoGenerateColumns="False"
-                  RowHeight="30" Margin="53,99,52.6,9.6" BorderThickness="8" BorderBrush="Black">
+                  RowHeight="30" Margin="53,99,52.6,9.6" BorderThickness="8" BorderBrush="Black" ItemsSource="{Binding Path=RoomInventory}">
             <!-- Style -->
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">

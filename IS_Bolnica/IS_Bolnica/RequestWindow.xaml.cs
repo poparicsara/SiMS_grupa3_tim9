@@ -24,7 +24,7 @@ namespace IS_Bolnica
         {
             InitializeComponent();
 
-            requests = requestStorage.GetRequests();
+            requests = requestStorage.GetAll();
 
             requestData.ItemsSource = requests;
         }

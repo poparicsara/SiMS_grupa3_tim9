@@ -24,7 +24,7 @@ namespace IS_Bolnica.DoctorUI
         private UserService userService = new UserService();
         private MedicamentService medicamentService = new MedicamentService();
         private NotificationService notificationService = new NotificationService();
-        private RequestService requestService = new RequestService();
+        private RequestService requestService = new RequestService(new RequestRepository());
         private Medicament selectedMedicament = new Medicament();
         private int selectedId;
         public ReviewMedRequestWindow(Request selectedRequest)

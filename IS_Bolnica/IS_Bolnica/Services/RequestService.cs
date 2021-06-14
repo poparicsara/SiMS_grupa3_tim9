@@ -4,44 +4,50 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using IS_Bolnica.IRepository;
 using IS_Bolnica.Model;
 
 namespace IS_Bolnica.Services
 {
-    class RequestService
+    public class RequestService
     {
-        private RequestRepository repository = new RequestRepository();
-        private List<Request> requests = new List<Request>();
+        public IRequestRepository Repository { get; set; }
+        //private RequestRepository repository = new RequestRepository();
 
-        public RequestService()
+        public RequestService(IRequestRepository repository)
         {
-            requests = repository.GetRequests();
+            Repository = repository;
         }
 
         public void SendRequest(Request newRequest)
         {
-            repository.AddRequest(newRequest);
+            Repository.Add(newRequest);
         }
 
         public List<Request> GetRequests()
         {
-            return repository.GetRequests();
+            return Repository.GetAll();
         }
 
-        public void DeleteRequest(Request selectedRequest)
+        private int FindIndex(Request request)
         {
-            int i = 0;
-            foreach (Request request in requests)
+            int index = 0;
+            foreach (Request r in Repository.GetAll())
             {
-                if (request.Title.Equals(selectedRequest.Title) && request.Content.Equals(selectedRequest.Content))
+                if (r.Title.Equals(request.Title) && r.Content.Equals(request.Content))
                 {
                     break;
                 }
 
-                i++;
+                index++;
             }
-            requests.RemoveAt(i);
-            repository.SaveToFile(requests);
+            return index;
+        }
+
+        public void DeleteRequest(Request selectedRequest)
+        {
+            int index = FindIndex(selectedRequest);
+            Repository.Delete(index);
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using IS_Bolnica.IRepository;
 using IS_Bolnica.Services;
 
 namespace IS_Bolnica
@@ -18,7 +19,7 @@ namespace IS_Bolnica
         private List<Medicament> meds;
         private Medicament newMedicament = new Medicament();
         private MedicamentService medService = new MedicamentService();
-        private RequestService requestService = new RequestService();
+        private RequestService requestService = new RequestService(new RequestRepository());
 
         public AddMedicamentWindow()
         {
