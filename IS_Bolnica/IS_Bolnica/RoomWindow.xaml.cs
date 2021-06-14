@@ -13,7 +13,7 @@ namespace IS_Bolnica
         private Room selectedRoom;
         private RoomService service = new RoomService();
 
-        public RoomWindow(Director director)
+        public RoomWindow(global::Model.Director director)
         {
             InitializeComponent();
 

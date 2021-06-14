@@ -205,13 +205,9 @@
     <Compile Include="DoctorUI\ScheduleOperationWindow.xaml.cs">
       <DependentUpon>ScheduleOperationWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DoctorUI\SettingsWindow.xaml.cs"/>
+    <Compile Include="DoctorUI\SettingsWindow.xaml.cs" />
     <Compile Include="GUI\Director\ViewModel\RoomInventoryViewModel.cs" />
     <Compile Include="GUI\Director\ViewModel\SelectedNotificationViewModel.cs" />
-    <Compile Include="GUI\Doctor\ViewModel\SettingsWindowVM.cs" />
-    <Compile Include="GUI\Doctor\View\SettingsWindow.xaml.cs">
-      <DependentUpon>SettingsWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="DoctorUI\UpdateMedicamentWindow.xaml.cs">
       <DependentUpon>UpdateMedicamentWindow.xaml</DependentUpon>
     </Compile>

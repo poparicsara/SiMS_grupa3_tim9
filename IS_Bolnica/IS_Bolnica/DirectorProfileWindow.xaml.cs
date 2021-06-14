@@ -61,7 +61,7 @@ namespace IS_Bolnica
 
         private void RoomButtonClicked(object sender, RoutedEventArgs e)
         {
-            Director d = new Director();
+            global::Model.Director d = new global::Model.Director();
             RoomWindow uw = new RoomWindow(d);
             uw.Show();
             this.Close();

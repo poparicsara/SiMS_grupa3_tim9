@@ -12,7 +12,7 @@ namespace IS_Bolnica
     public partial class AddRoomWindow : Window
     {
         Room newRoom = new Room();
-        Director director = new Director();
+        global::Model.Director director = new global::Model.Director();
         string selectedWard;
         string selectedPurpose;
         private RoomService service = new RoomService();
