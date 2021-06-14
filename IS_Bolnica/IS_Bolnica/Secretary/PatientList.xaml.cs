@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using IS_Bolnica.GUI.Secretary.View;
 using IS_Bolnica.Model;
@@ -15,7 +13,6 @@ namespace IS_Bolnica.Secretary
 {
     public partial class PatientList : Page
     {
-        private Page prevoiusPage;
         private List<Patient> patients { get; set; } = new List<Patient>();
         private PatientService patientService = new PatientService();
         private UserService userService = new UserService();
@@ -154,38 +151,6 @@ namespace IS_Bolnica.Secretary
         {
             Patient patient = (Patient) PatientListGrid.SelectedItem;
             SelectedPatient sp = new SelectedPatient(this, patient);
-            /*sp.imeLabel.Content = patient.Name;
-            sp.prezimeimeLabel.Content = patient.Surname;
-            sp.JMBGLabel.Content = patient.Id;
-            sp.adressLabel.Content = patient.Address.Street + " "
-                                                    + Convert.ToString(patient.Address.NumberOfBuilding) + "/"
-                                                    + Convert.ToString(patient.Address.Floor) + "/"
-                                                    + Convert.ToString(patient.Address.Apartment);
-            sp.cityLabel.Content = patient.Address.City.name + " "
-                                                     + Convert.ToString(patient.Address.City.postalCode);
-            sp.countryLabel.Content = patient.Address.City.Country.name;
-            sp.dateLabel.Content = patient.DateOfBirth.Day + "." + patient.DateOfBirth.Month + "." +
-                                   patient.DateOfBirth.Year;
-            sp.emailLabel.Content = patient.Email;
-            if (patient.Gender == Gender.male)
-            {
-                sp.genderLabel.Content = "Muško";
-            }
-            else
-            {
-                sp.genderLabel.Content = "Žensko";
-            }
-
-            sp.telephoneLabel.Content = patient.Phone;
-            sp.usernameLabel.Content = patient.Username;
-            sp.allergensLabel.Text = "";
-            if (patient.Ingredients != null && patient.Ingredients.Count != 0)
-            {
-                foreach (var ingredient in patient.Ingredients)
-                {
-                    sp.allergensLabel.Text += ingredient.Name + "\n";
-                }
-            }*/
 
             this.NavigationService.Navigate(sp);
         }
