@@ -2823,8 +2823,8 @@
         "Name": "Ordinacija"
       }
     },
-    "StartTime": "2021-06-16T10:00:00",
-    "EndTime": "2021-06-16T10:30:00",
+    "StartTime": "2021-07-04T19:00:00",
+    "EndTime": "0001-01-01T00:00:00",
     "PostponedDate": "0001-01-01T00:00:00",
     "IsUrgent": false,
     "AppointmentType": 1,
