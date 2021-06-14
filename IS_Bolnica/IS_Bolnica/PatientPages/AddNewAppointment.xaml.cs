@@ -69,7 +69,7 @@ namespace IS_Bolnica.PatientPages
                 int duration = rnd.Next(23, 29);
                 Patient patient = findAttributesService.findPatientByUsername(PatientWindow.loggedPatient.Username);
                 Room room = findAttributesService.findRoomByDoctor(doctor);
-                Appointment appointment = new Appointment { DurationInMins = duration, Doctor = doctor, StartTime = dateOfAppointment, EndTime = dateOfAppointment.AddMinutes(30), Patient = patient, Room = room };
+                Appointment appointment = new Appointment { DurationInMins = duration, Doctor = doctor, StartTime = dateOfAppointment, EndTime = dateOfAppointment.AddMinutes(30), Patient = patient, Room = room, AppointmentType = AppointmentType.examination };
                 if (isAppointmentInDoctorsShift(appointment))
                 {
                     appointmentService.AddAppointment(appointment);

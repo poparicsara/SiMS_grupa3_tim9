@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using IS_Bolnica.Model;
+using Syncfusion.Windows.Shared;
 
 namespace IS_Bolnica.Services
 {
@@ -69,57 +70,56 @@ namespace IS_Bolnica.Services
 
             foreach (Appointment appointment in allAppointmentsAndOperations)
             {
-                if (appointment.AppointmentType.Equals("examination"))
+                if (appointment.AppointmentType.Equals(AppointmentType.examination))
                 {
                     if (appointment.StartTime.Month == getMonth(startDate) && appointment.StartTime.Month < getMonth(endDate))
                     {
                         if (appointment.StartTime.Day >= getDay(startDate))
-                        {
-                            Report report = new Report { StartTime = appointment.StartTime, Doctor = appointment.Doctor, TypeOfAppointment = "Pregled", NumOfRoom = appointment.Room.Id };
-                            reportList.Add(report);
-                        }
+                            addInReportList(reportList, appointment, "Pregled");
                     }
                     else if (appointment.StartTime.Month > getMonth(startDate) && appointment.StartTime.Month == getMonth(endDate))
                     {
                         if (appointment.StartTime.Day <= getDay(endDate))
-                        {
-                            Report report = new Report { StartTime = appointment.StartTime, Doctor = appointment.Doctor, TypeOfAppointment = "Pregled", NumOfRoom = appointment.Room.Id };
-                            reportList.Add(report);
-                        }
+                            addInReportList(reportList, appointment, "Pregled");
+                    }
+                    else if (appointment.StartTime.Month == getMonth(startDate) && appointment.StartTime.Month == getMonth(endDate))
+                    {
+                        if (appointment.StartTime.Day >= getDay(startDate) && appointment.StartTime.Day <= getDay(endDate))
+                            addInReportList(reportList, appointment, "Pregled");
                     }
                     else if (appointment.StartTime.Month > getMonth(startDate) && appointment.StartTime.Month < getMonth(endDate))
-                    {
-                        Report report = new Report { StartTime = appointment.StartTime, Doctor = appointment.Doctor, TypeOfAppointment = "Pregled", NumOfRoom = appointment.Room.Id };
-                        reportList.Add(report);
-                    }
+                        addInReportList(reportList, appointment, "Pregled");
+                    
+                    
                 }
                 else
                 {
                     if (appointment.StartTime.Month == getMonth(startDate) && appointment.StartTime.Month < getMonth(endDate))
                     {
                         if (appointment.StartTime.Day >= getDay(startDate))
-                        {
-                            Report report = new Report { StartTime = appointment.StartTime, Doctor = appointment.Doctor, TypeOfAppointment = "Operacija", NumOfRoom = appointment.Room.Id };
-                            reportList.Add(report);
-                        }
+                            addInReportList(reportList, appointment, "Operacija");
                     }
                     else if (appointment.StartTime.Month > getMonth(startDate) && appointment.StartTime.Month == getMonth(endDate))
                     {
                         if (appointment.StartTime.Day <= getDay(endDate))
-                        {
-                            Report report = new Report { StartTime = appointment.StartTime, Doctor = appointment.Doctor, TypeOfAppointment = "Operacija", NumOfRoom = appointment.Room.Id };
-                            reportList.Add(report);
-                        }
+                            addInReportList(reportList, appointment, "Operacija");
+                    }
+                    else if (appointment.StartTime.Month == getMonth(startDate) && appointment.StartTime.Month == getMonth(endDate))
+                    {
+                        if (appointment.StartTime.Day >= getDay(startDate) && appointment.StartTime.Day <= getDay(endDate))
+                            addInReportList(reportList, appointment, "Operacija");
                     }
                     else if (appointment.StartTime.Month > getMonth(startDate) && appointment.StartTime.Month < getMonth(endDate))
-                    {
-                        Report report = new Report { StartTime = appointment.StartTime, Doctor = appointment.Doctor, TypeOfAppointment = "Operacija", NumOfRoom = appointment.Room.Id };
-                        reportList.Add(report);
-                    }
+                        addInReportList(reportList, appointment, "Operacija");
                 }
             }
-
             return reportList;
+        }
+
+        private void addInReportList(List<Report> reportList, Appointment appointment, String typeOfAppointment)
+        {
+            Report report = new Report { StartTime = appointment.StartTime, Doctor = appointment.Doctor, TypeOfAppointment = typeOfAppointment, NumOfRoom = appointment.Room.Id };
+            reportList.Add(report);
         }
 
         public int getDay(String date)

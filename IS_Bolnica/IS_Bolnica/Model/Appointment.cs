@@ -19,7 +19,6 @@ namespace IS_Bolnica.Model
         public DateTime PostponedDate { get; set; }
         public bool IsUrgent { get; set; }
         public AppointmentType AppointmentType { get; set; }
-
         public string YesNo { get; set; }
     }
 }
