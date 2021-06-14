@@ -9,7 +9,7 @@ namespace IS_Bolnica.GUI.Secretary.ViewModel
 {
     class SelectedDoctorVM
     {
-        public SelectedDoctorVM(Doctor doctor)
+        public SelectedDoctorVM(global::Model.Doctor doctor)
         {
 
         }
