@@ -216,7 +216,7 @@ namespace IS_Bolnica.Services
             return true;
         }
 
-        private bool isDoctorsShift(Appointment appointment)
+        public bool isDoctorsShift(Appointment appointment)
         {
             Doctor doctor = doctorRepository.FindById(appointment.Doctor.Id);
             Shift shift = findShift(doctor.Shifts, appointment);

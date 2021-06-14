@@ -44,7 +44,7 @@
                 <DataGridTextColumn Header="Ime" Binding="{ Binding Doctor.Name}" />
                 <DataGridTextColumn Header="Prezime" Binding="{ Binding Doctor.Surname}" />
             </DataGrid.Columns>
-            
+
         </DataGrid>
         <Label Content="Vasi pregledi" FontSize="30" HorizontalAlignment="Left" Height="51" Margin="260,42,0,0" VerticalAlignment="Top" Width="180"/>
         <Image Margin="27,17,708.6,405.4" Source="nasLogo.jpg" Stretch="Fill"/>
@@ -55,10 +55,10 @@
                 <Label Content="Ocenjivanje" FontSize="14" HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="91"/>
             </StackPanel>
         </Button>
-        <Button Click="CalendarButtonClicked" Margin="557,42,114.6,381.4" Background="white" >
-            <StackPanel Orientation="Horizontal">
-                <Image Source="calendar.png" Stretch="Fill" Height="33" Width="44" />
-                <Label Content="Kalendar" FontSize="14" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="86"/>
+        <Button Click="ReportButtonClicked" Margin="557,42,114.6,381.4" Background="white" >
+            <StackPanel Orientation="Horizontal" Height="32" Width="120">
+                <Image Source="report.jpg" Stretch="Fill" Margin="10,2,10.2,0" Width="31" />
+                <Label Content="Izveštaj" FontSize="14" HorizontalAlignment="Left" Height="39" VerticalAlignment="Top" Width="57" Margin="0,2,0,-9"/>
             </StackPanel>
         </Button>
         <Button Click="EditButtonClicked" Margin="557,206,114.6,215.4" Background="white" >

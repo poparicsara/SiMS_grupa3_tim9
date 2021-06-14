@@ -172,5 +172,10 @@ namespace IS_Bolnica.PatientPages
                     PatientWindow.MyFrame.NavigationService.Navigate(new InformationPage("UPOZORENJE!", "Oznacite pregled koji zelite da otkazete!"));
             }
         }
+
+        private void ReportButtonClicked(object sender, RoutedEventArgs e)
+        {
+            PatientWindow.MyFrame.NavigationService.Navigate(new ChoosePeriodForReportPage());
+        }
     }
 }

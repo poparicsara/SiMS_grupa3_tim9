@@ -2,100 +2,6 @@
   {
     "Patient": {
       "Allergens": [
-        "polen"
-      ],
-      "examinations": null,
-      "Akcije": 0,
-      "brojOcenjenihPregleda": 0,
-      "Gender": 0,
-      "isBlocked": false,
-      "HealthCardNumber": "6",
-      "Anamneses": null,
-      "Ingredients": null,
-      "Alergeni": null,
-      "Username": "nikola_nikolic",
-      "Password": "sasasa",
-      "Name": "Nikola",
-      "Surname": "Nikolic",
-      "DateOfBirth": "1984-12-01T00:00:00",
-      "Phone": "0647896587",
-      "Email": "nikolic@gmail.com",
-      "Id": "2222",
-      "UserType": 0,
-      "Address": {
-        "Street": "Masarikova ulica ",
-        "NumberOfBuilding": 12,
-        "Floor": 25,
-        "Apartment": 13,
-        "City": {
-          "name": "Sombor ",
-          "postalCode": "12564",
-          "Country": {
-            "name": "Srbija"
-          }
-        }
-      }
-    },
-    "Doctor": {
-      "Specialization": {
-        "Name": "Anesteziologija"
-      },
-      "Ordination": 202,
-      "Shifts": null,
-      "Vacations": null,
-      "Username": "ana",
-      "Password": "ana",
-      "Name": "Ana",
-      "Surname": "Petrović",
-      "DateOfBirth": "1970-10-01T00:00:00",
-      "Phone": "67890834",
-      "Email": "ana@gmail.com",
-      "Id": "4321009",
-      "UserType": 1,
-      "Address": null
-    },
-    "DurationInMins": 30,
-    "GuestUser": null,
-    "Room": {
-      "Id": 103,
-      "HospitalWard": "Pedijatrija",
-      "Inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "RoomPurpose": {
-        "Name": "Operaciona sala"
-      }
-    },
-    "StartTime": "2021-05-25T12:15:00",
-    "EndTime": "2021-05-25T12:45:00",
-    "PostponedDate": "0001-01-01T00:00:00",
-    "IsUrgent": false,
-    "AppointmentType": 1,
-    "YesNo": null
-  },
-  {
-    "Patient": {
-      "Allergens": [
         "polen",
         "prasina"
       ],
@@ -320,242 +226,11 @@
         "Name": "Ordinacija"
       }
     },
-    "StartTime": "2021-06-07T12:41:00",
-    "EndTime": "2021-06-07T13:11:00",
-    "PostponedDate": "0001-01-01T00:00:00",
-    "IsUrgent": false,
-    "AppointmentType": 0,
-    "YesNo": null
-  },
-  {
-    "Patient": {
-      "Allergens": [
-        "polen",
-        "prasina"
-      ],
-      "examinations": null,
-      "Akcije": 0,
-      "brojOcenjenihPregleda": 0,
-      "Gender": 0,
-      "isBlocked": false,
-      "HealthCardNumber": null,
-      "Anamneses": null,
-      "Ingredients": null,
-      "Alergeni": null,
-      "Username": "nikola_nikolic",
-      "Password": "sasasa",
-      "Name": "Marko",
-      "Surname": "Nikolic",
-      "DateOfBirth": "1984-12-01T00:00:00",
-      "Phone": "0647896587",
-      "Email": "nikolic@gmail.com",
-      "Id": "2222",
-      "UserType": 0,
-      "Address": {
-        "Street": "Masarikova ulica ",
-        "NumberOfBuilding": 12,
-        "Floor": 25,
-        "Apartment": 13,
-        "City": {
-          "name": "Sombor ",
-          "postalCode": "12564",
-          "Country": {
-            "name": "Srbija"
-          }
-        }
-      }
-    },
-    "Doctor": {
-      "Specialization": {
-        "Name": "Alergologija i imunologija"
-      },
-      "Ordination": 300,
-      "Shifts": [
-        {
-          "DoctorsId": "1",
-          "ShiftStartDate": "2021-05-31T00:00:00",
-          "ShiftEndDate": "2021-06-04T00:00:00",
-          "ShiftType": 0
-        },
-        {
-          "DoctorsId": "1",
-          "ShiftStartDate": "2021-06-14T00:00:00",
-          "ShiftEndDate": "2021-06-21T00:00:00",
-          "ShiftType": 1
-        }
-      ],
-      "Vacations": [
-        {
-          "DoctorsId": "1",
-          "VacationStartDate": "2021-07-01T00:00:00",
-          "VacationEndDate": "2021-07-08T00:00:00"
-        }
-      ],
-      "Username": "Ognjen",
-      "Password": "ognjen",
-      "Name": "Ognjen",
-      "Surname": "Nestorović",
-      "DateOfBirth": "1979-11-01T00:00:00",
-      "Phone": "67894652",
-      "Email": "maricm@hotmail.com",
-      "Id": "1",
-      "UserType": 1,
-      "Address": null
-    },
-    "DurationInMins": 30,
-    "GuestUser": {
-      "SystemName": null,
-      "InjuryDescription": null
-    },
-    "Room": {
-      "Id": 300,
-      "HospitalWard": "Pedijatrija",
-      "Inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 27,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "RoomPurpose": {
-        "Name": "Ordinacija"
-      }
-    },
     "StartTime": "2021-06-07T13:11:00",
     "EndTime": "2021-06-07T13:41:00",
     "PostponedDate": "0001-01-01T00:00:00",
     "IsUrgent": false,
     "AppointmentType": 0,
-    "YesNo": null
-  },
-  {
-    "Patient": {
-      "Allergens": [
-        "polen",
-        "prasina"
-      ],
-      "examinations": null,
-      "Akcije": 0,
-      "brojOcenjenihPregleda": 0,
-      "Gender": 0,
-      "isBlocked": false,
-      "HealthCardNumber": null,
-      "Anamneses": null,
-      "Ingredients": null,
-      "Alergeni": null,
-      "Username": "nikola_nikolic",
-      "Password": "sasasa",
-      "Name": "Marko",
-      "Surname": "Nikolic",
-      "DateOfBirth": "1984-12-01T00:00:00",
-      "Phone": "0647896587",
-      "Email": "nikolic@gmail.com",
-      "Id": "2222",
-      "UserType": 0,
-      "Address": {
-        "Street": "Masarikova ulica ",
-        "NumberOfBuilding": 12,
-        "Floor": 25,
-        "Apartment": 13,
-        "City": {
-          "name": "Sombor ",
-          "postalCode": "12564",
-          "Country": {
-            "name": "Srbija"
-          }
-        }
-      }
-    },
-    "Doctor": {
-      "Specialization": {
-        "Name": "Alergologija i imunologija"
-      },
-      "Ordination": 300,
-      "Shifts": [
-        {
-          "DoctorsId": "1",
-          "ShiftStartDate": "2021-05-31T00:00:00",
-          "ShiftEndDate": "2021-06-04T00:00:00",
-          "ShiftType": 0
-        },
-        {
-          "DoctorsId": "1",
-          "ShiftStartDate": "2021-06-14T00:00:00",
-          "ShiftEndDate": "2021-06-21T00:00:00",
-          "ShiftType": 1
-        }
-      ],
-      "Vacations": [
-        {
-          "DoctorsId": "1",
-          "VacationStartDate": "2021-07-01T00:00:00",
-          "VacationEndDate": "2021-07-08T00:00:00"
-        }
-      ],
-      "Username": "Ognjen",
-      "Password": "ognjen",
-      "Name": "Ognjen",
-      "Surname": "Nestorović",
-      "DateOfBirth": "1979-11-01T00:00:00",
-      "Phone": "67894652",
-      "Email": "maricm@hotmail.com",
-      "Id": "1",
-      "UserType": 1,
-      "Address": null
-    },
-    "DurationInMins": 120,
-    "GuestUser": null,
-    "Room": {
-      "Id": 103,
-      "HospitalWard": "Pedijatrija",
-      "Inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "RoomPurpose": {
-        "Name": "Operaciona sala"
-      }
-    },
-    "StartTime": "2021-06-07T15:00:00",
-    "EndTime": "2021-06-07T17:00:00",
-    "PostponedDate": "0001-01-01T00:00:00",
-    "IsUrgent": false,
-    "AppointmentType": 1,
     "YesNo": null
   },
   {
@@ -677,123 +352,6 @@
   },
   {
     "Patient": {
-      "Allergens": [
-        "polen",
-        "prasina"
-      ],
-      "examinations": null,
-      "Akcije": 0,
-      "brojOcenjenihPregleda": 0,
-      "Gender": 0,
-      "isBlocked": false,
-      "HealthCardNumber": null,
-      "Anamneses": null,
-      "Ingredients": null,
-      "Alergeni": null,
-      "Username": "nikola_nikolic",
-      "Password": "sasasa",
-      "Name": "Marko",
-      "Surname": "Nikolic",
-      "DateOfBirth": "1984-12-01T00:00:00",
-      "Phone": "0647896587",
-      "Email": "nikolic@gmail.com",
-      "Id": "2222",
-      "UserType": 0,
-      "Address": {
-        "Street": "Masarikova ulica ",
-        "NumberOfBuilding": 12,
-        "Floor": 25,
-        "Apartment": 13,
-        "City": {
-          "name": "Sombor ",
-          "postalCode": "12564",
-          "Country": {
-            "name": "Srbija"
-          }
-        }
-      }
-    },
-    "Doctor": {
-      "Specialization": {
-        "Name": "Alergologija i imunologija"
-      },
-      "Ordination": 300,
-      "Shifts": [
-        {
-          "DoctorsId": "1",
-          "ShiftStartDate": "2021-05-31T00:00:00",
-          "ShiftEndDate": "2021-06-04T00:00:00",
-          "ShiftType": 0
-        },
-        {
-          "DoctorsId": "1",
-          "ShiftStartDate": "2021-06-14T00:00:00",
-          "ShiftEndDate": "2021-06-21T00:00:00",
-          "ShiftType": 1
-        }
-      ],
-      "Vacations": [
-        {
-          "DoctorsId": "1",
-          "VacationStartDate": "2021-07-01T00:00:00",
-          "VacationEndDate": "2021-07-08T00:00:00"
-        }
-      ],
-      "Username": "Ognjen",
-      "Password": "ognjen",
-      "Name": "Ognjen",
-      "Surname": "Nestorović",
-      "DateOfBirth": "1979-11-01T00:00:00",
-      "Phone": "67894652",
-      "Email": "maricm@hotmail.com",
-      "Id": "1",
-      "UserType": 1,
-      "Address": null
-    },
-    "DurationInMins": 60,
-    "GuestUser": {
-      "SystemName": null,
-      "InjuryDescription": null
-    },
-    "Room": {
-      "Id": 103,
-      "HospitalWard": "Pedijatrija",
-      "Inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "RoomPurpose": {
-        "Name": "Operaciona sala"
-      }
-    },
-    "StartTime": "2021-06-07T23:00:00",
-    "EndTime": "2021-06-08T00:00:00",
-    "PostponedDate": "2021-06-07T22:00:00",
-    "IsUrgent": false,
-    "AppointmentType": 1,
-    "YesNo": null
-  },
-  {
-    "Patient": {
       "Allergens": null,
       "examinations": null,
       "Akcije": 0,
@@ -907,108 +465,6 @@
     },
     "StartTime": "2021-06-09T13:00:00",
     "EndTime": "2021-06-09T15:00:00",
-    "PostponedDate": "0001-01-01T00:00:00",
-    "IsUrgent": false,
-    "AppointmentType": 1,
-    "YesNo": null
-  },
-  {
-    "Patient": {
-      "Allergens": null,
-      "examinations": [],
-      "Akcije": 0,
-      "brojOcenjenihPregleda": 0,
-      "Gender": 1,
-      "isBlocked": true,
-      "HealthCardNumber": "",
-      "Anamneses": [],
-      "Ingredients": [
-        {
-          "Name": "Izoleucin"
-        }
-      ],
-      "Alergeni": null,
-      "Username": "mica",
-      "Password": "milica",
-      "Name": "Milica",
-      "Surname": "Matić",
-      "DateOfBirth": "2000-01-01T00:00:00",
-      "Phone": "06896958",
-      "Email": "milica@uns.ac.rs",
-      "Id": "3333333333333",
-      "UserType": 0,
-      "Address": {
-        "Street": "Svetozara Markovića ",
-        "NumberOfBuilding": 5,
-        "Floor": 6,
-        "Apartment": 6,
-        "City": {
-          "name": "Beograd ",
-          "postalCode": "11000",
-          "Country": {
-            "name": "Srbija"
-          }
-        }
-      }
-    },
-    "Doctor": {
-      "Specialization": {
-        "Name": "Anesteziologija"
-      },
-      "Ordination": 202,
-      "Shifts": [
-        {
-          "DoctorsId": "4321009",
-          "ShiftStartDate": "2021-05-31T00:00:00",
-          "ShiftEndDate": "2021-06-04T00:00:00",
-          "ShiftType": 0
-        }
-      ],
-      "Vacations": [
-        {
-          "DoctorsId": "4321009",
-          "VacationStartDate": "2021-07-01T00:00:00",
-          "VacationEndDate": "2021-07-08T00:00:00"
-        }
-      ],
-      "Username": "ana",
-      "Password": "ana",
-      "Name": "Ana",
-      "Surname": "Petrović",
-      "DateOfBirth": "1970-10-01T00:00:00",
-      "Phone": "67890834",
-      "Email": "ana@gmail.com",
-      "Id": "4321009",
-      "UserType": 1,
-      "Address": {
-        "Street": "Ive Lole Ribara ",
-        "NumberOfBuilding": 2,
-        "Floor": 5,
-        "Apartment": 9,
-        "City": {
-          "name": "Sombor ",
-          "postalCode": "25000",
-          "Country": {
-            "name": "Srbija"
-          }
-        }
-      }
-    },
-    "DurationInMins": 60,
-    "GuestUser": {
-      "SystemName": null,
-      "InjuryDescription": null
-    },
-    "Room": {
-      "Id": 3,
-      "HospitalWard": "Alergologija i imunologija",
-      "Inventory": null,
-      "RoomPurpose": {
-        "Name": "Operaciona sala"
-      }
-    },
-    "StartTime": "2021-06-09T10:00:00",
-    "EndTime": "2021-06-09T11:00:00",
     "PostponedDate": "0001-01-01T00:00:00",
     "IsUrgent": false,
     "AppointmentType": 1,
@@ -1582,131 +1038,6 @@
     },
     "StartTime": "2021-06-29T11:30:00",
     "EndTime": "0001-01-01T00:00:00",
-    "PostponedDate": "0001-01-01T00:00:00",
-    "IsUrgent": false,
-    "AppointmentType": 0,
-    "YesNo": null
-  },
-  {
-    "Patient": {
-      "Allergens": [
-        "brufen"
-      ],
-      "examinations": null,
-      "Akcije": 3,
-      "brojOcenjenihPregleda": 0,
-      "Gender": 0,
-      "isBlocked": false,
-      "HealthCardNumber": "80",
-      "Anamneses": null,
-      "Ingredients": null,
-      "Alergeni": null,
-      "Username": "p__nina",
-      "Password": "hehe",
-      "Name": "Nikolina",
-      "Surname": "Pavkovic",
-      "DateOfBirth": "2000-02-01T00:00:00",
-      "Phone": "0658886407",
-      "Email": "pavkovicn@hotmail.com",
-      "Id": "1502000815038",
-      "UserType": 0,
-      "Address": {
-        "Street": "Nova",
-        "NumberOfBuilding": 130,
-        "Floor": 0,
-        "Apartment": 0,
-        "City": {
-          "name": "Apatin",
-          "postalCode": "25260",
-          "Country": {
-            "name": "Srbija"
-          }
-        }
-      }
-    },
-    "Doctor": {
-      "Specialization": {
-        "Name": "Dermatologija"
-      },
-      "Ordination": 301,
-      "Shifts": [
-        {
-          "DoctorsId": "2",
-          "ShiftStartDate": "2021-05-31T00:00:00",
-          "ShiftEndDate": "2021-06-04T00:00:00",
-          "ShiftType": 0
-        },
-        {
-          "DoctorsId": "2",
-          "ShiftStartDate": "2021-06-10T06:00:00",
-          "ShiftEndDate": "2021-06-16T18:00:00",
-          "ShiftType": 0
-        }
-      ],
-      "Vacations": [
-        {
-          "DoctorsId": "2",
-          "VacationStartDate": "2021-07-01T00:00:00",
-          "VacationEndDate": "2021-07-08T00:00:00"
-        }
-      ],
-      "Username": "Vladan",
-      "Password": "vladan",
-      "Name": "Vladan",
-      "Surname": "Bogic",
-      "DateOfBirth": "1979-11-01T00:00:00",
-      "Phone": "67894652",
-      "Email": "maricm@hotmail.com",
-      "Id": "2",
-      "UserType": 1,
-      "Address": {
-        "Street": "Ive Lole Ribara ",
-        "NumberOfBuilding": 2,
-        "Floor": 5,
-        "Apartment": 9,
-        "City": {
-          "name": "Sombor ",
-          "postalCode": "25000",
-          "Country": {
-            "name": "Srbija"
-          }
-        }
-      }
-    },
-    "DurationInMins": 27,
-    "GuestUser": null,
-    "Room": {
-      "Id": 301,
-      "HospitalWard": "Pedijatrija",
-      "Inventory": [
-        {
-          "Name": "Špric",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 101,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Injekcija",
-          "CurrentAmount": 27,
-          "Minimum": 2,
-          "Id": 202,
-          "InventoryType": 0
-        },
-        {
-          "Name": "Štapić",
-          "CurrentAmount": 20,
-          "Minimum": 2,
-          "Id": 303,
-          "InventoryType": 0
-        }
-      ],
-      "RoomPurpose": {
-        "Name": "Ordinacija"
-      }
-    },
-    "StartTime": "2021-06-24T09:30:00",
-    "EndTime": "2021-06-24T10:00:00",
     "PostponedDate": "0001-01-01T00:00:00",
     "IsUrgent": false,
     "AppointmentType": 0,
@@ -3130,7 +2461,7 @@
         "brufen"
       ],
       "examinations": null,
-      "Akcije": 4,
+      "Akcije": 3,
       "brojOcenjenihPregleda": 0,
       "Gender": 0,
       "isBlocked": false,
@@ -3163,32 +2494,38 @@
     },
     "Doctor": {
       "Specialization": {
-        "Name": "Anesteziologija"
+        "Name": "Dermatologija"
       },
-      "Ordination": 202,
+      "Ordination": 301,
       "Shifts": [
         {
-          "DoctorsId": "4321009",
+          "DoctorsId": "2",
           "ShiftStartDate": "2021-05-31T00:00:00",
           "ShiftEndDate": "2021-06-04T00:00:00",
+          "ShiftType": 0
+        },
+        {
+          "DoctorsId": "2",
+          "ShiftStartDate": "2021-06-10T06:00:00",
+          "ShiftEndDate": "2021-06-16T18:00:00",
           "ShiftType": 0
         }
       ],
       "Vacations": [
         {
-          "DoctorsId": "4321009",
+          "DoctorsId": "2",
           "VacationStartDate": "2021-07-01T00:00:00",
           "VacationEndDate": "2021-07-08T00:00:00"
         }
       ],
-      "Username": "ana",
-      "Password": "ana",
-      "Name": "Ana",
-      "Surname": "Petrovic",
-      "DateOfBirth": "1970-10-01T00:00:00",
-      "Phone": "67890834",
-      "Email": "ana@gmail.com",
-      "Id": "0110970807812",
+      "Username": "Vladan",
+      "Password": "vladan",
+      "Name": "Vladan",
+      "Surname": "Bogic",
+      "DateOfBirth": "1979-11-01T00:00:00",
+      "Phone": "67894652",
+      "Email": "maricm@hotmail.com",
+      "Id": "2",
       "UserType": 1,
       "Address": {
         "Street": "Ive Lole Ribara ",
@@ -3204,22 +2541,44 @@
         }
       }
     },
-    "DurationInMins": 0,
+    "DurationInMins": 26,
     "GuestUser": null,
     "Room": {
-      "Id": 3,
-      "HospitalWard": "Alergologija i imunologija",
-      "Inventory": null,
+      "Id": 301,
+      "HospitalWard": "Pedijatrija",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 27,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
       "RoomPurpose": {
-        "Name": "Operaciona sala"
+        "Name": "Ordinacija"
       }
     },
-    "StartTime": "2021-07-10T10:30:00",
-    "EndTime": "0001-01-01T00:00:00",
+    "StartTime": "2021-06-15T13:30:00",
+    "EndTime": "2021-06-15T14:00:00",
     "PostponedDate": "0001-01-01T00:00:00",
     "IsUrgent": false,
-    "AppointmentType": 1,
-    "YesNo": "NE"
+    "AppointmentType": 0,
+    "YesNo": null
   },
   {
     "Patient": {
@@ -3227,7 +2586,7 @@
         "brufen"
       ],
       "examinations": null,
-      "Akcije": 4,
+      "Akcije": 2,
       "brojOcenjenihPregleda": 0,
       "Gender": 0,
       "isBlocked": false,
@@ -3260,32 +2619,38 @@
     },
     "Doctor": {
       "Specialization": {
-        "Name": "Anesteziologija"
+        "Name": "Oftalmologija"
       },
-      "Ordination": 202,
+      "Ordination": 109,
       "Shifts": [
         {
-          "DoctorsId": "4321009",
+          "DoctorsId": "11",
           "ShiftStartDate": "2021-05-31T00:00:00",
           "ShiftEndDate": "2021-06-04T00:00:00",
+          "ShiftType": 0
+        },
+        {
+          "DoctorsId": "11",
+          "ShiftStartDate": "2021-06-19T06:00:00",
+          "ShiftEndDate": "2021-09-24T18:00:00",
           "ShiftType": 0
         }
       ],
       "Vacations": [
         {
-          "DoctorsId": "4321009",
+          "DoctorsId": "11",
           "VacationStartDate": "2021-07-01T00:00:00",
           "VacationEndDate": "2021-07-08T00:00:00"
         }
       ],
-      "Username": "ana",
-      "Password": "ana",
-      "Name": "Ana",
-      "Surname": "Petrovic",
-      "DateOfBirth": "1970-10-01T00:00:00",
-      "Phone": "67890834",
-      "Email": "ana@gmail.com",
-      "Id": "0110970807812",
+      "Username": "Dusan",
+      "Password": "ftn",
+      "Name": "Dusan",
+      "Surname": "Dusanic",
+      "DateOfBirth": "1979-11-01T00:00:00",
+      "Phone": "67894652",
+      "Email": "maricm@hotmail.com",
+      "Id": "11",
       "UserType": 1,
       "Address": {
         "Street": "Ive Lole Ribara ",
@@ -3301,21 +2666,168 @@
         }
       }
     },
-    "DurationInMins": 0,
+    "DurationInMins": 24,
     "GuestUser": null,
     "Room": {
-      "Id": 103,
-      "HospitalWard": "Alergologija i imunologija",
-      "Inventory": null,
+      "Id": 109,
+      "HospitalWard": "Pedijatrija",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 27,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
       "RoomPurpose": {
-        "Name": "Operaciona sala"
+        "Name": "Ordinacija"
       }
     },
-    "StartTime": "2021-07-08T13:00:00",
-    "EndTime": "0001-01-01T00:00:00",
+    "StartTime": "2021-06-23T14:30:00",
+    "EndTime": "2021-06-23T15:00:00",
     "PostponedDate": "0001-01-01T00:00:00",
-    "IsUrgent": true,
-    "AppointmentType": 1,
-    "YesNo": "DA"
+    "IsUrgent": false,
+    "AppointmentType": 0,
+    "YesNo": null
+  },
+  {
+    "Patient": {
+      "Allergens": [
+        "brufen"
+      ],
+      "examinations": null,
+      "Akcije": 5,
+      "brojOcenjenihPregleda": 0,
+      "Gender": 0,
+      "isBlocked": false,
+      "HealthCardNumber": "80",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Alergeni": null,
+      "Username": "p__nina",
+      "Password": "hehe",
+      "Name": "Nikolina",
+      "Surname": "Pavkovic",
+      "DateOfBirth": "2000-02-01T00:00:00",
+      "Phone": "0658886407",
+      "Email": "pavkovicn@hotmail.com",
+      "Id": "1502000815038",
+      "UserType": 0,
+      "Address": {
+        "Street": "Nova",
+        "NumberOfBuilding": 130,
+        "Floor": 0,
+        "Apartment": 0,
+        "City": {
+          "name": "Apatin",
+          "postalCode": "25260",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "Doctor": {
+      "Specialization": {
+        "Name": "Neurologija"
+      },
+      "Ordination": 304,
+      "Shifts": [
+        {
+          "DoctorsId": "8",
+          "ShiftStartDate": "2021-06-07T00:00:00",
+          "ShiftEndDate": "2021-06-11T00:00:00",
+          "ShiftType": 1
+        },
+        {
+          "DoctorsId": "8",
+          "ShiftStartDate": "2021-06-16T06:00:00",
+          "ShiftEndDate": "2021-06-30T18:00:00",
+          "ShiftType": 0
+        }
+      ],
+      "Vacations": [
+        {
+          "DoctorsId": "8",
+          "VacationStartDate": "2021-07-01T00:00:00",
+          "VacationEndDate": "2021-07-08T00:00:00"
+        }
+      ],
+      "Username": "Maja",
+      "Password": "ftn",
+      "Name": "Maja",
+      "Surname": "Mitic",
+      "DateOfBirth": "1979-11-01T00:00:00",
+      "Phone": "67894652",
+      "Email": "maricm@hotmail.com",
+      "Id": "8",
+      "UserType": 1,
+      "Address": {
+        "Street": "Ive Lole Ribara ",
+        "NumberOfBuilding": 2,
+        "Floor": 5,
+        "Apartment": 9,
+        "City": {
+          "name": "Sombor ",
+          "postalCode": "25000",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "DurationInMins": 26,
+    "GuestUser": null,
+    "Room": {
+      "Id": 304,
+      "HospitalWard": "Pedijatrija",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 27,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "StartTime": "2021-06-17T12:00:00",
+    "EndTime": "2021-06-17T12:30:00",
+    "PostponedDate": "0001-01-01T00:00:00",
+    "IsUrgent": false,
+    "AppointmentType": 0,
+    "YesNo": null
   }
 ]

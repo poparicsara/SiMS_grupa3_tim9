@@ -31,7 +31,7 @@ namespace IS_Bolnica.PatientPages
 
         private void BackButtonClicked(object sender, RoutedEventArgs e)
         {
-            PatientWindow.MyFrame.NavigationService.Navigate(new CalendarForAppointments());
+            PatientWindow.MyFrame.NavigationService.Navigate(new MyAppointments());
         }
 
         private void ButtonSendClicked(object sender, RoutedEventArgs e)
@@ -55,7 +55,7 @@ namespace IS_Bolnica.PatientPages
 
         private void DeclineButtonClicked(object sender, RoutedEventArgs e)
         {
-            PatientWindow.MyFrame.NavigationService.Navigate(new CalendarForAppointments());
+            PatientWindow.MyFrame.NavigationService.Navigate(new MyAppointments());
         }
     }
 }

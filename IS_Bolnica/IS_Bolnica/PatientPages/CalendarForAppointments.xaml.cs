@@ -26,7 +26,7 @@ namespace IS_Bolnica.PatientPages
         {
             InitializeComponent();
 
-            //Scheduler.ItemsSource = appointmentService.FindPatientAppointments(PatientWindow.loggedPatient);
+            Scheduler.ItemsSource = appointmentService.FindPatientAppointments(PatientWindow.loggedPatient);
         }
 
         private void BackButtonClicked(object sender, RoutedEventArgs e)

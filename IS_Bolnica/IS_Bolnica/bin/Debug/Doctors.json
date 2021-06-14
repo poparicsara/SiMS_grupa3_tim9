@@ -145,6 +145,12 @@
         "ShiftStartDate": "2021-06-13T06:00:00",
         "ShiftEndDate": "2021-06-15T00:00:00",
         "ShiftType": 0
+      },
+      {
+        "DoctorsId": "1",
+        "ShiftStartDate": "2021-06-15T06:00:00",
+        "ShiftEndDate": "2021-07-08T18:00:00",
+        "ShiftType": 0
       }
     ],
     "Vacations": [
@@ -192,7 +198,7 @@
       {
         "DoctorsId": "2",
         "ShiftStartDate": "2021-06-10T06:00:00",
-        "ShiftEndDate": "2021-06-16T18:00:00",
+        "ShiftEndDate": "2021-06-15T00:00:00",
         "ShiftType": 0
       }
     ],
@@ -201,6 +207,11 @@
         "DoctorsId": "2",
         "VacationStartDate": "2021-07-01T00:00:00",
         "VacationEndDate": "2021-07-08T00:00:00"
+      },
+      {
+        "DoctorsId": "2",
+        "VacationStartDate": "2021-06-15T00:00:00",
+        "VacationEndDate": "2021-07-10T00:00:00"
       }
     ],
     "Username": "Vladan",
@@ -236,6 +247,12 @@
         "DoctorsId": "3",
         "ShiftStartDate": "2021-05-31T00:00:00",
         "ShiftEndDate": "2021-06-04T00:00:00",
+        "ShiftType": 0
+      },
+      {
+        "DoctorsId": "3",
+        "ShiftStartDate": "2021-06-15T06:00:00",
+        "ShiftEndDate": "2021-07-10T18:00:00",
         "ShiftType": 0
       }
     ],
@@ -280,6 +297,12 @@
         "ShiftStartDate": "2021-05-31T00:00:00",
         "ShiftEndDate": "2021-06-04T00:00:00",
         "ShiftType": 0
+      },
+      {
+        "DoctorsId": "4",
+        "ShiftStartDate": "2021-06-15T06:00:00",
+        "ShiftEndDate": "2021-08-07T18:00:00",
+        "ShiftType": 0
       }
     ],
     "Vacations": [
@@ -322,6 +345,12 @@
         "DoctorsId": "5",
         "ShiftStartDate": "2021-05-31T00:00:00",
         "ShiftEndDate": "2021-06-04T00:00:00",
+        "ShiftType": 0
+      },
+      {
+        "DoctorsId": "5",
+        "ShiftStartDate": "2021-06-15T06:00:00",
+        "ShiftEndDate": "2021-07-09T18:00:00",
         "ShiftType": 0
       }
     ],
@@ -446,6 +475,12 @@
         "ShiftStartDate": "2021-06-07T00:00:00",
         "ShiftEndDate": "2021-06-11T00:00:00",
         "ShiftType": 1
+      },
+      {
+        "DoctorsId": "8",
+        "ShiftStartDate": "2021-06-16T06:00:00",
+        "ShiftEndDate": "2021-06-30T18:00:00",
+        "ShiftType": 0
       }
     ],
     "Vacations": [
@@ -488,6 +523,12 @@
         "DoctorsId": "9",
         "ShiftStartDate": "2021-05-31T00:00:00",
         "ShiftEndDate": "2021-06-04T00:00:00",
+        "ShiftType": 0
+      },
+      {
+        "DoctorsId": "9",
+        "ShiftStartDate": "2021-06-17T06:00:00",
+        "ShiftEndDate": "2021-07-09T18:00:00",
         "ShiftType": 0
       }
     ],
@@ -532,6 +573,12 @@
         "ShiftStartDate": "2021-05-31T00:00:00",
         "ShiftEndDate": "2021-06-04T00:00:00",
         "ShiftType": 0
+      },
+      {
+        "DoctorsId": "10",
+        "ShiftStartDate": "2021-06-15T06:00:00",
+        "ShiftEndDate": "2021-07-03T18:00:00",
+        "ShiftType": 0
       }
     ],
     "Vacations": [
@@ -574,6 +621,12 @@
         "DoctorsId": "11",
         "ShiftStartDate": "2021-05-31T00:00:00",
         "ShiftEndDate": "2021-06-04T00:00:00",
+        "ShiftType": 0
+      },
+      {
+        "DoctorsId": "11",
+        "ShiftStartDate": "2021-06-19T06:00:00",
+        "ShiftEndDate": "2021-09-24T18:00:00",
         "ShiftType": 0
       }
     ],
@@ -618,6 +671,12 @@
         "ShiftStartDate": "2021-05-31T00:00:00",
         "ShiftEndDate": "2021-06-04T00:00:00",
         "ShiftType": 0
+      },
+      {
+        "DoctorsId": "12",
+        "ShiftStartDate": "2021-06-23T06:00:00",
+        "ShiftEndDate": "2021-07-30T18:00:00",
+        "ShiftType": 0
       }
     ],
     "Vacations": [
@@ -660,6 +719,12 @@
         "DoctorsId": "13",
         "ShiftStartDate": "2021-05-31T00:00:00",
         "ShiftEndDate": "2021-06-04T00:00:00",
+        "ShiftType": 0
+      },
+      {
+        "DoctorsId": "13",
+        "ShiftStartDate": "2021-07-02T06:00:00",
+        "ShiftEndDate": "2021-10-29T18:00:00",
         "ShiftType": 0
       }
     ],

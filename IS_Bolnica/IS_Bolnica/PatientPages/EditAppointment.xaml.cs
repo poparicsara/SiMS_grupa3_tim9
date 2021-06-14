@@ -77,11 +77,24 @@ namespace IS_Bolnica.PatientPages
                 Patient patient = findAttributesService.findPatientByUsername(PatientWindow.loggedPatient.Username);
                 Room room = findAttributesService.findRoomByDoctor(doctor);
                 Appointment newAppointment = new Appointment { DurationInMins = duration, Doctor = doctor, StartTime = dateOfAppointment, EndTime = dateOfAppointment.AddMinutes(30), Patient = patient, Room = room };
-                appointmentService.EditAppointment(oldAppointment, newAppointment);
-                PatientWindow.MyFrame.NavigationService.Navigate(new MyAppointments());
+                if (isAppointmentInDoctorsShift(newAppointment))
+                {
+                    appointmentService.EditAppointment(oldAppointment, newAppointment);
+                    PatientWindow.MyFrame.NavigationService.Navigate(new MyAppointments());
+                }
+                else
+                    PatientWindow.MyFrame.NavigationService.Navigate(new InformationPage("UPOZORENJE!", "Termin nije u doktorovoj smeni!"));
             }
             else
                 PatientWindow.MyFrame.NavigationService.Navigate(new InformationPage("UPOZORENJE!", "Termin kod označenog doktora je zauzet!"));
+        }
+
+        private bool isAppointmentInDoctorsShift(Appointment appointment)
+        {
+            if (appointmentService.isDoctorsShift(appointment))
+                return true;
+
+            return false;
         }
 
         private void DeclineButtonClicked(object sender, RoutedEventArgs e)

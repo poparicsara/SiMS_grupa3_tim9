@@ -11,22 +11,20 @@
 
     <Border CornerRadius="20" Background="White">
         <Grid Margin="0,10,-0.2,0.4">
-            <!-- Grid.ColumnDefinitions>
+            <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="688.8"/>
-            </>
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="411.2"/>
             </Grid.RowDefinitions>
 
-            
-
             <syncfusion:SfSchedule x:Name="Scheduler"  
-                                    ScheduleType="Week" WorkStartHour="7" WorkEndHour="19" ShowNonWorkingHours="False" AllowEditing="False" TimeInterval="ThirtyMin" IntervalHeight="50" Margin="0,100,103.8,-38" >
+                                   ScheduleType="Week" WorkStartHour="7" WorkEndHour="19" ShowNonWorkingHours="False" AllowEditing="False" TimeInterval="ThirtyMin" IntervalHeight="50" Margin="0,100,103.8,-38" >
 
                 <syncfusion:SfSchedule.AppointmentTemplate>
                     <DataTemplate>
                         <Grid>
-                            <Button  Command="{Binding Path=DataContext.PeriodCommand,       
+                            <Button Command="{Binding Path=DataContext.PeriodCommand,       
                                 RelativeSource= {RelativeSource FindAncestor,
                                 AncestorType={x:Type syncfusion:SfSchedule}}}" 
                                      CommandParameter="{Binding ElementName=ButtonAppointment}"
@@ -66,7 +64,7 @@
                     <Image Source="report.jpg" Stretch="Fill" Height="51" Margin="10,0,10.2,0" />
                     <Label Content="Izveštaj" FontSize="20" HorizontalAlignment="Left" Height="43" VerticalAlignment="Top" Width="97"/>
                 </StackPanel>
-            </Button -->
+            </Button>
         </Grid>
     </Border>
 </Page>
