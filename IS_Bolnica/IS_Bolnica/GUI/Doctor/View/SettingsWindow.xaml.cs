@@ -1,20 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using IS_Bolnica.DoctorUI;
+using IS_Bolnica.GUI.Doctor.ViewModel;
 using IS_Bolnica.Services;
 using Model;
 
-namespace IS_Bolnica.DoctorUI
+namespace IS_Bolnica.GUI.Doctor.View
 {
     public partial class SettingsWindow : Window
     {
@@ -25,17 +16,11 @@ namespace IS_Bolnica.DoctorUI
         {
             InitializeComponent();
             this.loggedUser = loggedUser;
-
-            nameTxt.Text = loggedUser.Name;
-            surnameTxt.Text = loggedUser.Surname;
-            idTxt.Text = loggedUser.Id;
-            phoneTxt.Text = loggedUser.Phone;
-            mailTxt.Text = loggedUser.Email;
-            usernameTxt.Text = loggedUser.Username;
+            DataContext = new SettingsWindowVM(loggedUser);
 
             if (loggedUser.UserType == UserType.doctor)
             {
-                foreach (Doctor doctor in doctorService.GetAllDoctors())
+                foreach (global::Model.Doctor doctor in doctorService.GetAllDoctors())
                 {
                     if (loggedUser.Username.Equals(doctor.Username))
                     {

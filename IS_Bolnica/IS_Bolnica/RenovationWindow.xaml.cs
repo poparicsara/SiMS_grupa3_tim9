@@ -87,8 +87,7 @@ namespace IS_Bolnica
 
         private void ClosingWindow(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            Director director = new Director();
-            RoomWindow rw = new RoomWindow(director);
+            RoomWindow rw = new RoomWindow();
             rw.Show();
         }
 
