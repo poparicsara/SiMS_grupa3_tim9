@@ -17,6 +17,7 @@ namespace IS_Bolnica.Services
         private UserService userService = new UserService();
         private DoctorRepository doctorRepository = new DoctorRepository();
         private List<Doctor> doctors = new List<Doctor>();
+        //private RenovationService renovationService = new RenovationService();
 
         public AppointmentService()
         {
