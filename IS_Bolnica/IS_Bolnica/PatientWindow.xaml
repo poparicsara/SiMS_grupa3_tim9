@@ -1,0 +1,53 @@
+﻿<Window x:Class="IS_Bolnica.PatientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IS_Bolnica"
+        mc:Ignorable="d"
+        Title="PatientWindow" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="422" Margin="0,0,-4.4,-2" Stroke="Black" VerticalAlignment="Top" Width="798"/>
+        <DataGrid AutoGenerateColumns="False" 
+          Height="280" 
+          Width="644"
+          ColumnHeaderHeight="30"
+          ColumnWidth="162.5"
+          FontSize="15"
+          HorizontalAlignment="Center" 
+          Name="lvDataBinding" 
+          IsReadOnly="True"
+          VerticalAlignment="Center" Margin="28,116,121.6,24" >
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FF4E8E73"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="Height" Value="30"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Datum i vreme" Binding="{ Binding Date }" />
+                <DataGridTextColumn Header="Ime" Binding="{ Binding Doctor.Name}" />
+                <DataGridTextColumn Header="Prezime" Binding="{ Binding Doctor.Surname}" />
+                <DataGridTextColumn Header="Trajanje(min)" Binding="{ Binding DurationInMinutes}" />
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Button Content="Zakazi pregled" HorizontalAlignment="Left" Margin="692,267,0,0" VerticalAlignment="Top" Width="97" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="AddButtonClicked" Height="19"/>
+        <Button Content="Otkazi pregled" HorizontalAlignment="Left" Margin="692,304,0,0" VerticalAlignment="Top" Width="97" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="OtkaziButtonClicked" Height="19"/>
+        <Button Content="Izmeni" HorizontalAlignment="Left" Margin="692,341,0,0" VerticalAlignment="Top" Width="97" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="IzmeniButtonClicked" Height="19"/>
+        <Button Content="Obaveštenja" HorizontalAlignment="Left" Margin="692,222,0,0" VerticalAlignment="Top" Width="97" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="ObavestenjaButtonClicked" Height="19"/>
+        <Button Content="Ocenjivanje" HorizontalAlignment="Left" Margin="692,185,0,0" VerticalAlignment="Top" Width="97" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="OcenjivanjeButtonClicked" Height="19"/>
+        <Label Content="Vasi pregledi" FontSize="30" HorizontalAlignment="Left" Height="51" Margin="273,47,0,0" VerticalAlignment="Top" Width="180"/>
+        <Button Content="Odjavite se" HorizontalAlignment="Left" Margin="692,83,0,0" VerticalAlignment="Top" Width="97" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="OdjavljivanjeButtonClicked" Height="19"/>
+        <Image Margin="28,10,707.6,354" Source="nasLogo.jpg" Stretch="Fill"/>
+        <Label Content="Zdravo bolnica" HorizontalAlignment="Left" Height="27" Margin="10,66,0,0" VerticalAlignment="Top" Width="93"/>
+    </Grid>
+</Window>

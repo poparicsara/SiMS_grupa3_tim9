@@ -1,0 +1,270 @@
+[
+  {
+    "doctor": {
+      "Specialization": {
+        "Name": "Anesteziologija"
+      },
+      "Ordination": 202,
+      "Username": "ana",
+      "Password": "ana",
+      "Name": "Ana",
+      "Surname": "Petrović",
+      "DateOfBirth": "1970-10-01T00:00:00",
+      "Phone": "67890834",
+      "Email": "ana@gmail.com",
+      "Id": "4321009",
+      "UserType": 1,
+      "Address": null
+    },
+    "DurationInMins": 30,
+    "GuestUser": null,
+    "Doctor": null,
+    "Date": "2021-06-02T03:00:00",
+    "Patient": {
+      "Allergens": [
+        "polen"
+      ],
+      "examinations": null,
+      "Akcije": 0,
+      "brojOcenjenihPregleda": 0,
+      "Debit": 1500.0,
+      "HealthCardNumber": "6",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Username": "nikola_nikolic",
+      "Password": "sasasa",
+      "Name": "Nikola",
+      "Surname": "Nikolic",
+      "DateOfBirth": "1984-12-01T00:00:00",
+      "Phone": "0647896587",
+      "Email": "nikolic@gmail.com",
+      "Id": "2222",
+      "UserType": 0,
+      "Address": {
+        "Street": "Masarikova ulica ",
+        "NumberOfBuilding": 12,
+        "Floor": 25,
+        "Apartment": 13,
+        "City": {
+          "name": "Sombor ",
+          "postalCode": "12564",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "RoomRecord": {
+      "Id": 103,
+      "HospitalWard": "Pedijatrija",
+      "inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "roomPurpose": {
+        "Name": "Operaciona sala"
+      }
+    },
+    "IsUrgent": false,
+    "endTime": "2021-06-02T03:30:00",
+    "PosponedDate": "0001-01-01T00:00:00"
+  },
+  {
+    "doctor": {
+      "Specialization": {
+        "Name": "Alergologija i imunologija"
+      },
+      "Ordination": 300,
+      "Username": "Ognjen",
+      "Password": "ognjen",
+      "Name": "Ognjen",
+      "Surname": "Nestorović",
+      "DateOfBirth": "1979-11-01T00:00:00",
+      "Phone": "67894652",
+      "Email": "maricm@hotmail.com",
+      "Id": "1",
+      "UserType": 1,
+      "Address": null
+    },
+    "DurationInMins": 60,
+    "GuestUser": null,
+    "Doctor": null,
+    "Date": "2021-05-26T08:00:00",
+    "Patient": {
+      "Allergens": [
+        "polen"
+      ],
+      "examinations": null,
+      "Akcije": 0,
+      "brojOcenjenihPregleda": 0,
+      "Debit": 1500.0,
+      "HealthCardNumber": null,
+      "Anamneses": null,
+      "Ingredients": null,
+      "Username": "nikola_nikolic",
+      "Password": "sasasa",
+      "Name": "Nikola",
+      "Surname": "Nikolic",
+      "DateOfBirth": "1984-12-01T00:00:00",
+      "Phone": "0647896587",
+      "Email": "nikolic@gmail.com",
+      "Id": "2222",
+      "UserType": 0,
+      "Address": {
+        "Street": "Masarikova ulica ",
+        "NumberOfBuilding": 12,
+        "Floor": 25,
+        "Apartment": 13,
+        "City": {
+          "name": "Sombor ",
+          "postalCode": "12564",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "RoomRecord": {
+      "Id": 103,
+      "HospitalWard": "Pedijatrija",
+      "inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "roomPurpose": {
+        "Name": "Operaciona sala"
+      }
+    },
+    "IsUrgent": false,
+    "endTime": "2021-05-26T09:00:00",
+    "PosponedDate": "0001-01-01T00:00:00"
+  },
+  {
+    "doctor": {
+      "Specialization": {
+        "Name": "Anesteziologija"
+      },
+      "Ordination": 202,
+      "Username": "ana",
+      "Password": "ana",
+      "Name": "Ana",
+      "Surname": "Petrović",
+      "DateOfBirth": "1970-10-01T00:00:00",
+      "Phone": "67890834",
+      "Email": "ana@gmail.com",
+      "Id": "4321009",
+      "UserType": 1,
+      "Address": null
+    },
+    "DurationInMins": 120,
+    "GuestUser": null,
+    "Doctor": null,
+    "Date": "2021-05-26T13:00:00",
+    "Patient": {
+      "Allergens": [
+        "brufen",
+        "penicilin"
+      ],
+      "examinations": null,
+      "Akcije": 0,
+      "brojOcenjenihPregleda": 0,
+      "Debit": 1.0,
+      "HealthCardNumber": "19",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Username": "nnnn",
+      "Password": "ftn",
+      "Name": "Nina",
+      "Surname": "Pavkovic",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "12345",
+      "Email": "dad",
+      "Id": "1234",
+      "UserType": 0,
+      "Address": {
+        "Street": "abc ",
+        "NumberOfBuilding": 4,
+        "Floor": 3,
+        "Apartment": 2,
+        "City": {
+          "name": "ns ",
+          "postalCode": "21000",
+          "Country": {
+            "name": "srb"
+          }
+        }
+      }
+    },
+    "RoomRecord": {
+      "Id": 103,
+      "HospitalWard": "Pedijatrija",
+      "inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "roomPurpose": {
+        "Name": "Operaciona sala"
+      }
+    },
+    "IsUrgent": false,
+    "endTime": "2021-05-26T15:00:00",
+    "PosponedDate": "0001-01-01T00:00:00"
+  }
+]

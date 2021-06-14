@@ -1,0 +1,19 @@
+﻿<Window x:Class="IS_Bolnica.SelectedNotificationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IS_Bolnica"
+        mc:Ignorable="d"
+        Title="SelectedNotificationWindow" Height="655" Width="700" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBox x:Name="contentBox" Text="{Binding Path=Content}" IsReadOnly="True" HorizontalAlignment="Left" Height="221" Margin="49,296,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="601" FontSize="16"/>
+        <Label Content="Sadrzaj:" HorizontalAlignment="Left" Margin="49,259,0,0" VerticalAlignment="Top" FontSize="16" Width="65"/>
+        <Label Content="OBAVEŠTENJE" HorizontalAlignment="Left" Margin="277,35,0,0" VerticalAlignment="Top" FontSize="26" FontWeight="Bold"/>
+        <TextBox x:Name="senderBox" Text="{Binding Path=Sender}" IsReadOnly="True" HorizontalAlignment="Left" Height="32" Margin="152,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="498" FontSize="16"/>
+        <Label Content="Pošiljalac:" HorizontalAlignment="Left" Margin="49,129,0,0" VerticalAlignment="Top" FontSize="16" Width="78"/>
+        <TextBox x:Name="titleBox" Text="{Binding Path=Title}" IsReadOnly="True" HorizontalAlignment="Left" Height="32" Margin="152,191,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="498" FontSize="16"/>
+        <Label Content="Naslov:" HorizontalAlignment="Left" Margin="49,195,0,0" VerticalAlignment="Top" FontSize="16" Width="62"/>
+
+    </Grid>
+</Window>

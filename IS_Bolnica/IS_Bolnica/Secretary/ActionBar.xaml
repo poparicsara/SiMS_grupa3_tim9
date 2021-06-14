@@ -1,0 +1,37 @@
+﻿<Page x:Class="IS_Bolnica.Secretary.ActionBar"
+      xmlns:ns="clr-namespace:IS_Bolnica"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:p = "clr-namespace:IS_Bolnica.Properties"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="430"
+      Title="ActionBar" >
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="411*"/>
+            <ColumnDefinition Width="19*"/>
+        </Grid.ColumnDefinitions>
+        <Button Background="White" BorderBrush="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="48" Margin="10,10,0,0" Height="48" Click="Button_Click">
+            <StackPanel>
+                <Image Source="C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\Images\feedback.png" Width="46" Height="41" RenderTransformOrigin="0.543,0.5"/>
+            </StackPanel>
+        </Button>
+        <Label Content="{ns:Loc Logo}" FontSize="20" Foreground="Green" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="84,14,0,0" Height="35" Width="242"/>
+        <Image x:Name="nasLogo" HorizontalAlignment="Left" Height="48" Margin="366,10,0,0" VerticalAlignment="Top" Width="48" Source="C:\Users\Nikolina Pavkovic\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\Images\nasLogo.jpg" Grid.ColumnSpan="2"/>
+        <Button Name="ProfilButton" Content="{ns:Loc ProfileButton}" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="Profil_Selected" HorizontalAlignment="Left" Margin="56,95,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="{ns:Loc PatientsButton}" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="SpisakPacijenata_Selected" HorizontalAlignment="Left" Margin="56,145,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="{ns:Loc DoctorsButton}" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="SpisakLekara_Selected" HorizontalAlignment="Left" Margin="56,195,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="{ns:Loc BlockedButton}" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="BlokiraniPacijenti_Selected" HorizontalAlignment="Left" Margin="56,245,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="{ns:Loc GuestButton}" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="SpisakGuestNaloga_Selected" HorizontalAlignment="Left" Margin="56,295,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="{ns:Loc NotificationsButton}" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="SpisakObavestenja_Selected" HorizontalAlignment="Left" Margin="56,345,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="{ns:Loc ExaminationButton}" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="SpisakPregleda_Selected" HorizontalAlignment="Left" Margin="56,395,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="{ns:Loc SurgeryButton}" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="SpisakOperacija_Selected" HorizontalAlignment="Left" Margin="56,445,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="{ns:Loc UrgentExButton}" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="ZakaziHitanPregled_Selected" HorizontalAlignment="Left" Margin="56,495,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="{ns:Loc UrgentOpButton}" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="ZakaziHitnuOperaciju_Selected" HorizontalAlignment="Left" Margin="56,545,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="{ns:Loc OptionsButton}" Foreground="White" Background="#FF15285D" FontWeight="Bold" Click="Opcije_Selected" HorizontalAlignment="Left" Margin="56,595,0,0" VerticalAlignment="Top" Width="300" Height="40"/>
+        <Button Content="{ns:Loc ReportButton}" Foreground="White" Background="#FF15285D" FontWeight="Bold" HorizontalAlignment="Left" Margin="56,645,0,0" VerticalAlignment="Top" Width="300" Height="40" Click="Izvestaj_selected"/>
+    </Grid>
+</Page>

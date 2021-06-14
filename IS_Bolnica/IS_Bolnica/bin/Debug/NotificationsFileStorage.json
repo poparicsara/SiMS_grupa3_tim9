@@ -1,0 +1,138 @@
+[
+  {
+    "Title": "RENOVACIJE",
+    "Content": "...",
+    "Sender": 2,
+    "notificationType": 4,
+    "PersonId": []
+  },
+  {
+    "Title": "VAZNO",
+    "Content": "Obavestavamo Vas da promenite lozinku.",
+    "Sender": 2,
+    "notificationType": 4,
+    "PersonId": []
+  },
+  {
+    "Title": "Potrebno pomeranje termina",
+    "Content": "Prostorija  102 se renovira.\nPotrebno je pomeranje zakazanog termina",
+    "Sender": 3,
+    "notificationType": 2,
+    "PersonId": []
+  },
+  {
+    "Title": "Potrebno pomeranje termina",
+    "Content": "Prostorija  102 se renovira.\nPotrebno je pomeranje zakazanog termina",
+    "Sender": 3,
+    "notificationType": 2,
+    "PersonId": []
+  },
+  {
+    "Title": "Potrebno pomeranje termina",
+    "Content": "Prostorija  103 se renovira.\nPotrebno je pomeranje zakazanog termina",
+    "Sender": 3,
+    "notificationType": 2,
+    "PersonId": []
+  },
+  {
+    "Title": "Potrebno pomeranje termina",
+    "Content": "Prostorija  103 se renovira.\nPotrebno je pomeranje zakazanog termina",
+    "Sender": 3,
+    "notificationType": 2,
+    "PersonId": []
+  },
+  {
+    "Title": "Potrebno pomeranje termina",
+    "Content": "Prostorija  103 se renovira.\nPotrebno je pomeranje zakazanog termina",
+    "Sender": 3,
+    "notificationType": 2,
+    "PersonId": []
+  },
+  {
+    "Title": "Pomeranje termina zbog renoviranja",
+    "Content": "\tProstorija: 106\n\tPacijent: Nina Pavkovic\n\tDoktor: Mateja Pavkovic\n",
+    "Sender": 3,
+    "notificationType": 2,
+    "PersonId": []
+  },
+  {
+    "Title": "aaaa",
+    "Content": "aaaa",
+    "Sender": 0,
+    "notificationType": 5,
+    "PersonId": [
+      "1111",
+      "2222"
+    ]
+  },
+  {
+    "Title": "Pažnja",
+    "Content": "Obaveštavamo Vas da je vreme da promenite  svoje lozinke radi bolje bezbednosti.                                                                               Vaša Zdravo korporacija",
+    "Sender": 0,
+    "notificationType": 5,
+    "PersonId": [
+      "2222222222222",
+      "3333333333333"
+    ]
+  },
+  {
+    "Title": "Blokada",
+    "Content": "Blokiran pacijent Nikolina Pavkovic!",
+    "Sender": 0,
+    "notificationType": 2,
+    "PersonId": null
+  },
+  {
+    "Title": "Pažnja",
+    "Content": "Obavestavamo vas da vam je otkazan pregled koji je planiran 6/23/2021 10:00:00 AMMolimo Vas da nas kontaktirate kako bismo se dogovorili o ponovnom zakazivanju istog!",
+    "Sender": 0,
+    "notificationType": 5,
+    "PersonId": [
+      "3333333333333"
+    ]
+  },
+  {
+    "Title": "Pomeranje termina zbog renoviranja",
+    "Content": "\tProstorija: 202\n\tPacijent: Srdjan Srdic\n\tDoktor: Ana Srdic\n",
+    "Sender": 3,
+    "notificationType": 2,
+    "PersonId": null
+  },
+  {
+    "Title": "Izmena zahteva za novi lek",
+    "Content": "1000\nposlednji lek\nAlopurinol\nftn\na\r\na\r\na\n\nPROMENI NAZIV",
+    "Sender": 1,
+    "notificationType": 3,
+    "PersonId": null
+  },
+  {
+    "Title": "Izmena zahteva za novi lek",
+    "Content": "1000\ninterfejs\nAlopurinol\nftn\na\r\na\r\na\n\nPROMENI IME",
+    "Sender": 1,
+    "notificationType": 3,
+    "PersonId": null
+  },
+  {
+    "Title": "Izmena zahteva za novi lek",
+    "Content": "1000\najde\nAlopurinol\nmi\na\r\n\n\nPROMENI NESTO",
+    "Sender": 1,
+    "notificationType": 3,
+    "PersonId": null
+  },
+  {
+    "Title": "Izmena zahteva za novi lek",
+    "Content": "1000\nposljednji\nAlopurinol\nmi\na\r\na\r\na\r\na\r\na\n\nPOPRAVI",
+    "Sender": 1,
+    "notificationType": 3,
+    "PersonId": null
+  },
+  {
+    "Title": "Pažnja",
+    "Content": "Obavestavamo vas da vam je otkazan pregled koji je planiran 6/24/2021 9:30:00 AMMolimo Vas da nas kontaktirate kako bismo se dogovorili o ponovnom zakazivanju istog!",
+    "Sender": 0,
+    "notificationType": 5,
+    "PersonId": [
+      "1502000815038"
+    ]
+  }
+]

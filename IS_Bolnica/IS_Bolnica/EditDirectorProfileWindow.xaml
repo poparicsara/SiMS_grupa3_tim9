@@ -1,0 +1,33 @@
+﻿<Window x:Class="IS_Bolnica.EditDirectorProfileWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IS_Bolnica"
+        mc:Ignorable="d"
+        Title="EditProfileWindow" Height="655" Width="700" WindowStartupLocation="CenterScreen">
+    <Grid>
+
+        <Label Content="PROFIL" HorizontalAlignment="Left" Margin="320,34,0,0" VerticalAlignment="Top" FontSize="26" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black"/>
+        <Label Content="ID:" HorizontalAlignment="Left" Margin="134,113,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Ime:" HorizontalAlignment="Left" Margin="134,170,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Prezime:" HorizontalAlignment="Left" Margin="134,223,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Datum rođenja:" HorizontalAlignment="Left" Margin="134,287,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Broj telefona:" HorizontalAlignment="Left" Margin="134,358,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Email:" HorizontalAlignment="Left" Margin="134,418,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Radno mesto:" HorizontalAlignment="Left" Margin="134,476,0,0" VerticalAlignment="Top" FontSize="16"/>
+
+
+        <TextBox x:Name="idBox"  IsEnabled="False" Text="60" HorizontalAlignment="Left" Height="32" Margin="377,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" FontSize="16"/>
+        <TextBox x:Name="nameBox"  IsEnabled="False" Text="Ivan" HorizontalAlignment="Left" Height="32" Margin="377,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" FontSize="16"/>
+        <TextBox x:Name="SurnameBox"  IsEnabled="False" Text="Ivanović" HorizontalAlignment="Left" Height="32" Margin="377,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" FontSize="16"/>
+        <TextBox x:Name="dateBox"  IsEnabled="False" Text="31.01.1985." HorizontalAlignment="Left" Height="32" Margin="377,290,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" FontSize="16"/>
+        <TextBox x:Name="numberBox" IsTabStop="True" Text="0601234567" HorizontalAlignment="Left" Height="32" Margin="377,356,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" FontSize="16"/>
+        <TextBox x:Name="emailBox" IsTabStop="True" Text="ivanivanovic@gmail.com" HorizontalAlignment="Left" Height="32" Margin="377,418,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" FontSize="16"/>
+        <TextBox x:Name="workPlaceBox" IsEnabled="False"  Text="Upravnik" HorizontalAlignment="Left" Height="32" Margin="377,480,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" FontSize="16"/>
+        <Button Content="POTVRDI" FontWeight="Bold" Background="White" HorizontalAlignment="Left" Margin="402,546,0,0" VerticalAlignment="Top" Width="102" FontSize="18" Height="40
+                " Click="DoneButtonClicked"/>
+        <Button Content="ODUSTANI" FontWeight="Bold" Background="White" HorizontalAlignment="Left" Margin="200,546,0,0" VerticalAlignment="Top" Width="102" FontSize="18" Height="40" Click="CancelButtonClicked"/>
+
+    </Grid>
+</Window>

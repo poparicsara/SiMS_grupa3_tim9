@@ -1,0 +1,70 @@
+﻿<Window x:Class="IS_Bolnica.DoctorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IS_Bolnica"
+        mc:Ignorable="d"
+        Title="Zdravo korporacija" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        Height="768" Width="1024">
+    <Grid>
+        <TabControl Name ="tabs" TabStripPlacement="Right" Background="#FFA0BC98" Margin="49,49,126,72" BorderBrush="#FFA0BC98" FontFamily="Global Sans Serif">
+            <TabItem x:Name="examinationsTab" Header="PREGLEDI" FontWeight="Bold" FontFamily="Ebrima" BorderBrush="#FFA0BC98" Foreground="#FFA0BC98" Background="#FF15285D" IsSelected="True" Height="30" Width="116">
+
+                <Canvas Height="301" RenderTransformOrigin="0.069,0.186" Margin="0,22,0,22.6" >
+                    <Label Content="PREGLEDI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="178" Canvas.Left="52" Canvas.Top="-126" FontSize="22" Foreground="#FF15285D"/>
+                    <DataGrid x:Name="dataGridExaminations" Width="496" HorizontalAlignment="Left" Height="301" SelectionMode="Single" GridLinesVisibility="Vertical" 
+                              ColumnWidth="SizeToHeader" Foreground="#FF15285D" BorderBrush="#FF15285D" Canvas.Left="52" 
+                              CanUserReorderColumns="False" CanUserResizeColumns="False" IsReadOnly="True" AutoGenerateColumns="False" Background="White" 
+                              HorizontalScrollBarVisibility="Disabled" CanUserResizeRows="False" Canvas.Top="-46">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="DATE AND TIME" Width="160" Binding="{Binding Date}"/>
+                            <DataGridTextColumn Header="ROOM" Width="110" Binding="{Binding RoomRecord.Id}"/>
+                            <DataGridTextColumn Header="NAME" Width="110" Binding="{Binding Patient.Name}"/>
+                            <DataGridTextColumn Header="SURNAME" Width="110" Binding="{Binding Patient.Surname}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <Button Content="Zakaži pregled" HorizontalAlignment="Left" VerticalAlignment="Top" Width="99" Height="32" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" Canvas.Left="580" Canvas.Top="117" Click="addExaminationButton" FontSize="11"/>
+                    <Button Content="Otkaži pregled" HorizontalAlignment="Left" VerticalAlignment="Top" Width="99" Height="34" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="580" Canvas.Top="68" Click="cancelExaminationButton" FontSize="11"/>
+                    <Button Content="Izmeni pregled" HorizontalAlignment="Left" VerticalAlignment="Top" Width="99" Height="32" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="580" Canvas.Top="22" FontSize="11" Click="updateExaminationButton"/>
+                    <Button Content="Započni pregled" HorizontalAlignment="Left" VerticalAlignment="Top" Width="121" Height="30" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="52" Canvas.Top="293" FontSize="11" Click="startExamination"/>
+
+                </Canvas>
+
+            </TabItem>
+
+            <TabItem x:Name="operationsTab" Header="OPERACIJE" FontWeight="Bold" FontFamily="Ebrima" BorderBrush="#FFA0BC98" Foreground="#FFA0BC98" Background="#FF15285D" IsSelected="True" Height="30" Width="120">
+
+                <Canvas Height="301" RenderTransformOrigin="0.069,0.186" Margin="0,22,0,22.6" >
+                    <Label Content="OPERACIJE" HorizontalAlignment="Left" VerticalAlignment="Top" Width="178" Canvas.Left="31" Canvas.Top="-119" FontSize="22" Foreground="#FF15285D"/>
+                    <DataGrid x:Name="dataGridOperations" Width="537" HorizontalAlignment="Left" Height="301" SelectionMode="Single" GridLinesVisibility="Vertical" 
+                              ColumnWidth="SizeToHeader" Foreground="#FF15285D" BorderBrush="#FF15285D" Canvas.Left="31" FontSize="12"
+                              IsReadOnly="True" AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserResizeColumns="False" Background="White" HorizontalScrollBarVisibility="Disabled" Canvas.Top="-45">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="dateColumn" Header="DATE AND TIME" Width="130" Binding="{Binding Date}"/>
+                            <DataGridTextColumn Header="ROOM" Width="90" Binding="{Binding RoomRecord.Id}"/>
+                            <DataGridTextColumn Header="NAME" Width="110" Binding="{Binding Patient.Name}"/>
+                            <DataGridTextColumn Header="SURNAME" Width="110" Binding="{Binding Patient.Surname}" />
+                            <DataGridTextColumn x:Name="urgentData" Header="URGENT" Width="100" Binding="{Binding IsUrgent}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <Button Content="Zakaži operaciju" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Height="38" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" BorderBrush="#FF425431" Canvas.Left="590" Canvas.Top="124" Click="addOperationButton" FontSize="11"/>
+                    <Button Content="Otkaži operaciju" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Height="33" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="590" Canvas.Top="75" Click="cancelOperationButton" FontSize="11" RenderTransformOrigin="0.646,0.515"/>
+                    <Button Content="Izmeni operaciju" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Height="33" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="590" Canvas.Top="26" FontSize="11" Click="updateOperationButton" RenderTransformOrigin="0.76,0.542"/>
+                    <Button Content="Započni operaciju" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" Height="34" Background="#FF15285D" FontFamily="Ebrima" FontWeight="Bold" Foreground="White" BorderBrush="#FF425431" Canvas.Left="31" Canvas.Top="301" FontSize="11" Click="updateOperationButton"/>
+                </Canvas>
+
+            </TabItem>
+
+        </TabControl>
+        <Button Content="Odjavi se" HorizontalAlignment="Left" Margin="897,637,0,0" VerticalAlignment="Top" Width="94" Height="30" Click="logOutButtonClicked"/>
+        <Button Content="Pregled lekova" HorizontalAlignment="Left" Margin="897,379,0,0" VerticalAlignment="Top" Width="94" Height="39" Click="medicationButtonClicked"/>
+        <Button Content="Zahtevi" HorizontalAlignment="Left" Margin="897,314,0,0" VerticalAlignment="Top" Width="94" Height="35" Click="requestButtonClicked"/>
+        <Button Content="Obaveštenja" HorizontalAlignment="Left" Margin="897,251,0,0" VerticalAlignment="Top" Width="94" Height="35" Click="notificationButtonClicked"/>
+
+
+
+    </Grid>
+</Window>

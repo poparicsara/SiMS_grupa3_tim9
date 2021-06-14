@@ -1,0 +1,14 @@
+[
+  {
+    "Username": "ana",
+    "Password": "ana",
+    "Name": "Ana",
+    "Surname": "Petrovic",
+    "DateOfBirth": "1970-10-01T00:00:00",
+    "Phone": "67890834",
+    "Email": "ana@gmail.com",
+    "Id": "4321009",
+    "UserType": 1,
+    "Address": null
+  }
+]

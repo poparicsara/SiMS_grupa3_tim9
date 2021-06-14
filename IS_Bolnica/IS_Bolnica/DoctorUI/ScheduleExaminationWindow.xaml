@@ -1,0 +1,82 @@
+﻿<Window x:Class="IS_Bolnica.DoctorUI.ScheduleExaminationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IS_Bolnica.DoctorUI"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="ScheduleExaminationWindow" Height="768" Width="1024" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="Zakazivanje pregleda" HorizontalAlignment="Left" Margin="178,23,0,0" VerticalAlignment="Top" Width="405" FontFamily="Malgun Gothic" FontSize="30" FontWeight="Bold" Height="71"/>
+        <Button HorizontalAlignment="Left" Margin="105,23,0,0" VerticalAlignment="Top" Width="68" Height="53" BorderBrush="{x:Null}" Background="{x:Null}" Click="BackButtonClick">
+            <StackPanel Background="Transparent">
+                <Image Source="../Images/back.png" Width="30" Height="30"/>
+            </StackPanel>
+        </Button>
+        <Grid HorizontalAlignment="Left" Height="551" Margin="178,120,0,0" VerticalAlignment="Top" Width="770" Background="#FFF1F0F0">
+            <Label Content="Pacijent (ime i prezime):" HorizontalAlignment="Left" Margin="51,63,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="192"/>
+            <Label Content="JMBG:" HorizontalAlignment="Left" Margin="51,121,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="192"/>
+            <Label Content="Broj zdravstvene knjižice:" HorizontalAlignment="Left" Margin="51,171,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="192"/>
+            <Label Content="Datum pregleda:" HorizontalAlignment="Left" Margin="51,227,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="192"/>
+            <Label Content="Vreme pregleda:" HorizontalAlignment="Left" Margin="51,278,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="192"/>
+            <Label Content="Lekar:" HorizontalAlignment="Left" Margin="51,326,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="92"/>
+            <ComboBox Name="doctorsCB" HorizontalAlignment="Left" Margin="304,334,0,0" VerticalAlignment="Top" Width="150" RenderTransformOrigin="0.328,0.349" SelectionChanged="DoctorsSelectionChanged"/>
+            <Label Content="Ordinacija:" HorizontalAlignment="Left" Margin="51,379,0,0" VerticalAlignment="Top" FontFamily="Malgun Gothic" FontWeight="Bold" FontSize="15" Width="114"/>
+            <TextBox Name="patientTxt" HorizontalAlignment="Left" Height="23" Margin="304,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}" TextChanged="PatientTextBoxChanged">
+
+            </TextBox>
+            <TextBox Name="patinetIdTxt" PreviewTextInput="PatinetIdTxt_OnPreviewTextInput" HorizontalAlignment="Left" Height="23" Margin="304,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" LostFocus="IdTextFieldLostFocus" BorderBrush="{x:Null}" TextChanged="IdTextBoxChanged">
+                
+            </TextBox>
+            <TextBox Name="healthCardNumTxt" HorizontalAlignment="Left" Height="23" Margin="304,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}" TextChanged="HealthCardTextBoxChanged">
+
+            </TextBox>
+            <TextBox Name="ordinationTxt" HorizontalAlignment="Left" Height="23" Margin="304,386,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="{x:Null}" TextChanged="OrdinationTextBoxChanged">
+
+            </TextBox>
+            <DatePicker Name="examinationDate" HorizontalAlignment="Left" Margin="304,227,0,0" VerticalAlignment="Top" Width="150" Height="29" BorderBrush="{x:Null}" DisplayDateStart="{x:Static sys:DateTime.Today}"/>
+            <ComboBox Name="hoursCB" HorizontalAlignment="Left" Margin="304,286,0,0" VerticalAlignment="Top" Width="65"/>
+            <ComboBox Name="minutesCB" HorizontalAlignment="Left" Margin="389,286,0,0" VerticalAlignment="Top" Width="65"/>
+        </Grid>
+        <Button Name="confirmButton" Content="POTVRDI" HorizontalAlignment="Left" Margin="791,604,0,0" VerticalAlignment="Top" Width="109" Height="34" Background="#FF3F5038" Foreground="White" FontWeight="Bold" FontFamily="Malgun Gothic" FontSize="14" Click="PotvrdiButtonClick"/>
+        <Grid HorizontalAlignment="Left" Height="739" VerticalAlignment="Top" Width="100" Background="#FFF1F0F0" Margin="0">
+            <Button HorizontalAlignment="Left" Margin="0,110,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="ExaminationButtonClick">
+                <StackPanel>
+                    <Image Source="/IS_Bolnica;component/Images/greenstethoscope.png" Width="84" Height="48"/>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Margin="0,195,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="OperationButtonClick">
+                <StackPanel>
+                    <Image Source="/IS_Bolnica;component/Images/greenscissors.png" Width="84" Height="48"/>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Margin="0,270,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="NotificationsButtonClick">
+                <StackPanel>
+                    <Image Source="/IS_Bolnica;component/Images/message.png" Width="84" Height="48"/>
+                </StackPanel>
+            </Button>
+            <Button  HorizontalAlignment="Left" Margin="0,350,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="MedicamentsButtonClick">
+                <StackPanel>
+                    <Image Source="/IS_Bolnica;component/Images/pharmacy.png" Width="84" Height="48"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+        <Button HorizontalAlignment="Left" Margin="0,430,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="StatisticsButtonClick">
+            <StackPanel>
+                <Image Source="/IS_Bolnica;component/Images/chartgreen.png" Width="84" Height="48"/>
+            </StackPanel>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="0,671,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="SingOutButtonClick">
+            <StackPanel>
+                <Image Source="/IS_Bolnica;component/Images/singout.png" Width="84" Height="48"/>
+            </StackPanel>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="0,604,0,0" VerticalAlignment="Top" Width="100" Height="51" BorderBrush="{x:Null}" Background="{x:Null}" Click="SettingsButtonClick">
+            <StackPanel>
+                <Image Source="/IS_Bolnica;component/Images/settings.png" Width="84" Height="48"/>
+            </StackPanel>
+        </Button>
+
+    </Grid>
+</Window>

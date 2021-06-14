@@ -1,0 +1,142 @@
+[
+  {
+    "Name": "Špric",
+    "CurrentAmount": 20,
+    "Minimum": 2,
+    "Id": 101,
+    "InventoryType": 0
+  },
+  {
+    "Name": "Krevet",
+    "CurrentAmount": 20,
+    "Minimum": 2,
+    "Id": 666,
+    "InventoryType": 1
+  },
+  {
+    "Name": "Injekcija",
+    "CurrentAmount": 20,
+    "Minimum": 2,
+    "Id": 202,
+    "InventoryType": 0
+  },
+  {
+    "Name": "Štapić",
+    "CurrentAmount": 20,
+    "Minimum": 2,
+    "Id": 303,
+    "InventoryType": 0
+  },
+  {
+    "Name": "Špric",
+    "CurrentAmount": 20,
+    "Minimum": 2,
+    "Id": 101,
+    "InventoryType": 0
+  },
+  {
+    "Name": "Injekcija",
+    "CurrentAmount": 20,
+    "Minimum": 2,
+    "Id": 202,
+    "InventoryType": 0
+  },
+  {
+    "Name": "Štapić",
+    "CurrentAmount": 17,
+    "Minimum": 2,
+    "Id": 303,
+    "InventoryType": 0
+  },
+  {
+    "Name": "Špric",
+    "CurrentAmount": 20,
+    "Minimum": 2,
+    "Id": 101,
+    "InventoryType": 0
+  },
+  {
+    "Name": "Injekcija",
+    "CurrentAmount": 20,
+    "Minimum": 2,
+    "Id": 202,
+    "InventoryType": 0
+  },
+  {
+    "Name": "Štapić",
+    "CurrentAmount": 20,
+    "Minimum": 2,
+    "Id": 303,
+    "InventoryType": 0
+  },
+  {
+    "Name": "Špric",
+    "CurrentAmount": 20,
+    "Minimum": 2,
+    "Id": 101,
+    "InventoryType": 0
+  },
+  {
+    "Name": "Injekcija",
+    "CurrentAmount": 20,
+    "Minimum": 2,
+    "Id": 202,
+    "InventoryType": 0
+  },
+  {
+    "Name": "Štapić",
+    "CurrentAmount": 20,
+    "Minimum": 2,
+    "Id": 303,
+    "InventoryType": 0
+  },
+  {
+    "Name": "Špric",
+    "CurrentAmount": 20,
+    "Minimum": 2,
+    "Id": 101,
+    "InventoryType": 0
+  },
+  {
+    "Name": "Injekcija",
+    "CurrentAmount": 20,
+    "Minimum": 2,
+    "Id": 202,
+    "InventoryType": 0
+  },
+  {
+    "Name": "Štapić",
+    "CurrentAmount": 20,
+    "Minimum": 2,
+    "Id": 303,
+    "InventoryType": 0
+  },
+  {
+    "Name": "Špric",
+    "CurrentAmount": 20,
+    "Minimum": 2,
+    "Id": 101,
+    "InventoryType": 0
+  },
+  {
+    "Name": "Injekcija",
+    "CurrentAmount": 20,
+    "Minimum": 2,
+    "Id": 202,
+    "InventoryType": 0
+  },
+  {
+    "Name": "Štapić",
+    "CurrentAmount": 23,
+    "Minimum": 2,
+    "Id": 303,
+    "InventoryType": 0
+  },
+  {
+    "Name": "nesto",
+    "CurrentAmount": 0,
+    "Minimum": 0,
+    "Id": 222,
+    "InventoryType": 0
+  }
+]

@@ -1,0 +1,52 @@
+﻿<Window x:Class="IS_Bolnica.Zakazivanje_pregleda"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IS_Bolnica"
+        mc:Ignorable="d"
+        Title="Zakazivanje_pregleda" Height="450" Width="812.6"
+        WindowStartupLocation="CenterScreen">
+    <Grid RenderTransformOrigin="1.212,0.586">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="422" Margin="0,0,-4.4,-2" Stroke="Black" VerticalAlignment="Top" Width="798" Grid.ColumnSpan="2"/>
+        <Button Click="BackButtonClicked">
+            <Image Margin="676,27,83.6,366" Source="back.png" Stretch="Fill" RenderTransformOrigin="1.313,1.419" />
+        </Button>
+        <Label Content="Zakazite pregled" HorizontalAlignment="Left" FontSize="45" Margin="232,24,0,0" VerticalAlignment="Top" Height="74" Width="340"/>
+
+        <Label Content="Doktor" HorizontalAlignment="Left" FontSize="20" Margin="96,129,0,0" VerticalAlignment="Top" Width="76" Height="44"/>
+        <Label Content="Datum" FontSize="20" HorizontalAlignment="Left" Margin="96,193,0,0" VerticalAlignment="Top" Height="37" Width="69"/>
+        <DatePicker Name="Datum"  HorizontalAlignment="Left" FontSize="15" Margin="232,199,0,0" VerticalAlignment="Top" Height="25" Width="134" DisplayDateStart="{Binding DisplayDate, ElementName=Datum}"/>
+        <Button Content="Zakazi" FontSize="18" HorizontalAlignment="Left" Margin="232,356,0,0" VerticalAlignment="Top" Width="94" Height="36" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="ButtonZakaziClicked"/>
+        <Button Content="Odustani" FontSize="18" HorizontalAlignment="Left" Margin="408,356,0,0" VerticalAlignment="Top" Width="94" Height="36" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="ButtonOdustaniClicked"/>
+        <ComboBox ItemsSource="{Binding Path=doktori}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="232,133,0,0" Width="134" Name="DoctorCombo" Height="22" />
+
+        <Label Content="Vreme" FontSize="20" HorizontalAlignment="Left" Margin="96,261,0,0" VerticalAlignment="Top" Height="37" Width="67"/>
+
+        <ComboBox HorizontalAlignment="Left" FontSize="18" Margin="232,265,0,0" VerticalAlignment="Top" Width="52" x:Name="hourBox" Height="30">
+            <ComboBoxItem Content="07"/>
+            <ComboBoxItem Content="08"/>
+            <ComboBoxItem Content="09"/>
+            <ComboBoxItem Content="10"/>
+            <ComboBoxItem Content="11"/>
+            <ComboBoxItem Content="12"/>
+            <ComboBoxItem Content="13"/>
+            <ComboBoxItem Content="14"/>
+            <ComboBoxItem Content="15"/>
+            <ComboBoxItem Content="16"/>
+            <ComboBoxItem Content="17"/>
+            <ComboBoxItem Content="18"/>
+        </ComboBox>
+        <ComboBox HorizontalAlignment="Left" FontSize="18" Margin="316,265,0,0" VerticalAlignment="Top" Width="52" x:Name="minutesBox" Height="30">
+            <ComboBoxItem Content="00"/>
+            <ComboBoxItem Content="30"/>
+        </ComboBox>
+        <Button Content="Predlozi za vas" FontSize="18" HorizontalAlignment="Left" Margin="594,202,0,0" VerticalAlignment="Top" Width="153" Height="41" Background="#FF15285D" Foreground="White" FontWeight="Bold" Click="ButtonPredloziClicked"/>
+        <Label Content="Zdravo bolnica" HorizontalAlignment="Left" Height="27" Margin="10,66,0,0" VerticalAlignment="Top" Width="93"/>
+        <Label Content="Back" FontSize="16" HorizontalAlignment="Left" Height="27" Margin="719,27,0,0" VerticalAlignment="Top" Width="48"/>
+        <Image Margin="28,10,707.6,354" Source="nasLogo.jpg" Stretch="Fill"/>
+    </Grid>
+</Window>

@@ -1,0 +1,1047 @@
+[
+  {
+    "DurationInMinutes": 30,
+    "Date": "2021-05-08T15:30:00",
+    "Patient": {
+      "Allergens": [
+        "penicilin"
+      ],
+      "examinations": null,
+      "Akcije": 0,
+      "brojOcenjenihPregleda": 0,
+      "Gender": 0,
+      "isBlocked": false,
+      "HealthCardNumber": "78",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Username": "mare",
+      "Password": "nesto",
+      "Name": "Marko",
+      "Surname": "Markovic",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "064789552",
+      "Email": "marko@gmai.com",
+      "Id": "1111",
+      "UserType": 0,
+      "Address": {
+        "Street": "Marko Oreskovica",
+        "NumberOfBuilding": 12,
+        "Floor": 5,
+        "Apartment": 8,
+        "City": {
+          "name": "Novi Sad",
+          "postalCode": "21000",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "Doctor": {
+      "Specialization": {
+        "Name": "Alergologija i imunologija"
+      },
+      "Ordination": 102,
+      "Shifts": null,
+      "Vacations": null,
+      "Username": "Ognjen",
+      "Password": "ognjen",
+      "Name": "Ognjen",
+      "Surname": "Nestorović",
+      "DateOfBirth": "1979-11-01T00:00:00",
+      "Phone": "67894652",
+      "Email": "maricm@hotmail.com",
+      "Id": "1",
+      "UserType": 1,
+      "Address": null
+    },
+    "Secretary": null,
+    "Room": null,
+    "GuestUser": null,
+    "PostponedDate": "0001-01-01T00:00:00"
+  },
+  {
+    "DurationInMinutes": 30,
+    "Date": "2021-05-08T16:00:00",
+    "Patient": {
+      "Allergens": [
+        "penicilin"
+      ],
+      "examinations": null,
+      "Akcije": 0,
+      "brojOcenjenihPregleda": 0,
+      "Gender": 0,
+      "isBlocked": false,
+      "HealthCardNumber": "78",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Username": "mare",
+      "Password": "nesto",
+      "Name": "Marko",
+      "Surname": "Markovic",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "064789552",
+      "Email": "marko@gmai.com",
+      "Id": "1111",
+      "UserType": 0,
+      "Address": {
+        "Street": "Marko Oreskovica",
+        "NumberOfBuilding": 12,
+        "Floor": 5,
+        "Apartment": 8,
+        "City": {
+          "name": "Novi Sad",
+          "postalCode": "21000",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "Doctor": {
+      "Specialization": {
+        "Name": "Alergologija i imunologija"
+      },
+      "Ordination": 102,
+      "Shifts": null,
+      "Vacations": null,
+      "Username": "Ognjen",
+      "Password": "ognjen",
+      "Name": "Ognjen",
+      "Surname": "Nestorović",
+      "DateOfBirth": "1979-11-01T00:00:00",
+      "Phone": "67894652",
+      "Email": "maricm@hotmail.com",
+      "Id": "1",
+      "UserType": 1,
+      "Address": null
+    },
+    "Secretary": null,
+    "Room": null,
+    "GuestUser": null,
+    "PostponedDate": "0001-01-01T00:00:00"
+  },
+  {
+    "DurationInMinutes": 30,
+    "Date": "2021-05-08T16:30:00",
+    "Patient": {
+      "Allergens": [
+        "polen"
+      ],
+      "examinations": null,
+      "Akcije": 0,
+      "brojOcenjenihPregleda": 0,
+      "Gender": 0,
+      "isBlocked": false,
+      "HealthCardNumber": "6",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Username": "nikola_nikolic",
+      "Password": "sasasa",
+      "Name": "Nikola",
+      "Surname": "Nikolic",
+      "DateOfBirth": "1984-12-01T00:00:00",
+      "Phone": "0647896587",
+      "Email": "nikolic@gmail.com",
+      "Id": "2222",
+      "UserType": 0,
+      "Address": {
+        "Street": "Masarikova ulica ",
+        "NumberOfBuilding": 12,
+        "Floor": 25,
+        "Apartment": 13,
+        "City": {
+          "name": "Sombor ",
+          "postalCode": "12564",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "Doctor": {
+      "Specialization": {
+        "Name": "Alergologija i imunologija"
+      },
+      "Ordination": 102,
+      "Shifts": null,
+      "Vacations": null,
+      "Username": "Ognjen",
+      "Password": "ognjen",
+      "Name": "Ognjen",
+      "Surname": "Nestorović",
+      "DateOfBirth": "1979-11-01T00:00:00",
+      "Phone": "67894652",
+      "Email": "maricm@hotmail.com",
+      "Id": "1",
+      "UserType": 1,
+      "Address": null
+    },
+    "Secretary": null,
+    "Room": null,
+    "GuestUser": {
+      "SystemName": null,
+      "InjuryDescription": null
+    },
+    "PostponedDate": "0001-01-01T00:00:00"
+  },
+  {
+    "DurationInMinutes": 30,
+    "Date": "2021-05-08T18:00:00",
+    "Patient": {
+      "Allergens": [
+        "penicilin"
+      ],
+      "examinations": null,
+      "Akcije": 0,
+      "brojOcenjenihPregleda": 0,
+      "Gender": 0,
+      "isBlocked": false,
+      "HealthCardNumber": "78",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Username": "mare",
+      "Password": "nesto",
+      "Name": "Marko",
+      "Surname": "Markovic",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "064789552",
+      "Email": "marko@gmai.com",
+      "Id": "1111",
+      "UserType": 0,
+      "Address": {
+        "Street": "Marko Oreskovica",
+        "NumberOfBuilding": 12,
+        "Floor": 5,
+        "Apartment": 8,
+        "City": {
+          "name": "Novi Sad",
+          "postalCode": "21000",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "Doctor": {
+      "Specialization": {
+        "Name": "Alergologija i imunologija"
+      },
+      "Ordination": 102,
+      "Shifts": null,
+      "Vacations": null,
+      "Username": "Ognjen",
+      "Password": "ognjen",
+      "Name": "Ognjen",
+      "Surname": "Nestorović",
+      "DateOfBirth": "1979-11-01T00:00:00",
+      "Phone": "67894652",
+      "Email": "maricm@hotmail.com",
+      "Id": "1",
+      "UserType": 1,
+      "Address": null
+    },
+    "Secretary": null,
+    "Room": null,
+    "GuestUser": {
+      "SystemName": null,
+      "InjuryDescription": null
+    },
+    "PostponedDate": "0001-01-01T00:00:00"
+  },
+  {
+    "DurationInMinutes": 30,
+    "Date": "2021-05-08T17:00:00",
+    "Patient": {
+      "Allergens": [
+        "polen"
+      ],
+      "examinations": null,
+      "Akcije": 0,
+      "brojOcenjenihPregleda": 0,
+      "Gender": 0,
+      "isBlocked": false,
+      "HealthCardNumber": "6",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Username": "nikola_nikolic",
+      "Password": "sasasa",
+      "Name": "Nikola",
+      "Surname": "Nikolic",
+      "DateOfBirth": "1984-12-01T00:00:00",
+      "Phone": "0647896587",
+      "Email": "nikolic@gmail.com",
+      "Id": "2222",
+      "UserType": 0,
+      "Address": {
+        "Street": "Masarikova ulica ",
+        "NumberOfBuilding": 12,
+        "Floor": 25,
+        "Apartment": 13,
+        "City": {
+          "name": "Sombor ",
+          "postalCode": "12564",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "Doctor": {
+      "Specialization": {
+        "Name": "Alergologija i imunologija"
+      },
+      "Ordination": 102,
+      "Shifts": null,
+      "Vacations": null,
+      "Username": "Ognjen",
+      "Password": "ognjen",
+      "Name": "Ognjen",
+      "Surname": "Nestorović",
+      "DateOfBirth": "1979-11-01T00:00:00",
+      "Phone": "67894652",
+      "Email": "maricm@hotmail.com",
+      "Id": "1",
+      "UserType": 1,
+      "Address": null
+    },
+    "Secretary": null,
+    "Room": null,
+    "GuestUser": {
+      "SystemName": null,
+      "InjuryDescription": null
+    },
+    "PostponedDate": "0001-01-01T00:00:00"
+  },
+  {
+    "DurationInMinutes": 30,
+    "Date": "2021-05-08T18:30:00",
+    "Patient": {
+      "Allergens": [
+        "penicilin"
+      ],
+      "examinations": null,
+      "Akcije": 0,
+      "brojOcenjenihPregleda": 0,
+      "Gender": 0,
+      "isBlocked": false,
+      "HealthCardNumber": "78",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Username": "mare",
+      "Password": "nesto",
+      "Name": "Marko",
+      "Surname": "Markovic",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "064789552",
+      "Email": "marko@gmai.com",
+      "Id": "1111",
+      "UserType": 0,
+      "Address": {
+        "Street": "Marko Oreskovica",
+        "NumberOfBuilding": 12,
+        "Floor": 5,
+        "Apartment": 8,
+        "City": {
+          "name": "Novi Sad",
+          "postalCode": "21000",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "Doctor": {
+      "Specialization": {
+        "Name": "Alergologija i imunologija"
+      },
+      "Ordination": 102,
+      "Shifts": null,
+      "Vacations": null,
+      "Username": "Ognjen",
+      "Password": "ognjen",
+      "Name": "Ognjen",
+      "Surname": "Nestorović",
+      "DateOfBirth": "1979-11-01T00:00:00",
+      "Phone": "67894652",
+      "Email": "maricm@hotmail.com",
+      "Id": "1",
+      "UserType": 1,
+      "Address": null
+    },
+    "Secretary": null,
+    "Room": null,
+    "GuestUser": null,
+    "PostponedDate": "0001-01-01T00:00:00"
+  },
+  {
+    "DurationInMinutes": 30,
+    "Date": "2021-05-08T17:30:00",
+    "Patient": {
+      "Allergens": [
+        ""
+      ],
+      "examinations": null,
+      "Akcije": 0,
+      "brojOcenjenihPregleda": 0,
+      "Gender": 0,
+      "isBlocked": false,
+      "HealthCardNumber": "10",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Username": "mica",
+      "Password": "haha",
+      "Name": "Milica",
+      "Surname": "Milović",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "068555647",
+      "Email": "milicam@gmail.com",
+      "Id": "3333",
+      "UserType": 0,
+      "Address": {
+        "Street": "Marka Oreškovića ",
+        "NumberOfBuilding": 5,
+        "Floor": 5,
+        "Apartment": 9,
+        "City": {
+          "name": "Vranje ",
+          "postalCode": "589",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "Doctor": {
+      "Specialization": {
+        "Name": "Alergologija i imunologija"
+      },
+      "Ordination": 102,
+      "Shifts": null,
+      "Vacations": null,
+      "Username": "Ognjen",
+      "Password": "ognjen",
+      "Name": "Ognjen",
+      "Surname": "Nestorović",
+      "DateOfBirth": "1979-11-01T00:00:00",
+      "Phone": "67894652",
+      "Email": "maricm@hotmail.com",
+      "Id": "1",
+      "UserType": 1,
+      "Address": null
+    },
+    "Secretary": null,
+    "Room": null,
+    "GuestUser": {
+      "SystemName": null,
+      "InjuryDescription": null
+    },
+    "PostponedDate": "0001-01-01T00:00:00"
+  },
+  {
+    "DurationInMinutes": 30,
+    "Date": "2021-05-08T19:00:00",
+    "Patient": {
+      "Allergens": [
+        "penicilin"
+      ],
+      "examinations": null,
+      "Akcije": 0,
+      "brojOcenjenihPregleda": 0,
+      "Gender": 0,
+      "isBlocked": false,
+      "HealthCardNumber": "78",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Username": "mare",
+      "Password": "nesto",
+      "Name": "Marko",
+      "Surname": "Markovic",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "064789552",
+      "Email": "marko@gmai.com",
+      "Id": "1111",
+      "UserType": 0,
+      "Address": {
+        "Street": "Marko Oreskovica",
+        "NumberOfBuilding": 12,
+        "Floor": 5,
+        "Apartment": 8,
+        "City": {
+          "name": "Novi Sad",
+          "postalCode": "21000",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "Doctor": {
+      "Specialization": {
+        "Name": "Alergologija i imunologija"
+      },
+      "Ordination": 102,
+      "Shifts": null,
+      "Vacations": null,
+      "Username": "Ognjen",
+      "Password": "ognjen",
+      "Name": "Ognjen",
+      "Surname": "Nestorović",
+      "DateOfBirth": "1979-11-01T00:00:00",
+      "Phone": "67894652",
+      "Email": "maricm@hotmail.com",
+      "Id": "1",
+      "UserType": 1,
+      "Address": null
+    },
+    "Secretary": null,
+    "Room": null,
+    "GuestUser": null,
+    "PostponedDate": "0001-01-01T00:00:00"
+  },
+  {
+    "DurationInMinutes": 30,
+    "Date": "2021-05-08T19:30:00",
+    "Patient": {
+      "Allergens": [
+        "penicilin"
+      ],
+      "examinations": null,
+      "Akcije": 0,
+      "brojOcenjenihPregleda": 0,
+      "Gender": 0,
+      "isBlocked": false,
+      "HealthCardNumber": "78",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Username": "mare",
+      "Password": "nesto",
+      "Name": "Marko",
+      "Surname": "Markovic",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "064789552",
+      "Email": "marko@gmai.com",
+      "Id": "1111",
+      "UserType": 0,
+      "Address": {
+        "Street": "Marko Oreskovica",
+        "NumberOfBuilding": 12,
+        "Floor": 5,
+        "Apartment": 8,
+        "City": {
+          "name": "Novi Sad",
+          "postalCode": "21000",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "Doctor": {
+      "Specialization": {
+        "Name": "Alergologija i imunologija"
+      },
+      "Ordination": 300,
+      "Shifts": null,
+      "Vacations": null,
+      "Username": "Ognjen",
+      "Password": "ognjen",
+      "Name": "Ognjen",
+      "Surname": "Nestorović",
+      "DateOfBirth": "1979-11-01T00:00:00",
+      "Phone": "67894652",
+      "Email": "maricm@hotmail.com",
+      "Id": "1",
+      "UserType": 1,
+      "Address": null
+    },
+    "Secretary": null,
+    "Room": null,
+    "GuestUser": {
+      "SystemName": null,
+      "InjuryDescription": null
+    },
+    "PostponedDate": "0001-01-01T00:00:00"
+  },
+  {
+    "DurationInMinutes": 30,
+    "Date": "2021-05-10T10:00:00",
+    "Patient": {
+      "Allergens": [
+        ""
+      ],
+      "examinations": null,
+      "Akcije": 0,
+      "brojOcenjenihPregleda": 0,
+      "Gender": 0,
+      "isBlocked": false,
+      "HealthCardNumber": "10",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Username": "mica",
+      "Password": "haha",
+      "Name": "Milica",
+      "Surname": "Milović",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "068555647",
+      "Email": "milicam@gmail.com",
+      "Id": "3333",
+      "UserType": 0,
+      "Address": {
+        "Street": "Marka Oreškovića ",
+        "NumberOfBuilding": 5,
+        "Floor": 5,
+        "Apartment": 9,
+        "City": {
+          "name": "Vranje ",
+          "postalCode": "589",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "Doctor": {
+      "Specialization": {
+        "Name": "Alergologija i imunologija"
+      },
+      "Ordination": 300,
+      "Shifts": null,
+      "Vacations": null,
+      "Username": "Ognjen",
+      "Password": "ognjen",
+      "Name": "Ognjen",
+      "Surname": "Nestorović",
+      "DateOfBirth": "1979-11-01T00:00:00",
+      "Phone": "67894652",
+      "Email": "maricm@hotmail.com",
+      "Id": "1",
+      "UserType": 1,
+      "Address": null
+    },
+    "Secretary": null,
+    "Room": null,
+    "GuestUser": null,
+    "PostponedDate": "0001-01-01T00:00:00"
+  },
+  {
+    "DurationInMinutes": 30,
+    "Date": "2021-05-11T15:24:00",
+    "Patient": {
+      "Allergens": [
+        "penicilin"
+      ],
+      "examinations": null,
+      "Akcije": 0,
+      "brojOcenjenihPregleda": 0,
+      "Gender": 0,
+      "isBlocked": false,
+      "HealthCardNumber": "78",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Username": "mare",
+      "Password": "nesto",
+      "Name": "Marko",
+      "Surname": "Markovic",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "064789552",
+      "Email": "marko@gmai.com",
+      "Id": "1111",
+      "UserType": 0,
+      "Address": {
+        "Street": "Marko Oreskovica",
+        "NumberOfBuilding": 12,
+        "Floor": 5,
+        "Apartment": 8,
+        "City": {
+          "name": "Novi Sad",
+          "postalCode": "21000",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "Doctor": {
+      "Specialization": {
+        "Name": "Alergologija i imunologija"
+      },
+      "Ordination": 300,
+      "Shifts": null,
+      "Vacations": null,
+      "Username": "Ognjen",
+      "Password": "ognjen",
+      "Name": "Ognjen",
+      "Surname": "Nestorović",
+      "DateOfBirth": "1979-11-01T00:00:00",
+      "Phone": "67894652",
+      "Email": "maricm@hotmail.com",
+      "Id": "1",
+      "UserType": 1,
+      "Address": null
+    },
+    "Secretary": null,
+    "Room": null,
+    "GuestUser": {
+      "SystemName": null,
+      "InjuryDescription": null
+    },
+    "PostponedDate": "0001-01-01T00:00:00"
+  },
+  {
+    "DurationInMinutes": 30,
+    "Date": "2021-05-11T15:54:00",
+    "Patient": {
+      "Allergens": [
+        "polen"
+      ],
+      "examinations": null,
+      "Akcije": 0,
+      "brojOcenjenihPregleda": 0,
+      "Gender": 0,
+      "isBlocked": false,
+      "HealthCardNumber": "6",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Username": "nikola_nikolic",
+      "Password": "sasasa",
+      "Name": "Nikola",
+      "Surname": "Nikolic",
+      "DateOfBirth": "1984-12-01T00:00:00",
+      "Phone": "0647896587",
+      "Email": "nikolic@gmail.com",
+      "Id": "2222",
+      "UserType": 0,
+      "Address": {
+        "Street": "Masarikova ulica ",
+        "NumberOfBuilding": 12,
+        "Floor": 25,
+        "Apartment": 13,
+        "City": {
+          "name": "Sombor ",
+          "postalCode": "12564",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "Doctor": {
+      "Specialization": {
+        "Name": "Alergologija i imunologija"
+      },
+      "Ordination": 300,
+      "Shifts": null,
+      "Vacations": null,
+      "Username": "Ognjen",
+      "Password": "ognjen",
+      "Name": "Ognjen",
+      "Surname": "Nestorović",
+      "DateOfBirth": "1979-11-01T00:00:00",
+      "Phone": "67894652",
+      "Email": "maricm@hotmail.com",
+      "Id": "1",
+      "UserType": 1,
+      "Address": null
+    },
+    "Secretary": null,
+    "Room": null,
+    "GuestUser": {
+      "SystemName": null,
+      "InjuryDescription": null
+    },
+    "PostponedDate": "0001-01-01T00:00:00"
+  },
+  {
+    "DurationInMinutes": 30,
+    "Date": "2021-05-17T15:56:00",
+    "Patient": {
+      "Allergens": [
+        "polen"
+      ],
+      "examinations": null,
+      "Akcije": 0,
+      "brojOcenjenihPregleda": 0,
+      "Gender": 0,
+      "isBlocked": false,
+      "HealthCardNumber": "6",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Username": "nikola_nikolic",
+      "Password": "sasasa",
+      "Name": "Nikola",
+      "Surname": "Nikolic",
+      "DateOfBirth": "1984-12-01T00:00:00",
+      "Phone": "0647896587",
+      "Email": "nikolic@gmail.com",
+      "Id": "2222",
+      "UserType": 0,
+      "Address": {
+        "Street": "Masarikova ulica ",
+        "NumberOfBuilding": 12,
+        "Floor": 25,
+        "Apartment": 13,
+        "City": {
+          "name": "Sombor ",
+          "postalCode": "12564",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "Doctor": {
+      "Specialization": {
+        "Name": "Alergologija i imunologija"
+      },
+      "Ordination": 300,
+      "Shifts": null,
+      "Vacations": null,
+      "Username": "Ognjen",
+      "Password": "ognjen",
+      "Name": "Ognjen",
+      "Surname": "Nestorović",
+      "DateOfBirth": "1979-11-01T00:00:00",
+      "Phone": "67894652",
+      "Email": "maricm@hotmail.com",
+      "Id": "1",
+      "UserType": 1,
+      "Address": null
+    },
+    "Secretary": null,
+    "Room": null,
+    "GuestUser": {
+      "SystemName": null,
+      "InjuryDescription": null
+    },
+    "PostponedDate": "0001-01-01T00:00:00"
+  },
+  {
+    "DurationInMinutes": 30,
+    "Date": "2021-05-26T12:00:00",
+    "Patient": {
+      "Allergens": [
+        ""
+      ],
+      "examinations": null,
+      "Akcije": 0,
+      "brojOcenjenihPregleda": 0,
+      "Gender": 0,
+      "isBlocked": false,
+      "HealthCardNumber": "10",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Username": "mica",
+      "Password": "haha",
+      "Name": "Milica",
+      "Surname": "Milović",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "068555647",
+      "Email": "milicam@gmail.com",
+      "Id": "3333",
+      "UserType": 0,
+      "Address": {
+        "Street": "Marka Oreškovića ",
+        "NumberOfBuilding": 5,
+        "Floor": 5,
+        "Apartment": 9,
+        "City": {
+          "name": "Vranje ",
+          "postalCode": "589",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "Doctor": {
+      "Specialization": {
+        "Name": "Alergologija i imunologija"
+      },
+      "Ordination": 300,
+      "Shifts": null,
+      "Vacations": null,
+      "Username": "Ognjen",
+      "Password": "ognjen",
+      "Name": "Ognjen",
+      "Surname": "Nestorović",
+      "DateOfBirth": "1979-11-01T00:00:00",
+      "Phone": "67894652",
+      "Email": "maricm@hotmail.com",
+      "Id": "1",
+      "UserType": 1,
+      "Address": null
+    },
+    "Secretary": null,
+    "Room": null,
+    "GuestUser": null,
+    "PostponedDate": "0001-01-01T00:00:00"
+  },
+  {
+    "DurationInMinutes": 0,
+    "Date": "2021-05-23T10:00:00",
+    "Patient": {
+      "Allergens": [
+        "penicilin"
+      ],
+      "examinations": null,
+      "Akcije": 0,
+      "brojOcenjenihPregleda": 0,
+      "Gender": 0,
+      "isBlocked": false,
+      "HealthCardNumber": "78",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Username": "mare",
+      "Password": "nesto",
+      "Name": "Marko",
+      "Surname": "Markovic",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "064789552",
+      "Email": "marko@gmai.com",
+      "Id": "1111",
+      "UserType": 0,
+      "Address": {
+        "Street": "Marko Oreskovica",
+        "NumberOfBuilding": 12,
+        "Floor": 5,
+        "Apartment": 8,
+        "City": {
+          "name": "Novi Sad",
+          "postalCode": "21000",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "Doctor": {
+      "Specialization": {
+        "Name": "Dermatologija"
+      },
+      "Ordination": 301,
+      "Shifts": null,
+      "Vacations": null,
+      "Username": "Vladan",
+      "Password": "vladan",
+      "Name": "Vladan",
+      "Surname": "Bogić",
+      "DateOfBirth": "1979-11-01T00:00:00",
+      "Phone": "67894652",
+      "Email": "maricm@hotmail.com",
+      "Id": "2",
+      "UserType": 1,
+      "Address": null
+    },
+    "Secretary": null,
+    "Room": null,
+    "GuestUser": null,
+    "PostponedDate": "0001-01-01T00:00:00"
+  },
+  {
+    "DurationInMinutes": 30,
+    "Date": "2021-05-24T22:00:00",
+    "Patient": {
+      "Allergens": [
+        "penicilin"
+      ],
+      "examinations": null,
+      "Akcije": 0,
+      "brojOcenjenihPregleda": 0,
+      "Gender": 0,
+      "isBlocked": false,
+      "HealthCardNumber": "78",
+      "Anamneses": null,
+      "Ingredients": null,
+      "Username": "mare",
+      "Password": "nesto",
+      "Name": "Marko",
+      "Surname": "Markovic",
+      "DateOfBirth": "2021-04-19T00:00:00+02:00",
+      "Phone": "064789552",
+      "Email": "marko@gmai.com",
+      "Id": "1111",
+      "UserType": 0,
+      "Address": {
+        "Street": "Marko Oreskovica",
+        "NumberOfBuilding": 12,
+        "Floor": 5,
+        "Apartment": 8,
+        "City": {
+          "name": "Novi Sad",
+          "postalCode": "21000",
+          "Country": {
+            "name": "Srbija"
+          }
+        }
+      }
+    },
+    "Doctor": {
+      "Specialization": {
+        "Name": "Alergologija i imunologija"
+      },
+      "Ordination": 300,
+      "Shifts": null,
+      "Vacations": null,
+      "Username": "Ognjen",
+      "Password": "ognjen",
+      "Name": "Ognjen",
+      "Surname": "Nestorović",
+      "DateOfBirth": "1979-11-01T00:00:00",
+      "Phone": "67894652",
+      "Email": "maricm@hotmail.com",
+      "Id": "1",
+      "UserType": 1,
+      "Address": null
+    },
+    "Secretary": null,
+    "Room": null,
+    "GuestUser": null,
+    "PostponedDate": "0001-01-01T00:00:00"
+  },
+  {
+    "DurationInMinutes": 27,
+    "Date": "2021-06-10T09:00:00",
+    "Patient": {
+      "Allergens": null,
+      "examinations": null,
+      "Akcije": 6,
+      "brojOcenjenihPregleda": 0,
+      "Gender": 0,
+      "isBlocked": false,
+      "HealthCardNumber": null,
+      "Anamneses": null,
+      "Ingredients": null,
+      "Username": "Vladimir",
+      "Password": null,
+      "Name": null,
+      "Surname": null,
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": null,
+      "Email": null,
+      "Id": null,
+      "UserType": 0,
+      "Address": null
+    },
+    "Doctor": {
+      "Specialization": null,
+      "Ordination": 0,
+      "Shifts": null,
+      "Vacations": null,
+      "Username": null,
+      "Password": null,
+      "Name": "Nikola",
+      "Surname": "Spasojevic",
+      "DateOfBirth": "0001-01-01T00:00:00",
+      "Phone": null,
+      "Email": null,
+      "Id": null,
+      "UserType": 0,
+      "Address": null
+    },
+    "Secretary": null,
+    "Room": null,
+    "GuestUser": null,
+    "PostponedDate": "0001-01-01T00:00:00"
+  }
+]

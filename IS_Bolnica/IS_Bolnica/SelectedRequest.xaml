@@ -1,0 +1,33 @@
+﻿<Window x:Class="IS_Bolnica.SelectedRequest"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IS_Bolnica"
+        mc:Ignorable="d"
+        Title="SelectedRequest" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        Height="768" Width="1024">
+    <Grid>
+        <TextBox x:Name="idBox" HorizontalAlignment="Left" Height="23" Margin="313,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" IsEnabled="False"/>
+        <Label Content="Šifra:" HorizontalAlignment="Left" Margin="128,107,0,0" VerticalAlignment="Top" Width="85" FontWeight="Bold"/>
+        <Label Content="Naziv:" HorizontalAlignment="Left" Margin="128,159,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.003,1.119" Width="60" FontWeight="Bold"/>
+        <TextBox x:Name="nameBox" HorizontalAlignment="Left" Height="23" Margin="313,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" IsEnabled="False"/>
+        <Label Content="Zamenski lek:" HorizontalAlignment="Left" Margin="128,210,0,0" VerticalAlignment="Top" Width="102" FontWeight="Bold"/>
+        <TextBox x:Name="replacementBox" HorizontalAlignment="Left" Height="23" Margin="313,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" IsEnabled="False"/>
+        <Label Content="Proizvođač:" HorizontalAlignment="Left" Margin="128,259,0,0" VerticalAlignment="Top" Width="102" FontWeight="Bold"/>
+        <TextBox x:Name="producerBox" HorizontalAlignment="Left" Height="23" Margin="313,262,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" IsEnabled="False"/>
+        <Button x:Name="sentToEditButton" Content="Pošalji na izmenu" HorizontalAlignment="Left" Margin="717,433,0,0" VerticalAlignment="Top" 
+                Width="136" Height="36" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" 
+                BorderBrush="#FF425431" Click="SentToEditButton" RenderTransformOrigin="1.224,0.405" FontSize="13"/>
+        <Button x:Name="acceptMedButton" Content="Odobri lek" HorizontalAlignment="Left" Margin="717,376,0,0" VerticalAlignment="Top"
+                Width="136" Height="34" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" 
+                BorderBrush="#FF425431" Click="AcceptMedicamentButton" FontSize="13"/>
+        <Label Content="Odgovor:" HorizontalAlignment="Left" Margin="128,323,0,0" VerticalAlignment="Top" Width="82" FontWeight="Bold"/>
+        <TextBox x:Name="responceBox" HorizontalAlignment="Left" Height="111" Margin="313,323,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296"/>
+        <Button x:Name="deleteButton" Content="Dozvoli brisanje leka" HorizontalAlignment="Left" Margin="717,498,0,0" VerticalAlignment="Top" 
+            Width="136" Height="36" FontFamily="Ebrima" FontWeight="Bold" Background="#FF15285D" Foreground="White" 
+            BorderBrush="#FF425431" RenderTransformOrigin="1.224,0.405" FontSize="13" Click="ConfirmDeletingButton"/>
+        <Label Content="Sastav:" HorizontalAlignment="Left" Margin="660,110,0,0" VerticalAlignment="Top" Width="85" FontWeight="Bold"/>
+        <TextBox x:Name="ingredientBox" HorizontalAlignment="Left" Height="217" Margin="717,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" IsEnabled="False"/>
+    </Grid>
+</Window>

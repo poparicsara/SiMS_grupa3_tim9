@@ -1,0 +1,46 @@
+﻿<Window x:Class="IS_Bolnica.PatientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IS_Bolnica"
+        mc:Ignorable="d"
+        Title="PatientWindow" Height="500" Width="850"
+        WindowStartupLocation="CenterScreen">
+    <Grid Background="LightGreen">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Frame Background="white" NavigationUIVisibility="Hidden" HorizontalAlignment="Left" Height="470" VerticalAlignment="Top" Width="689" Margin="154,0,0,0" Name="StartFrame"/>
+        <Button HorizontalAlignment="Left" Margin="0,243,0,0" Background="White" VerticalAlignment="Top" Width="149" Height="43" Click="AppointmentsButtonClicked">
+            <StackPanel Orientation="Horizontal" Width="149">
+                <Image Source="appointment.png" Height="41" Width="84"/>
+                <Label Content="Pregledi" FontSize="14" Height="30"/>
+            </StackPanel>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="0,98,0,0" Background="White" VerticalAlignment="Top" Width="149" Height="75" Click="ProfileButtonClicked">
+            <StackPanel Orientation="Vertical" Width="149">
+                <Image Source="profile.png" Height="41" Width="84"/>
+                <Label Content="Profil" FontSize="14" Height="30" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="0,14,0,0" Background="White" VerticalAlignment="Top" Width="149" Height="43" Click="LogoutButtonClicked">
+            <StackPanel Orientation="Horizontal" Width="149">
+                <Image Source="logout.png" Height="41" Width="64"/>
+                <Label Content="Odjavite se" FontSize="14" Height="30" />
+            </StackPanel>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="0,301,0,0" Background="White" VerticalAlignment="Top" Width="149" Height="43" Click="HelpButtonClicked">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="help.png" Height="41" Width="68"/>
+                <Label Content="Pomoć" FontSize="14" Height="30" Width="60"/>
+            </StackPanel>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="0,359,0,0" Background="White" VerticalAlignment="Top" Width="149" Height="43" Click="AddFeedbackButtonClicked">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="notification.png" Height="41" Width="52"/>
+                <Label Content="Feedback" FontSize="14" Height="30" Width="76"/>
+            </StackPanel>
+        </Button>
+    </Grid>
+</Window>

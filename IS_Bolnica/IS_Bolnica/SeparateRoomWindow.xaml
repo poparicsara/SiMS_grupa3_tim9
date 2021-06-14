@@ -1,0 +1,93 @@
+﻿<Window x:Class="IS_Bolnica.SeparateRoomWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IS_Bolnica"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="SeparateRoomWindow" Height="655" Width="700" WindowStartupLocation="CenterScreen" Closing="ClosingWindow">
+    <Grid>
+
+        <Label Content="Datum početka:" HorizontalAlignment="Left" Margin="49,130,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Datum kraja:" HorizontalAlignment="Left" Margin="49,193,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <DatePicker Name="startDate" DisplayDateStart="{x:Static sys:DateTime.Today}" HorizontalAlignment="Left" Margin="244,132,0,0" VerticalAlignment="Top" FontSize="16" Width="179" Height="32"  SelectedDateChanged="SetStartDate" />
+        <DatePicker Name="endDate" DisplayDateStart="{x:Static sys:DateTime.Today}" HorizontalAlignment="Left" Margin="244,193,0,0" VerticalAlignment="Top" FontSize="16" Width="179" Height="32"  SelectedDateChanged="SetEndDate"/>
+        <Label Content="RAZDVAJANJE PROSTORIJE" HorizontalAlignment="Left" Margin="169,38,0,0" VerticalAlignment="Top" FontSize="26" FontWeight="Bold" FontFamily="Ebrima" Foreground="Black"/>
+        <Label Content="Prostorija:" HorizontalAlignment="Left" Margin="49,257,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <ComboBox Name="room1Box" Height="32"  HorizontalAlignment="Left" Margin="244,257,0,0" VerticalAlignment="Top" Width="179" FontSize="16" SelectionChanged="RoomSelectionChanged"/>
+        <TextBox Name="roomNumberBox" HorizontalAlignment="Left" Height="32" Margin="244,326,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" FontSize="16" PreviewTextInput="NumberValidation"/>
+        <Label Content="Vreme promene:" HorizontalAlignment="Left" Margin="49,383,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <ComboBox x:Name="hourBox" HorizontalAlignment="Left" Height="32"  Margin="244,383,0,0" VerticalAlignment="Top" Width="79" SelectionChanged="SetHour" FontSize="16" >
+            <ComboBoxItem Content="00"/>
+            <ComboBoxItem Content="01"/>
+            <ComboBoxItem Content="02"/>
+            <ComboBoxItem Content="03"/>
+            <ComboBoxItem Content="04"/>
+            <ComboBoxItem Content="05"/>
+            <ComboBoxItem Content="06"/>
+            <ComboBoxItem Content="07"/>
+            <ComboBoxItem Content="08"/>
+            <ComboBoxItem Content="09"/>
+            <ComboBoxItem Content="10"/>
+            <ComboBoxItem Content="11"/>
+            <ComboBoxItem Content="12"/>
+            <ComboBoxItem Content="13"/>
+            <ComboBoxItem Content="14"/>
+            <ComboBoxItem Content="15"/>
+            <ComboBoxItem Content="16"/>
+            <ComboBoxItem Content="17"/>
+            <ComboBoxItem Content="18"/>
+            <ComboBoxItem Content="19"/>
+            <ComboBoxItem Content="20"/>
+            <ComboBoxItem Content="21"/>
+            <ComboBoxItem Content="22"/>
+            <ComboBoxItem Content="23"/>
+        </ComboBox>
+        <ComboBox x:Name="minuteBox" Height="32"  HorizontalAlignment="Left" Margin="344,383,0,0" VerticalAlignment="Top" Width="79" SelectionChanged="SetMinute" FontSize="16">
+            <ComboBoxItem Content="00"/>
+            <ComboBoxItem Content="01"/>
+            <ComboBoxItem Content="02"/>
+            <ComboBoxItem Content="03"/>
+            <ComboBoxItem Content="04"/>
+            <ComboBoxItem Content="05"/>
+            <ComboBoxItem Content="06"/>
+            <ComboBoxItem Content="07"/>
+            <ComboBoxItem Content="08"/>
+            <ComboBoxItem Content="09"/>
+            <ComboBoxItem Content="10"/>
+            <ComboBoxItem Content="11"/>
+            <ComboBoxItem Content="12"/>
+            <ComboBoxItem Content="13"/>
+            <ComboBoxItem Content="14"/>
+            <ComboBoxItem Content="15"/>
+            <ComboBoxItem Content="20"/>
+            <ComboBoxItem Content="25"/>
+            <ComboBoxItem Content="30"/>
+            <ComboBoxItem Content="31"/>
+            <ComboBoxItem Content="32"/>
+            <ComboBoxItem Content="33"/>
+            <ComboBoxItem Content="34"/>
+            <ComboBoxItem Content="35"/>
+            <ComboBoxItem Content="36"/>
+            <ComboBoxItem Content="37"/>
+            <ComboBoxItem Content="38"/>
+            <ComboBoxItem Content="39"/>
+            <ComboBoxItem Content="40"/>
+            <ComboBoxItem Content="41"/>
+            <ComboBoxItem Content="42"/>
+            <ComboBoxItem Content="43"/>
+            <ComboBoxItem Content="44"/>
+            <ComboBoxItem Content="45"/>
+            <ComboBoxItem Content="50"/>
+            <ComboBoxItem Content="55"/>
+        </ComboBox>
+        <Label Content="Novi broj sobe:" HorizontalAlignment="Left" Margin="49,326,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Button Content="POTVRDI" HorizontalAlignment="Left" Margin="392,494,0,0" VerticalAlignment="Top" 
+                Width="92" Height="38" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" BorderBrush="Black" Click="DoneButtonClicked" FontSize="16" />
+        <Button Content="ODUSTANI" HorizontalAlignment="Left" Margin="218,494,0,0" VerticalAlignment="Top" 
+                Width="105" Height="38" FontFamily="Ebrima" FontWeight="Bold" Background="White" Foreground="Black" BorderBrush="Black" FontSize="16" Click="CancelButtonClicked" />
+        <TextBlock x:Name="roomBlock"  HorizontalAlignment="Left" Margin="444,257,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="49" Width="240" FontSize="16"/>
+
+    </Grid>
+</Window>

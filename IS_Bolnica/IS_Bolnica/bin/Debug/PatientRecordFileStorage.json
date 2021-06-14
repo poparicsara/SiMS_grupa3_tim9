@@ -1,0 +1,336 @@
+[
+  {
+    "Allergens": [
+      "brufen"
+    ],
+    "examinations": null,
+    "Akcije": 1,
+    "brojOcenjenihPregleda": 0,
+    "Gender": 0,
+    "isBlocked": false,
+    "HealthCardNumber": "80",
+    "Anamneses": null,
+    "Ingredients": null,
+    "Alergeni": null,
+    "Username": "p__nina",
+    "Password": "hehe",
+    "Name": "Nikolina",
+    "Surname": "Pavkovic",
+    "DateOfBirth": "2000-02-01T00:00:00",
+    "Phone": "0658886407",
+    "Email": "pavkovicn@hotmail.com",
+    "Id": "1502000815038",
+    "UserType": 0,
+    "Address": {
+      "Street": "Nova",
+      "NumberOfBuilding": 130,
+      "Floor": 0,
+      "Apartment": 0,
+      "City": {
+        "name": "Apatin",
+        "postalCode": "25260",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
+  },
+  {
+    "Allergens": null,
+    "examinations": [],
+    "Akcije": 0,
+    "brojOcenjenihPregleda": 0,
+    "Gender": 0,
+    "isBlocked": false,
+    "HealthCardNumber": "554",
+    "Anamneses": [],
+    "Ingredients": [
+      {
+        "Name": "Izoleucin"
+      },
+      {
+        "Name": "Alopurinol"
+      }
+    ],
+    "Alergeni": null,
+    "Username": "marko",
+    "Password": "marko",
+    "Name": "Marko",
+    "Surname": "Markovic",
+    "DateOfBirth": "1950-02-01T00:00:00",
+    "Phone": "06478965",
+    "Email": "marko@gmail.com",
+    "Id": "0201950810036",
+    "UserType": 0,
+    "Address": {
+      "Street": "Visnjicka ",
+      "NumberOfBuilding": 5,
+      "Floor": 6,
+      "Apartment": 9,
+      "City": {
+        "name": "Beograd ",
+        "postalCode": "11000",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
+  },
+  {
+    "Allergens": null,
+    "examinations": null,
+    "Akcije": 0,
+    "brojOcenjenihPregleda": 0,
+    "Gender": 0,
+    "isBlocked": false,
+    "HealthCardNumber": null,
+    "Anamneses": null,
+    "Ingredients": null,
+    "Alergeni": null,
+    "Username": "miki",
+    "Password": "milan",
+    "Name": "Milan",
+    "Surname": "Milanović",
+    "DateOfBirth": "1974-06-01T00:00:00",
+    "Phone": "772377",
+    "Email": "miki@gmail.com",
+    "Id": "2222222222222",
+    "UserType": 0,
+    "Address": {
+      "Street": "Zmaj Ognjena Vuka ",
+      "NumberOfBuilding": 8,
+      "Floor": 8,
+      "Apartment": 9,
+      "City": {
+        "name": "Kuršumlija ",
+        "postalCode": "25264",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
+  },
+  {
+    "Allergens": null,
+    "examinations": [],
+    "Akcije": 0,
+    "brojOcenjenihPregleda": 0,
+    "Gender": 1,
+    "isBlocked": true,
+    "HealthCardNumber": "",
+    "Anamneses": [],
+    "Ingredients": [
+      {
+        "Name": "Izoleucin"
+      }
+    ],
+    "Alergeni": null,
+    "Username": "mica",
+    "Password": "milica",
+    "Name": "Milica",
+    "Surname": "Matić",
+    "DateOfBirth": "2000-01-01T00:00:00",
+    "Phone": "06896958",
+    "Email": "milica@uns.ac.rs",
+    "Id": "3333333333333",
+    "UserType": 0,
+    "Address": {
+      "Street": "Svetozara Markovića ",
+      "NumberOfBuilding": 5,
+      "Floor": 6,
+      "Apartment": 6,
+      "City": {
+        "name": "Beograd ",
+        "postalCode": "11000",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
+  },
+  {
+    "Allergens": null,
+    "examinations": [],
+    "Akcije": 0,
+    "brojOcenjenihPregleda": 0,
+    "Gender": 1,
+    "isBlocked": false,
+    "HealthCardNumber": "",
+    "Anamneses": [],
+    "Ingredients": [],
+    "Alergeni": null,
+    "Username": "danka",
+    "Password": "danka",
+    "Name": "Danka",
+    "Surname": "Dobrojević",
+    "DateOfBirth": "1980-02-01T00:00:00",
+    "Phone": "065987632",
+    "Email": "danka.d@yahhoo.com",
+    "Id": "4444444444444",
+    "UserType": 0,
+    "Address": {
+      "Street": "Vojvode Bojovića ",
+      "NumberOfBuilding": 8,
+      "Floor": 6,
+      "Apartment": 45,
+      "City": {
+        "name": "Kruševac ",
+        "postalCode": "56898",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
+  },
+  {
+    "Allergens": null,
+    "examinations": [],
+    "Akcije": 0,
+    "brojOcenjenihPregleda": 0,
+    "Gender": 1,
+    "isBlocked": false,
+    "HealthCardNumber": "12",
+    "Anamneses": [],
+    "Ingredients": [
+      {
+        "Name": "Anastrozol"
+      },
+      {
+        "Name": "Lizin"
+      }
+    ],
+    "Alergeni": null,
+    "Username": "Milica",
+    "Password": "milica",
+    "Name": "Milica",
+    "Surname": "Milic",
+    "DateOfBirth": "1990-01-01T00:00:00",
+    "Phone": "065978465",
+    "Email": "milic@gmail.com",
+    "Id": "5555555555555",
+    "UserType": 0,
+    "Address": {
+      "Street": "Trg Dositeja Obradovica ",
+      "NumberOfBuilding": 5,
+      "Floor": 5,
+      "Apartment": 9,
+      "City": {
+        "name": "Novi Sad ",
+        "postalCode": "21000",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
+  },
+  {
+    "Allergens": null,
+    "examinations": [],
+    "Akcije": 0,
+    "brojOcenjenihPregleda": 0,
+    "Gender": 0,
+    "isBlocked": false,
+    "HealthCardNumber": "1234",
+    "Anamneses": [],
+    "Ingredients": [
+      {
+        "Name": "Anastrozol"
+      }
+    ],
+    "Alergeni": null,
+    "Username": "srki",
+    "Password": "srki",
+    "Name": "Srdjan",
+    "Surname": "Srdic",
+    "DateOfBirth": "1954-11-01T00:00:00",
+    "Phone": "779856",
+    "Email": "srdjan@gmail.com",
+    "Id": "6666666666666",
+    "UserType": 0,
+    "Address": {
+      "Street": "Trgovacka ",
+      "NumberOfBuilding": 5,
+      "Floor": 8,
+      "Apartment": 9,
+      "City": {
+        "name": "Budimpesta ",
+        "postalCode": "69896",
+        "Country": {
+          "name": "Madjarska"
+        }
+      }
+    }
+  },
+  {
+    "Allergens": null,
+    "examinations": [],
+    "Akcije": 0,
+    "brojOcenjenihPregleda": 0,
+    "Gender": 1,
+    "isBlocked": false,
+    "HealthCardNumber": "",
+    "Anamneses": [],
+    "Ingredients": [
+      {
+        "Name": "Anastrozol"
+      }
+    ],
+    "Alergeni": null,
+    "Username": "andjela",
+    "Password": "andjela",
+    "Name": "Andjela",
+    "Surname": "Andjelkovic",
+    "DateOfBirth": "1970-07-01T00:00:00",
+    "Phone": "011896574",
+    "Email": "andjela@yahhoo.com",
+    "Id": "1111111111111",
+    "UserType": 0,
+    "Address": {
+      "Street": "Sejkina ",
+      "NumberOfBuilding": 8,
+      "Floor": 8,
+      "Apartment": 89,
+      "City": {
+        "name": "Zemun ",
+        "postalCode": "11500",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
+  },
+  {
+    "Allergens": null,
+    "examinations": [],
+    "Akcije": 0,
+    "brojOcenjenihPregleda": 0,
+    "Gender": 0,
+    "isBlocked": false,
+    "HealthCardNumber": "",
+    "Anamneses": [],
+    "Ingredients": [],
+    "Alergeni": null,
+    "Username": "strale",
+    "Password": "strale",
+    "Name": "Strahinja",
+    "Surname": "Belic",
+    "DateOfBirth": "1994-06-01T00:00:00",
+    "Phone": "069887658",
+    "Email": "strale.b@gmail.com",
+    "Id": "8888888888888",
+    "UserType": 0,
+    "Address": {
+      "Street": "Nikole Tesle ",
+      "NumberOfBuilding": 56,
+      "Floor": 0,
+      "Apartment": 0,
+      "City": {
+        "name": "Lazarevac ",
+        "postalCode": "89658",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
+  }
+]
