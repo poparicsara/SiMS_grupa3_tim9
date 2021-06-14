@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using IS_Bolnica.GUI.Patient.Command;
+using IS_Bolnica.GUI.Secretary.View;
 using IS_Bolnica.Model;
 using IS_Bolnica.Secretary;
 

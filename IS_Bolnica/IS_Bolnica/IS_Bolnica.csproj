@@ -408,7 +408,7 @@
     <Compile Include="Secretary\BlockedPatientsList.xaml.cs">
       <DependentUpon>BlockedPatientsList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Secretary\DoctorList.xaml.cs">
+    <Compile Include="GUI\Secretary\View\DoctorList.xaml.cs">
       <DependentUpon>DoctorList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\EditExamination.xaml.cs">
@@ -896,7 +896,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Secretary\DoctorList.xaml">
+    <Page Include="GUI\Secretary\View\DoctorList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
