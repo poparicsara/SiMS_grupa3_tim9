@@ -12,9 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using IS_Bolnica.DoctorUI;
+using IS_Bolnica.GUI.Doctor.View;
 using IS_Bolnica.Model;
 using IS_Bolnica.Services;
 using Model;
+using SettingsWindow = IS_Bolnica.GUI.Doctor.View.SettingsWindow;
 
 namespace IS_Bolnica
 {

@@ -187,10 +187,13 @@
     <Compile Include="DoctorUI\MedicalRecordWindow.xaml.cs">
       <DependentUpon>MedicalRecordWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DoctorUI\MedicamentsWindow.xaml.cs">
+    <Compile Include="GUI\Doctor\ViewModel\MedicamentsWindowVM.cs" />
+    <Compile Include="GUI\Doctor\ViewModel\NotificationsWindowVM.cs" />
+    <Compile Include="GUI\Doctor\ViewModel\SettingsWindowVM.cs" />
+    <Compile Include="GUI\Doctor\View\MedicamentsWindow.xaml.cs">
       <DependentUpon>MedicamentsWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DoctorUI\NotificationsWindow.xaml.cs">
+    <Compile Include="GUI\Doctor\View\NotificationsWindow.xaml.cs">
       <DependentUpon>NotificationsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="DoctorUI\ProlongTreatmentWindow.xaml.cs">
@@ -205,7 +208,6 @@
     <Compile Include="DoctorUI\ScheduleOperationWindow.xaml.cs">
       <DependentUpon>ScheduleOperationWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DoctorUI\SettingsWindow.xaml.cs" />
     <Compile Include="GUI\Director\ViewModel\RoomInventoryViewModel.cs" />
     <Compile Include="GUI\Director\ViewModel\SelectedNotificationViewModel.cs" />
     <Compile Include="DoctorUI\UpdateMedicamentWindow.xaml.cs">
@@ -231,6 +233,9 @@
     <Compile Include="FeedBackByDirector.xaml.cs">
       <DependentUpon>FeedBackByDirector.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Doctor\View\SettingsWindow.xaml.cs">
+      <DependentUpon>SettingsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Patient\Command\RelayCommand.cs" />
     <Compile Include="GUI\Patient\ViewModel\EvaulationsForAppointmentsVM.cs" />
     <Compile Include="GUI\Patient\ViewModel\InformationPageVM.cs" />
@@ -238,6 +243,19 @@
     <Compile Include="GUI\Patient\View\EvaluationsForAppointments.xaml.cs" />
     <Compile Include="GUI\Patient\View\InformationPage.xaml.cs" />
     <Compile Include="GUI\Patient\View\Profile.xaml.cs" />
+    <Compile Include="GUI\Secretary\ViewModel\DoctorListVM.cs" />
+    <Compile Include="GUI\Secretary\ViewModel\SecretaryProfileVM.cs" />
+    <Compile Include="GUI\Secretary\ViewModel\SelectedDoctorVM.cs" />
+    <Compile Include="GUI\Secretary\ViewModel\SelectedPatientVM.cs" />
+    <Compile Include="GUI\Secretary\View\DoctorList.xaml.cs">
+      <DependentUpon>DoctorList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Secretary\View\SecretaryProfile.xaml.cs">
+      <DependentUpon>SecretaryProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Secretary\View\SelectedPatient.xaml.cs">
+      <DependentUpon>SelectedPatient.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ingredient.cs" />
     <Compile Include="IngredientFileStorage.cs" />
     <Compile Include="InventoryWindow.xaml.cs">
@@ -651,11 +669,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DoctorUI\MedicamentsWindow.xaml">
+    <Page Include="GUI\Doctor\View\MedicamentsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DoctorUI\NotificationsWindow.xaml">
+    <Page Include="GUI\Doctor\View\NotificationsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -672,10 +690,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DoctorUI\ScheduleOperationWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="DoctorUI\SettingsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -711,6 +725,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="GUI\Doctor\View\SettingsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="GUI\Patient\View\EvaluationsForAppointments.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -720,6 +738,18 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="GUI\Patient\View\Profile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\Secretary\View\DoctorList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\Secretary\View\SecretaryProfile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\Secretary\View\SelectedPatient.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

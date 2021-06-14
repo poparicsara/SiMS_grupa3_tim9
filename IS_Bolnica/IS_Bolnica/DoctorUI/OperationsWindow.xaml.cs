@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using IS_Bolnica.DoctorUI;
+using IS_Bolnica.GUI.Doctor.View;
 using IS_Bolnica.Model;
 using IS_Bolnica.Services;
 
@@ -73,7 +74,6 @@ namespace IS_Bolnica
 
         private void SettingsButtonClick(object sender, RoutedEventArgs e)
         {
-
         }
 
         private void DeleteButtonClick(object sender, RoutedEventArgs e)

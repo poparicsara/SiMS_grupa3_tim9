@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using IS_Bolnica.GUI.Doctor.View;
 using IS_Bolnica.Model;
 using IS_Bolnica.Services;
 

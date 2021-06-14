@@ -386,5 +386,22 @@ namespace IS_Bolnica.Services
 
             return -1;
         }
+
+        public string GetSpecialization(User user)
+        {
+            string specName = "";
+            if (user.UserType == UserType.doctor)
+            {
+                foreach (Doctor doctor in GetAllDoctors())
+                {
+                    if (user.Username.Equals(doctor.Username))
+                    {
+                        specName = doctor.Specialization.Name;
+                    }
+                }
+            }
+
+            return specName;
+        }
     }
 }

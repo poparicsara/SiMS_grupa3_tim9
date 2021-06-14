@@ -19,12 +19,13 @@ namespace IS_Bolnica.Secretary
         private PatientService patientService = new PatientService();
         private UserService userService = new UserService();
         private AppointmentService appointmentService = new AppointmentService();
+        private Page previousPage;
 
         public PatientList(Page prevoiusPage)
         {
             InitializeComponent();
             this.DataContext = this;
-            this.prevoiusPage = prevoiusPage;
+            this.previousPage = prevoiusPage;
             patients = patientService.GetPatients();
             PatientListGrid.ItemsSource = patients;
         }
