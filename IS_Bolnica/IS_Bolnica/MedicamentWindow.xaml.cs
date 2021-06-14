@@ -21,7 +21,7 @@ namespace IS_Bolnica
     public partial class MedicamentWindow : Window
     {
         private Request request = new Request();
-        private RequestService requestService = new RequestService();
+        private RequestService requestService = new RequestService(new RequestRepository());
         private Medicament selectedMedicament = new Medicament();
         private MedicamentService medService = new MedicamentService();
 

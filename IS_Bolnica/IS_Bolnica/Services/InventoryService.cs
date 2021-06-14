@@ -26,6 +26,11 @@ namespace IS_Bolnica.Services
             magacin = roomService.GetMagacin();
         }
 
+        public List<Inventory> GetRoomInventory(Room room)
+        {
+            return repository.GetRoomInventory(room);
+        }
+
         public List<Inventory> GetDynamicInventory()
         {
             List<Inventory> inventories = new List<Inventory>();

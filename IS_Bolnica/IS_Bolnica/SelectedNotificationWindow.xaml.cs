@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.GUI.Director.ViewModel;
 
 namespace IS_Bolnica
 {
@@ -24,31 +25,11 @@ namespace IS_Bolnica
         private NotificationRepository storage = new NotificationRepository();
         public SelectedNotificationWindow(Notification notification)
         {
+            SelectedNotificationViewModel viewModel = new SelectedNotificationViewModel(notification);
             InitializeComponent();
+            this.DataContext = viewModel;
 
-            selectedNotification = notification;
-            storage = new NotificationRepository();
-            notifications = storage.GetAll();
-
-            titleBox.Text = notification.Title;
-            senderBox.Text = notification.Sender.ToString();
-            contentBox.Text = notification.Content;
-
-            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
         }
 
-        private void HandleEsc(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Escape)
-            {
-                this.Close();
-            }
-        }
-
-        private void ClosingWindow(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            DirectorNotificationWindow nw = new DirectorNotificationWindow();
-            nw.Show();
-        }
     }
 }

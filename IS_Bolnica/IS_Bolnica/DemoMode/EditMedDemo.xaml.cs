@@ -22,12 +22,10 @@ namespace IS_Bolnica.DemoMode
 
     public partial class EditMedDemo : Window
     {
-        private Request request = new Request();
         private Medicament oldMedicament = new Medicament();
-        private Medicament newMedicament = new Medicament();
         private MedicamentService medService = new MedicamentService();
         private string replacement;
-        private RequestService requestService = new RequestService();
+
 
         public EditMedDemo(Medicament selected)
         {

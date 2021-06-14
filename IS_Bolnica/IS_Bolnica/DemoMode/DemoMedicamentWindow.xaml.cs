@@ -20,8 +20,6 @@ namespace IS_Bolnica.DemoMode
 
     public partial class DemoMedicamentWindow : Window
     {
-        private Request request = new Request();
-        private RequestService requestService = new RequestService();
         private Medicament selectedMedicament = new Medicament();
         private MedicamentService medService = new MedicamentService();
 

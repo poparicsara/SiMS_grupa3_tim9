@@ -27,7 +27,7 @@ namespace IS_Bolnica
         private Medicament newMedicament = new Medicament();
         private MedicamentService medService = new MedicamentService();
         private string replacement;
-        private RequestService requestService = new RequestService();
+        private RequestService requestService = new RequestService(new RequestRepository());
 
 
         public EditMedicamentWindow(Medicament selected)

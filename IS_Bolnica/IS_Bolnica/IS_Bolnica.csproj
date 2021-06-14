@@ -134,9 +134,8 @@
     <Compile Include="DirectorProfileWindow.xaml.cs">
       <DependentUpon>DirectorProfileWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Director\Commands\RelayCommand.cs" />
-    <Compile Include="Director\ViewModel\AddIngredientViewModel.cs" />
-    <Compile Include="Director\ViewModel\AddRoomViewModel.cs" />
+    <Compile Include="GUI\Director\Commands\RelayCommand.cs" />
+    <Compile Include="GUI\Director\ViewModel\AddIngredientViewModel.cs" />
     <Compile Include="DoctorNotificationWindow.xaml.cs">
       <DependentUpon>DoctorNotificationWindow.xaml</DependentUpon>
     </Compile>
@@ -188,6 +187,8 @@
     <Compile Include="DoctorUI\ScheduleOperationWindow.xaml.cs">
       <DependentUpon>ScheduleOperationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Director\ViewModel\RoomInventoryViewModel.cs" />
+    <Compile Include="GUI\Director\ViewModel\SelectedNotificationViewModel.cs" />
     <Compile Include="GUI\Doctor\ViewModel\SettingsWindowVM.cs" />
     <Compile Include="GUI\Doctor\View\SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
@@ -244,6 +245,7 @@
     <Compile Include="IRepository\IPatientRepository.cs" />
     <Compile Include="IRepository\IPrescriptionRepository.cs" />
     <Compile Include="IRepository\IRenovationRepository.cs" />
+    <Compile Include="IRepository\IRequestRepository.cs" />
     <Compile Include="IRepository\IRoomRepository.cs" />
     <Compile Include="IRepository\ISeparationRepository.cs" />
     <Compile Include="IRepository\IShiftingRepository.cs" />

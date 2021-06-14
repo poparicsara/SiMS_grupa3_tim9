@@ -7,10 +7,8 @@ using IS_Bolnica.Model;
 
 namespace IS_Bolnica.IRepository
 {
-    interface IMedicamentRepository : IGenericRepository<Medicament, int>
+    public interface IRequestRepository : IGenericRepository<Request, int>
     {
-        Medicament GetMedicamentByName(string name);
-
 
     }
 }

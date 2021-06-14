@@ -99,9 +99,5 @@ namespace IS_Bolnica.Model
             return null;
         }
 
-        public void CheckMedicamentIngredients(Medicament medicament)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

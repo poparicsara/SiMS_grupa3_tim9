@@ -15,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IS_Bolnica.IRepository;
 using IS_Bolnica.Services;
 
 namespace IS_Bolnica
@@ -23,7 +24,7 @@ namespace IS_Bolnica
     {
         private Request selectedRequest;
         private int selectedId;
-        private RequestService requestService = new RequestService();
+        private RequestService requestService = new RequestService(new RequestRepository());
         private MedicamentService medicamentService = new MedicamentService();
         private NotificationService notificationService = new NotificationService();
         private Medicament selectedMedicament = new Medicament();
