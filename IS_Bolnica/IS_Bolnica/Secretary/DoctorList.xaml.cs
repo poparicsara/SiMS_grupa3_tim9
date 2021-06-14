@@ -27,8 +27,6 @@ namespace IS_Bolnica.Secretary
 
         private void pretraziBox_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            //var filtered = doctorService.GetSearchedDoctors(pretraziBox.Text.ToLower());
-            //DoctorListGrid.ItemsSource = filtered;
             SearchGridTemplate<Doctor> doctors = new SearchDoctors();
             var filtered = doctors.GetSearchedEntities(pretraziBox.Text.ToLower());
             DoctorListGrid.ItemsSource = filtered;

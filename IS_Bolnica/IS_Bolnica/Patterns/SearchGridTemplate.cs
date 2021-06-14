@@ -8,16 +8,24 @@ namespace IS_Bolnica.Patterns
 {
     public abstract class SearchGridTemplate<T>
     {
-        private List<T> entities = new List<T>();
-
-        public List<T> SearchedEntities(string text)
+        public List<T> GetSearchedEntities(string text)
         {
-            return GetSearchedEntities(text);
+            List<T> entities = GetAll();
+            List<T> searchedEntities = new List<T>();
+            foreach (var entity in entities)
+            {
+                if (ISearched(text, entity))
+                {
+                    searchedEntities.Add(entity);
+                }
+            }
+
+            return searchedEntities;
         }
 
         public abstract bool ISearched(string text, T entity);
 
-        public abstract List<T> GetSearchedEntities(string text);
+        public abstract List<T> GetAll();
 
     }
 }

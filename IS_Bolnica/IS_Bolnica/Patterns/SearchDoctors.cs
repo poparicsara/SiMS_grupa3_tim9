@@ -10,7 +10,6 @@ namespace IS_Bolnica.Patterns
 {
     class SearchDoctors : SearchGridTemplate<Doctor>
     {
-        private List<Doctor> doctors = new List<Doctor>();
         private DoctorRepository doctorRepository = new DoctorRepository();
 
         public override bool ISearched(string text, Doctor entity)
@@ -21,19 +20,9 @@ namespace IS_Bolnica.Patterns
                    entity.Id.ToLower().StartsWith(text);
         }
 
-        public override List<Doctor> GetSearchedEntities(string text)
+        public override List<Doctor> GetAll()
         {
-            doctors = doctorRepository.GetAll();
-            List<Doctor> searchedDoctors = new List<Doctor>();
-            foreach (Doctor doctor in doctors)
-            {
-                if (ISearched(text, doctor))
-                {
-                    searchedDoctors.Add(doctor);
-                }
-            }
-
-            return searchedDoctors;
+            return doctorRepository.GetAll();
         }
     }
 }
