@@ -13,6 +13,7 @@ namespace IS_Bolnica.Secretary
 {
     public partial class PatientList : Page
     {
+        private Page previousPage = new Page();
         private List<Patient> patients { get; set; } = new List<Patient>();
         private PatientService patientService = new PatientService();
         private UserService userService = new UserService();
@@ -22,7 +23,7 @@ namespace IS_Bolnica.Secretary
         {
             InitializeComponent();
             this.DataContext = this;
-            this.prevoiusPage = prevoiusPage;
+            this.previousPage = prevoiusPage;
             patients = patientService.GetPatients();
             PatientListGrid.ItemsSource = patients;
         }
