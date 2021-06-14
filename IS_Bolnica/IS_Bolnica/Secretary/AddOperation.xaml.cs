@@ -71,17 +71,39 @@ namespace IS_Bolnica.Secretary
         private void addOperation(object sender, RoutedEventArgs e)
         {
             if (!isAllFilled()) return;
-
             if (!patientService.PatientIdExists(idPatientBox.Text)) return;
-            
             setAppointmentAttributes();
-            
+            if(!isOkay(appointment)) return;
             AddAppointmentTemplate template = new Patterns.AddOperation(appointment);
             template.AddAppointment();
-            
-
             OperationList ol = new OperationList(this);
             this.NavigationService.Navigate(ol);
+        }
+
+        private bool isOkay(Appointment appointment)
+        {
+            if (!appointmentService.isDoctorsShift(appointment))
+            {
+                MessageBox.Show("It's not doctors shift!");
+                return false;
+            }
+            else if (!appointmentService.isDoctorFree(appointment))
+            {
+                MessageBox.Show("Doctor already have scheduled appointment!");
+                return false;
+            }
+            else if (appointmentService.isPatientFree(appointment))
+            {
+                MessageBox.Show("Patient is not available");
+                return false;
+            }
+            else if (appointmentService.isRoomFree(appointment))
+            {
+                MessageBox.Show("Room is not available!");
+                return false;
+            }
+
+            return true;
         }
 
         private void cancelAddingOperation(object sender, RoutedEventArgs e)

@@ -16,8 +16,6 @@ namespace IS_Bolnica.Secretary
         private Appointment appointment = new Appointment();
         private FindAttributesService findAttributesService = new FindAttributesService();
 
-
-
         public AddUrgentExaminationPage(Page previousPage)
         {
             InitializeComponent();

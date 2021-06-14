@@ -274,5 +274,53 @@
         }
       }
     }
+  },
+  {
+    "Username": "andjela",
+    "Password": "andjela",
+    "Name": "Andjela",
+    "Surname": "Andjelkovic",
+    "DateOfBirth": "1970-07-01T00:00:00",
+    "Phone": "011896574",
+    "Email": "andjela@yahhoo.com",
+    "Id": "1111111111111",
+    "UserType": 0,
+    "Address": {
+      "Street": "Sejkina ",
+      "NumberOfBuilding": 8,
+      "Floor": 8,
+      "Apartment": 89,
+      "City": {
+        "name": "Zemun ",
+        "postalCode": "11500",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
+  },
+  {
+    "Username": "strale",
+    "Password": "strale",
+    "Name": "Strahinja",
+    "Surname": "Belic",
+    "DateOfBirth": "1994-06-01T00:00:00",
+    "Phone": "069887658",
+    "Email": "strale.b@gmail.com",
+    "Id": "8888888888888",
+    "UserType": 0,
+    "Address": {
+      "Street": "Nikole Tesle ",
+      "NumberOfBuilding": 56,
+      "Floor": 0,
+      "Apartment": 0,
+      "City": {
+        "name": "Lazarevac ",
+        "postalCode": "89658",
+        "Country": {
+          "name": "Srbija"
+        }
+      }
+    }
   }
 ]

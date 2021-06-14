@@ -8,9 +8,6 @@ using IS_Bolnica.Services;
 
 namespace IS_Bolnica.Secretary
 {
-    /// <summary>
-    /// Interaction logic for Feedback.xaml
-    /// </summary>
     public partial class Feedback : Page
     {
         private UserService userService = new UserService();
@@ -37,31 +34,67 @@ namespace IS_Bolnica.Secretary
         private void ZeroButtonClick(object sender, RoutedEventArgs e)
         {
             feedback.Grade = 0;
+            zero.IsEnabled = false;
+            one.IsEnabled = true;
+            two.IsEnabled = true;
+            three.IsEnabled = true;
+            four.IsEnabled = true;
+            five.IsEnabled = true;
         }
 
         private void OneButtonClick(object sender, RoutedEventArgs e)
         {
             feedback.Grade = 1;
+            zero.IsEnabled = true;
+            one.IsEnabled = false;
+            two.IsEnabled = true;
+            three.IsEnabled = true;
+            four.IsEnabled = true;
+            five.IsEnabled = true;
         }
 
         private void TwoButtonClick(object sender, RoutedEventArgs e)
         {
             feedback.Grade = 2;
+            zero.IsEnabled = true;
+            one.IsEnabled = true;
+            two.IsEnabled = false;
+            three.IsEnabled = true;
+            four.IsEnabled = true;
+            five.IsEnabled = true;
         }
 
         private void ThreeButtonClick(object sender, RoutedEventArgs e)
         {
             feedback.Grade = 3;
+            zero.IsEnabled = true;
+            one.IsEnabled = true;
+            two.IsEnabled = true;
+            three.IsEnabled = false;
+            four.IsEnabled = true;
+            five.IsEnabled = true;
         }
 
         private void FourButtonClick(object sender, RoutedEventArgs e)
         {
             feedback.Grade = 4;
+            zero.IsEnabled = true;
+            one.IsEnabled = true;
+            two.IsEnabled = true;
+            three.IsEnabled = true;
+            four.IsEnabled = false;
+            five.IsEnabled = true;
         }
 
         private void FiveButtonClick(object sender, RoutedEventArgs e)
         {
             feedback.Grade = 5;
+            zero.IsEnabled = true;
+            one.IsEnabled = true;
+            two.IsEnabled = true;
+            three.IsEnabled = true;
+            four.IsEnabled = true;
+            five.IsEnabled = false;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

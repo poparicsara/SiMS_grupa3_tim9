@@ -223,6 +223,7 @@
     <Compile Include="GUI\Patient\View\EvaluationsForAppointments.xaml.cs" />
     <Compile Include="GUI\Patient\View\InformationPage.xaml.cs" />
     <Compile Include="GUI\Patient\View\Profile.xaml.cs" />
+    <Compile Include="GUI\Secretary\ViewModel\DoctorListVM.cs" />
     <Compile Include="GUI\Secretary\ViewModel\SecretaryProfileVM.cs" />
     <Compile Include="GUI\Secretary\ViewModel\SelectedPatientVM.cs" />
     <Compile Include="Ingredient.cs" />
@@ -409,7 +410,7 @@
     <Compile Include="Secretary\BlockedPatientsList.xaml.cs">
       <DependentUpon>BlockedPatientsList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Secretary\DoctorList.xaml.cs">
+    <Compile Include="GUI\Secretary\View\DoctorList.xaml.cs">
       <DependentUpon>DoctorList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\EditExamination.xaml.cs">
@@ -897,7 +898,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Secretary\DoctorList.xaml">
+    <Page Include="GUI\Secretary\View\DoctorList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
