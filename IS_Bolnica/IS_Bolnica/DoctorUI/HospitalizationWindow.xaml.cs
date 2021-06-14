@@ -15,7 +15,6 @@ namespace IS_Bolnica.DoctorUI
         private HospitalizationService hospitalizationService = new HospitalizationService();
         private InventoryService inventoryService = new InventoryService();
         private Hospitalization hospitalization = new Hospitalization();
-        
         public HospitalizationWindow(Anamnesis anamnesis)
         {
             InitializeComponent();
@@ -34,7 +33,7 @@ namespace IS_Bolnica.DoctorUI
             hospitalization.EndDate = new DateTime(endDate.Year, endDate.Month, endDate.Day);
 
             if (hospitalizationService.GetNumberOfPatientsInRoom(Convert.ToInt32(roomsCB.SelectedItem)) ==
-                inventoryService.GetNumberOfBedsInRoom(hospitalization.Room) && hospitalizationService.IsHospitalizationBetweenAnyRenovation(hospitalization) == true)
+                inventoryService.GetNumberOfBedsInRoom(hospitalization.Room))
             {
                 MessageBox.Show("U sobi nema praznih kreveta!");
             }

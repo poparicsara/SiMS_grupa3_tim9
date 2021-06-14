@@ -17,6 +17,9 @@ using System.Windows.Shapes;
 
 namespace IS_Bolnica.PatientPages
 {
+    /// <summary>
+    /// Interaction logic for EvaluationsForAppointments.xaml
+    /// </summary>
     public partial class EvaluationsForAppointments : Page
     {
         private EvaluationService evaluationService = new EvaluationService();

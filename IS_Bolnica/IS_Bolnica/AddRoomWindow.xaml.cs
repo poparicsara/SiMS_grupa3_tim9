@@ -5,14 +5,14 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using IS_Bolnica.Director.ViewModel;
 using IS_Bolnica.Services;
 
 namespace IS_Bolnica
 {
     public partial class AddRoomWindow : Window
     {
-        private Room newRoom = new Room();
+        Room newRoom = new Room();
+        Director director = new Director();
         string selectedWard;
         string selectedPurpose;
         private RoomService service = new RoomService();
@@ -82,7 +82,7 @@ namespace IS_Bolnica
 
         private void ClosingWindow(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            RoomWindow rw = new RoomWindow();
+            RoomWindow rw = new RoomWindow(director);
             rw.Show();
         }
 

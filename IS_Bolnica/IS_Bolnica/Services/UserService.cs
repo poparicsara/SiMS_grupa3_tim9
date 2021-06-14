@@ -111,19 +111,5 @@ namespace IS_Bolnica.Services
             userRepository.SaveToFile(loggedUsers, "loggedUsers.json");
         }
 
-        public User FindUserByUsername(string username)
-        {
-            users = userRepository.GetAll();
-            foreach (var user in users)
-            {
-                if (user.Username.Equals(username))
-                {
-                    return user;
-                }
-            }
-
-            return null;
-        }
-
     }
 }

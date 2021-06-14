@@ -13,9 +13,11 @@ namespace IS_Bolnica
         private Room selectedRoom;
         private RoomService service = new RoomService();
 
-        public RoomWindow()
+        public RoomWindow(Director director)
         {
             InitializeComponent();
+
+            DataContext = director;
 
             roomDataGrid.ItemsSource = service.GetRooms();
 

@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using IS_Bolnica.GUI.Secretary.View;
 
 namespace IS_Bolnica.Secretary
 {
@@ -61,8 +60,8 @@ namespace IS_Bolnica.Secretary
 
         private void Profil_Selected(object sender, RoutedEventArgs e)
         {
-            /*SecretaryProfile sp = new SecretaryProfile();
-            this.NavigationService.Navigate(sp);*/
+            SecretaryProfile sp = new SecretaryProfile();
+            this.NavigationService.Navigate(sp);
         }
 
         private void SpisakLekara_Selected(object sender, RoutedEventArgs e)

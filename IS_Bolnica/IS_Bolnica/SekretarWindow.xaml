@@ -8,6 +8,6 @@
         Title="Sekretar" Height="750" Width="430" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Style="{StaticResource WindowStyle}">
 
     <Grid>
-                <Frame x:Name="MainFrame" Source="GUI/Secretary/View/SecretaryProfile.xaml" NavigationUIVisibility="Hidden" Grid.ColumnSpan="2" Margin="0,0,0,-0.2" Grid.RowSpan="2"/>
+                <Frame x:Name="MainFrame" Source="Secretary\SecretaryProfile.xaml" NavigationUIVisibility="Hidden" Grid.ColumnSpan="2" Margin="0,0,0,-0.2" Grid.RowSpan="2"/>
     </Grid>
 </Window>

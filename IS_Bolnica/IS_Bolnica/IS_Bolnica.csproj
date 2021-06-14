@@ -152,9 +152,6 @@
     <Compile Include="DirectorProfileWindow.xaml.cs">
       <DependentUpon>DirectorProfileWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Director\Commands\RelayCommand.cs" />
-    <Compile Include="Director\ViewModel\AddIngredientViewModel.cs" />
-    <Compile Include="Director\ViewModel\AddRoomViewModel.cs" />
     <Compile Include="DoctorNotificationWindow.xaml.cs">
       <DependentUpon>DoctorNotificationWindow.xaml</DependentUpon>
     </Compile>
@@ -206,8 +203,7 @@
     <Compile Include="DoctorUI\ScheduleOperationWindow.xaml.cs">
       <DependentUpon>ScheduleOperationWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Doctor\ViewModel\SettingsWindowVM.cs" />
-    <Compile Include="GUI\Doctor\View\SettingsWindow.xaml.cs">
+    <Compile Include="DoctorUI\SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="DoctorUI\UpdateMedicamentWindow.xaml.cs">
@@ -240,9 +236,6 @@
     <Compile Include="GUI\Patient\View\EvaluationsForAppointments.xaml.cs" />
     <Compile Include="GUI\Patient\View\InformationPage.xaml.cs" />
     <Compile Include="GUI\Patient\View\Profile.xaml.cs" />
-    <Compile Include="GUI\Secretary\ViewModel\DoctorListVM.cs" />
-    <Compile Include="GUI\Secretary\ViewModel\SecretaryProfileVM.cs" />
-    <Compile Include="GUI\Secretary\ViewModel\SelectedPatientVM.cs" />
     <Compile Include="Ingredient.cs" />
     <Compile Include="IngredientFileStorage.cs" />
     <Compile Include="InventoryWindow.xaml.cs">
@@ -426,7 +419,7 @@
     <Compile Include="Secretary\BlockedPatientsList.xaml.cs">
       <DependentUpon>BlockedPatientsList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Secretary\View\DoctorList.xaml.cs">
+    <Compile Include="Secretary\DoctorList.xaml.cs">
       <DependentUpon>DoctorList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\EditExamination.xaml.cs">
@@ -471,7 +464,7 @@
     <Compile Include="Secretary\ReportForm.xaml.cs">
       <DependentUpon>ReportForm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Secretary\View\SecretaryProfile.xaml.cs">
+    <Compile Include="Secretary\SecretaryProfile.xaml.cs">
       <DependentUpon>SecretaryProfile.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\SelectedDoctor.xaml.cs">
@@ -480,7 +473,7 @@
     <Compile Include="Secretary\SelectedNotification.xaml.cs">
       <DependentUpon>SelectedNotification.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Secretary\View\SelectedPatient.xaml.cs">
+    <Compile Include="Secretary\SelectedPatient.xaml.cs">
       <DependentUpon>SelectedPatient.xaml</DependentUpon>
     </Compile>
     <Compile Include="Secretary\UrgentExaminationOptions.xaml.cs">
@@ -679,7 +672,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GUI\Doctor\View\SettingsWindow.xaml">
+    <Page Include="DoctorUI\SettingsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -914,7 +907,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GUI\Secretary\View\DoctorList.xaml">
+    <Page Include="Secretary\DoctorList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -974,7 +967,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GUI\Secretary\View\SecretaryProfile.xaml">
+    <Page Include="Secretary\SecretaryProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -986,7 +979,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GUI\Secretary\View\SelectedPatient.xaml">
+    <Page Include="Secretary\SelectedPatient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

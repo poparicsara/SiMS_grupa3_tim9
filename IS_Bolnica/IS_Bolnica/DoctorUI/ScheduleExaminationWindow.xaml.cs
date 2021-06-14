@@ -26,7 +26,6 @@ namespace IS_Bolnica.DoctorUI
         private DoctorService doctorService = new DoctorService();
         private List<int> hours = new List<int>();
         private Appointment examination = new Appointment();
-        private RenovationService renovationService = new RenovationService();
         public ScheduleExaminationWindow()
         {
             InitializeComponent();
@@ -37,11 +36,8 @@ namespace IS_Bolnica.DoctorUI
         private void PotvrdiButtonClick(object sender, RoutedEventArgs e)
         {
             SetDataInTextBoxes();
-            if (renovationService.IsAppointmentBetweenAnyRenovation(examination) == false)
-            {
-                appointmentService.ScheduleAppointment(examination);
-            }
-            
+            appointmentService.ScheduleAppointment(examination);
+
             DoctorStartWindow doctorStartWindow = new DoctorStartWindow();
             doctorStartWindow.Show();
             this.Close();

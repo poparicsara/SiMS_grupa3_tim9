@@ -56,38 +56,12 @@ namespace IS_Bolnica.Secretary
 
             setAppointmentsAttributes();
 
-            if (!isOkay(appointment)) return;
             AddAppointmentTemplate template = new Patterns.AddExamination(appointment);
             template.AddAppointment();
 
             ExaminationList el = new ExaminationList(this);
             this.NavigationService.Navigate(el);
 
-        }
-
-        private bool isOkay(Appointment appointment)
-        {
-            if (!appointmentService.isDoctorsShift(appointment))
-            {
-                MessageBox.Show("It's not doctors shift!");
-                return false;
-            }
-            else if (!appointmentService.isDoctorFree(appointment))
-            {
-                MessageBox.Show("Doctor already have scheduled appointment!");
-                return false;
-            } else if (appointmentService.isPatientFree(appointment))
-            {
-                MessageBox.Show("Patient is not available");
-                return false;
-            }
-            else if (appointmentService.isRoomFree(appointment))
-            {
-                MessageBox.Show("Room is not available!");
-                return false;
-            }
-
-            return true;
         }
 
         private void cancelAddingExamination(object sender, RoutedEventArgs e)

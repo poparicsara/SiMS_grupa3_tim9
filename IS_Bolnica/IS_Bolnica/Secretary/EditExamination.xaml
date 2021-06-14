@@ -27,13 +27,6 @@
         <ComboBox x:Name="doctorBox" HorizontalAlignment="Left" Margin="200,197,0,0" VerticalAlignment="Top" Width="182">
         </ComboBox>
         <ComboBox x:Name="hourBox" HorizontalAlignment="Left" Margin="200,297,0,0" VerticalAlignment="Top" Width="65" RenderTransformOrigin="0.34,0.098">
-            <ComboBoxItem>0</ComboBoxItem>
-            <ComboBoxItem>1</ComboBoxItem>
-            <ComboBoxItem>2</ComboBoxItem>
-            <ComboBoxItem>3</ComboBoxItem>
-            <ComboBoxItem>4</ComboBoxItem>
-            <ComboBoxItem>5</ComboBoxItem>
-            <ComboBoxItem>6</ComboBoxItem>
             <ComboBoxItem>7</ComboBoxItem>
             <ComboBoxItem>8</ComboBoxItem>
             <ComboBoxItem>9</ComboBoxItem>
@@ -46,11 +39,6 @@
             <ComboBoxItem>16</ComboBoxItem>
             <ComboBoxItem>17</ComboBoxItem>
             <ComboBoxItem>18</ComboBoxItem>
-            <ComboBoxItem>19</ComboBoxItem>
-            <ComboBoxItem>20</ComboBoxItem>
-            <ComboBoxItem>21</ComboBoxItem>
-            <ComboBoxItem>22</ComboBoxItem>
-            <ComboBoxItem>23</ComboBoxItem>
         </ComboBox>
         <ComboBox x:Name="minutesBox" HorizontalAlignment="Left" Margin="317,297,0,0" VerticalAlignment="Top" Width="65">
             <ComboBoxItem>0</ComboBoxItem>

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Windows;
 using IS_Bolnica.Model;
 using Model;
 
@@ -13,7 +12,6 @@ namespace IS_Bolnica.Services
         private NotificationRepository notificationRepository = new NotificationRepository();
         private Shift newShift = new Shift();
         private Shift newShift2 = new Shift();
-        private AppointmentService appointmentService = new AppointmentService();
 
         public DoctorService()
         {
@@ -23,7 +21,6 @@ namespace IS_Bolnica.Services
         public void AddShift(Shift shift)
         {
             if (!isShiftValid(shift)) return;
-            if (isDoctorOnVacay(shift)) return;
             rescheduleShifts(shift);
             quitAppointmentsShift(shift);
             doctorRepository.AddShift(shift);
@@ -47,21 +44,6 @@ namespace IS_Bolnica.Services
         {
             int index = findVacationIndex(vacation);
             doctorRepository.DeleteVacation(index, vacation.DoctorsId);
-        }
-
-        private bool isDoctorOnVacay(Shift shift)
-        {
-            Doctor doctor = doctorRepository.FindById(shift.DoctorsId);
-            var vacations = doctor.Vacations;
-            foreach (var vacation in vacations)
-            {
-                if (shift.ShiftStartDate >= vacation.VacationStartDate && shift.ShiftEndDate >= vacation.VacationStartDate)
-                {
-                    return true;
-                }
-            }
-
-            return false;
         }
 
         private bool isShiftValid(Shift shift)
@@ -176,9 +158,7 @@ namespace IS_Bolnica.Services
                     ids.Add(doctorAppointments[i].Patient.Id);
                     string content = "Obavestavamo vas da vam je otkazan pregled koji je planiran " + doctorAppointments[i].StartTime.ToString() + "Molimo Vas da nas kontaktirate kako bismo se dogovorili o ponovnom zakazivanju istog!";
                     Notification notification = new Notification(title:"Pažnja", content, notificationType: NotificationType.specific, ids);
-                    notificationRepository.Add(notification);
-                    int index = appointmentService.FindAppointmentIndex(doctorAppointments[i]);
-                    appointmentRepository.Delete(index);
+                    appointmentRepository.Delete(i);
                 }
             }
         }
@@ -195,9 +175,7 @@ namespace IS_Bolnica.Services
                     ids.Add(doctorAppointments[i].Patient.Id);
                     string content = "Obavestavamo vas da vam je otkazan pregled koji je planiran " + doctorAppointments[i].StartTime.ToString() + "Molimo Vas da nas kontaktirate kako bismo se dogovorili o ponovnom zakazivanju istog!";
                     Notification notification = new Notification(title: "Pažnja", content, notificationType: NotificationType.specific, ids);
-                    notificationRepository.Add(notification);
-                    int index = appointmentService.FindAppointmentIndex(doctorAppointments[i]);
-                    appointmentRepository.Delete(index);
+                    appointmentRepository.Delete(i);
                 }
             }
         }

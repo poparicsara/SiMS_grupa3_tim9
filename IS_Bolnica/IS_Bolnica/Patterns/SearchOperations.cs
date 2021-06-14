@@ -1,5 +1,8 @@
-﻿
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using IS_Bolnica.Model;
 
 namespace IS_Bolnica.Patterns
@@ -7,7 +10,6 @@ namespace IS_Bolnica.Patterns
     class SearchOperations : SearchGridTemplate<Appointment>
     {
         private List<Appointment> appointments = new List<Appointment>();
-        private List<Appointment> operations = new List<Appointment>();
         private AppointmentRepository appointmentRepository = new AppointmentRepository();
 
         public override bool ISearched(string text, Appointment entity)
@@ -16,18 +18,22 @@ namespace IS_Bolnica.Patterns
                    entity.Doctor.Surname.ToLower().StartsWith(text);
         }
 
-        public override List<Appointment> GetAll()
+        public override List<Appointment> GetSearchedEntities(string text)
         {
             appointments = appointmentRepository.GetAll();
-            foreach (var appointment in appointments)
+            List<Appointment> searchedAppointments = new List<Appointment>();
+            foreach (Appointment appointment in appointments)
             {
-                if (appointment.AppointmentType == AppointmentType.operation)
+                if (ISearched(text, appointment))
                 {
-                    operations.Add(appointment);
+                    if (appointment.AppointmentType == AppointmentType.operation)
+                    {
+                        searchedAppointments.Add(appointment);
+                    }
                 }
             }
 
-            return operations;
+            return searchedAppointments;
         }
     }
 }

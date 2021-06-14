@@ -178,11 +178,5 @@
     "Content": "888|novi|Alopurinol|mi|a\n",
     "Sender": 3,
     "Recipient": 0
-  },
-  {
-    "Title": "Dodavanje leka u bazu",
-    "Content": "999|novi|Alopurinol|mi|a",
-    "Sender": 3,
-    "Recipient": 0
   }
 ]

@@ -10,6 +10,9 @@ using Model;
 
 namespace IS_Bolnica.GUI.Patient.View
 {
+    /// <summary>
+    /// Interaction logic for EvaluationsForAppointments.xaml
+    /// </summary>
     public partial class EvaluationsForAppointments : Page
     {
         private EvaluationService evaluationService = new EvaluationService();

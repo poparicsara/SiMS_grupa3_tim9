@@ -50,6 +50,7 @@ namespace IS_Bolnica.DemoMode
 
         private void ClosingWindow(object sender, EventArgs e)
         {
+            Director director = new Director();
             DemoRoomWindow rw = new DemoRoomWindow();
             rw.Show();
         }

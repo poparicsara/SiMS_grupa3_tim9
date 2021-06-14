@@ -9,6 +9,7 @@ namespace IS_Bolnica.Patterns
 {
     class SearchPatients : SearchGridTemplate<Patient>
     {
+        private List<Patient> patients = new List<Patient>();
         private PatientRepository patientRepository = new PatientRepository();
 
         public override bool ISearched(string text, Patient entity)
@@ -19,9 +20,19 @@ namespace IS_Bolnica.Patterns
                    entity.Username.ToLower().Contains(text);
         }
 
-        public override List<Patient> GetAll()
+        public override List<Patient> GetSearchedEntities(string text)
         {
-            return patientRepository.GetAll();
+            patients = patientRepository.GetAll();
+            List<Patient> searchedPatients = new List<Patient>();
+            foreach (Patient patient in patients)
+            {
+                if (ISearched(text, patient))
+                {
+                    searchedPatients.Add(patient);
+                }
+            }
+
+            return searchedPatients;
         }
     }
 }
