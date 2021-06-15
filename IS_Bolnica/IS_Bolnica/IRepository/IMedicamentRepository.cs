@@ -10,7 +10,6 @@ namespace IS_Bolnica.IRepository
     interface IMedicamentRepository : IGenericRepository<Medicament, int>
     {
         Medicament GetMedicamentByName(string name);
-        void CheckMedicamentIngredients(Medicament medicament);
 
     }
 }

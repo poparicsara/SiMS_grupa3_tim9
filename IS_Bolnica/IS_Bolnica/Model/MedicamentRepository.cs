@@ -19,16 +19,6 @@ namespace IS_Bolnica.Model
             meds = GetAll();
         }
 
-        /*
-
-        private void CheckMedicamentIngredients(Medicament medicament)
-        {
-            if (medicament.Ingredients == null)
-            {
-                medicament.Ingredients = new List<Ingredient>();
-            }
-        }*/
-
 
         public List<Medicament> GetAll()
         {
@@ -99,9 +89,5 @@ namespace IS_Bolnica.Model
             return null;
         }
 
-        public void CheckMedicamentIngredients(Medicament medicament)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.IO;
-using System.Collections.ObjectModel;
 using IS_Bolnica.IRepository;
 using IS_Bolnica;
 
@@ -18,11 +17,6 @@ namespace Model
             patients = GetAll();
             patients.RemoveAt(index);
             SaveToFile(patients);
-        }
-
-        public void Delete(string id)
-        {
-            throw new NotImplementedException();
         }
 
         public List<Patient> GetAll()
