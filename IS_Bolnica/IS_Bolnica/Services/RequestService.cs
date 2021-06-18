@@ -12,7 +12,6 @@ namespace IS_Bolnica.Services
     public class RequestService
     {
         public IRequestRepository Repository { get; set; }
-        //private RequestRepository repository = new RequestRepository();
 
         public RequestService(IRequestRepository repository)
         {
@@ -22,11 +21,6 @@ namespace IS_Bolnica.Services
         public void SendRequest(Request newRequest)
         {
             Repository.Add(newRequest);
-        }
-
-        public List<Request> GetRequests()
-        {
-            return Repository.GetAll();
         }
 
         private int FindIndex(Request request)

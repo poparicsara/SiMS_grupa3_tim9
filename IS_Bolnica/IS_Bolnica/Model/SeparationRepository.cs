@@ -55,10 +55,7 @@ namespace IS_Bolnica.Model
         public void EditSeparation(int index)
         {
             separations = GetAll();
-            Separation newSeparation = separations.ElementAt(index);
-            newSeparation.Executed = true;
-            separations.RemoveAt(index);
-            separations.Insert(index, newSeparation);
+            separations.ElementAt(index).Executed = true;
             SaveToFile(separations);
         }
     }

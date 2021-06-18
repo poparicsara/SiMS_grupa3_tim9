@@ -54,7 +54,7 @@ namespace IS_Bolnica.Services
             {
                 if (i.CurrentAmount > 0)
                 {
-                    changeService.MoveToMagacin(i, i.CurrentAmount, renovation.Room);
+                    changeService.MoveToMagacin(i, i.CurrentAmount, renovation.Room, startDate);
                 }
             }
         }
@@ -212,7 +212,7 @@ namespace IS_Bolnica.Services
                 {
                     if (i.CurrentAmount > 0)
                     {
-                        changeService.MoveToMagacin(i, i.CurrentAmount, room);
+                        changeService.MoveToMagacin(i, i.CurrentAmount, room, startDate);
                     }
                 }
             }

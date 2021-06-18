@@ -134,5 +134,12 @@
     "PersonId": [
       "1502000815038"
     ]
+  },
+  {
+    "Title": "Pomeranje termina zbog renoviranja",
+    "Content": "\tProstorija: 300\n\tPacijent: Milica Matić\n\tDoktor: Ognjen Matić\n",
+    "Sender": 3,
+    "notificationType": 2,
+    "PersonId": null
   }
 ]

@@ -11,6 +11,5 @@ namespace IS_Bolnica.IRepository
     {
         Medicament GetMedicamentByName(string name);
 
-
     }
 }

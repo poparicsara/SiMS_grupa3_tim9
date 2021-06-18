@@ -49,7 +49,7 @@
     "Inventory": [
       {
         "Name": "Špric",
-        "CurrentAmount": 66,
+        "CurrentAmount": 115,
         "Minimum": 0,
         "Id": 101,
         "InventoryType": 0
@@ -63,14 +63,14 @@
       },
       {
         "Name": "Štapić",
-        "CurrentAmount": 66,
+        "CurrentAmount": 149,
         "Minimum": 0,
         "Id": 303,
         "InventoryType": 0
       },
       {
         "Name": "Injekcija",
-        "CurrentAmount": 78,
+        "CurrentAmount": 102,
         "Minimum": 0,
         "Id": 202,
         "InventoryType": 0
@@ -137,23 +137,9 @@
     "Inventory": [
       {
         "Name": "Špric",
-        "CurrentAmount": 20,
+        "CurrentAmount": 0,
         "Minimum": 2,
         "Id": 101,
-        "InventoryType": 0
-      },
-      {
-        "Name": "Injekcija",
-        "CurrentAmount": 27,
-        "Minimum": 2,
-        "Id": 202,
-        "InventoryType": 0
-      },
-      {
-        "Name": "Štapić",
-        "CurrentAmount": 20,
-        "Minimum": 2,
-        "Id": 303,
         "InventoryType": 0
       }
     ],
@@ -614,38 +600,86 @@
   {
     "Id": 20,
     "HospitalWard": "Alergologija i imunologija",
+    "Inventory": [
+      {
+        "Name": "Špric",
+        "CurrentAmount": 0,
+        "Minimum": 2,
+        "Id": 101,
+        "InventoryType": 0
+      }
+    ],
+    "RoomPurpose": {
+      "Name": "Ordinacija"
+    }
+  },
+  {
+    "Id": 25,
+    "HospitalWard": "Alergologija i imunologija",
     "Inventory": [],
     "RoomPurpose": {
       "Name": "Ordinacija"
     }
   },
   {
-    "Id": 103,
-    "HospitalWard": "Alergologija i imunologija",
-    "Inventory": null,
-    "RoomPurpose": {
-      "Name": "Operaciona sala"
-    }
-  },
-  {
-    "Id": 999,
-    "HospitalWard": "Alergologija i imunologija",
-    "Inventory": [],
-    "RoomPurpose": {
-      "Name": "Operaciona sala"
-    }
-  },
-  {
-    "Id": 202,
-    "HospitalWard": "Alergologija i imunologija",
-    "Inventory": null,
+    "Id": 22,
+    "HospitalWard": "Anesteziologija",
+    "Inventory": [
+      {
+        "Name": "Špric",
+        "CurrentAmount": 3,
+        "Minimum": 2,
+        "Id": 101,
+        "InventoryType": 0
+      }
+    ],
     "RoomPurpose": {
       "Name": "Ordinacija"
     }
   },
   {
-    "Id": 8,
+    "Id": 777,
     "HospitalWard": "Alergologija i imunologija",
+    "Inventory": [],
+    "RoomPurpose": {
+      "Name": "Ordinacija"
+    }
+  },
+  {
+    "Id": 888,
+    "HospitalWard": "Alergologija i imunologija",
+    "Inventory": [
+      {
+        "Name": "Špric",
+        "CurrentAmount": 0,
+        "Minimum": 0,
+        "Id": 101,
+        "InventoryType": 0
+      }
+    ],
+    "RoomPurpose": {
+      "Name": "Ordinacija"
+    }
+  },
+  {
+    "Id": 1000,
+    "HospitalWard": "Alergologija i imunologija",
+    "Inventory": [],
+    "RoomPurpose": {
+      "Name": "Ordinacija"
+    }
+  },
+  {
+    "Id": 99,
+    "HospitalWard": "Pedijatrija",
+    "Inventory": [],
+    "RoomPurpose": {
+      "Name": "Ordinacija"
+    }
+  },
+  {
+    "Id": 12,
+    "HospitalWard": "Pedijatrija",
     "Inventory": [],
     "RoomPurpose": {
       "Name": "Ordinacija"

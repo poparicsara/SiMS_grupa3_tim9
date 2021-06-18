@@ -653,5 +653,1630 @@
     "Hour": 0,
     "Minute": 30,
     "Executed": true
+  },
+  {
+    "RoomFrom": null,
+    "RoomTo": {
+      "Id": 1,
+      "HospitalWard": "Magacin",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 86,
+          "Minimum": 0,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Krevet",
+          "CurrentAmount": 4,
+          "Minimum": 0,
+          "Id": 666,
+          "InventoryType": 1
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 89,
+          "Minimum": 0,
+          "Id": 303,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 102,
+          "Minimum": 0,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "novo",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 9,
+          "InventoryType": 1
+        },
+        {
+          "Name": "ajde",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 6,
+          "InventoryType": 1
+        },
+        {
+          "Name": "novi",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 999,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Magacin"
+      }
+    },
+    "Inventory": {
+      "Name": "Špric",
+      "CurrentAmount": 3,
+      "Minimum": 2,
+      "Id": 101,
+      "InventoryType": 0
+    },
+    "Amount": 3,
+    "Date": "6/5/2021",
+    "Hour": 0,
+    "Minute": 33,
+    "Executed": true
+  },
+  {
+    "RoomFrom": {
+      "Id": 20,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 3,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "RoomTo": {
+      "Id": 1,
+      "HospitalWard": "Magacin",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 86,
+          "Minimum": 0,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Krevet",
+          "CurrentAmount": 4,
+          "Minimum": 0,
+          "Id": 666,
+          "InventoryType": 1
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 89,
+          "Minimum": 0,
+          "Id": 303,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 102,
+          "Minimum": 0,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "novo",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 9,
+          "InventoryType": 1
+        },
+        {
+          "Name": "ajde",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 6,
+          "InventoryType": 1
+        },
+        {
+          "Name": "novi",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 999,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Magacin"
+      }
+    },
+    "Inventory": {
+      "Name": "Špric",
+      "CurrentAmount": 3,
+      "Minimum": 2,
+      "Id": 101,
+      "InventoryType": 0
+    },
+    "Amount": 3,
+    "Date": "6/5/2021",
+    "Hour": 0,
+    "Minute": 33,
+    "Executed": true
+  },
+  {
+    "RoomFrom": {
+      "Id": 20,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 3,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 3,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "RoomTo": {
+      "Id": 1,
+      "HospitalWard": "Magacin",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 92,
+          "Minimum": 0,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Krevet",
+          "CurrentAmount": 4,
+          "Minimum": 0,
+          "Id": 666,
+          "InventoryType": 1
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 89,
+          "Minimum": 0,
+          "Id": 303,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 102,
+          "Minimum": 0,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "novo",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 9,
+          "InventoryType": 1
+        },
+        {
+          "Name": "ajde",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 6,
+          "InventoryType": 1
+        },
+        {
+          "Name": "novi",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 999,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Magacin"
+      }
+    },
+    "Inventory": {
+      "Name": "Špric",
+      "CurrentAmount": 3,
+      "Minimum": 2,
+      "Id": 101,
+      "InventoryType": 0
+    },
+    "Amount": 3,
+    "Date": "6/5/2021",
+    "Hour": 0,
+    "Minute": 33,
+    "Executed": true
+  },
+  {
+    "RoomFrom": {
+      "Id": 20,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 3,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 3,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "RoomTo": {
+      "Id": 1,
+      "HospitalWard": "Magacin",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 92,
+          "Minimum": 0,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Krevet",
+          "CurrentAmount": 4,
+          "Minimum": 0,
+          "Id": 666,
+          "InventoryType": 1
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 89,
+          "Minimum": 0,
+          "Id": 303,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 102,
+          "Minimum": 0,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "novo",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 9,
+          "InventoryType": 1
+        },
+        {
+          "Name": "ajde",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 6,
+          "InventoryType": 1
+        },
+        {
+          "Name": "novi",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 999,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Magacin"
+      }
+    },
+    "Inventory": {
+      "Name": "Štapić",
+      "CurrentAmount": 3,
+      "Minimum": 2,
+      "Id": 303,
+      "InventoryType": 0
+    },
+    "Amount": 3,
+    "Date": "6/5/2021",
+    "Hour": 0,
+    "Minute": 33,
+    "Executed": true
+  },
+  {
+    "RoomFrom": {
+      "Id": 20,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 3,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "RoomTo": {
+      "Id": 1,
+      "HospitalWard": "Magacin",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 92,
+          "Minimum": 0,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Krevet",
+          "CurrentAmount": 4,
+          "Minimum": 0,
+          "Id": 666,
+          "InventoryType": 1
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 89,
+          "Minimum": 0,
+          "Id": 303,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 102,
+          "Minimum": 0,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "novo",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 9,
+          "InventoryType": 1
+        },
+        {
+          "Name": "ajde",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 6,
+          "InventoryType": 1
+        },
+        {
+          "Name": "novi",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 999,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Magacin"
+      }
+    },
+    "Inventory": {
+      "Name": "Špric",
+      "CurrentAmount": 3,
+      "Minimum": 2,
+      "Id": 101,
+      "InventoryType": 0
+    },
+    "Amount": 3,
+    "Date": "6/5/2021",
+    "Hour": 1,
+    "Minute": 5,
+    "Executed": true
+  },
+  {
+    "RoomFrom": {
+      "Id": 20,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 3,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "RoomTo": {
+      "Id": 1,
+      "HospitalWard": "Magacin",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 95,
+          "Minimum": 0,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Krevet",
+          "CurrentAmount": 4,
+          "Minimum": 0,
+          "Id": 666,
+          "InventoryType": 1
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 89,
+          "Minimum": 0,
+          "Id": 303,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 102,
+          "Minimum": 0,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "novo",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 9,
+          "InventoryType": 1
+        },
+        {
+          "Name": "ajde",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 6,
+          "InventoryType": 1
+        },
+        {
+          "Name": "novi",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 999,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Magacin"
+      }
+    },
+    "Inventory": {
+      "Name": "Špric",
+      "CurrentAmount": 3,
+      "Minimum": 2,
+      "Id": 101,
+      "InventoryType": 0
+    },
+    "Amount": 3,
+    "Date": "6/5/2021",
+    "Hour": 0,
+    "Minute": 33,
+    "Executed": true
+  },
+  {
+    "RoomFrom": {
+      "Id": 20,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 3,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "RoomTo": {
+      "Id": 1,
+      "HospitalWard": "Magacin",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 98,
+          "Minimum": 0,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Krevet",
+          "CurrentAmount": 4,
+          "Minimum": 0,
+          "Id": 666,
+          "InventoryType": 1
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 89,
+          "Minimum": 0,
+          "Id": 303,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 102,
+          "Minimum": 0,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "novo",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 9,
+          "InventoryType": 1
+        },
+        {
+          "Name": "ajde",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 6,
+          "InventoryType": 1
+        },
+        {
+          "Name": "novi",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 999,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Magacin"
+      }
+    },
+    "Inventory": {
+      "Name": "Špric",
+      "CurrentAmount": 3,
+      "Minimum": 2,
+      "Id": 101,
+      "InventoryType": 0
+    },
+    "Amount": 3,
+    "Date": "6/5/2021",
+    "Hour": 0,
+    "Minute": 33,
+    "Executed": true
+  },
+  {
+    "RoomFrom": {
+      "Id": 20,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 6,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "RoomTo": {
+      "Id": 1,
+      "HospitalWard": "Magacin",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 95,
+          "Minimum": 0,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Krevet",
+          "CurrentAmount": 4,
+          "Minimum": 0,
+          "Id": 666,
+          "InventoryType": 1
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 89,
+          "Minimum": 0,
+          "Id": 303,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 102,
+          "Minimum": 0,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "novo",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 9,
+          "InventoryType": 1
+        },
+        {
+          "Name": "ajde",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 6,
+          "InventoryType": 1
+        },
+        {
+          "Name": "novi",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 999,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Magacin"
+      }
+    },
+    "Inventory": {
+      "Name": "Špric",
+      "CurrentAmount": 6,
+      "Minimum": 2,
+      "Id": 101,
+      "InventoryType": 0
+    },
+    "Amount": 6,
+    "Date": "6/5/2021",
+    "Hour": 0,
+    "Minute": 33,
+    "Executed": true
+  },
+  {
+    "RoomFrom": {
+      "Id": 20,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 6,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "RoomTo": {
+      "Id": 1,
+      "HospitalWard": "Magacin",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 83,
+          "Minimum": 0,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Krevet",
+          "CurrentAmount": 4,
+          "Minimum": 0,
+          "Id": 666,
+          "InventoryType": 1
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 89,
+          "Minimum": 0,
+          "Id": 303,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 102,
+          "Minimum": 0,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "novo",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 9,
+          "InventoryType": 1
+        },
+        {
+          "Name": "ajde",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 6,
+          "InventoryType": 1
+        },
+        {
+          "Name": "novi",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 999,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Magacin"
+      }
+    },
+    "Inventory": {
+      "Name": "Špric",
+      "CurrentAmount": 6,
+      "Minimum": 2,
+      "Id": 101,
+      "InventoryType": 0
+    },
+    "Amount": 6,
+    "Date": "6/5/2021",
+    "Hour": 0,
+    "Minute": 0,
+    "Executed": true
+  },
+  {
+    "RoomFrom": {
+      "Id": 22,
+      "HospitalWard": "Anesteziologija",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 3,
+          "Minimum": 0,
+          "Id": 101,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "RoomTo": {
+      "Id": 1,
+      "HospitalWard": "Magacin",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 83,
+          "Minimum": 0,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Krevet",
+          "CurrentAmount": 4,
+          "Minimum": 0,
+          "Id": 666,
+          "InventoryType": 1
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 89,
+          "Minimum": 0,
+          "Id": 303,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 102,
+          "Minimum": 0,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "novo",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 9,
+          "InventoryType": 1
+        },
+        {
+          "Name": "ajde",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 6,
+          "InventoryType": 1
+        },
+        {
+          "Name": "novi",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 999,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Magacin"
+      }
+    },
+    "Inventory": {
+      "Name": "Špric",
+      "CurrentAmount": 3,
+      "Minimum": 0,
+      "Id": 101,
+      "InventoryType": 0
+    },
+    "Amount": 3,
+    "Date": "6/5/2021",
+    "Hour": 0,
+    "Minute": 0,
+    "Executed": true
+  },
+  {
+    "RoomFrom": {
+      "Id": 20,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 6,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "RoomTo": {
+      "Id": 1,
+      "HospitalWard": "Magacin",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 86,
+          "Minimum": 0,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Krevet",
+          "CurrentAmount": 4,
+          "Minimum": 0,
+          "Id": 666,
+          "InventoryType": 1
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 89,
+          "Minimum": 0,
+          "Id": 303,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 102,
+          "Minimum": 0,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "novo",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 9,
+          "InventoryType": 1
+        },
+        {
+          "Name": "ajde",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 6,
+          "InventoryType": 1
+        },
+        {
+          "Name": "novi",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 999,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Magacin"
+      }
+    },
+    "Inventory": {
+      "Name": "Špric",
+      "CurrentAmount": 6,
+      "Minimum": 2,
+      "Id": 101,
+      "InventoryType": 0
+    },
+    "Amount": 6,
+    "Date": "6/15/2021",
+    "Hour": 0,
+    "Minute": 0,
+    "Executed": true
+  },
+  {
+    "RoomFrom": {
+      "Id": 888,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 3,
+          "Minimum": 0,
+          "Id": 101,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "RoomTo": {
+      "Id": 1,
+      "HospitalWard": "Magacin",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 89,
+          "Minimum": 0,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Krevet",
+          "CurrentAmount": 4,
+          "Minimum": 0,
+          "Id": 666,
+          "InventoryType": 1
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 89,
+          "Minimum": 0,
+          "Id": 303,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 102,
+          "Minimum": 0,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "novo",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 9,
+          "InventoryType": 1
+        },
+        {
+          "Name": "ajde",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 6,
+          "InventoryType": 1
+        },
+        {
+          "Name": "novi",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 999,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Magacin"
+      }
+    },
+    "Inventory": {
+      "Name": "Špric",
+      "CurrentAmount": 3,
+      "Minimum": 0,
+      "Id": 101,
+      "InventoryType": 0
+    },
+    "Amount": 3,
+    "Date": null,
+    "Hour": 0,
+    "Minute": 0,
+    "Executed": true
+  },
+  {
+    "RoomFrom": {
+      "Id": 888,
+      "HospitalWard": "Alergologija i imunologija",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 3,
+          "Minimum": 0,
+          "Id": 101,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "RoomTo": {
+      "Id": 1,
+      "HospitalWard": "Magacin",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 89,
+          "Minimum": 0,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Krevet",
+          "CurrentAmount": 4,
+          "Minimum": 0,
+          "Id": 666,
+          "InventoryType": 1
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 89,
+          "Minimum": 0,
+          "Id": 303,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 102,
+          "Minimum": 0,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "novo",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 9,
+          "InventoryType": 1
+        },
+        {
+          "Name": "ajde",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 6,
+          "InventoryType": 1
+        },
+        {
+          "Name": "novi",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 999,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Magacin"
+      }
+    },
+    "Inventory": {
+      "Name": "Špric",
+      "CurrentAmount": 3,
+      "Minimum": 0,
+      "Id": 101,
+      "InventoryType": 0
+    },
+    "Amount": 3,
+    "Date": "6/15/2021",
+    "Hour": 0,
+    "Minute": 0,
+    "Executed": true
+  },
+  {
+    "RoomFrom": {
+      "Id": 300,
+      "HospitalWard": "Pedijatrija",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 27,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "RoomTo": {
+      "Id": 1,
+      "HospitalWard": "Magacin",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 92,
+          "Minimum": 0,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Krevet",
+          "CurrentAmount": 4,
+          "Minimum": 0,
+          "Id": 666,
+          "InventoryType": 1
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 89,
+          "Minimum": 0,
+          "Id": 303,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 102,
+          "Minimum": 0,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "novo",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 9,
+          "InventoryType": 1
+        },
+        {
+          "Name": "ajde",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 6,
+          "InventoryType": 1
+        },
+        {
+          "Name": "novi",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 999,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Magacin"
+      }
+    },
+    "Inventory": {
+      "Name": "Špric",
+      "CurrentAmount": 20,
+      "Minimum": 2,
+      "Id": 101,
+      "InventoryType": 0
+    },
+    "Amount": 20,
+    "Date": "6/15/2021",
+    "Hour": 0,
+    "Minute": 0,
+    "Executed": true
+  },
+  {
+    "RoomFrom": {
+      "Id": 300,
+      "HospitalWard": "Pedijatrija",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 27,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "RoomTo": {
+      "Id": 1,
+      "HospitalWard": "Magacin",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 92,
+          "Minimum": 0,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Krevet",
+          "CurrentAmount": 4,
+          "Minimum": 0,
+          "Id": 666,
+          "InventoryType": 1
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 89,
+          "Minimum": 0,
+          "Id": 303,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 102,
+          "Minimum": 0,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "novo",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 9,
+          "InventoryType": 1
+        },
+        {
+          "Name": "ajde",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 6,
+          "InventoryType": 1
+        },
+        {
+          "Name": "novi",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 999,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Magacin"
+      }
+    },
+    "Inventory": {
+      "Name": "Injekcija",
+      "CurrentAmount": 27,
+      "Minimum": 2,
+      "Id": 202,
+      "InventoryType": 0
+    },
+    "Amount": 27,
+    "Date": "6/15/2021",
+    "Hour": 0,
+    "Minute": 0,
+    "Executed": true
+  },
+  {
+    "RoomFrom": {
+      "Id": 300,
+      "HospitalWard": "Pedijatrija",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 27,
+          "Minimum": 2,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 303,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "RoomTo": {
+      "Id": 1,
+      "HospitalWard": "Magacin",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 92,
+          "Minimum": 0,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Krevet",
+          "CurrentAmount": 4,
+          "Minimum": 0,
+          "Id": 666,
+          "InventoryType": 1
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 89,
+          "Minimum": 0,
+          "Id": 303,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 102,
+          "Minimum": 0,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "novo",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 9,
+          "InventoryType": 1
+        },
+        {
+          "Name": "ajde",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 6,
+          "InventoryType": 1
+        },
+        {
+          "Name": "novi",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 999,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Magacin"
+      }
+    },
+    "Inventory": {
+      "Name": "Štapić",
+      "CurrentAmount": 20,
+      "Minimum": 2,
+      "Id": 303,
+      "InventoryType": 0
+    },
+    "Amount": 20,
+    "Date": "6/15/2021",
+    "Hour": 0,
+    "Minute": 0,
+    "Executed": true
+  },
+  {
+    "RoomFrom": {
+      "Id": 300,
+      "HospitalWard": "Pedijatrija",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 20,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "RoomTo": {
+      "Id": 1,
+      "HospitalWard": "Magacin",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 92,
+          "Minimum": 0,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Krevet",
+          "CurrentAmount": 4,
+          "Minimum": 0,
+          "Id": 666,
+          "InventoryType": 1
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 149,
+          "Minimum": 0,
+          "Id": 303,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 102,
+          "Minimum": 0,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "novo",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 9,
+          "InventoryType": 1
+        },
+        {
+          "Name": "ajde",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 6,
+          "InventoryType": 1
+        },
+        {
+          "Name": "novi",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 999,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Magacin"
+      }
+    },
+    "Inventory": {
+      "Name": "Špric",
+      "CurrentAmount": 20,
+      "Minimum": 2,
+      "Id": 101,
+      "InventoryType": 0
+    },
+    "Amount": 20,
+    "Date": "6/15/2021",
+    "Hour": 0,
+    "Minute": 0,
+    "Executed": true
+  },
+  {
+    "RoomFrom": {
+      "Id": 300,
+      "HospitalWard": "Pedijatrija",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 3,
+          "Minimum": 2,
+          "Id": 101,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Ordinacija"
+      }
+    },
+    "RoomTo": {
+      "Id": 1,
+      "HospitalWard": "Magacin",
+      "Inventory": [
+        {
+          "Name": "Špric",
+          "CurrentAmount": 112,
+          "Minimum": 0,
+          "Id": 101,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Krevet",
+          "CurrentAmount": 4,
+          "Minimum": 0,
+          "Id": 666,
+          "InventoryType": 1
+        },
+        {
+          "Name": "Štapić",
+          "CurrentAmount": 149,
+          "Minimum": 0,
+          "Id": 303,
+          "InventoryType": 0
+        },
+        {
+          "Name": "Injekcija",
+          "CurrentAmount": 102,
+          "Minimum": 0,
+          "Id": 202,
+          "InventoryType": 0
+        },
+        {
+          "Name": "novo",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 9,
+          "InventoryType": 1
+        },
+        {
+          "Name": "ajde",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 6,
+          "InventoryType": 1
+        },
+        {
+          "Name": "novi",
+          "CurrentAmount": 0,
+          "Minimum": 0,
+          "Id": 999,
+          "InventoryType": 0
+        }
+      ],
+      "RoomPurpose": {
+        "Name": "Magacin"
+      }
+    },
+    "Inventory": {
+      "Name": "Špric",
+      "CurrentAmount": 3,
+      "Minimum": 2,
+      "Id": 101,
+      "InventoryType": 0
+    },
+    "Amount": 3,
+    "Date": "6/15/2021",
+    "Hour": 0,
+    "Minute": 0,
+    "Executed": true
   }
 ]

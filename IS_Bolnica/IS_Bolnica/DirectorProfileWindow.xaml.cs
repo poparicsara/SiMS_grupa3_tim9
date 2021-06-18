@@ -36,8 +36,8 @@ namespace IS_Bolnica
             }
 
             changeService.CheckUnexecutedShiftings();
-            renovationService.CheckUnexecutedMergings();
-            renovationService.CheckUnexecutedSeparations();
+            //renovationService.CheckUnexecutedMergings();
+            //renovationService.CheckUnexecutedSeparations();
 
             this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
         }

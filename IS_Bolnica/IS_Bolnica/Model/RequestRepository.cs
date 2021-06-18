@@ -19,12 +19,6 @@ namespace IS_Bolnica.Model
             requests = GetAll();
         }
 
-        /*public void AddRequest(Request newRequest)
-        {
-            requests.Add(newRequest);
-            SaveToFile(requests);
-        }*/
-
         public List<Request> GetAll()
         {
             var requests = new List<Request>();
@@ -36,11 +30,6 @@ namespace IS_Bolnica.Model
             }
 
             return requests;
-        }
-
-        public Request FindById(int id)
-        {
-            throw new NotImplementedException();
         }
 
         public void SaveToFile(List<Request> requests)
@@ -56,11 +45,6 @@ namespace IS_Bolnica.Model
             SaveToFile(requests);
         }
 
-        public void Update(int index, Request newEntity)
-        {
-            throw new NotImplementedException();
-        }
-
         public void Delete(int index)
         {
             requests = GetAll();
@@ -68,17 +52,15 @@ namespace IS_Bolnica.Model
             SaveToFile(requests);
         }
 
-       /* public List<Request> GetRequests()
+        public Request FindById(int id)
         {
-            var requests = new List<Request>();
+            throw new NotImplementedException();
+        }
 
-            using (StreamReader file = File.OpenText("Zahtevi.json"))
-            {
-                var serializer = new JsonSerializer();
-                requests = (List<Request>)serializer.Deserialize(file, typeof(List<Request>));
-            }
+        public void Update(int index, Request newEntity)
+        {
+            throw new NotImplementedException();
+        }
 
-            return requests;
-        }*/
     }
 }

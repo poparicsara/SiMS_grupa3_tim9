@@ -46,7 +46,7 @@ namespace Model
 
         public void SaveToFile(List<Room> entities)
         {
-            string jsonString = JsonConvert.SerializeObject(rooms, Formatting.Indented);
+            string jsonString = JsonConvert.SerializeObject(entities, Formatting.Indented);
             File.WriteAllText("Sobe.json", jsonString);
         }
 

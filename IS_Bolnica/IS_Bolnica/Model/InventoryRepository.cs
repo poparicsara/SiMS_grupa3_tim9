@@ -34,12 +34,26 @@ namespace Model
         public void AddInventoryToRoom(Room room, Inventory inventory)
         {
             rooms = repository.GetAll();
-            room = repository.FindById(room.Id);
+            /*room = repository.FindById(room.Id);
             HasRoomAnyInventory(room);
             Inventory newInventory = new Inventory
                 {Id = inventory.Id, Minimum = 0, CurrentAmount = 0, InventoryType = inventory.InventoryType};
             room.Inventory.Add(newInventory);
-            repository.SaveToFile(rooms);
+            repository.SaveToFile(rooms);*/
+            foreach (var r in rooms)
+            {
+                if (r.Id == room.Id)
+                {
+                    if (r.Inventory == null)
+                    {
+                        r.Inventory = new List<Inventory>();
+                    }
+                    Inventory newInventory = new Inventory
+                        { Id = inventory.Id, Minimum = 0, CurrentAmount = 0, InventoryType = inventory.InventoryType, Name = inventory.Name};
+                    r.Inventory.Add(newInventory);
+                    repository.SaveToFile(rooms);
+                }
+            }
         }
 
         private static void HasRoomAnyInventory(Room room)
@@ -99,12 +113,18 @@ namespace Model
         {
             rooms = repository.GetAll();
             room = repository.FindById(room.Id);
-            foreach (var i in room.Inventory)
+            foreach (var r in rooms)
             {
-                if (i.Id == inventory.Id)
+                if (r.Id == room.Id)
                 {
-                    i.CurrentAmount -= amount;
-                    repository.SaveToFile(rooms);
+                    foreach (var i in r.Inventory)
+                    {
+                        if (i.Id == inventory.Id)
+                        {
+                            i.CurrentAmount -= amount;
+                            repository.SaveToFile(rooms);
+                        }
+                    }
                 }
             }
         }
@@ -113,12 +133,18 @@ namespace Model
         {
             rooms = repository.GetAll();
             room = repository.FindById(room.Id);
-            foreach (var i in room.Inventory)
+            foreach (var r in rooms)
             {
-                if (i.Id == inventory.Id)
+                if (r.Id == room.Id)
                 {
-                    i.CurrentAmount += amount;
-                    repository.SaveToFile(rooms);
+                    foreach (var i in r.Inventory)
+                    {
+                        if (i.Id == inventory.Id)
+                        {
+                            i.CurrentAmount += amount;
+                            repository.SaveToFile(rooms);
+                        }
+                    }
                 }
             }
         }

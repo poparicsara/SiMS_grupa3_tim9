@@ -980,8 +980,6 @@ C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\HospitalizedPatientsWindow.g.cs
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\InvoiceWindow.g.cs
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\MedicalRecordWindow.g.cs
-C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\MedicamentsWindow.g.cs
-C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\NotificationsWindow.g.cs
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\ProlongTreatmentWindow.g.cs
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\ReviewMedRequestWindow.g.cs
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\ScheduleExaminationWindow.g.cs
@@ -1029,8 +1027,6 @@ C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\HospitalizedPatientsWindow.baml
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\InvoiceWindow.baml
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\MedicalRecordWindow.baml
-C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\MedicamentsWindow.baml
-C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\NotificationsWindow.baml
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\ProlongTreatmentWindow.baml
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\ReviewMedRequestWindow.baml
 C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\DoctorUI\ScheduleExaminationWindow.baml
@@ -1362,3 +1358,7 @@ C:\Users\Sara\Desktop\IS_Bolnica\IS_Bolnica\obj\Debug\IS_Bolnica.csproj.Generate
 C:\Users\Sara\Desktop\IS_Bolnica\IS_Bolnica\obj\Debug\IS_Bolnica.csproj.CoreCompileInputs.cache
 C:\Users\Sara\Desktop\IS_Bolnica\IS_Bolnica\obj\Debug\en-US\IS_Bolnica.resources.dll
 C:\Users\Sara\Desktop\IS_Bolnica\IS_Bolnica\obj\Debug\IS_Bolnica.csproj.CopyComplete
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\GUI\Doctor\View\MedicamentsWindow.g.cs
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\GUI\Doctor\View\NotificationsWindow.g.cs
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\GUI\Doctor\View\MedicamentsWindow.baml
+C:\Users\Sara\Documents\GitHub\SiMS_grupa3_tim9\IS_Bolnica\IS_Bolnica\obj\Debug\GUI\Doctor\View\NotificationsWindow.baml

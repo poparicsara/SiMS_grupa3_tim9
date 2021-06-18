@@ -147,13 +147,19 @@ namespace IS_Bolnica.Services
         private void SetInventoryTo()
         {
             roomTo = roomRepository.FindById(roomTo.Id);
-            foreach (var i in roomTo.Inventory)
+            if (roomTo.Inventory == null)
+            {
+                inventoryRepository.AddInventoryToRoom(roomTo, selectedInventory);
+                roomTo = roomRepository.FindById(roomTo.Id);
+            }
+            
+            /*foreach (var i in roomTo.Inventory)
             {
                 if (i.Id == selectedInventory.Id)
                 {
                     inventoryTo = i;
                 }
-            }
+            }*/
         }
 
         private void SetDate(string date, int hour, int minute)
@@ -291,9 +297,12 @@ namespace IS_Bolnica.Services
             shiftings = GetShiftings();
             foreach (var s in shiftings)
             {
-                if (roomFrom.Id == s.RoomFrom.Id && roomTo.Id == s.RoomTo.Id && selectedInventory.Id == s.Inventory.Id)
+                if (!s.Executed)
                 {
-                    break;
+                    if (roomFrom.Id == s.RoomFrom.Id && roomTo.Id == s.RoomTo.Id && selectedInventory.Id == s.Inventory.Id)
+                    {
+                        break;
+                    }
                 }
                 index++;
             }
@@ -311,11 +320,21 @@ namespace IS_Bolnica.Services
             return shiftingRepository.GetAll();
         }
 
-        public void MoveToMagacin(Inventory inventory, int amount, Room room)
+        public void MoveToMagacin(Inventory inventory, int amount, Room room, string startDate)
         {
             Room magacin = roomRepository.FindById(MAGACIN_ID);
-            inventoryRepository.IncreaseAmount(magacin, inventory, amount);
-            inventoryRepository.ReduceAmount(room, inventory, amount);
+            Shifting shifting = new Shifting
+            {
+                Date = startDate,
+                Inventory = inventory,
+                Hour = 0, 
+                Minute = 0,
+                Executed = false,
+                Amount = amount,
+                RoomFrom = room,
+                RoomTo = magacin
+            };
+            shiftingRepository.Add(shifting);
         }
     }
 }
